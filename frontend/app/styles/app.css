@@ -1,2 +1,10 @@
 header {
   color: brown; }
+
+.main-display .large-slides .slide{
+  display: none;
+}
+
+.main-display .large-slides .slide.current{
+  display: block;
+}
