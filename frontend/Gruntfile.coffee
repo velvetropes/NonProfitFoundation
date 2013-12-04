@@ -85,6 +85,7 @@ module.exports = (grunt) ->
       app:
         html: "<%= app.src %>/index.html"
         ignorePath: "<%= app.src %>/"
+
       dist:
         options:
           generatedImagesDir: "<%= app.dist %>/images/generated"
