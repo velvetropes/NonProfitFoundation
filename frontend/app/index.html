@@ -25,7 +25,7 @@
 
     <!-- <div sf-articlegrid></div> -->
     <div ng-controller="slideCtrl">
-      <swiper speed="2000" continuous=false>
+      <swiper speed="2000" continuous=true>
         <div>
           <h1>Slide 1</h1>
         </div>
@@ -35,56 +35,60 @@
         <div>
           <h1>Slide 3</h1>
         </div>
+        <div>
+          <h1>Slide 4</h1>
+        </div>
+        <div>
+          <h1>Slide 5</h1>
+        </div>
+        <div>
+          <h1>Slide 6</h1>
+        </div>
+        <div>
+          <h1>Slide 7</h1>
+        </div>
       </swiper>
-      <ul class='nav'>
-        <li>
-          <button ng-click="slide(0)">First slide</button>
-        </li>
-        <li>
-          <button ng-click="slide(1)">Second slide</button>
-        </li>
-        <li>
-          <button ng-click="slide(2)">Last slide</button>
-        </li>
-        <li>
-          <button ng-click="prev()">Previous</button>
-        </li>
-        <li>
-          <button ng-click="next()">Next</button>
-        </li>
-      </ul>
-    </div>
 
-    <thumblist-nav>
-        <div>
-          <img src="http://placehold.it/350x100&text=thumb+01">
-          <h4>Lorem ipsum</h4>
-        </div>
-        <div>
-          <img src="http://placehold.it/350x100&text=thumb+02">
-          <h4>Lorem ipsum</h4>
-        </div>
-        <div>
-          <img src="http://placehold.it/350x100&text=thumb+03">
-          <h4>Lorem ipsum</h4>
-        </div>
-        <div>
-          <img src="http://placehold.it/350x100&text=thumb+04">
-          <h4>Lorem ipsum</h4>
-        </div>
-        <div>
-          <img src="http://placehold.it/350x100&text=thumb+05">
-          <h4>Lorem ipsum</h4>
-        </div>
-        <div>
-          <img src="http://placehold.it/350x100&text=thumb+06">
-          <h4>Lorem ipsum</h4>
-        </div>
-        <div>
-          <img src="http://placehold.it/350x100&text=thumb+07">
-          <h4>Lorem ipsum</h4>
-        </div>
-      </thumblist-nav>
+        <thumblist-nav>
+          <div>
+            <img src="http://placehold.it/350x100&text=thumb+01">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(0)">First slide</button>
+          </div>
+          <div>
+            <img src="http://placehold.it/350x100&text=thumb+02">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(1)">Second slide</button>
+          </div>
+          <div>
+            <img src="http://placehold.it/350x100&text=thumb+03">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(2)">Third slide</button>
+          </div>
+          <div>
+            <img src="http://placehold.it/350x100&text=thumb+04">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(3)">Fourth slide</button>
+          </div>
+          <div>
+            <img src="http://placehold.it/350x100&text=thumb+05">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(4)">Fifth slide</button>
+          </div>
+          <div>
+            <img src="http://placehold.it/350x100&text=thumb+06">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(5)">Sixth slide</button>
+          </div>
+          <div>
+            <img src="http://placehold.it/350x100&text=thumb+07">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(6)">Seventh slide</button>
+          </div>
+        </thumblist-nav>
+
+      </div>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>

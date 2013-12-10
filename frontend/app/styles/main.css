@@ -1,13 +1,23 @@
 .swipe-wrap > div[data-index='0'] {
   background: blue;
 }
-
 .swipe-wrap > div[data-index='1'] {
   background: green;
 }
-
 .swipe-wrap > div[data-index='2'] {
   background: red;
+}
+.swipe-wrap > div[data-index='3'] {
+  background: blue;
+}
+.swipe-wrap > div[data-index='4'] {
+  background: green;
+}
+.swipe-wrap > div[data-index='5'] {
+  background: red;
+}
+.swipe-wrap > div[data-index='6'] {
+  background: green;
 }
 
 h1 {
