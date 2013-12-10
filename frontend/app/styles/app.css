@@ -1,10 +1,29 @@
-header {
-  color: brown; }
-
-.main-display .large-slides .slide{
-  display: none;
+.swipe-wrap > div[data-index='0'] {
+  background: blue;
 }
 
-.main-display .large-slides .slide.current{
-  display: block;
+.swipe-wrap > div[data-index='1'] {
+  background: green;
+}
+
+.swipe-wrap > div[data-index='2'] {
+  background: red;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.nav {
+  list-style: none;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.nav li {
+  display: inline;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #eee;
 }

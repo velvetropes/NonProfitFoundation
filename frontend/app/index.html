@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel='stylesheet' href="bower_components/ahundredyears-swiper/src/swiper.css">
+
     <link rel="stylesheet" href="styles/app.css">
     <!-- endbuild -->
   </head>
@@ -21,14 +23,44 @@
     <![endif]-->
 
     <!-- <div sf-articlegrid></div> -->
-
-    <nav-slides></nav-slides>
+    <div ng-controller="slideCtrl">
+      <swiper speed="2000" continuous=false>
+        <div>
+          <h1>Slide 1</h1>
+        </div>
+        <div>
+          <h1>Slide 2</h1>
+        </div>
+        <div>
+          <h1>Slide 3</h1>
+        </div>
+      </swiper>
+      <ul class='nav'>
+        <li>
+          <button ng-click="slide(0)">First slide</button>
+        </li>
+        <li>
+          <button ng-click="slide(1)">Second slide</button>
+        </li>
+        <li>
+          <button ng-click="slide(2)">Last slide</button>
+        </li>
+        <li>
+          <button ng-click="prev()">Previous</button>
+        </li>
+        <li>
+          <button ng-click="next()">Next</button>
+        </li>
+      </ul>
+    </div>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/ahundredyears-swiper/src/swipe.js"></script>
+    <script src="bower_components/ahundredyears-swiper/src/ahundredyears-swiper.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

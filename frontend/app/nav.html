@@ -1,17 +1,8 @@
 <div class="slideshow-container">
-  <div class='main-display'>
-    <ul class="large-slides">
-      <li class="slide" ng-repeat="slide in slides" ng-class="{current: currentSlideIndex == $index}">
-        <h1 class="slide-details-title">{{slide.details.title}}</h3>
-      </li>
-    </ul>
-  </div>
   <ul class="slides">
-    <li class="slide" ng-repeat="slide in slides">
-      <a href="#" ng-click="play($index)">
-        <h3 class="slide-title">{{slide.title}}</h3>
-        <p>{{slide.action_text}}</p>
-      </a>
+    <li class="slide" ng-repeat="slide in slides" ng-click="gotoSlide($index)">
+      <h3 class="slide-title">{{slide.title}} {{$index}}</h3>
+      <p>{{slide.action_text}}</p>
     </li>
   </ul>
 </div>
