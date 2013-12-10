@@ -27,3 +27,25 @@ h1 {
   margin: 5px;
   border: 1px solid #eee;
 }
+
+/* Thumblist nav */
+.thumblist-nav {
+  height: 200px;
+}
+
+.horizontal-only {
+  max-height: 200px;
+}
+
+.jspPane > div {
+  border: 1px solid #ddd;
+  width: 350px;
+}
+
+.jspDrag {
+  background: blue;
+}
+
+.jspDrag:hover {
+  background: green;
+}

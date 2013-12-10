@@ -1,4 +1,4 @@
-app = angular.module('starkey', ['ahundredyears.swiper'])
+app = angular.module('starkey', ['ahundredyears.swiper', 'ahundredyears.thumblist-nav'])
 
 # app.directive 'sfArticlegrid', ->
 #   restrict: 'A',
