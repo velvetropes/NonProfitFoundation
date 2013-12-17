@@ -14,17 +14,143 @@
     <link rel='stylesheet' href="bower_components/ahundredyears-swiper/src/swiper.css">
     <link rel='stylesheet' href="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.css">
 
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/app.css">
     <!-- endbuild -->
   </head>
-  <body ng:app="starkey">
+  <body class='home-page' ng:app="starkey">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- <div sf-articlegrid></div> -->
-    <div ng-controller="slideCtrl">
+    <header>
+      <div class="masthead">
+        <div class='brand'>
+          <a href="/">Starkey Hearing Foundation</a>
+        </div>
+        <div class='tagline'>
+          <h1>So The World May Hear.</h1>
+        </div>
+        <div class='social-share-links'>
+          <ul>
+            <li>
+              <a href='#' class='twitter-logo'>Twitter</a>
+            </li>
+            <li>
+              <a href='#' class='facebook-logo'>Facebook</a>
+            </li>
+            <li>
+              <a href='#' class='instagram-logo'>Instagram</a>
+            </li>
+            <li>
+              <a href='#' class='youtube-logo'>Youtube</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <nav>
+        <ul class='links'>
+          <li>
+            <a href='#'>Who we are</a>
+          </li>
+          <li>
+            <a href='#'>What we do</a>
+          </li>
+          <li>
+            <a href='#'>Get involved</a>
+          </li>
+        </ul>
+        <ul class='slideout target'>
+          <li class='who-we-are-details'>
+            <ul>
+              <li>
+                <h3>About Us</h3>
+                <h2>Our Missions</h2>
+                <div class='video'>Video thumb</div>
+              </li>
+              <li>
+                <h3>Team</h3>
+                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h2>
+              </li>
+              <li>
+                <h3>Media Mentions</h3>
+                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h2>
+              </li>
+              <li>
+                <h3>Contact</h3>
+                <h2>Get in touch</h2>
+                <p>Telephone</p>
+                <p>Fax</p>
+              </li>
+            </ul>
+          </li>
+          <li class='what-we-do-details'>
+            <ul>
+              <li>What we do details</li>
+            </ul>
+          </li>
+          <li class='get-involved-details'>
+            <ul>
+              <li>Get involved details</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Main content section -->
+    <section class="carousel hero" ng-controller="heroCarouselCtrl">
+      <swiper speed="5000" continuous=true auto=true >
+        <div>
+          <article>
+            <img src="images/home/hero/commitment_to_action_film.jpg" />
+          </article>
+          <aside>
+            <h1>Commitment to Action</h1>
+            <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
+            <a href='#' class="action-link">Watch video</a>
+          </aside>
+        </div>
+        <div>
+          <article>
+            <img src="images/home/hero/building_sustainable_systems_of_hearing_care.jpg" />
+          </article>
+          <aside>
+            <h1>Building Sustainable Systems of Hearing Care</h1>
+            <p>To truly make an impact, our efforts must be sustainable. See how, by working closely, with on-the-ground partners, we bring patients long-term hearing care. We incorporate a full-circle approach that ensures patients will be connected to the world of sound for years to come.</p>
+            <a href='#' class="action-link">See what it takes to create lasting change.</a>
+          </aside>
+        </div>
+        <div>
+          <article>
+            <img src="images/home/hero/vikings_mission.jpg" />
+          </article>
+          <aside>
+            <h1>Hear at Home</h1>
+            <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country through domestic missions and the daily efforts of Hear Now, our  application-based program that provides hearing help to low-income Americans. Each person we help is fit with brand new, top-of-the-line digital hearing aids that are customized to their hearing loss.</p>
+            <a href='http://www.starkeyhearingfoundation.org/programs/hear-now/' class="action-link">Find out how we are changing lives in America every day.</a>
+          </aside>
+        </div>
+      </swiper>
+    </section>
+    <section class='mission-statement'>
+      <h1>We use hearing as a vehicle to change lives around the world.</h1>
+    </section>
+    <section class='pictograms'>
+      <ul>
+        <li>
+          <!-- <img src='#'/> -->
+          Lives directly impacted
+        </li>
+        <li>
+          Total hearing aids given
+        </li>
+        <li>
+          Lives indirectly impacted
+        </li>
+     </ul>
+    </section>
+    <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
       <swiper speed="2000" continuous=true>
         <div>
           <h1>Slide 1</h1>
@@ -48,46 +174,88 @@
           <h1>Slide 7</h1>
         </div>
       </swiper>
+      <thumblist-nav>
+        <div>
+          <img src="http://placehold.it/350x100&text=thumb+01">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(0)">First slide</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/350x100&text=thumb+02">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(1)">Second slide</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/350x100&text=thumb+03">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(2)">Third slide</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/350x100&text=thumb+04">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(3)">Fourth slide</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/350x100&text=thumb+05">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(4)">Fifth slide</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/350x100&text=thumb+06">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(5)">Sixth slide</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/350x100&text=thumb+07">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(6)">Seventh slide</button>
+        </div>
+      </thumblist-nav>
+    </section>
+    <!-- end main content section -->
 
-        <thumblist-nav>
-          <div>
-            <img src="http://placehold.it/350x100&text=thumb+01">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(0)">First slide</button>
-          </div>
-          <div>
-            <img src="http://placehold.it/350x100&text=thumb+02">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(1)">Second slide</button>
-          </div>
-          <div>
-            <img src="http://placehold.it/350x100&text=thumb+03">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(2)">Third slide</button>
-          </div>
-          <div>
-            <img src="http://placehold.it/350x100&text=thumb+04">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(3)">Fourth slide</button>
-          </div>
-          <div>
-            <img src="http://placehold.it/350x100&text=thumb+05">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(4)">Fifth slide</button>
-          </div>
-          <div>
-            <img src="http://placehold.it/350x100&text=thumb+06">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(5)">Sixth slide</button>
-          </div>
-          <div>
-            <img src="http://placehold.it/350x100&text=thumb+07">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(6)">Seventh slide</button>
-          </div>
-        </thumblist-nav>
-
-      </div>
+    <footer>
+      <section class='social-info'>
+        <ul>
+          <li class='blog'>
+            <h4>From our blog</h4>
+            <p><a href='#'>Check out our blog &rarr;</a></p>
+          </li>
+          <li class='facebook'>
+            <h1>29,000 fans</h1>
+            <p><a href='#'>Like us</a></p>
+          </li>
+          <li class='instagram'>
+            <ul class='thumbs'>
+              <li>
+                <img src="http://placehold.it/40x40">
+              </li>
+              <li>
+                <img src="http://placehold.it/40x40">
+              </li>
+              <li>
+                <img src="http://placehold.it/40x40">
+              </li>
+              <li>
+                <img src="http://placehold.it/40x40">
+              </li>
+            </ul>
+            <p><a href='#'>Follow us &rarr;</a></p>
+          </li>
+          <li class='twitter'>
+            <p class='tweet'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            <p><a href='#'>Follow us &rarr;</a></p>
+          </li>
+        </ul>
+      </section>
+      <section class='footer-links'>
+        <ul>
+          <li><a href='#'>Legal/financials &rarr;</a></li>
+          <li><a href='#'>Subscribe to our newsletter &rarr;</a></li>
+          <li><p>&copy; Starkey Hearing Foundation 2013</p></li>
+        </ul>
+      </section>
+    </footer
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->

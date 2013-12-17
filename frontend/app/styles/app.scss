@@ -1,2 +1,24 @@
 @import "bourbon";
+
 @import "neat";
+@import "globals/variables";
+
+@import "globals/mixins";
+@import "globals/grid";
+@import "globals/typography";
+
+// Included partials
+@import "includes/header";
+@import "includes/footer";
+
+// Overrides for Bower components
+@import "overrides/swiper";
+
+// Pages
+@import "pages/home";
+
+// Media Queries
+@import "media_queries/mobile";
+@import "media_queries/tablet";
+@import "media_queries/desktop";
+@import "media_queries/large_desktop";

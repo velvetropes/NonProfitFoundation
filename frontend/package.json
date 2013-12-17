@@ -31,7 +31,8 @@
     "grunt-contrib-imagemin": "~0.3.0",
     "grunt-svgmin": "~0.2.1",
     "node-bourbon": "1.0.0",
-    "node-neat": "1.1.0"
+    "node-neat": "1.1.0",
+    "grunt-bake": "~0.3.5"
   },
   "repository": {
     "type": "git",

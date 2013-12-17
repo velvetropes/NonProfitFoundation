@@ -1,0 +1,36 @@
+header {
+  nav {
+    background: white;
+    .links {
+      padding: 0;
+      margin: 0;
+      li {
+        @include inline-block;
+        text-align: center;
+      }
+    }
+    .slideout.target {
+      display: none;
+      li {
+        @include inline-block;
+      }
+    }
+  }
+}
+
+.brand {
+
+}
+
+.tagline {
+  text-align: center;
+}
+
+.social-share-links {
+  ul {
+    padding: 0;
+    li {
+      @include inline-block;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.carousel {
+  &.hero {
+    article {
+      width: 100%;
+      img {
+        display:block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    aside {
+      text-align: center;
+      .action-link {
+        color: red;
+      }
+    }
+  }
+  &.bottom {
+    // TEMP
+    .swipe-wrap {
+      > div[data-index='0'] {
+        background: blue;
+      }
+      > div[data-index='1'] {
+        background: green;
+      }
+      > div[data-index='2'] {
+        background: red;
+      }
+      > div[data-index='3'] {
+        background: blue;
+      }
+      > div[data-index='4'] {
+        background: green;
+      }
+      > div[data-index='5'] {
+        background: red;
+      }
+      > div[data-index='6'] {
+        background: green;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+    }
+
+    .nav {
+      list-style: none;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    .nav li {
+      display: inline;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #eee;
+    }
+    // END TEMP
+  }
+}
+.mission-statement {
+  text-align: center;
+}
+
+.pictograms {
+  ul {
+    li {
+      @include inline-block;
+    }
+  }
+}
+
+/* Thumblist nav */
+.thumblist-nav {
+  height: 200px;
+}
+
+.horizontal-only {
+  max-height: 200px;
+}
+
+.jspPane > div {
+  border: 1px solid #ddd;
+  width: 350px;
+}
+
+.jspDrag {
+  background: blue;
+}
+
+.jspDrag:hover {
+  background: green;
+}
