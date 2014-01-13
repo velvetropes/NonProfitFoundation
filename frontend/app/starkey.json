@@ -1,0 +1,10 @@
+{
+    "server": {
+        "server" : true,
+        "assets": ""
+    },
+    "dist": {
+        "dist": true,
+        "assets": "assets/"
+    }
+}

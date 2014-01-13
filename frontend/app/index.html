@@ -6,15 +6,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Starkey Component Demo</title>
+    <title>Starkey Hearing Foundation</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.tmp) styles/main.css -->
+    <!-- build:css(.tmp) assets/styles/main.css -->
+    <link rel="stylesheet" href="styles/app.css">
     <link rel='stylesheet' href="bower_components/ahundredyears-swiper/src/swiper.css">
     <link rel='stylesheet' href="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.css">
-
-    <link rel="stylesheet" href="styles/app.css">
     <!-- endbuild -->
   </head>
   <body class='home-page' ng:app="starkey">
@@ -23,87 +22,68 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- <div sf-articlegrid></div> -->
-    <header>
-      <div class="masthead">
-        <div class='brand'>
-          <a href="/">Starkey Hearing Foundation</a>
-        </div>
-        <div class='tagline'>
-          <h1>So The World May Hear.</h1>
-        </div>
-        <div class='social-share-links'>
-          <ul>
-            <li>
-              <a href='#' class='twitter-logo'>Twitter</a>
-            </li>
-            <li>
-              <a href='#' class='facebook-logo'>Facebook</a>
-            </li>
-            <li>
-              <a href='#' class='instagram-logo'>Instagram</a>
-            </li>
-            <li>
-              <a href='#' class='youtube-logo'>Youtube</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <nav>
-        <ul class='links'>
-          <li>
-            <a href='#'>Who we are</a>
-          </li>
-          <li>
-            <a href='#'>What we do</a>
-          </li>
-          <li>
-            <a href='#'>Get involved</a>
-          </li>
-        </ul>
-        <ul class='slideout target'>
-          <li class='who-we-are-details'>
-            <ul>
-              <li>
-                <h3>About Us</h3>
-                <h2>Our Missions</h2>
-                <div class='video'>Video thumb</div>
-              </li>
-              <li>
-                <h3>Team</h3>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h2>
-              </li>
-              <li>
-                <h3>Media Mentions</h3>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h2>
-              </li>
-              <li>
-                <h3>Contact</h3>
-                <h2>Get in touch</h2>
-                <p>Telephone</p>
-                <p>Fax</p>
-              </li>
-            </ul>
-          </li>
-          <li class='what-we-do-details'>
-            <ul>
-              <li>What we do details</li>
-            </ul>
-          </li>
-          <li class='get-involved-details'>
-            <ul>
-              <li>Get involved details</li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <header>
+    <div class="logo">
+      <!--(bake-start _if="server")-->
+        <img src="images/shared/starkey_logo.svg">
+      <!--(bake-end)-->
+    </div>
+
+    <div class='tagline'>
+      <h1>So The World May Hear.</h1>
+    </div>
+
+    <div class='social-links'>
+      <ul>
+        <li>
+          <a href='#' class="icon icon-twitter-link"></a>
+        </li>
+        <li>
+          <a href='#' class="icon icon-fb-link"></a>
+        </li>
+        <li>
+          <a href='#' class="icon icon-insta-link"></a>
+        </li>
+        <li>
+          <a href='#' class="icon icon-youtube"></a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <nav>
+    <ul class='tabs'>
+      <li>
+        <a href='#'>Who we are</a>
+      </li>
+      <li>
+        <a href='#'>What we do</a>
+      </li>
+      <li>
+        <a href='#'>Get involved</a>
+      </li>
+    </ul>
+  </nav>
+
     <!-- Main content section -->
     <section class="carousel hero" ng-controller="heroCarouselCtrl">
-      <swiper speed="5000" continuous=true auto=true >
-        <div>
+
+      <div class="swiper-controls">
+        <a href="#" class="left"><span class="icon icon-pg-arrow"></span></a>
+        <a href="#" class="right"><span class="icon icon-pg-arrow"></span></a>
+
+        <ul class="position-indicator" id="hero-position" data-slider="hero">
+          <li class="on" data-id="1"><a href="#"></a></li>
+          <li class="" data-id="2"><a href="#"></a></li>
+          <li class="" data-id="3"><a href="#"></a></li>
+        </ul>
+      </div>
+
+      <swiper class="swiper" speed="5000" continuous="true" auto="false">
+
+        <div class="slide">
           <article>
-            <img src="images/home/hero/commitment_to_action_film.jpg" />
+            <img src="uploads/home/hero/commitment_to_action_film.jpg" />
           </article>
           <aside>
             <h1>Commitment to Action</h1>
@@ -111,9 +91,10 @@
             <a href='#' class="action-link">Watch video</a>
           </aside>
         </div>
-        <div>
+
+        <div class="slide">
           <article>
-            <img src="images/home/hero/building_sustainable_systems_of_hearing_care.jpg" />
+            <img src="uploads/home/hero/building_sustainable_systems_of_hearing_care.jpg" />
           </article>
           <aside>
             <h1>Building Sustainable Systems of Hearing Care</h1>
@@ -121,9 +102,10 @@
             <a href='#' class="action-link">See what it takes to create lasting change.</a>
           </aside>
         </div>
-        <div>
+
+        <div class="slide">
           <article>
-            <img src="images/home/hero/vikings_mission.jpg" />
+            <img src="uploads/home/hero/vikings_mission.jpg" />
           </article>
           <aside>
             <h1>Hear at Home</h1>
@@ -131,27 +113,35 @@
             <a href='http://www.starkeyhearingfoundation.org/programs/hear-now/' class="action-link">Find out how we are changing lives in America every day.</a>
           </aside>
         </div>
+
       </swiper>
+
     </section>
+
     <section class='mission-statement'>
       <h1>We use hearing as a vehicle to change lives around the world.</h1>
     </section>
+
     <section class='pictograms'>
-      <ul>
-        <li>
-          <!-- <img src='#'/> -->
-          Lives directly impacted
-        </li>
-        <li>
-          Total hearing aids given
-        </li>
-        <li>
-          Lives indirectly impacted
-        </li>
-     </ul>
+      <div class="pict">
+        <img src="uploads/home/picto/info_livesimpacted.jpg">
+      </div>
+
+      <div class="pict" style="text-align: center;">
+        <img src="uploads/home/picto/info_livesindirectly.jpg">
+      </div>
+
+      <div class="pict" style="text-align: right; border-right: none;">
+        <img src="uploads/home/picto/info_totalaids.jpg">
+      </div>
     </section>
+
+    <section class="map">
+      <div id="world-map-gdp"></div>
+    </section>
+
     <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
-      <swiper speed="2000" continuous=true>
+      <swiper class="swiper" speed="2000" continuous="true">
         <div>
           <h1>Slide 1</h1>
         </div>
@@ -255,25 +245,27 @@
           <li><p>&copy; Starkey Hearing Foundation 2013</p></li>
         </ul>
       </section>
-    </footer
+    </footer>
 
-    <!-- build:js scripts/vendor.js -->
+    <!-- build:js /assets/scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/ahundredyears-swiper/src/swipe.js"></script>
+    <script src="bower_components/ahundredyears-swiper/src/swipe.js"></script> <!-- TODO: get automatically -->
     <script src="bower_components/ahundredyears-swiper/src/ahundredyears-swiper.js"></script>
-    <script src="bower_components/ahundredyears-thumblist-nav/src/jscrollpane.js"></script>
+    <script src="bower_components/ahundredyears-thumblist-nav/src/jscrollpane.js"></script> <!-- TODO: get automatically -->
     <script src="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.js"></script>
+    <script src="bower_components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="bower_components/bower-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js scripts/main.js -->
+    <!-- build:js(.tmp) /assets/scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 
-    <!-- build:js scripts/plugins.js -->
+    <!-- build:js(.tmp) /assets/scripts/plugins.js -->
     <!-- endbuild -->
 </body>
 </html>

@@ -10,11 +10,26 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
 
-    sass:
+    bake:
+      server:
+        options:
+          content: "app/starkey.json",
+          section: "server"
+        files:
+          ".tmp/index.html" : 'app/index.html',
+      dist:
+        options:
+          content: "app/starkey.json",
+          section: "dist"
+        files:
+          "<%= app.dist %>/templates/default_site/pages.group/index.html" : 'app/index.html',
+     sass:
       dist:
         options:
           loadPath: require('node-neat').includePaths
-        files: '.tmp/styles/app.css' : 'app/styles/app.scss',
+        files: [
+          '.tmp/styles/app.css' : 'app/styles/app.scss'
+          ]
 
     app:
       src: "app"
@@ -27,7 +42,7 @@ module.exports = (grunt) ->
 
       styles:
         files: ["<%= app.src %>/styles/{,*/}*.css"]
-        tasks: ["copy:styles", "autoprefixer"]
+        tasks: ["autoprefixer"]
 
       livereload:
         options:
@@ -35,17 +50,27 @@ module.exports = (grunt) ->
 
         files: [
           "<%= app.src %>/*.html",
+          "<%= app.src %>/*.json",
+          "<%= app.src %>/includes/*.html",
           ".tmp/styles/{,*/}*.css",
           "{.tmp,<%= app.src %>}/scripts/{,*/}*.js",
           "<%= app.src %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}"
         ]
 
+        tasks: [
+          "bake:server"
+        ]
+
       coffee:
         files: ["<%= app.src %>/scripts/{,*/}*.coffee"]
-        tasks: ["coffee:dist"]
+        tasks: ["coffee:server"]
 
     coffee:
       dist:
+        files: [
+          ".tmp/scripts/main.js" : "app/scripts/**/*.coffee"
+        ]
+      server:
         files: [
           expand: true
           cwd: "<%= app.src %>/scripts"
@@ -67,7 +92,7 @@ module.exports = (grunt) ->
       all:
         options:
           run: true
-          urls: ["http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html"]
+          urls: ["http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/intl_index.html"]
 
     autoprefixer:
       options:
@@ -86,13 +111,13 @@ module.exports = (grunt) ->
         html: "<%= app.src %>/index.html"
         ignorePath: "<%= app.src %>/"
 
-      dist:
-        options:
-          generatedImagesDir: "<%= app.dist %>/images/generated"
+    dist:
+      options:
+        generatedImagesDir: "<%= app.dist %>/assets/images/generated"
 
-      server:
-        options:
-          debugInfo: true
+    server:
+      options:
+        debugInfo: true
 
     jshint:
       options:
@@ -101,20 +126,21 @@ module.exports = (grunt) ->
 
       all: ["Gruntfile.js", "<%= app.src %>/scripts/{,*/}*.js", "!<%= app.src %>/scripts/vendor/*", "test/spec/{,*/}*.js"]
 
-    # +concat+ and +uglify+ are not enabled since usemin task does this
-
     useminPrepare:
       options:
-        dest: "<%= app.dist %>"
+        dest: "<%= app.dist %>/"
 
-      html: "<%= app.src %>/index.html"
+      html: [
+            "<%= app.src %>/*.html",
+            "<%= app.src %>/includes/*.html"
+          ]
 
     usemin:
       options:
         assetsDirs: ["<%= app.dist %>"]
 
-      html: ["<%= app.dist %>/{,*/}*.html"]
-      css: ["<%= app.dist %>/styles/{,*/}*.css"]
+      html: ["<%= app.dist %>/**/*.html"]
+      css: ["<%= app.dist %>/assets/styles/{,*/}*.css"]
 
     htmlmin:
       dist:
@@ -127,23 +153,46 @@ module.exports = (grunt) ->
         ]
 
     imagemin:
+      server:
+        files: [
+          expand: true
+          cwd: "<%= app.src %>/images"
+          src: "{,*/}*.{gif,jpeg,jpg,png}"
+          dest: ".tmp/images"
+        ]
       dist:
         files: [
           expand: true
           cwd: "<%= app.src %>/images"
           src: "{,*/}*.{gif,jpeg,jpg,png}"
-          dest: "<%= app.dist %>/images"
+          dest: "<%= app.dist %>/assets/images"
         ]
 
     svgmin:
+      server:
+        files: [
+          expand: true
+          cwd: "<%= app.src %>/images"
+          src: "{,*/}*.svg"
+          dest: ".tmp/images"
+        ]
       dist:
         files: [
           expand: true
           cwd: "<%= app.src %>/images"
           src: "{,*/}*.svg"
-          dest: "<%= app.dist %>/images"
+          dest: "<%= app.dist %>/assets/images"
         ]
 
+    # cssmin:
+    #   dist:
+    #     files: [
+    #       expand: true,
+    #       cwd: ".tmp/styles",
+    #       src: ['*.css', '!*.min.css'],
+    #       dest: '<%= app.dist %>/styles',
+    #       ext: '.min.css'
+    #     ]
 
     connect:
       options:
@@ -185,61 +234,76 @@ module.exports = (grunt) ->
             "!<%= app.dist %>/.git*"
           ]
         ]
+      ee:
+        options:
+          force: true
+        files: [
+          dot: true
+          src: [
+            "../shared/templates/**",
+            "../www/assets/**",
+          ]
+        ]
 
       server: ".tmp"
 
     copy:
-      dist:
+      ee:
         files: [
-          expand: true
-          dot: true
-          cwd: "<%= app.src %>"
-          dest: "<%= app.dist %>"
-          src: [
-            "*.{ico,png,txt}",
-            ".htaccess",
-            "images/{,*/}*.{webp,gif}",
-            "styles/fonts/{,*/}*.*"
-          ]
+            {
+              expand: true,
+              cwd: "<%= app.dist %>/templates/",
+              src: ['**'],
+              dest: '../shared/templates',
+            },
+            {
+              expand: true,
+              cwd: "<%= app.dist %>/assets/",
+              src: ['**'],
+              dest: '../www/assets',
+            }
         ]
 
-      styles:
+      images:
         expand: true
         dot: true
-        cwd: "<%= app.src %>/styles"
-        dest: ".tmp/styles/"
-        src: "{,*/}*.css"
+        cwd: "<%= app.src %>/images"
+        dest: ".tmp/images/"
+        src: "{,*/}*.{gif,jpeg,jpg,png,svg,webp}"
 
     concurrent:
       server: [
-        "coffee:dist",
+        "coffee:server",
         "sass",
-        "copy:styles"
+        "copy:images"
       ]
-      test: ["copy:styles"]
+      test: []
       dist: [
         "coffee:dist"
         "sass"
-        "copy:styles"
         'imagemin'
         'svgmin'
-        'htmlmin'
       ]
+
+    uglify:
+      options:
+        mangle: false
 
     rev:
       dist:
         files:
           src: [
-            "<%= app.dist %>/scripts/{,*/}*.js",
-            "<%= app.dist %>/styles/{,*/}*.css",
-            "<%= app.dist %>/images/{,*/}*.{gif,jpeg,jpg,png,webp}",
-            "<%= app.dist %>/styles/fonts/{,*/}*.*"
+            "<%= app.dist %>/assets/scripts/{,*/}*.js",
+            "<%= app.dist %>/assets/styles/{,*/}*.css",
+            "<%= app.dist %>/assets/images/{,*/}*.{gif,jpeg,jpg,png,webp}",
+            "<%= app.dist %>/assets/styles/fonts/{,*/}*.*"
           ]
 
   grunt.registerTask "serve", (target) ->
     return grunt.task.run(["build", "connect:dist:keepalive"])  if target is "dist"
     grunt.task.run [
       "clean:server",
+      "bake:server",
       "concurrent:server",
       "autoprefixer",
       "connect:livereload",
@@ -256,14 +320,18 @@ module.exports = (grunt) ->
 
   grunt.registerTask "build", [
     "clean:dist",
-    "useminPrepare",
+    "coffee:dist",
     "concurrent:dist",
     "autoprefixer",
+    "bake:dist",
+    "useminPrepare",
     "concat",
     "cssmin",
     "uglify",
     "rev",
-    "usemin"
+    "usemin",
+    "clean:ee",
+    "copy:ee"
   ]
 
   grunt.registerTask "default", [

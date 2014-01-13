@@ -1,24 +1,399 @@
 @import "bourbon";
-
 @import "neat";
-@import "globals/variables";
 
-@import "globals/mixins";
-@import "globals/grid";
-@import "globals/typography";
+@import "_normalize";
+@import "_typography";
 
-// Included partials
-@import "includes/header";
-@import "includes/footer";
+// Grid
+header, .pictograms, footer {
+  @include outer-container;
+}
 
-// Overrides for Bower components
-@import "overrides/swiper";
+// Variables
+
+// Debugging
+$visual-grid: true;
+// $visual-grid-color: yellow;
+// $visual-grid-index: front;
+// $visual-grid-opacity: 0.3;
+
+// Media
+$mobile-size: em(320);
+$tablet-size: em(720);
+$desktop-size: em(960);
+$largedesktop-size: em(1200);
+
+// Bourbon Neat Breakpoints
+$mobile: new-breakpoint(min-width $mobile-size 4);
+$tablet: new-breakpoint(min-width $tablet-size 8);
+$desktop: new-breakpoint(min-width $desktop-size 12);
+$largedesktop: new-breakpoint(min-width $largedesktop-size 16);
+
+body, a {
+  color: #4d4d4d;
+}
+
+// Header
+header {
+  margin-top: 1.5em;
+  .logo {
+    @include span-columns(3);
+  }
+
+  .tagline {
+    @include span-columns(6);
+    text-align: center;
+  }
+
+  .social-links {
+    @include span-columns(3);
+    text-align: right;
+    li {
+      @include inline-block;
+      a {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+nav {
+  border-bottom: 1px dotted #333;
+  .tabs {
+    width: 32em;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
+    li {
+      @include inline-block;
+      text-align: center;
+      border-top: 1px dotted #333;
+      border-right: 1px dotted #333;
+      padding: 0.6em 1.2em;
+      margin-left: -0.30em;
+      &:first-child {
+        border-left: 1px dotted #333;
+      }
+      a {
+        font-family: "Verlag";
+        font-weight: 700;
+        font-size: 1em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.swiper-controls {
+  position: absolute;
+  margin-top: 10%;
+  z-index: 9999;
+  width: 100%;
+
+  a {
+    padding-top: 0.65em;
+    color: rbga(0, 0, 0, 0.25);
+    font-size: 5em;
+    height: 180px;
+    width: 90px;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  .left {
+    float: left;
+    border-radius: 0 180px 180px 0;
+    -moz-border-radius: 0 180px 180px 0;
+    -webkit-border-radius:  0 180px 180px 0;
+  }
+
+  .right {
+    float: right;
+    border-radius: 180px 0 0 180px;
+    -moz-border-radius: 180px 0 0 180px;
+    -webkit-border-radius: 180px 0 0 180px;
+  }
+
+  .position-indicator {
+      z-index: 99999;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 5.5em;
+      text-align: center;
+      li {
+          @include inline-block;
+          a {
+              background: rgba(255,255,255,0.5);
+              &:hover {
+                  background: #333;
+              }
+          }
+
+          &.on {
+              a {
+                  background: #FFF;
+              }
+          }
+      }
+  }
+}
+
+.swiper {
+
+  article {
+    z-index: 0;
+  }
+
+  aside {
+    z-index: 9999;
+    margin-top: -30%;
+    color: #FFF;
+    h1 {
+      font-family: "Alright Sans";
+      margin-bottom: 0;
+    }
+
+    a {
+      font-family: "Verlag";
+      text-transform: uppercase;
+      color: #FFF;
+    }
+  }
+}
+
+.pictograms {
+  .pict {
+    @include span-columns(4);
+    border-right: 1px dotted #333;
+    img {
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.map {
+  border-top: 1px dotted #333;
+}
+
+// Footer
+footer {
+
+}
+.social-info {
+  ul {
+    li {
+      @include inline-block;
+    }
+    .blog {
+
+    }
+    .facebook {
+
+    }
+    .instagram {
+      .thumbs {
+
+      }
+    }
+    .twitter {
+
+    }
+  }
+}
+.footer-links {
+  ul {
+    li {
+      @include inline-block;
+    }
+  }
+}
 
 // Pages
-@import "pages/home";
+.carousel {
+  &.hero {
+    article {
+      width: 100%;
+      img {
+        display:block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .slide {
+      text-align: center;
+    }
+  }
+  &.bottom {
+    h1 {
+      text-align: center;
+      color: white;
+    }
 
-// Media Queries
-@import "media_queries/mobile";
-@import "media_queries/tablet";
-@import "media_queries/desktop";
-@import "media_queries/large_desktop";
+    .nav {
+      list-style: none;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    .nav li {
+      display: inline;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #eee;
+    }
+    // END TEMP
+  }
+}
+.mission-statement {
+  text-align: center;
+  border-bottom: 1px dotted #333;
+}
+
+/* TODO: bring in bower_component CSS automatically */
+
+/* Thumblist nav */
+.thumblist-nav {
+  height: 200px;
+}
+
+.horizontal-only {
+  max-height: 200px;
+}
+
+.jspPane > div {
+  border: 1px solid #ddd;
+  width: 350px;
+}
+
+.jspDrag {
+  background: blue;
+}
+
+.jspDrag:hover {
+  background: green;
+}
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+.thumblist-nav {
+  width: 100%;
+  overflow: auto;
+  white-space: nowrap
+}
+
+.horizontal-only {
+  height: auto;
+}
+
+.jspPane > div {
+  display: inline-block;
+
+  /* ie7 support */
+  *display: inline;
+  zoom: 1
+}
+
+.jspContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+.jspPane {
+  position: absolute;
+}
+
+.jspHorizontalBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+}
+
+.jspCap {
+  display: none;
+}
+
+.jspHorizontalBar .jspCap {
+  float: left;
+}
+
+.jspTrack {
+  background: #dde;
+  position: relative;
+}
+
+.jspDrag {
+  background: #bbd;
+  position: relative;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag {
+  float: left;
+  height: 100%;
+}
+
+.jspHorizontalBar .jspArrow {
+  width: 16px;
+  float: left;
+  height: 100%;
+}
+
+#world-map-gdp .jvectormap-container {
+    @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+}
+
+.jvectormap-label {
+    position: absolute;
+    display: none;
+    border: solid 1px #CDCDCD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #292929;
+    color: white;
+    font-family: sans-serif, Verdana;
+    font-size: smaller;
+    padding: 3px;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout {
+    position: absolute;
+    right: 10px;
+    background: rgba(16,97,146,0.75);
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    line-height: 20px;
+    text-align: center;
+}
+
+.jvectormap-zoomin {
+    top: 10px;
+    right: 42px;
+}
+
+.jvectormap-zoomout {
+    top: 10px;
+}
