@@ -1,0 +1,1 @@
+(function(){var app;app=angular.module("starkey",["ahundredyears.swiper","ahundredyears.thumblist-nav"]),app.controller("bottomCarouselCtrl",function(){}),app.controller("heroCarouselCtrl",function(){}),$("#world-map-gdp").vectorMap({map:"world_mill_en",zoomOnScroll:!1,series:{regions:[{values:[],scale:["#C8EEFF","#0071A4"],normalizeFunction:"polynomial"}]}})}).call(this);
