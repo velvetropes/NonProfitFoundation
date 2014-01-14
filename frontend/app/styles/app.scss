@@ -75,8 +75,9 @@ nav {
         border-left: 1px dotted #333;
       }
       a {
-        font-family: "Verlag";
+        font-family: "Verlag A", "Verlag B";
         font-weight: 700;
+        font-style: normal;
         font-size: 1em;
         text-decoration: none;
         text-transform: uppercase;
@@ -396,4 +397,35 @@ footer {
 
 .jvectormap-zoomout {
     top: 10px;
+}
+
+.page-leader {
+  @include outer-container;
+  text-align: center;
+  @include shift(3);
+  @include span-columns(6);
+}
+
+// Tabbed content
+.tabbed-content {
+  @include outer-container;
+  nav {
+    .tabs {
+      width: 51em;
+      margin-bottom: -1px;
+      li {
+        a {
+          font-weight: 400;
+        }
+        &.active {
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+  }
+  .tab_content {
+    text-align: center;
+    @include shift(2);
+    @include span-columns(8);
+  }
 }

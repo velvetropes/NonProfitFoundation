@@ -17,12 +17,14 @@ module.exports = (grunt) ->
           section: "server"
         files:
           ".tmp/index.html" : 'app/index.html',
+          ".tmp/programs.html" : 'app/programs.html',
       dist:
         options:
           content: "app/starkey.json",
           section: "dist"
         files:
           "<%= app.dist %>/templates/default_site/pages.group/index.html" : 'app/index.html',
+          "<%= app.dist %>/templates/default_site/pages.group/programs.html" : 'app/programs.html',
      sass:
       dist:
         options:
