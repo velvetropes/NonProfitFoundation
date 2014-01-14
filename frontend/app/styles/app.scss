@@ -401,31 +401,60 @@ footer {
 
 .page-leader {
   @include outer-container;
-  text-align: center;
   @include shift(3);
   @include span-columns(6);
+  text-align: center;
+  margin-top: 30px;
+  h1 {
+    font-size: 3.75em;
+    text-transform: uppercase;
+    @extend .alrightsansbold;
+  }
+  p {
+    @extend .alrightsansregular;
+  }
 }
 
 // Tabbed content
 .tabbed-content {
   @include outer-container;
   nav {
+    @include row();
     .tabs {
-      width: 51em;
-      margin-bottom: -1px;
+      @include shift(2);
+      @include span-columns(8);
+      text-align: center;
       li {
+        padding: 0.2em 0.9em 0.1em;
         a {
-          font-weight: 400;
+          font-size: .875em;
+          @extend .alrightsanslight;
         }
         &.active {
           border-bottom: 1px solid white;
+          a {
+            color: #00b3d2;
+          }
+        }
+        &:hover {
+          a {
+            color: #00b3d2;
+          }
         }
       }
     }
   }
-  .tab_content {
+  .tab-content {
     text-align: center;
+    margin-top: 30px;
     @include shift(2);
     @include span-columns(8);
+    @include row();
+    h1 {
+      font-size: 2.25em;
+    }
+    h1, h2, h3, p {
+      @extend .alrightsanslight;
+    }
   }
 }

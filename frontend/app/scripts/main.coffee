@@ -45,7 +45,7 @@ class ProgramsPageView
     $(".tabbed-content li").removeClass "active"
 
   hideTabbedContent: ->
-    $(".tab_content").hide()
+    $(".tab-content").hide()
 
 $ ->
   if $('.programs-page').length

@@ -134,6 +134,11 @@
 
 body {
   font-family: "Alright Sans", sans-serif;
+
+  &.page {
+    line-height: 1.8em;
+    color: #3d4144;
+  }
 }
 
 h1, h2, h3, h4 {
@@ -144,4 +149,8 @@ h1, h2, h3, h4 {
 
 a {
     text-decoration: none;
+}
+
+.centered {
+  text-align: center;
 }
