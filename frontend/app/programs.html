@@ -54,18 +54,74 @@
     </div>
   </header>
 
-  <nav>
+  <nav class='header-nav'>
     <ul class='tabs'>
       <li>
-        <a href='#'>Who we are</a>
+        <a href='#' data-content-class='.who-we-are'>Who we are</a>
       </li>
       <li>
-        <a href='#'>What we do</a>
+        <a href='#' data-content-class='.what-we-do'>What we do</a>
       </li>
       <li>
-        <a href='#'>Get involved</a>
+        <a href='#' data-content-class='.get-involved'>Get involved</a>
       </li>
     </ul>
+    <hr/>
+    <article class='tab-content who-we-are'>
+      <ul>
+        <li>
+          <h3>About Us</h3>
+          <h2>Our Mission</h2>
+        </li>
+        <li>
+          <h3>Team</h3>
+          <h2>Lorem ipsum dolor sit amet, vixtua</h2>
+        </li>
+        <li>
+          <h3>Media Mentions</h3>
+          <h2>Lorem ipsum dolot, vix dico voluptua</h2>
+        </li>
+        <li>
+          <h3>Contact</h3>
+          <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+        </li>
+      </ul>
+    </article>
+    <article class='tab-content what-we-do'>
+      <ul>
+        <li>
+          <h3>Mission</h3>
+          <h2>Our Global Impact</h2>
+        </li>
+        <li>
+          <h3>Programs</h3>
+          <h2>Help on the homefront</h2>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+        </li>
+        <li>
+          <h3>Gala</h3>
+          <h2>So the world may hear</h2>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+        </li>
+        <li>
+          <h3>Blog</h3>
+          <h2>Daily Action</h2>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+        </li>
+      </ul>
+    </article>
+    <article class='tab-content get-involved'>
+      <ul>
+        <li>
+          <h3>Take Action</h3>
+          <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+        </li>
+        <li>
+          <h3>Donate Now</h3>
+          <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+        </li>
+      </ul>
+    </article>
   </nav>
 
     <!-- Main content section -->
@@ -188,6 +244,7 @@
 
     <!-- build:js(.tmp) /assets/scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/tab_behavior.js"></script>
     <!-- endbuild -->
 
     <!-- build:js(.tmp) /assets/scripts/plugins.js -->
