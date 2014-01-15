@@ -226,6 +226,7 @@ footer {
           text-transform: uppercase;
           font-size: 10px;
           font-weight: 600;
+          line-height: 18px;
         }
 
         h5 {
@@ -366,7 +367,9 @@ footer {
   height: 335px;
   .jspPane {
     .ng-scope {
-      border: 1px dashed #ddd;  
+      border: 1px dotted #ddd;  
+      border-right: none;
+
     }
     h4 {
       font-size: 1.7em;
@@ -394,6 +397,7 @@ footer {
 .jspPane > div {
   width: 400px;
   height: 330px;
+
 }
 
 .jspDrag {
@@ -440,6 +444,23 @@ footer {
 .jspContainer {
   overflow: hidden;
   position: relative;
+  .jspHorizontalBar {
+    background-color:rgba(71, 194, 231, 0.6);
+
+    opacity: .5;
+    height: 11px;
+
+    .jspTrack {
+      position: relative;
+      
+      .jspDrag {
+        background: #17BFE6;
+        opacity: 1;
+        &.jspHover {
+        }
+      }
+    }
+  }
 }
 
 .jspPane {
@@ -451,7 +472,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 16px;
+  
 }
 
 .jspCap {
@@ -462,10 +483,7 @@ footer {
   float: left;
 }
 
-.jspTrack {
-  background: #dde;
-  position: relative;
-}
+
 
 .jspDrag {
   background: #bbd;
