@@ -10,16 +10,16 @@ header, .pictograms, footer {
 }
 
 // Variables
-
+$gray-title: #3D4144;
 // Debugging
 $visual-grid: true;
 // $visual-grid-color: yellow;
 // $visual-grid-index: front;
 // $visual-grid-opacity: 0.3;
-
-// Media
+ 
+// Media 
 $mobile-size: em(320);
-$tablet-size: em(720);
+$tablet-size: em(720);  
 $desktop-size: em(960);
 $largedesktop-size: em(1200);
 
@@ -30,6 +30,30 @@ $desktop: new-breakpoint(min-width $desktop-size 12);
 $largedesktop: new-breakpoint(min-width $largedesktop-size 16);
 
 @import "_tabs";
+
+// Mixins 
+
+@mixin clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020"; 
+        display: block; 
+        height: 0; 
+        overflow: hidden; 
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+@mixin boxsizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: 
+  border-box; 
+  box-sizing: border-box;
+}
+
 
 body, a {
   color: #4d4d4d;
@@ -154,13 +178,115 @@ header {
 
 // Footer
 footer {
-
+  background: #F8F6F0;
+  max-width: 100%;
+  &>div {
+    margin: 0 auto;
+    width: 68em;
+  }
 }
 .social-info {
+  display: inline-block;
+  
+  &>ul {
+    margin-top: 0;
+    padding-left: 0;
+    @include clearfix;
+    
+
+    &>li {
+      float: left;
+      width: 25%;
+      height: 230px;
+      padding: 10px;
+      
+      @include boxsizing;
+      
+      border-right: 1px dotted #CECECE;
+      padding: 1.9em;
+
+      div {
+        height: 80px;
+        @include boxsizing;
+
+        h1, h4 {
+          margin: 0;
+        }
+
+        h1 {
+          font-family: "Alright Sans", sans-serif;
+          font-weight: 100;
+          text-transform: uppercase;
+          strong {
+            font-weight: 600;
+          }
+        }
+
+        h4 {
+          text-transform: uppercase;
+          font-size: 10px;
+          font-weight: 600;
+        }
+
+        h5 {
+          font-size: 12px;
+          color: gray;
+        }
+        
+        p {
+          font-size: 13px;
+          line-height: 17px;
+          margin-top: 5px;
+        }
+
+
+      }
+
+      .icon {
+        font-size: 2.7em;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+       
+      &:first-child {
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
+      }
+
+      .thumbs {
+        margin-left: .4em;
+        float : left;
+        padding-left: 0;
+        li {
+          margin-left: 2px;
+          border: 2px solid white;
+        }
+      }
+
+      p {
+        margin-bottom: 2px;
+        clear: both;
+        a {
+          color: #00B9E4;
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: 600;
+          text-align: center;
+          display: block;
+        }
+      }
+
+    }
+  }
+
   ul {
     li {
       @include inline-block;
     }
+
     .blog {
 
     }
@@ -173,9 +299,14 @@ footer {
       }
     }
     .twitter {
-
+      .time {
+        float: right;
+        font-size: 13px;
+      }
     }
+
   }
+
 }
 .footer-links {
   ul {
@@ -202,6 +333,7 @@ footer {
     }
   }
   &.bottom {
+    width: 100%;
     h1 {
       text-align: center;
       color: white;
@@ -231,16 +363,37 @@ footer {
 
 /* Thumblist nav */
 .thumblist-nav {
-  height: 200px;
+  height: 335px;
+  .jspPane {
+    .ng-scope {
+      border: 1px dashed #ddd;  
+    }
+    h4 {
+      font-size: 1.7em;
+      letter-spacing: 1px;
+      margin: 26px 0 10px 30px;
+      color: $gray-title;
+    }
+    button {
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      margin: 5px 0 0 30px;
+      padding: 0;
+      color: $gray-title;
+    }
+  }
 }
 
 .horizontal-only {
-  max-height: 200px;
+  max-height: 335px; 
 }
 
 .jspPane > div {
-  border: 1px solid #ddd;
-  width: 350px;
+  width: 400px;
+  height: 330px;
 }
 
 .jspDrag {
