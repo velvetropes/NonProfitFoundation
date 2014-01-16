@@ -10,9 +10,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="assets/styles/fe915712.main.css"/>
+    <link rel="stylesheet" href="assets/styles/1687f97b.main.css"/>
   </head>
-  <body class='home-page' ng:app="starkey">
+  <body class='home-page page' ng:app="starkey">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -46,19 +46,99 @@
     </div>
   </header>
 
-  <nav>
-    <ul class='tabs'>
-      <li>
-        <a href='#'>Who we are</a>
-      </li>
-      <li>
-        <a href='#'>What we do</a>
-      </li>
-      <li>
-        <a href='#'>Get involved</a>
-      </li>
-    </ul>
-  </nav>
+  <section class='outer-container'>
+    <nav class='header-nav'>
+      <div class='centered-half-container'>
+        <ul class='tabs row-table'>
+          <li>
+            <a href='#' data-content-class='.who-we-are'>Who we are</a>
+          </li>
+          <li>
+            <a href='#' data-content-class='.what-we-do'>What we do</a>
+          </li>
+          <li>
+            <a href='#' data-content-class='.get-involved'>Get involved</a>
+          </li>
+        </ul>
+      </div>
+        <!-- <hr/> -->
+      <article class='tab-content who-we-are'>
+        <ul>
+          <li>
+            <a href="#">
+              <h3 class="highlight">About Us</h3>
+              <h2>Our Mission</h2>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Team</h3>
+              <h2>Lorem ipsum dolor sit amet, vixtua</h2>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Media Mentions</h3>
+              <h2>Lorem ipsum dolot, vix dico voluptua</h2>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Contact</h3>
+              <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+            </a>
+          </li>
+        </ul>
+      </article>
+      <article class='tab-content what-we-do'>
+        <ul>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Mission</h3>
+              <h2>Our Global Impact</h2>
+            </a>
+          </li>
+          <li>
+            <a href="/programs.html">
+              <h3 class="highlight">Programs</h3>
+              <h2>Help on the homefront</h2>
+              <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Gala</h3>
+              <h2>So the world may hear</h2>
+              <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Blog</h3>
+              <h2>Daily Action</h2>
+              <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+            </a>
+          </li>
+        </ul>
+      </article>
+      <article class='tab-content get-involved'>
+        <ul>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Take Action</h3>
+              <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Donate Now</h3>
+              <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+            </a>
+          </li>
+        </ul>
+      </article>
+    </nav>
+  </section>
 
     <!-- Main content section -->
     <section class="carousel hero" ng-controller="heroCarouselCtrl">
@@ -136,7 +216,7 @@
     </section>
 
     <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
-      <swiper class="swiper" speed="2000" continuous="true">
+<!--       <swiper class="swiper" speed="2000" continuous="true">
         <div>
           <h1>Slide 1</h1>
         </div>
@@ -158,93 +238,110 @@
         <div>
           <h1>Slide 7</h1>
         </div>
-      </swiper>
+      </swiper> -->
       <thumblist-nav>
         <div>
-          <img src="http://placehold.it/350x100&text=thumb+01">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(0)">First slide</button>
+          <img src="http://placehold.it/400x210&text=thumb+01">
+          <h4>Global Hearing Mission</h4>
+          <button ng-click="slide(0)">read stories &rarr;</button>
         </div>
         <div>
-          <img src="http://placehold.it/350x100&text=thumb+02">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(1)">Second slide</button>
+          <img src="http://placehold.it/400x210&text=thumb+02">
+          <h4>Celebrity Support</h4>
+          <button ng-click="slide(1)">watch video &rarr;</button>
         </div>
         <div>
-          <img src="http://placehold.it/350x100&text=thumb+03">
+          <img src="http://placehold.it/400x210&text=thumb+03">
           <h4>Lorem ipsum</h4>
-          <button ng-click="slide(2)">Third slide</button>
+          <button ng-click="slide(2)">read stories &rarr;</button>
         </div>
         <div>
-          <img src="http://placehold.it/350x100&text=thumb+04">
+          <img src="http://placehold.it/400x210&text=thumb+04">
           <h4>Lorem ipsum</h4>
-          <button ng-click="slide(3)">Fourth slide</button>
+          <button ng-click="slide(3)">read stories &rarr;</button>
         </div>
         <div>
-          <img src="http://placehold.it/350x100&text=thumb+05">
+          <img src="http://placehold.it/400x210&text=thumb+05">
           <h4>Lorem ipsum</h4>
-          <button ng-click="slide(4)">Fifth slide</button>
+          <button ng-click="slide(4)">read stories &rarr;</button>
         </div>
         <div>
-          <img src="http://placehold.it/350x100&text=thumb+06">
+          <img src="http://placehold.it/400x210&text=thumb+06">
           <h4>Lorem ipsum</h4>
-          <button ng-click="slide(5)">Sixth slide</button>
+          <button ng-click="slide(5)">read stories &rarr;</button>
         </div>
         <div>
-          <img src="http://placehold.it/350x100&text=thumb+07">
+          <img src="http://placehold.it/400x210&text=thumb+07">
           <h4>Lorem ipsum</h4>
-          <button ng-click="slide(6)">Seventh slide</button>
+          <button ng-click="slide(6)">read stories &rarr;</button>
         </div>
       </thumblist-nav>
     </section>
     <!-- end main content section -->
 
     <footer>
-      <section class='social-info'>
-        <ul>
-          <li class='blog'>
-            <h4>From our blog</h4>
-            <p><a href='#'>Check out our blog &rarr;</a></p>
-          </li>
-          <li class='facebook'>
-            <h1>29,000 fans</h1>
-            <p><a href='#'>Like us</a></p>
-          </li>
-          <li class='instagram'>
-            <ul class='thumbs'>
-              <li>
-                <img src="http://placehold.it/40x40">
-              </li>
-              <li>
-                <img src="http://placehold.it/40x40">
-              </li>
-              <li>
-                <img src="http://placehold.it/40x40">
-              </li>
-              <li>
-                <img src="http://placehold.it/40x40">
-              </li>
-            </ul>
-            <p><a href='#'>Follow us &rarr;</a></p>
-          </li>
-          <li class='twitter'>
-            <p class='tweet'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-            <p><a href='#'>Follow us &rarr;</a></p>
-          </li>
-        </ul>
-      </section>
-      <section class='footer-links'>
-        <ul>
-          <li><a href='#'>Legal/financials &rarr;</a></li>
-          <li><a href='#'>Subscribe to our newsletter &rarr;</a></li>
-          <li><p>&copy; Starkey Hearing Foundation 2013</p></li>
-        </ul>
-      </section>
+      <div>
+        <section class='social-info'>
+          <ul>
+            <li class='blog'>
+              <span class="icon icon-blog"></span>
+              <div>
+                <h4>From our blog</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+              <p><a href='#'>Check out our blog &rarr;</a></p>
+            </li>
+            <li class='facebook'>
+              <span class="icon icon-fb"></span>
+              <div>
+                <h1>29,000 <strong>fans</strong></h1>
+              </div>
+              <p><a href='#'>Like us</a></p>
+            </li>
+            <li class='instagram'>
+              <span class="icon icon-insta"></span>
+              <div>
+                <ul class='thumbs'>
+                  <li>
+                    <img src="http://placehold.it/40x40">
+                  </li>
+                  <li>
+                    <img src="http://placehold.it/40x40">
+                  </li>
+                  <li>
+                    <img src="http://placehold.it/40x40">
+                  </li>
+                  <li>
+                    <img src="http://placehold.it/40x40">
+                  </li>
+                </ul>
+              </div>
+              <p><a href='#'>Follow us &rarr;</a></p>
+            </li>
+            <li class='twitter'>
+              <span class="icon icon-share-twitter"></span>
+              <div>
+                <p class='tweet'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, ducimus atque veniam magni debitis dignissimos.</p>
+                <span class="time">15 sec ago</span>
+              </div>
+              <p><a href='#'>Follow us &rarr;</a></p>
+
+            </li>
+          </ul>
+        </section>
+        <section class='footer-links'>
+          <ul>
+            <li><a href='#'>Legal/financials &rarr;</a></li>
+            <li><a href='#'>Subscribe to our newsletter &rarr;</a></li>
+            <li><p>&copy; Starkey Hearing Foundation 2013</p></li>
+          </ul>
+        </section>
+      </div>
     </footer>
 
-    <script src="/assets/scripts/a1b89ba0.vendor.js"></script>
+    <script src="/assets/scripts/615b7c07.vendor.js"></script>
 
-    <script src="/assets/scripts/15485e01.main.js"></script>
+    <script src="/assets/scripts/a7974b28.main.js"></script>
 
     <script src="/assets/scripts/d41d8cd9.plugins.js"></script>
 </body>
