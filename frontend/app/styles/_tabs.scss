@@ -30,8 +30,8 @@ nav {
 
 .header-nav {
   border-top: 1px dotted #333;
-  margin-top: 75px;
-  margin-bottom: 40px;
+  margin-top: 60px;
+  @include row(table);
   .centered-half-container {
     margin-top: -68px;
   }

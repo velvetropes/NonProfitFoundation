@@ -15,3 +15,7 @@ header, .pictograms, footer {
 .row-table {
   @include row(table);
 }
+
+.full-width-container {
+  @include span-columns(12);
+}
