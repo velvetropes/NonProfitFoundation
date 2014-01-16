@@ -1,30 +1,39 @@
 .swiper-controls {
   position: absolute;
-  margin-top: 10%;
+  margin-top: 15%;
   z-index: 9999;
   width: 100%;
 
   a {
-    padding-top: 0.65em;
+    padding-top: 0.5em;
     color: rbga(0, 0, 0, 0.25);
-    font-size: 5em;
-    height: 180px;
-    width: 90px;
+    font-size: 3em;
+    height: 100px;
+    width: 50px;
     background-color: rgba(255, 255, 255, 0.75);
   }
 
   .left {
     float: left;
-    border-radius: 0 180px 180px 0;
-    -moz-border-radius: 0 180px 180px 0;
-    -webkit-border-radius:  0 180px 180px 0;
+    border-radius: 0 100px 100px 0;
+    -moz-border-radius: 0 100px 100px 0;
+    -webkit-border-radius:  0 100px 100px 0;
+    padding-right: 10px;
+    span {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
   }
 
   .right {
     float: right;
-    border-radius: 180px 0 0 180px;
-    -moz-border-radius: 180px 0 0 180px;
-    -webkit-border-radius: 180px 0 0 180px;
+    border-radius: 100px 0 0 100px;
+    -moz-border-radius: 100px 0 0 100px;
+    -webkit-border-radius: 100px 0 0 100px;
+    padding-left: 10px;
   }
 
   .position-indicator {
@@ -59,17 +68,26 @@
 
   aside {
     z-index: 9999;
-    margin-top: -30%;
     color: #FFF;
+    width: 80%;
+    margin: -30% auto 0;
     h1 {
-      font-family: "Alright Sans";
+      @extend .alrightsansbold;
       margin-bottom: 0;
+      font-size: 3.75em;
+      line-height: 1em;
     }
-
+    p {
+      @extend .alrightsanslight;
+      font-size: 1.2em;
+      font-weight: 400;
+    }
     a {
-      font-family: "Verlag";
+      @extend .verlag;
       text-transform: uppercase;
       color: #FFF;
+      font-weight: bold;
+      font-size: .875em;
     }
   }
 }

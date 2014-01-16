@@ -8,20 +8,21 @@
 
     }
     h4 {
-      font-size: 1.7em;
+      @extend .verlagbold;
+      font-size: 1.5em;
       letter-spacing: 1px;
       margin: 26px 0 10px 30px;
-      color: $light-blue;
+      color: $gray-title;
     }
     button {
       text-transform: uppercase;
       background: none;
       border: none;
-      font-size: 13px;
+      font-size: .75em;
       font-weight: 600;
       margin: 5px 0 0 30px;
       padding: 0;
-      color: $light-blue;
+      color: $gray-title;
     }
   }
 }

@@ -132,6 +132,15 @@
   font-weight: normal;
 }
 
+.verlag {
+  font-family: "Verlag A", "Verlag B";
+}
+
+.verlagbold {
+  @extend .verlag;
+  font-weight: bold;
+}
+
 body {
   font-family: "Alright Sans", sans-serif;
 
