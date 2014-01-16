@@ -16,7 +16,7 @@
     <link rel='stylesheet' href="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.css">
     <!-- endbuild -->
   </head>
-  <body class='programs-page page'>
+  <body class='programs-page page' ng:app="starkey">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -175,39 +175,100 @@
       </nav>
 
       <article class='tab-content operation-change'>
-        <h1>Operation change</h1>
-        <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+        <div class="outer-container">
+          <h1>Operation change</h1>
 
-        <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
+
+        <section class="carousel hero" ng-controller="heroCarouselCtrl">
+          <swiper class="swiper" speed="5000" continuous="true" auto="false">
+            <div class="slide">
+              <article>
+                <img src="uploads/home/hero/vikings_mission.jpg" />
+              </article>
+            </div>
+          </swiper>
+        </section>
+        <br/>
+        <div class="outer-container">
+          <h1>Our partnerships</h1>
+
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
       </article>
 
       <article class='tab-content listen-carefully'>
-        <h1>Listen Carefully</h1>
-        <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+        <div class="outer-container">
+          <h1>Listen Carefully</h1>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
 
-        <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
       </article>
 
       <article class='tab-content hear-now'>
-        <h1>Hear Now</h1>
-        <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+        <div class="outer-container">
+          <h1>Hear Now</h1>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
 
-        <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
       </article>
 
       <article class='tab-content hearing-aid-recycling'>
-        <h1>Hearing Aid Recycling</h1>
-        <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+        <div class="outer-container">
+          <h1>Hearing Aid Recycling</h1>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
 
-        <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
       </article>
     </section>
-    <section class='centered'>
-      <hr/>
-      <h1>[GALLERY GOES HERE]</h1>
-      <hr/>
+    <br/>
+    <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
+      <thumblist-nav>
+        <div>
+          <img src="http://placehold.it/400x210&text=thumb+01">
+          <h4>Global Hearing Mission</h4>
+          <button ng-click="slide(0)">read stories &rarr;</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/400x210&text=thumb+02">
+          <h4>Celebrity Support</h4>
+          <button ng-click="slide(1)">watch video &rarr;</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/400x210&text=thumb+03">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(2)">read stories &rarr;</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/400x210&text=thumb+04">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(3)">read stories &rarr;</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/400x210&text=thumb+05">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(4)">read stories &rarr;</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/400x210&text=thumb+06">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(5)">read stories &rarr;</button>
+        </div>
+        <div>
+          <img src="http://placehold.it/400x210&text=thumb+07">
+          <h4>Lorem ipsum</h4>
+          <button ng-click="slide(6)">read stories &rarr;</button>
+        </div>
+      </thumblist-nav>
     </section>
-    <!-- end main content section -->
 
     <footer>
       <div>
