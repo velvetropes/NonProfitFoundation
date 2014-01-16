@@ -1,0 +1,75 @@
+.swiper-controls {
+  position: absolute;
+  margin-top: 10%;
+  z-index: 9999;
+  width: 100%;
+
+  a {
+    padding-top: 0.65em;
+    color: rbga(0, 0, 0, 0.25);
+    font-size: 5em;
+    height: 180px;
+    width: 90px;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  .left {
+    float: left;
+    border-radius: 0 180px 180px 0;
+    -moz-border-radius: 0 180px 180px 0;
+    -webkit-border-radius:  0 180px 180px 0;
+  }
+
+  .right {
+    float: right;
+    border-radius: 180px 0 0 180px;
+    -moz-border-radius: 180px 0 0 180px;
+    -webkit-border-radius: 180px 0 0 180px;
+  }
+
+  .position-indicator {
+      z-index: 99999;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 5.5em;
+      text-align: center;
+      li {
+          @include inline-block;
+          a {
+              background: rgba(255,255,255,0.5);
+              &:hover {
+                  background: #333;
+              }
+          }
+
+          &.on {
+              a {
+                  background: #FFF;
+              }
+          }
+      }
+  }
+}
+
+.swiper {
+
+  article {
+    z-index: 0;
+  }
+
+  aside {
+    z-index: 9999;
+    margin-top: -30%;
+    color: #FFF;
+    h1 {
+      font-family: "Alright Sans";
+      margin-bottom: 0;
+    }
+
+    a {
+      font-family: "Verlag";
+      text-transform: uppercase;
+      color: #FFF;
+    }
+  }
+}

@@ -1,0 +1,139 @@
+// Footer
+footer {
+  background: #F8F6F0;
+  max-width: 100%;
+  &>div {
+    @include outer-container;
+  }
+}
+.social-info {
+  display: inline-block;
+
+  &>ul {
+    margin-top: 0;
+    padding-left: 0;
+    @include clearfix;
+
+
+    &>li {
+      float: left;
+      width: 25%;
+      height: 230px;
+      padding: 10px;
+
+      @include boxsizing;
+
+      border-right: 1px dotted #CECECE;
+      padding: 1.9em;
+
+      div {
+        height: 80px;
+        @include boxsizing;
+
+        h1, h4 {
+          margin: 0;
+        }
+
+        h1 {
+          font-family: "Alright Sans", sans-serif;
+          font-weight: 100;
+          text-transform: uppercase;
+          strong {
+            font-weight: 600;
+          }
+        }
+
+        h4 {
+          text-transform: uppercase;
+          font-size: 10px;
+          font-weight: 600;
+          line-height: 18px;
+        }
+
+        h5 {
+          font-size: 12px;
+          color: gray;
+        }
+
+        p {
+          font-size: 13px;
+          line-height: 17px;
+          margin-top: 5px;
+        }
+
+
+      }
+
+      .icon {
+        font-size: 2.7em;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
+      }
+
+      .thumbs {
+        margin-left: .4em;
+        float : left;
+        padding-left: 0;
+        li {
+          margin-left: 2px;
+          border: 2px solid white;
+        }
+      }
+
+      p {
+        margin-bottom: 2px;
+        clear: both;
+        a {
+          color: #00B9E4;
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: 600;
+          text-align: center;
+          display: block;
+        }
+      }
+
+    }
+  }
+
+  ul {
+    li {
+      @include inline-block;
+    }
+
+    .blog {
+
+    }
+    .facebook {
+
+    }
+    .instagram {
+      .thumbs {
+
+      }
+    }
+    .twitter {
+      .time {
+        float: right;
+        font-size: 13px;
+      }
+    }
+
+  }
+
+}
+.footer-links {
+  ul {
+    li {
+      @include inline-block;
+    }
+  }
+}

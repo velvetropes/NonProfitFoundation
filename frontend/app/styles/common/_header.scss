@@ -1,0 +1,23 @@
+// Header
+header {
+  margin-top: 1.5em;
+  .logo {
+    @include span-columns(3);
+  }
+
+  .tagline {
+    @include span-columns(6);
+    text-align: center;
+  }
+
+  .social-links {
+    @include span-columns(3);
+    text-align: right;
+    li {
+      @include inline-block;
+      a {
+        font-size: 1.5em;
+      }
+    }
+  }
+}

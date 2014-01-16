@@ -1,7 +1,7 @@
 class TabBehavior
 
   rootElement: $(document)
- 
+
   constructor: ->
     @setupListeners()
 
@@ -24,7 +24,7 @@ class TabBehavior
     @rootElement.find("li").removeClass "active"
 
   hideTabbedContent: ->
-    @rootElement.find(".tab-content").fadeOut()
+    @rootElement.find(".tab-content").hide()
 
 class HeaderTabNav extends TabBehavior
 

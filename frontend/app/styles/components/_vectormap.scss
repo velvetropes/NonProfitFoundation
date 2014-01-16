@@ -1,0 +1,41 @@
+.map {
+  border-top: 1px dotted #333;
+}
+
+#world-map-gdp .jvectormap-container {
+    @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+}
+
+.jvectormap-label {
+    position: absolute;
+    display: none;
+    border: solid 1px #CDCDCD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #292929;
+    color: white;
+    font-family: sans-serif, Verdana;
+    font-size: smaller;
+    padding: 3px;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout {
+    position: absolute;
+    right: 10px;
+    background: rgba(16,97,146,0.75);
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    line-height: 20px;
+    text-align: center;
+}
+
+.jvectormap-zoomin {
+    top: 10px;
+    right: 42px;
+}
+
+.jvectormap-zoomout {
+    top: 10px;
+}

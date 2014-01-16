@@ -54,19 +54,99 @@
     </div>
   </header>
 
-  <nav>
-    <ul class='tabs'>
-      <li>
-        <a href='#'>Who we are</a>
-      </li>
-      <li>
-        <a href='#'>What we do</a>
-      </li>
-      <li>
-        <a href='#'>Get involved</a>
-      </li>
-    </ul>
-  </nav>
+  <section class='outer-container'>
+    <nav class='header-nav'>
+      <div class='centered-half-container'>
+        <ul class='tabs row-table'>
+          <li>
+            <a href='#' data-content-class='.who-we-are'>Who we are</a>
+          </li>
+          <li>
+            <a href='#' data-content-class='.what-we-do'>What we do</a>
+          </li>
+          <li>
+            <a href='#' data-content-class='.get-involved'>Get involved</a>
+          </li>
+        </ul>
+      </div>
+        <!-- <hr/> -->
+      <article class='tab-content who-we-are'>
+        <ul>
+          <li>
+            <a href="#">
+              <h3 class="highlight">About Us</h3>
+              <h2>Our Mission</h2>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Team</h3>
+              <h2>Lorem ipsum dolor sit amet, vixtua</h2>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Media Mentions</h3>
+              <h2>Lorem ipsum dolot, vix dico voluptua</h2>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Contact</h3>
+              <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+            </a>
+          </li>
+        </ul>
+      </article>
+      <article class='tab-content what-we-do'>
+        <ul>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Mission</h3>
+              <h2>Our Global Impact</h2>
+            </a>
+          </li>
+          <li>
+            <a href="/programs.html">
+              <h3 class="highlight">Programs</h3>
+              <h2>Help on the homefront</h2>
+              <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Gala</h3>
+              <h2>So the world may hear</h2>
+              <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Blog</h3>
+              <h2>Daily Action</h2>
+              <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+            </a>
+          </li>
+        </ul>
+      </article>
+      <article class='tab-content get-involved'>
+        <ul>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Take Action</h3>
+              <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3 class="highlight">Donate Now</h3>
+              <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+            </a>
+          </li>
+        </ul>
+      </article>
+    </nav>
+  </section>
 
     <!-- Main content section -->
     <section class="carousel hero" ng-controller="heroCarouselCtrl">
@@ -216,7 +296,7 @@
               <div>
                 <h4>From our blog</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              </div> 
+              </div>
               <p><a href='#'>Check out our blog &rarr;</a></p>
             </li>
             <li class='facebook'>
@@ -283,6 +363,7 @@
 
     <!-- build:js(.tmp) /assets/scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/tab_behavior.js"></script>
     <!-- endbuild -->
 
     <!-- build:js(.tmp) /assets/scripts/plugins.js -->

@@ -1,0 +1,41 @@
+.carousel {
+  &.hero {
+    article {
+      width: 100%;
+      img {
+        display:block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .slide {
+      text-align: center;
+    }
+  }
+  &.bottom {
+    width: 100%;
+    h1 {
+      text-align: center;
+      color: white;
+    }
+
+    .nav {
+      list-style: none;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    .nav li {
+      display: inline;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #eee;
+    }
+    // END TEMP
+  }
+}
+.mission-statement {
+  text-align: center;
+  border-bottom: 1px dotted #333;
+}

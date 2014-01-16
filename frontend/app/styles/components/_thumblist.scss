@@ -1,0 +1,142 @@
+/* Thumblist nav */
+.thumblist-nav {
+  height: 335px;
+  .jspPane {
+    .ng-scope {
+      border: 1px dotted #ddd;
+      border-right: none;
+
+    }
+    h4 {
+      font-size: 1.7em;
+      letter-spacing: 1px;
+      margin: 26px 0 10px 30px;
+      color: $light-blue;
+    }
+    button {
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      margin: 5px 0 0 30px;
+      padding: 0;
+      color: $light-blue;
+    }
+  }
+}
+
+.horizontal-only {
+  max-height: 335px;
+}
+
+.jspPane > div {
+  width: 400px;
+  height: 330px;
+
+}
+
+.jspDrag {
+  background: blue;
+}
+
+.jspDrag:hover {
+  background: green;
+}
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+.thumblist-nav {
+  width: 100%;
+  overflow: auto;
+  white-space: nowrap
+}
+
+.horizontal-only {
+  height: auto;
+}
+
+.jspPane > div {
+  display: inline-block;
+
+  /* ie7 support */
+  *display: inline;
+  zoom: 1
+}
+
+.jspContainer {
+  overflow: hidden;
+  position: relative;
+  .jspHorizontalBar {
+    background-color:rgba(71, 194, 231, 0.6);
+
+    opacity: .5;
+    height: 11px;
+
+    .jspTrack {
+      position: relative;
+
+      .jspDrag {
+        background: #17BFE6;
+        opacity: 1;
+        &.jspHover {
+        }
+      }
+    }
+  }
+}
+
+.jspPane {
+  position: absolute;
+}
+
+.jspHorizontalBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+}
+
+.jspCap {
+  display: none;
+}
+
+.jspHorizontalBar .jspCap {
+  float: left;
+}
+
+
+
+.jspDrag {
+  background: #bbd;
+  position: relative;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag {
+  float: left;
+  height: 100%;
+}
+
+.jspHorizontalBar .jspArrow {
+  width: 16px;
+  float: left;
+  height: 100%;
+}

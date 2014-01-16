@@ -1,0 +1,17 @@
+// Grid
+header, .pictograms, footer {
+  @include outer-container;
+}
+
+.outer-container {
+  @include outer-container;
+}
+
+.centered-half-container {
+  @include span-columns(6);
+  @include shift(3);
+}
+
+.row-table {
+  @include row(table);
+}

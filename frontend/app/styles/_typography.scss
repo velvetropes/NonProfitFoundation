@@ -154,3 +154,21 @@ a {
 .centered {
   text-align: center;
 }
+
+.highlight {
+  color: $light-blue;
+}
+
+.page-leader {
+  @include outer-container;
+  text-align: center;
+  margin-top: 30px;
+  h1 {
+    font-size: 3.75em;
+    text-transform: uppercase;
+    @extend .alrightsansbold;
+  }
+  p {
+    @extend .alrightsansregular;
+  }
+}
