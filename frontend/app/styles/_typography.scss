@@ -2,117 +2,121 @@
 @import url("//cloud.webtype.com/css/8d17d6c8-e83f-46fe-a722-38375da99cb0.css");
 
 @font-face {
-    font-family: 'Starkey';
-    src:url('fonts/Starkey.eot');
-    src:url('fonts/Starkey.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Starkey.ttf') format('truetype'),
-        url('fonts/Starkey.woff') format('woff'),
-        url('fonts/Starkey.svg#StarkeyIcons') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'starkey-icons';
+  src:url('fonts/starkey-icons.eot');
+  src:url('fonts/starkey-icons.eot?#iefix') format('embedded-opentype'),
+    url('fonts/starkey-icons.woff') format('woff'),
+    url('fonts/starkey-icons.ttf') format('truetype'),
+    url('fonts/starkey-icons.svg#starkey-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-    font-family: 'Starkey';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+[class^="starkey-"], [class*=" starkey-"] {
+  font-family: 'starkey-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-zoom-out:before {
-    content: "\e600";
+.starkey-blog:before {
+  content: "\e600";
 }
-.icon-zoom-in:before {
-    content: "\e601";
+.starkey-link-passive:before {
+  content: "\e601";
 }
-.icon-youtube:before {
-    content: "\e602";
+.starkey-link-active:before {
+  content: "\e602";
 }
-.icon-twitter-link:before {
-    content: "\e603";
+.starkey-like-us:before {
+  content: "\e603";
 }
-.icon-to-top:before {
-    content: "\e604";
+.starkey-legend-6:before {
+  content: "\e604";
 }
-.icon-share-twitter:before {
-    content: "\e605";
+.starkey-dd-passive:before {
+  content: "\e605";
 }
-.icon-share-fb:before {
-    content: "\e606";
+.starkey-dd-active:before {
+  content: "\e606";
 }
-.icon-share-email:before {
-    content: "\e607";
+.starkey-close:before {
+  content: "\e607";
 }
-.icon-pg-arrow:before {
-    content: "\e608";
+.starkey-zoom-out:before {
+  content: "\e608";
 }
-.icon-pdf:before {
-    content: "\e609";
+.starkey-to-top:before {
+  content: "\e609";
 }
-.icon-missions1:before {
-    content: "\e60a";
+.starkey-share-twitter:before {
+  content: "\e60a";
 }
-.icon-mission2:before {
-    content: "\e60b";
+.starkey-share-fb:before {
+  content: "\e60b";
 }
-.icon-link-passive:before {
-    content: "\e60c";
+.starkey-share-email:before {
+  content: "\e60c";
 }
-.icon-link-active:before {
-    content: "\e60d";
+.starkey-pg-arrow-right:before {
+  content: "\e60d";
 }
-.icon-like-us:before {
-    content: "\e60e";
+.starkey-pg-arrow-left:before {
+  content: "\e60e";
 }
-.icon-legend-6:before {
-    content: "\e60f";
+.starkey-pdf:before {
+  content: "\e60f";
 }
-.icon-legend-5:before {
-    content: "\e610";
+.starkey-missions1:before {
+  content: "\e610";
 }
-.icon-legend-4:before {
-    content: "\e611";
+.starkey-mission2:before {
+  content: "\e611";
 }
-.icon-legend-3:before {
-    content: "\e612";
+.starkey-twitter-link:before {
+  content: "\e612";
 }
-.icon-legend-2:before {
-    content: "\e613";
+.starkey-youtube:before {
+  content: "\e613";
 }
-.icon-legend-1:before {
-    content: "\e614";
+.starkey-zoom-in:before {
+  content: "\e614";
 }
-.icon-insta:before {
-    content: "\e615";
+.starkey-legend-5:before {
+  content: "\e615";
 }
-.icon-insta-link:before {
-    content: "\e616";
+.starkey-legend-4:before {
+  content: "\e616";
 }
-.icon-fb:before {
-    content: "\e617";
+.starkey-legend-3:before {
+  content: "\e617";
 }
-.icon-fb-link:before {
-    content: "\e618";
+.starkey-legend-2:before {
+  content: "\e618";
 }
-.icon-dd-passive:before {
-    content: "\e619";
+.starkey-legend-1:before {
+  content: "\e619";
 }
-.icon-dd-active:before {
-    content: "\e61a";
+.starkey-insta:before {
+  content: "\e61a";
 }
-.icon-close:before {
-    content: "\e61b";
+.starkey-insta-link:before {
+  content: "\e61b";
 }
-.icon-blog:before {
-    content: "\e61c";
+.starkey-fb:before {
+  content: "\e61c";
 }
+.starkey-fb-link:before {
+  content: "\e61d";
+}
+
 
 .alrightsansbold {
   font-family: "Alright Sans";

@@ -23,14 +23,14 @@ header {
     @include pad(0);
     @include omega();
     text-align: right;
-    margin-top: 30px;
+    margin-top: 26px;
     ul {
-      margin-left: 23px;
+      margin-left: 11px;
     }
     li {
       float: left;
       a {
-        font-size: 1.5em;
+        font-size: 1.7em;
       }
     }
   }
