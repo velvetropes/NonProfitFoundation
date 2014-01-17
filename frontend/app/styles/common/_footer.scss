@@ -131,9 +131,18 @@ footer {
 
 }
 .footer-links {
+  @include span-columns(12);
   ul {
     li {
-      @include inline-block;
+      @include span-columns(4 of 12);
+      text-align: center;
+      text-transform: uppercase;
+      @extend .verlagbold;
+      font-size: .75em;
+      p {
+        margin: 0;
+        font-size: .625em;
+      }
     }
   }
 }
