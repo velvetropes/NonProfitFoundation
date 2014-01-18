@@ -7,6 +7,7 @@
     "angular-route": "~1.2.0",
     "ahundredyears-swiper": "git@github.com:bullrico/ahundredyears-swiper.git",
     "ahundredyears-thumblist-nav": "git@github.com:bullrico/ahundredyears-thumblist-nav.git",
+    "ahundredyears-pagination": "git@github.com:bullrico/ahundredyears-pagination.git",
     "bower-jvectormap": "~1.2.2"
   },
   "devDependencies": {}

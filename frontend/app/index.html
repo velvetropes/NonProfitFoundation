@@ -4,12 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Starkey Hearing Foundation</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!--(bake partials/head.html)-->
     <!-- build:css(.tmp) assets/styles/main.css -->
     <link rel="stylesheet" href="styles/app.css">
     <link rel='stylesheet' href="bower_components/ahundredyears-swiper/src/swiper.css">
@@ -18,63 +13,17 @@
   </head>
   <body class='home-page page' ng:app="starkey">
 
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <!--(bake partials/browser_check.html)-->
 
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-    <section class="carousel hero" ng-controller="heroCarouselCtrl">
-
-      <div class="swiper-controls">
-        <a href="#" class="left"><span class="icon starkey-pg-arrow-left"></span></a>
-        <a href="#" class="right"><span class="icon starkey-pg-arrow-right"></span></a>
-
-        <ul class="position-indicator" id="hero-position" data-slider="hero">
-          <li class="on" data-id="1"><a href="#"></a></li>
-          <li class="" data-id="2"><a href="#"></a></li>
-          <li class="" data-id="3"><a href="#"></a></li>
-        </ul>
-      </div>
-
-      <swiper class="swiper" speed="5000" continuous="true" auto="false">
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/commitment_to_action_film.jpg" />
-          </article>
-          <aside>
-            <h1>Commitment to Action</h1>
-            <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
-            <a href='#' class="action-link">Watch video</a>
-          </aside>
-        </div>
-
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/building_sustainable_systems_of_hearing_care.jpg" />
-          </article>
-          <aside>
-            <h1>Building Sustainable Systems of Hearing Care</h1>
-            <p>To truly make an impact, our efforts must be sustainable. See how, by working closely, with on-the-ground partners, we bring patients long-term hearing care. We incorporate a full-circle approach that ensures patients will be connected to the world of sound for years to come.</p>
-            <a href='#' class="action-link">See what it takes to create lasting change.</a>
-          </aside>
-        </div>
-
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/vikings_mission.jpg" />
-          </article>
-          <aside>
-            <h1>Hear at Home</h1>
-            <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country through domestic missions and the daily efforts of Hear Now, our  application-based program that provides hearing help to low-income Americans. Each person we help is fit with brand new, top-of-the-line digital hearing aids that are customized to their hearing loss.</p>
-            <a href='http://www.starkeyhearingfoundation.org/programs/hear-now/' class="action-link">Find out how we are changing lives in America every day.</a>
-          </aside>
-        </div>
-
-      </swiper>
-
-    </section>
+    <!--(bake-start _if="server")-->
+    <!--(bake partials/development/slider.html)-->
+    <!--(bake-end)-->
+    <!--(bake-start _if="dist")-->
+      <p>Put production slider here</p>
+    <!--(bake-end)-->
 
     <section class='mission-statement'>
       <h1>We use hearing as a vehicle to change lives around the world.</h1>
@@ -97,69 +46,16 @@
     <section class="map">
       <div id="world-map-gdp"></div>
     </section>
+    <!--(bake-start _if="server")-->
+    <!--(bake partials/development/thumblist_nav.html)-->
+    <!--(bake-end)-->
+    <!--(bake-start _if="dist")-->
+      <p>Put production thumblist_nav here</p>
+    <!--(bake-end)-->
 
-    <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
-      <thumblist-nav>
-        <div>
-          <img src="uploads/home/feature/building_a_better_kibera.jpg">
-          <h4>Global Hearing Mission</h4>
-          <button ng-click="slide(0)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/celebrity_film.jpg">
-          <h4>Celebrity Support</h4>
-          <button ng-click="slide(1)">watch video &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(2)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/listen_carefully.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(3)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/operation_change.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(4)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/philippines_film.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(5)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/providing_clean_water_in_tanzania.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(6)">read stories &rarr;</button>
-        </div>
-      </thumblist-nav>
-    </section>
     <!-- end main content section -->
     <!--(bake partials/footer.html)-->
+    <!--(bake partials/js_includes.html)-->
 
-    <!-- build:js /assets/scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/ahundredyears-swiper/src/swipe.js"></script> <!-- TODO: get automatically -->
-    <script src="bower_components/ahundredyears-swiper/src/ahundredyears-swiper.js"></script>
-    <script src="bower_components/ahundredyears-thumblist-nav/src/jscrollpane.js"></script> <!-- TODO: get automatically -->
-    <script src="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.js"></script>
-    <script src="bower_components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="bower_components/bower-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js(.tmp) /assets/scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <script src="scripts/tab_behavior.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:js(.tmp) /assets/scripts/plugins.js -->
-    <!-- endbuild -->
 </body>
 </html>

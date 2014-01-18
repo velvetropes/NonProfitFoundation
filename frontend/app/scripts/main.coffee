@@ -1,4 +1,4 @@
-app = angular.module('starkey', ['ahundredyears.swiper', 'ahundredyears.thumblist-nav'])
+app = angular.module('starkey', ['ahundredyears.swiper', 'ahundredyears.thumblist-nav', 'ahundredyears.pagination'])
 
 app.controller 'bottomCarouselCtrl', ($scope) ->
 

@@ -4,12 +4,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Starkey Hearing Foundation</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!--(bake partials/head.html)-->
+
     <!-- build:css(.tmp) assets/styles/main.css -->
     <link rel="stylesheet" href="styles/app.css">
     <link rel='stylesheet' href="bower_components/ahundredyears-swiper/src/swiper.css">
@@ -18,9 +14,7 @@
   </head>
   <body class='programs-page page' ng:app="starkey">
 
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <!--(bake partials/browser_check.html)-->
 
     <!--(bake partials/header.html)-->
 
@@ -30,7 +24,6 @@
       <h1>Our programs</h1>
       <p>Programs overview lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dnt lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam.</p>
     </section>
-
 
     <section class='tabbed-content'>
       <nav>
@@ -106,68 +99,15 @@
       </article>
     </section>
     <br/>
-    <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
-      <thumblist-nav>
-        <div>
-          <img src="uploads/home/feature/building_a_better_kibera.jpg">
-          <h4>Global Hearing Mission</h4>
-          <button ng-click="slide(0)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/celebrity_film.jpg">
-          <h4>Celebrity Support</h4>
-          <button ng-click="slide(1)">watch video &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(2)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/listen_carefully.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(3)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/operation_change.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(4)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/philippines_film.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(5)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/providing_clean_water_in_tanzania.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(6)">read stories &rarr;</button>
-        </div>
-      </thumblist-nav>
-    </section>
+    <!--(bake-start _if="server")-->
+    <!--(bake partials/development/thumblist_nav.html)-->
+    <!--(bake-end)-->
+    <!--(bake-start _if="dist")-->
+      <p>Put production thumblist_nav here</p>
+    <!--(bake-end)-->
 
     <!--(bake partials/footer.html)-->
 
-    <!-- build:js /assets/scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/ahundredyears-swiper/src/swipe.js"></script> <!-- TODO: get automatically -->
-    <script src="bower_components/ahundredyears-swiper/src/ahundredyears-swiper.js"></script>
-    <script src="bower_components/ahundredyears-thumblist-nav/src/jscrollpane.js"></script> <!-- TODO: get automatically -->
-    <script src="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.js"></script>
-    <script src="bower_components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="bower_components/bower-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js(.tmp) /assets/scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <script src="scripts/tab_behavior.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:js(.tmp) /assets/scripts/plugins.js -->
-    <!-- endbuild -->
+    <!--(bake partials/js_includes.html)-->
 </body>
 </html>
