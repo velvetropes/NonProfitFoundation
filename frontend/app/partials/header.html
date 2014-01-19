@@ -61,7 +61,12 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/media_mentions.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='media_mentions/index'}">
+          <!--(bake-end)-->
             <h3 class="highlight">Media Mentions</h3>
             <h2>Lorem ipsum dolot, vix dico voluptua</h2>
           </a>
@@ -83,7 +88,12 @@
           </a>
         </li>
         <li>
+          <!--(bake-start _if="server")-->
           <a href="/programs.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='programs/index'}">
+          <!--(bake-end)-->
             <h3 class="highlight">Programs</h3>
             <h2>Help on the homefront</h2>
             <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
@@ -97,7 +107,12 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/blog.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='blog/index'}">
+          <!--(bake-end)-->
             <h3 class="highlight">Blog</h3>
             <h2>Daily Action</h2>
             <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>

@@ -11,9 +11,10 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
+
     <link rel="stylesheet" href="assets/styles/8f2c6af1.main.css"/>
   </head>
-  <body class='home-page page' ng:app="starkey">
+  <body class='programs-page page' ng:app="starkey">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -146,124 +147,88 @@
     
 
     <!-- Main content section -->
-    <section class="carousel hero" ng-controller="heroCarouselCtrl">
-    
-      <div class="swiper-controls">
-        <a href="#" class="left"><span class="icon starkey-pg-arrow-left"></span></a>
-        <a href="#" class="right"><span class="icon starkey-pg-arrow-right"></span></a>
-    
-        <ul class="position-indicator" id="hero-position" data-slider="hero">
-          <li class="on" data-id="1"><a href="#"></a></li>
-          <li class="" data-id="2"><a href="#"></a></li>
-          <li class="" data-id="3"><a href="#"></a></li>
-        </ul>
-      </div>
-    
-      <swiper class="swiper" speed="5000" continuous="true" auto="false">
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/commitment_to_action_film.jpg" />
-          </article>
-          <aside>
-            <h1>Commitment to Action</h1>
-            <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
-            <a href='#' class="action-link">Watch video</a>
-          </aside>
-        </div>
-    
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/building_sustainable_systems_of_hearing_care.jpg" />
-          </article>
-          <aside>
-            <h1>Building Sustainable Systems of Hearing Care</h1>
-            <p>To truly make an impact, our efforts must be sustainable. See how, by working closely, with on-the-ground partners, we bring patients long-term hearing care. We incorporate a full-circle approach that ensures patients will be connected to the world of sound for years to come.</p>
-            <a href='#' class="action-link">See what it takes to create lasting change.</a>
-          </aside>
-        </div>
-    
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/vikings_mission.jpg" />
-          </article>
-          <aside>
-            <h1>Hear at Home</h1>
-            <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country through domestic missions and the daily efforts of Hear Now, our  application-based program that provides hearing help to low-income Americans. Each person we help is fit with brand new, top-of-the-line digital hearing aids that are customized to their hearing loss.</p>
-            <a href='http://www.starkeyhearingfoundation.org/programs/hear-now/' class="action-link">Find out how we are changing lives in America every day.</a>
-          </aside>
-        </div>
-    
-      </swiper>
-    
+
+    <section class='page-leader'>
+      <h1>Our programs</h1>
+      <p>Programs overview lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dnt lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam.</p>
     </section>
 
-    <section class='mission-statement'>
-      <h1>We use hearing as a vehicle to change lives around the world.</h1>
+    <section class='tabbed-content'>
+      <nav>
+          <ul class='tabs row-table'>
+            <li>
+              <a href='#' data-content-class='.operation-change'>Operation Change</a>
+            </li>
+            <li>
+              <a href='#' data-content-class='.listen-carefully'>Listen Carefully</a>
+            </li>
+            <li>
+              <a href='#' data-content-class='.hear-now'>Hear Now</a>
+            </li>
+            <li>
+              <a href='#' data-content-class='.hearing-aid-recycling'>Hearing Aid Recycling</a>
+            </li>
+          </ul>
+      </nav>
+
+      <article class='tab-content operation-change'>
+        <div class="outer-container">
+          <h1>Operation change</h1>
+
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
+
+        <section class="carousel hero" ng-controller="heroCarouselCtrl">
+          <swiper class="swiper" speed="5000" continuous="true" auto="false">
+            <div class="slide">
+              <article>
+                <img src="uploads/home/hero/vikings_mission.jpg" />
+              </article>
+            </div>
+          </swiper>
+        </section>
+        <br/>
+        <div class="outer-container">
+          <h1>Our partnerships</h1>
+
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
+      </article>
+
+      <article class='tab-content listen-carefully'>
+        <div class="outer-container">
+          <h1>Listen Carefully</h1>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
+      </article>
+
+      <article class='tab-content hear-now'>
+        <div class="outer-container">
+          <h1>Hear Now</h1>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
+      </article>
+
+      <article class='tab-content hearing-aid-recycling'>
+        <div class="outer-container">
+          <h1>Hearing Aid Recycling</h1>
+          <p>Lorem ipsum dolor sit amet, vix dico voluptua iracundia ut, ut eam voluptatum adversarium. Omittam electram te has, ex usu novum dicunt. Everti iudicabit eu quo. Has postea sententiae an.</p>
+
+          <p>Ei nostro menandri sit, vitae urbanitas et cum, mel te lorem appareat disputationi. Id probo concludaturque nec, ex pri labore discere. Vim ei nonumes senserit suscipiantur, nibh animal quo an, ei vel assum bonorum invenire. In vis scripta inermis antiopam. Te mea repudiare gloriatur, error scribentur per ad. Eu alia moderatius vis, eos atqui assum incorrupte at.</p>
+        </div>
+      </article>
     </section>
+    <br/>
 
-    <section class='pictograms'>
-      <div class="pict">
-        <img src="uploads/home/picto/info_livesimpacted.jpg">
-      </div>
-
-      <div class="pict" style="text-align: center;">
-        <img src="uploads/home/picto/info_livesindirectly.jpg">
-      </div>
-
-      <div class="pict" style="text-align: right; border-right: none;">
-        <img src="uploads/home/picto/info_totalaids.jpg">
-      </div>
-    </section>
-
-    <section class="map">
-      <div id="map-popup">
-        <span class="close"><a href="#">Close</a></span>
-        <div class="content"></div>
-      </div>
-      <div id="world-map-gdp"></div>
-
-    </section>
-    <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
-      <thumblist-nav>
-        <div>
-          <img src="uploads/home/feature/building_a_better_kibera.jpg">
-          <h4>Global Hearing Mission</h4>
-          <button ng-click="slide(0)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/celebrity_film.jpg">
-          <h4>Celebrity Support</h4>
-          <button ng-click="slide(1)">watch video &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(2)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/listen_carefully.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(3)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/operation_change.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(4)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/philippines_film.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(5)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/providing_clean_water_in_tanzania.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(6)">read stories &rarr;</button>
-        </div>
-      </thumblist-nav>
-    </section>
-
-    <!-- end main content section -->
+      <p>Put production thumblist_nav here</p>
 
     <footer>
       <div>
@@ -324,11 +289,12 @@
         </section>
       </div>
     </footer>
+
     <script src="/assets/scripts/b90c57c9.vendor.js"></script>
-
+    
     <script src="/assets/scripts/dbf7d947.main.js"></script>
-
+    
     <script src="/assets/scripts/d41d8cd9.plugins.js"></script>
-
+    
 </body>
 </html>

@@ -13,7 +13,7 @@
     
     <link rel="stylesheet" href="assets/styles/8f2c6af1.main.css"/>
   </head>
-  <body class='home-page page' ng:app="starkey">
+  <body class='blog-index-page page'  ng:app="starkey">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -146,125 +146,124 @@
     
 
     <!-- Main content section -->
-    <section class="carousel hero" ng-controller="heroCarouselCtrl">
-    
-      <div class="swiper-controls">
-        <a href="#" class="left"><span class="icon starkey-pg-arrow-left"></span></a>
-        <a href="#" class="right"><span class="icon starkey-pg-arrow-right"></span></a>
-    
-        <ul class="position-indicator" id="hero-position" data-slider="hero">
-          <li class="on" data-id="1"><a href="#"></a></li>
-          <li class="" data-id="2"><a href="#"></a></li>
-          <li class="" data-id="3"><a href="#"></a></li>
-        </ul>
-      </div>
-    
-      <swiper class="swiper" speed="5000" continuous="true" auto="false">
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/commitment_to_action_film.jpg" />
-          </article>
-          <aside>
-            <h1>Commitment to Action</h1>
-            <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
-            <a href='#' class="action-link">Watch video</a>
-          </aside>
-        </div>
-    
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/building_sustainable_systems_of_hearing_care.jpg" />
-          </article>
-          <aside>
-            <h1>Building Sustainable Systems of Hearing Care</h1>
-            <p>To truly make an impact, our efforts must be sustainable. See how, by working closely, with on-the-ground partners, we bring patients long-term hearing care. We incorporate a full-circle approach that ensures patients will be connected to the world of sound for years to come.</p>
-            <a href='#' class="action-link">See what it takes to create lasting change.</a>
-          </aside>
-        </div>
-    
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/vikings_mission.jpg" />
-          </article>
-          <aside>
-            <h1>Hear at Home</h1>
-            <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country through domestic missions and the daily efforts of Hear Now, our  application-based program that provides hearing help to low-income Americans. Each person we help is fit with brand new, top-of-the-line digital hearing aids that are customized to their hearing loss.</p>
-            <a href='http://www.starkeyhearingfoundation.org/programs/hear-now/' class="action-link">Find out how we are changing lives in America every day.</a>
-          </aside>
-        </div>
-    
-      </swiper>
-    
-    </section>
 
-    <section class='mission-statement'>
-      <h1>We use hearing as a vehicle to change lives around the world.</h1>
-    </section>
-
-    <section class='pictograms'>
-      <div class="pict">
-        <img src="uploads/home/picto/info_livesimpacted.jpg">
+      <div class="outer-container">
+      <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
+        <thumblist-nav>
+          <div>
+            <img src="uploads/home/feature/building_a_better_kibera.jpg">
+            <h4>Global Hearing Mission</h4>
+            <button ng-click="slide(0)">read stories &rarr;</button>
+          </div>
+          <div>
+            <img src="uploads/home/feature/celebrity_film.jpg">
+            <h4>Celebrity Support</h4>
+            <button ng-click="slide(1)">watch video &rarr;</button>
+          </div>
+          <div>
+            <img src="uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(2)">read stories &rarr;</button>
+          </div>
+          <div>
+            <img src="uploads/home/feature/listen_carefully.jpg">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(3)">read stories &rarr;</button>
+          </div>
+          <div>
+            <img src="uploads/home/feature/operation_change.jpg">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(4)">read stories &rarr;</button>
+          </div>
+          <div>
+            <img src="uploads/home/feature/philippines_film.jpg">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(5)">read stories &rarr;</button>
+          </div>
+          <div>
+            <img src="uploads/home/feature/providing_clean_water_in_tanzania.jpg">
+            <h4>Lorem ipsum</h4>
+            <button ng-click="slide(6)">read stories &rarr;</button>
+          </div>
+        </thumblist-nav>
+      </section>
       </div>
 
-      <div class="pict" style="text-align: center;">
-        <img src="uploads/home/picto/info_livesindirectly.jpg">
+      <div class="outer-container">
+      <div ng-controller="PaginationController">
+          <div class="pagination-featured">
+            <div ng-repeat="featuredArticle in featured">
+              <h1></h1>
+            </div>
+          </div>
+      
+          <div class="pagination">
+            <ul>
+              <li ng-class="{disabled: currentPage == 0}">
+                <a href ng-click="prevPage()">Prev</a>
+              </li>
+              <li ng-repeat="n in range(pagedArticles.length)"
+                ng-class="{active: n == currentPage}"
+                ng-click="setPage()">
+                <a href ng-bind="n + 1">1</a>
+              </li>
+              <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
+                <a href ng-click="nextPage()">Next</a>
+              </li>
+            </ul>
+          </div>
+          <div class="spacer"></div>
+          <div class="outer-container">
+            <div class="pagination-articles " ng-repeat="articleCol in pagedArticles[currentPage]">
+              <div ng-repeat="article in articleCol">
+                <pagination article="article" lightbox="lightbox" add-tag="addTag" class= "row"></pagination>
+              </div>
+            </div>
+          </div>
+          <div class="center">
+            <div class="pagination">
+              <ul>
+                <li ng-class="{disabled: currentPage == 0}">
+                  <a href ng-click="prevPage()">Prev</a>
+                </li>
+                <li ng-repeat="n in range(pagedArticles.length)"
+                  ng-class="{active: n == currentPage}"
+                  ng-click="setPage()">
+                  <a href ng-bind="n + 1">1</a>
+                </li>
+                <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
+                  <a href ng-click="nextPage()">Next</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+      
+        <div class="modal fade" ng-class="{in: lightbox()}">
+          <div class="modal-header">
+            <button type="button" class="close" ng-click="lightbox(false)">×</button>
+            <h2>{{lightbox().title}}</h2>
+          </div>
+          <div class="modal-body">
+            <a href="{{lightbox().url}}">
+            Modal
+            </a>
+            <p>{{lightbox().desc}}</p>
+            <p>
+              <span class="label label-info pagination-tag" ng-repeat="tag in lightbox().tags"></span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <a href="{{lightbox().url}}" class="btn btn-primary">Check out the App</a>
+            <a ng-show="lightbox().src" href="{{lightbox().src}}" class="btn">View the Source</a>
+            <a ng-show="lightbox().info" href="{{lightbox().info}}" class="btn">Read More</a>
+          </div>
+        </div>
+        <div class="modal-backdrop fade" ng-class="{in: lightbox()}" ng-click='lightbox(false)'></div>
+      
       </div>
-
-      <div class="pict" style="text-align: right; border-right: none;">
-        <img src="uploads/home/picto/info_totalaids.jpg">
       </div>
-    </section>
-
-    <section class="map">
-      <div id="map-popup">
-        <span class="close"><a href="#">Close</a></span>
-        <div class="content"></div>
-      </div>
-      <div id="world-map-gdp"></div>
-
-    </section>
-    <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
-      <thumblist-nav>
-        <div>
-          <img src="uploads/home/feature/building_a_better_kibera.jpg">
-          <h4>Global Hearing Mission</h4>
-          <button ng-click="slide(0)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/celebrity_film.jpg">
-          <h4>Celebrity Support</h4>
-          <button ng-click="slide(1)">watch video &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(2)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/listen_carefully.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(3)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/operation_change.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(4)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/philippines_film.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(5)">read stories &rarr;</button>
-        </div>
-        <div>
-          <img src="uploads/home/feature/providing_clean_water_in_tanzania.jpg">
-          <h4>Lorem ipsum</h4>
-          <button ng-click="slide(6)">read stories &rarr;</button>
-        </div>
-      </thumblist-nav>
-    </section>
 
     <!-- end main content section -->
-
     <footer>
       <div>
         <section class='social-info'>
@@ -324,11 +323,13 @@
         </section>
       </div>
     </footer>
+
     <script src="/assets/scripts/b90c57c9.vendor.js"></script>
-
+    
     <script src="/assets/scripts/dbf7d947.main.js"></script>
-
+    
     <script src="/assets/scripts/d41d8cd9.plugins.js"></script>
+    
 
 </body>
 </html>

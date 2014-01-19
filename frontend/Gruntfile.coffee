@@ -20,11 +20,11 @@ module.exports = (grunt) ->
           ".tmp/programs.html" : 'app/programs.html',
           ".tmp/blog.html" : 'app/blog.html',
           ".tmp/media_mentions.html" : 'app/media_mentions.html',
-          ".tmp/partials/header.html" : 'app/partials/header.html',
-          ".tmp/partials/footer.html" : 'app/partials/footer.html',
-          ".tmp/partials/head.html" : 'app/partials/head.html',
-          ".tmp/partials/browser_check.html" : 'app/partials/browser_check.html',
-          ".tmp/partials/development/slider.html" : 'app/partials/development/slider.html',
+          # ".tmp/partials/header.html" : 'app/partials/header.html',
+          # ".tmp/partials/footer.html" : 'app/partials/footer.html',
+          # ".tmp/partials/head.html" : 'app/partials/head.html',
+          # ".tmp/partials/browser_check.html" : 'app/partials/browser_check.html',
+          # ".tmp/partials/development/slider.html" : 'app/partials/development/slider.html',
 
       dist:
         options:
@@ -32,7 +32,9 @@ module.exports = (grunt) ->
           section: "dist"
         files:
           "<%= app.dist %>/templates/default_site/pages.group/index.html" : 'app/index.html',
-          "<%= app.dist %>/templates/default_site/pages.group/programs.html" : 'app/programs.html',
+          "<%= app.dist %>/templates/default_site/programs.group/index.html" : 'app/programs.html',
+          "<%= app.dist %>/templates/default_site/blog.group/index.html" : 'app/blog.html',
+          "<%= app.dist %>/templates/default_site/media_mentions.group/index.html" : 'app/media_mentions.html',
      sass:
       dist:
         options:
@@ -272,7 +274,14 @@ module.exports = (grunt) ->
               cwd: "<%= app.dist %>/assets/",
               src: ['**'],
               dest: '../www/assets',
+            },
+            { #TODO: fix and remove
+              expand: true,
+              cwd: "app/styles/fonts/",
+              src: ['**'],
+              dest: '../www/assets/styles/fonts/',
             }
+
         ]
 
       images:
