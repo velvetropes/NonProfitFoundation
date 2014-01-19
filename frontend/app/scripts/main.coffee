@@ -23,7 +23,7 @@ $ ->
         $popup.fadeOut "slow", ->
           $popup
             .find(".content").empty()
-            .html("<img src='#{content.thumbnail_url}'/><h1>#{content.title}</h1><p>#{content.text}</p>")
+            .html("<span class='close'><a href='#'>X</a></span><img src='#{content.thumbnail_url}'/><div class='background-popup'><h1>#{content.title}</h1><p>#{content.text}</p></div>")
           $popup
             .fadeIn()
     mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
