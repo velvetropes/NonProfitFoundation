@@ -21,6 +21,7 @@ pagination {
 .pagination-articles {
   margin-bottom: 42px;
   @include span-columns(12);
+  padding: 0;
   > li {
      @include span-columns(4 of 12);
      @include omega(4n);
