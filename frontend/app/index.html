@@ -21,10 +21,33 @@
     <!--(bake partials/development/slider.html)-->
 
     <section class='mission-statement'>
-      <h1>We use hearing as a vehicle to change lives around the world.</h1>
+    <!--(bake-start _if="dist")-->
+      {exp:channel:entries channel="homepage_content" limit="1"}
+      <h1>{homepage_mission_statment}</h1>
+      {/exp:channel:entries}
+    <!--(bake-end)-->
+    <!--(bake-start _if="server")-->
+      <h1>Mission Statement</h1>
+    <!--(bake-end)-->
     </section>
 
     <section class='pictograms'>
+  <!--(bake-start _if="dist")-->
+      {homepage_pictograms}
+      <div class="pict">
+        <img src="{homepage_pictograms:slot_1}">
+      </div>
+
+      <div class="pict" style="text-align: center;">
+        <img src="{homepage_pictograms:slot_2}">
+      </div>
+
+      <div class="pict" style="text-align: right; border-right: none;">
+        <img src="{homepage_pictograms:slot_3}">
+      </div>
+      {/homepage_pictograms}
+  <!--(bake-end)-->
+  <!--(bake-start _if="server")-->
       <div class="pict">
         <img src="uploads/home/picto/info_livesimpacted.jpg">
       </div>
@@ -36,6 +59,7 @@
       <div class="pict" style="text-align: right; border-right: none;">
         <img src="uploads/home/picto/info_totalaids.jpg">
       </div>
+  <!--(bake-end)-->
     </section>
 
     <section class="map">

@@ -162,59 +162,48 @@
       </div>
     
       <swiper class="swiper" speed="5000" continuous="true" auto="false">
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/commitment_to_action_film.jpg" />
-          </article>
-          <aside>
-            <h1>Commitment to Action</h1>
-            <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
-            <a href='#' class="action-link">Watch video</a>
-          </aside>
-        </div>
     
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/building_sustainable_systems_of_hearing_care.jpg" />
-          </article>
-          <aside>
-            <h1>Building Sustainable Systems of Hearing Care</h1>
-            <p>To truly make an impact, our efforts must be sustainable. See how, by working closely, with on-the-ground partners, we bring patients long-term hearing care. We incorporate a full-circle approach that ensures patients will be connected to the world of sound for years to come.</p>
-            <a href='#' class="action-link">See what it takes to create lasting change.</a>
-          </aside>
-        </div>
-    
-        <div class="slide">
-          <article>
-            <img src="uploads/home/hero/vikings_mission.jpg" />
-          </article>
-          <aside>
-            <h1>Hear at Home</h1>
-            <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country through domestic missions and the daily efforts of Hear Now, our  application-based program that provides hearing help to low-income Americans. Each person we help is fit with brand new, top-of-the-line digital hearing aids that are customized to their hearing loss.</p>
-            <a href='http://www.starkeyhearingfoundation.org/programs/hear-now/' class="action-link">Find out how we are changing lives in America every day.</a>
-          </aside>
-        </div>
+          {exp:channel:entries channel="homepage_features" limit="5"}
+            <div class="slide">
+              <article>
+                <img src="{homepage_feature_splash_image}" />
+              </article>
+              <aside>
+                <h1>{title}</h1>
+                <p>{homepage_feature_subtitle}</p>
+                <a href='{homepage_feature_link}' class="action-link">{homepage_feature_cta}/a>
+              </aside>
+            </div>
+          {/exp:channel:entries}
+
     
       </swiper>
     
     </section>
+    
 
     <section class='mission-statement'>
-      <h1>We use hearing as a vehicle to change lives around the world.</h1>
+      {exp:channel:entries channel="homepage_content" limit="1"}
+      <h1>{homepage_mission_statment}</h1>
+      {/exp:channel:entries}
+
     </section>
 
     <section class='pictograms'>
+      {homepage_pictograms}
       <div class="pict">
-        <img src="uploads/home/picto/info_livesimpacted.jpg">
+        <img src="{homepage_pictograms:slot_1}">
       </div>
 
       <div class="pict" style="text-align: center;">
-        <img src="uploads/home/picto/info_livesindirectly.jpg">
+        <img src="{homepage_pictograms:slot_2}">
       </div>
 
       <div class="pict" style="text-align: right; border-right: none;">
-        <img src="uploads/home/picto/info_totalaids.jpg">
+        <img src="{homepage_pictograms:slot_3}">
       </div>
+      {/homepage_pictograms}
+
     </section>
 
     <section class="map">
@@ -325,7 +314,7 @@
         </section>
       </div>
     </footer>
-    <script src="/assets/scripts/b90c57c9.vendor.js"></script>
+    <script src="/assets/scripts/37a2aece.vendor.js"></script>
 
     <script src="/assets/scripts/6d184fa9.main.js"></script>
 
