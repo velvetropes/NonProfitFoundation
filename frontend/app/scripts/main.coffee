@@ -12,6 +12,7 @@ if $('.home-page').length
         map: "world_mill_en" #
         markers: data.coords
         markersSelectableOne: true
+        zoomOnScroll: false
         series:
           markers: [
             attribute: "fill"
