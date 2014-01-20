@@ -1,9 +1,32 @@
+pagination {
+  display: block;
+}
+.article-detail {
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: white;
+  z-index: 10;
+  &.visible {
+    display: block;
+  }
+  .close {
+    float: right;
+    margin: 0 10px 10px;
+  }
+}
 .pagination-articles {
   margin-bottom: 42px;
   @include span-columns(12);
-
+  width: 100%;
+  .article-row {
+    @include span-columns(12);
+  }
   .block {
-    // @include span-columns(4);
+    @include span-columns(4 of 12);
     display: inline-block;
     background: #F8F6F0;
     border-left: 1px dotted #333;
@@ -61,45 +84,4 @@
 }
 [ng-cloak] {
   display: none;
-}
-
-
-.pagination-lightbox {
-  position: fixed;
-  left: 0;
-  top: 40px;
-  bottom: 0;
-  right: 0;
-  padding: 50px;
-  text-align: center;
-  background: rgba(255, 255, 255, .85);
-  z-index: 2000;
-}
-.modal {
-  width: 900px;
-  margin-left: -450px;
-}
-.modal-body img {
-  width: 580px;
-  height: 400px;
-  padding: 20px;
-}
-.modal-body {
-  text-align: center;
-  max-height: 100%;
-}
-.modal-body p {
-  padding: 20px;
-}
-.modal.fade {
-  top: -150%;
-}
-.modal.fade.in {
-  top: 40%;
-}
-.modal-backdrop {
-  display: none;
-}
-.modal-backdrop.fade.in {
-  display: block;
 }
