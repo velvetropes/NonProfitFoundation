@@ -1,9 +1,41 @@
 <div ng-controller="PaginationController">
-    <div class="pagination-featured">
+
+  <div class="article-detail" ng-class="{visible: lightbox()}">
+    <span class="close"><a href="#">X</a></span>
+    <div class='background-stretch'>
+      <!--(bake-start _if="server")-->
+        <img src="uploads/home/hero/building_sustainable_systems_of_hearing_care_02.jpg">
+      <!--(bake-end)-->
+    </div>
+    <div class="outer-container">
+
+      <h1>{{lightbox().title}}</h1>
+      {{lightbox().text}}
+
+      <!--(bake-start _if="server")-->
+        <p>PBR vinyl Shoreditch before they sold out, keytar Tonx yr. Tonx yr voluptate literally synth. Farm-to-table officia reprehenderit post-ironic labore chia. Ad culpa Pitchfork gluten-free DIY plaid, ethnic id et typewriter proident small batch odio. PBR proident sint literally Helvetica pariatur lomo pug irony. Do fugiat post-ironic tousled 8-bit. Street art consequat before they sold out hashtag, deep v ullamco placeat yr messenger bag Bushwick Helvetica fap proident.
+        </p>
+
+        <p>Squid leggings whatever, reprehenderit artisan organic vinyl dolor minim. Est selvage narwhal ut, excepteur sapiente 90's street art disrupt. Roof party nihil cray, locavore delectus irony pickled paleo tempor meggings hella sed duis. Seitan forage Tonx hashtag, sunt Etsy et literally Brooklyn nulla DIY beard esse est High Life. Locavore cred Odd Future, ullamco McSweeney's mlkshk put a bird on it mollit deserunt Marfa stumptown cillum selfies. Cray raw denim adipisicing Godard. YOLO irony wolf eiusmod Pinterest.</p>
+
+        <p>Biodiesel adipisicing fixie meggings letterpress artisan. Delectus umami church-key mollit letterpress four loko. Voluptate flexitarian artisan, hella elit kogi Shoreditch pariatur single-origin coffee raw denim shabby chic. Veniam laboris forage selfies. Nostrud pug meggings dolore biodiesel, sed quinoa four loko bitters tote bag adipisicing exercitation. Raw denim readymade pickled seitan craft beer, odio Banksy art party mumblecore. Tumblr 90's officia vinyl.</p>
+
+        <p>Selfies viral nulla ethnic, Odd Future photo booth mollit street art kogi. Before they sold out mustache biodiesel, ugh kogi keffiyeh scenester. Etsy laborum post-ironic narwhal, 3 wolf moon organic sed irure cliche twee photo booth. Polaroid ullamco est, ugh stumptown put a bird on it drinking vinegar. Pour-over cupidatat et mustache, mollit nihil fanny pack vero meh qui velit tousled occaecat YOLO placeat. Nihil narwhal you probably haven't heard of them, raw denim ugh squid proident fap dreamcatcher et umami distillery yr. Nostrud yr ethnic nulla, sriracha fixie farm-to-table.</p>
+
+        <p>Adipisicing vinyl pariatur occupy, consectetur artisan distillery. Pitchfork before they sold out ad, authentic wayfarers semiotics consequat dolor. Tote bag nostrud ullamco Vice Helvetica skateboard laborum Thundercats, distillery drinking vinegar kale chips nesciunt accusamus ethnic narwhal. Excepteur XOXO kale chips aliquip. Cardigan ethical Banksy XOXO, minim swag mustache craft beer kale chips aute cred et forage hella. Brunch shabby chic veniam, kitsch banjo Pinterest gastropub trust fund twee irony dreamcatcher messenger bag church-key. Kitsch seitan do, four loko Shoreditch placeat banjo.</p>
+
+        <p>Blog deep v next level, vinyl fugiat pickled asymmetrical Godard letterpress nihil butcher consequat paleo farm-to-table. Non Portland velit, ethnic kitsch street art roof party next level. Fingerstache readymade lomo Etsy flexitarian, dolor 90's blog wayfarers asymmetrical enim. Intelligentsia Terry Richardson roof party kale chips street art polaroid. Mustache nostrud PBR cupidatat jean shorts. Tote bag nesciunt aliqua, Pitchfork exercitation adipisicing whatever readymade. Street art Brooklyn Wes Anderson, laborum irony Cosby sweater occaecat seitan mumblecore.</p>
+
+        <p>Vice exercitation do Thundercats, et mixtape dolor trust fund actually Austin Godard you probably haven't heard of them ethical. Pork belly do salvia, sapiente quis 8-bit Tonx pickled consequat delectus Terry Richardson. YOLO beard qui, consequat mumblecore et kitsch Vice tattooed slow-carb. Esse church-key raw denim Odd Future Pinterest labore, et fanny pack. Letterpress pop-up High Life Cosby sweater anim est. Irony small batch McSweeney's banjo street art, hella trust fund nisi Thundercats. Asymmetrical non XOXO photo booth do, banjo pork belly nisi ea.</p>
+      <!--(bake-end)-->
+    </div>
+    </div>
+  <div class="outer-container">
+    <!--     <div class="pagination-featured">
       <div ng-repeat="featuredArticle in featured">
         <h1>{{featuredArticle.title}}</h1>
       </div>
-    </div>
+    </div> -->
 
     <div class="pagination">
       <ul>
@@ -43,155 +75,5 @@
         </ul>
       </div>
     </div>
-
-  <div class="article-detail" ng-class="{visible: lightbox()}">
-    <header>
-      <div class="logo">
-        <!--(bake-start _if="server")-->
-          <img src="images/shared/starkey_logo.svg">
-        <!--(bake-end)-->
-        <!--(bake-start _if="dist")-->
-          <img src="images/starkey/starkey_logo.svg">
-        <!--(bake-end)-->
-      </div>
-
-      <div class='tagline'>
-        <h1>So The World May Hear.</h1>
-      </div>
-
-      <div class='social-links'>
-        <ul>
-          <li>
-            <a href='#' class="icon starkey-twitter-link"></a>
-          </li>
-          <li>
-            <a href='#' class="icon starkey-fb-link"></a>
-          </li>
-          <li>
-            <a href='#' class="icon starkey-insta-link"></a>
-          </li>
-          <li>
-            <a href='#' class="icon starkey-youtube"></a>
-          </li>
-        </ul>
-      </div>
-    </header>
-
-    <section class='outer-container'>
-      <nav class='header-nav'>
-        <div class='centered-half-container'>
-          <ul class='tabs row-table'>
-            <li>
-              <a href='#' data-content-class='.who-we-are'>Who we are</a>
-            </li>
-            <li>
-              <a href='#' data-content-class='.what-we-do'>What we do</a>
-            </li>
-            <li>
-              <a href='#' data-content-class='.get-involved'>Get involved</a>
-            </li>
-          </ul>
-        </div>
-          <!-- <hr/> -->
-        <article class='tab-content who-we-are'>
-          <ul>
-            <li>
-              <a href="#">
-                <h3 class="highlight">About Us</h3>
-                <h2>Our Mission</h2>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="highlight">Team</h3>
-                <h2>Lorem ipsum dolor sit amet, vixtua</h2>
-              </a>
-            </li>
-            <li>
-              <!--(bake-start _if="server")-->
-              <a href="/media_mentions.html">
-              <!--(bake-end)-->
-              <!--(bake-start _if="dist")-->
-              <a href="{path='media_mentions/index'}">
-              <!--(bake-end)-->
-                <h3 class="highlight">Media Mentions</h3>
-                <h2>Lorem ipsum dolot, vix dico voluptua</h2>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="highlight">Contact</h3>
-                <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
-              </a>
-            </li>
-          </ul>
-        </article>
-        <article class='tab-content what-we-do'>
-          <ul>
-            <li>
-              <a href="#">
-                <h3 class="highlight">Mission</h3>
-                <h2>Our Global Impact</h2>
-              </a>
-            </li>
-            <li>
-              <!--(bake-start _if="server")-->
-              <a href="/programs.html">
-              <!--(bake-end)-->
-              <!--(bake-start _if="dist")-->
-              <a href="{path='programs/index'}">
-              <!--(bake-end)-->
-                <h3 class="highlight">Programs</h3>
-                <h2>Help on the homefront</h2>
-                <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="highlight">Gala</h3>
-                <h2>So the world may hear</h2>
-                <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
-              </a>
-            </li>
-            <li>
-              <!--(bake-start _if="server")-->
-              <a href="/blog.html">
-              <!--(bake-end)-->
-              <!--(bake-start _if="dist")-->
-              <a href="{path='blog/index'}">
-              <!--(bake-end)-->
-                <h3 class="highlight">Blog</h3>
-                <h2>Daily Action</h2>
-                <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
-              </a>
-            </li>
-          </ul>
-        </article>
-        <article class='tab-content get-involved'>
-          <ul>
-            <li>
-              <a href="#">
-                <h3 class="highlight">Take Action</h3>
-                <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="highlight">Donate Now</h3>
-                <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
-              </a>
-            </li>
-          </ul>
-        </article>
-      </nav>
-    </section>
-
-    <div class="outer-container">
-      <span class="close"><a href="#">X</a></span>
-
-      <h1>{{lightbox().title}}</h1>
-      {{lightbox().text}}
-    </div>
   </div>
-
 </div>

@@ -2,14 +2,7 @@ pagination {
   display: block;
 }
 .article-detail {
-  position: fixed;
   display: none;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: white;
-  z-index: 10000;
   &.visible {
     display: block;
   }
