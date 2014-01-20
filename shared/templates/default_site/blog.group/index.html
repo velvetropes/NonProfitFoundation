@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/8f2c6af1.main.css"/>
+    <link rel="stylesheet" href="assets/styles/10fc1463.main.css"/>
   </head>
   <body class='blog-index-page page'  ng:app="starkey">
 
@@ -21,8 +21,10 @@
 
     <header>
       <div class="logo">
+        <a href="/">
 
           <img src="images/starkey/starkey_logo.svg">
+        </a>
       </div>
     
       <div class='tagline'>
@@ -213,13 +215,11 @@
             </ul>
           </div>
           <div class="spacer"></div>
-          <div class="outer-container">
-            <div class="pagination-articles " ng-repeat="articleCol in pagedArticles[currentPage]">
-              <div ng-repeat="article in articleCol">
-                <pagination article="article" lightbox="lightbox" add-tag="addTag" class= "row"></pagination>
-              </div>
-            </div>
-          </div>
+          <ul class="pagination-articles outer-container" ng-repeat="articleCol in pagedArticles[currentPage]">
+            <li class="article-row" ng-repeat="article in articleCol">
+              <pagination article="article" lightbox="lightbox" add-tag="addTag"></pagination>
+            </li>
+          </ul>
           <div class="center">
             <div class="pagination">
               <ul>
@@ -238,27 +238,139 @@
             </div>
           </div>
       
-        <div class="modal fade" ng-class="{in: lightbox()}">
-          <div class="modal-header">
-            <button type="button" class="close" ng-click="lightbox(false)">×</button>
-            <h2>{{lightbox().title}}</h2>
-          </div>
-          <div class="modal-body">
-            <a href="{{lightbox().url}}">
-            Modal
-            </a>
-            <p>{{lightbox().desc}}</p>
-            <p>
-              <span class="label label-info pagination-tag" ng-repeat="tag in lightbox().tags"></span>
-            </p>
-          </div>
-          <div class="modal-footer">
-            <a href="{{lightbox().url}}" class="btn btn-primary">Check out the App</a>
-            <a ng-show="lightbox().src" href="{{lightbox().src}}" class="btn">View the Source</a>
-            <a ng-show="lightbox().info" href="{{lightbox().info}}" class="btn">Read More</a>
+        <div class="article-detail" ng-class="{visible: lightbox()}">
+          <header>
+            <div class="logo">
+
+                <img src="images/starkey/starkey_logo.svg">
+            </div>
+      
+            <div class='tagline'>
+              <h1>So The World May Hear.</h1>
+            </div>
+      
+            <div class='social-links'>
+              <ul>
+                <li>
+                  <a href='#' class="icon starkey-twitter-link"></a>
+                </li>
+                <li>
+                  <a href='#' class="icon starkey-fb-link"></a>
+                </li>
+                <li>
+                  <a href='#' class="icon starkey-insta-link"></a>
+                </li>
+                <li>
+                  <a href='#' class="icon starkey-youtube"></a>
+                </li>
+              </ul>
+            </div>
+          </header>
+      
+          <section class='outer-container'>
+            <nav class='header-nav'>
+              <div class='centered-half-container'>
+                <ul class='tabs row-table'>
+                  <li>
+                    <a href='#' data-content-class='.who-we-are'>Who we are</a>
+                  </li>
+                  <li>
+                    <a href='#' data-content-class='.what-we-do'>What we do</a>
+                  </li>
+                  <li>
+                    <a href='#' data-content-class='.get-involved'>Get involved</a>
+                  </li>
+                </ul>
+              </div>
+                <!-- <hr/> -->
+              <article class='tab-content who-we-are'>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">About Us</h3>
+                      <h2>Our Mission</h2>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Team</h3>
+                      <h2>Lorem ipsum dolor sit amet, vixtua</h2>
+                    </a>
+                  </li>
+                  <li>
+
+                    <a href="{path='media_mentions/index'}">
+                      <h3 class="highlight">Media Mentions</h3>
+                      <h2>Lorem ipsum dolot, vix dico voluptua</h2>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Contact</h3>
+                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+                    </a>
+                  </li>
+                </ul>
+              </article>
+              <article class='tab-content what-we-do'>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Mission</h3>
+                      <h2>Our Global Impact</h2>
+                    </a>
+                  </li>
+                  <li>
+
+                    <a href="{path='programs/index'}">
+                      <h3 class="highlight">Programs</h3>
+                      <h2>Help on the homefront</h2>
+                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Gala</h3>
+                      <h2>So the world may hear</h2>
+                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+                    </a>
+                  </li>
+                  <li>
+
+                    <a href="{path='blog/index'}">
+                      <h3 class="highlight">Blog</h3>
+                      <h2>Daily Action</h2>
+                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+                    </a>
+                  </li>
+                </ul>
+              </article>
+              <article class='tab-content get-involved'>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Take Action</h3>
+                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Donate Now</h3>
+                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+                    </a>
+                  </li>
+                </ul>
+              </article>
+            </nav>
+          </section>
+      
+          <div class="outer-container">
+            <span class="close"><a href="#">X</a></span>
+      
+            <h1>{{lightbox().title}}</h1>
+            {{lightbox().text}}
           </div>
         </div>
-        <div class="modal-backdrop fade" ng-class="{in: lightbox()}" ng-click='lightbox(false)'></div>
       
       </div>
       </div>
@@ -326,7 +438,7 @@
 
     <script src="/assets/scripts/b90c57c9.vendor.js"></script>
     
-    <script src="/assets/scripts/dbf7d947.main.js"></script>
+    <script src="/assets/scripts/67274fe4.main.js"></script>
     
     <script src="/assets/scripts/d41d8cd9.plugins.js"></script>
     

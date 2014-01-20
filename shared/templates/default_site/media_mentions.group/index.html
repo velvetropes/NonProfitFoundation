@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/8f2c6af1.main.css"/>
+    <link rel="stylesheet" href="assets/styles/10fc1463.main.css"/>
   </head>
   <body class='media-mentions-page page' ng:app="starkey">
 
@@ -21,8 +21,10 @@
 
     <header>
       <div class="logo">
+        <a href="/">
 
           <img src="images/starkey/starkey_logo.svg">
+        </a>
       </div>
     
       <div class='tagline'>
@@ -147,13 +149,240 @@
 
     <!-- Main content section -->
 
-
-          <p>Put production slider here</p>
+      <section class="carousel hero" ng-controller="heroCarouselCtrl">
+      
+        <div class="swiper-controls">
+          <a href="#" class="left"><span class="icon starkey-pg-arrow-left"></span></a>
+          <a href="#" class="right"><span class="icon starkey-pg-arrow-right"></span></a>
+      
+          <ul class="position-indicator" id="hero-position" data-slider="hero">
+            <li class="on" data-id="1"><a href="#"></a></li>
+            <li class="" data-id="2"><a href="#"></a></li>
+            <li class="" data-id="3"><a href="#"></a></li>
+          </ul>
+        </div>
+      
+        <swiper class="swiper" speed="5000" continuous="true" auto="false">
+          <div class="slide">
+            <article>
+              <img src="uploads/home/hero/commitment_to_action_film.jpg" />
+            </article>
+            <aside>
+              <h1>Commitment to Action</h1>
+              <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
+              <a href='#' class="action-link">Watch video</a>
+            </aside>
+          </div>
+      
+          <div class="slide">
+            <article>
+              <img src="uploads/home/hero/building_sustainable_systems_of_hearing_care.jpg" />
+            </article>
+            <aside>
+              <h1>Building Sustainable Systems of Hearing Care</h1>
+              <p>To truly make an impact, our efforts must be sustainable. See how, by working closely, with on-the-ground partners, we bring patients long-term hearing care. We incorporate a full-circle approach that ensures patients will be connected to the world of sound for years to come.</p>
+              <a href='#' class="action-link">See what it takes to create lasting change.</a>
+            </aside>
+          </div>
+      
+          <div class="slide">
+            <article>
+              <img src="uploads/home/hero/vikings_mission.jpg" />
+            </article>
+            <aside>
+              <h1>Hear at Home</h1>
+              <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country through domestic missions and the daily efforts of Hear Now, our  application-based program that provides hearing help to low-income Americans. Each person we help is fit with brand new, top-of-the-line digital hearing aids that are customized to their hearing loss.</p>
+              <a href='http://www.starkeyhearingfoundation.org/programs/hear-now/' class="action-link">Find out how we are changing lives in America every day.</a>
+            </aside>
+          </div>
+      
+        </swiper>
+      
+      </section>
 
       <div class="outer-container">
 
+      <div ng-controller="PaginationController">
+          <div class="pagination-featured">
+            <div ng-repeat="featuredArticle in featured">
+              <h1></h1>
+            </div>
+          </div>
+      
+          <div class="pagination">
+            <ul>
+              <li ng-class="{disabled: currentPage == 0}">
+                <a href ng-click="prevPage()">Prev</a>
+              </li>
+              <li ng-repeat="n in range(pagedArticles.length)"
+                ng-class="{active: n == currentPage}"
+                ng-click="setPage()">
+                <a href ng-bind="n + 1">1</a>
+              </li>
+              <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
+                <a href ng-click="nextPage()">Next</a>
+              </li>
+            </ul>
+          </div>
+          <div class="spacer"></div>
+          <ul class="pagination-articles outer-container" ng-repeat="articleCol in pagedArticles[currentPage]">
+            <li class="article-row" ng-repeat="article in articleCol">
+              <pagination article="article" lightbox="lightbox" add-tag="addTag"></pagination>
+            </li>
+          </ul>
+          <div class="center">
+            <div class="pagination">
+              <ul>
+                <li ng-class="{disabled: currentPage == 0}">
+                  <a href ng-click="prevPage()">Prev</a>
+                </li>
+                <li ng-repeat="n in range(pagedArticles.length)"
+                  ng-class="{active: n == currentPage}"
+                  ng-click="setPage()">
+                  <a href ng-bind="n + 1">1</a>
+                </li>
+                <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
+                  <a href ng-click="nextPage()">Next</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+      
+        <div class="article-detail" ng-class="{visible: lightbox()}">
+          <header>
+            <div class="logo">
 
-          <p>Put production pagination here</p>
+                <img src="images/starkey/starkey_logo.svg">
+            </div>
+      
+            <div class='tagline'>
+              <h1>So The World May Hear.</h1>
+            </div>
+      
+            <div class='social-links'>
+              <ul>
+                <li>
+                  <a href='#' class="icon starkey-twitter-link"></a>
+                </li>
+                <li>
+                  <a href='#' class="icon starkey-fb-link"></a>
+                </li>
+                <li>
+                  <a href='#' class="icon starkey-insta-link"></a>
+                </li>
+                <li>
+                  <a href='#' class="icon starkey-youtube"></a>
+                </li>
+              </ul>
+            </div>
+          </header>
+      
+          <section class='outer-container'>
+            <nav class='header-nav'>
+              <div class='centered-half-container'>
+                <ul class='tabs row-table'>
+                  <li>
+                    <a href='#' data-content-class='.who-we-are'>Who we are</a>
+                  </li>
+                  <li>
+                    <a href='#' data-content-class='.what-we-do'>What we do</a>
+                  </li>
+                  <li>
+                    <a href='#' data-content-class='.get-involved'>Get involved</a>
+                  </li>
+                </ul>
+              </div>
+                <!-- <hr/> -->
+              <article class='tab-content who-we-are'>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">About Us</h3>
+                      <h2>Our Mission</h2>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Team</h3>
+                      <h2>Lorem ipsum dolor sit amet, vixtua</h2>
+                    </a>
+                  </li>
+                  <li>
+
+                    <a href="{path='media_mentions/index'}">
+                      <h3 class="highlight">Media Mentions</h3>
+                      <h2>Lorem ipsum dolot, vix dico voluptua</h2>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Contact</h3>
+                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+                    </a>
+                  </li>
+                </ul>
+              </article>
+              <article class='tab-content what-we-do'>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Mission</h3>
+                      <h2>Our Global Impact</h2>
+                    </a>
+                  </li>
+                  <li>
+
+                    <a href="{path='programs/index'}">
+                      <h3 class="highlight">Programs</h3>
+                      <h2>Help on the homefront</h2>
+                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Gala</h3>
+                      <h2>So the world may hear</h2>
+                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+                    </a>
+                  </li>
+                  <li>
+
+                    <a href="{path='blog/index'}">
+                      <h3 class="highlight">Blog</h3>
+                      <h2>Daily Action</h2>
+                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
+                    </a>
+                  </li>
+                </ul>
+              </article>
+              <article class='tab-content get-involved'>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Take Action</h3>
+                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3 class="highlight">Donate Now</h3>
+                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
+                    </a>
+                  </li>
+                </ul>
+              </article>
+            </nav>
+          </section>
+      
+          <div class="outer-container">
+            <span class="close"><a href="#">X</a></span>
+      
+            <h1>{{lightbox().title}}</h1>
+            {{lightbox().text}}
+          </div>
+        </div>
+      
+      </div>
       </div>
     <!-- end main content section -->
     <footer>
@@ -218,7 +447,7 @@
 
     <script src="/assets/scripts/b90c57c9.vendor.js"></script>
     
-    <script src="/assets/scripts/dbf7d947.main.js"></script>
+    <script src="/assets/scripts/67274fe4.main.js"></script>
     
     <script src="/assets/scripts/d41d8cd9.plugins.js"></script>
     
