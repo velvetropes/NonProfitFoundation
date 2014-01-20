@@ -33,6 +33,7 @@
 
     <section class='pictograms'>
   <!--(bake-start _if="dist")-->
+  {exp:channel:entries channel="homepage_content" limit="1"}
       {homepage_pictograms}
       <div class="pict">
         <img src="{homepage_pictograms:slot_1}">
@@ -46,6 +47,7 @@
         <img src="{homepage_pictograms:slot_3}">
       </div>
       {/homepage_pictograms}
+    {/exp:channel:entries}
   <!--(bake-end)-->
   <!--(bake-start _if="server")-->
       <div class="pict">

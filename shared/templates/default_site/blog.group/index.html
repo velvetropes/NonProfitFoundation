@@ -157,38 +157,18 @@
             <h4>Global Hearing Mission</h4>
             <button ng-click="slide(0)">read stories &rarr;</button>
           </div>
+      
+          {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
           <div>
-            <img src="uploads/home/feature/celebrity_film.jpg">
-            <h4>Celebrity Support</h4>
-            <button ng-click="slide(1)">watch video &rarr;</button>
+            <img src="{carousel_image}">
+            <h4>{title}</h4>
+            <button ng-click="slide({count})">watch video &rarr;</button>
           </div>
-          <div>
-            <img src="uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(2)">read stories &rarr;</button>
-          </div>
-          <div>
-            <img src="uploads/home/feature/listen_carefully.jpg">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(3)">read stories &rarr;</button>
-          </div>
-          <div>
-            <img src="uploads/home/feature/operation_change.jpg">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(4)">read stories &rarr;</button>
-          </div>
-          <div>
-            <img src="uploads/home/feature/philippines_film.jpg">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(5)">read stories &rarr;</button>
-          </div>
-          <div>
-            <img src="uploads/home/feature/providing_clean_water_in_tanzania.jpg">
-            <h4>Lorem ipsum</h4>
-            <button ng-click="slide(6)">read stories &rarr;</button>
-          </div>
+          {/exp:channel:entries}
+      
         </thumblist-nav>
       </section>
+      
       </div>
 
       <div class="outer-container">
