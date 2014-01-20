@@ -35,7 +35,7 @@ class HeaderTabNav extends TabBehavior
     super
 
   setupListeners: ->
-    @rootElement.on "click", "li", (e) =>
+    @rootElement.on "click", "ul.tabs li", (e) =>
       e.preventDefault()
       isActive = $(e.currentTarget).hasClass('active')
       @removeActiveClass()
@@ -43,6 +43,10 @@ class HeaderTabNav extends TabBehavior
       unless isActive
         @setActiveLink(e.currentTarget)
         @makeActive($(e.currentTarget))
+
+    # @rootElement.on "click", ".tab-content a", (e) =>
+    #   e.preventDefault()
+
 
 class ProgramsPageView extends TabBehavior
 
