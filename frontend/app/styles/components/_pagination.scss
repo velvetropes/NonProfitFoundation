@@ -9,7 +9,7 @@ pagination {
   left: 0;
   bottom: 0;
   background: white;
-  z-index: 10;
+  z-index: 10000;
   &.visible {
     display: block;
   }
