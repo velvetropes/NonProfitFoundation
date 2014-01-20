@@ -117,6 +117,24 @@
   content: "\e61d";
 }
 
+.starkey-legend-program:before {
+  @extend .starkey-legend-1:before;
+  }
+.starkey-legend-stories:before {
+  @extend .starkey-legend-2:before;
+  }
+.starkey-legend-where-we-are-now:before {
+  @extend .starkey-legend-6:before;
+  }
+.starkey-legend-video:before {
+  @extend .starkey-legend-3:before;
+  }
+.starkey-legend-gallery:before {
+  @extend .starkey-legend-4:before;
+  }
+.starkey-legend-profile:before {
+  @extend .starkey-legend-5:before;
+  }
 
 .alrightsansbold {
   font-family: "Alright Sans";

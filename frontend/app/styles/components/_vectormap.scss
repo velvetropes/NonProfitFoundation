@@ -46,6 +46,33 @@
   }
 }
 
+.map-legend {
+  position: absolute;
+  padding: 0;
+  width: 200px;
+  height: 210px;
+  bottom: 20px;
+  right: 0;
+  z-index: 1;
+  background: #116293;
+  ul {
+    list-style: none;
+    padding: 0 15px;
+    color: white;
+    text-transform: uppercase;
+    li {
+      @extend .alrightsanbold;
+      font-size: .75em;
+      line-height: 2.5em;
+      .icon {
+        font-size: 1.25em;
+        font-weight: bold;
+        margin: 6px 8px 0 0;
+        float: left;
+      }
+    }
+  }
+}
 .jvectormap-zoomin, .jvectormap-zoomout {
   position: absolute;
   right: 10px;
