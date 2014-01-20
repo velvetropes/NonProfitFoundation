@@ -22,7 +22,7 @@
     </div>
     <div class="spacer"></div>
     <ul class="pagination-articles outer-container" ng-repeat="articleCol in pagedArticles[currentPage]">
-      <li class="article-row" ng-repeat="article in articleCol">
+      <li ng-repeat="article in articleCol">
         <pagination article="article" lightbox="lightbox" add-tag="addTag"></pagination>
       </li>
     </ul>
