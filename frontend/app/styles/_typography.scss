@@ -203,3 +203,31 @@ a {
     @extend .alrightsansregular;
   }
 }
+
+// Page mastheads
+.masthead {
+  text-align: center;
+  margin-top: 50px;
+  .section-title {
+    color: $light-blue;
+    text-transform: uppercase;
+    font-size: 1.125em;
+  }
+  .section-headline {
+    text-transform: uppercase;
+    font-size: 3.75em;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  p {
+    margin: 10px 0 0;
+  }
+  .call-to-action {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 30px;
+    a {
+      text-decoration: underline;
+    }
+  }
+}
