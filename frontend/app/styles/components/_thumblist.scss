@@ -1,11 +1,20 @@
 /* Thumblist nav */
-.thumblist-nav {
+
+.thumblist .thumblist-nav {
   height: 335px;
   .jspPane {
+    position: absolute;
+    img {
+      width: 400px;
+      height: 210px;
+    }
+    > div {
+      width: 400px;
+      height: 330px;
+    }
     .ng-scope {
       border: 1px dotted #ddd;
       border-right: none;
-
     }
     h4 {
       @extend .verlagbold;
@@ -25,16 +34,38 @@
       color: $gray-title;
     }
   }
+  &.horizontal-only {
+    max-height: 335px;
+  }
 }
 
-.horizontal-only {
-  max-height: 335px;
-}
-
-.jspPane > div {
-  width: 400px;
-  height: 330px;
-
+.thumblist.full .thumblist-nav {
+  height: 422px;
+  .jspPane {
+    > div {
+      width: 680px;
+      height: 410px;
+    }
+    h4 {
+      margin-top: 3px;
+      color: white;
+      font-size: 2.25em;
+    }
+    .category {
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: -90px 0 0 30px;
+      font-size: .875em;
+    }
+    img {
+      width:  680px;
+      height: 410px;
+    }
+  }
+  &.horizontal-only {
+    max-height: 422px;
+  }
 }
 
 .jspDrag {
@@ -100,14 +131,6 @@
   }
 }
 
-.jspPane {
-  position: absolute;
-  img {
-    width: 400px;
-    height: 210px;
-  }
-}
-
 .jspHorizontalBar {
   position: absolute;
   bottom: 0;
@@ -123,8 +146,6 @@
 .jspHorizontalBar .jspCap {
   float: left;
 }
-
-
 
 .jspDrag {
   background: #bbd;

@@ -1,0 +1,48 @@
+<section class='carousel bottom thumblist full' ng-controller="bottomCarouselCtrl">
+  <thumblist-nav>
+  <!--(bake-start _if="server")-->
+    <div>
+      <img src="uploads/home/feature/building_a_better_kibera.jpg"/>
+      <p class="category">Hearing Missions</p>
+      <h4>Commitment to Action</h4>
+    </div>
+    <div>
+      <img src="uploads/home/feature/building_a_better_kibera.jpg"/>
+      <p class="category">Hearing Missions</p>
+      <h4>Notes from the Road</h4>
+    </div>
+    <div>
+      <img src="uploads/home/feature/building_a_better_kibera.jpg"/>
+      <p class="category">Hearing Missions</p>
+      <h4>Global Hearing Mission</h4>
+    </div>
+    <div>
+      <img src="uploads/home/feature/building_a_better_kibera.jpg"/>
+      <p class="category">Hearing Missions</p>
+      <h4>Commitment to Action</h4>
+    </div>
+    <div>
+      <img src="uploads/home/feature/building_a_better_kibera.jpg"/>
+      <p class="category">Hearing Missions</p>
+      <h4>Global Hearing Mission</h4>
+    </div>
+    <div>
+      <img src="uploads/home/feature/building_a_better_kibera.jpg"/>
+      <p class="category">Hearing Missions</p>
+      <h4>Global Hearing Mission</h4>
+    </div>
+  <!--(bake-end)-->
+
+  <!--(bake-start _if="dist")-->
+    {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
+    <div>
+      <img src="{carousel_image}">
+      <!-- TODO: splice on category placeholder -->
+      <p class="category">Hearing Missions</p>
+      <h4>{title}</h4>
+    </div>
+    {/exp:channel:entries}
+  <!--(bake-end)-->
+
+  </thumblist-nav>
+</section>
