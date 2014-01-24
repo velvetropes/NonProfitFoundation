@@ -5,6 +5,8 @@
     "jquery": "~2.0.3",
     "angular": "~1.2.0",
     "angular-route": "~1.2.0",
+    "angular-resource": "~1.2.9",
+    "angular-sanitize": "~1.2.9",
     "ahundredyears-swiper": "git@github.com:bullrico/ahundredyears-swiper.git",
     "ahundredyears-thumblist-nav": "git@github.com:bullrico/ahundredyears-thumblist-nav.git",
     "ahundredyears-pagination": "git@github.com:bullrico/ahundredyears-pagination.git",

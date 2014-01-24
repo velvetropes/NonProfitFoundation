@@ -1,0 +1,18 @@
+.article-header-image {
+  color: white;
+  margin-bottom: 40px;
+  img {
+    width: 100%;
+  }
+  .article-item-category {
+    @extend .alrightsanslight;
+    font-size: .875em;
+    margin-top: -110px;
+    text-transform: uppercase;
+  }
+  .article-title {
+    font-size: 3em;
+    @extend .alrightsansbold;
+    margin-top: 10px;
+  }
+}

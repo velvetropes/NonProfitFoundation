@@ -1,0 +1,45 @@
+<div class="outer-container">
+  <div class="masthead">
+    <h3 class="section-title">Blog</h3>
+    <h3 class="section-headline">News &amp; Events</h3>
+    <p>Click around to read our latest news and updates.</p>
+    <p class="call-to-action">
+      <a href="#">Subscribe to our newsletter</a>
+      to stay up to date
+    </p>
+  </div>
+</div>
+
+<section class='carousel thumblist full'>
+  <thumblist-nav>
+    <div ng-repeat="article in articles | filter:{featured:'true'}">
+      <img ng-src="{{article.thumbnail_image_url}}"/>
+      <p class="blog-category">{{article.blog_item_category}}</p>
+      <a href="#/articles/{{article.id}}">
+        <h4>{{article.title}}</h4>
+      </a>
+    </div>
+  </thumblist-nav>
+</section>
+<br/>
+<div class="outer-container">
+  <div class="pagination">
+    <ul>
+      <li ng-class="{disabled: currentPage == 0}">
+        <a href ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Prev</a>
+      </li>
+      <li ng-class="{disabled: currentPage >= articles.length/pageSize - 1}">
+        <a href ng-click="currentPage=currentPage+1">Next</a>
+      </li>
+    </ul>
+  </div>
+  <ul class="pagination-articles">
+    <li ng-repeat="article in articles | filter:{featured:'false'} | startFrom:currentPage*pageSize | limitTo:pageSize">
+      <div class='block'>
+        <img ng-src='{{article.thumbnail_image_url}}'/>
+        <h2>{{article.title}}</h2>
+        <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+      </div>
+    </li>
+  </ul>
+</div>

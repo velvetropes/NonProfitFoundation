@@ -1,3 +1,21 @@
+blogPagesApp = angular.module("blogPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "blogPagesControllers", "blogPagesServices"])
+
+blogPagesApp.config ["$routeProvider", ($routeProvider) ->
+  $routeProvider.when("/articles",
+    templateUrl: "partials/articles/index.html"
+    controller: "BlogIndexCtrl"
+  ).when("/articles/:articleId",
+    templateUrl: "partials/articles/show.html"
+    controller: "BlogShowCtrl"
+  ).otherwise redirectTo: "/articles"
+]
+
+blogPagesApp.filter "startFrom", ->
+  (input, start) ->
+    start = +start #parse to int
+    input.slice start
+
+
 app = angular.module('starkey', ['ahundredyears.swiper', 'ahundredyears.thumblist-nav', 'ahundredyears.pagination'])
 
 app.controller 'bottomCarouselCtrl', ($scope) ->

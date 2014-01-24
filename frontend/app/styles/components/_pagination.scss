@@ -15,9 +15,10 @@ pagination {
   margin-bottom: 42px;
   @include span-columns(12);
   padding: 0;
-  > li {
+  li {
      @include span-columns(4 of 12);
-     @include omega(4n);
+     @include omega(3n);
+     margin-bottom: 42px;
     .block {
       display: inline-block;
       background: #F8F6F0;
