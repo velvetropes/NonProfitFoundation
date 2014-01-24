@@ -1,6 +1,17 @@
 <div class="article-header-image">
   <img ng-src="{{article.header_image_url}}"/>
   <div class="outer-container">
+    <ul class="page-nav-links">
+      <li>
+        <a href ng-disabled="currentPosition == 0" ng-click="currentPosition=currentPosition-1">&larr;</a>
+      </li>
+      <li>
+        <a href ng-click="currentPosition=currentPosition+1">&rarr;</a>
+      </li>
+      <li>
+        <a href="#">X</a>
+      </li>
+    </ul>
     <p class="article-item-category">{{article.blog_item_category}}</p>
     <h1  class="article-title">{{article.title}}</h1>
   </div>

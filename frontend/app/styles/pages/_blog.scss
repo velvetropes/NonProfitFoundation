@@ -1,6 +1,64 @@
+.articles-filters {
+  padding: 0;
+  float: left;
+  list-style: none;
+  text-transform: uppercase;
+  li {
+    display: inline-block;
+    position: relative;
+    background: #fff;
+    padding: 0;
+    background: #fff;
+    z-index: 100000;
+    a {
+      margin: 0;
+    }
+    ul {
+      padding: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      visibility: hidden;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      li {
+        display: block;
+        padding: 0 15px 10px;
+      }
+    }
+    &:hover {
+      ul {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        left: -15px;
+      }
+    }
+  }
+
+
+}
 .article-header-image {
   color: white;
   margin-bottom: 40px;
+  position: relative;
+  .page-nav-links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0;
+    li {
+      display: inline-block;
+      a {
+        @extend .alrightsanslight;
+        padding: 10px 10px 5px;
+        background: #eee;
+        font-size: 2em;
+      }
+    }
+  }
   img {
     width: 100%;
   }

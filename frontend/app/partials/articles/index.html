@@ -33,11 +33,36 @@
       </li>
     </ul>
   </div>
+  <ul class="articles-filters">
+    <li>Sort &nbsp;|&nbsp;</li>
+    <li>All
+      <ul>
+        <li>
+          <a href ng-click="articleFilters.blog_item_category = ''">All</a>
+        </li>
+        <li ng-repeat="articleCategory in articleCategories">
+          <a href ng-click="articleFilters.blog_item_category = articleCategory.tag">{{articleCategory.name}}</a>
+        </li>
+      </ul>
+    </li>
+    <li>&nbsp;|&nbsp;</li>
+    <li>Latest
+      <ul>
+        <li>
+          <a href>Latest</a>
+        </li>
+        <li>
+          <a href>Another filter</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
   <ul class="pagination-articles">
-    <li ng-repeat="article in articles | filter:{featured:'false'} | startFrom:currentPage*pageSize | limitTo:pageSize">
+    <li ng-repeat="article in articles | filter:articleFilters | startFrom:currentPage*pageSize | limitTo:pageSize">
       <div class='block'>
         <img ng-src='{{article.thumbnail_image_url}}'/>
         <h2>{{article.title}}</h2>
+        <p>{{article.blog_item_category}}</p>
         <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
       </div>
     </li>
