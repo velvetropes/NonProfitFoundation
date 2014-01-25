@@ -1,8 +1,8 @@
 <!doctype html xmlns:ng="http://angularjs.org/">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng:app="blogPagesApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng:app="blogPagesApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng:app="blogPagesApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng:app="blogPagesApp"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/10fc1463.main.css"/>
+    <link rel="stylesheet" href="assets/styles/2bd70bff.main.css"/>
   </head>
-  <body class='blog-index-page page'  ng:app="starkey">
+  <body class='blog-page page'>
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -149,212 +149,7 @@
 
     <!-- Main content section -->
 
-      <div class="outer-container">
-      <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
-        <thumblist-nav>
-          <div>
-            <img src="uploads/home/feature/building_a_better_kibera.jpg">
-            <h4>Global Hearing Mission</h4>
-            <button ng-click="slide(0)">read stories &rarr;</button>
-          </div>
-      
-          {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
-          <div>
-            <img src="{carousel_image}">
-            <h4>{title}</h4>
-            <button ng-click="slide({count})">watch video &rarr;</button>
-          </div>
-          {/exp:channel:entries}
-      
-        </thumblist-nav>
-      </section>
-      
-      </div>
-
-      <div class="outer-container">
-      <div ng-controller="PaginationController">
-          <div class="pagination-featured">
-            <div ng-repeat="featuredArticle in featured">
-              <h1></h1>
-            </div>
-          </div>
-      
-          <div class="pagination">
-            <ul>
-              <li ng-class="{disabled: currentPage == 0}">
-                <a href ng-click="prevPage()">Prev</a>
-              </li>
-              <li ng-repeat="n in range(pagedArticles.length)"
-                ng-class="{active: n == currentPage}"
-                ng-click="setPage()">
-                <a href ng-bind="n + 1">1</a>
-              </li>
-              <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
-                <a href ng-click="nextPage()">Next</a>
-              </li>
-            </ul>
-          </div>
-          <div class="spacer"></div>
-          <ul class="pagination-articles outer-container" ng-repeat="articleCol in pagedArticles[currentPage]">
-            <li class="article-row" ng-repeat="article in articleCol">
-              <pagination article="article" lightbox="lightbox" add-tag="addTag"></pagination>
-            </li>
-          </ul>
-          <div class="center">
-            <div class="pagination">
-              <ul>
-                <li ng-class="{disabled: currentPage == 0}">
-                  <a href ng-click="prevPage()">Prev</a>
-                </li>
-                <li ng-repeat="n in range(pagedArticles.length)"
-                  ng-class="{active: n == currentPage}"
-                  ng-click="setPage()">
-                  <a href ng-bind="n + 1">1</a>
-                </li>
-                <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
-                  <a href ng-click="nextPage()">Next</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-      
-        <div class="article-detail" ng-class="{visible: lightbox()}">
-          <header>
-            <div class="logo">
-
-                <img src="images/starkey/starkey_logo.svg">
-            </div>
-      
-            <div class='tagline'>
-              <h1>So The World May Hear.</h1>
-            </div>
-      
-            <div class='social-links'>
-              <ul>
-                <li>
-                  <a href='#' class="icon starkey-twitter-link"></a>
-                </li>
-                <li>
-                  <a href='#' class="icon starkey-fb-link"></a>
-                </li>
-                <li>
-                  <a href='#' class="icon starkey-insta-link"></a>
-                </li>
-                <li>
-                  <a href='#' class="icon starkey-youtube"></a>
-                </li>
-              </ul>
-            </div>
-          </header>
-      
-          <section class='outer-container'>
-            <nav class='header-nav'>
-              <div class='centered-half-container'>
-                <ul class='tabs row-table'>
-                  <li>
-                    <a href='#' data-content-class='.who-we-are'>Who we are</a>
-                  </li>
-                  <li>
-                    <a href='#' data-content-class='.what-we-do'>What we do</a>
-                  </li>
-                  <li>
-                    <a href='#' data-content-class='.get-involved'>Get involved</a>
-                  </li>
-                </ul>
-              </div>
-                <!-- <hr/> -->
-              <article class='tab-content who-we-are'>
-                <ul>
-                  <li>
-                    <a href="#">
-                      <h3 class="highlight">About Us</h3>
-                      <h2>Our Mission</h2>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <h3 class="highlight">Team</h3>
-                      <h2>Lorem ipsum dolor sit amet, vixtua</h2>
-                    </a>
-                  </li>
-                  <li>
-
-                    <a href="{path='media_mentions/index'}">
-                      <h3 class="highlight">Media Mentions</h3>
-                      <h2>Lorem ipsum dolot, vix dico voluptua</h2>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <h3 class="highlight">Contact</h3>
-                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
-                    </a>
-                  </li>
-                </ul>
-              </article>
-              <article class='tab-content what-we-do'>
-                <ul>
-                  <li>
-                    <a href="#">
-                      <h3 class="highlight">Mission</h3>
-                      <h2>Our Global Impact</h2>
-                    </a>
-                  </li>
-                  <li>
-
-                    <a href="{path='programs/index'}">
-                      <h3 class="highlight">Programs</h3>
-                      <h2>Help on the homefront</h2>
-                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <h3 class="highlight">Gala</h3>
-                      <h2>So the world may hear</h2>
-                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
-                    </a>
-                  </li>
-                  <li>
-
-                    <a href="{path='blog/index'}">
-                      <h3 class="highlight">Blog</h3>
-                      <h2>Daily Action</h2>
-                      <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>
-                    </a>
-                  </li>
-                </ul>
-              </article>
-              <article class='tab-content get-involved'>
-                <ul>
-                  <li>
-                    <a href="#">
-                      <h3 class="highlight">Take Action</h3>
-                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <h3 class="highlight">Donate Now</h3>
-                      <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
-                    </a>
-                  </li>
-                </ul>
-              </article>
-            </nav>
-          </section>
-      
-          <div class="outer-container">
-            <span class="close"><a href="#">X</a></span>
-      
-            <h1>{{lightbox().title}}</h1>
-            {{lightbox().text}}
-          </div>
-        </div>
-      
-      </div>
-      </div>
-
+    <div ng-view></div>
     <!-- end main content section -->
     <footer>
       <div>
@@ -416,9 +211,9 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/37a2aece.vendor.js"></script>
+    <script src="/assets/scripts/a74e0052.vendor.js"></script>
     
-    <script src="/assets/scripts/6d184fa9.main.js"></script>
+    <script src="/assets/scripts/3689160f.main.js"></script>
     
     <script src="/assets/scripts/d41d8cd9.plugins.js"></script>
     

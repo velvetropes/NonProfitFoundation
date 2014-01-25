@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/10fc1463.main.css"/>
+    <link rel="stylesheet" href="assets/styles/2bd70bff.main.css"/>
   </head>
   <body class='home-page page' ng:app="starkey">
 
@@ -151,8 +151,8 @@
     <section class="carousel hero" ng-controller="heroCarouselCtrl">
     
       <div class="swiper-controls">
-        <a href="#" class="left"><span class="icon starkey-pg-arrow-left"></span></a>
-        <a href="#" class="right"><span class="icon starkey-pg-arrow-right"></span></a>
+        <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
+        <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
     
         <ul class="position-indicator" id="hero-position" data-slider="hero">
           <li class="on" data-id="1"><a href="#"></a></li>
@@ -212,16 +212,22 @@
       <div id="map-popup">
         <div class="content"></div>
       </div>
+      <div class="map-legend">
+        <ul>
+          <li><span class="icon starkey-legend-program"></span>Program</li>
+          <li><span class="icon starkey-legend-stories"></span>Stories</li>
+          <li><span class="icon starkey-legend-where-we-are-now"></span>Where we are now</li>
+          <li><span class="icon starkey-legend-video"></span>Video</li>
+          <li><span class="icon starkey-legend-gallery"></span>Gallery</li>
+          <li><span class="icon starkey-legend-profile"></span>Profile</li>
+        </ul>
+      </div>
       <div id="world-map-gdp"></div>
 
     </section>
-    <section class='carousel bottom' ng-controller="bottomCarouselCtrl">
+    <section class='carousel bottom thumblist' ng-controller="bottomCarouselCtrl">
       <thumblist-nav>
-        <div>
-          <img src="uploads/home/feature/building_a_better_kibera.jpg">
-          <h4>Global Hearing Mission</h4>
-          <button ng-click="slide(0)">read stories &rarr;</button>
-        </div>
+
     
         {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
         <div>
@@ -296,9 +302,9 @@
         </section>
       </div>
     </footer>
-    <script src="/assets/scripts/37a2aece.vendor.js"></script>
+    <script src="/assets/scripts/a74e0052.vendor.js"></script>
 
-    <script src="/assets/scripts/6d184fa9.main.js"></script>
+    <script src="/assets/scripts/3689160f.main.js"></script>
 
     <script src="/assets/scripts/d41d8cd9.plugins.js"></script>
 
