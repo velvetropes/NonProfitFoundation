@@ -1,8 +1,8 @@
 <!doctype html xmlns:ng="http://angularjs.org/">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng:app="blogPagesApp"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng:app="blogPagesApp"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" ng:app="blogPagesApp"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" ng:app="blogPagesApp"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
   <head>
     <!--(bake partials/head.html)-->
     <!-- build:css(.tmp) assets/styles/main.css -->
@@ -13,7 +13,7 @@
 
     <!-- endbuild -->
   </head>
-  <body class='blog-page page'>
+  <body class='blog-page page' ng:app="blogPagesApp">
 
     <!--(bake partials/browser_check.html)-->
 

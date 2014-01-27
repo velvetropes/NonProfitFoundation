@@ -18,10 +18,6 @@ blogPagesApp.filter "startFrom", ->
 
 app = angular.module('starkey', ['ahundredyears.swiper', 'ahundredyears.thumblist-nav', 'ahundredyears.pagination'])
 
-app.controller 'bottomCarouselCtrl', ($scope) ->
-
-app.controller 'heroCarouselCtrl', ($scope) ->
-
 if $('.home-page').length
   $ ->
     $.getJSON "/data/markers.json", (data) ->
