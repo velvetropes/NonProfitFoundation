@@ -37,9 +37,8 @@
       }
     }
   }
-
-
 }
+
 .article-header-image {
   color: white;
   margin-bottom: 40px;
@@ -62,6 +61,7 @@
   img {
     width: 100%;
   }
+
   .article-item-category {
     @extend .alrightsanslight;
     font-size: .875em;

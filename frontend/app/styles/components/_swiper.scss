@@ -61,16 +61,31 @@
 }
 
 .swiper {
-
+.swipe-wrap > div {
+  width: 100%;
+  height: 800px;
+  }
   article {
     z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: none;
   }
-
+  .gradient-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    @include background-image(linear-gradient(top,  rgba(30,87,153,0) 0%,rgba(0,0,0,0.54) 42%,rgba(5,2,3,1) 100%));
+  }
   aside {
     z-index: 9999;
     color: #FFF;
     width: 80%;
-    margin: -30% auto 0;
+    position: absolute;
+    bottom: 35px;
     h1 {
       @extend .alrightsansbold;
       margin-bottom: 0;

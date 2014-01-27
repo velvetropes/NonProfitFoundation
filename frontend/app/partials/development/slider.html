@@ -11,14 +11,14 @@
     </ul>
   </div>
 
-  <swiper class="swiper" speed="5000" continuous="true" auto="false">
-
+  <swiper class="swiper">
+    <!-- speed="5000" continuous="true" auto="false" -->
     <!--(bake-start _if="dist")-->
       {exp:channel:entries channel="homepage_features" limit="5"}
         <div class="slide">
-          <article>
-            <img src="{homepage_feature_splash_image}" />
+          <article style="background: url('{homepage_feature_splash_image}');">
           </article>
+          <div class="gradient-background"></div>
           <aside>
             <h1>{title}</h1>
             <p>{homepage_feature_subtitle}</p>
@@ -29,9 +29,9 @@
     <!--(bake-end)-->
     <!--(bake-start _if="server")-->
       <div class="slide">
-        <article>
-          <img src="uploads/home/hero/commitment_to_action_film.jpg" />
+        <article style="background: url('uploads/home/hero/commitment_to_action_film.jpg');">
         </article>
+        <div class="gradient-background"></div>
         <aside>
           <h1>1 Commitment to Action</h1>
           <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
@@ -39,9 +39,9 @@
         </aside>
       </div>
       <div class="slide">
-        <article>
-          <img src="uploads/home/hero/commitment_to_action_film.jpg" />
+        <article style="background: url('uploads/home/hero/commitment_to_action_film.jpg');">
         </article>
+        <div class="gradient-background"></div>
         <aside>
           <h1>2 Commitment to Action</h1>
           <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
@@ -49,9 +49,9 @@
         </aside>
       </div>
       <div class="slide">
-        <article>
-          <img src="uploads/home/hero/commitment_to_action_film.jpg" />
+        <article style="background: url('uploads/home/hero/commitment_to_action_film.jpg');">
         </article>
+        <div class="gradient-background"></div>
         <aside>
           <h1>3 Commitment to Action</h1>
           <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
