@@ -19,10 +19,44 @@
 <br/>
 <div class="outer-container">
   <div ng-bind-html="article.text"></div>
+
+  <div class="share-this-post">
+    <ul>
+      <li><span class="note">Share this post</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-twitter"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-fb"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="section-title centered">Related posts</h3>
+  <section class='carousel thumblist'>
+    <thumblist-nav>
+      <div ng-repeat="article in articles | filter:{featured:'true'}">
+        <img ng-src="{{article.thumbnail_image_url}}"/>
+        <p class="blog-category">{{article.blog_item_category}}</p>
+        <a href="#/articles/{{article.id}}">
+          <h4>{{article.title}}</h4>
+        </a>
+      </div>
+    </thumblist-nav>
+  </section>
 </div>
 <br/>
-<hr/>
-<br/>
+<hr class="separator padded"/>
+
 <div class="outer-container">
   <div class="pagination">
     <ul>

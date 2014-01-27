@@ -190,6 +190,13 @@ a {
   color: $light-blue;
 }
 
+hr.separator {
+  border: none;
+  border-bottom: 1px dotted #333;
+  &.padded {
+    margin: 20px 0;
+  }
+}
 .page-leader {
   @include outer-container;
   text-align: center;
@@ -230,4 +237,16 @@ a {
       text-decoration: underline;
     }
   }
+}
+
+// Header styles
+
+.section-title {
+  font-family: "Verlag A", "Verlag B";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $light-blue;
 }

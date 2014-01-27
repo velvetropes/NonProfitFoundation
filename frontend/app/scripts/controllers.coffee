@@ -37,7 +37,7 @@ blogPagesControllers.controller "BlogShowCtrl", ["$scope", "$routeParams", "Arti
 
   $scope.currentPosition = 0
   $scope.currentPage = 0
-  $scope.pageSize = 2
+  $scope.pageSize = 3
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
 ]
