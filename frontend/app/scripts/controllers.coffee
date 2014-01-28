@@ -49,19 +49,25 @@ blogPagesControllers.controller "BlogShowCtrl", ["$scope", "$routeParams", "Arti
 
 mediaMentionsPagesControllers = angular.module("mediaMentionsPagesControllers", [])
 
-mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "MediaMention", "PressItem", ($scope, MediaMention, PressItem) ->
+mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "PressItem", ($scope, PressItem) ->
   $scope.pressItemFilters = {
-    display_as_media_mention: 'false'
+    featured: 'false'
   }
 
   $scope.pressItems = PressItem.query()
-  $scope.mediaMentions = MediaMention.query()
 
   $scope.currentPage = 0
   $scope.pageSize = 9
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
-  console.debug "$scope", $scope
+  $scope.backgroundStyle = (item) ->
+    if item.quote?.length is 0
+      {background: "url(#{item.thumbnail_image_url})"}
+    else
+      {background: '#5CA5D6'}
+  $scope.isQuote = (item) ->
+    item.quote.length > 0
+
 ]
 
 mediaMentionsPagesControllers.controller "MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", ($scope, $routeParams, PressItem) ->

@@ -19,15 +19,6 @@ appServices.factory "Category", ["$resource", ($resource) ->
 
 mediaMentionsPagesServices = angular.module("mediaMentionsPagesServices", ["ngResource"])
 
-mediaMentionsPagesServices.factory "MediaMention", ["$resource", ($resource) ->
-  $resource "data/media_mentions/:mediaMentionId.json", {},
-    query:
-      method: "GET"
-      params:
-        mediaMentionId: "index"
-      isArray: true
-]
-
 mediaMentionsPagesServices.factory "PressItem", ["$resource", ($resource) ->
   $resource "data/press_items/:pressItemId.json", {},
     query:
