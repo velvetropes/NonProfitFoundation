@@ -1,4 +1,5 @@
-blogPagesApp = angular.module("blogPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "blogPagesControllers", "blogPagesServices"])
+# Blog
+blogPagesApp = angular.module("blogPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "appServices", "blogPagesControllers", "blogPagesServices"])
 
 blogPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/articles",
@@ -15,6 +16,24 @@ blogPagesApp.filter "startFrom", ->
     start = +start #parse to int
     input.slice start
 
+# Media Mentions
+mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "appServices", "mediaMentionsPagesControllers", "mediaMentionsPagesServices"])
+
+mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
+  $routeProvider.when("/media_mentions",
+    templateUrl: "partials/media_mentions/index.html"
+    controller: "MediaMentionsIndexCtrl"
+  ).when("/media_mentions/:articleId",
+    templateUrl: "partials/media_mentions/show.html"
+    controller: "MediaMentionsShowCtrl"
+  ).otherwise redirectTo: "/media_mentions"
+]
+
+# TODO: DRY
+mediaMentionsPagesApp.filter "startFrom", ->
+  (input, start) ->
+    start = +start #parse to int
+    input.slice start
 
 app = angular.module('starkey', ['ahundredyears.swiper', 'ahundredyears.thumblist-nav', 'ahundredyears.pagination'])
 

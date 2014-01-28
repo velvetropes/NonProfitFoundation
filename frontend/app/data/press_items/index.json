@@ -1,0 +1,57 @@
+[
+   {
+      "id":"1",
+      "date":"January 23, 2014",
+      "category":"press_release",
+      "headline":"Commitment to Action Film",
+      "sub_headline":"Subheadline goes here",
+      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "header_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "body":"<h1>Headline</h1><p>Body goes here</p>",
+      "display_as_media_mention":"false"
+   },
+   {
+      "id":"2",
+      "date":"January 23, 2014",
+      "category":"press_release",
+      "headline":"2 Commitment to Action Film",
+      "sub_headline":"Subheadline goes here",
+      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "header_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "body":"<h1>Headline</h1><p>Body goes here</p>",
+      "display_as_media_mention":"false"
+   },
+   {
+      "id":"3",
+      "date":"January 23, 2014",
+      "category":"press_release",
+      "headline":"3 Commitment to Action Film",
+      "sub_headline":"Subheadline goes here",
+      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "header_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "body":"<h1>Headline</h1><p>Body goes here</p>",
+      "display_as_media_mention":"false"
+   },
+   {
+      "id":"4",
+      "date":"January 23, 2014",
+      "category":"press_release",
+      "headline":"4 Commitment to Action Film",
+      "sub_headline":"Subheadline goes here",
+      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "header_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "body":"<h1>Headline</h1><p>Body goes here</p>",
+      "display_as_media_mention":"false"
+   },
+   {
+      "id":"5",
+      "date":"January 23, 2014",
+      "category":"press_release",
+      "headline":"5 Commitment to Action Film",
+      "sub_headline":"Subheadline goes here",
+      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "header_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
+      "body":"<h1>Headline</h1><p>Body goes here</p>",
+      "display_as_media_mention":"false"
+   }
+]

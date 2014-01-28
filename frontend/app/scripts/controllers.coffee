@@ -1,7 +1,10 @@
 # Controllers
+
+# Blog
 blogPagesControllers = angular.module("blogPagesControllers", [])
 
 blogPagesControllers.controller "BlogIndexCtrl", ["$scope", "Article", ($scope, Article) ->
+
   $scope.articleFilters = {
     featured:'false'
     blog_item_category: ''
@@ -40,4 +43,32 @@ blogPagesControllers.controller "BlogShowCtrl", ["$scope", "$routeParams", "Arti
   $scope.pageSize = 3
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
+]
+
+# Media Mentions
+
+mediaMentionsPagesControllers = angular.module("mediaMentionsPagesControllers", [])
+
+mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "MediaMention", "PressItem", ($scope, MediaMention, PressItem) ->
+  $scope.pressItemFilters = {
+    display_as_media_mention: 'false'
+  }
+
+  $scope.pressItems = PressItem.query()
+  $scope.mediaMentions = MediaMention.query()
+
+  $scope.currentPage = 0
+  $scope.pageSize = 9
+  $scope.numberOfPages = ->
+    Math.ceil($scope.pressItems.length/$scope.pageSize)
+  console.debug "$scope", $scope
+]
+
+mediaMentionsPagesControllers.controller "MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", ($scope, $routeParams, PressItem) ->
+
+  $scope.article = PressItem.get(
+    pressItemId: $routeParams.pressItemId
+  , (pressItem) ->
+    #
+  )
 ]

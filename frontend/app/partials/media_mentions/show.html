@@ -1,0 +1,79 @@
+<div class="article-header-image">
+  <img ng-src="{{article.header_image_url}}"/>
+  <div class="outer-container">
+    <ul class="page-nav-links">
+      <li>
+        <a href ng-disabled="currentPosition == 0" ng-click="currentPosition=currentPosition-1">&larr;</a>
+      </li>
+      <li>
+        <a href ng-click="currentPosition=currentPosition+1">&rarr;</a>
+      </li>
+      <li>
+        <a href="#">X</a>
+      </li>
+    </ul>
+    <h1  class="article-title">{{article.title}}</h1>
+  </div>
+</div>
+<br/>
+<div class="outer-container">
+  <div ng-bind-html="article.text"></div>
+
+  <div class="share-this-post">
+    <ul>
+      <li><span class="note">Share this post</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-twitter"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-fb"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="section-title centered">Related posts</h3>
+  <section class='carousel thumblist'>
+    <thumblist-nav>
+      <div ng-repeat="article in articles | filter:{featured:'true'}">
+        <img ng-src="{{article.thumbnail_image_url}}"/>
+        <p class="blog-category">{{article.blog_item_category}}</p>
+        <a href="#/articles/{{article.id}}">
+          <h4>{{article.title}}</h4>
+        </a>
+      </div>
+    </thumblist-nav>
+  </section>
+</div>
+<br/>
+<hr class="separator padded"/>
+
+<div class="outer-container">
+  <div class="pagination">
+    <ul>
+      <li ng-class="{disabled: currentPage == 0}">
+        <a href ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Prev</a>
+      </li>
+      <li ng-class="{disabled: currentPage >= articles.length/pageSize - 1}">
+        <a href ng-click="currentPage=currentPage+1">Next</a>
+      </li>
+    </ul>
+  </div>
+  <ul class="pagination-articles">
+    <li ng-repeat="article in articles | filter:{featured:'false'} | startFrom:currentPage*pageSize | limitTo:pageSize">
+      <div class='block'>
+        <img ng-src='{{article.thumbnail_image_url}}'/>
+        <h2>{{article.title}}</h2>
+        <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+      </div>
+    </li>
+  </ul>
+</div>
