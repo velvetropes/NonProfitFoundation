@@ -32,7 +32,12 @@
       margin: 5px;
       border: 1px solid #eee;
     }
-    // END TEMP
+  }
+  &.short .slide {
+    height: 525px;
+    article {
+      background-size: cover;
+    }
   }
 }
 .mission-statement {

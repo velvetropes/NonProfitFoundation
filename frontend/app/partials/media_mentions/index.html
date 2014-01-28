@@ -4,19 +4,30 @@
   </div>
 </div>
 
-<section class='carousel thumblist full'>
-  <thumblist-nav>
-    <div ng-repeat="media_mention in mediaMentions | filter:{featured:'true'}">
-      <img ng-src="{{media_mention.thumbnail_image_url}}"/>
-      <a href="{{media_mention.call_to_action_link}}">
-        <h4>{{media_mention.title}}</h4>
-      </a>
-      <p>{{media_mention.call_to_action_text}}</p>
-    </div>
-  </thumblist-nav>
+<section class="carousel hero short">
+  <div class="swiper-controls">
+    <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
+    <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
+  </div>
+  <swiper class="swiper" speed="5000" continuous="true" auto="false">
+    <!--(bake-start _if="server")-->
+      <div class="slide" ng-repeat="media_mention in mediaMentions | filter:{featured:'true'}">
+        <article style="background: url('{{media_mention.thumbnail_image_url}}');">
+        </article>
+        <div class="gradient-background"></div>
+        <aside>
+          <img ng-src="{{media_mention.logo_image_url}}"/>
+          <br/>
+          <a href='{{media_mention.call_to_action_link}}' class="action-link">{{media_mention.call_to_action_text}}</a>
+        </aside>
+      </div>
+    <!--(bake-end)-->
+
+  </swiper>
 </section>
 
 <br/>
+
 <div class="outer-container">
   <div class="pagination">
     <ul>
