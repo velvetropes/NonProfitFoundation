@@ -65,10 +65,15 @@ mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "M
 ]
 
 mediaMentionsPagesControllers.controller "MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", ($scope, $routeParams, PressItem) ->
-
   $scope.article = PressItem.get(
-    pressItemId: $routeParams.pressItemId
+    pressItemId: $routeParams.articleId
   , (pressItem) ->
     #
   )
+  $scope.articles = PressItem.query()
+
+  $scope.currentPage = 0
+  $scope.pageSize = 9
+  $scope.numberOfPages = ->
+    Math.ceil($scope.articles.length/$scope.pageSize)
 ]

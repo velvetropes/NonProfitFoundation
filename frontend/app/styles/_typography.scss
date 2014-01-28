@@ -250,3 +250,30 @@ hr.separator {
   text-transform: uppercase;
   color: $light-blue;
 }
+
+.detail-page-body {
+  .page-leader {
+    margin: 0;
+    h1 {
+      margin: 0 0 60px;
+    }
+    h3 {
+      margin: 0;
+      color: $light-blue;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: 1em;
+    }
+  }
+  .article-headline, .article-subheadline {
+    @extend .alrightsanslight;
+    margin-bottom: 5px;
+  }
+  .article-date {
+    @extend .alrightsanslight;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: .875em;
+  }
+}

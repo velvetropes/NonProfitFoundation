@@ -12,15 +12,27 @@
         <a href="#">X</a>
       </li>
     </ul>
-    <h1  class="article-title">{{article.title}}</h1>
   </div>
 </div>
 <br/>
-<div class="outer-container">
-  <div ng-bind-html="article.text"></div>
+<div class="outer-container detail-page-body">
+  <section class='page-leader'>
+    <h1>Press Release</h1>
+    <h3>For immediate release</h3>
+  </section>
+  <h1 class="article-headline">{{article.headline}}</h1>
+  <p class="article-date">{{article.date}}</p>
+  <h3 class="article-subheadline">{{article.sub_headline}}</h3>
+  <div ng-bind-html="article.body"></div>
 
-  <div class="share-this-post">
+<div class="share-this-post">
     <ul>
+      <li><span class="note">Media Contact</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
       <li><span class="note">Share this post</span></li>
       <li>
         <a href="#">
@@ -37,21 +49,14 @@
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
+      <li><span class="note">Download PDF</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-pdf"></span>
+        </a>
+      </li>
     </ul>
   </div>
-
-  <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel thumblist'>
-    <thumblist-nav>
-      <div ng-repeat="article in articles | filter:{featured:'true'}">
-        <img ng-src="{{article.thumbnail_image_url}}"/>
-        <p class="blog-category">{{article.blog_item_category}}</p>
-        <a href="#/articles/{{article.id}}">
-          <h4>{{article.title}}</h4>
-        </a>
-      </div>
-    </thumblist-nav>
-  </section>
 </div>
 <br/>
 <hr class="separator padded"/>
@@ -68,7 +73,7 @@
     </ul>
   </div>
   <ul class="pagination-articles">
-    <li ng-repeat="article in articles | filter:{featured:'false'} | startFrom:currentPage*pageSize | limitTo:pageSize">
+    <li ng-repeat="article in articles | startFrom:currentPage*pageSize | limitTo:pageSize">
       <div class='block'>
         <img ng-src='{{article.thumbnail_image_url}}'/>
         <h2>{{article.title}}</h2>
