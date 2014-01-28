@@ -9,9 +9,23 @@
     <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
     <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
   </div>
-  <swiper class="swiper" speed="5000" continuous="true" auto="false">
+  <swiper class="swiper">
+    <!-- speed="5000" continuous="true" auto="false" -->
     <!--(bake-start _if="server")-->
-      <div class="slide" ng-repeat="media_mention in mediaMentions | filter:{featured:'true'}">
+      <div class="slide">
+        <!-- "background: url('uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg');" -->
+        <article style='background: #5CA5D6;'>
+        </article>
+        <!-- <div class="gradient-background quote"></div> -->
+        <blockquote>After his hearing aid business took off, Bill Austin decided in 1984 to add on a nonprofit arm to his mission, the Starkey Hearing Foundation, to give impoverished people the devices they need to hear. He donates 100,000 hearing aids annually and has donated more than 165,000 hearing aides this year alone.</blockquote>
+        <aside>
+          <img src=""/>
+          <br/>
+          <a href='#' class="action-link bordered reverse">Read article</a>
+        </aside>
+      </div>
+
+      <!-- <div class="slide" ng-repeat="media_mention in mediaMentions | filter:{featured:'true'}">
         <article style="background: url('{{media_mention.thumbnail_image_url}}');">
         </article>
         <div class="gradient-background"></div>
@@ -20,7 +34,7 @@
           <br/>
           <a href='{{media_mention.call_to_action_link}}' class="action-link">{{media_mention.call_to_action_text}}</a>
         </aside>
-      </div>
+      </div> -->
     <!--(bake-end)-->
 
   </swiper>
