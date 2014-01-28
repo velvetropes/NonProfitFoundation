@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/2bd70bff.main.css"/>
+    <link rel="stylesheet" href="assets/styles/3266fccf.main.css"/>
   </head>
-  <body class='media-mentions-page page' ng:app="starkey">
+  <body class='media-mentions-page page' ng:app="mediaMentionsPagesApp">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -148,107 +148,7 @@
     
 
     <!-- Main content section -->
-      <div class="outer-container">
-        <div class="masthead">
-          <h3 class="section-headline">Media Mentions</h3>
-          <br/>
-        </div>
-      </div>
-    <section class="carousel hero" ng-controller="heroCarouselCtrl">
-    
-      <div class="swiper-controls">
-        <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
-        <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
-    
-        <ul class="position-indicator" id="hero-position" data-slider="hero">
-          <li class="on" data-id="1"><a href="#"></a></li>
-          <li class="" data-id="2"><a href="#"></a></li>
-          <li class="" data-id="3"><a href="#"></a></li>
-        </ul>
-      </div>
-    
-      <swiper class="swiper" speed="5000" continuous="true" auto="false">
-    
-          {exp:channel:entries channel="homepage_features" limit="5"}
-            <div class="slide">
-              <article>
-                <img src="{homepage_feature_splash_image}" />
-              </article>
-              <aside>
-                <h1>{title}</h1>
-                <p>{homepage_feature_subtitle}</p>
-                <a href='{homepage_feature_link}' class="action-link">{homepage_feature_cta}</a>
-              </aside>
-            </div>
-          {/exp:channel:entries}
-
-    
-      </swiper>
-    
-    </section>
-    
-    <div ng-controller="PaginationController">
-    
-      <div class="article-detail" ng-class="{visible: lightbox()}">
-        <span class="close"><a href="#">X</a></span>
-        <div class='background-stretch'>
-
-        </div>
-        <div class="outer-container">
-    
-          <h1>{{lightbox().title}}</h1>
-          {{lightbox().text}}
-    
-
-        </div>
-        </div>
-      <div class="outer-container">
-        <div class="pagination-featured">
-          <div ng-repeat="featuredArticle in featured">
-            <h1>FEATURED </h1>
-          </div>
-        </div>
-    
-        <div class="pagination">
-          <ul>
-            <li ng-class="{disabled: currentPage == 0}">
-              <a href ng-click="prevPage()">Prev</a>
-            </li>
-            <li ng-repeat="n in range(pagedArticles.length)"
-              ng-class="{active: n == currentPage}"
-              ng-click="setPage()">
-              <a href ng-bind="n + 1">1</a>
-            </li>
-            <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
-              <a href ng-click="nextPage()">Next</a>
-            </li>
-          </ul>
-        </div>
-        <div class="spacer"></div>
-        <ul class="pagination-articles outer-container" ng-repeat="articleCol in pagedArticles[currentPage]">
-          <li ng-repeat="article in articleCol">
-            <pagination article="article" lightbox="lightbox" add-tag="addTag"></pagination>
-          </li>
-        </ul>
-        <div class="center">
-          <div class="pagination">
-            <ul>
-              <li ng-class="{disabled: currentPage == 0}">
-                <a href ng-click="prevPage()">Prev</a>
-              </li>
-              <li ng-repeat="n in range(pagedArticles.length)"
-                ng-class="{active: n == currentPage}"
-                ng-click="setPage()">
-                <a href ng-bind="n + 1">1</a>
-              </li>
-              <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
-                <a href ng-click="nextPage()">Next</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div ng-view></div>
     <!-- end main content section -->
     <footer>
       <div>
@@ -310,9 +210,9 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/a74e0052.vendor.js"></script>
+    <script src="/assets/scripts/82d4fc51.vendor.js"></script>
     
-    <script src="/assets/scripts/3689160f.main.js"></script>
+    <script src="/assets/scripts/783c8de5.main.js"></script>
     
     <script src="/assets/scripts/d41d8cd9.plugins.js"></script>
     

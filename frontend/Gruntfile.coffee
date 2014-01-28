@@ -19,13 +19,7 @@ module.exports = (grunt) ->
           ".tmp/index.html" : 'app/index.html',
           ".tmp/programs.html" : 'app/programs.html',
           ".tmp/blog.html" : 'app/blog.html',
-          ".tmp/media_mentions.html" : 'app/media_mentions.html',
-          # ".tmp/partials/header.html" : 'app/partials/header.html',
-          # ".tmp/partials/footer.html" : 'app/partials/footer.html',
-          # ".tmp/partials/head.html" : 'app/partials/head.html',
-          # ".tmp/partials/browser_check.html" : 'app/partials/browser_check.html',
-          # ".tmp/partials/development/slider.html" : 'app/partials/development/slider.html',
-
+          ".tmp/media_mentions.html" : 'app/media_mentions.html'
       dist:
         options:
           content: "app/starkey.json",
