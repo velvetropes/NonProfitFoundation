@@ -40,7 +40,7 @@ blogPagesControllers.controller "BlogShowCtrl", ["$scope", "$routeParams", "Arti
 
   $scope.currentPosition = 0
   $scope.currentPage = 0
-  $scope.pageSize = 9
+  $scope.pageSize = 3
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
 ]
@@ -57,7 +57,7 @@ mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "P
 
   PressItem.getIndex().then (data) ->
     $scope.pressItems = data
-    $scope.pagination = Pagination.getNew(3)
+    $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
 
   $scope.numberOfPages = ->
