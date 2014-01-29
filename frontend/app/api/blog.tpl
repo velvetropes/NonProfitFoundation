@@ -7,6 +7,7 @@
       "related_blog_items": [],
       "featured": "{if blog_featured}{blog_featured}{/if}",
       "title": "{title}",
+      "text": "{title}",
       "thumbnail_image_url": "{if blog_image}{blog_image}{/if}"
     },
     {/exp:channel:entries}
