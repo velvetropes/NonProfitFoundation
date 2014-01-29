@@ -1,5 +1,13 @@
 sfControllers = angular.module("sfControllers", [])
 
+# Home
+
+sfControllers.controller("HomeIndexCtrl", ["$scope", "MapMarker", ($scope, MapMarker) ->
+
+  MapMarker.getIndex().then (data) ->
+    $scope.markers = data
+])
+
 # Blog
 
 sfControllers.controller("BlogIndexCtrl", ["$scope", "Article", ($scope, Article) ->

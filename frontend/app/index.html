@@ -1,12 +1,12 @@
 <!doctype html xmlns:ng="http://angularjs.org/">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" ng:app="homePageApp"> <![endif]-->
+<!--[if IE 7]>   <html class="no-js lt-ie9 lt-ie8" ng:app="homePageApp"> <![endif]-->
+<!--[if IE 8]>   <html class="no-js lt-ie9" ng:app="homePageApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng:app="homePageApp"> <!--<![endif]-->
   <head>
     <!--(bake partials/head.html)-->
   </head>
-  <body class='home-page page' ng:app="starkey">
+  <body class='home-page page' ng:controller="HomeIndexCtrl">
 
     <!--(bake partials/browser_check.html)-->
 
@@ -109,10 +109,7 @@
   <!--(bake-end)-->
     </section>
 
-    <section class="map">
-      <div id="map-popup">
-        <div class="content"></div>
-      </div>
+    <world-map markers="markers">
       <div class="map-legend">
         <ul>
           <li><span class="icon starkey-legend-program"></span>Program</li>
@@ -123,15 +120,19 @@
           <li><span class="icon starkey-legend-profile"></span>Profile</li>
         </ul>
       </div>
-      <div id="world-map-gdp"></div>
+    </world-map>
 
-    </section>
     <!--(bake partials/development/thumblist_nav.html)-->
 
     <!-- end main content section -->
 
     <!--(bake partials/footer.html)-->
+<<<<<<< HEAD
 
     <!--(bake partials/js_includes.html)-->
+=======
+    <!--(bake partials/js_includes.html)-->
+
+>>>>>>> Put world map in a widget. Use js_includes partial.
 </body>
 </html>

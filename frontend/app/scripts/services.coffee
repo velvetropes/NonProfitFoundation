@@ -41,3 +41,18 @@ sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", ($q, 
   # Return factory object
   {getIndex: getIndex}
 ]
+
+sfServices.factory "MapMarker", ["$q", "$http", "$resource", ($q, $http, $resource) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("data/map_markers/index.json").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+
+    deferred.promise
+
+  # Return factory object
+  {getIndex: getIndex}
+]
