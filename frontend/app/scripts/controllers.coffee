@@ -56,6 +56,7 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   MediaMentionOrPressItem.getIndex().then (data) ->
     $scope.pressItems = data
     $scope.pagination = Pagination.getNew(9)
+    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
 
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
@@ -67,8 +68,6 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
       {background: '#5CA5D6'}
   $scope.isQuote = (item) ->
     item.quote.length > 0
-
-  $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
 
 ])
 
