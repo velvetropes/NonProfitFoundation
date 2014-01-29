@@ -8,7 +8,8 @@
       "featured": "{if blog_featured}{blog_featured}{/if}",
       "title": "{title}",
       "text": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{media_mention_content}{/exp:low_replace}",
-      "thumbnail_image_url": "{if blog_image}{blog_image}{/if}"
+      "thumbnail_image_url": "{if blog_image}{blog_image}{/if}",
+      "image_url": "{if blog_image}{blog_image}{/if}"
     },
     {/exp:channel:entries}
 ]
