@@ -49,15 +49,17 @@ blogPagesControllers.controller "BlogShowCtrl", ["$scope", "$routeParams", "Arti
 
 mediaMentionsPagesControllers = angular.module("mediaMentionsPagesControllers", [])
 
-mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "PressItem", ($scope, PressItem) ->
+mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "PressItem", "Pagination", ($scope, PressItem, Pagination) ->
+
   $scope.pressItemFilters = {
     featured: 'false'
   }
 
-  $scope.pressItems = PressItem.query()
+  PressItem.getIndex().then (data) ->
+    $scope.pressItems = data
+    $scope.pagination = Pagination.getNew(3)
+    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
 
-  $scope.currentPage = 0
-  $scope.pageSize = 9
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
   $scope.backgroundStyle = (item) ->

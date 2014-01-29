@@ -1,5 +1,5 @@
 # Blog
-blogPagesApp = angular.module("blogPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "ahundredyears.swiper", "appServices", "blogPagesControllers", "blogPagesServices"])
+blogPagesApp = angular.module("blogPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "ahundredyears.swiper", "appServices", "SimplePagination", "blogPagesControllers", "blogPagesServices"])
 
 blogPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/articles",
@@ -17,7 +17,7 @@ blogPagesApp.filter "startFrom", ->
     input.slice start
 
 # Media Mentions
-mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "ahundredyears.swiper", "appServices", "mediaMentionsPagesControllers", "mediaMentionsPagesServices"])
+mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "ahundredyears.swiper", "SimplePagination", "appServices", "mediaMentionsPagesControllers", "mediaMentionsPagesServices"])
 
 mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/media_mentions",
