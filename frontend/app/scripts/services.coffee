@@ -1,7 +1,8 @@
-blogPagesServices = angular.module("blogPagesServices", ["ngResource"])
-appServices = angular.module("appServices", ["ngResource"])
+'use strict'
 
-blogPagesServices.factory "Article", ["$resource", ($resource) ->
+sfServices = angular.module("sfServices", ["ngResource"])
+
+sfServices.factory "Article", ["$resource", ($resource) ->
   $resource "/api/blog/:articleId", {},
     query:
       method: "GET"
@@ -10,16 +11,25 @@ blogPagesServices.factory "Article", ["$resource", ($resource) ->
       isArray: true
 ]
 
-appServices.factory "Category", ["$resource", ($resource) ->
+sfServices.factory "Category", ["$resource", ($resource) ->
   $resource "data/categories/index.json", {},
     query:
       method: "GET"
       isArray: true
 ]
 
-mediaMentionsPagesServices = angular.module("mediaMentionsPagesServices", ["ngResource"])
 
-mediaMentionsPagesServices.factory "PressItem", ["$q", "$http", ($q, $http) ->
+sfServices.factory "PressItem", ["$resource", ($resource) ->
+  $resource "data/press_items/:pressItemId.json", {},
+    query:
+      method: "GET"
+      params:
+        pressItemId: "index"
+      isArray: true
+]
+
+sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", ($q, $http, $resource) ->
+
   getIndex = ->
     deferred = $q.defer()
     $http.get("data/press_items/index.json").success((data) ->

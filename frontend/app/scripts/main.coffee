@@ -1,5 +1,14 @@
 # Blog
-blogPagesApp = angular.module("blogPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "ahundredyears.swiper", "appServices", "SimplePagination", "blogPagesControllers", "blogPagesServices"])
+blogPagesApp = angular.module("blogPagesApp", [
+  "ngRoute",
+  "ngSanitize",
+  "ahundredyears.swiper",
+  "ahundredyears.thumblist-nav",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
 
 blogPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/articles",
@@ -11,13 +20,17 @@ blogPagesApp.config ["$routeProvider", ($routeProvider) ->
   ).otherwise redirectTo: "/articles"
 ]
 
-blogPagesApp.filter "startFrom", ->
-  (input, start) ->
-    start = +start #parse to int
-    input.slice start
-
 # Media Mentions
-mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", ["ngRoute", "ngSanitize", "ahundredyears.thumblist-nav", "ahundredyears.swiper", "SimplePagination", "appServices", "mediaMentionsPagesControllers", "mediaMentionsPagesServices"])
+mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
+  "ngRoute",
+  "ngSanitize",
+  "ahundredyears.swiper",
+  "ahundredyears.thumblist-nav",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
 
 mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/media_mentions",
@@ -29,13 +42,11 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   ).otherwise redirectTo: "/media_mentions"
 ]
 
-# TODO: DRY
-mediaMentionsPagesApp.filter "startFrom", ->
-  (input, start) ->
-    start = +start #parse to int
-    input.slice start
-
-app = angular.module('starkey', ['ahundredyears.swiper', 'ahundredyears.thumblist-nav', 'ahundredyears.pagination'])
+app = angular.module('starkey', [
+  'ahundredyears.pagination',
+  'ahundredyears.swiper',
+  'ahundredyears.thumblist-nav'
+])
 
 if $('.home-page').length
   $ ->
