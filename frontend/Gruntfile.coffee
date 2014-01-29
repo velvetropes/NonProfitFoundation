@@ -25,6 +25,10 @@ module.exports = (grunt) ->
           content: "app/starkey.json",
           section: "dist"
         files:
+          # API
+          "<%= app.dist %>/templates/default_site/api.group/homepage_markers.html" : 'app/api/homepage_markers.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/blog.html" : 'app/api/blog.tpl',
+          # Templates
           "<%= app.dist %>/templates/default_site/pages.group/index.html" : 'app/index.html',
           "<%= app.dist %>/templates/default_site/programs.group/index.html" : 'app/programs.html',
           "<%= app.dist %>/templates/default_site/blog.group/index.html" : 'app/blog.html',
@@ -57,7 +61,6 @@ module.exports = (grunt) ->
         files: [
           "<%= app.src %>/*.html",
           "<%= app.src %>/*.json",
-          "<%= app.src %>/includes/*.html",
           "<%= app.src %>/partials/**/*.html",
           ".tmp/styles/{,*/}*.css",
           "{.tmp,<%= app.src %>}/scripts/{,*/}*.js",
@@ -139,7 +142,7 @@ module.exports = (grunt) ->
 
       html: [
             "<%= app.src %>/*.html",
-            "<%= app.src %>/includes/*.html"
+            "<%= app.src %>/partials/*.html"
           ]
 
     usemin:
@@ -274,20 +277,7 @@ module.exports = (grunt) ->
               cwd: "app/styles/fonts/",
               src: ['**'],
               dest: '../www/assets/styles/fonts/',
-            },
-            { #TODO: fix and remove
-              expand: true,
-              cwd: "app/partials/",
-              src: ['**'],
-              dest: '../www/partials/',
-            },
-            { #TODO: fix and remove
-              expand: true,
-              cwd: "app/data/",
-              src: ['**'],
-              dest: '../www/data/',
             }
-
         ]
 
       images:

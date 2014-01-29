@@ -5,11 +5,6 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <!--(bake partials/head.html)-->
-    <!-- build:css(.tmp) assets/styles/main.css -->
-    <link rel="stylesheet" href="styles/app.css">
-    <link rel='stylesheet' href="bower_components/ahundredyears-swiper/src/swiper.css">
-    <link rel='stylesheet' href="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.css">
-    <!-- endbuild -->
   </head>
   <body class='home-page page' ng:app="starkey">
 
@@ -18,7 +13,57 @@
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-    <!--(bake partials/development/slider.html)-->
+
+    <section class="carousel hero">
+
+      <div class="swiper-controls">
+        <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
+        <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
+
+        <ul class="position-indicator" id="hero-position" data-slider="hero">
+          <li class="on" data-id="1"><a href="#"></a></li>
+          <li class="" data-id="2"><a href="#"></a></li>
+          <li class="" data-id="3"><a href="#"></a></li>
+        </ul>
+      </div>
+
+      <!--(bake-start _if="server")-->
+      <swiper class="swiper">
+      <!--(bake-end)-->
+      <!--(bake-start _if="dist")-->
+      <swiper class="swiper" speed="5000" continuous="true" auto="false">
+      <!--(bake-end)-->
+        <!--(bake-start _if="dist")-->
+          {exp:channel:entries channel="homepage_features" limit="5"}
+            <div class="slide">
+              <article style="background: url('{homepage_feature_splash_image}');">
+              </article>
+              <div class="gradient-background"></div>
+              <aside>
+                <h1>{title}</h1>
+                <p>{homepage_feature_subtitle}</p>
+                <a href='{homepage_feature_link}' class="action-link">{homepage_feature_cta}</a>
+              </aside>
+            </div>
+          {/exp:channel:entries}
+        <!--(bake-end)-->
+        <!--(bake-start _if="server")-->
+          <div class="slide">
+            <article style="background: url('uploads/home/hero/commitment_to_action_film.jpg');">
+            </article>
+            <div class="gradient-background"></div>
+            <aside>
+              <h1>1 Commitment to Action</h1>
+              <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
+              <a href='#' class="action-link">Watch video</a>
+            </aside>
+          </div>
+        <!--(bake-end)-->
+
+      </swiper>
+
+    </section>
+
 
     <section class='mission-statement'>
     <!--(bake-start _if="dist")-->
@@ -87,32 +132,6 @@
 
     <!--(bake partials/footer.html)-->
 
-<!-- build:js /assets/scripts/vendor.js -->
-<!-- bower:js -->
-<script src="bower_components/jquery/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/ahundredyears-swiper/src/swipe.js"></script>
-<script src="bower_components/ahundredyears-swiper/src/ahundredyears-swiper.js"></script>
-<script src="bower_components/ahundredyears-thumblist-nav/src/jscrollpane.js"></script>
-<script src="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.js"></script>
-<script src="bower_components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="bower_components/bower-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="bower_components/ahundredyears-pagination/src/ahundredyears-pagination.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
-
-<!-- build:js(.tmp) /assets/scripts/main.js -->
-<script src="scripts/main.js"></script>
-<script src="scripts/services.js"></script>
-<script src="scripts/controllers.js"></script>
-<script src="scripts/tab_behavior.js"></script>
-<!-- endbuild -->
-
-<!-- build:js /assets/scripts/plugins.js -->
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<!-- endbuild -->
-
+    <!--(bake partials/js_includes.html)-->
 </body>
 </html>

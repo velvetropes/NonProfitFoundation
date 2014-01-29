@@ -2,7 +2,7 @@ blogPagesServices = angular.module("blogPagesServices", ["ngResource"])
 appServices = angular.module("appServices", ["ngResource"])
 
 blogPagesServices.factory "Article", ["$resource", ($resource) ->
-  $resource "data/articles/:articleId.json", {},
+  $resource "/api/blog/:articleId", {},
     query:
       method: "GET"
       params:

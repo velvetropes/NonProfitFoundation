@@ -39,7 +39,7 @@ app = angular.module('starkey', ['ahundredyears.swiper', 'ahundredyears.thumblis
 
 if $('.home-page').length
   $ ->
-    $.getJSON "/data/markers.json", (data) ->
+    $.getJSON "/api/homepage_markers", (data) ->
 
       $("#world-map-gdp").vectorMap
         map: "world_mill_en" #
