@@ -46,7 +46,7 @@ sfServices.factory "MapMarker", ["$q", "$http", "$resource", ($q, $http, $resour
 
   getIndex = ->
     deferred = $q.defer()
-    $http.get("data/map_markers/index.json").success((data) ->
+    $http.get("/api/homepage_markers").success((data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
