@@ -50,7 +50,7 @@
       <div class='block'>
         <img ng-src='{{article.thumbnail_image_url}}'/>
         <h2>{{article.headline}}</h2>
-        <p>{{article.id}} {{article.type}}</p>
+        <p>{{article.date}}</p>
         <p class='read-more' ng-switch="article.type">
           <a ng-switch-when="press_item" href="#/media_mentions/{{article.id}}">
             Read more &rarr;
