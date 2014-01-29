@@ -951,6 +951,723 @@ class Freeform extends Module_builder_freeform
 	// --------------------------------------------------------------------
 
 	/**
+	 * Run composer in edit mode
+	 *
+	 * @access	public
+	 * @return	string	html tagdata
+	 */
+
+	public function composer_edit()
+	{
+		return $this->composer(TRUE);
+	}
+	//END composer_edit
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Parses composer fields over a template then sends to :form
+	 *
+	 * @access	public
+	 * @param	boolean $edit	edit mode? (gets passed to form)
+	 * @return	string			parsed tagdata
+	 */
+
+	public function composer($edit = FALSE)
+	{
+		// -------------------------------------
+		//	form id
+		// -------------------------------------
+
+		$form_id = $this->form_id(FALSE, FALSE);
+
+		if ( ! $form_id)
+		{
+			return $this->no_results_error('invalid_form_id');
+		}
+
+		$this->form_data = $form_data = $this->data->get_form_info($form_id);
+		$composer_id	= $form_data['composer_id'];
+		$preview		= FALSE;
+		$preview_fields	= array();
+
+		// -------------------------------------
+		//	is this a preview?
+		// -------------------------------------
+
+		$preview_id		= ee()->input->get_post('preview_id');
+
+		if ( ! $this->is_positive_intlike($preview_id))
+		{
+			if (isset(ee()->TMPL) AND is_object(ee()->TMPL))
+			{
+				$preview_id = ee()->TMPL->fetch_param('preview_id');
+			}
+		}
+
+		if ($this->is_positive_intlike($preview_id))
+		{
+			$preview	= TRUE;
+			$composer_id	= $preview_id;
+		}
+
+		// -------------------------------------
+		//	build query
+		// -------------------------------------
+
+		if ( ! $this->is_positive_intlike($composer_id) OR
+			( ! $preview AND empty($form_data['fields'])))
+		{
+			return $this->no_results_error('invalid_composer_id');
+		}
+
+		ee()->load->model('freeform_composer_model');
+
+		$composer = ee()->freeform_composer_model->get_row($composer_id);
+
+		if ($composer == FALSE)
+		{
+			return $this->no_results_error('invalid_composer_id');
+		}
+
+		$composer_data = $this->json_decode($composer['composer_data'], TRUE);
+
+		if ( ! $composer_data OR
+			 ! isset($composer_data['rows']) OR
+			 empty($composer_data['rows']))
+		{
+			return $this->no_results_error('invalid_composer_data');
+		}
+
+		$composer_fields		= ( ! empty($composer_data['fields'])) ?
+										$composer_data['fields'] :
+										array();
+
+		$available_fields		= array_keys($form_data['fields']);
+		$needed_preview_fields	= array_diff($composer_fields, $available_fields);
+
+		// -------------------------------------
+		//	preview fields? (composer preview)
+		// -------------------------------------
+		//	we only want them if there is a difference
+		//  validate fields in case some where deleted at some point
+		//  we dont want composer trying to output those
+		// -------------------------------------
+
+		ee()->load->library('freeform_fields');
+		ee()->load->model('freeform_field_model');
+
+		if ($preview AND
+			! empty($needed_preview_fields))
+		{
+			sort($needed_preview_fields);
+
+			//dont worry this will cache for later
+			$valid_preview_fields = ee()->freeform_field_model
+										->where_in('field_id', $needed_preview_fields)
+										->key('field_id')
+										->get();
+
+			if ($valid_preview_fields !== FALSE AND
+				 ! empty($valid_preview_fields))
+			{
+				$preview_fields		= array_keys($valid_preview_fields);
+
+				//join into available for composer checking
+				$available_fields	= array_merge($preview_fields, $available_fields);
+
+				//add fields for valid mess
+				foreach ($valid_preview_fields as $p_field_id => $p_field_data)
+				{
+					$p_field_data['preview']			= TRUE;
+					$form_data['fields'][$p_field_id]	= $p_field_data;
+				}
+			}
+		}
+
+		// -------------------------------------
+		//	calculate pages early
+		// -------------------------------------
+
+		$total_pages = 1;
+
+		$skip_pages = ! $this->check_yes(
+			ee()->TMPL->fetch_param('disable_mp_performance')
+		);
+
+		//this cannot be found normally with composer
+		//so we are getting it from the composer
+		//data itself
+		foreach ($composer_data['rows'] as $row)
+		{
+			if ($row == 'page_break')
+			{
+				$total_pages++;
+			}
+		}
+
+		if ($total_pages == 1)
+		{
+			$skip_pages = FALSE;
+		}
+		else
+		{
+			$this->set_form_param('multipage', 'yes', true);
+		}
+
+		// -------------------------------------
+		//	get params (do this _after_ multipage)
+		// -------------------------------------
+
+		$pages = $this->set_page_positions();
+
+		$current_page = $pages['current_page'];
+
+		// -------------------------------------
+		//	build variables
+		// -------------------------------------
+
+		$page					= 0;
+
+		/*
+		//very complicated when dealing
+		//with multiple pages. need to
+		//ask customers and see what
+		//they need
+
+		$field_absolute_count	= 0;
+		$field_aboslute_total	= 0;
+		$column_absolute_count	= 0;
+		$column_absolute_total	= 0;
+
+		foreach ($composer_data['rows'] as $row)
+		{
+			$column_absolute_total += count($row);
+
+			foreach ($row as $column)
+			{
+				$field_absolute_count += count($column);
+			}
+		}
+		*/
+
+		$variables				= array();
+
+		$variables[]			= array(
+			'composer:multi_page_start'	=> '',
+			'composer:multi_page_end'	=> '',
+			'composer:rows'				=> array(),
+			'composer:preview'			=> $preview
+		);
+
+		$required				= array();
+		$dynamic_recipients		= array();
+
+		$has_captcha			= FALSE;
+
+		foreach ($composer_data['rows'] as $row)
+		{
+			if ($row == 'page_break')
+			{
+				$page++;
+
+				//set for 0 if not present
+				if ($page == 1)
+				{
+					$variables[$page - 1]['composer:multi_page_start']	= '{freeform:page:' . $page . '}';
+					$variables[$page - 1]['composer:multi_page_end']	= '{/freeform:page:' . $page . '}';
+				}
+
+				if ( ! empty($required))
+				{
+					$variables[$page - 1]['composer:multi_page_start']	= '' .
+						'{freeform:page:' . $page . ' required="' . implode('|', $required) . '"}';
+					$required = array();
+				}
+
+				$variables[] = array(
+					'composer:multi_page_start'	=> '{freeform:page:' . ($page + 1) . '}',
+					'composer:multi_page_end'	=> '{/freeform:page:' . ($page + 1) . '}',
+					'composer:rows'				=> array(),
+					'composer:preview'			=> $preview
+				);
+
+				continue;
+			}
+
+			$row_array = array(
+				'composer:columns'		=> array()
+			);
+
+			// -------------------------------------
+			//	skip rendering pages we aren't on
+			//	for performance
+			// -------------------------------------
+
+			if ($skip_pages && $current_page != ($page + 1))
+			{
+				continue;
+			}
+
+
+			$column_count	= 0;
+
+			foreach ($row as $column)
+			{
+				$column_array = array(
+					'composer:fields'		=> array(),
+					'composer:colspan'		=> (12/count($row)),
+					'composer:column_total'	=> count($row),
+					'composer:column_count'	=> ++$column_count,
+					'composer:field_total'	=> count($column),
+				);
+
+				$field_count	= 0;
+
+				foreach ($column as $field)
+				{
+					$fields = array();
+
+					// -------------------------------------
+					//	defaults for every field
+					// -------------------------------------
+
+					$fields['composer:field_type']		= $field['type'];
+					$fields['composer:field_label']		= '';
+					$fields['composer:field_name']		= '';
+					$fields['composer:field_output']	= '';
+					$fields['composer:field_required']	= FALSE;
+					$fields['composer:field_count']		= ++$field_count;
+
+					// -------------------------------------
+					//	regular fields
+					// -------------------------------------
+
+					if ($field['type'] == 'field' AND
+						in_array($field['fieldId'], $available_fields))
+					{
+						$field_data = $form_data['fields'][$field['fieldId']];
+						$fields['composer:field_name'] = $field_data['field_name'];
+
+						$instance =& ee()->freeform_fields->get_field_instance(array(
+							'field_id'		=> $field['fieldId'],
+							'form_id'		=> $form_id,
+							'field_data'	=> $field_data
+						));
+
+						$fields['composer:field_type']		= $field_data['field_type'];
+
+						if ($instance->show_label)
+						{
+							$fields['composer:field_label']		= $field_data['field_label'];
+						}
+
+						$fields['composer:field_output']	= '{freeform:field:' . $field_data['field_name'] .'}';
+
+						if (isset($field['required']) AND $field['required'] == 'yes')
+						{
+							$required[] = $field_data['field_name'];
+							$fields['composer:field_required']	= TRUE;
+						}
+					}
+
+					// -------------------------------------
+					//	title
+					// -------------------------------------
+
+					else if ($field['type'] == 'nonfield_title')
+					{
+						$fields['composer:field_output'] = $form_data['form_label'];
+					}
+
+					// -------------------------------------
+					//	paragraph
+					// -------------------------------------
+
+					else if ($field['type'] == 'nonfield_paragraph')
+					{
+						$fields['composer:field_output'] = $field['html'];
+					}
+
+					// -------------------------------------
+					//	user recipients
+					// -------------------------------------
+
+					else if ($field['type'] == 'nonfield_user_recipients')
+					{
+						$fields['composer:field_label'] = $field['html'];
+						$fields['composer:field_output'] = form_input(array(
+							'name'	=> 'recipient_email_user',
+							'value'	=> '{freeform:mp_data:user_recipient_emails}'
+						));
+
+						$this->set_form_param('recipient_user_input', 'yes', true);
+
+						if (isset($field['required']) AND $field['required'] == 'yes')
+						{
+							$required[] = 'recipient_email_user';
+							$fields['composer:field_required']	= TRUE;
+						}
+					}
+
+					// -------------------------------------
+					//	dynamic recipients
+					// -------------------------------------
+
+					else if ($field['type'] == 'nonfield_dynamic_recipients')
+					{
+						$fields['composer:field_label'] = $field['label'];
+
+						$dynrec_data		= $field['data'];
+
+						//notification id?
+						if (isset($field['notificationId']) AND
+							$this->is_positive_intlike($field['notificationId']) AND
+							//we want to allow overrides
+							! isset(ee()->TMPL->tagparams['recipient_template']))
+						{
+							$this->set_form_param(
+								'recipient_template',
+								$field['notificationId'],
+								true
+							);
+						}
+
+						$dynrec_emails		= array();
+
+						//fix items and output
+						if ($dynrec_data)
+						{
+							foreach ($dynrec_data as $recipient_email => $recipient_name)
+							{
+								$dynamic_recipients[$recipient_email] = $recipient_name;
+
+								//we need to find the num like this
+								//in case someone dupped an email on different
+								//rows/pages. Yes thats unlikely, but you know
+								//it will happen and someone will be pissed.
+								$dynrec_email_num = array_search(
+									$recipient_email,
+									array_keys($dynamic_recipients)
+								) + 1;
+
+								$dynrec_output_array[
+									'{freeform:recipient_value' . $dynrec_email_num . '}'
+								] = '{freeform:recipient_name' . $dynrec_email_num . '}';
+							}
+
+							if ($field['outputType'] == 'checks')
+							{
+
+							$fields['composer:field_output'] = 	'
+								<ul class="dynamic_recipients">
+								{freeform:recipients}
+									<li>
+										<label>
+											<input
+												type="checkbox"
+												name="recipient_email[]"
+												{if freeform:recipient_selected}
+													checked="checked"
+												{/if}
+												value="{freeform:recipient_value}" />
+												&nbsp;
+												{freeform:recipient_name}
+										</label>
+									</li>
+								{/freeform:recipients}
+								</ul>';
+							}
+							else
+							{
+								//this will just be #0 because everything
+								//else is keyed
+								array_unshift($dynrec_output_array, '--');
+
+								$fields['composer:field_output'] = '
+								<select name="recipient_email" />
+									<option value="0">--</option>
+									{freeform:recipients}
+									<option value="{freeform:recipient_value}"
+									{if freeform:recipient_selected}selected="selected"{/if}>
+										{freeform:recipient_name}
+									</option>
+									{/freeform:recipients}
+								</select>';
+
+							}
+
+							if (isset($field['required']) AND $field['required'] == 'yes')
+							{
+								$required[] = 'recipient_email';
+								$fields['composer:field_required']	= TRUE;
+							}
+						}
+					}
+
+					// -------------------------------------
+					//	captcha
+					// -------------------------------------
+
+					else if ($field['type'] == 'nonfield_captcha')
+					{
+						$has_captcha = TRUE;
+						$fields['composer:field_label']		= lang('captcha_input_instructions');
+						$fields['composer:field_output']	= '{freeform:captcha}<br />' .
+								'<input type="text" name="captcha" value="" ' .
+									'size="20"   maxlength="20" style="width:140px;" />';
+
+						if (isset($field['required']) AND $field['required'] == 'yes')
+						{
+							$required[] = 'captcha';
+							$fields['composer:field_required']	= TRUE;
+						}
+					}
+
+					// -------------------------------------
+					//	submit
+					// -------------------------------------
+
+					else if ($field['type'] == 'nonfield_submit')
+					{
+						if ($field['html'])
+						{
+							$fields['composer:field_output'] = '{freeform:submit attr:value="' .
+																$field['html'] . '"}';
+						}
+						else
+						{
+							$fields['composer:field_output'] = '{freeform:submit}';
+						}
+
+					}
+
+					// -------------------------------------
+					//	Submit previous
+					// -------------------------------------
+
+					else if ($field['type'] == 'nonfield_submit_previous')
+					{
+						if ($field['html'])
+						{
+							$fields['composer:field_output'] = '{freeform:submit_previous attr:value="' .
+																$field['html'] . '"}';
+						}
+						else
+						{
+							$fields['composer:field_output'] = '{freeform:submit_previous}';
+						}
+					}
+
+					$column_array['composer:fields'][] = $fields;
+				}
+				//END foreach ($column as $field)
+
+				$row_array['composer:columns'][] = $column_array;
+			}
+			//END foreach ($row as $column)
+
+			$variables[$page]['composer:rows'][] = $row_array;
+		}
+		//END foreach ($composer_data['rows'] as $row)
+
+		//catch the last required items
+		if ( $page > 0 AND ! empty($required))
+		{
+			$variables[$page]['composer:multi_page_start']	= '' .
+				'{freeform:page:' . ($page + 1) . ' required="' . implode('|', $required) . '"}';
+			$required = array();
+		}
+		//single page form?
+		else if (! empty($required))
+		{
+			//manual additions?
+			if (isset(ee()->TMPL->tagparams['required']))
+			{
+				$required = array_unique(
+					array_merge(
+						$this->actions()->pipe_split(ee()->TMPL->tagparams['required']),
+						$required
+					)
+				);
+			}
+
+			$this->set_form_param('required', implode('|', $required), true);
+		}
+
+		// -------------------------------------
+		//	dynamic recipients?
+		// -------------------------------------
+
+		if ( ! empty($dynamic_recipients))
+		{
+			//we want to allow overrides
+			if ( ! isset(ee()->TMPL->tagparams['recipients']))
+			{
+				$this->set_form_param('recipients', 'yes', true);
+			}
+
+			//foreach recipients
+			$dynrec_counter = 1;
+			foreach ($dynamic_recipients as $dynrec_email => $dynrec_name)
+			{
+				$this->set_form_param(
+					'recipient' . $dynrec_counter,
+					$dynrec_name . '|' . $dynrec_email,
+					true
+				);
+				$dynrec_counter++;
+			}
+		}
+
+		// -------------------------------------
+		//	There was a captcha in the composer
+		//	templates?
+		// -------------------------------------
+		//	This seems a little weird but the
+		//	issue is that we are testing for
+		//	the tag pair's existance in form()
+		//	but because conditionals run late
+		//	you might still have the tag pair
+		//	in the tagdata even if its not
+		//	in the selected composer fields.
+		//	This means people with static
+		//	captcha in their templates need to
+		//	set extra params that override
+		//	this default of off if no captcha
+		//	is in the composer fields.
+		// -------------------------------------
+
+		if ( ! isset(ee()->TMPL->tagparams['require_captcha']))
+		{
+			$this->set_form_param(
+				'require_captcha',
+				($has_captcha) ? 'yes' : 'no',
+				true
+			);
+		}
+
+		// -------------------------------------
+		//	check for composer data
+		// -------------------------------------
+
+		$tagdata = ee()->TMPL->tagdata;
+
+		if (empty($tagdata))
+		{
+			// -------------------------------------
+			//	composer?
+			// -------------------------------------
+
+			$template_param_id = ee()->TMPL->fetch_param('composer_template_id');
+			$template_param_name = ee()->TMPL->fetch_param('composer_template_name');
+
+			$template = FALSE;
+
+			ee()->load->model('freeform_template_model');
+
+			if ($this->is_positive_intlike($template_param_id))
+			{
+				$template = ee()->freeform_template_model
+								->select('template_data, param_data')
+								->where('enable_template', 'y')
+								->where('template_id', $template_param_id)
+								->get_row();
+			}
+			else if ( ! in_array($template_param_name, array(FALSE, ''), TRUE))
+			{
+				$template = ee()->freeform_template_model
+								->select('template_data, param_data')
+								->where('enable_template', 'y')
+								->where('template_name', $template_param_name)
+								->get_row();
+			}
+			else if ($form_data['template_id'] > 0)
+			{
+				$template = ee()->freeform_template_model
+								->select('template_data, param_data')
+								->where('enable_template', 'y')
+								->where('template_id', $form_data['template_id'])
+								->get_row();
+			}
+
+			if ($template !== FALSE)
+			{
+				$tagdata = $template['template_data'];
+
+				//extra tag params?
+				if (isset($template['param_data']) AND
+					is_string($template['param_data']))
+				{
+					$template['param_data'] = json_decode($template['param_data'], TRUE);
+
+					if (is_array($template['param_data']))
+					{
+						foreach ($template['param_data'] as $param => $value)
+						{
+							$this->set_form_param($param, $value, true);
+						}
+					}
+				}
+			}
+
+			//backup plan
+			if (empty($tagdata))
+			{
+				$tagdata = $this->view(
+					'default_composer_template.html',
+					array('wrappers' => FALSE),
+					TRUE
+				);
+			}
+		}
+
+		//because we are doing some inline replacements with start and end
+		//might fix this to be more efficient later
+		$tagdata = str_replace(
+			array(
+				'{composer:page}',
+				'{/composer:page}'
+			),
+			array(
+				'{composer:page}{composer:multi_page_start}',
+				'{composer:multi_page_end}{/composer:page}'
+			),
+			$tagdata
+		);
+
+		$output_vars = array(array('composer:page' => $variables));
+
+		ee()->TMPL->tagdata = ee()->TMPL->parse_variables($tagdata, $output_vars);
+
+		return $this->form($edit, $preview, $preview_fields);
+	}
+	//END composer
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Freeform:Edit
+	 *
+	 * This adds an extra level of protection so someone cannot inject entry
+	 * ids and force an edit
+	 *
+	 * @access	public
+	 * @return	string 	tagdata
+	 */
+
+	public function edit ()
+	{
+		return $this->form(TRUE);
+	}
+	//END edit
+
+	
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Freeform:Form
 	 * {exp:freeform:form}
 	 *
@@ -1032,6 +1749,26 @@ class Freeform extends Module_builder_freeform
 		$entry_id	= 0;
 
 		$edit_data	= array();
+
+		
+
+		if ($edit)
+		{
+			$entry_id = $this->entry_id();
+
+			if ( ! $entry_id)
+			{
+				return $this->no_results_error('invalid_entry_id');
+			}
+
+			$edit_data = $this->data->get_entry_data_by_id($entry_id, $form_id);
+
+			//this should be unlikely, but hey...
+			if ($edit_data == FALSE)
+			{
+				return $this->no_results_error('invalid_entry_id');
+			}
+		}
 
 		
 
@@ -1134,6 +1871,23 @@ class Freeform extends Module_builder_freeform
 
 		
 
+		// -------------------------------------
+		//	restrict edit to author?
+		// -------------------------------------
+
+		if ($edit AND
+			$this->params['restrict_edit_to_author'] AND
+			ee()->session->userdata('group_id') != 1 AND
+			(	ee()->session->userdata('member_id') == 0 OR
+				$edit_data['author_id'] != ee()->session->userdata('member_id')
+			)
+		)
+		{
+			return $this->no_results_error('author_edit_only');
+		}
+
+		
+
 		$this->edit	= $edit;
 
 		//	----------------------------------------
@@ -1171,7 +1925,268 @@ class Freeform extends Module_builder_freeform
 		// -------------------------------------
 
 		
+
+		if ( $multipage )
+		{
+			// -------------------------------------
+			//	calc markers, current page, etc
+			// -------------------------------------
+
+			$pos = $this->set_page_positions();
+
+			$current_page	= $pos['current_page'];
+			$page_total		= $pos['page_total'];
+			$next_page		= $pos['next_page'];
+			$previous_page	= $pos['previous_page'];
+			$page_type		= $pos['page_type'];
+
+
+			// -------------------------------------
+			//	page by name?
+			// -------------------------------------
+
+			$mp_page_array = $this->get_mp_page_array();
+
+			if ( ! empty($mp_page_array))
+			{
+				//replace all things like {freeform:page:first_name with
+				//{freeform:page:1
+				for ($i = 0, $l = count($mp_page_array); $i <  $l;  $i++)
+				{
+					$tagdata = preg_replace(
+						'/(' . LD . '[' . preg_quote('/', '/') .
+							']?freeform:page:)' .
+							preg_quote($mp_page_array[$i], '/') .
+							'([\s|' . RD . '])/s',
+						'${1}' . ($i + 1) . '${2}',
+						$tagdata
+					);
+				}
+			}
+
+			// -------------------------------------
+			//	check total pages?
+			// -------------------------------------
+			//	looks for:
+			//	{freeform:page:1}stuff{/freeform:page:1}
+			//	tag pairs
+			// -------------------------------------
+
+			$page_matches = array();
+
+			preg_match_all(
+				'/' . LD . 'freeform:page:([0-9]+).*?' . RD .
+					'(.*?)' .
+				LD . '\/freeform:page:\\1' . RD . '/ms',
+				$tagdata,
+				$page_matches
+			);
+
+			// -------------------------------------
+			//	If we have no matches, there is nothing
+			//	we can do but treat this like a single
+			//	page form.
+			// -------------------------------------
+
+			if ( ! $page_matches OR
+				 ! isset($page_matches[0]) OR
+				 empty($page_matches[0]))
+			{
+				$current_page	= 1;
+
+				//if there are no pages, then this isn't multipage, is it...
+				$this->param['multipage'] 	= $multipage = FALSE;
+			}
+			// -------------------------------------
+			//	count page totals
+			// -------------------------------------
+			//	This can't really be done until
+			//	we are here in the form because it
+			//	needs full tagdata to work.
+			// -------------------------------------
+			else
+			{
+				//if we are automatically paging
+				if ($page_type == 'int')
+				{
+					$page_total		= count($page_matches[0]);
+
+					//reset because we have a new page total
+					$next_page		= ($current_page < $page_total) ?
+										$current_page + 1 : 0;
+
+					$previous_page	= ($current_page > 1) ?
+						$current_page - 1 : 0;
+				}
+
+				foreach ($page_matches[0] as $key => $value)
+				{
+					//current page we are looking at?
+					if ($current_page == $page_matches[1][$key])
+					{
+						//remove outer {page tags for current
+						$tagdata = str_replace(
+							$value,
+							$page_matches[2][$key],
+							$tagdata
+						);
+
+						// -------------------------------------
+						//	Check for override params
+						// -------------------------------------
+
+						//no need for an if. if we are here, this matched before
+						preg_match(
+							'/' . LD . 'freeform:page:([0-9]+).*?' . RD . '/',
+							$value,
+							$sub_matches
+						);
+
+						// Checking for variables/tags embedded within tags
+						// {exp:channel:entries channel="{master_channel_name}"}
+						if (stristr(substr($sub_matches[0], 1), LD) !== FALSE)
+						{
+							$sub_matches[0] = ee()->functions->full_tag(
+								$sub_matches[0],
+								$value
+							);
+						}
+
+						$page_params = ee()->functions->assign_parameters(
+							$sub_matches[0]
+						);
+
+						$allowed_overrides = array(
+							'paging_url',
+							'required',
+							'matching_fields'
+						);
+
+						foreach ($allowed_overrides as $key)
+						{
+							if (isset($page_params[$key]))
+							{
+								$this->params[$key] = $page_params[$key];
+							}
+						}
+					}
+					// -------------------------------------
+					//	Not current page. Remove its
+					//	{freeform:page:1}stuff{/freeform:page:1}
+					//	tag pair so nothing parses.
+					// -------------------------------------
+					else
+					{
+						//remove
+						$tagdata = str_replace($value, '', $tagdata);
+					}
+				}
+			}
+
+			// -------------------------------------
+			//	finally if our paging_url is not set
+			//	we should set it to current url + page1, etc
+			// -------------------------------------
+
+			if ($this->params['paging_url'] == '')
+			{
+				$this->params['paging_url'] = '/' .
+					ee()->uri->uri_string . '/' .
+					'%page%';
+			}
+
+			// -------------------------------------
+			//	next page for multipage
+			// -------------------------------------
+
+			$this->params['last_page'] = $last_page = ($current_page == $page_total);
+
+			if ( ! $last_page)
+			{
+				$page_replacer = ($page_type == 'int') ?
+									$this->params['page_marker'] .
+										$next_page :
+									$next_page;
+
+				$this->params['multipage_next_page'] = str_replace(
+					'%page%',
+					$page_replacer,
+					$this->params['paging_url']
+				);
+			}
+
+
+			$p_page_replacer = ($page_type == 'int') ?
+								$this->params['page_marker'] .
+									$previous_page :
+								$previous_page;
+
+
+			$this->params['multipage_previous_page'] = '';
+
+			if ($current_page !== 1)
+			{
+				$this->params['multipage_previous_page'] = str_replace(
+					'%page%',
+					$p_page_replacer,
+					$this->params['paging_url']
+				);
+			}
+
+			// -------------------------------------
+			//	check hashes and attempt to get data
+			// -------------------------------------
+
+			$hash = ee()->freeform_forms->check_multipage_hash(
+				$form_id,
+				$entry_id,
+				$edit
+			);
+
+			$previous_inputs = array();
+
+			if ( $hash AND ! $edit )
+			{
+				$previous_inputs = ee()->freeform_forms->get_multipage_form_data($form_id, $hash);
+			}
+			else if ($hash AND $edit)
+			{
+				$previous_inputs = $edit_data;
+			}
+			//either the previous inputs could not be found,
+			//or the hash was bad
+			if ( ! $hash)
+			{
+				//if we are redirecting on timeout
+				//lets move on
+				if ((int) $current_page !== 1 AND
+					$this->params['redirect_on_timeout'] AND
+					$this->params['redirect_on_timeout_to'] !== '')
+				{
+					ee()->functions->redirect(
+						$this->prep_url(
+							$this->params['redirect_on_timeout_to']
+						)
+					);
+
+					return $this->do_exit();
+				}
+
+				$hash = ee()->freeform_forms->start_multipage_hash(
+					$form_id,
+					$entry_id,
+					$edit
+				);
+			}
+
+			$hidden_fields[ee()->freeform_forms->hash_cookie_name] = $hash;
+		}
+		else
+		{
+			
 			$current_page = 1;
+			
+		}
 			
 
 		// -------------------------------------
@@ -1222,6 +2237,66 @@ class Freeform extends Module_builder_freeform
 		$variables['freeform:last_page']		= $last_page;
 		$variables['freeform:current_page']		= $current_page;
 
+		
+
+		// -------------------------------------
+		//	previous page links
+		// -------------------------------------
+
+		if ($multipage && $current_page > 1)
+		{
+			$variables['freeform:submit_previous'] = form_submit(
+				'submit_to_previous',
+				lang('previous')
+			);
+
+			//replace submit button with args
+			$tagdata = $this->replace_submit(array(
+				'tag'		=> 'freeform:submit_previous',
+				'pre_args'	=> array(
+					'value' => lang('previous')
+				),
+				'post_args' => array(
+					'name' => 'submit_to_previous',
+				),
+				'tagdata'	=> $tagdata
+			));
+		}
+		//first page? empty
+		else
+		{
+			$tagdata = $this->replace_submit(array(
+				'tag'		=> 'freeform:submit_previous',
+				'remove'	=> true,
+				'tagdata'	=> $tagdata
+			));
+		}
+		//END if ($multipage && $current_page > 1)
+
+		// -------------------------------------
+		//	edit vars
+		// -------------------------------------
+
+		if ($edit)
+		{
+			$edit_data_items = array(
+				'author',
+				'author_id',
+				'complete',
+				'edit_date',
+				'entry_date',
+				'entry_id',
+				'site_id',
+				'status',
+			);
+
+			foreach ($edit_data_items as $edit_data_item)
+			{
+				$variables['freeform:edit_data:' . $edit_data_item]	= isset(
+					$edit_data[$edit_data_item]
+				) ? $edit_data[$edit_data_item] : '';
+			}
+		}
 		
 
 		// -------------------------------------
@@ -1338,6 +2413,24 @@ class Freeform extends Module_builder_freeform
 			$possible = $this->prep_multi_item_data($possible, $field_data['field_type']);
 
 			$variables['freeform:mp_data:' . $field_data['field_name']] = $possible;
+
+			
+
+			// -------------------------------------
+			//	previous edit data?
+			// -------------------------------------
+
+			if ($edit)
+			{
+				$possible = (
+					isset( $edit_data[$field_data['field_name']] ) ?
+						$edit_data[$field_data['field_name']] :
+						''
+				);
+
+				$possible = $this->prep_multi_item_data($possible, $field_data['field_type']);
+				$variables['freeform:edit_data:' . $field_data['field_name']]	= $possible;
+			}
 
 			
 
@@ -1792,6 +2885,22 @@ class Freeform extends Module_builder_freeform
 		
 
 		// -------------------------------------
+		//	Keyword banning?
+		// -------------------------------------
+
+		if ($this->check_yes($this->preference('spam_keyword_ban_enabled')))
+		{
+			if (ee()->freeform_forms->check_keyword_banning())
+			{
+				return $this->pre_validation_error(
+					$this->preference('spam_keyword_ban_message')
+				);
+			}
+		}
+
+		
+
+		// -------------------------------------
 		//	valid form id
 		// -------------------------------------
 
@@ -1818,6 +2927,55 @@ class Freeform extends Module_builder_freeform
 		$current_page		= $this->param('current_page');
 		$last_page			= $this->param('last_page');
 		$previous_inputs	= array();
+
+		
+
+		if ($multipage)
+		{
+			ee()->freeform_forms->hash_clean_up();
+
+			$hash = ee()->freeform_forms->check_multipage_hash(
+				$form_id,
+				$entry_id,
+				$edit
+			);
+
+			if ( $hash )
+			{
+				$previous_inputs =	ee()->freeform_forms
+										->get_multipage_form_data(
+											$form_id,
+											$hash
+										);
+			}
+			//either the previous inputs could not be found,
+			//or the hash was bad
+			else
+			{
+				//if we are redirecting on timeout
+				//lets move on
+				if ($this->param('redirect_on_timeout') AND
+					$this->param('redirect_on_timeout_to') !== '')
+				{
+					ee()->functions->redirect(
+						$this->prep_url(
+							$this->param('redirect_on_timeout_to')
+						)
+					);
+
+					return $this->do_exit();
+				}
+				//if they don't want to redirect on timeout... uh new hash?
+				else
+				{
+					$hash = ee()->freeform_forms->start_multipage_hash(
+						$form_id,
+						$entry_id,
+						$edit
+					);
+				}
+			}
+		}
 
 		
 
@@ -2311,6 +3469,16 @@ class Freeform extends Module_builder_freeform
 			
 
 			// -------------------------------------
+			//	error page
+			// -------------------------------------
+
+			if (trim($this->param('error_page')) !== '')
+			{
+				return $this->error_page($all_errors);
+			}
+			
+
+			// -------------------------------------
 			//	ajax or standard user error
 			// -------------------------------------
 
@@ -2380,10 +3548,38 @@ class Freeform extends Module_builder_freeform
 		// -------------------------------------
 
 
+		$submit_to_previous = (ee()->input->get_post('submit_to_previous') !== FALSE);
+
+		if ($multipage)
+		{
+			$entry_id = ee()->freeform_forms->store_multipage_entry(
+				$form_id,
+				$field_input_data,
+				$hash,		//cookie will get updated
+				($last_page && ! $submit_to_previous),	//if true will finish up for us
+				array(
+					'recipient_emails'		=> $recipient_emails,
+					'user_recipient_emails' => $user_recipient_emails
+				)
+			);
+		}
+		else if ($edit)
+		{
+			ee()->freeform_forms->update_entry(
+				$form_id,
+				$entry_id,
+				$field_input_data
+			);
+		}
+		else
+		{
+
 			$entry_id = ee()->freeform_forms->insert_new_entry(
 				$form_id,
 				$field_input_data
 			);
+
+		}
 
 		// -------------------------------------
 		//	entry insert end hook
@@ -2669,6 +3865,11 @@ class Freeform extends Module_builder_freeform
 			return $this->do_exit();
 		}
 
+		
+		if (trim($this->param('error_page')) !== '')
+		{
+			return $this->error_page($errors);
+		}
 		
 
 		return $this->actions()->full_stop($errors);
@@ -4118,6 +5319,269 @@ class Freeform extends Module_builder_freeform
 	}
 	//END replace_current_user
 
+
+	
+
+	// --------------------------------------------------------------------
+
+	/**
+	 *	Output Custom Error Template
+	 *
+	 *	@access		private
+	 *	@param		array	$errors	what errors we are going to show
+	 *	@param		string	$type	type of error
+	 *	@return		string	$html	error output template parsed
+	 */
+
+	private function error_page($errors, $type = 'submission')
+	{
+		$error_return = array();
+
+		if (is_string($errors))
+		{
+			$errors = array($errors);
+		}
+
+		foreach ($errors as $error_set => $error_data)
+		{
+			if (is_array($error_data))
+			{
+				foreach ($error_data as $sub_key => $sub_error)
+				{
+					$error_return[] = $sub_error;
+				}
+			}
+			else
+			{
+				$error_return[] = $error_data;
+			}
+		}
+
+		$errors = $error_return;
+
+		$error_page = (
+			$this->param('error_page') ?
+				$this->param('error_page') :
+				ee()->input->post('error_page', TRUE)
+		);
+
+		if ( ! $error_page AND
+			REQ == 'PAGE' AND
+			isset(ee()->TMPL) AND
+			is_object(ee()->TMPL) AND
+			ee()->TMPL->fetch_param('error_page') !== FALSE)
+		{
+			$error_page = ee()->TMPL->fetch_param('error_page');
+		}
+
+		if ( ! $error_page)
+		{
+			return $this->show_error($errors);
+		}
+
+		//	----------------------------------------
+		//  Retrieve Template
+		//	----------------------------------------
+
+		$x = explode('/', $error_page);
+
+		if ( ! isset($x[1])) $x[1] = 'index';
+
+		//	----------------------------------------
+		//  Template as File?
+		//	----------------------------------------
+
+		$template_data = '';
+
+		if ($template_data == '')
+		{
+			$query =	ee()->db->select('template_data, group_name, template_name, template_type')
+								->from('exp_templates as t')
+								->from('exp_template_groups as tg')
+								->where('t.site_id', ee()->config->item('site_id'))
+								->where('t.group_id = tg.group_id')
+								->where('t.template_name', $x[1])
+								->where('tg.group_name', $x[0])
+								->limit(1)
+								->get();
+
+			if ($query->num_rows() > 0)
+			{
+				if (ee()->config->item('save_tmpl_files') == 'y' AND
+					ee()->config->item('tmpl_file_basepath') != '')
+				{
+					ee()->load->library('api');
+					ee()->api->instantiate('template_structure');
+
+					$row = $query->row_array();
+
+					$template_data = $this->find_template_file(
+						$row['group_name'],
+						$row['template_name'],
+						ee()->api_template_structure->file_extensions(
+							$row['template_type']
+						)
+					);
+				}
+
+				//no file? query it is
+				if ($template_data == '')
+				{
+					$template_data = stripslashes($query->row('template_data'));
+				}
+
+			}
+		}
+
+		// -------------------------------------
+		//	query didn't work but save templates
+		//	as files is enabled? Lets see if its there
+		//	as an html file anyway
+		// -------------------------------------
+
+		if ($template_data == '' AND
+			ee()->config->item('save_tmpl_files') == 'y' AND
+			ee()->config->item('tmpl_file_basepath') != '')
+		{
+			$template_data = $this->find_template_file($x[0], $x[1]);
+		}
+
+		// -------------------------------------
+		//	still no template data? buh bye
+		// -------------------------------------
+
+		if ($template_data == '')
+		{
+			return $this->show_error($errors);
+		}
+
+		if ($type == 'general')
+		{
+			$heading = lang('general_error');
+		}
+		else
+		{
+			$heading = lang('submission_error');
+		}
+
+		//	----------------------------------------
+		//  Create List of Errors for Content
+		//	----------------------------------------
+
+		$content  = '<ul>';
+
+		if ( ! is_array($errors))
+		{
+			$content.= "<li>".$errors."</li>\n";
+		}
+		else
+		{
+			foreach ($errors as $val)
+			{
+				$content.= "<li>".$val."</li>\n";
+			}
+		}
+
+		$content .= "</ul>";
+
+		//	----------------------------------------
+		//  Data Array
+		//	----------------------------------------
+
+		$data = array(
+			'title' 		=> lang('error'),
+			'heading'		=> $heading,
+			'content'		=> $content,
+			'redirect'		=> '',
+			'meta_refresh'	=> '',
+			'link'			=> array(
+				'javascript:history.go(-1)',
+				lang('return_to_previous')
+			),
+			'charset'		=> ee()->config->item('charset')
+		);
+
+		if (is_array($data['link']) AND count($data['link']) > 0)
+		{
+			$refresh_msg = (
+				$data['redirect'] != '' AND
+				$this->refresh_msg == TRUE
+			) ? lang('click_if_no_redirect') : '';
+
+			$ltitle = ($refresh_msg == '') ? $data['link']['1'] : $refresh_msg;
+
+			$url = (
+				strtolower($data['link']['0']) == 'javascript:history.go(-1)') ?
+					$data['link']['0'] :
+					ee()->security->xss_clean($data['link']['0']
+			);
+
+			$data['link'] = "<a href='".$url."'>".$ltitle."</a>";
+		}
+
+		//	----------------------------------------
+		//  For a Page Request, we parse variables and return
+		//  to let the Template Parser do the rest of the work
+		//	----------------------------------------
+
+		if (REQ == 'PAGE')
+		{
+			foreach ($data as $key => $val)
+			{
+				$template_data = str_replace('{'.$key.'}', $val, $template_data);
+			}
+
+			return str_replace('/', '/', $template_data);
+		}
+
+		// --------------------------------------------
+		//	Parse as Template
+		// --------------------------------------------
+
+		$this->actions()->template();
+
+		ee()->TMPL->global_vars	= array_merge(ee()->TMPL->global_vars, $data);
+		$out = ee()->TMPL->process_string_as_template($template_data);
+
+		exit($out);
+	}
+	// END error_page
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Find the template
+	 *
+	 * @access	protected
+	 * @param	string	$group		template group
+	 * @param	string	$template	template name
+	 * @param	string	$extension	file extension
+	 * @return	string				template data or empty string
+	 */
+
+	protected function find_template_file($group, $template, $extention = '.html')
+	{
+		$template_data = '';
+
+		$extention = '.' . ltrim($extention, '.');
+
+		$filepath = rtrim(ee()->config->item('tmpl_file_basepath'), '/') . '/';
+		$filepath .= ee()->config->item('site_short_name') . '/';
+		$filepath .= $group . '.group/';
+		$filepath .= $template;
+		$filepath .= $extention;
+
+		ee()->security->sanitize_filename($filepath);
+
+		if (file_exists($filepath))
+		{
+			$template_data = file_get_contents($filepath);
+		}
+
+		return $template_data;
+	}
+	//END find_template_file
 
 	
 

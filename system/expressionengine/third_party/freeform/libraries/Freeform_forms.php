@@ -275,6 +275,14 @@ class Freeform_forms extends Addon_builder_freeform
 
 		
 
+		//we dont want this to run on every thing
+		if ($complete)
+		{
+			$this->hash_clean_up();
+		}
+
+		
+
 		return $entry_id;
 	}
 	//END entry
@@ -319,6 +327,282 @@ class Freeform_forms extends Addon_builder_freeform
 		return $this->entry($form_id, $form_input_data, $entry_id);
 	}
 	//END update_entry
+
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * get_form_info
+	 *
+	 * inserts data into form
+	 *
+	 * @access	public
+	 * @param	int  	ID of form to check
+	 * @param 	int 	entry_id
+	 * @param 	array 	form input data
+	 * @param 	string 	32 bit hash
+	 * @param 	bool 	are we finished?
+	 * @param 	array 	data to store with the hash
+	 * @return	array 	form data
+	 */
+
+	public function store_multipage_entry ( $form_id, $form_input_data,
+											$hash, $finished = FALSE,
+											$hash_data = array())
+	{
+		if ( ! $this->data->is_valid_form_id($form_id))
+		{
+			return $this->actions()->full_stop(lang('invalid_form_id'));
+		}
+
+		$hash_query = ee()->db->get_where(
+			'freeform_multipage_hashes',
+			array('hash' => $hash)
+		);
+
+		if ($hash_query->num_rows() == 0)
+		{
+			return FALSE;
+		}
+
+		$entry_id = (int) $hash_query->row('entry_id');
+
+		if ($entry_id != 0 AND $this->data->is_valid_entry_id($entry_id, $form_id))
+		{
+			$this->entry($form_id, $form_input_data, $entry_id, $finished);
+		}
+		else
+		{
+			$entry_id = $this->entry($form_id, $form_input_data, NULL, $finished);
+		}
+
+
+		if ( ! $finished)
+		{
+			//adjusts the entry_id and hash expire date
+			$this->update_hash(
+				$hash,
+				array(
+					'entry_id' 	=> $entry_id,
+					'data' 		=> $this->json_encode($hash_data)
+				)
+			);
+		}
+		else
+		{
+			//clear hash
+			$this->remove_hash($hash);
+
+			//remove edit date (this could be optimized elsewhere)
+			ee()->db->update(
+				ee()->freeform_form_model->table_name($form_id),
+				array('edit_date' 	=> 0),
+				array('entry_id' 	=> $entry_id)
+			);
+		}
+
+		return $entry_id;
+	}
+	//END store_multipage_entry
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Multipage cookie expire time
+	 *
+	 * @access	public
+	 * @return	bool
+	 */
+
+	public function cookie_expire_time ()
+	{
+		if ( ! isset($this->cookie_expire))
+		{
+			$pref = $this->preference('multi_form_timeout');
+
+			$num  = $this->is_positive_intlike($pref) ? $pref : 7200;
+
+			$this->cookie_expire = ee()->localize->now + $num;
+		}
+
+		return $this->cookie_expire;
+	}
+	//end cookie_expire_time
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * start_multipage_hash
+	 *
+	 * @access	public
+	 * @return	string 	32bit hash
+	 */
+
+	public function start_multipage_hash ($form_id = 0, $entry_id = 0, $edit = FALSE)
+	{
+		$hash = md5(uniqid(mt_rand(), TRUE));
+
+		ee()->functions->set_cookie(
+			$this->hash_cookie_name,
+			$hash,
+			$this->hash_expire_time()
+		);
+
+		ee()->db->insert(
+			'freeform_multipage_hashes',
+			array(
+				'hash' 			=> $hash,
+				'site_id'		=> ee()->config->item('site_id'),
+				'date' 			=> ee()->localize->now,
+				'ip_address'	=> ee()->input->ip_address(),
+				'form_id' 		=> $form_id,
+				'entry_id'		=> $this->is_positive_intlike($entry_id) ? $entry_id : 0,
+				'edit'			=> $edit ? 'y' : 'n'
+			)
+		);
+
+		return $hash;
+	}
+	//END start_multipage_hash
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * update_hash
+	 *
+	 * @access	public
+	 * @return	null
+	 */
+
+	public function update_hash ($hash = '', $data = array())
+	{
+		if ($hash == '' OR strlen($hash) !== 32)
+		{
+			return;
+		}
+
+		ee()->functions->set_cookie(
+			$this->hash_cookie_name,
+			$hash,
+			$this->cookie_expire_time()
+		);
+
+		ee()->db->update(
+			'freeform_multipage_hashes',
+			array_merge($data, array('date' => ee()->localize->now)),
+			array('hash' => $hash)
+		);
+	}
+	//END update_hash
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * remove_hash
+	 *
+	 * @access	public
+	 * @return	null
+	 */
+
+	public function remove_hash ($hash = '')
+	{
+		if ($hash == '' OR strlen($hash) !== 32)
+		{
+			return;
+		}
+
+		ee()->functions->set_cookie(
+			$this->hash_cookie_name,
+			'',
+			''
+		);
+
+		ee()->db->delete(
+			'freeform_multipage_hashes',
+			array('hash' => $hash)
+		);
+	}
+	//END remove_hash
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * check multipage hash
+	 *
+	 * checks to see if the hash is available in cookie or post
+	 *
+	 * @access	public
+	 * @param 	int 		form id
+	 * @param	entry_id	is this entry_id > 0 because its perhaps an edit?
+	 * @return	string 	hash
+	 */
+
+	public function check_multipage_hash ($form_id = 0, $entry_id = 0, $edit = FALSE)
+	{
+		$hash = FALSE;
+
+		if ( ! $this->is_positive_intlike($form_id))
+		{
+			return FALSE;
+		}
+
+		// --------------------------------------------
+		//  Check for Existing Hash
+		// --------------------------------------------
+
+		if ( ! in_array(
+			ee()->input->post($this->hash_cookie_name),
+			array('', FALSE),
+			TRUE
+		))
+		{
+			$hash = ee()->input->post($this->hash_cookie_name);
+		}
+		else if ( ! in_array(
+			ee()->input->cookie($this->hash_cookie_name),
+			array('', FALSE),
+			TRUE
+		))
+		{
+			$hash = ee()->input->cookie($this->hash_cookie_name);
+		}
+
+		//make sure its 32 chars only
+		if ($hash AND strlen($hash) != 32)
+		{
+			$hash = FALSE;
+		}
+
+		if ($this->is_positive_intlike($entry_id) AND $entry_id > 0)
+		{
+			ee()->db->where('entry_id', $entry_id);
+		}
+
+		ee()->db->where('edit', $edit ? 'y' : 'n');
+
+		//optional to keep queries down
+		if (ee()->db->get_where(
+				'freeform_multipage_hashes',
+				array(
+					'hash' 			=> $hash,
+					'ip_address'	=> ee()->input->ip_address(),
+					'form_id' 		=> $form_id
+				)
+			)->num_rows() == 0)
+		{
+			$hash = FALSE;
+		}
+
+		return $hash;
+	}
+	//END check_multipage_hash
+
 
 
 
@@ -462,6 +746,97 @@ class Freeform_forms extends Addon_builder_freeform
 		}
 	}
 	//end hash_clean_up
+
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * get_multipage_form_data
+	 *
+	 * @access	public
+	 * @param 	int 	form_id
+	 * @param 	string 	hash
+	 * @return	mixed
+	 */
+
+	public function get_multipage_form_data ($form_id, $hash)
+	{
+		ee()->load->model('freeform_entry_model');
+
+		$previous_inputs = ee()->freeform_entry_model->get_multipage(
+			$form_id,
+			$hash
+		);
+
+		if ( ! $previous_inputs)
+		{
+			return FALSE;
+		}
+
+		if (isset($previous_inputs['hash_stored_data']) AND
+			is_string($previous_inputs['hash_stored_data']))
+		{
+			$json = array();
+
+			//sadly we cannot trust that json will work out
+			try
+			{
+				$json = $this->json_decode(
+					$previous_inputs['hash_stored_data'],
+					TRUE
+				);
+			}
+			catch (Exception $e)
+			{
+				$json = array();
+			}
+
+			$previous_inputs['hash_stored_data'] = $json;
+
+			unset($json);
+		}
+
+		return $previous_inputs;
+	}
+	//END get_multipage_form_data
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * check keyword banning
+	 *
+	 * checks to see if the hash is available in post
+	 *
+	 * @access	public
+	 * @param 	int 	form id
+	 * @return	boolean
+	 */
+
+	public function check_keyword_banning ()
+	{
+		// --------------------------------------------
+		//  Get our list of keywords
+		// --------------------------------------------
+
+		$keywords = preg_split(
+			"/\r|\n/",
+			$this->preference('spam_keywords'),
+			-1,
+			PREG_SPLIT_NO_EMPTY
+		);
+
+		//replace all stars with anything thats not a space for now
+		$keywords = str_replace('*', '([^\s]*)', '\b' . implode('\b|\b', $keywords) . '\b');
+
+		//this way everything, including keys and sub arrays get tested
+		$test	= print_r($_POST, TRUE);
+
+		return (bool) preg_match('/' . $keywords . '/is', $test);
+	}
+	//END check_keyword_banning
+
 
 
 

@@ -1,0 +1,66 @@
+<div ng-controller="PaginationController">
+
+  <div class="article-detail" ng-class="{visible: lightbox()}">
+    <span class="close"><a href="#">X</a></span>
+    <div class='background-stretch'>
+      <!--(bake-start _if="server")-->
+        <img src="uploads/home/hero/building_sustainable_systems_of_hearing_care_02.jpg">
+      <!--(bake-end)-->
+    </div>
+    <div class="outer-container">
+
+      <h1>{{lightbox().title}}</h1>
+      {{lightbox().text}}
+
+      <!--(bake-start _if="server")-->
+        <p>Text</p>
+      <!--(bake-end)-->
+    </div>
+    </div>
+  <div class="outer-container">
+    <div class="pagination-featured">
+      <div ng-repeat="featuredArticle in featured">
+        <h1>FEATURED {{featuredArticle.title}}</h1>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <ul>
+        <li ng-class="{disabled: currentPage == 0}">
+          <a href ng-click="prevPage()">Prev</a>
+        </li>
+        <li ng-repeat="n in range(pagedArticles.length)"
+          ng-class="{active: n == currentPage}"
+          ng-click="setPage()">
+          <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
+          <a href ng-click="nextPage()">Next</a>
+        </li>
+      </ul>
+    </div>
+    <div class="spacer"></div>
+    <ul class="pagination-articles outer-container" ng-repeat="articleCol in pagedArticles[currentPage]">
+      <li ng-repeat="article in articleCol">
+        <pagination article="article" lightbox="lightbox" add-tag="addTag"></pagination>
+      </li>
+    </ul>
+    <div class="center">
+      <div class="pagination">
+        <ul>
+          <li ng-class="{disabled: currentPage == 0}">
+            <a href ng-click="prevPage()">Prev</a>
+          </li>
+          <li ng-repeat="n in range(pagedArticles.length)"
+            ng-class="{active: n == currentPage}"
+            ng-click="setPage()">
+            <a href ng-bind="n + 1">1</a>
+          </li>
+          <li ng-class="{disabled: currentPage == pagedArticles.length - 1}">
+            <a href ng-click="nextPage()">Next</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

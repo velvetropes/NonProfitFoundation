@@ -1,0 +1,88 @@
+.flatform {
+
+  ul {
+    padding-left: 0;
+  }
+
+  &.invert {
+    select, input[type="text"], input[type="submit"], label {
+      border-color: #FFF;
+      color: #FFF;
+    }
+  }
+
+  select,
+  input[type="text"],
+  input[type="submit"] {
+    outline: none;
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 4px 6px;
+    height: 32px;
+    border: 1px solid #000;
+    color: #000;
+    background: transparent;
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: 100%;
+    border-radius: 0px;
+  }
+
+  label {
+    &:after { content: '\A'; }
+    text-transform: uppercase;
+  }
+
+  input[type="submit"] {
+    border: 2px solid #FFF;
+  }
+
+  input[type="checkbox"] {
+    width: auto;
+    margin: 4px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+    background: normal;
+    padding: 0;
+  }
+
+  li {
+
+    display: inline-block;
+    padding: 0.25em;
+
+    &.full {
+      clear: left !important;
+      width: 100% !important;
+    }
+
+    &.leftHalf, &.rightHalf {
+      width: 47% !important;
+    }
+
+    &.leftThird, &.middleThird, &.rightThird {
+      width: 30% !important;
+    }
+
+    &.middleThird {
+      clear: none !important;
+      float: left;
+      margin-left: 5% !important;
+    }
+
+    &.rightHalf, &.rightThird {
+      clear: none !important;
+      float: right;
+    }
+
+    &.leftHalf, &.leftThird {
+      clear: left !important;
+      float: left;
+    }
+
+    &.leftHalf .small, &.rightHalf .small, &.leftHalf .medium, &.rightHalf .medium, &.leftThird .small, &.middleThird .small, &.rightThird .small, &.leftThird .medium, &.middleThird .medium, &.rightThird .medium {
+      width: 100% !important;
+    }
+  }
+}

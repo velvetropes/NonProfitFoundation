@@ -25,8 +25,8 @@ if ( ! defined('FREEFORM_VERSION'))
 	// You can purchase Freeform Pro at http://solspace.com ;).
 
 	
-	define('FREEFORM_PRO',		FALSE);
-	
 
+	
+	define('FREEFORM_PRO',		TRUE);
 	
 }

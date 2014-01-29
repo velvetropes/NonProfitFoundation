@@ -23,7 +23,7 @@ if ( ! defined('ENV'))
 		case "starkey.local":
 			define('ENV', 'local');
 			define('ENV_FULL', 'Local');
-			define('ENV_DEBUG', TRUE);
+			define('ENV_DEBUG', FALSE);
 		break;
 
 		default :

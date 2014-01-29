@@ -372,6 +372,77 @@ class Freeform_fields extends Addon_builder_freeform
 
 		
 
+		$installed_fieldtypes	= ee()->freeform_fieldtype_model->installed_fieldtypes();
+
+		$installed_updated		= FALSE;
+
+		$third_party_fields		= directory_map(PATH_THIRD);
+
+		//each item in the path third
+		foreach ($third_party_fields as $name => $folder)
+		{
+			$file 			= 'freeform_ft.' . strtolower($name) . '.php';
+			$pkg_path		= PATH_THIRD . strtolower($name) . '/';
+
+			if (is_array($folder) AND $name !== 'freeform' AND file_exists($pkg_path . $file))
+			{
+				$ft_lower_name 	= strtolower($name); //$match[1];
+				$ft_class_name 	= ucfirst($ft_lower_name . '_freeform_ft');
+				//$pkg_path		= PATH_THIRD . strtolower($name) . '/';
+
+				include_once $pkg_path . $file;
+
+				//if we cannot even get a class, move on
+				if (class_exists($ft_class_name))
+				{
+					ee()->load->add_package_path($pkg_path);
+
+					$this->lang_autoload($name);
+
+					//new instance? YEAAAH
+					$ft_temp = new $ft_class_name;
+
+					$installed = array_key_exists($ft_lower_name, $installed_fieldtypes);
+
+					//version, description required, dog
+					$fieldtypes[$ft_lower_name] = array(
+						'name'			=> $ft_temp->info['name'],
+						'version'		=> $ft_temp->info['version'],
+						'description'	=> $ft_temp->info['description'],
+						'installed'		=> $installed,
+						'default_type'	=> FALSE,
+						'class_name'	=> $ft_class_name
+					);
+
+					//higher version number? run update
+					if ($fieldtypes[$ft_lower_name]['installed'] AND
+						$this->version_compare(
+							$fieldtypes[$ft_lower_name]['version'],
+							'>',
+							$installed_fieldtypes[$ft_lower_name]['version']
+						)
+					)
+					{
+						$ft_temp->update();
+
+						//update version number
+						ee()->freeform_fieldtype_model->update(
+							array('fieldtype_name' => $ft_lower_name),
+							array('version' => $fieldtypes[$ft_lower_name]['version'])
+						);
+					}
+
+					//mem and crap
+					unset($ft_temp);
+
+					ee()->load->remove_package_path($pkg_path);
+				}
+			}
+		}
+		//END foreach ($third_party_fields as $name => $folder)
+
+		
+
 		ksort($fieldtypes);
 
 		return $cache->set($fieldtypes);

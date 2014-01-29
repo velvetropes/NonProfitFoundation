@@ -40,6 +40,16 @@ class Freeform_data extends Addon_builder_data_freeform
 		'allow_html'				=> 'n',
 		'default_fields'			=> array(
 			
+			"checkbox",
+			"checkbox_group",
+			"country_select",
+			"hidden",
+			"multiselect",
+			"province_select",
+			"radio",
+			"select",
+			"state_select",
+			
 			"file_upload",
 			"mailinglist",
 			"text",
@@ -83,11 +93,19 @@ class Freeform_data extends Addon_builder_data_freeform
 		'use_solspace_mcp_style'		=> array('type' => 'y_or_n',	'value' => 'y'),
 		//'censor_using_ee_word_list' 	=> array('type' => 'y_or_n',	'value' => 'n'),
 
+		'spam_keyword_ban_enabled'		=> array('type' => 'y_or_n',	'value' => 'n'),
+		'spam_keywords'					=> array('type' => 'textarea',	'value' => "viagra\ncialis"),
+		'spam_keyword_ban_message'		=> array('type' => 'text',		'value' => 'invalid entry data'),
+		'form_statuses'					=> array('type' => 'list',		'value' => array()),
+
 		'max_user_recipients'			=> array('type' => 'int',		'value' => 10),
 		'enable_spam_prevention'		=> array('type' => 'y_or_n',	'value' => 'y'),
 		'spam_count'					=> array('type' => 'int',		'value' => 30),
 		'spam_interval'					=> array('type' => 'int',		'value' => 60),
 		//'allow_user_field_layout'		=> array('type' => 'y_or_n',	'value' => 'y'),
+
+		'multi_form_timeout'			=> array('type' => 'int',		'value' => 7200),
+		'keep_unfinished_multi_form'	=> array('type' => 'y_or_n',	'value' => 'n'),
 
 		'cp_date_formatting'			=> array('type' => 'text',		'value' => 'Y-m-d - H:i'),
 		'hook_data_protection'			=> array('type' => 'y_or_n',	'value' => 'y'),
@@ -202,6 +220,18 @@ class Freeform_data extends Addon_builder_data_freeform
 		foreach ($this->form_statuses as $status)
 		{
 			$statuses[$status] = lang($status);
+		}
+
+
+
+		$pref_statuses = $this->preference('form_statuses');
+
+		if ($pref_statuses)
+		{
+			foreach ($pref_statuses as $status)
+			{
+				$statuses[form_prep($status)] = form_prep($status);
+			}
 		}
 
 

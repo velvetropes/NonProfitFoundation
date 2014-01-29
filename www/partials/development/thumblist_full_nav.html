@@ -1,0 +1,23 @@
+<section class='carousel bottom thumblist full'>
+  <thumblist-nav>
+  <!--(bake-start _if="server")-->
+     <div ng-repeat="article in featured" ng-click="showDetails(article)">
+      <img ng-src="{{article.thumbnail_url}}"/>
+      <p class="blog-category">Hearing Missions</p>
+      <h4>Title goes here: {{article.title}}</h4>
+    </div>
+  <!--(bake-end)-->
+
+  <!--(bake-start _if="dist")-->
+    {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
+    <div>
+      <img src="{carousel_image}">
+      <!-- TODO: insert blog category title -->
+      <p class="blog-category">Hearing Missions</p>
+      <h4>{title}</h4>
+    </div>
+    {/exp:channel:entries}
+  <!--(bake-end)-->
+
+  </thumblist-nav>
+</section>

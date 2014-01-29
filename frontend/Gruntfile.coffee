@@ -99,7 +99,7 @@ module.exports = (grunt) ->
       all:
         options:
           run: true
-          urls: ["http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/intl_index.html"]
+          urls: ["http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html"]
 
     autoprefixer:
       options:
@@ -274,6 +274,18 @@ module.exports = (grunt) ->
               cwd: "app/styles/fonts/",
               src: ['**'],
               dest: '../www/assets/styles/fonts/',
+            },
+            { #TODO: fix and remove
+              expand: true,
+              cwd: "app/partials/",
+              src: ['**'],
+              dest: '../www/partials/',
+            },
+            { #TODO: fix and remove
+              expand: true,
+              cwd: "app/data/",
+              src: ['**'],
+              dest: '../www/data/',
             }
 
         ]

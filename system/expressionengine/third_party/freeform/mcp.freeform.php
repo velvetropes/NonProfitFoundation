@@ -68,6 +68,11 @@ class Freeform_mcp extends Module_builder_freeform
 				'title' => lang('notifications')
 			),
 			
+			'module_composer_templates' 			=> array(
+				'link'  => $this->base . AMP . 'method=templates',
+				'title' => lang('composer_templates')
+			),
+			
 			/*'module_export' 			=> array(
 				'link'  => $this->base . AMP . 'method=export',
 				'title' => lang('export')
@@ -75,6 +80,11 @@ class Freeform_mcp extends Module_builder_freeform
 			'module_utilities' 		=> array(
 				'link'  => $this->base . AMP . 'method=utilities',
 				'title' => lang('utilities')
+			),
+			
+			'module_permissions' 		=> array(
+				'link'  => $this->base . AMP . 'method=permissions',
+				'title' => lang('permissions')
 			),
 			
 			'module_preferences' 		=> array(
@@ -145,6 +155,21 @@ class Freeform_mcp extends Module_builder_freeform
 		{
 			$_GET['method'] = 'freeform_module_update';
 			$this->pro_update = TRUE;
+		}
+
+		
+
+		foreach ($menu as $menu_item => $menu_data)
+		{
+			if ($menu_item == 'module_documentation')
+			{
+				continue;
+			}
+
+			if ( ! $this->check_permissions($menu_item, FALSE))
+			{
+				unset($menu[$menu_item]);
+			}
 		}
 
 		
@@ -3635,6 +3660,462 @@ class Freeform_mcp extends Module_builder_freeform
 	// --------------------------------------------------------------------
 
 	/**
+	 * templates
+	 *
+	 * @access	public
+	 * @param 	string 	message to output
+	 * @return	string 	outputted template
+	 */
+
+	public function templates ( $message = '' )
+	{
+		// -------------------------------------
+		//  Messages
+		// -------------------------------------
+
+		if ($message == '' AND
+			! in_array(ee()->input->get('msg'), array(FALSE, '')) )
+		{
+			$message = lang(ee()->input->get('msg'));
+		}
+
+		$this->cached_vars['message'] = $message;
+
+		//--------------------------------------------
+		//	Crumbs and tab highlight
+		//--------------------------------------------
+
+		$this->cached_vars['new_template_link'] = $this->mod_link(array(
+			'method' 		=> 'edit_template'
+		));
+
+		$this->add_crumb( lang('templates') );
+
+		$this->freeform_add_right_link(
+			lang('new_template'),
+			$this->cached_vars['new_template_link']
+		);
+
+		$this->set_highlight('module_composer_templates');
+
+		// -------------------------------------
+		//	data
+		// -------------------------------------
+
+		$row_limit			= $this->data->defaults['mcp_row_limit'];
+		$paginate			= '';
+		$row_count			= 0;
+		$template_data		= array();
+
+		ee()->load->model('freeform_template_model');
+
+		ee()->freeform_template_model->order_by('template_name', 'asc');
+
+		if ( ! $this->data->show_all_sites())
+		{
+			ee()->freeform_template_model->where('site_id', ee()->config->item('site_id'));
+		}
+
+		$total_results = ee()->freeform_template_model->count(array(), FALSE);
+
+		// do we need pagination?
+		if ( $total_results > $row_limit )
+		{
+			$row_count			= $this->get_post_or_zero('row');
+
+			$url 				= $this->mod_link(array(
+				'method' 				=> 'templates'
+			));
+
+			//get pagination info
+			$pagination_data 	= $this->universal_pagination(array(
+				'total_results'			=> $total_results,
+				'limit'					=> $row_limit,
+				'current_page'			=> $row_count,
+				'pagination_config'		=> array('base_url' => $url),
+				'query_string_segment'	=> 'row'
+			));
+
+			$paginate 			= $pagination_data['pagination_links'];
+
+			ee()->freeform_template_model->limit($row_limit, $pagination_data['pagination_page']);
+		}
+
+		$query = ee()->freeform_template_model->get();
+
+		if ($query !== FALSE)
+		{
+			foreach ($query as $row)
+			{
+				$row['template_edit_link'] 		= $this->mod_link(array(
+					'method' 			=> 'edit_template',
+					'template_id'	=> $row['template_id'],
+				));
+
+				$row['template_duplicate_link'] = $this->mod_link(array(
+					'method' 			=> 'edit_template',
+					'duplicate_id'		=> $row['template_id'],
+				));
+
+				$row['template_delete_link'] 	= $this->mod_link(array(
+					'method' 			=> 'delete_confirm_template',
+					'template_id'	=> $row['template_id'],
+				));
+
+				$template_data[] 				= $row;
+			}
+		}
+
+		$this->cached_vars['template_data'] 	= $template_data;
+		$this->cached_vars['paginate']			= $paginate;
+
+		//	----------------------------------------
+		//	Load vars
+		//	----------------------------------------
+
+		$this->cached_vars['form_uri'] = $this->mod_link(array(
+			'method' => 'delete_confirm_template'
+		));
+
+		// --------------------------------------------
+		//  Load page
+		// --------------------------------------------
+
+		$this->cached_vars['current_page'] = $this->view(
+			'templates.html',
+			NULL,
+			TRUE
+		);
+
+		return $this->ee_cp_view('index.html');
+	}
+	//END templates
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * edit_template
+	 *
+	 * @access	public
+	 * @return	string
+	 */
+
+	public function edit_template ()
+	{
+		// -------------------------------------
+		//	template ID? we must be editing
+		// -------------------------------------
+
+		$template_id		= $this->get_post_or_zero('template_id');
+
+		$update 			= ($template_id != 0);
+
+		//--------------------------------------
+		//  Title and Crumbs
+		//--------------------------------------
+
+		$this->add_crumb(
+			lang('templates'),
+			$this->base . AMP . 'method=templates'
+		);
+
+		$this->add_crumb(
+			lang(($update ? 'update_template' : 'new_template'))
+		);
+
+		$this->set_highlight('module_composer_templates');
+
+		// -------------------------------------
+		//	data items
+		// -------------------------------------
+
+		$inputs = array(
+			'template_id'			=> '0',
+			'site_id'				=> ee()->config->item('site_id'),
+			'template_name'			=> '',
+			'template_label'		=> '',
+			'template_description'	=> '',
+			'enable_template'		=> '',
+			'template_data'			=> '',
+			'param_data'			=> array()
+		);
+
+		// -------------------------------------
+		//	defaults
+		// -------------------------------------
+
+		$this->cached_vars['edit_warning'] = FALSE;
+
+		ee()->load->model('freeform_template_model');
+
+		if ($update)
+		{
+			$template_data = ee()->freeform_template_model->get_row(array(
+				'template_id'	=> $template_id
+			));
+
+			if ($template_data !== FALSE)
+			{
+				foreach ($template_data as $key => $value)
+				{
+					$inputs[$key] = form_prep($value);
+				}
+
+				// -------------------------------------
+				//	is this change going to affect any
+				//	forms that use this field?
+				// -------------------------------------
+
+				ee()->load->model('freeform_form_model');
+
+				$form_info = ee()->freeform_form_model->get(array(
+					'template_id' => $template_id
+				));
+
+				if ($form_info AND ! empty($form_info))
+				{
+					$this->cached_vars['edit_warning'] = TRUE;
+
+					$form_names = array();
+
+					foreach ($form_info as $row)
+					{
+						$form_names[] = $row['form_label'];
+					}
+
+					$this->cached_vars['lang_template_edit_warning'] = str_replace(
+						'%form_names%',
+						implode(', ', $form_names),
+						lang('template_edit_warning')
+					);
+				}
+			}
+		}
+
+		// -------------------------------------
+		//	duplicating?
+		// -------------------------------------
+
+		$duplicate_id = $this->get_post_or_zero('duplicate_id');
+
+		$this->cached_vars['duplicated'] = FALSE;
+
+		if ( ! $update AND $duplicate_id > 0)
+		{
+			$template_data = ee()->freeform_template_model->get_row(array(
+				'template_id'	=> $duplicate_id
+			));
+
+			if ($template_data)
+			{
+				foreach ($template_data as $key => $value)
+				{
+					//TODO: remove other items that dont need to be duped?
+
+					if (in_array($key, array(
+						'template_id',
+						'template_label',
+						'template_name'
+					)))
+					{
+						continue;
+					}
+
+					$inputs[$key] = form_prep($value);
+				}
+
+				$this->cached_vars['duplicated']		= TRUE;
+				$this->cached_vars['duplicated_from']	= $template_data['template_label'];
+			}
+		}
+
+		// -------------------------------------
+		//	load inputs
+		// -------------------------------------
+
+		if (empty($inputs['template_data']))
+		{
+			$inputs['template_data'] = $this->view(
+				'default_composer_template.html',
+				array('wrappers' => FALSE),
+				TRUE
+			);
+		}
+
+		// -------------------------------------
+		//	make sure param data gets decoded
+		//	or its default blank array
+		// -------------------------------------
+
+		if (isset($template_data['param_data']) AND
+			is_string($template_data['param_data']))
+		{
+			$inputs['param_data'] = json_decode($template_data['param_data'], TRUE);
+		}
+
+		if ( ! is_array($inputs['param_data']))
+		{
+			$inputs['param_data'] = array();
+		}
+
+		// -------------------------------------
+		//	send values
+		// -------------------------------------
+
+		foreach ($inputs as $key => $value)
+		{
+			$this->cached_vars[$key] = $value;
+		}
+
+		$this->cached_vars['form_uri']	=	$this->mod_link(array(
+												'method' => 'save_template'
+											));
+
+		$this->cached_vars['update']	= $update;
+
+		//	----------------------------------------
+		//	Load vars
+		//	----------------------------------------
+
+		$this->cached_vars['lang_submit_word'] 	= lang(
+			($update ? 'update_template' : 'create_template')
+		);
+
+		$this->load_fancybox();
+		$this->cached_vars['cp_javascript'][] = 'jquery.smooth-scroll.min';
+
+		// --------------------------------------------
+		//  Load page
+		// --------------------------------------------
+
+		$this->cached_vars['current_page'] = $this->view(
+			'edit_template.html',
+			NULL,
+			TRUE
+		);
+
+		return $this->ee_cp_view('index.html');
+	}
+	//END edit_template
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * permissions
+	 *
+	 * @access	public
+	 * @return	string
+	 */
+
+	public function permissions ( $message = '' )
+	{
+		if ($message == '' AND ee()->input->get('msg') !== FALSE)
+		{
+			$message = lang(ee()->input->get('msg'));
+		}
+
+		$this->cached_vars['message'] = $message;
+
+		//--------------------------------------
+		//  Title and Crumbs
+		//--------------------------------------
+
+		$this->add_crumb(lang('permissions'));
+
+		$this->set_highlight('module_permissions');
+
+		// -------------------------------------
+		//	permissions
+		// -------------------------------------
+
+		$permissions = $this->data->global_preference('permissions');
+
+		if ($permissions === FALSE)
+		{
+			$permissions = array();
+		}
+
+		$global_permissions = (
+			isset($permissions['global_permissions']) AND
+			$permissions['global_permissions'] == TRUE
+		);
+
+		$site_id = ($global_permissions) ? 0 : ee()->config->item('site_id');
+
+		$this->cached_vars['global_permissions'] = $global_permissions;
+
+		$this->cached_vars['permissions'] = isset($permissions[$site_id]) ? $permissions[$site_id] : array();
+
+		// -------------------------------------
+		//	menu items
+		// -------------------------------------
+
+		$menu_items = array();
+
+		foreach ($this->cached_vars['module_menu'] as $menu_name => $menu_data)
+		{
+			if ($menu_name == 'module_documentation')
+			{
+				continue;
+			}
+
+			$menu_items[] = str_replace('module_', '', $menu_name);
+		}
+
+		$this->cached_vars['menu_items'] = $menu_items;
+
+		// -------------------------------------
+		//	member groups
+		// -------------------------------------
+
+		$m_groups =	ee()->db
+						->from('member_groups')
+						->select('group_id, group_title')
+						->where_not_in('group_id', array(1, 2, 3, 4))
+						->get();
+
+		$member_groups = array();
+
+		if ($m_groups->num_rows() > 0)
+		{
+			foreach ($m_groups->result_array() as $row)
+			{
+				$member_groups[$row['group_id']] = $row['group_title'];
+			}
+		}
+
+		$this->cached_vars['member_groups'] = $member_groups;
+
+		// -------------------------------------
+		//	other vars
+		// -------------------------------------
+
+		$this->cached_vars['form_uri'] = $this->mod_link(array(
+			'method'	=> 'save_permissions'
+		));
+
+		// --------------------------------------------
+		//  Load page
+		// --------------------------------------------
+
+		$this->cached_vars['current_page'] = $this->view(
+			'permissions.html',
+			NULL,
+			TRUE
+		);
+
+		return $this->ee_cp_view('index.html');
+	}
+	//END permissions
+
+
+	
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * preferences
 	 *
 	 * @access	public
@@ -4728,6 +5209,180 @@ class Freeform_mcp extends Module_builder_freeform
 	// --------------------------------------------------------------------
 
 	/**
+	 * Save composer data
+	 *
+	 * @access public
+	 * @return null		exits with an ajax response or redirects after save
+	 */
+
+	public function save_composer_data ()
+	{
+		$form_id		= $this->get_post_or_zero('form_id');
+		$template_id	= $this->get_post_or_zero('template_id');
+		$composer_data	= ee()->input->get_post('composer_data');
+		$preview		= $this->check_yes(ee()->input->get_post('preview')) ? 'y' : 'n';
+
+		if ( ! $this->data->is_valid_form_id($form_id))
+		{
+			$this->actions()->full_stop(lang('invalid_form_id'));
+		}
+
+		if ( ! is_string($composer_data))
+		{
+			$this->actions()->full_stop(lang('invalid_composer_data'));
+		}
+
+		// -------------------------------------
+		//	make sure json is valid
+		// -------------------------------------
+
+		$composer_data_array = $this->json_decode($composer_data, TRUE);
+
+		if ( ! is_array($composer_data_array) OR ! isset($composer_data_array['rows']))
+		{
+			$this->actions()->full_stop(lang('invalid_composer_data'));
+		}
+
+		// -------------------------------------
+		//	clean paragraph
+		// -------------------------------------
+
+		foreach ($composer_data_array['rows'] as $rk => $row)
+		{
+			//page break isn't a row
+			if ( ! is_array($row))
+			{
+				continue;
+			}
+
+			foreach ($row as $ck => $column)
+			{
+				foreach ($column as $fk => $field)
+				{
+					if ($field['type'] == 'nonfield_paragraph' AND
+						trim($field['html']) !== '')
+					{
+						$composer_data_array['rows'][$rk][$ck][$fk]['html'] = (
+							$this->clean_paragraph_html($field['html'])
+						);
+					}
+					else if ($field['type'] == 'nonfield_submit' AND
+						trim($field['html']) !== '')
+					{
+						$composer_data_array['rows'][$rk][$ck][$fk]['html'] = (
+							$this->clean_paragraph_html($field['html'])
+						);
+					}
+				}
+			}
+		}
+
+		$composer_fields	= implode('|', $composer_data_array['fields']);
+		$composer_data		= $this->json_encode($composer_data_array);
+
+		// -------------------------------------
+		//	form data
+		// -------------------------------------
+
+		$form_data = $this->data->get_form_info($form_id);
+
+		// -------------------------------------
+		//	start data
+		// -------------------------------------
+
+		ee()->load->model('freeform_composer_model');
+
+		//update?
+		if ($preview == 'n' AND $form_data['composer_id'] != 0 AND
+			ee()->freeform_composer_model->count(array(
+				'composer_id' => $form_data['composer_id']
+			)) != 0)
+		{
+			$composer_id = $form_data['composer_id'];
+
+			ee()->freeform_composer_model->update(
+				array(
+					'composer_data'	=> $composer_data,
+					'preview'		=> $preview
+				),
+				array('composer_id' => $composer_id)
+			);
+		}
+		//insert
+		else
+		{
+			$composer_id = ee()->freeform_composer_model->insert(array(
+				'composer_data'	=> $composer_data,
+				'preview'		=> $preview
+			));
+
+			ee()->freeform_composer_model->clean();
+		}
+
+		// -------------------------------------
+		//	update form
+		// -------------------------------------
+
+		$form_update_data = array();
+
+		if ($form_data['template_id'] != $template_id )
+		{
+			$form_update_data['template_id'] = $template_id;
+		}
+
+		if ($preview == 'n' AND $form_data['composer_id'] != $composer_id)
+		{
+			$form_update_data['composer_id'] = $composer_id;
+		}
+
+		if ( ! empty($form_update_data))
+		{
+			ee()->load->model('freeform_form_model');
+
+			ee()->freeform_form_model->update(
+				$form_update_data,
+				array('form_id' => $form_id)
+			);
+		}
+
+		// -------------------------------------
+		//	add fields to form
+		// -------------------------------------
+
+		if ($preview == 'n' )
+		{
+			ee()->load->library('freeform_forms');
+
+			ee()->freeform_forms->add_field_to_form($form_id, $composer_fields);
+		}
+
+		// -------------------------------------
+		//	return
+		// -------------------------------------
+
+		if ($this->is_ajax_request())
+		{
+			return $this->send_ajax_response(array(
+				'success'		=> TRUE,
+				'message'		=> lang('composer_data_saved'),
+				'composerId'	=> $composer_id,
+			));
+		}
+		else
+		{
+			ee()->functions->redirect($this->mod_link(array(
+				'method'	=> 'index',
+				'msg'		=> 'composer_data_saved'
+			)));
+		}
+	}
+	//END save_composer_data
+
+	
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * approve entries
 	 *
 	 * accepts ajax call to approve entries
@@ -5521,6 +6176,150 @@ class Freeform_mcp extends Module_builder_freeform
 	// --------------------------------------------------------------------
 
 	/**
+	 * Confirm deletion of templates
+	 *
+	 * accepts ajax call to delete template
+	 *
+	 * @access	public
+	 * @param 	int 	form id
+	 * @param 	mixed 	array or int of template ids to delete
+	 * @return	string
+	 */
+
+	public function delete_confirm_template ($template_id = 0)
+	{
+		// -------------------------------------
+		//	ajax requests should be doing front
+		//  end delete confirm. This also handles
+		// 	the ajax errors properly
+		// -------------------------------------
+
+		if ( $this->is_ajax_request())
+		{
+			return $this->delete_template();
+		}
+
+		// -------------------------------------
+		//	entry ids?
+		// -------------------------------------
+
+		if ( ! is_array($template_id) AND
+			 ! $this->is_positive_intlike($template_id))
+		{
+			$template_id = ee()->input->get_post('template_id');
+		}
+
+		if ( ! is_array($template_id) AND
+			 ! $this->is_positive_intlike($template_id))
+		{
+			$this->actions()->full_stop(lang('invalid_template_id'));
+		}
+
+		if ( is_array($template_id))
+		{
+			$template_id = array_filter(
+				$template_id,
+				array($this, 'is_positive_intlike')
+			);
+		}
+		else
+		{
+			$template_id = array($template_id);
+		}
+
+		// -------------------------------------
+		//	confirmation page
+		// -------------------------------------
+
+		return $this->delete_confirm(
+			'delete_template',
+			array(
+				'template_id'	=> $template_id,
+				'return_method'		=> 'templates'
+			),
+			'confirm_delete_template'
+		);
+	}
+	//END delete_confirm_template
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Delete Templates
+	 *
+	 * @access	public
+	 * @param	integer	$template_id	template
+	 * @return	null
+	 */
+
+	public function delete_template ($template_id = 0)
+	{
+		// -------------------------------------
+		//	entry ids?
+		// -------------------------------------
+
+		if ( ! is_array($template_id) AND
+			 ! $this->is_positive_intlike($template_id))
+		{
+			$template_id = ee()->input->get_post('template_id');
+		}
+
+		if ( ! is_array($template_id) AND
+			 ! $this->is_positive_intlike($template_id))
+		{
+			$this->actions()->full_stop(lang('invalid_template_id'));
+		}
+
+		if ( is_array($template_id))
+		{
+			$template_id = array_filter(
+				$template_id,
+				array($this, 'is_positive_intlike')
+			);
+		}
+		else
+		{
+			$template_id = array($template_id);
+		}
+
+		ee()->load->model('freeform_template_model');
+
+		$success = ee()->freeform_template_model
+						->where_in('template_id', $template_id)
+						->delete();
+
+		// -------------------------------------
+		//	success
+		// -------------------------------------
+
+		if ($this->is_ajax_request())
+		{
+			$this->send_ajax_response(array(
+				'success' => $success
+			));
+		}
+		else
+		{
+			$method = ee()->input->get_post('return_method');
+
+			$method = ($method AND is_callable(array($this, $method))) ?
+							$method : 'templates';
+
+			ee()->functions->redirect($this->mod_link(array(
+				'method'	=> $method,
+				'msg'		=> 'delete_template_success'
+			)));
+		}
+
+	}
+	//END delete_template
+
+	
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * save_field
 	 *
 	 * @access	public
@@ -5831,6 +6630,89 @@ class Freeform_mcp extends Module_builder_freeform
 	// --------------------------------------------------------------------
 
 	/**
+	 * Composer Field Data
+	 *
+	 * returns field data for the front end for adding fields to composer
+	 * if this isn't an ajax request, redirects to field
+	 *
+	 * @access 	public
+	 * @param  	integer $field_id	field to get data from. Checks get/post if 0
+	 * @param   boolean	$return		return the data for a local call?
+	 * @return 	mixed
+	 */
+
+	public function composer_field_data ($field_id = 0, $field_data = NULL, $return = FALSE)
+	{
+		if ( ! $return AND ! $this->is_ajax_request())
+		{
+			//redirect back to fields on non-ajax
+			ee()->functions->redirect($this->mod_link(array(
+				'method'	=> 'fields'
+			)));
+		}
+
+		$field_id = ($this->is_positive_intlike($field_id)) ?
+						$field_id :
+						ee()->input->get_post('field_id');
+
+		// -------------------------------------
+		//	valid field?
+		// -------------------------------------
+
+		if ( ! $field_data)
+		{
+			$field_data = $this->data->get_field_info_by_id($field_id, FALSE);
+		}
+
+		if ( ! $field_data)
+		{
+			$this->actions()->full_stop(lang('invalid_field_id'));
+		}
+
+		// -------------------------------------
+		//	field instance
+		// -------------------------------------
+
+		ee()->load->library('freeform_fields');
+
+		$instance =& ee()->freeform_fields->get_field_instance(array(
+			'field_id'		=> $field_id,
+			'field_data'	=> $field_data
+		));
+
+		//camel case because its exposed in JS
+		$composer_field_data = array(
+			'fieldId'		=> $field_data['field_id'],
+			'fieldName'		=> $field_data['field_name'],
+			'fieldLabel'	=> $field_data['field_label'],
+			//encode to keep JS from running
+			'fieldOutput' 	=> base64_encode($instance->display_composer_field()),
+			'fieldEditUrl'	=> $this->mod_link(array(
+				'method' 	=> 'edit_field',
+				//this builds a URL, so yes this is intentionally a string
+				'modal' 	=> 'true',
+				'field_id' 	=> $field_data['field_id']
+			), TRUE)
+		);
+
+		if ($return)
+		{
+			return $composer_field_data;
+		}
+
+		$this->send_ajax_response(array(
+			'success' 				=> TRUE,
+			'fieldId'				=> $field_id,
+			'composerFieldData'		=> $composer_field_data
+		));
+	}
+	//END composer_field_data
+
+	
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * save_notification
 	 *
 	 * @access	public
@@ -6099,6 +6981,473 @@ class Freeform_mcp extends Module_builder_freeform
 
 	
 
+	// --------------------------------------------------------------------
+
+	/**
+	 * save_template
+	 *
+	 * @access	public
+	 * @return	null (redirect)
+	 */
+
+	public function save_template ()
+	{
+		// -------------------------------------
+		//	template ID? we must be editing
+		// -------------------------------------
+
+		$template_id 		= $this->get_post_or_zero('template_id');
+
+		$update 			= ($template_id != 0);
+
+		ee()->load->model('freeform_template_model');
+
+		// -------------------------------------
+		//	yes or no items (default yes)
+		// -------------------------------------
+
+		$y_or_n = array('enable_template');
+
+		foreach ($y_or_n as $item)
+		{
+			//set as local var
+			$$item = $this->check_no(ee()->input->get_post($item)) ? 'n' : 'y';
+		}
+
+		// -------------------------------------
+		//	yes or no items (default no)
+		// -------------------------------------
+
+		$n_or_y = array();
+
+		foreach ($n_or_y as $item)
+		{
+			//set as local var
+			$$item = $this->check_yes(ee()->input->get_post($item)) ? 'y' : 'n';
+		}
+
+		// -------------------------------------
+		//	error on empty items or bad data
+		//	(doing this via ajax in the form as well)
+		// -------------------------------------
+
+		$errors = array();
+
+		// -------------------------------------
+		//	template name
+		// -------------------------------------
+
+		$template_name = ee()->input->get_post('template_name', TRUE);
+
+		//if the field label is blank, make one for them
+		//we really dont want to do this, but here we are
+		if ( ! $template_name OR ! trim($template_name))
+		{
+			$errors['template_name'] = lang('template_name_required');
+		}
+		else
+		{
+			$template_name = strtolower(trim($template_name));
+
+			if ( in_array($template_name, $this->data->prohibited_names ) )
+			{
+				$errors['template_name'] = str_replace(
+					'%name%',
+					$template_name,
+					lang('reserved_template_name')
+				);
+			}
+
+			//if the field_name they submitted isn't like how a URL title may be
+			//also, cannot be numeric
+			if (preg_match('/[^a-z0-9\_\-]/i', $template_name) OR
+				is_numeric($template_name))
+			{
+				$errors['template_name'] = lang('template_name_can_only_contain');
+			}
+
+			//get dupe from field names
+
+			$f_query = ee()->freeform_template_model
+							->select('template_name, template_id')
+							->get_row(array('template_name' => $template_name));
+
+			//if we are updating, we don't want to error on the same field id
+			if ($f_query !== FALSE AND
+				! ($update AND $f_query['template_id'] == $template_id))
+			{
+				$errors['template_name'] = str_replace(
+					'%name%',
+					$template_name,
+					lang('template_name_exists')
+				);
+			}
+		}
+
+		// -------------------------------------
+		//	template label
+		// -------------------------------------
+
+		$template_label = ee()->input->get_post('template_label', TRUE);
+
+		if ( ! $template_label OR ! trim($template_label) )
+		{
+			$errors['template_label'] = lang('template_label_required');
+		}
+
+		// -------------------------------------
+		//	param data
+		// -------------------------------------
+
+		$param_options = array();
+
+		$params	= ee()->input->post('list_param_holder_input');
+
+		$values	= ee()->input->post('list_value_holder_input');
+
+		if ($params AND $values)
+		{
+			foreach ($params as $key => $value)
+			{
+				//no blanks!
+				if (trim($value) !== '' AND isset($values[$key]))
+				{
+					$param_options[trim($value)] = trim($values[$key]);
+				}
+			}
+		}
+
+		// -------------------------------------
+		//	errors? For shame :(
+		// -------------------------------------
+
+		if ( ! empty($errors))
+		{
+			return $this->actions()->full_stop($errors);
+		}
+		//ajax checking?
+		else if ($this->check_yes(ee()->input->get_post('validate_only')))
+		{
+			return $this->send_ajax_response(array(
+				'success' => TRUE
+			));
+		}
+
+		// -------------------------------------
+		//	insert data
+		// -------------------------------------
+
+		ee()->load->helper('text');
+
+		$data = array(
+			'template_name'			=> strip_tags($template_name),
+			'template_label'		=> strip_tags($template_label),
+			'template_description'	=> word_limiter( strip_tags( ee()->input->get_post('template_description', TRUE) ), 200 ),
+			'template_data'			=> ee()->input->get_post('template_data'),
+			'enable_template'		=> $enable_template,
+			'param_data'			=> json_encode($param_options)
+		);
+
+		if ($update)
+		{
+			ee()->freeform_template_model->update(
+				$data,
+				array('template_id' => $template_id)
+			);
+		}
+		else
+		{
+			$template_id = ee()->freeform_template_model->insert(
+				array_merge(
+					$data,
+					array(
+						'site_id' => ee()->config->item('site_id')
+					)
+				)
+			);
+		}
+
+		// -------------------------------------
+		//	ajax?
+		// -------------------------------------
+
+		if ($this->is_ajax_request())
+		{
+			$this->send_ajax_response(array(
+				'success'		=> TRUE,
+				'template_id'	=> $template_id
+			));
+		}
+		else
+		{
+			//redirect back to fields on success
+			ee()->functions->redirect($this->mod_link(array(
+				'method'	=> 'templates',
+				'msg'		=> 'edit_template_success'
+			)));
+		}
+	}
+	//END save_template
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * save_permissions
+	 *
+	 * @access	public
+	 * @return	null (redirect)
+	 */
+
+	public function save_permissions ()
+	{
+		// -------------------------------------
+		//	menu items
+		// -------------------------------------
+
+		$menu_items = array();
+
+		foreach ($this->cached_vars['module_menu'] as $menu_name => $menu_data)
+		{
+			//now why would we deny documentation to anyone? :(
+			if ($menu_name == 'module_documentation')
+			{
+				continue;
+			}
+
+			$menu_items[] = str_replace('module_', '', $menu_name);
+		}
+
+		// -------------------------------------
+		//	member groups
+		// -------------------------------------
+
+		$m_groups =	ee()->db
+						->from('member_groups')
+						->select('group_id')
+						->where_not_in('group_id', array(1, 2, 3, 4))
+						->get();
+
+		$member_groups = array();
+
+		if ($m_groups->num_rows() > 0)
+		{
+			foreach ($m_groups->result_array() as $row)
+			{
+				$member_groups[] = $row['group_id'];
+			}
+		}
+
+		// -------------------------------------
+		//	permissions
+		// -------------------------------------
+
+		$global_permissions		= (ee()->input->get_post('global_permissions') == 'y');
+
+		$default_permission_ng	= (
+			ee()->input->get_post('default_permission_new_group') == 'deny'
+		) ? 'deny' : 'allow';
+
+		$permissions = $this->data->global_preference('permissions');
+
+		if ($permissions === FALSE)
+		{
+			$permissions = array();
+		}
+
+		$permissions['global_permissions'] = $global_permissions;
+
+		$site_id = ($global_permissions) ? 0 : ee()->config->item('site_id');
+
+		$permissions[$site_id]['default_permission_new_group'] = $default_permission_ng;
+
+		foreach ($menu_items as $menu_item)
+		{
+			//validate
+			$allow_type = ee()->input->get_post($menu_item . '_allow_type');
+			$allow_type = in_array(
+				$allow_type,
+				array('allow_all', 'deny_all', 'by_group')
+			) ? $allow_type : 'allow_all';
+
+			$permissions[$site_id][$menu_item]['allow_type'] = $allow_type;
+			$permissions[$site_id][$menu_item]['groups'] = array();
+
+			if ($allow_type == 'by_group')
+			{
+				foreach ($member_groups as $group_id)
+				{
+					$permissions[$site_id][$menu_item]['groups'][$group_id] = (
+						ee()->input->get_post($menu_item . '_' . $group_id) == 'y'
+					) ? 'y' : 'n';
+				}
+			}
+		}
+
+
+		// -------------------------------------
+		//	save
+		// -------------------------------------
+
+		ee()->load->model('freeform_preference_model');
+
+		$update =	ee()->freeform_preference_model
+						->where('site_id', 0)
+						->where('preference_name', 'permissions')
+						->count();
+
+		$permissions = json_encode($permissions);
+
+		if ($update > 0)
+		{
+			ee()->freeform_preference_model->update(
+				array(
+					'preference_value'		=> $permissions
+				),
+				array(
+					'site_id'				=> 0,
+					'preference_name'		=> 'permissions'
+				)
+			);
+		}
+		else
+		{
+			ee()->freeform_preference_model->insert(
+				array(
+					'preference_value'		=> $permissions,
+					'site_id'				=> 0,
+					'preference_name'		=> 'permissions'
+				)
+			);
+		}
+
+		// ----------------------------------
+		//  Redirect to Homepage with Message
+		// ----------------------------------
+
+		ee()->functions->redirect($this->mod_link(array(
+			'method'	=> 'permissions',
+			'msg'		=> 'permissions_updated'
+		)));
+	}
+	//END save_permissions
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * check_permissions
+	 *
+	 * @access	public
+	 * @param	string	$menu_item	string of menu item
+	 * @param	bool	$redirect	redirect on permission false or return bool
+	 * @return	mixed				bool permission or redirect
+	 */
+
+	public function check_permissions ($menu_item = '', $redirect = TRUE)
+	{
+		$group_id	= ee()->session->userdata('group_id');
+
+		if ($group_id == 1)
+		{
+			return TRUE;
+		}
+
+		$menu_item		= preg_replace('/^module_/s', '', $menu_item);
+
+		$permissions	= $this->data->global_preference('permissions');
+
+		if ($permissions === FALSE)
+		{
+			return TRUE;
+		}
+
+		$global_permissions = (
+			isset($permissions['global_permissions']) AND
+			$permissions['global_permissions'] == TRUE
+		);
+
+		$site_id	= ($global_permissions) ? 0 : ee()->config->item('site_id');
+
+		$no_home	= BASE;
+
+		//no prefs? (permissions is admin only by default)
+		if ( ! isset($permissions[$site_id]) AND $menu_item !== 'permissions')
+		{
+			return TRUE;
+		}
+		//else we have permissions
+		else if (isset($permissions[$site_id]))
+		{
+			$deny_missing = (
+				isset($permissions[$site_id]['default_permission_new_group']) AND
+				$permissions[$site_id]['default_permission_new_group'] == 'deny'
+			);
+
+			if (isset($permissions[$site_id][$menu_item]))
+			{
+				if ($permissions[$site_id][$menu_item]['allow_type'] == 'allow_all')
+				{
+					return TRUE;
+				}
+				else if ($permissions[$site_id][$menu_item]['allow_type'] == 'by_group')
+				{
+					if (isset($permissions[$site_id][$menu_item]['groups'][$group_id]) AND
+						$permissions[$site_id][$menu_item]['groups'][$group_id] == 'y')
+					{
+						return TRUE;
+					}
+					//the menu item should be present, but just in case
+					else if ( ! $deny_missing)
+					{
+						return TRUE;
+					}
+				}
+				//ok, no permissions to the home page, but they have permission to something else?
+				else if ($redirect AND ($menu_item == 'index' OR $menu_item == 'forms'))
+				{
+					foreach ($permissions[$site_id] as $m_item => $m_data)
+					{
+						if ($m_data['allow_type'] == 'allow_all' OR
+							($m_data['allow_type'] == 'by_group' AND
+							isset($m_data['groups'][$group_id]) AND
+							$m_data['groups'][$group_id] == 'y'))
+						{
+							$no_home = $this->cached_vars['module_menu']['module_' . $m_item]['link'];
+							break;
+						}
+					}
+				}
+			}
+			//the menu item should be present, but just in case
+			else if ( ! $deny_missing)
+			{
+				return TRUE;
+			}
+		}
+
+		if ( ! $redirect)
+		{
+			return FALSE;
+		}
+
+		// ----------------------------------
+		//  Redirect to Homepage with Message
+		// ----------------------------------
+
+		if ($menu_item == 'index' OR $menu_item == 'forms')
+		{
+			ee()->functions->redirect($no_home);
+		}
+		else
+		{
+			ee()->functions->redirect($this->mod_link());
+		}
+	}
+	//END check_permissions
+
+	
+
 
 	// --------------------------------------------------------------------
 
@@ -6111,6 +7460,8 @@ class Freeform_mcp extends Module_builder_freeform
 
 	protected function set_highlight ($menu_item = 'module_forms')
 	{
+		
+		$this->check_permissions($menu_item);
 		
 		$this->cached_vars['module_menu_highlight'] = $menu_item;
 	}

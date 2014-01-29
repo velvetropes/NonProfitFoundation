@@ -22,10 +22,10 @@ $lang = array(
 //----------------------------------------
 
 
+
+
 "freeform_module_name" =>
-"Freeform",
-
-
+"Freeform Pro",
 
 
 'go_pro' =>
