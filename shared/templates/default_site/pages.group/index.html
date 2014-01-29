@@ -1,8 +1,8 @@
 <!doctype html xmlns:ng="http://angularjs.org/">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" ng:app="homePageApp"> <![endif]-->
+<!--[if IE 7]>   <html class="no-js lt-ie9 lt-ie8" ng:app="homePageApp"> <![endif]-->
+<!--[if IE 8]>   <html class="no-js lt-ie9" ng:app="homePageApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng:app="homePageApp"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/styles/48019cf6.main.css"/>
     
   </head>
-  <body class='home-page page' ng:app="starkey">
+  <body class='home-page page' ng:controller="HomeIndexCtrl">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -210,10 +210,7 @@
 
     </section>
 
-    <section class="map">
-      <div id="map-popup">
-        <div class="content"></div>
-      </div>
+    <world-map markers="markers">
       <div class="map-legend">
         <ul>
           <li><span class="icon starkey-legend-program"></span>Program</li>
@@ -224,9 +221,8 @@
           <li><span class="icon starkey-legend-profile"></span>Profile</li>
         </ul>
       </div>
-      <div id="world-map-gdp"></div>
+    </world-map>
 
-    </section>
     <section class='carousel bottom thumblist'>
       <thumblist-nav>
 
@@ -304,12 +300,22 @@
         </section>
       </div>
     </footer>
+<<<<<<< HEAD
 
     <script src="/assets/scripts/8035567f.vendor.js"></script>
     
-    <script src="/assets/scripts/457e5068.main.js"></script>
+    <script src="/assets/scripts/487c26ee.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
+=======
+    <script src="/assets/scripts/8035567f.vendor.js"></script>
+    
+    <script src="/assets/scripts/487c26ee.main.js"></script>
+    
+    <script src="/assets/scripts/f7bcce96.plugins.js"></script>
+    
+
+>>>>>>> Put world map in a widget. Use js_includes partial.
 </body>
 </html>
