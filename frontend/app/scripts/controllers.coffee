@@ -49,19 +49,20 @@ blogPagesControllers.controller "BlogShowCtrl", ["$scope", "$routeParams", "Arti
 
 mediaMentionsPagesControllers = angular.module("mediaMentionsPagesControllers", [])
 
-mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "PressItem", "Pagination", ($scope, PressItem, Pagination) ->
+mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
 
   $scope.pressItemFilters = {
     featured: 'false'
   }
 
-  PressItem.getIndex().then (data) ->
+  MediaMentionOrPressItem.getIndex().then (data) ->
     $scope.pressItems = data
     $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
 
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
+
   $scope.backgroundStyle = (item) ->
     if item.quote?.length is 0
       {background: "url(#{item.thumbnail_image_url})"}
@@ -72,16 +73,19 @@ mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "P
 
 ]
 
-mediaMentionsPagesControllers.controller "MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", ($scope, $routeParams, PressItem) ->
+mediaMentionsPagesControllers.controller "MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressItem, MediaMentionOrPressItem, Pagination) ->
   $scope.article = PressItem.get(
     pressItemId: $routeParams.articleId
   , (pressItem) ->
     #
   )
-  $scope.articles = PressItem.query()
 
-  $scope.currentPage = 0
-  $scope.pageSize = 9
+  MediaMentionOrPressItem.getIndex().then (data) ->
+    $scope.pressItems = data
+    $scope.pagination = Pagination.getNew(9)
+    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
+
   $scope.numberOfPages = ->
-    Math.ceil($scope.articles.length/$scope.pageSize)
+    Math.ceil($scope.pressItems.length/$scope.pageSize)
+
 ]

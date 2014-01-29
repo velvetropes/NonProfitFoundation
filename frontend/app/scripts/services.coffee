@@ -19,7 +19,17 @@ appServices.factory "Category", ["$resource", ($resource) ->
 
 mediaMentionsPagesServices = angular.module("mediaMentionsPagesServices", ["ngResource"])
 
-mediaMentionsPagesServices.factory "PressItem", ["$q", "$http", ($q, $http) ->
+mediaMentionsPagesServices.factory "PressItem", ["$resource", ($resource) ->
+  $resource "data/press_items/:pressItemId.json", {},
+    query:
+      method: "GET"
+      params:
+        pressItemId: "index"
+      isArray: true
+]
+
+mediaMentionsPagesServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", ($q, $http, $resource) ->
+
   getIndex = ->
     deferred = $q.defer()
     $http.get("data/press_items/index.json").success((data) ->

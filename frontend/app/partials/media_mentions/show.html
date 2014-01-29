@@ -61,7 +61,7 @@
 <br/>
 <hr class="separator padded"/>
 
-<div class="outer-container">
+<!-- <div class="outer-container">
   <div class="pagination">
     <ul>
       <li ng-class="{disabled: currentPage == 0}">
@@ -81,4 +81,52 @@
       </div>
     </li>
   </ul>
+</div> -->
+
+<div class="outer-container">
+  <div class="pagination">
+    <ul>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+      </li>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li class="disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <ul class="pagination-articles">
+    <li ng-repeat="article in pressItems | filter:pressItemFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+      <div class='block'>
+        <img ng-src='{{article.thumbnail_image_url}}'/>
+        <h2>{{article.headline}}</h2>
+        <p>{{article.date}}</p>
+        <p class='read-more' ng-switch="article.type">
+          <a ng-switch-when="press_item" href="#/media_mentions/{{article.id}}">
+            Read more &rarr;
+          </a>
+          <a ng-switch-when="media_mention" href="{{article.video_link}}" target="_blank">
+            Read more &rarr;
+          </a>
+        </p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="pagination">
+    <ul>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+      </li>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li class="disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+      </li>
+    </ul>
+  </div>
 </div>
