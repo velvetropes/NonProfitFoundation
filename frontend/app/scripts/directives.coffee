@@ -1,6 +1,6 @@
-paginationModule = angular.module("SimplePagination", [])
+sfDirectives = angular.module("sfDirectives", ["sfFilters"])
 
-paginationModule.factory "Pagination", ->
+sfDirectives.factory("Pagination", ->
   pagination = {}
   pagination.getNew = (perPage) ->
     perPage = (if perPage is `undefined` then 5 else perPage)
@@ -21,17 +21,4 @@ paginationModule.factory "Pagination", ->
     paginator
 
   pagination
-
-paginationModule.filter "startFrom", ->
-  (input, start) ->
-    input.slice +start
-
-paginationModule.filter "range", ->
-  (input, total) ->
-    total = parseInt(total)
-    i = 0
-
-    while i < total
-      input.push i
-      i++
-    input
+)

@@ -1,9 +1,8 @@
-# Controllers
+sfControllers = angular.module("sfControllers", [])
 
 # Blog
-blogPagesControllers = angular.module("blogPagesControllers", [])
 
-blogPagesControllers.controller "BlogIndexCtrl", ["$scope", "Article", ($scope, Article) ->
+sfControllers.controller("BlogIndexCtrl", ["$scope", "Article", ($scope, Article) ->
 
   $scope.articleFilters = {
     featured:'false'
@@ -27,10 +26,10 @@ blogPagesControllers.controller "BlogIndexCtrl", ["$scope", "Article", ($scope, 
   $scope.pageSize = 9
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
-]
+])
 
-blogPagesControllers.controller "BlogShowCtrl", ["$scope", "$routeParams", "Article", ($scope, $routeParams, Article) ->
-
+sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "Article", ($scope, $routeParams, Article) ->
+  $scope.articles =[]
   $scope.article = Article.get(
     articleId: $routeParams.articleId
   , (article) ->
@@ -43,22 +42,20 @@ blogPagesControllers.controller "BlogShowCtrl", ["$scope", "$routeParams", "Arti
   $scope.pageSize = 3
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
-]
+])
 
 # Media Mentions
 
-mediaMentionsPagesControllers = angular.module("mediaMentionsPagesControllers", [])
-
-mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
+sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
 
   $scope.pressItemFilters = {
     featured: 'false'
   }
 
+  $scope.pressItems = []
   MediaMentionOrPressItem.getIndex().then (data) ->
     $scope.pressItems = data
     $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
 
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
@@ -71,9 +68,13 @@ mediaMentionsPagesControllers.controller "MediaMentionsIndexCtrl", ["$scope", "M
   $scope.isQuote = (item) ->
     item.quote.length > 0
 
-]
+  $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
 
-mediaMentionsPagesControllers.controller "MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressItem, MediaMentionOrPressItem, Pagination) ->
+])
+
+sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressItem, MediaMentionOrPressItem, Pagination) ->
+
+  $scope.pressItems = []
   $scope.article = PressItem.get(
     pressItemId: $routeParams.articleId
   , (pressItem) ->
@@ -88,4 +89,4 @@ mediaMentionsPagesControllers.controller "MediaMentionsShowCtrl", ["$scope", "$r
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
 
-]
+])
