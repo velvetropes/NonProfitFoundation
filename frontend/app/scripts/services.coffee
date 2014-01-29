@@ -11,16 +11,15 @@ sfServices.factory "Article", ["$resource", ($resource) ->
       isArray: true
 ]
 
-sfServices.factory "Category", ["$resource", ($resource) ->
-  $resource "data/categories/index.json", {},
-    query:
-      method: "GET"
-      isArray: true
-]
-
+# sfServices.factory "Category", ["$resource", ($resource) ->
+#   $resource "data/categories/index.json", {},
+#     query:
+#       method: "GET"
+#       isArray: true
+# ]
 
 sfServices.factory "PressItem", ["$resource", ($resource) ->
-  $resource "data/press_items/:pressItemId.json", {},
+  $resource "/api/press/:pressItemId", {},
     query:
       method: "GET"
       params:
@@ -32,7 +31,7 @@ sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", ($q, 
 
   getIndex = ->
     deferred = $q.defer()
-    $http.get("data/press_items/index.json").success((data) ->
+    $http.get("/api/press").success((data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
