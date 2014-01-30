@@ -21,11 +21,12 @@
 
       </div>
 
-      <swiper class="swiper" speed="5000" continuous="true" auto="false">
+      <swiper class="swiper" continuous="true" speed="5000" >
+      <!-- auto="false" -->
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="homepage_features" limit="5"}
             <div class="slide">
-              <article style="background: url('{homepage_feature_splash_image}');">
+              <article style="background: url('{homepage_feature_splash_image}'); background-size: cover;">
               </article>
               <div class="gradient-background"></div>
               <aside>
@@ -37,36 +38,38 @@
           {/exp:channel:entries}
         <!--(bake-end)-->
         <!--(bake-start _if="server")-->
-          <div class="slide">
-            <article style="background: url('uploads/home/hero/commitment_to_action_film.jpg');">
-            </article>
-            <div class="gradient-background"></div>
-            <aside>
-              <h1>1 Commitment to Action</h1>
-              <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
-              <a href='#' class="action-link">Watch video</a>
-            </aside>
-          </div>
-          <div class="slide">
-            <article style="background: url('uploads/home/hero/commitment_to_action_film.jpg');">
-            </article>
-            <div class="gradient-background"></div>
-            <aside>
-              <h1>2 Commitment to Action</h1>
-              <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
-              <a href='#' class="action-link">Watch video</a>
-            </aside>
-          </div>
-          <div class="slide">
-            <article style="background: url('uploads/home/hero/commitment_to_action_film.jpg');">
-            </article>
-            <div class="gradient-background"></div>
-            <aside>
-              <h1>3 Commitment to Action</h1>
-              <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need, a commitment of 1 million hearing aids for the decade.</p>
-              <a href='#' class="action-link">Watch video</a>
-            </aside>
-          </div>
+            <div class="slide">
+              <article style="background: url('http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg'); background-size: cover;">
+              </article>
+              <div class="gradient-background"></div>
+              <aside>
+                <h1>Hear at Home</h1>
+                <p>Hearing Foundation has provided more hearing help to people in the United States than to any other country</p>
+                <a href='http://www.starkeyhearingfoundation.org/programs/hear-now/)' class="action-link">Learn More </a>
+              </aside>
+            </div>
+
+            <div class="slide">
+              <article style="background: url('http://starkey.ahundredyears.com/uploads/HERO-Commitment_to_Action_Film.jpg'); background-size: cover;">
+              </article>
+              <div class="gradient-background"></div>
+              <aside>
+                <h1>Commitment to Action</h1>
+                <p>In 2010, we committed to providing 100,000 hearing aids a year to those in need</p>
+                <a href='http://www.youtube.com/watch?v=ScjOkoueDYg' class="action-link">Watch Video</a>
+              </aside>
+            </div>
+
+            <div class="slide">
+              <article style="background: url('http://starkey.ahundredyears.com/uploads/HERO-Building_Sustainable_Systems_of_Hearing_Care.jpg'); background-size: cover;">
+              </article>
+              <div class="gradient-background"></div>
+              <aside>
+                <h1>Building Sustainable Systems of Hearing Care</h1>
+                <p>To truly make an impact, our efforts must be sustainable</p>
+                <a href='http://www.youtube.com/watch?v=W50L7eNGT2U' class="action-link">Watch Video</a>
+              </aside>
+            </div>
         <!--(bake-end)-->
 
       </swiper>

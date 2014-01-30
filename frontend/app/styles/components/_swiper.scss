@@ -1,6 +1,6 @@
 .swiper-controls {
   position: absolute;
-  margin-top: 15%;
+  margin-top: 25%;
   z-index: 9999;
   width: 100%;
 
@@ -70,7 +70,8 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-repeat: none;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .gradient-background {
     position: absolute;
@@ -85,7 +86,7 @@
     color: #FFF;
     width: 100%;
     position: absolute;
-    bottom: 35px;
+    bottom: 3550px;
     h1 {
       @extend .alrightsansbold;
       margin-bottom: 0;
