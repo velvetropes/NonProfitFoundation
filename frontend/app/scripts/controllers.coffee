@@ -57,11 +57,15 @@ sfControllers
 
   .controller("BlogShowCtrl", ["$scope", "$routeParams", "Article", ($scope, $routeParams, Article) ->
     $scope.articles =[]
-    $scope.article = Article.get(
+    Article.get(
       articleId: $routeParams.articleId
     , (article) ->
-      #
+      if article instanceof Array
+        $scope.article = article[0]
+      else
+        $scope.article = article
     )
+
     $scope.articles = Article.query()
 
     $scope.currentPosition = 0
@@ -101,10 +105,13 @@ sfControllers
   .controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressItem, MediaMentionOrPressItem, Pagination) ->
 
     $scope.pressItems = []
-    $scope.article = PressItem.get(
+    PressItem.get(
       pressItemId: $routeParams.articleId
     , (pressItem) ->
-      #
+      if pressItem instanceof Array
+        $scope.article = pressItem[0]
+      else
+        $scope.article = pressItem
     )
 
     MediaMentionOrPressItem.getIndex().then (data) ->
