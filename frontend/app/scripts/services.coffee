@@ -56,3 +56,18 @@ sfServices.factory "MapMarker", ["$q", "$http", "$resource", ($q, $http, $resour
   # Return factory object
   {getIndex: getIndex}
 ]
+
+sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", ($q, $http, $resource) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("data/featured_articles/index.json").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+
+    deferred.promise
+
+  # Return factory object
+  {getIndex: getIndex}
+]
