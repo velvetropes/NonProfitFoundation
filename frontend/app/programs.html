@@ -18,7 +18,7 @@
     {exp:channel:entries channel="programs" limit="1"}
     <section class='page-leader'>
       <h1>{title}</h1>
-      <p>{programs_page_leader}</p>
+      <p>{program_page_leader}</p>
     </section>
 
     <section class='tabbed-content'>
@@ -46,6 +46,8 @@
           {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
 
         </div>
+
+        <!--(bake partials/featured_articles.html)-->
       </article>
 
       <article class='tab-content listen-carefully'>
@@ -55,6 +57,8 @@
           {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
 
         </div>
+
+        <!--(bake partials/featured_articles.html)-->
       </article>
 
       <article class='tab-content hear-now'>
@@ -77,8 +81,6 @@
     </section>
     {/exp:channel:entries}
     <br/>
-
-    <!--(bake partials/development/thumblist_nav.html)-->
 
     <!--(bake partials/footer.html)-->
 
