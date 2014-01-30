@@ -226,16 +226,20 @@
 
       <div class='carousel bottom thumblist'>
         <thumblist-nav>
-
-
-            {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
-            <div>
-              <img src="{carousel_image}">
-              <h4>{title}</h4>
-              <button ng-click="slide({count})">watch video &rarr;</button>
+          <div>
+            <div >
+              <img src="/uploads/home/feature/building_a_better_kibera.jpg">
+              <h4>Global Hearing Mission</h4>
+              <button ng-click="changeCurrentTab(0)">Read Stories &rarr;</button>
             </div>
-            {/exp:channel:entries}
-
+          </div>
+          <div ng-repeat="featuredArticle in featuredArticles">
+            <div >
+              <img ng-src="">
+              <h4 ng-bind="featuredArticle.thumbnail_title"></h4>
+              <button ng-click="changeCurrentTab($index+1)"> &rarr;</button>
+            </div>
+          </div>
         </thumblist-nav>
       </div>
     </section>
