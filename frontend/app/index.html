@@ -24,11 +24,6 @@
         <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
         <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
 
-        <ul class="position-indicator" id="hero-position" data-slider="hero">
-          <li class="on" data-id="1"><a href="#"></a></li>
-          <li class="" data-id="2"><a href="#"></a></li>
-          <li class="" data-id="3"><a href="#"></a></li>
-        </ul>
       </div>
 
       <swiper class="swiper" speed="5000" continuous="true" auto="false">
@@ -148,7 +143,24 @@
         </div>
       </div>
 
-
+      <div class='carousel bottom thumblist'>
+        <thumblist-nav>
+          <div>
+            <div >
+              <img src="/uploads/home/feature/building_a_better_kibera.jpg">
+              <h4>Global Hearing Mission</h4>
+              <button ng-click="changeCurrentTab(0)">Read Stories &rarr;</button>
+            </div>
+          </div>
+          <div ng-repeat="featuredArticle in featuredArticles">
+            <div >
+              <img ng-src="{{featuredArticle.thumbnail_image_url}}">
+              <h4 ng-bind="featuredArticle.thumbnail_title"></h4>
+              <button ng-click="changeCurrentTab($index+1)">{{featuredArticle.thumbnail_call_to_action_text}} &rarr;</button>
+            </div>
+          </div>
+        </thumblist-nav>
+      </div>
     </section>
 
     <!-- end main content section -->

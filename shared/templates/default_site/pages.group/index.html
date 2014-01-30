@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/73dcf23c.main.css"/>
+    <link rel="stylesheet" href="assets/styles/95c00c11.main.css"/>
     
-    <link rel="stylesheet" href="assets/styles/73dcf23c.main.css"/>
+    <link rel="stylesheet" href="assets/styles/95c00c11.main.css"/>
   </head>
   <body class='home-page page' ng:controller="HomeIndexCtrl">
 
@@ -156,11 +156,6 @@
         <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
         <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
 
-        <ul class="position-indicator" id="hero-position" data-slider="hero">
-          <li class="on" data-id="1"><a href="#"></a></li>
-          <li class="" data-id="2"><a href="#"></a></li>
-          <li class="" data-id="3"><a href="#"></a></li>
-        </ul>
       </div>
 
       <swiper class="swiper" speed="5000" continuous="true" auto="false">
@@ -229,7 +224,20 @@
         </div>
       </div>
 
+      <div class='carousel bottom thumblist'>
+        <thumblist-nav>
 
+
+            {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
+            <div>
+              <img src="{carousel_image}">
+              <h4>{title}</h4>
+              <button ng-click="slide({count})">watch video &rarr;</button>
+            </div>
+            {/exp:channel:entries}
+
+        </thumblist-nav>
+      </div>
     </section>
 
     <!-- end main content section -->
@@ -293,9 +301,9 @@
         </section>
       </div>
     </footer>
-    <script src="/assets/scripts/5f9e6504.vendor.js"></script>
+    <script src="/assets/scripts/d37dce66.vendor.js"></script>
     
-    <script src="/assets/scripts/2870793e.main.js"></script>
+    <script src="/assets/scripts/bfee6363.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

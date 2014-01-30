@@ -13,6 +13,7 @@ sfControllers
       $scope.markers = data
 
     FeaturedArticle.getIndex().then (data) ->
+
       $scope.featuredArticles = data
 
     $scope.currentBottomSlideTab = 1
@@ -29,8 +30,8 @@ sfControllers
 
   # Blog
 
-  .controller("BlogIndexCtrl", ["$scope", "Article", ($scope, Article) ->
-
+  .controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", ($scope, Articles, Pagination) ->
+    $scope.articles =[]
     $scope.articleFilters = {
       featured:'false'
       blog_item_category: ''
@@ -48,14 +49,18 @@ sfControllers
       {name: "Listen Carefully", tag: "listen_carefully"}
     ]
 
-    $scope.articles = Article.query()
-    $scope.currentPage = 0
-    $scope.pageSize = 9
+    Articles.getIndex().then (data) ->
+      $scope.articles = data
+      $scope.pagination = Pagination.getNew(9)
+      $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
+
     $scope.numberOfPages = ->
       Math.ceil($scope.articles.length/$scope.pageSize)
+
   ])
 
-  .controller("BlogShowCtrl", ["$scope", "$routeParams", "Article", ($scope, $routeParams, Article) ->
+  .controller("BlogShowCtrl", ["$scope", "$routeParams", "Articles", "Article", "Pagination", ($scope, $routeParams, Articles, Article, Pagination) ->
+
     $scope.articles =[]
     Article.get(
       articleId: $routeParams.articleId
@@ -66,13 +71,14 @@ sfControllers
         $scope.article = article
     )
 
-    $scope.articles = Article.query()
+    Articles.getIndex().then (data) ->
+      $scope.articles = data
+      $scope.pagination = Pagination.getNew(9)
+      $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
 
-    $scope.currentPosition = 0
-    $scope.currentPage = 0
-    $scope.pageSize = 3
     $scope.numberOfPages = ->
       Math.ceil($scope.articles.length/$scope.pageSize)
+
   ])
 
   # Media Mentions
