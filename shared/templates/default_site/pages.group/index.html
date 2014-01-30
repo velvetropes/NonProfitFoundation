@@ -11,8 +11,9 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/48019cf6.main.css"/>
+    <link rel="stylesheet" href="assets/styles/73dcf23c.main.css"/>
     
+    <link rel="stylesheet" href="assets/styles/73dcf23c.main.css"/>
   </head>
   <body class='home-page page' ng:controller="HomeIndexCtrl">
 
@@ -149,7 +150,6 @@
     
 
     <!-- Main content section -->
-
     <section class="carousel hero">
 
       <div class="swiper-controls">
@@ -162,7 +162,6 @@
           <li class="" data-id="3"><a href="#"></a></li>
         </ul>
       </div>
-
 
       <swiper class="swiper" speed="5000" continuous="true" auto="false">
           {exp:channel:entries channel="homepage_features" limit="5"}
@@ -182,7 +181,6 @@
       </swiper>
 
     </section>
-
 
     <section class='mission-statement'>
       {exp:channel:entries channel="homepage_content" limit="1"}
@@ -209,35 +207,43 @@
     {/exp:channel:entries}
 
     </section>
+    <section ng:controller="HomeIndexBottomTabsCtrl">
+      <div class="bottom-slide-tabs">
+        <div class="bottom-slid-tab" ng-show="currentBottomSlideTab==1">
 
-    <world-map markers="markers">
-      <div class="map-legend">
-        <ul>
-          <li><span class="icon starkey-legend-program"></span>Program</li>
-          <li><span class="icon starkey-legend-stories"></span>Stories</li>
-          <li><span class="icon starkey-legend-where-we-are-now"></span>Where we are now</li>
-          <li><span class="icon starkey-legend-video"></span>Video</li>
-          <li><span class="icon starkey-legend-gallery"></span>Gallery</li>
-          <li><span class="icon starkey-legend-profile"></span>Profile</li>
-        </ul>
-      </div>
-    </world-map>
-
-    <section class='carousel bottom thumblist'>
-      <thumblist-nav>
-
-    
-        {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
-        <div>
-          <img src="{carousel_image}">
-          <h4>{title}</h4>
-          <button ng-click="slide({count})">watch video &rarr;</button>
+          <world-map markers="markers">
+            <div class="map-legend">
+              <ul>
+                <li><span class="icon starkey-legend-program"></span>Program</li>
+                <li><span class="icon starkey-legend-stories"></span>Stories</li>
+                <li><span class="icon starkey-legend-where-we-are-now"></span>Where we are now</li>
+                <li><span class="icon starkey-legend-video"></span>Video</li>
+                <li><span class="icon starkey-legend-gallery"></span>Gallery</li>
+                <li><span class="icon starkey-legend-profile"></span>Profile</li>
+              </ul>
+            </div>
+          </world-map>
         </div>
-        {/exp:channel:entries}
-    
-      </thumblist-nav>
+        <div class="bottom-slid-tab" ng-show="currentBottomSlideTab==2">
+          <panel-tab featured="currentTabModel"></panel-tab>
+        </div>
+      </div>
+
+      <div class='carousel bottom thumblist'>
+        <thumblist-nav>
+
+
+            {exp:channel:entries channel=" homepage_main_carousel" limit="10"}
+            <div>
+              <img src="{carousel_image}">
+              <h4>{title}</h4>
+              <button ng-click="slide({count})">watch video &rarr;</button>
+            </div>
+            {/exp:channel:entries}
+
+        </thumblist-nav>
+      </div>
     </section>
-    
 
     <!-- end main content section -->
 
@@ -300,22 +306,12 @@
         </section>
       </div>
     </footer>
-<<<<<<< HEAD
-
     <script src="/assets/scripts/8035567f.vendor.js"></script>
     
-    <script src="/assets/scripts/2d068a83.main.js"></script>
-    
-    <script src="/assets/scripts/f7bcce96.plugins.js"></script>
-    
-=======
-    <script src="/assets/scripts/8035567f.vendor.js"></script>
-    
-    <script src="/assets/scripts/2d068a83.main.js"></script>
+    <script src="/assets/scripts/41001f28.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
 
->>>>>>> Put world map in a widget. Use js_includes partial.
 </body>
 </html>

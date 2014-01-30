@@ -29,6 +29,7 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/api.group/homepage_markers.html" : 'app/api/homepage_markers.tpl',
           "<%= app.dist %>/templates/default_site/api.group/blog.html" : 'app/api/blog.tpl',
           "<%= app.dist %>/templates/default_site/api.group/press.html" : 'app/api/press.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/featured_articles.html" : 'app/api/featured_articles.tpl',
           # Templates
           "<%= app.dist %>/templates/default_site/pages.group/index.html" : 'app/index.html',
           "<%= app.dist %>/templates/default_site/programs.group/index.html" : 'app/programs.html',
