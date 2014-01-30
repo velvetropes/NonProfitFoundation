@@ -3,7 +3,7 @@
 sfServices = angular.module("sfServices", ["ngResource"])
 
 sfServices.factory "Article", ["$resource", ($resource) ->
-  $resource "/api/blog/:articleId", {},
+  $resource "/api/blog/:articleId.json", {},
     query:
       method: "GET"
       params:
@@ -11,15 +11,8 @@ sfServices.factory "Article", ["$resource", ($resource) ->
       isArray: true
 ]
 
-# sfServices.factory "Category", ["$resource", ($resource) ->
-#   $resource "data/categories/index.json", {},
-#     query:
-#       method: "GET"
-#       isArray: true
-# ]
-
 sfServices.factory "PressItem", ["$resource", ($resource) ->
-  $resource "/api/press/:pressItemId", {},
+  $resource "/api/press/:pressItemId.json", {},
     query:
       method: "GET"
       params:
