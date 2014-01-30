@@ -48,7 +48,7 @@ sfDirectives.directive "worldMap", [->
             $popup
               .fadeIn()
       mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
-    , 800)
+    , 1400)
 
   controller = ($scope, $element) ->
     $scope.closePopup = ->
