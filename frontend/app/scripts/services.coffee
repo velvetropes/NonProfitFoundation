@@ -61,7 +61,7 @@ sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", ($q, $http, $
 
   getIndex = ->
     deferred = $q.defer()
-    $http.get("data/featured_articles/index.json").success((data) ->
+    $http.get("/api/featured_articles").success((data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
