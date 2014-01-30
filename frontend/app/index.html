@@ -1,17 +1,12 @@
 <!doctype html xmlns:ng="http://angularjs.org/">
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" ng:app="homePageApp"> <![endif]-->
-<!--[if IE 7]>   <html class="no-js lt-ie9 lt-ie8" ng:app="homePageApp"> <![endif]-->
-<!--[if IE 8]>   <html class="no-js lt-ie9" ng:app="homePageApp"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" ng:app="homePageApp"> <!--<![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>   <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>   <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <!--(bake partials/head.html)-->
-    <!-- build:css(.tmp) assets/styles/main.css -->
-    <link rel="stylesheet" href="styles/app.css">
-    <link rel='stylesheet' href="bower_components/ahundredyears-swiper/src/swiper.css">
-    <link rel='stylesheet' href="bower_components/ahundredyears-thumblist-nav/src/ahundredyears-thumblist-nav.css">
-    <!-- endbuild -->
   </head>
-  <body class='home-page page' ng:controller="HomeIndexCtrl">
+  <body class='home-page page' ng:app="homePageApp">
 
     <!--(bake partials/browser_check.html)-->
 
@@ -91,7 +86,7 @@
 
     <section class='pictograms'>
   <!--(bake-start _if="dist")-->
-  {exp:channel:entries channel="homepage_content" limit="1"}
+    {exp:channel:entries channel="homepage_content" limit="1"}
       {homepage_pictograms}
       <div class="pict">
         <img src="{homepage_pictograms:slot_1}">
@@ -144,22 +139,7 @@
       </div>
 
       <div class='carousel bottom thumblist'>
-        <thumblist-nav>
-          <div>
-            <div >
-              <img src="/uploads/home/feature/building_a_better_kibera.jpg">
-              <h4>Global Hearing Mission</h4>
-              <button ng-click="changeCurrentTab(0)">Read Stories &rarr;</button>
-            </div>
-          </div>
-          <div ng-repeat="featuredArticle in featuredArticles">
-            <div >
-              <img ng-src="{{featuredArticle.thumbnail_image_url}}">
-              <h4 ng-bind="featuredArticle.thumbnail_title"></h4>
-              <button ng-click="changeCurrentTab($index+1)">{{featuredArticle.thumbnail_call_to_action_text}} &rarr;</button>
-            </div>
-          </div>
-        </thumblist-nav>
+        <home-thumblist-nav articles="featuredArticles" clickaction="changeCurrentTab"></home-thumblist-nav>
       </div>
     </section>
 

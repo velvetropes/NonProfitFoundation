@@ -1,8 +1,8 @@
 <!doctype html xmlns:ng="http://angularjs.org/">
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" ng:app="homePageApp"> <![endif]-->
-<!--[if IE 7]>   <html class="no-js lt-ie9 lt-ie8" ng:app="homePageApp"> <![endif]-->
-<!--[if IE 8]>   <html class="no-js lt-ie9" ng:app="homePageApp"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" ng:app="homePageApp"> <!--<![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>   <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>   <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +13,8 @@
     
     <link rel="stylesheet" href="assets/styles/95c00c11.main.css"/>
     
-    <link rel="stylesheet" href="assets/styles/95c00c11.main.css"/>
   </head>
-  <body class='home-page page' ng:controller="HomeIndexCtrl">
+  <body class='home-page page' ng:app="homePageApp">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -185,7 +184,7 @@
     </section>
 
     <section class='pictograms'>
-  {exp:channel:entries channel="homepage_content" limit="1"}
+    {exp:channel:entries channel="homepage_content" limit="1"}
       {homepage_pictograms}
       <div class="pict">
         <img src="{homepage_pictograms:slot_1}">
@@ -225,22 +224,7 @@
       </div>
 
       <div class='carousel bottom thumblist'>
-        <thumblist-nav>
-          <div>
-            <div >
-              <img src="/uploads/home/feature/building_a_better_kibera.jpg">
-              <h4>Global Hearing Mission</h4>
-              <button ng-click="changeCurrentTab(0)">Read Stories &rarr;</button>
-            </div>
-          </div>
-          <div ng-repeat="featuredArticle in featuredArticles">
-            <div >
-              <img ng-src="">
-              <h4 ng-bind="featuredArticle.thumbnail_title"></h4>
-              <button ng-click="changeCurrentTab($index+1)"> &rarr;</button>
-            </div>
-          </div>
-        </thumblist-nav>
+        <home-thumblist-nav articles="featuredArticles" clickaction="changeCurrentTab"></home-thumblist-nav>
       </div>
     </section>
 
@@ -307,7 +291,7 @@
     </footer>
     <script src="/assets/scripts/d37dce66.vendor.js"></script>
     
-    <script src="/assets/scripts/c1cfd36d.main.js"></script>
+    <script src="/assets/scripts/00c4afcd.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
