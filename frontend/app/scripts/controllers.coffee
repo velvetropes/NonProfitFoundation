@@ -21,7 +21,7 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
       $scope.currentBottomSlideTab = 1
     else
       $scope.currentBottomSlideTab = 2
-      $scope.currentTabModel = $scope.featuredArticles[tabIndex-1]
+      $scope.currentTabModel = $scope.featuredArticles[tabIndex]
 ])
 
 # Blog

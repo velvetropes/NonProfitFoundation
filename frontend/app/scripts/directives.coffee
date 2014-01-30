@@ -100,18 +100,11 @@ sfDirectives.directive 'homeThumblistNav', [->
 
   template =  """
     <div class='thumblist-nav horizontal-only'>
-      <div>
-        <div >
-          <img src="/uploads/home/feature/building_a_better_kibera.jpg">
-          <h4>Global Hearing Mission</h4>
-          <button ng-click="clickaction(0)">Read Stories &rarr;</button>
-        </div>
-      </div>
       <div ng-repeat="article in articles">
         <div>
           <img ng-src="{{article.thumbnail_image_url}}">
           <h4 ng-bind="article.thumbnail_title"></h4>
-          <button ng-click="clickaction($index+1)">{{article.thumbnail_call_to_action_text}} &rarr;</button>
+          <button ng-click="clickaction($index)">{{article.thumbnail_call_to_action_text}} &rarr;</button>
         </div>
       </div>
     </div>
