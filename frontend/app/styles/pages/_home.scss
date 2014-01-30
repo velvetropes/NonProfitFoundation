@@ -44,3 +44,42 @@
   text-align: center;
   border-bottom: 1px dotted #333;
 }
+
+.bottom-slide-tabs {
+  height: 525px;
+  background: #1B1B1B;
+  .bottom-slid-tab {
+    .panel-image {
+      float: left;
+      width: 70%;
+      overflow: hidden;
+      height: 525px;
+      a {
+        width: 100%;
+        height: 100%;
+        img {
+          height: 100%;
+        }
+      }
+    }
+    .panel-content {
+      float: right;
+      width: 30%;
+      height: 525px;
+      color: #fff;
+      position: relative;
+      > div {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        right: 30px;
+      }
+      .call-to-action {
+        text-align: right;
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-sfDirectives = angular.module("sfDirectives", ["sfFilters"])
+sfDirectives = angular.module("sfDirectives", ["ngSanitize", "sfFilters"])
 
 sfDirectives.factory("Pagination", ->
   pagination = {}
@@ -62,5 +62,36 @@ sfDirectives.directive "worldMap", [->
   replace: true
   scope: {
     markers: "="
+  }
+]
+
+sfDirectives.directive "panelTab", [->
+
+  template =  """
+    <section>
+      <div class='panel-image'>
+        <a href='{{featured.video_link_url}}' target='_blank'>
+          <img ng-src='{{featured.panel_image_url}}'></img>
+        </a>
+      </div>
+      <div class='panel-content'>
+        <div>
+          <h1>{{featured.panel_title}}</h1>
+          <div ng-bind-html="featured.body"></div>
+          <p class='call-to-action'>
+            <a href='{{featured.panel_call_to_action_link_url}}'>
+              {{featured.panel_call_to_action_text}} &rarr;
+            </a>
+          </p>
+        </div>
+      </div>
+    <section>
+    """
+
+  restrict: "E"
+  template: template
+  replace: true
+  scope: {
+    featured: "="
   }
 ]
