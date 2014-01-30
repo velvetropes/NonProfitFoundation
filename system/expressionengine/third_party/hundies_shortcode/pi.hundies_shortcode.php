@@ -22,101 +22,71 @@ $plugin_info = array(
  */
 class hundies_shortcode {
 
-	// --------------------------------------------------------------------
-	// PROPERTIES
-	// --------------------------------------------------------------------
-
-	/**
-	 * Plugin return data
-	 *
-	 * @var         string
-	 */
 	public $return_data;
+	public $codes = array("gallery", "form");
 
-	// --------------------------------------------------------------------
-	// METHODS
-	// --------------------------------------------------------------------
-
-	/**
-	 * Constructor
-	 *
-	 * @return      string
-	 */
 	public function __construct()
 	{
-		// -------------------------------------------
-		// Init return data
-		// -------------------------------------------
-
 		$this->parsed_data = "";
 		$this->return_data = ee()->TMPL->tagdata;
 
-		echo "<pre>";
-
-		echo "</pre>";
-
-		// -------------------------------------------
-		// Get parameters
-		// -------------------------------------------
-
-		$find    = ee()->TMPL->fetch_param('find');
-		$replace = ee()->TMPL->fetch_param('replace', '');
-		$case    = ee()->TMPL->fetch_param('casesensitive', ee()->TMPL->fetch_param('case'));
-		$flags   = ee()->TMPL->fetch_param('flags');
-
-		$pat = '/(\w+)\s*=\s*"(.*?)"/';
-
-		// TODO: multiple forms
-		preg_match_all($pat, $this->return_data, $matches);
-
-		ob_start();
-		print_r($matches);
-
-		if(isset($matches[1][0])) {
-			$id = $matches[1][0];
-			ob_start();
-			?>
-			{exp:freeform:form form:class="flatform" form_id="<?=$id?>" return="/#thank_you"}
-			    <dl>
-			    {freeform:all_form_fields}
-			        <dt><label>{freeform:field_label}</label></dt>
-			        <dd>{freeform:field_output}</dd>
-			    {/freeform:all_form_fields}
-			    </dl>
-			    {freeform:submit}
-			{/exp:freeform:form}
-			<?
-			$this->return_data = ob_get_contents();
-			ob_end_clean();
+		foreach($this->codes as $code) {
+			preg_match_all('/'.$this->getRe($code).'/s', $this->return_data, $matches);
+			if(isset($matches['2']) && count($matches['2']) > 0) {
+				foreach($matches['2'] as $index => $attr) {
+					if($id = $this->getId($attr)) {
+						switch($code) {
+							case "gallery":
+								$data = $this->getGallery($id);
+							break;
+							case "form":
+								$data = $this->getForm($id);
+							break;
+						}
+						$this->return_data = str_ireplace($matches['0'][$index], $data, $this->return_data);
+					}
+				}
+			}
 		}
 
-		// -------------------------------------------
-		// Make sure find and replace values are arrays
-		// -------------------------------------------
-
-		// Why not?
 		return $this->return_data;
 	}
 	// --------------------------------------------------------------------
 
-	private function parseCode($code) {
-
-		$r = explode("[", $content);
-		if (isset($r[1])){
-		    $r = explode("]", $r[1]);
-		    $innerCode = $r[0];
-		}
-
-		$innerCodeParts = explode(' ', $innerCode);
-		$command = $innerCodeParts[0];
-		$attributeAndValue = $innerCodeParts[1];
-		$attributeParts = explode('=', $attributeParts);
-		$attribute = $attributeParts[0];
-		$attributeValue = str_replace('\"', '', $attributeParts[1]);
-
-		return $command . ' ' . $attribute . '=' . $attributeValue;
+	private function getForm($id) {
+		ob_start();
+		?>
+		{exp:freeform:form form:class="flatform" form_id="<?=$id?>" return="/#thank_you"}
+		    <dl>
+		    {freeform:all_form_fields}
+		        <dt><label>{freeform:field_label}</label></dt>
+		        <dd>{freeform:field_output}</dd>
+		    {/freeform:all_form_fields}
+		    </dl>
+		    {freeform:submit}
+		{/exp:freeform:form}
+		<?
+		$content = ob_get_contents();
+		ob_end_clean();
+		return $content;
 	}
 
+	private function getGallery($id) {
+		return "GALLERY {$id}";
+	}
+
+	private function getId($attr) {
+		$id = str_replace("\"", "", next(explode("id=", $attr)));
+		if($id) {
+			return $id;
+		} else {
+			return false;
+		}
+	}
+
+	private function getRe($tag) {
+		return '\[('.$tag.')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?';
+	}
 }
 // END CLASS
 
