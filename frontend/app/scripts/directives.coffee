@@ -111,7 +111,7 @@ sfDirectives.directive 'homeThumblistNav', [->
       <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
         <div class="content">
           <h4 ng-bind="article.thumbnail_title"></h4>
-          <button ng-click="clickaction($index+1)">{{article.thumbnail_call_to_action_text}} &rarr;</button>
+          <button ng-click="clickaction($index+1)" >{{article.thumbnail_call_to_action_text}} <span ng-hide="article.thumbnail_call_to_action_text==''">&rarr;</span>&nbsp;</button>
         </div>
       </div>
     </div>
