@@ -65,7 +65,12 @@
       width: 30% !important;
     }
 
-    &.middleThird {
+
+    &.leftForth, &.middleFourthFirst, &.middleFourthSecond, &.rightFourth {
+      width: 23% !important;
+    }
+
+    &.middleFourthFirst, &.middleFourthSecond, &.middleThird,  {
       clear: none !important;
       float: left;
       margin-left: 5% !important;

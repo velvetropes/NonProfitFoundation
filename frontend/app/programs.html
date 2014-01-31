@@ -64,6 +64,60 @@
 
           {exp:hundies_shortcode}{hear_now_content}{/exp:hundies_shortcode}
 
+          <a href="#">Become a Provider</a>
+
+          <div class="become-a-provider-container">
+
+            {exp:freeform:form form_id="2" form:id="become_a_provider_form" form:class="flatform invert" return="/#thank_you"}
+                <ul>
+                    <li class="leftHalf">
+                        {freeform:field:first_name attr:placeholder="First Name"}
+                    </li>
+
+                    <li class="rightHalf">
+                        {freeform:field:last_name attr:placeholder="Last Name"}
+                    </li>
+
+                    <li class="leftForth">
+                        {freeform:field:practice attr:placeholder="Practice"}
+                    </li>
+
+                    <li class="middleFourthFirst">
+                        {freeform:field:phone attr:placeholder="Phone"}
+                    </li>
+
+                    <li class="middleFourthSecond">
+                        {freeform:field:fax attr:placeholder="FAX"}
+                    </li>
+
+                    <li class="rightFourth">
+                        {freeform:field:email attr:placeholder="Email"}
+                    </li>
+
+                    <li class="leftForth">
+                        {freeform:field:address attr:placeholder="Address"}
+                    </li>
+
+                    <li class="middleFourthFirst">
+                        {freeform:field:city attr:placeholder="City"}
+                    </li>
+
+                    <li class="middleFourthSecond">
+                        {freeform:field:state attr:placeholder="State"}
+                    </li>
+
+                    <li class="rightFourth">
+                        {freeform:field:zip attr:placeholder="Zip"}
+                    </li>
+
+                    <li class="full">
+                        {freeform:submit attr:id="become_a_provider_submit"}
+                    </li>
+                </ul>
+
+            {/exp:freeform:form}
+
+          </div>
         </div>
       </article>
 
