@@ -190,6 +190,10 @@ a {
   color: $light-blue;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 hr.separator {
   border: none;
   border-bottom: 1px dotted #333;
@@ -326,3 +330,11 @@ blockquote p {
   }
 }
 
+.link-with-border {
+  font-size: .875em;
+  font-weight: bold;
+  padding: 10px 20px 8px;
+  border: 2px solid $light-blue;
+  color: $light-blue;
+  text-transform: uppercase;
+}

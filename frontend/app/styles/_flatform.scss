@@ -5,23 +5,31 @@
   }
 
   &.invert {
-    select, input[type="text"], input[type="submit"], label {
+    select, input[type="text"], label {
       border-color: #FFF;
-      color: #FFF;
+      color: $gray-title;
+    }
+    input[type="submit"] {
+      background: none;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 8px 60px 5px;
+      border: 2px solid $light-blue;
+      color: $light-blue;
+      text-transform: uppercase;
     }
   }
 
   select,
-  input[type="text"],
-  input[type="submit"] {
+  input[type="text"] {
     outline: none;
-    font-size: 14px;
+    font-size: 1em;
     line-height: 1.2;
-    padding: 4px 6px;
-    height: 32px;
+    padding: 5px 15px 0px;
+    height: 50px;
     border: 1px solid #000;
     color: #000;
-    background: transparent;
+    background: #eee;
     -webkit-appearance: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -32,10 +40,6 @@
   label {
     &:after { content: '\A'; }
     text-transform: uppercase;
-  }
-
-  input[type="submit"] {
-    border: 2px solid #FFF;
   }
 
   input[type="checkbox"] {
@@ -58,22 +62,26 @@
     }
 
     &.leftHalf, &.rightHalf {
-      width: 47% !important;
+      width: 50% !important;
     }
 
-    &.leftThird, &.middleThird, &.rightThird {
-      width: 30% !important;
+    // &.leftThird, &.middleThird, &.rightThird {
+    //   width: 30% !important;
+    // }
+
+
+    &.leftFourth, &.middleFourthFirst, &.middleFourthSecond, &.rightFourth {
+      width: 25% !important;
     }
 
-
-    &.leftForth, &.middleFourthFirst, &.middleFourthSecond, &.rightFourth {
-      width: 23% !important;
+    &.leftFourth, &.rightFourth {
+      clear: none !important;
+      float: left;
     }
 
     &.middleFourthFirst, &.middleFourthSecond, &.middleThird,  {
       clear: none !important;
       float: left;
-      margin-left: 5% !important;
     }
 
     &.rightHalf, &.rightThird {
@@ -86,8 +94,8 @@
       float: left;
     }
 
-    &.leftHalf .small, &.rightHalf .small, &.leftHalf .medium, &.rightHalf .medium, &.leftThird .small, &.middleThird .small, &.rightThird .small, &.leftThird .medium, &.middleThird .medium, &.rightThird .medium {
-      width: 100% !important;
-    }
+    // &.leftHalf .small, &.rightHalf .small, &.leftHalf .medium, &.rightHalf .medium, &.leftThird .small, &.middleThird .small, &.rightThird .small, &.leftThird .medium, &.middleThird .medium, &.rightThird .medium {
+    //   width: 100% !important;
+    // }
   }
 }

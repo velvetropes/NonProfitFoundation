@@ -64,5 +64,5 @@ class ProgramsPageView extends TabBehavior
 
 $ ->
   new HeaderTabNav
-  if $('.programs-page').length
-    new ProgramsPageView
+#   if $('.programs-page').length
+#     new ProgramsPageView

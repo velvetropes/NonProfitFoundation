@@ -132,3 +132,20 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Pr
     Math.ceil($scope.pressItems.length/$scope.pageSize)
 
 ])
+
+# Programs
+
+sfControllers.controller("ProgramsCtrl", ["$scope", ($scope) ->
+  $scope.isVisible = false
+  $scope.currentTab = 0
+
+  $scope.toggle = (marker)->
+   marker = !marker
+   $scope.isVisible = marker
+
+  $scope.changeTabTo = (tabIndex) ->
+    $scope.currentTab = tabIndex
+
+  $scope.clicked = (e) ->
+    console.debug "clicked", e
+])

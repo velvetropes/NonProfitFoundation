@@ -42,6 +42,14 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   ).otherwise redirectTo: "/media_mentions"
 ]
 
+programsPageApp = angular.module("programsPageApp", [
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
 HomePageApp = angular.module('homePageApp', [
   "ngRoute",
   "ngSanitize",

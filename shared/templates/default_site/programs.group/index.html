@@ -11,11 +11,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  
-  <link rel="stylesheet" href="assets/styles/dac64fc0.main.css"/>
-  
+
+  <link rel="stylesheet" href="assets/styles/da4b2928.main.css"/>
+
   </head>
-  <body class='programs-page page'>
+  <body class='programs-page page' ng:app="programsPageApp">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -28,11 +28,11 @@
           <img src="images/starkey/starkey_logo.svg">
         </a>
       </div>
-    
+
       <div class='tagline'>
         <h1>So The World May Hear.</h1>
       </div>
-    
+
       <div class='social-links'>
         <ul>
           <li>
@@ -50,7 +50,7 @@
         </ul>
       </div>
     </header>
-    
+
     <section class='outer-container'>
       <nav class='header-nav'>
         <div class='centered-half-container'>
@@ -147,35 +147,42 @@
         </article>
       </nav>
     </section>
-    
+
 
     <!-- Main content section -->
 
     {exp:channel:entries channel="programs" limit="1"}
+    <!--(bake-end)-->
     <section class='page-leader'>
-      <h1>{title}</h1>
-      <p>{program_page_leader}</p>
+      <h1>
+
+        {title}
+      </h1>
+      <p>
+
+        {program_page_leader}
+      </p>
     </section>
 
-    <section class='tabbed-content'>
+    <section class='tabbed-content' ng:controller="ProgramsCtrl">
       <nav>
           <ul class='tabs row-table'>
-            <li>
-              <a href='#' data-content-class='.operation-change'>Operation Change</a>
+            <li ng-class="{active: currentTab==0}">
+              <a href='#' ng-click="changeTabTo(0)">Operation Change</a>
             </li>
-            <li>
-              <a href='#' data-content-class='.listen-carefully'>Listen Carefully</a>
+            <li ng-class="{active: currentTab==1}">
+              <a href='#' ng-click="changeTabTo(1)">Listen Carefully</a>
             </li>
-            <li>
-              <a href='#' data-content-class='.hear-now'>Hear Now</a>
+            <li ng-class="{active: currentTab==2}">
+              <a href='#' ng-click="changeTabTo(2)">Hear Now</a>
             </li>
-            <li>
-              <a href='#' data-content-class='.hearing-aid-recycling'>Hearing Aid Recycling</a>
+            <li ng-class="{active: currentTab==3}">
+              <a href='#' ng-click="changeTabTo(3)">Hearing Aid Recycling</a>
             </li>
           </ul>
       </nav>
 
-      <article class='tab-content operation-change'>
+      <article class='tab-content operation-change reveal' ng-show="currentTab==0">
         <div class="outer-container">
           <h1>Operation change</h1>
 
@@ -184,9 +191,8 @@
         </div>
       </article>
 
-      <article class='tab-content listen-carefully'>
+      <article class='tab-content listen-carefully reveal' ng-show="currentTab==1">
         <div class="outer-container">
-          <h1>Listen Carefully</h1>
 
           {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
 
@@ -194,11 +200,25 @@
 
       </article>
 
-      <article class='tab-content hear-now'>
+      <article class='tab-content hear-now reveal' ng-show="currentTab==2">
         <div class="outer-container">
           <h1>Hear Now</h1>
 
           {exp:hundies_shortcode}{hear_now_content}{/exp:hundies_shortcode}
+          <p class="centered"><a href="#" class="link-with-border">Contact us</a></p>
+
+          <p>If you have already spoken with a Hear Now representative to learn more, you can download the application below.</p>
+
+          <div class="share-this-post">
+            <ul>
+              <li><span class="note">Download application</span></li>
+              <li>
+                <a href="#">
+                  <span class="icon starkey-pdf"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
 
           <a href="mailto:{hear_now_form_contact}" class="button blue">Contact Us</a>
 
@@ -223,7 +243,7 @@
                         {freeform:field:last_name attr:placeholder="Last Name"}
                     </li>
 
-                    <li class="leftForth">
+                    <li class="leftFourth">
                         {freeform:field:practice attr:placeholder="Practice"}
                     </li>
 
@@ -239,7 +259,7 @@
                         {freeform:field:email attr:placeholder="Email"}
                     </li>
 
-                    <li class="leftForth">
+                    <li class="leftFourth">
                         {freeform:field:address attr:placeholder="Address"}
                     </li>
 
@@ -256,17 +276,17 @@
                     </li>
 
                     <li class="full">
+                      <br/>
                         {freeform:submit attr:id="become_a_provider_submit"}
                     </li>
                 </ul>
 
             {/exp:freeform:form}
-
           </div>
         </div>
       </article>
 
-      <article class='tab-content hearing-aid-recycling'>
+      <article class='tab-content hearing-aid-recycling reveal' ng-show="currentTab==3">
         <div class="outer-container">
           <h1>Hearing Aid Recycling</h1>
 
@@ -325,7 +345,7 @@
                 <span class="time">15 sec ago</span>
               </div>
               <p><a href='#'>Follow us &rarr;</a></p>
-    
+
             </li>
           </ul>
         </section>
@@ -339,12 +359,12 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/5f9e6504.vendor.js"></script>
-    
-    <script src="/assets/scripts/19ee22c3.main.js"></script>
-    
+    <script src="/assets/scripts/e7c1f4db.vendor.js"></script>
+
+    <script src="/assets/scripts/f3e086c6.main.js"></script>
+
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
-    
+
 
 </body>
 </html>
