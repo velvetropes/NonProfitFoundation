@@ -41,8 +41,41 @@
 
 .article-header-image {
   color: white;
-  margin-bottom: 40px;
-  position: relative;
+  margin-bottom: 0;
+  .image {
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    position: relative;
+    .relative-container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+    .banner {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      z-index: 10;
+      h1 {
+        line-height: 1.1em;
+        margin-bottom: 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+    .gradient-background {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 70%;
+      @include background-image(linear-gradient(top,  rgba(30,87,153,0) 0%,rgba(0,0,0,0.54) 42%,rgba(5,2,3,1) 100%));
+      z-index: 1;
+    }
+  }
   .page-nav-links {
     position: absolute;
     top: 20px;
@@ -58,14 +91,9 @@
       }
     }
   }
-  img {
-    width: 100%;
-  }
-
   .article-item-category {
     @extend .alrightsanslight;
     font-size: .875em;
-    margin-top: -110px;
     text-transform: uppercase;
   }
   .article-title {

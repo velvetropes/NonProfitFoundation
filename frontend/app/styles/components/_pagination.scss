@@ -20,30 +20,36 @@ pagination {
      @include omega(3n);
      margin-bottom: 42px;
     .block {
-      display: inline-block;
       background: #F8F6F0;
       border-left: 1px dotted #333;
       height: 345px;
       overflow: hidden;
       position: relative;
-      img {
-        width: 100%;
-        height: 229px;
-        overflow: hidden;
-        margin-bottom: 10px;
+      .image {
+        background-size: cover;
+        position: absolute;
+        bottom: 115px;
+        right: 0;
+        left: 0;
+        top: 0;
       }
-      h1, h2, h3, h4, p {
-        margin: 0 20px 10px;
+      .headline {
+        position: absolute;
+        bottom: 15px;
+        height: 70px;
+        left: 20px;
+        right: 20px;
       }
       p {
         line-height: 1.2em;
       }
       .read-more {
         position: absolute;
-        bottom: 10px;
+        bottom: 2px;
         right: 10px;
         text-transform: uppercase;
         font-weight: bold;
+        font-size: .8125em;
         &:hover {
           cursor: pointer;
         }

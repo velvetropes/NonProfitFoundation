@@ -21,7 +21,7 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
       $scope.currentBottomSlideTab = 1
     else
       $scope.currentBottomSlideTab = 2
-      $scope.currentTabModel = $scope.featuredArticles[tabIndex+1]
+      $scope.currentTabModel = $scope.featuredArticles[tabIndex-1]
 ])
 
 # Blog
@@ -72,7 +72,10 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "Articles", 
   )
 
   Articles.getIndex().then (data) ->
-    $scope.articles = data
+    if data instanceof Array
+      $scope.articles = data
+    else
+      $scope.articles = [data]
     $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
 

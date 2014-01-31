@@ -1,11 +1,17 @@
 <section class='carousel bottom thumblist full'>
   <thumblist-nav>
   <!--(bake-start _if="server")-->
-     <div ng-repeat="article in featured" ng-click="showDetails(article)">
-      <img ng-src="{{article.thumbnail_url}}"/>
-      <p class="blog-category">Hearing Missions</p>
-      <h4>Title goes here: {{article.title}}</h4>
-    </div>
+    <thumblist-nav>
+      <div ng-repeat="article in articles | filter:{featured:'true'}">
+        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+        <div class="content">
+          <a href="#/articles/{{article.id}}">
+            <h4>{{article.title}}</h4>
+          </a>
+          <p class="date">{{article.date}}</p>
+        </div>
+      </div>
+    </thumblist-nav>
   <!--(bake-end)-->
 
   <!--(bake-start _if="dist")-->

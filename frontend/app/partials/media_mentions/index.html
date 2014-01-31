@@ -48,8 +48,8 @@
   <ul class="pagination-articles">
     <li ng-repeat="article in pressItems | filter:pressItemFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <div class='block'>
-        <img ng-src='{{article.thumbnail_image_url}}'/>
-        <h2>{{article.headline}}</h2>
+        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+        <h2 class="headline">{{article.headline}}</h2>
         <p>{{article.date}}</p>
         <p class='read-more' ng-switch="article.type">
           <a ng-switch-when="press_item" href="#/media_mentions/{{article.id}}">

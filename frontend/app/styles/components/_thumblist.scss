@@ -11,6 +11,22 @@
     > div {
       width: 400px;
       height: 330px;
+      position: relative;
+      .image {
+        background-size: cover;
+        position: absolute;
+        bottom: 115px;
+        right: 0;
+        left: 0;
+        top: 0;
+      }
+      .content {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        left: 20px;
+        overflow: hidden;
+      }
     }
     .ng-scope {
       border: 1px dotted #ddd;
@@ -20,8 +36,14 @@
       @extend .verlagbold;
       font-size: 1.5em;
       letter-spacing: 1px;
-      margin: 26px 0 10px 30px;
+      margin: 0 0 10px 0;
       color: $gray-title;
+    }
+    .blog-category {
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0;
+      font-size: .875em;
     }
     button {
       text-transform: uppercase;
@@ -29,7 +51,7 @@
       border: none;
       font-size: .75em;
       font-weight: 600;
-      margin: 5px 0 0 30px;
+      margin: 5px 0 0;
       padding: 0;
       color: $gray-title;
     }
@@ -45,18 +67,20 @@
     > div {
       width: 680px;
       height: 410px;
+      .image {
+        bottom: 0;
+      }
+      .content {
+        bottom: 10px;
+      }
     }
     h4 {
-      margin-top: 3px;
+      // margin-top: 3px;
       color: white;
       font-size: 2.25em;
     }
     .blog-category {
       color: white;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin: -90px 0 0 30px;
-      font-size: .875em;
     }
     img {
       width:  680px;

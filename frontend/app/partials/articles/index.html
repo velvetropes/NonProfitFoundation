@@ -13,11 +13,13 @@
 <section class='carousel thumblist full'>
   <thumblist-nav>
     <div ng-repeat="article in articles | filter:{featured:'true'}">
-      <img ng-src="{{article.thumbnail_image_url}}"/>
-      <p class="blog-category">{{article.blog_item_category}}</p>
-      <a href="#/articles/{{article.id}}">
-        <h4>{{article.title}}</h4>
-      </a>
+      <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+      <div class="content">
+        <p class="blog-category">{{article.blog_item_category}}</p>
+        <a href="#/articles/{{article.id}}">
+          <h4>{{article.title}}</h4>
+        </a>
+      </div>
     </div>
   </thumblist-nav>
 </section>
@@ -65,8 +67,8 @@
   <ul class="pagination-articles">
     <li ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <div class='block'>
-        <img ng-src='{{article.thumbnail_image_url}}'/>
-        <h2>{{article.title}}</h2>
+        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+        <h2 class="headline">{{article.title}}</h2>
         <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
       </div>
     </li>
