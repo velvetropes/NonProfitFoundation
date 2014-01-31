@@ -1,8 +1,13 @@
 {exp:http_header content_type="application/json"}[
     {exp:channel:entries channel="homepage_main_carousel" backspace="6"}
     {
-      "id": "{entry_id}",
-      "date": "{entry_date format='%m %d %Y'}",
+      "id":"{entry_id}",
+      "date":"{operation_change_partnerships:date}",
+      "thumbnail_image_url":"{operation_change_partnerships:image}",
+      "thumbnail_title":"{operation_change_partnerships:title}",
+      "link_cta":"{operation_change_partnerships:cta_text}"
+      "link_url":"{operation_change_partnerships:url}"
+
       "thumbnail_title":"{title}",
       "thumbnail_image_url":"{carousel_image}",
       "thumbnail_call_to_action_text":"{carousel_cta}",
@@ -15,3 +20,5 @@
     },
     {/exp:channel:entries}
 ]
+
+
