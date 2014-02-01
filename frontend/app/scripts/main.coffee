@@ -44,6 +44,7 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
 
 programsPageApp = angular.module("programsPageApp", [
   "ngAnimate",
+  "ahundredyears.thumblist-nav",
   "sfControllers",
   "sfDirectives",
   "sfFilters",

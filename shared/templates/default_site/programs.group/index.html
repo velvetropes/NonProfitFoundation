@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   
-  <link rel="stylesheet" href="assets/styles/da4b2928.main.css"/>
+  <link rel="stylesheet" href="assets/styles/4faa38f2.main.css"/>
   
   </head>
   <body class='programs-page page' ng:app="programsPageApp">
@@ -182,25 +182,53 @@
           </ul>
       </nav>
 
-      <article class='tab-content operation-change reveal' ng-show="currentTab==0">
+      <article class='operation-change reveal' ng-show="currentTab==0">
         <div class="outer-container">
           <h1>Operation change</h1>
 
           {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
-
+          <br/>
+          <h2>Our Partnerships</h2>
         </div>
+        <section class='carousel thumblist'>
+          <thumblist-nav>
+            <div ng-repeat="article in articles">
+              <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+              <div class="content">
+                <a href="#/articles/">
+                  <h4></h4>
+                </a>
+                <p class="date"></p>
+              </div>
+            </div>
+          </thumblist-nav>
+        </section>
       </article>
 
-      <article class='tab-content listen-carefully reveal' ng-show="currentTab==1">
+      <article class='listen-carefully reveal' ng-show="currentTab==1">
         <div class="outer-container">
 
           {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
 
+          <br/>
+          <h2>Additional Resources</h2>
         </div>
-
+        <section class='carousel thumblist'>
+          <thumblist-nav>
+            <div ng-repeat="article in articles">
+              <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+              <div class="content">
+                <a href="#/articles/">
+                  <h4></h4>
+                </a>
+                <p class="date"></p>
+              </div>
+            </div>
+          </thumblist-nav>
+        </section>
       </article>
 
-      <article class='tab-content hear-now reveal' ng-show="currentTab==2">
+      <article class='hear-now reveal' ng-show="currentTab==2">
         <div class="outer-container">
           <h1>Hear Now</h1>
 
@@ -292,13 +320,14 @@
         </div>
       </article>
 
-      <article class='tab-content hearing-aid-recycling reveal' ng-show="currentTab==3">
+      <article class='hearing-aid-recycling reveal' ng-show="currentTab==3">
         <div class="outer-container">
           <h1>Hearing Aid Recycling</h1>
 
           {exp:hundies_shortcode}{hearing_aid_recycling_content}{/exp:hundies_shortcode}
 
         </div>
+
       </article>
     </section>
     {/exp:channel:entries}
@@ -365,9 +394,9 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/e7c1f4db.vendor.js"></script>
+    <script src="/assets/scripts/06bc1638.vendor.js"></script>
     
-    <script src="/assets/scripts/f3e086c6.main.js"></script>
+    <script src="/assets/scripts/3f5b743f.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

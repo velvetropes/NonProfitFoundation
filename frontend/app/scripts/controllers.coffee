@@ -135,9 +135,15 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Pr
 
 # Programs
 
-sfControllers.controller("ProgramsCtrl", ["$scope", ($scope) ->
+sfControllers.controller("ProgramsCtrl", ["$scope", "Articles", ($scope, Articles) ->
   $scope.isVisible = false
   $scope.currentTab = 0
+
+  Articles.getIndex().then (data) ->
+    if data instanceof Array
+      $scope.articles = data
+    else
+      $scope.articles = [data]
 
   $scope.toggle = (marker)->
    marker = !marker
@@ -146,6 +152,4 @@ sfControllers.controller("ProgramsCtrl", ["$scope", ($scope) ->
   $scope.changeTabTo = (tabIndex) ->
     $scope.currentTab = tabIndex
 
-  $scope.clicked = (e) ->
-    console.debug "clicked", e
 ])

@@ -54,27 +54,57 @@
           </ul>
       </nav>
 
-      <article class='tab-content operation-change reveal' ng-show="currentTab==0">
+      <article class='operation-change reveal' ng-show="currentTab==0">
         <div class="outer-container">
           <h1>Operation change</h1>
 
           {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
-
+          <br/>
+          <h2>Our Partnerships</h2>
         </div>
+        <section class='carousel thumblist'>
+          <thumblist-nav>
+            <div ng-repeat="article in articles">
+              <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+              <div class="content">
+                <a href="#/articles/{{article.id}}">
+                  <h4>{{article.title}}</h4>
+                </a>
+                <p class="date">{{article.date}}</p>
+              </div>
+            </div>
+          </thumblist-nav>
+        </section>
       </article>
 
-      <article class='tab-content listen-carefully reveal' ng-show="currentTab==1">
+      <article class='listen-carefully reveal' ng-show="currentTab==1">
         <div class="outer-container">
           <!--(bake-start _if="server")-->
           <h1>Listen Carefully</h1>
           <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
           {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
+          <!--(bake-end)-->
 
+          <br/>
+          <h2>Additional Resources</h2>
         </div>
-
+        <section class='carousel thumblist'>
+          <thumblist-nav>
+            <div ng-repeat="article in articles">
+              <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+              <div class="content">
+                <a href="#/articles/{{article.id}}">
+                  <h4>{{article.title}}</h4>
+                </a>
+                <p class="date">{{article.date}}</p>
+              </div>
+            </div>
+          </thumblist-nav>
+        </section>
       </article>
 
-      <article class='tab-content hear-now reveal' ng-show="currentTab==2">
+      <article class='hear-now reveal' ng-show="currentTab==2">
         <div class="outer-container">
           <h1>Hear Now</h1>
           <!--(bake-start _if="server")-->
@@ -94,6 +124,12 @@
           <div class="share-this-post">
             <ul>
               <li><span class="note">Download application</span></li>
+              <li>
+                <a href="#">
+                  <span class="icon starkey-pdf"></span>
+                </a>
+              </li>
+              <li><span class="note">Descargar Solicitud</span></li>
               <li>
                 <a href="#">
                   <span class="icon starkey-pdf"></span>
@@ -137,7 +173,7 @@
             <form action="http://starkey.local/?ACT=23" accept-charset="utf-8" id="become_a_provider_form" class="flatform invert ng-pristine ng-valid" method="post">
               <ul>
                   <li class="leftHalf">
-                      <input ng-click="clicked" type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="First Name">
+                      <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="First Name">
                   </li>
 
                   <li class="rightHalf">
@@ -238,13 +274,14 @@
         </div>
       </article>
 
-      <article class='tab-content hearing-aid-recycling reveal' ng-show="currentTab==3">
+      <article class='hearing-aid-recycling reveal' ng-show="currentTab==3">
         <div class="outer-container">
           <h1>Hearing Aid Recycling</h1>
 
           {exp:hundies_shortcode}{hearing_aid_recycling_content}{/exp:hundies_shortcode}
 
         </div>
+
       </article>
     </section>
     {/exp:channel:entries}
