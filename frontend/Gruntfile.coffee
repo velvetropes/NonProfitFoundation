@@ -281,6 +281,12 @@ module.exports = (grunt) ->
               cwd: "app/styles/fonts/",
               src: ['**'],
               dest: '../www/assets/styles/fonts/',
+            },
+            { #TODO: fix and remove
+              expand: true,
+              cwd: "app/partials/",
+              src: ['**'],
+              dest: '../www/partials/',
             }
         ]
 
