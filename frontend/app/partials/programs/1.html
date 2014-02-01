@@ -1,0 +1,28 @@
+<article class='listen-carefully reveal'>
+  <div class="outer-container">
+    <!--(bake-start _if="server")-->
+    <h1>Listen Carefully</h1>
+    <!--(bake-end)-->
+    <!--(bake-start _if="dist")-->
+    {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
+    <!--(bake-end)-->
+
+    <br/>
+    <h2>Additional Resources</h2>
+  </div>
+  <section class='carousel thumblist'>
+    <thumblist-nav articles="programResources">
+      <div ng-repeat="article in programResources">
+        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+        <div class="content">
+          <h4 ng-bind="article.thumbnail_title"></h4>
+          <p class='call-to-action align-right'>
+            <a href='{{article.link_url}}' ng-bind="article.link_cta">
+               &rarr;
+            </a>
+          </p>
+        </div>
+      </div>
+    </thumblist-nav>
+  </section>
+</article>

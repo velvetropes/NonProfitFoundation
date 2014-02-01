@@ -135,3 +135,27 @@ sfDirectives.directive 'homeThumblistNav', [->
     clickaction: "="
 
 ]
+
+sfDirectives.directive "thumblistNav", [ ->
+  link = (scope, element, attrs) ->
+    config = showArrows: false
+
+    # TODO Use a promise
+    setTimeout (->
+      scope.pane = $(".thumblist-nav")
+      scope.pane.jScrollPane config
+    ), 1400
+
+  # scope.$watch('articles', function () {
+  #   console.log('articles changed');
+  #   scope.pane = $('.thumblist-nav');
+  #   scope.pane.jScrollPane(config);
+  # });
+  restrict: "E"
+  link: link
+  template: "<div class='thumblist-nav horizontal-only' ng-transclude></div>"
+  transclude: true
+  replace: true
+  # scope:
+  #   articles: "="
+]

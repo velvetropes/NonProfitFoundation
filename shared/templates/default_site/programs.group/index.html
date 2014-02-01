@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   
-  <link rel="stylesheet" href="assets/styles/4faa38f2.main.css"/>
+  <link rel="stylesheet" href="assets/styles/1c7fac2f.main.css"/>
   
   </head>
   <body class='programs-page page' ng:app="programsPageApp">
@@ -150,9 +150,7 @@
     
 
     <!-- Main content section -->
-
     {exp:channel:entries channel="programs" limit="1"}
-    <!--(bake-end)-->
     <section class='page-leader'>
       <h1>
 
@@ -168,167 +166,20 @@
       <nav>
           <ul class='tabs row-table'>
             <li ng-class="{active: currentTab==0}">
-              <a href='#' ng-click="changeTabTo(0)">Operation Change</a>
+              <a href='#/programs/0'>Operation Change</a>
             </li>
             <li ng-class="{active: currentTab==1}">
-              <a href='#' ng-click="changeTabTo(1)">Listen Carefully</a>
+              <a href='#/programs/1'>Listen Carefully</a>
             </li>
             <li ng-class="{active: currentTab==2}">
-              <a href='#' ng-click="changeTabTo(2)">Hear Now</a>
+              <a href='#/programs/2'>Hear Now</a>
             </li>
             <li ng-class="{active: currentTab==3}">
-              <a href='#' ng-click="changeTabTo(3)">Hearing Aid Recycling</a>
+              <a href='#/programs/3'>Hearing Aid Recycling</a>
             </li>
           </ul>
       </nav>
-
-      <article class='operation-change reveal' ng-show="currentTab==0">
-        <div class="outer-container">
-          <h1>Operation change</h1>
-
-          {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
-          <br/>
-          <h2>Our Partnerships</h2>
-        </div>
-        <section class='carousel thumblist'>
-          <thumblist-nav>
-            <div ng-repeat="article in articles">
-              <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-              <div class="content">
-                <a href="#/articles/">
-                  <h4></h4>
-                </a>
-                <p class="date"></p>
-              </div>
-            </div>
-          </thumblist-nav>
-        </section>
-      </article>
-
-      <article class='listen-carefully reveal' ng-show="currentTab==1">
-        <div class="outer-container">
-
-          {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
-
-          <br/>
-          <h2>Additional Resources</h2>
-        </div>
-        <section class='carousel thumblist'>
-          <thumblist-nav>
-            <div ng-repeat="article in articles">
-              <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-              <div class="content">
-                <a href="#/articles/">
-                  <h4></h4>
-                </a>
-                <p class="date"></p>
-              </div>
-            </div>
-          </thumblist-nav>
-        </section>
-      </article>
-
-      <article class='hear-now reveal' ng-show="currentTab==2">
-        <div class="outer-container">
-          <h1>Hear Now</h1>
-
-          {exp:hundies_shortcode}{hear_now_content}{/exp:hundies_shortcode}
-
-          <p class="centered"><a href="mailto:{hear_now_form_contact}" class="link-with-border">Contact us</a></p>
-
-
-          <p>{hear_now_download_copy}</p>
-
-          <div class="share-this-post">
-            <ul>
-              <li><span class="note">Download application</span></li>
-              <li>
-                <a href="{hear_now_form_download_english}">
-                  <span class="icon starkey-pdf"></span>
-                </a>
-              </li>
-              <li><span class="note">Descargar Solicitud</span></li>
-              <li>
-                <a href="{hear_now_form_download_spanish}">
-                  <span class="icon starkey-pdf"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <hr class="separator padded"/>
-          <br/>
-          <h1>Providers Looking to Give Back</h1>
-          <p>Help us give the gift of hearing into the lives of people in need. If you are a hearing professional, we need your help! Become a Hear Now volunteer and volunteer to fit and follow up with our Hear Now recipients. Your crucial support will help change lives forever and have a lasting impact on your community.</p>
-          <br/>
-          <hr class="separator padded"/>
-          <h3><a href ng-click="toggle(isVisible)" class="highlight">Become a Provider</a></h3>
-          <br/>
-          <div class="become-a-provider-container reveal" ng-show="isVisible">
-            <br/>
-
-            {exp:freeform:form form_id="2" form:id="become_a_provider_form" form:class="flatform invert" return="/#thank_you"}
-                <ul>
-                    <li class="leftHalf">
-                        {freeform:field:first_name attr:placeholder="First Name"}
-                    </li>
-
-                    <li class="rightHalf">
-                        {freeform:field:last_name attr:placeholder="Last Name"}
-                    </li>
-
-                    <li class="leftFourth">
-                        {freeform:field:practice attr:placeholder="Practice"}
-                    </li>
-
-                    <li class="middleFourthFirst">
-                        {freeform:field:phone attr:placeholder="Phone"}
-                    </li>
-
-                    <li class="middleFourthSecond">
-                        {freeform:field:fax attr:placeholder="FAX"}
-                    </li>
-
-                    <li class="rightFourth">
-                        {freeform:field:email attr:placeholder="Email"}
-                    </li>
-
-                    <li class="leftFourth">
-                        {freeform:field:address attr:placeholder="Address"}
-                    </li>
-
-                    <li class="middleFourthFirst">
-                        {freeform:field:city attr:placeholder="City"}
-                    </li>
-
-                    <li class="middleFourthSecond">
-                        {freeform:field:state attr:placeholder="State"}
-                    </li>
-
-                    <li class="rightFourth">
-                        {freeform:field:zip attr:placeholder="Zip"}
-                    </li>
-
-                    <li class="full">
-                      <br/>
-                        {freeform:submit attr:id="become_a_provider_submit"}
-                    </li>
-                </ul>
-
-            {/exp:freeform:form}
-          </div>
-        </div>
-      </article>
-
-      <article class='hearing-aid-recycling reveal' ng-show="currentTab==3">
-        <div class="outer-container">
-          <h1>Hearing Aid Recycling</h1>
-
-          {exp:hundies_shortcode}{hearing_aid_recycling_content}{/exp:hundies_shortcode}
-
-        </div>
-
-      </article>
+      <div ng-view></div>
     </section>
     {/exp:channel:entries}
 
@@ -396,7 +247,7 @@
 
     <script src="/assets/scripts/06bc1638.vendor.js"></script>
     
-    <script src="/assets/scripts/3f5b743f.main.js"></script>
+    <script src="/assets/scripts/c34eb756.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

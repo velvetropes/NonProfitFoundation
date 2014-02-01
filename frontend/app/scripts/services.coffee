@@ -25,26 +25,19 @@ sfServices.factory "Articles", ["$q", "$http", "$resource", ($q, $http, $resourc
   {getIndex: getIndex}
 ]
 
-sfServices.factory "PressItem", ["$resource", ($resource) ->
-  $resource "/api/press/:pressItemId.json", {}, {}
-  # $resource "http://starkey.local/api/press/:pressItemId.json", {}, {}
-  # $resource "/local/api/press/:pressItemId.json", {}, {}
-]
-
-sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", ($q, $http, $resource) ->
+sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", ($q, $http, $resource) ->
 
   getIndex = ->
     deferred = $q.defer()
-    $http.get("/api/press").success((data) ->
-    # $http.get("http://starkey.local/api/press").success((data) ->
-    # $http.get("/local/api/press/index.json").success((data) ->
+    $http.get("/api/featured_articles").success((data) ->
+    # $http.get("http://starkey.local/api/featured_articles").success((data) ->
+    # $http.get("/local/api/featured_articles/index.json").success((data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
 
     deferred.promise
 
-  # Return factory object
   {getIndex: getIndex}
 ]
 
@@ -65,13 +58,13 @@ sfServices.factory "MapMarker", ["$q", "$http", "$resource", ($q, $http, $resour
   {getIndex: getIndex}
 ]
 
-sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", ($q, $http, $resource) ->
+sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", ($q, $http, $resource) ->
 
   getIndex = ->
     deferred = $q.defer()
-    $http.get("/api/featured_articles").success((data) ->
-    # $http.get("http://starkey.local/api/featured_articles").success((data) ->
-    # $http.get("/local/api/featured_articles/index.json").success((data) ->
+    $http.get("/api/press").success((data) ->
+    # $http.get("http://starkey.local/api/press").success((data) ->
+    # $http.get("/local/api/press/index.json").success((data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
@@ -79,5 +72,37 @@ sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", ($q, $http, $
     deferred.promise
 
   # Return factory object
+  {getIndex: getIndex}
+]
+
+sfServices.factory "PressItem", ["$resource", ($resource) ->
+  $resource "/api/press/:pressItemId.json", {}, {}
+  # $resource "http://starkey.local/api/press/:pressItemId.json", {}, {}
+  # $resource "/local/api/press/:pressItemId.json", {}, {}
+]
+
+sfServices.factory "ProgramPartnership", ["$q", "$http", "$resource", ($q, $http, $resource) ->
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("/api/program_partnerships").success((data) ->
+    # $http.get("http://starkey.local/api/program_partnerships").success((data) ->
+    # $http.get("/local/api/program_partnerships/index.json").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getIndex: getIndex}
+]
+
+sfServices.factory "ProgramResource", ["$q", "$http", "$resource", ($q, $http, $resource) ->
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("/api/program_resources").success((data) ->
+    # $http.get("http://starkey.local/api/program_resources").success((data) ->
+    # $http.get("/local/api/program_resources/index.json").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
   {getIndex: getIndex}
 ]

@@ -2,8 +2,6 @@ sfControllers = angular.module("sfControllers", [])
 
 # Home
 
-
-
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->
 
   FeaturedArticle.getIndex().then (data) ->
@@ -135,21 +133,26 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Pr
 
 # Programs
 
-sfControllers.controller("ProgramsCtrl", ["$scope", "Articles", ($scope, Articles) ->
-  $scope.isVisible = false
-  $scope.currentTab = 0
+sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "Articles", "ProgramPartnership", "ProgramResource", ($scope, $routeParams, Articles, ProgramPartnership, ProgramResource) ->
 
-  Articles.getIndex().then (data) ->
+  $scope.currentTab = $routeParams.tabId
+  $scope.isVisible = false
+  $scope.programPartnerships = []
+  $scope.programResources = []
+
+  ProgramPartnership.getIndex().then (data) ->
     if data instanceof Array
-      $scope.articles = data
+      $scope.programPartnerships = data
     else
-      $scope.articles = [data]
+      $scope.programPartnerships = [data]
+  ProgramResource.getIndex().then (data) ->
+    if data instanceof Array
+      $scope.programResources = data
+    else
+      $scope.programResources = [data]
 
   $scope.toggle = (marker)->
    marker = !marker
    $scope.isVisible = marker
-
-  $scope.changeTabTo = (tabIndex) ->
-    $scope.currentTab = tabIndex
 
 ])

@@ -3,7 +3,6 @@ blogPagesApp = angular.module("blogPagesApp", [
   "ngRoute",
   "ngSanitize",
   "ahundredyears.swiper",
-  "ahundredyears.thumblist-nav",
   "sfControllers",
   "sfDirectives",
   "sfFilters",
@@ -25,7 +24,6 @@ mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
   "ngRoute",
   "ngSanitize",
   "ahundredyears.swiper",
-  "ahundredyears.thumblist-nav",
   "sfControllers",
   "sfDirectives",
   "sfFilters",
@@ -43,19 +41,28 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
 ]
 
 programsPageApp = angular.module("programsPageApp", [
+  "ngRoute",
   "ngAnimate",
-  "ahundredyears.thumblist-nav",
   "sfControllers",
   "sfDirectives",
   "sfFilters",
   "sfServices"
 ])
 
+# Hacky hack
+programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
+  $routeProvider.when("/programs/:tabId",
+    templateUrl: (params) ->
+      "partials/programs/#{params.tabId}.html"
+    controller: "ProgramsCtrl"
+  ).otherwise redirectTo: "/programs/0"
+]
+
 HomePageApp = angular.module('homePageApp', [
   "ngRoute",
   "ngSanitize",
   "ahundredyears.swiper",
-  "ahundredyears.thumblist-nav",
+
   "sfControllers",
   "sfDirectives",
   "sfFilters",
