@@ -62,7 +62,6 @@ HomePageApp = angular.module('homePageApp', [
   "ngRoute",
   "ngSanitize",
   "ahundredyears.swiper",
-
   "sfControllers",
   "sfDirectives",
   "sfFilters",
