@@ -1,0 +1,169 @@
+<article class='hear-now reveal'>
+  <div class="outer-container">
+    <h1>Hear Now</h1>
+    <!--(bake-start _if="server")-->
+    <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country. We do this through domestic missions and also Hear Now, our application-based program that provides hearing help to low-income Americans. Each person we help is fit with new, top-of-the-line digital hearing aids that are customized to their hearing loss.&nbsp;</p>
+
+    <p>If you or someone you know is struggling with hearing loss and unable to afford hearing aids, call 1-800-328-8602 or complete the form below, and a Hear Now representative will be in touch with you.&nbsp;</p>
+
+    <!--(bake-end)-->
+    <!--(bake-start _if="dist")-->
+    {exp:hundies_shortcode}{hear_now_content}{/exp:hundies_shortcode}
+    <!--(bake-end)-->
+
+    <p class="centered"><a href="mailto:{hear_now_form_contact}" class="link-with-border">Contact us</a></p>
+
+    <!--(bake-start _if="server")-->
+    <p>If you have already spoken with a Hear Now representative to learn more, you can download the application below.</p>
+    <div class="share-this-post">
+      <ul>
+        <li><span class="note">Download application</span></li>
+        <li>
+          <a href="#">
+            <span class="icon starkey-pdf"></span>
+          </a>
+        </li>
+        <li><span class="note">Descargar Solicitud</span></li>
+        <li>
+          <a href="#">
+            <span class="icon starkey-pdf"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--(bake-end)-->
+    <!--(bake-start _if="dist")-->
+    <p>{hear_now_download_copy}</p>
+
+    <div class="share-this-post">
+      <ul>
+        <li><span class="note">Download application</span></li>
+        <li>
+          <a href="{hear_now_form_download_english}">
+            <span class="icon starkey-pdf"></span>
+          </a>
+        </li>
+        <li><span class="note">Descargar Solicitud</span></li>
+        <li>
+          <a href="{hear_now_form_download_spanish}">
+            <span class="icon starkey-pdf"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--(bake-end)-->
+
+    <hr class="separator padded"/>
+    <br/>
+    <h1>Providers Looking to Give Back</h1>
+    <p>Help us give the gift of hearing into the lives of people in need. If you are a hearing professional, we need your help! Become a Hear Now volunteer and volunteer to fit and follow up with our Hear Now recipients. Your crucial support will help change lives forever and have a lasting impact on your community.</p>
+    <br/>
+    <hr class="separator padded"/>
+    <h3><a href ng-click="toggle(isVisible)" class="highlight">Become a Provider</a></h3>
+    <br/>
+    <div class="become-a-provider-container reveal" ng-show="isVisible">
+      <br/>
+      <!--(bake-start _if="server")-->
+      <form action="http://starkey.local/?ACT=23" accept-charset="utf-8" id="become_a_provider_form" class="flatform invert ng-pristine ng-valid" method="post">
+        <ul>
+            <li class="leftHalf">
+                <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="First Name">
+            </li>
+
+            <li class="rightHalf">
+                <input type="text" name="last_name" value="" id="freeform_last_name" maxlength="150" placeholder="Last Name">
+            </li>
+
+            <li class="leftFourth">
+                <input type="text" name="practice" value="" id="freeform_practice" maxlength="150" placeholder="Practice">
+            </li>
+
+            <li class="middleFourthFirst">
+                <input type="text" name="phone" value="" id="freeform_phone" maxlength="150" placeholder="Phone">
+            </li>
+
+            <li class="middleFourthSecond">
+                <input type="text" name="fax" value="" id="freeform_fax" maxlength="150" placeholder="FAX">
+            </li>
+
+            <li class="rightFourth">
+                <input type="text" name="email" value="" id="freeform_email" maxlength="150" placeholder="Email">
+            </li>
+
+            <li class="leftFourth">
+                <input type="text" name="address" value="" id="freeform_address" maxlength="150" placeholder="Address">
+            </li>
+
+            <li class="middleFourthFirst">
+                <input type="text" name="city" value="" id="freeform_city" maxlength="150" placeholder="City">
+            </li>
+
+            <li class="middleFourthSecond">
+                <input type="text" name="state" value="" id="freeform_state" maxlength="150" placeholder="State">
+            </li>
+
+            <li class="rightFourth">
+                <input type="text" name="zip" value="" id="freeform_zip" maxlength="150" placeholder="Zip">
+            </li>
+
+            <li class="full">
+              <br/>
+                <input type="submit" name="submit" value="Submit" id="become_a_provider_submit">
+            </li>
+        </ul>
+      </form>
+      <!--(bake-end)-->
+      <!--(bake-start _if="dist")-->
+      {exp:freeform:form form_id="2" form:id="become_a_provider_form" form:class="flatform invert" return="/#thank_you"}
+          <ul>
+              <li class="leftHalf">
+                  {freeform:field:first_name attr:placeholder="First Name"}
+              </li>
+
+              <li class="rightHalf">
+                  {freeform:field:last_name attr:placeholder="Last Name"}
+              </li>
+
+              <li class="leftFourth">
+                  {freeform:field:practice attr:placeholder="Practice"}
+              </li>
+
+              <li class="middleFourthFirst">
+                  {freeform:field:phone attr:placeholder="Phone"}
+              </li>
+
+              <li class="middleFourthSecond">
+                  {freeform:field:fax attr:placeholder="FAX"}
+              </li>
+
+              <li class="rightFourth">
+                  {freeform:field:email attr:placeholder="Email"}
+              </li>
+
+              <li class="leftFourth">
+                  {freeform:field:address attr:placeholder="Address"}
+              </li>
+
+              <li class="middleFourthFirst">
+                  {freeform:field:city attr:placeholder="City"}
+              </li>
+
+              <li class="middleFourthSecond">
+                  {freeform:field:state attr:placeholder="State"}
+              </li>
+
+              <li class="rightFourth">
+                  {freeform:field:zip attr:placeholder="Zip"}
+              </li>
+
+              <li class="full">
+                <br/>
+                  {freeform:submit attr:id="become_a_provider_submit"}
+              </li>
+          </ul>
+
+      {/exp:freeform:form}
+      <!--(bake-end)-->
+    </div>
+  </div>
+</article>

@@ -1,6 +1,5 @@
 <div class="article-header-image">
-  <img ng-src="{{article.header_image_url}}"/>
-  <div class="outer-container">
+  <div class="image" ng-style="{'background-image': 'url(' + article.image_url + ')'}">
     <ul class="page-nav-links">
       <li>
         <a href ng-disabled="currentPosition == 0" ng-click="currentPosition=currentPosition-1">&larr;</a>
@@ -12,8 +11,16 @@
         <a href="#">X</a>
       </li>
     </ul>
-    <p class="article-item-category">{{article.blog_item_category}}</p>
-    <h1  class="article-title">{{article.title}}</h1>
+    <div class="gradient-background"></div>
+    <div class="outer-container">
+      <div class="relative-container">
+        <div class="banner">
+          <p class="article-item-category">{{article.blog_item_category}}</p>
+          <h1  class="article-title">{{article.title}}</h1>
+          <p>{{article.date}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <br/>
@@ -45,11 +52,13 @@
   <section class='carousel thumblist'>
     <thumblist-nav>
       <div ng-repeat="article in articles | filter:{featured:'true'}">
-        <img ng-src="{{article.thumbnail_image_url}}"/>
-        <p class="blog-category">{{article.blog_item_category}}</p>
-        <a href="#/articles/{{article.id}}">
-          <h4>{{article.title}}</h4>
-        </a>
+      <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+        <div class="content">
+          <a href="#/articles/{{article.id}}">
+            <h4>{{article.title}}</h4>
+          </a>
+          <p class="date">{{article.date}}</p>
+        </div>
       </div>
     </thumblist-nav>
   </section>
@@ -71,8 +80,8 @@
   <ul class="pagination-articles">
     <li ng-repeat="article in articles | filter:{featured:'false'} | startFrom:currentPage*pageSize | limitTo:pageSize">
       <div class='block'>
-        <img ng-src='{{article.thumbnail_image_url}}'/>
-        <h2>{{article.title}}</h2>
+        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+        <h2 class="headline">{{article.title}}</h2>
         <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
       </div>
     </li>
