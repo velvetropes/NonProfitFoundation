@@ -72,7 +72,28 @@ class hundies_shortcode {
 	}
 
 	private function getGallery($id) {
-		return "GALLERY {$id}";
+		ob_start();
+		?>
+		<swiper class="swiper" continuous="false" speed="5000" auto="true">
+		    {exp:channel:entries channel="gallery" url_title="<?=$id?>"}
+		    {item}
+		      <div class="slide">
+		        {if item:video != ""}
+		          {exp:antenna url='{item:video}' wmode="transparent"}
+		          <article style="background: url('{video_thumbnail}'); background-size: cover;" data-video-url="{item:video}">
+		          {/exp:antenna}
+		        {if:else}
+		        <article style="background: url('{item:image}'); background-size: cover;">
+		        {/if}
+		        </article>
+		      </div>
+		    {/item}
+		    {/exp:channel:entries}
+		</swiper>
+		<?
+		$content = ob_get_contents();
+		ob_end_clean();
+		return $content;
 	}
 
 	private function getId($attr) {

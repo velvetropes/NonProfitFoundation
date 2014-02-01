@@ -1,5 +1,5 @@
 {exp:http_header content_type="application/json"}
-{if segment_3 == "index"}
+{if segment_3 == "index" OR segment_3 == ""}
 [
     {exp:channel:entries channel="blog" backspace="6"}
     {
