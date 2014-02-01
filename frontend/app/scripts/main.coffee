@@ -1,6 +1,7 @@
 # Blog
 blogPagesApp = angular.module("blogPagesApp", [
   "ngRoute",
+  "ngAnimate",
   "ngSanitize",
   "ahundredyears.swiper",
   "sfControllers",
@@ -22,6 +23,7 @@ blogPagesApp.config ["$routeProvider", ($routeProvider) ->
 # Media Mentions
 mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
   "ngRoute",
+  "ngAnimate",
   "ngSanitize",
   "ahundredyears.swiper",
   "sfControllers",
@@ -60,6 +62,7 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 
 HomePageApp = angular.module('homePageApp', [
   "ngRoute",
+  "ngAnimate",
   "ngSanitize",
   "ahundredyears.swiper",
   "sfControllers",

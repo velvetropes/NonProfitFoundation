@@ -35,10 +35,11 @@ pagination {
       }
       .headline {
         position: absolute;
-        bottom: 15px;
+        bottom: 14px;
         height: 70px;
         left: 20px;
         right: 20px;
+        margin: 0;
       }
       p {
         line-height: 1.2em;
@@ -53,6 +54,15 @@ pagination {
         &:hover {
           cursor: pointer;
         }
+      }
+      .category {
+        position: absolute;
+        bottom: 72px;
+        left: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: .8125em;
+        color: $light-blue;
       }
     }
   }

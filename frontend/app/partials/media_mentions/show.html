@@ -1,6 +1,5 @@
 <div class="article-header-image">
-  <img ng-src="{{article.header_image_url}}"/>
-  <div class="outer-container">
+  <div class="image" ng-style="{'background-image': 'url(' + article.header_image_url + ')'}">
     <ul class="page-nav-links">
       <li>
         <a href ng-disabled="currentPosition == 0" ng-click="currentPosition=currentPosition-1">&larr;</a>
@@ -12,8 +11,13 @@
         <a href="#">X</a>
       </li>
     </ul>
+    <div class="gradient-background"></div>
+    </div>
   </div>
 </div>
+
+<br/>
+<br/>
 <br/>
 <div class="outer-container detail-page-body">
   <section class='page-leader'>
