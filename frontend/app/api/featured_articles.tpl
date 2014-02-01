@@ -5,7 +5,7 @@
       "date":"{operation_change_partnerships:date}",
       "thumbnail_image_url":"{operation_change_partnerships:image}",
       "thumbnail_title":"{operation_change_partnerships:title}",
-      "link_cta":"{operation_change_partnerships:cta_text}"
+      "link_cta":"{operation_change_partnerships:cta_text}",
       "link_url":"{operation_change_partnerships:url}"
 
       "thumbnail_title":"{title}",
