@@ -1,20 +1,20 @@
 {exp:channel:entries channel="programs" limit="1"}
-<article class='operation-change reveal'>
+<article class='listen-carefully reveal'>
   <div class="outer-container">
-    <h1>Operation change</h1>
 
-    {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
+    {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
+
     <br/>
-    <h2>Our Partnerships</h2>
+    <h2>Additional Resources</h2>
   </div>
   <section class='carousel thumblist'>
-    <thumblist-nav articles="programPartnerships">
-      <div ng-repeat="article in programPartnerships">
+    <thumblist-nav articles="programResources">
+      <div ng-repeat="article in programResources">
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
         <div class="content">
           <h4 ng-bind="article.thumbnail_title"></h4>
           <p class='call-to-action align-right'>
-            <a href='{{article.link_url}}' ng-bind="article.link_cta">
+            <a href='' ng-bind="article.link_cta">
                &rarr;
             </a>
           </p>
