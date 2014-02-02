@@ -1,7 +1,7 @@
 {exp:http_header content_type="application/json"}
 {if segment_3 == "index" OR segment_3 == ""}
 [
-    {exp:channel:entries channel="blog" backspace="6"}
+    {exp:channel:entries channel="press" backspace="6"}
     {
       "id":"{entry_id}",
       "date":"{entry_date format='%m %d %Y'}",
@@ -18,7 +18,7 @@
     {/exp:channel:entries}
 ]
 {if:else}
-{exp:channel:entries channel="blog" limit="1"}
+{exp:channel:entries channel="press" limit="1"}
 {
   "id":"{entry_id}",
   "date":"{entry_date format='%m %d %Y'}",
