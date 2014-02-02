@@ -100,18 +100,22 @@ sfDirectives.directive 'homeThumblistNav', [->
   template =  """
     <div class='thumblist-nav horizontal-only'>
       <div>
-        <div class="image" ng-style="{'background-image': 'url(/uploads/home/feature/building_a_better_kibera.jpg)'}"></div>
-        <div class="content">
-          <h4>Global Hearing Mission</h4>
-          <button ng-click="clickaction(0)">Read Stories &rarr;</button>
-        </div>
+         <a href ng-click="clickaction(0)">
+          <div class="image" ng-style="{'background-image': 'url(/uploads/home/feature/building_a_better_kibera.jpg)'}"></div>
+          <div class="content">
+            <h4>Global Hearing Mission</h4>
+            <button>Read Stories &rarr;</button>
+          </div>
+        </a>
       </div>
       <div ng-repeat="article in articles">
-      <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <div class="content">
-          <h4 ng-bind="article.thumbnail_title"></h4>
-          <button ng-click="clickaction($index+1)" >{{article.thumbnail_call_to_action_text}} <span ng-hide="article.thumbnail_call_to_action_text==''">&rarr;</span>&nbsp;</button>
-        </div>
+        <a href ng-click="clickaction($index+1)">
+          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+          <div class="content">
+            <h4 ng-bind="article.thumbnail_title"></h4>
+            <button ng-click="clickaction($index+1)" >{{article.thumbnail_call_to_action_text}} <span ng-hide="article.thumbnail_call_to_action_text==''">&rarr;</span>&nbsp;</button>
+          </div>
+        </a>
       </div>
     </div>
     """
