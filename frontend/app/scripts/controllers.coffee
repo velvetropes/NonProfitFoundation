@@ -101,7 +101,10 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
 
   $scope.backgroundStyle = (item) ->
     if item.quote?.length is 0
-      {background: "url(#{item.thumbnail_image_url})"}
+      {
+        "background": "url(#{item.thumbnail_image_url})"
+        "background-size": "cover"
+      }
     else
       {background: '#5CA5D6'}
   $scope.isQuote = (item) ->

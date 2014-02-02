@@ -17,7 +17,7 @@
         <div class="gradient-background" ng-hide="isQuote(media_mention)"></div>
         <aside>
           <div class="logo"><img ng-src="{{media_mention.logo_image_url}}"/></div>
-          <a href='{{media_mention.call_to_action_link}}' target="_blank" class="action-link bordered">{{media_mention.call_to_action_text}}</a>
+          <a href='{{media_mention.call_to_action_link}}' target="_blank" class="action-link bordered" ng-hide="media_mention.call_to_action_text==''">{{media_mention.call_to_action_text}}</a>
         </aside>
       </div>
   </swiper>
