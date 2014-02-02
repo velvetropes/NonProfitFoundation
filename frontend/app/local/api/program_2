@@ -1,0 +1,99 @@
+<article class='hear-now reveal'>
+  <div class="outer-container">
+    <h1>Hear Now</h1>
+
+    <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country. We do this through domestic missions and also Hear Now, our application-based program that provides hearing help to low-income Americans. Each person we help is fit with new, top-of-the-line digital hearing aids that are customized to their hearing loss.&nbsp;</p>
+
+<p>If you or someone you know is struggling with hearing loss and unable to afford hearing aids, call 1-800-328-8602 or complete the form below, and a Hear Now representative will be in touch with you.&nbsp;</p>
+
+<p>If you have already spoken with a representative and need an application, you can download one here:</p>
+
+    <p class="centered"><a href="mailto:" class="link-with-border">Contact us</a></p>
+
+
+    <p></p>
+
+    <div class="share-this-post">
+      <ul>
+        <li><span class="note">Download application</span></li>
+        <li>
+          <a href="">
+            <span class="icon starkey-pdf"></span>
+          </a>
+        </li>
+        <li><span class="note">Descargar Solicitud</span></li>
+        <li>
+          <a href="">
+            <span class="icon starkey-pdf"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <hr class="separator padded"/>
+    <br/>
+    <h1>Providers Looking to Give Back</h1>
+    <p>Help us give the gift of hearing into the lives of people in need. If you are a hearing professional, we need your help! Become a Hear Now volunteer and volunteer to fit and follow up with our Hear Now recipients. Your crucial support will help change lives forever and have a lasting impact on your community.</p>
+    <br/>
+    <hr class="separator padded"/>
+    <h3><a href ng-click="toggle(isVisible)" class="highlight">Become a Provider</a></h3>
+    <br/>
+    <div class="become-a-provider-container reveal" ng-show="isVisible">
+      <br/>
+
+      <form action="http://starkey.ahundredyears.com/?ACT=23" accept-charset="utf-8" id="become_a_provider_form" class="flatform invert" method="post"><div style="display:none">
+<input type="hidden" name="params_id" value="13" />
+<input type="hidden" name="XID" value="0411830225a5deea86349bfeeada5407d1610355" />
+</div>
+          <ul>
+              <li class="leftHalf">
+                  <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="First Name"  />
+              </li>
+
+              <li class="rightHalf">
+                  <input type="text" name="last_name" value="" id="freeform_last_name" maxlength="150" placeholder="Last Name"  />
+              </li>
+
+              <li class="leftFourth">
+                  <input type="text" name="practice" value="" id="freeform_practice" maxlength="150" placeholder="Practice"  />
+              </li>
+
+              <li class="middleFourthFirst">
+                  <input type="text" name="phone" value="" id="freeform_phone" maxlength="150" placeholder="Phone"  />
+              </li>
+
+              <li class="middleFourthSecond">
+                  <input type="text" name="fax" value="" id="freeform_fax" maxlength="150" placeholder="FAX"  />
+              </li>
+
+              <li class="rightFourth">
+                  <input type="text" name="email" value="" id="freeform_email" maxlength="150" placeholder="Email"  />
+              </li>
+
+              <li class="leftFourth">
+                  <input type="text" name="address" value="" id="freeform_address" maxlength="150" placeholder="Address"  />
+              </li>
+
+              <li class="middleFourthFirst">
+                  <input type="text" name="city" value="" id="freeform_city" maxlength="150" placeholder="City"  />
+              </li>
+
+              <li class="middleFourthSecond">
+                  <input type="text" name="state" value="" id="freeform_state" maxlength="150" placeholder="State"  />
+              </li>
+
+              <li class="rightFourth">
+                  <input type="text" name="zip" value="" id="freeform_zip" maxlength="150" placeholder="Zip"  />
+              </li>
+
+              <li class="full">
+                <br/>
+                  <input type="submit" name="submit" value="Submit" id="become_a_provider_submit"  />
+              </li>
+          </ul>
+
+      </form>
+    </div>
+  </div>
+</article>
+

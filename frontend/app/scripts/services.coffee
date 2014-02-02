@@ -92,7 +92,23 @@ sfServices.factory "PressItem", ["$resource", "urlChooser", ($resource, urlChoos
   $resource "#{urlChooser.getUrl}/press/:pressItemId.json", {}, {}
 ]
 
-sfServices.factory "ProgramPartnership", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+# sfServices.factory "ProgramContent", ["$resource", "urlChooser", ($resource, urlChooser) ->
+#   $resource "#{urlChooser.getUrl}/program_:programContentId.json", {}, {}
+# ]
+
+sfServices.factory "ProgramContent", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+  getResource = (programContentId)->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/program_#{programContentId}").success((data) ->
+      console.debug "returned data", data
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getResource: getResource}
+]
+
+sfServices.factory "ProgramPartnership", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
   getIndex = ->
     deferred = $q.defer()
     $http.get("#{urlChooser.getUrl}/program_partnerships#{urlChooser.getIndexFormat}").success((data) ->
@@ -103,7 +119,7 @@ sfServices.factory "ProgramPartnership", ["$q", "$http", "$resource", "urlChoose
   {getIndex: getIndex}
 ]
 
-sfServices.factory "ProgramResource", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+sfServices.factory "ProgramResource", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
   getIndex = ->
     deferred = $q.defer()
     $http.get("#{urlChooser.getUrl}/program_resources#{urlChooser.getIndexFormat}").success((data) ->

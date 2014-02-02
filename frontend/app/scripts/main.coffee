@@ -45,6 +45,7 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
 programsPageApp = angular.module("programsPageApp", [
   "ngRoute",
   "ngAnimate",
+  "ahundredyears.swiper",
   "sfControllers",
   "sfDirectives",
   "sfFilters",

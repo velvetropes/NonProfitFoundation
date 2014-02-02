@@ -14,23 +14,13 @@
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-    {exp:channel:entries channel="programs" limit="1"}
+
     <section class='page-leader'>
       <h1>
-        <!--(bake-start _if="server")-->
         Our programs
-        <!--(bake-end)-->
-        <!--(bake-start _if="dist")-->
-        {title}
-        <!--(bake-end)-->
       </h1>
       <p>
-        <!--(bake-start _if="server")-->
         Starkey Hearing Foundation’s commitment to global hearing health begins right here at home. Along with our worldwide missions, our national programs contribute to an entire system of care. Everyone can make a difference in the lives of those across the world or just next-door. Together, we can create a movement that brings peace and understanding through the gift of hearing.
-        <!--(bake-end)-->
-        <!--(bake-start _if="dist")-->
-        {program_page_leader}
-        <!--(bake-end)-->
       </p>
     </section>
 
@@ -53,8 +43,6 @@
       </nav>
       <div ng-view></div>
     </section>
-    {/exp:channel:entries}
-
     <br/>
 
     <!--(bake partials/footer.html)-->

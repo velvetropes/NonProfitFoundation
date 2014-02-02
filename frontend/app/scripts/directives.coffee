@@ -48,7 +48,7 @@ sfDirectives.directive "worldMap", [->
             $popup
               .fadeIn()
       mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
-    , 1400)
+    , 1800)
 
   controller = ($scope, $element) ->
     $scope.closePopup = ->
@@ -147,13 +147,8 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
     $timeout (->
       scope.pane = $(".thumblist-nav")
       scope.pane.jScrollPane config
-    ), 400
+    ), 2000
 
-  # scope.$watch('articles', function () {
-  #   console.log('articles changed');
-  #   scope.pane = $('.thumblist-nav');
-  #   scope.pane.jScrollPane(config);
-  # });
   restrict: "E"
   link: link
   template: "<div class='thumblist-nav horizontal-only' ng-transclude></div>"

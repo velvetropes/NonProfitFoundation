@@ -3,7 +3,7 @@
     <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
     <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
   </div>
-  <swiper class="swiper" speed="5000" continuous="true" auto="false">
+  <swiper class="swiper" speed="5000" continuous="true" auto="false" identifier="swiper_1">
     <!--(bake-start _if="server")-->
 
       <div class="slide" ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'media_mention'}">
