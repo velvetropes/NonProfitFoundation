@@ -4,6 +4,7 @@
       "id":"{entry_id}",
       "date":"{entry_date format='%m %d %Y'}",
       "category":"{if blog_category}{media_mention_category}{/if}",
+      "type":"{media_mention_type}",
       "featured":"{media_mention_featured}",
       "thumbnail_image_url":"{media_mention_splash_image}",
       "logo_image_url":"{media_mention_icon}",
