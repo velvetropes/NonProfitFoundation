@@ -9,22 +9,17 @@
     <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
     <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
   </div>
-  <swiper class="swiper" speed="5000" continuous="true" >
-  <!-- auto="false" -->
-    <!--(bake-start _if="server")-->
-
-      <div class="slide" ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'media_mention'}">
+  <swiper class="swiper" speed="5000" continuous="true" auto="false">
+      <div class="slide" ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'Media Mention'}">
         <article ng-style="backgroundStyle(media_mention);">
         </article>
         <blockquote ng-hide="!isQuote(media_mention)">{{media_mention.quote}}</blockquote>
         <div class="gradient-background" ng-hide="isQuote(media_mention)"></div>
         <aside>
           <div class="logo"><img ng-src="{{media_mention.logo_image_url}}"/></div>
-          <a href='{{media_mention.call_to_action_link}}' target="_blank" class="action-link">{{media_mention.call_to_action_text}}</a>
+          <a href='{{media_mention.call_to_action_link}}' target="_blank" class="action-link bordered">{{media_mention.call_to_action_text}}</a>
         </aside>
       </div>
-    <!--(bake-end)-->
-
   </swiper>
 </section>
 
@@ -53,10 +48,10 @@
         <h2 class="headline">{{article.headline}}</h2>
         <p>{{article.date}}</p>
         <p class='read-more' ng-switch="article.type">
-          <a ng-switch-when="press_item" href="#/media_mentions/{{article.id}}">
+          <a ng-switch-when="Press Item" href="#/media_mentions/{{article.id}}">
             Read more &rarr;
           </a>
-          <a ng-switch-when="media_mention" href="{{article.video_link}}" target="_blank">
+          <a ng-switch-when="Media Mention" href="{{article.video_link}}" target="_blank">
             Read more &rarr;
           </a>
         </p>

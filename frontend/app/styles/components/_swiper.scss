@@ -106,8 +106,15 @@
       font-size: .875em;
     }
   }
-  .logo img {
-    width: 100px;
+  .logo {
+    margin-bottom: 20px;
+    img {
+      width: 50px;
+    }
+  }
+  .action-link.bordered {
+    padding: 10px 30px;
+    border: 2px solid white;
   }
 }
 .media-mentions-page  .swiper-controls {
