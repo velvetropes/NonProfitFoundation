@@ -7,20 +7,5 @@
     <br/>
     <h2>Our Partnerships</h2>
   </div>
-  <section class='carousel thumblist'>
-    <thumblist-nav articles="programPartnerships">
-      <div ng-repeat="article in programPartnerships">
-        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <div class="content">
-          <h4 ng-bind="article.thumbnail_title"></h4>
-          <p class='call-to-action align-right'>
-            <a href='' ng-bind="article.link_cta">
-               &rarr;
-            </a>
-          </p>
-        </div>
-      </div>
-    </thumblist-nav>
-  </section>
 </article>
 {/exp:channel:entries}
