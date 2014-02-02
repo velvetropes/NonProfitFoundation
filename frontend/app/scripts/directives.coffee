@@ -70,15 +70,14 @@ sfDirectives.directive "panelTab", [->
   template =  """
     <section>
       <div class='panel-image'>
-        <a href='{{featured.video_link_url}}' target='_blank'>
-          <img ng-src='{{featured.panel_image_url}}'></img>
+        <a href='{{featured.video_link_url}}' target='_blank' ng-style="{'background-image': 'url(' + featured.panel_image_url + ')'}">
         </a>
       </div>
       <div class='panel-content'>
         <div>
           <h1>{{featured.panel_title}}</h1>
           <div ng-bind-html="featured.body"></div>
-          <p class='call-to-action'>
+          <p class='call-to-action' ng-hide="featured.panel_call_to_action_link_url==''">
             <a href='{{featured.panel_call_to_action_link_url}}'>
               {{featured.panel_call_to_action_text}} &rarr;
             </a>
@@ -136,15 +135,15 @@ sfDirectives.directive 'homeThumblistNav', [->
 
 ]
 
-sfDirectives.directive "thumblistNav", [ ->
+sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
   link = (scope, element, attrs) ->
     config = showArrows: false
 
     # TODO Use a promise
-    setTimeout (->
+    $timeout (->
       scope.pane = $(".thumblist-nav")
       scope.pane.jScrollPane config
-    ), 1400
+    ), 400
 
   # scope.$watch('articles', function () {
   #   console.log('articles changed');
