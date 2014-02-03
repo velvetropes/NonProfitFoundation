@@ -142,6 +142,7 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "$sce", "Art
   $scope.isVisible = false
   $scope.programPartnerships = []
   $scope.programResources = []
+  $scope.programContent = ""
   $scope.trustedHtml = $sce.trustAsHtml($scope.programContent)
 
   ProgramContent.getResource($routeParams.tabId).then (data) ->

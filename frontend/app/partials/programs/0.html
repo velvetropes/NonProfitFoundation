@@ -1,16 +1,10 @@
-<div ng-bind-html="programContent"></div>
-<section class='carousel thumblist'>
-  <thumblist-nav articles="programPartnerships">
-    <div ng-repeat="article in programPartnerships">
-      <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-      <div class="content">
-        <h4 ng-bind="article.thumbnail_title"></h4>
-        <p class='call-to-action align-right'>
-          <a href='{{article.link_url}}' ng-bind="article.link_cta">
-             &rarr;
-          </a>
-        </p>
-      </div>
-    </div>
-  </thumblist-nav>
-</section>
+{exp:channel:entries channel="programs" limit="1"}
+  <div class="outer-container">
+    <h1>Operation change</h1>
+  </div>
+    {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
+    <br/>
+  <div class="outer-container">
+    <h2>Our Partnerships</h2>
+  </div>
+{/exp:channel:entries}
