@@ -5,6 +5,7 @@
     {
       "id":"{entry_id}",
       "date":"{entry_date format='%m %d %Y'}",
+      "year": "{entry_date format='%Y'}",
       "category":"{if blog_category}{media_mention_category}{/if}",
       "type":"{media_mention_type}",
       "featured":"{media_mention_featured}",
@@ -22,6 +23,7 @@
 {
   "id":"{entry_id}",
   "date":"{entry_date format='%m %d %Y'}",
+  "year": "{entry_date format='%Y'}",
   "category":"{if blog_category}{media_mention_category}{/if}",
   "type":"{media_mention_type}",
   "featured":"{media_mention_featured}",
