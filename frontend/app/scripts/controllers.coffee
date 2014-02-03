@@ -143,10 +143,10 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "$sce", "Art
   $scope.programPartnerships = []
   $scope.programResources = []
   $scope.programContent = ""
-  $scope.trustedHtml = $sce.trustAsHtml($scope.programContent)
 
   ProgramContent.getResource($routeParams.tabId).then (data) ->
     $scope.programContent = data
+    $scope.trustedHtml = $sce.trustAsHtml($scope.programContent)
 
   ProgramPartnership.getIndex().then (data) ->
     if data instanceof Array
@@ -162,5 +162,6 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "$sce", "Art
   $scope.toggle = (marker)->
    marker = !marker
    $scope.isVisible = marker
+   console.debug "toggle", $scope.isVisible
 
 ])

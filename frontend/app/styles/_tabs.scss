@@ -133,15 +133,4 @@ nav {
       }
     }
   }
-  article {
-    text-align: center;
-    margin-top: 60px;
-    width: 100%;
-    h1 {
-      font-size: 2.25em;
-    }
-    h1, h2, h3, p {
-      @extend .alrightsanslight;
-    }
-  }
 }

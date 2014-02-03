@@ -1,10 +1,7 @@
-<article class='operation-change reveal'>
-  <div class="outer-container">
-    <h1>Operation change</h1>
+<div class="outer-container">
+  <h1>Operation change</h1>
 
-    <p>Our new docuseries - coming soon!&nbsp;</p>
-    <br/>
-    <h2>Our Partnerships</h2>
-  </div>
-</article>
-
+  <p>Our new docuseries - coming soon!&nbsp;</p>
+  <br/>
+  <h2>Our Partnerships</h2>
+</div>

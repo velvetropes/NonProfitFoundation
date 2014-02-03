@@ -33,7 +33,10 @@
         <!--(bake-end)-->
       </p>
     </section>
-    <div ng-view></div>
+    <div ng:controller="ProgramsCtrl">
+      <div ng-view></div>
+    </div>
+
     {/exp:channel:entries}
 
     <br/>

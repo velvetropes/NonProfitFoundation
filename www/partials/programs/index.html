@@ -1,4 +1,4 @@
-<section class='tabbed-content' ng:controller="ProgramsCtrl">
+<section class='tabbed-content'>
   <nav>
       <ul class='tabs row-table'>
         <li ng-class="{active: currentTab==0}">
@@ -16,7 +16,7 @@
       </ul>
   </nav>
 </section>
-<div ng-bind-html="programContent"></div>
+<div class="program-section" ng-bind-html="trustedHtml"></div>
 <div ng-switch="currentTab">
   <section class='carousel thumblist' ng-switch-when="0">
     <thumblist-nav articles="programPartnerships">
@@ -53,5 +53,4 @@
       </div>
     </thumblist-nav>
   </section>
-
 </div>

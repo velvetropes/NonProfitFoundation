@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   
-  <link rel="stylesheet" href="assets/styles/8381a093.main.css"/>
+  <link rel="stylesheet" href="assets/styles/11620b6d.main.css"/>
   
   </head>
   <body class='programs-page page' ng:app="programsPageApp">
@@ -161,7 +161,10 @@
         {program_page_leader}
       </p>
     </section>
-    <div ng-view></div>
+    <div ng:controller="ProgramsCtrl">
+      <div ng-view></div>
+    </div>
+
     {/exp:channel:entries}
 
     <br/>
@@ -228,7 +231,7 @@
 
     <script src="/assets/scripts/2e3dd315.vendor.js"></script>
     
-    <script src="/assets/scripts/b8a4f6ec.main.js"></script>
+    <script src="/assets/scripts/1c7b6097.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

@@ -100,7 +100,6 @@ sfServices.factory "ProgramContent", ["$q", "$http", "urlChooser", ($q, $http, u
   getResource = (programContentId)->
     deferred = $q.defer()
     $http.get("#{urlChooser.getUrl}/program_#{programContentId}").success((data) ->
-      console.debug "returned data", data
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
