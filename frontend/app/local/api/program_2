@@ -34,10 +34,9 @@
   <p>Help us give the gift of hearing into the lives of people in need. If you are a hearing professional, we need your help! Become a Hear Now volunteer and volunteer to fit and follow up with our Hear Now recipients. Your crucial support will help change lives forever and have a lasting impact on your community.</p>
   <br/>
   <hr class="separator padded"/>
-  <h1>IS VISIBLE: <span ng-bind="isVisible"></span></h1>
-  <h3><a href ng-click="toggle(isVisible)" class="highlight">Become a Provider</a></h3>
+  <h3><a href="#programs/2" class="become-a-provider highlight">Become a Provider</a></h3>
   <br/>
-  <div class="become-a-provider-container reveal" ng-show="isVisible">
+  <div class="become-a-provider-container hidden">
     <br/>
     <form action="http://starkey.ahundredyears.com/?ACT=23" accept-charset="utf-8" id="become_a_provider_form" class="flatform invert" method="post"><div style="display:none">
 <input type="hidden" name="params_id" value="18" />

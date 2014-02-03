@@ -44,25 +44,17 @@ class HeaderTabNav extends TabBehavior
         @setActiveLink(e.currentTarget)
         @makeActive($(e.currentTarget))
 
-    # @rootElement.on "click", ".tab-content a", (e) =>
-    #   e.preventDefault()
-
-
-class ProgramsPageView extends TabBehavior
-
-  rootElement: $('.tabbed-content')
+class ProgramsPageView
 
   constructor: ->
-    @setfirstCurrentElement()
-    super
+    @setupListeners()
 
-  setfirstCurrentElement: ->
-    @hideTabbedContent()
-    currentTab = $(".tabbed-content li").first()
-    @makeActive(currentTab)
-    @setActiveLink(currentTab)
+  setupListeners: ->
+    $(document).on "click", ".become-a-provider", (e) ->
+      e.preventDefault()
+      $('.programs-page .become-a-provider-container').toggleClass("hidden")
 
 $ ->
   new HeaderTabNav
-#   if $('.programs-page').length
-#     new ProgramsPageView
+  if $('.programs-page').length
+    new ProgramsPageView

@@ -1,12 +1,17 @@
-  .programs-page .program-section {
-    text-align: center;
-    margin-top: 60px;
-    width: 100%;
-    h1 {
-      font-size: 2.25em;
-      margin-top: 50px;
+  .programs-page {
+    .program-section {
+      text-align: center;
+      margin-top: 60px;
+      width: 100%;
+      h1 {
+        font-size: 2.25em;
+        margin-top: 50px;
+      }
+      h1, h2, h3, p {
+        @extend .alrightsanslight;
+      }
     }
-    h1, h2, h3, p {
-      @extend .alrightsanslight;
+    .become-a-provider-container.hidden {
+      display: none;
     }
   }
