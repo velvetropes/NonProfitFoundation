@@ -52,13 +52,13 @@
       </ul>
     </li>
     <li>&nbsp;|&nbsp;</li>
-    <li ng-show="1===2">Latest
+    <li>Latest
       <ul>
         <li>
           <a href>Latest</a>
         </li>
-        <li>
-          <a href>Another filter</a>
+        <li ng-repeat="year in ['2014', '2013', '2012', '2011', '2010']">
+          <a href ng-click="articleFilters.year = year">{{year}}</a>
         </li>
       </ul>
     </li>
@@ -69,6 +69,7 @@
       <div class='block'>
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
         <h2 class="headline">{{article.title}}</h2>
+        <p class='date'>{{article.date}}</p>
         <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
       </div>
     </li>

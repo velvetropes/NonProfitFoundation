@@ -29,6 +29,7 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
   $scope.articleFilters = {
     featured:'false'
     blog_item_category: ''
+    # year: ''
   }
 
   $scope.articleCategories = [

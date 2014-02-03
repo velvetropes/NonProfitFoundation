@@ -105,3 +105,20 @@ pagination {
 [ng-cloak] {
   display: none;
 }
+
+.blog-page {
+  .pagination-articles .block {
+    .headline {
+      bottom: 55px;
+      height: 48px;
+      line-height: 1em;
+      overflow: hidden;
+    }
+    .date {
+      position: absolute;
+      bottom: 6px;
+      left: 20px;
+      text-transform: uppercase;
+    }
+  }
+}
