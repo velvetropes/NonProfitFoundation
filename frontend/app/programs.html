@@ -14,9 +14,7 @@
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-
     {exp:channel:entries channel="programs" limit="1"}
-    <!--(bake-end)-->
     <section class='page-leader'>
       <h1>
         <!--(bake-start _if="server")-->
@@ -35,58 +33,8 @@
         <!--(bake-end)-->
       </p>
     </section>
-
-    <section class='tabbed-content' ng:controller="ProgramsCtrl">
-      <nav>
-          <ul class='tabs row-table'>
-            <li ng-class="{active: currentTab==0}">
-              <a href='#/programs/0'>Operation Change</a>
-            </li>
-            <li ng-class="{active: currentTab==1}">
-              <a href='#/programs/1'>Listen Carefully</a>
-            </li>
-            <li ng-class="{active: currentTab==2}">
-              <a href='#/programs/2'>Hear Now</a>
-            </li>
-            <li ng-class="{active: currentTab==3}">
-              <a href='#/programs/3'>Hearing Aid Recycling</a>
-            </li>
-          </ul>
-      </nav>
-
-      <div ng-view>
-    </section>
+    <div ng-view></div>
     {/exp:channel:entries}
-    <section ng-hide="currentTab!=0" class='carousel thumblist'>
-      <thumblist-nav articles="programPartnerships">
-        <div ng-repeat="article in programPartnerships">
-          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-          <div class="content">
-            <h4 ng-bind="article.thumbnail_title"></h4>
-            <p class='call-to-action align-right'>
-              <a href='{{article.link_url}}' ng-bind="article.link_cta">
-                 &rarr;
-              </a>
-            </p>
-          </div>
-        </div>
-      </thumblist-nav>
-    </section>
-    <section ng-hide="currentTab!=1" class='carousel thumblist'>
-      <thumblist-nav articles="programResources">
-        <div ng-repeat="article in programResources">
-          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-          <div class="content">
-            <h4 ng-bind="article.thumbnail_title"></h4>
-            <p class='call-to-action align-right'>
-              <a href='{{article.link_url}}' ng-bind="article.link_cta">
-                 &rarr;
-              </a>
-            </p>
-          </div>
-        </div>
-      </thumblist-nav>
-    </section>
 
     <br/>
 

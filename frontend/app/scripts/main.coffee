@@ -56,7 +56,7 @@ programsPageApp = angular.module("programsPageApp", [
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/programs/:tabId",
     templateUrl: (params) ->
-      "partials/programs/#{params.tabId}.html"
+      "partials/programs/index.html"
     controller: "ProgramsCtrl"
   ).otherwise redirectTo: "/programs/0"
 ]

@@ -1,5 +1,10 @@
 {exp:channel:entries channel="programs" limit="1"}
-    {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
+<div class="outer-container">
+  <!--(bake-start _if="server")-->
+  <h1>Listen Carefully</h1>
+  <!--(bake-end)-->
+  <!--(bake-start _if="dist")-->
+  {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
+  <!--(bake-end)-->
+</div>
 {/exp:channel:entries}
-<br/>
-<h2>Additional Resources</h2>
