@@ -24,7 +24,7 @@ sfServices.factory "urlChooser", [->
 ]
 
 sfServices.factory "Article", ["$resource", "urlChooser", ($resource, urlChooser) ->
-  $resource "#{urlChooser.getUrl}/blog/:articleId.json", {}, {}
+  $resource "#{urlChooser.getUrl}/blog/:articleId", {}, {}
 ]
 
 sfServices.factory "Articles", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
