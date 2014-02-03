@@ -29,7 +29,7 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
   $scope.articleFilters = {
     featured:'false'
     blog_item_category: ''
-    # year: ''
+    year: ''
   }
 
   $scope.articleCategories = [
@@ -89,6 +89,8 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
 
   $scope.pressItemFilters = {
     featured: 'false'
+    year: ''
+    type: ''
   }
 
   $scope.pressItems = []

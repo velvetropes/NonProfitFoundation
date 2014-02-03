@@ -40,6 +40,31 @@
     </ul>
   </div>
 
+  <ul class="articles-filters">
+    <li>Sort &nbsp;|&nbsp;</li>
+    <li>All
+      <ul>
+        <li>
+          <a href ng-click="articleFilters.type = ''">All</a>
+        </li>
+        <li ng-repeat="articleCategory in ['Press Release', 'Media Mention']">
+          <a href ng-click="articleFilters.type = articleCategory">{{articleCategory}}</a>
+        </li>
+      </ul>
+    </li>
+    <li>&nbsp;|&nbsp;</li>
+    <li>Latest
+      <ul>
+        <li>
+          <a href>Latest</a>
+        </li>
+        <li ng-repeat="year in ['2014', '2013', '2012', '2011', '2010']">
+          <a href ng-click="articleFilters.year = year">{{year}}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
   <ul class="pagination-articles">
     <li ng-repeat="article in pressItems | filter:pressItemFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <div class='block'>
