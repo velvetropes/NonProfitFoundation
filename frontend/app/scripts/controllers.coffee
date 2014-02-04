@@ -58,7 +58,6 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
 
   $scope.parseDate = (date) ->
     parsedDate = Date.parse(date)
-    console.debug "parsedDate", parsedDate
     parsedDate
 ])
 
