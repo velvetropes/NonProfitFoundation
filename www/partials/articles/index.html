@@ -39,28 +39,19 @@
       </li>
     </ul>
   </div>
+
   <ul class="articles-filters">
     <li>Sort &nbsp;|&nbsp;</li>
-    <li>All
-      <ul>
-        <li>
-          <a href ng-click="articleFilters.blog_item_category = ''">All</a>
-        </li>
-        <li ng-repeat="articleCategory in articleCategories">
-          <a href ng-click="articleFilters.blog_item_category = articleCategory.tag">{{articleCategory.name}}</a>
-        </li>
-      </ul>
+    <li>
+      <select ng-model="articleFilters.blog_item_category">
+        <option ng-repeat="cat in articleCategories" value="{{cat.tag}}">{{cat.name}}</option>
+      </select>
     </li>
     <li>&nbsp;|&nbsp;</li>
-    <li>Latest
-      <ul>
-        <li>
-          <a href>Latest</a>
-        </li>
-        <li ng-repeat="year in ['2014', '2013', '2012', '2011', '2010']">
-          <a href ng-click="articleFilters.year = year">{{year}}</a>
-        </li>
-      </ul>
+    <li>
+      <select ng-model="articleFilters.year">
+        <option ng-repeat="year in articleYears" value="{{year.tag}}">{{year.name}}</option>
+      </select>
     </li>
   </ul>
 

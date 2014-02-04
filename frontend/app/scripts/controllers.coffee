@@ -33,6 +33,7 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
   }
 
   $scope.articleCategories = [
+    {name: "All", tag: ''}
     {name: "News", tag: "News"}
     {name: "Events", tag: "Events"}
     {name: "Hear Now", tag: "Hear Now"}
@@ -42,6 +43,15 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
     {name: "Operation Change", tag: "Operation Change"}
     {name: "Hearing Missions", tag: "Hearing Missions"}
     {name: "Listen Carefully", tag: "Listen Carefully"}
+  ]
+
+  $scope.articleYears = [
+    {name: "Latest", tag: ''}
+    {name: '2014', tag: '2014'}
+    {name: '2013', tag: '2013'}
+    {name: '2012', tag: '2012'}
+    {name: '2011', tag: '2011'}
+    {name: '2010', tag: '2010'}
   ]
 
   Articles.getIndex().then (data) ->
@@ -93,11 +103,26 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "Articles", 
 
 sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
 
-  $scope.pressItemFilters = {
+  $scope.articleFilters = {
     featured: 'false'
     year: ''
     type: ''
   }
+
+  $scope.articleCategories = [
+    {name: "All", tag: ''}
+    {name: "Press Release", tag: "Press Release"}
+    {name: "Media Mention", tag: "Media Mention"}
+  ]
+
+  $scope.articleYears = [
+    {name: "Latest", tag: ''}
+    {name: '2014', tag: '2014'}
+    {name: '2013', tag: '2013'}
+    {name: '2012', tag: '2012'}
+    {name: '2011', tag: '2011'}
+    {name: '2010', tag: '2010'}
+  ]
 
   $scope.pressItems = []
   MediaMentionOrPressItem.getIndex().then (data) ->
