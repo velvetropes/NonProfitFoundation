@@ -1,5 +1,5 @@
   .programs-page {
-    .program-section {
+    .program-section, .programs-additional-section {
       text-align: center;
       margin-top: 60px;
       width: 100%;
@@ -14,4 +14,5 @@
     .become-a-provider-container.hidden {
       display: none;
     }
+
   }

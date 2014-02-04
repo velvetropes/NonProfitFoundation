@@ -157,3 +157,54 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
   # scope:
   #   articles: "="
 ]
+
+sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
+  link = (scope, element, attrs) ->
+    config = undefined
+    config = {}
+    config.auto = attrs.auto or 1000
+    config.speed = parseInt(attrs.speed, 10) or 500
+    config.disableScroll = !!attrs.disableScroll  if attrs.disableScroll
+    config.continuous = !!attrs.continuous  if attrs.continuous
+
+    # TODO Use a promise
+    $timeout (->
+      scope.swipe = new Swipe(document.getElementById(scope.identifier), config)
+    ), 1400
+
+    scope.showPaginator = ->
+      scope.paginator? and scope.paginator is "true"
+
+  controller = ($scope, $element) ->
+    $scope.next = ->
+      $scope.swipe.next()
+
+    $scope.prev = ->
+      $scope.swipe.prev()
+
+    $scope.slide = (index) ->
+      $scope.swipe.slide index
+
+  restrict: "E"
+  link: link
+  controller: controller
+  template: """
+    <div>
+      <div class="swiper-controls" ng-show="showPaginator()">
+        <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
+        <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
+      </div>
+      <div id='{{identifier}}' class='swipe'>
+        <div class='swipe-wrap' ng-transclude>
+        </div>
+      </div>
+    </div>
+    """
+  transclude: true
+  replace: true
+  scope:
+    identifier: "@"
+    paginator: "@"
+]
+
+# <div class='swiper-controls'><a href class='left' ng-click='prev()'><span class='icon starkey-pg-arrow-left'></span></a><a href class='right' ng-click='next()'><span class='icon starkey-pg-arrow-right'></span></a></div>

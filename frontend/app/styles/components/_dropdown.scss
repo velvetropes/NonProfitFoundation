@@ -1,0 +1,79 @@
+.dropdown {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 30px;
+  width: 100px;
+  margin: 0;
+  vertical-align: top;
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px dashed;
+    border-color: #888 transparent;
+    pointer-events: none;
+    margin-top: 2px;
+    border-top-style: solid;
+    border-bottom: none;
+  }
+  &.wide {
+    width: 100px;
+  }
+  &.narrow {
+    width: 100px;
+  }
+  overflow: hidden;
+  padding-right: 20px;
+}
+
+.dropdown-select {
+  position: relative;
+  width: 130%;
+  margin: 0;
+  padding: 4px 2px 2px 2px;
+  height: 26px;
+  line-height: 17px;
+  /* Fallback for IE 8 */
+  background: #f2f2f2;
+  /* "transparent" doesn't work with Opera */
+  background: rgba(black, 0) !important;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  color: $gray-title;
+  font-size: 1em;
+  &:focus {
+    z-index: 3;
+    width: 100%;
+    color: $light-blue;
+    outline: 2px solid #49aff2;
+    outline: 2px solid -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  option {
+    margin: 3px 3px;
+    padding: 6px 8px;
+    text-shadow: none;
+    background: #f2f2f2;
+    cursor: pointer;
+    color: $gray-title;
+    font-size: 1em;  }
+}
+
+/* Fix for IE 8 putting the arrows behind the select element. */
+.lt-ie9 {
+  .dropdown { z-index: 1; }
+  .dropdown-select { z-index: -1; }
+  .dropdown-select:focus { z-index: 3; }
+}
+
+/* Dirty fix for Firefox adding padding where it shouldn't. */
+@-moz-document url-prefix() { .dropdown-select { padding-left: 6px; } }
