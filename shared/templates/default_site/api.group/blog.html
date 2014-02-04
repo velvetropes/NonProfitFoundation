@@ -12,7 +12,8 @@
       "title": "{title}",
       "text": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_content}{/exp:low_replace}",
       "thumbnail_image_url": "{if blog_image}{blog_image}{/if}",
-      "image_url": "{if blog_image}{blog_image}{/if}"
+      "image_url": "{if blog_image}{blog_image}{/if}",
+      "author":"{blog_author}"
     },
     {/exp:channel:entries}
 ]
@@ -28,7 +29,8 @@
   "title": "{title}",
   "text": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_content}{/exp:low_replace}",
   "thumbnail_image_url": "{if blog_image}{blog_image}{/if}",
-  "image_url": "{if blog_image}{blog_image}{/if}"
+  "image_url": "{if blog_image}{blog_image}{/if}",
+  "author":"{blog_author}"
 }
 {/exp:channel:entries}
 {/if}

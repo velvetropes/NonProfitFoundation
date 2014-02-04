@@ -84,6 +84,9 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "Articles", 
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
 
+  $scope.parseDate = (date) ->
+    parsedDate = Date.parse(date)
+    parsedDate
 ])
 
 # Media Mentions

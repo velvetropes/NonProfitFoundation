@@ -17,7 +17,7 @@
         <div class="banner">
           <p class="article-item-category">{{article.blog_item_category}}</p>
           <h1  class="article-title">{{article.title}}</h1>
-          <p>{{article.date}}</p>
+          <p>{{parseDate(article.date) | date:"MMMM d yyyy"}} | {{article.author}}</p>
         </div>
       </div>
     </div>
