@@ -33,15 +33,15 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
   }
 
   $scope.articleCategories = [
-    {name: "News", tag: "news"}
-    {name: "Events", tag: "events"}
-    {name: "Hear Now", tag: "hear_now"}
-    {name: "Gala", tag: "gala"}
-    {name: "Films", tag: "films"}
-    {name: "Celebrity", tag: "celebrity"}
-    {name: "Operation Change", tag: "operation_change"}
-    {name: "Hearing Missions", tag: "hearing_missions"}
-    {name: "Listen Carefully", tag: "listen_carefully"}
+    {name: "News", tag: "News"}
+    {name: "Events", tag: "Events"}
+    {name: "Hear Now", tag: "Hear Now"}
+    {name: "Gala", tag: "Gala"}
+    {name: "Films", tag: "Films"}
+    {name: "Celebrity", tag: "Celebrity"}
+    {name: "Operation Change", tag: "Operation Change"}
+    {name: "Hearing Missions", tag: "Hearing Missions"}
+    {name: "Listen Carefully", tag: "Listen Carefully"}
   ]
 
   Articles.getIndex().then (data) ->
