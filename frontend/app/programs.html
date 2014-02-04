@@ -25,16 +25,33 @@
         <!--(bake-end)-->
       </h1>
       <p>
-        <!--(bake-start _if="server")-->
-        Starkey Hearing Foundation’s commitment to global hearing health begins right here at home. Along with our worldwide missions, our national programs contribute to an entire system of care. Everyone can make a difference in the lives of those across the world or just next-door. Together, we can create a movement that brings peace and understanding through the gift of hearing.
-        <!--(bake-end)-->
         <!--(bake-start _if="dist")-->
         {program_page_leader}
         <!--(bake-end)-->
       </p>
     </section>
     <div ng:controller="ProgramsCtrl">
-      <div ng-view></div>
+      <section class='tabbed-content'>
+        <nav>
+            <ul class='tabs row-table'>
+              <li ng-class="{active: currentTab.tabId==0}">
+                <a href='#/programs/0'>Operation Change</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId==1}">
+                <a href='#/programs/1'>Listen Carefully</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId==2}">
+                <a href='#/programs/2'>Hear Now</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId==3}">
+                <a href='#/programs/3'>Hearing Aid Recycling</a>
+              </li>
+            </ul>
+        </nav>
+      </section>
+      <div class="program-section">
+        <div ng-view></div>
+      </div>
     </div>
 
     {/exp:channel:entries}

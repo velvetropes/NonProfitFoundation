@@ -1,5 +1,5 @@
 {exp:channel:entries channel="programs" limit="1"}
-<article class='operation-change'>
+<article class='operation-change reveal'>
   <div class="outer-container">
     <h1>Operation change</h1>
 
@@ -7,5 +7,21 @@
     <br/>
     <h2>Our Partnerships</h2>
   </div>
+
+  <section class='carousel thumblist'>
+    <thumblist-nav articles="programPartnerships">
+      <div ng-repeat="article in programPartnerships">
+        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+        <div class="content">
+          <h4 ng-bind="article.thumbnail_title"></h4>
+          <p class='call-to-action align-right'>
+            <a href='{{article.link_url}}' ng-bind="article.link_cta">
+               &rarr;
+            </a>
+          </p>
+        </div>
+      </div>
+    </thumblist-nav>
+  </section>
 </article>
 {/exp:channel:entries}

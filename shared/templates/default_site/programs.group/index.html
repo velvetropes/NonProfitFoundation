@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   
-  <link rel="stylesheet" href="assets/styles/6f6baf6e.main.css"/>
+  <link rel="stylesheet" href="assets/styles/4c82bd6a.main.css"/>
   
   </head>
   <body class='programs-page page' ng:app="programsPageApp">
@@ -157,12 +157,31 @@
         {title}
       </h1>
       <p>
-
         {program_page_leader}
       </p>
     </section>
     <div ng:controller="ProgramsCtrl">
-      <div ng-view></div>
+      <section class='tabbed-content'>
+        <nav>
+            <ul class='tabs row-table'>
+              <li ng-class="{active: currentTab.tabId==0}">
+                <a href='#/programs/0'>Operation Change</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId==1}">
+                <a href='#/programs/1'>Listen Carefully</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId==2}">
+                <a href='#/programs/2'>Hear Now</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId==3}">
+                <a href='#/programs/3'>Hearing Aid Recycling</a>
+              </li>
+            </ul>
+        </nav>
+      </section>
+      <div class="program-section">
+        <div ng-view></div>
+      </div>
     </div>
 
     {/exp:channel:entries}
@@ -231,7 +250,7 @@
 
     <script src="/assets/scripts/109209b4.vendor.js"></script>
     
-    <script src="/assets/scripts/64d10044.main.js"></script>
+    <script src="/assets/scripts/02146104.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

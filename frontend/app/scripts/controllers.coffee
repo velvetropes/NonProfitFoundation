@@ -170,17 +170,12 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Pr
 
 # Programs
 
-sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "$sce", "Articles", "ProgramPartnership", "ProgramResource", "ProgramContent", ($scope, $routeParams, $sce, Articles, ProgramPartnership, ProgramResource, ProgramContent) ->
+sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "Articles", "ProgramPartnership", "ProgramResource", ($scope, $routeParams, Articles, ProgramPartnership, ProgramResource) ->
 
-  $scope.currentTab = $routeParams.tabId
-  $scope.isVisible = false
+  $scope.currentTab = $routeParams
+
   $scope.programPartnerships = []
   $scope.programResources = []
-  $scope.programContent = ""
-
-  ProgramContent.getResource($routeParams.tabId).then (data) ->
-    $scope.programContent = data
-    $scope.trustedHtml = $sce.trustAsHtml($scope.programContent)
 
   ProgramPartnership.getIndex().then (data) ->
     if data instanceof Array
@@ -192,9 +187,5 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "$sce", "Art
       $scope.programResources = data
     else
       $scope.programResources = [data]
-
-  $scope.toggle = (marker)->
-   marker = !marker
-   $scope.isVisible = marker
 
 ])

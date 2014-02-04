@@ -9,8 +9,12 @@
 
 </div>
 
-<a href="#" class="slide-standalone" style="background: url('http://starkey.ahundredyears.com/uploads/Screen_Shot_2014-01-31_at_12.29.23_PM.png');background-size:cover;background-repeat:no-repeat;">
-</a>
+<swiper class="swiper" continuous="true" speed="2000" identifier="swiper_1" auto="8000" paginator=false tall="false">
+  <div class="slide">
+    <article style="background: url('http://starkey.ahundredyears.com/uploads/Screen_Shot_2014-01-31_at_12.29.23_PM.png'); background-size: cover;">
+    </article>
+  </div>
+</swiper>
 
 <div class="outer-container">
   <h1>Make a Difference&nbsp;</h1>
@@ -18,9 +22,31 @@
   <p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. Because you know that 1 in 5 American teenagers has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
 </div>
 
-<a href="#" class="slide-standalone" style="background: url('http://starkey.ahundredyears.com/uploads/listencarefullygallery2.png');background-size:cover;background-repeat:no-repeat;">
-</a>
+<swiper class="swiper" continuous="true" speed="2000" identifier="swiper_2" auto="8000" paginator=false tall="false">
+  <div class="slide">
+    <article style="background: url('http://starkey.ahundredyears.com/uploads/listencarefullygallery2.png'); background-size: cover;">
+    </article>
+  </div>
+</swiper>
 
 <div class="outer-container">
   <h1>Educate Yourself&nbsp;</h1>
+
+  <h1>Additional Resources</h1>
 </div>
+
+<section class='carousel thumblist'>
+  <thumblist-nav articles="programResources">
+    <div ng-repeat="article in programResources">
+      <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+      <div class="content">
+        <h4 ng-bind="article.thumbnail_title"></h4>
+        <p class='call-to-action align-right'>
+          <a href='{{article.link_url}}' ng-bind="article.link_cta">
+             &rarr;
+          </a>
+        </p>
+      </div>
+    </div>
+  </thumblist-nav>
+</section>

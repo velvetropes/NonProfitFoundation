@@ -61,9 +61,19 @@
 }
 
 .swiper {
-.swipe-wrap > div {
-  width: 100%;
-  height: 800px;
+  &.short {
+    .swiper-controls {
+      margin-top: 16%;
+    }
+    .swipe-wrap > div {
+      height: 500px;
+    }
+  }
+  .swipe-wrap {
+    > div {
+      width: 100%;
+      height: 800px;
+    }
   }
   article {
     z-index: 0;

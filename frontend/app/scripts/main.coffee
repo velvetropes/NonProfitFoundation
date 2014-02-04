@@ -49,11 +49,11 @@ programsPageApp = angular.module("programsPageApp", [
   "sfServices"
 ])
 
-# Hacky hack
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/programs/:tabId",
     templateUrl: (params) ->
-      "partials/programs/index.html"
+      "api/program_#{params.tabId}"
+      # "local/api/program_#{params.tabId}"
     controller: "ProgramsCtrl"
   ).otherwise redirectTo: "/programs/0"
 ]

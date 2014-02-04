@@ -175,6 +175,9 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     scope.showPaginator = ->
       scope.paginator? and scope.paginator is "true"
 
+    scope.isShort = ->
+      scope.tall? and scope.tall is "false"
+
   controller = ($scope, $element) ->
     $scope.next = ->
       $scope.swipe.next()
@@ -189,7 +192,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   link: link
   controller: controller
   template: """
-    <div>
+    <div ng-class="{'short': isShort()}">
       <div class="swiper-controls" ng-show="showPaginator()">
         <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
         <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
@@ -205,6 +208,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   scope:
     identifier: "@"
     paginator: "@"
+    tall: "@"
 ]
 
 # <div class='swiper-controls'><a href class='left' ng-click='prev()'><span class='icon starkey-pg-arrow-left'></span></a><a href class='right' ng-click='next()'><span class='icon starkey-pg-arrow-right'></span></a></div>

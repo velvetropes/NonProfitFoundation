@@ -53,9 +53,7 @@
     z-index: 3;
     width: 100%;
     color: $light-blue;
-    outline: 2px solid #49aff2;
-    outline: 2px solid -webkit-focus-ring-color;
-    outline-offset: -2px;
+    outline: none
   }
 
   option {
