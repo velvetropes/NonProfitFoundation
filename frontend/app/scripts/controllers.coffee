@@ -56,6 +56,10 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
 
+  $scope.parseDate = (date) ->
+    parsedDate = Date.parse(date)
+    console.debug "parsedDate", parsedDate
+    parsedDate
 ])
 
 sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "Articles", "Article", "Pagination", ($scope, $routeParams, Articles, Article, Pagination) ->

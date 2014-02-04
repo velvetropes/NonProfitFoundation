@@ -69,7 +69,7 @@
       <div class='block'>
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
         <h2 class="headline">{{article.title}}</h2>
-        <p class='date'>{{article.date}}</p>
+        <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
         <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
       </div>
     </li>

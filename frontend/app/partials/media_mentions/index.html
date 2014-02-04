@@ -71,7 +71,7 @@
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
         <p class="category">{{article.category}}</p>
         <h2 class="headline">{{article.headline}}</h2>
-        <p>{{article.date}}</p>
+        <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
         <p class='read-more' ng-switch="article.type">
           <a ng-switch-when="Press Item" href="#/media_mentions/{{article.id}}">
             Read more &rarr;
