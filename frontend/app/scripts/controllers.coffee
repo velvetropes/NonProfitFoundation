@@ -168,6 +168,5 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "$sce", "Art
   $scope.toggle = (marker)->
    marker = !marker
    $scope.isVisible = marker
-   console.debug "toggle", $scope.isVisible
 
 ])
