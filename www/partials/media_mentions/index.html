@@ -5,11 +5,7 @@
 </div>
 
 <section class="carousel hero short">
-  <div class="swiper-controls">
-    <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
-    <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
-  </div>
-  <swiper class="swiper" speed="5000" continuous="true" auto="false" identifier="swiper_1">
+  <swiper class="swiper" continuous="true" speed="2000" identifier="swiper_1" auto="8000" paginator="true">
       <div class="slide" ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'Media Mention'}">
         <article ng-style="backgroundStyle(media_mention);">
         </article>

@@ -14,13 +14,7 @@
 
     <!-- Main content section -->
     <section class="carousel hero">
-
-      <div class="swiper-controls">
-        <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
-        <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
-      </div>
-
-      <swiper class="swiper" continuous="true" speed="5000" auto="false" identifier="swiper_1">
+      <swiper class="swiper" continuous="true" speed="2000" identifier="swiper_1" auto="8000" paginator="true">
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="homepage_features" limit="5"}
             <div class="slide">
