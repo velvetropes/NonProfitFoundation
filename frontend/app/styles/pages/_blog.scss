@@ -5,37 +5,6 @@
   text-transform: uppercase;
   li {
     display: inline-block;
-    position: relative;
-    background: #fff;
-    padding: 0;
-    background: #fff;
-    z-index: 100000;
-    a {
-      margin: 0;
-    }
-    ul {
-      padding: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 150px;
-      visibility: hidden;
-      display: none;
-      opacity: 0;
-      visibility: hidden;
-      li {
-        display: block;
-        padding: 0 15px 10px;
-      }
-    }
-    &:hover {
-      ul {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-        left: -15px;
-      }
-    }
   }
 }
 

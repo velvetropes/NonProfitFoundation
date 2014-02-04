@@ -41,15 +41,15 @@
   </div>
 
   <ul class="articles-filters">
-    <li>Sort &nbsp;|&nbsp;</li>
-    <li>
-      <select ng-model="articleFilters.type">
+    <li>Sort &nbsp;|</li>
+    <li class="dropdown wide">
+      <select ng-model="articleFilters.type" class="dropdown-select">
         <option ng-repeat="cat in articleCategories" value="{{cat.tag}}">{{cat.name}}</option>
       </select>
     </li>
     <li>&nbsp;|&nbsp;</li>
-    <li>
-      <select ng-model="articleFilters.year">
+    <li class="dropdown wide">
+      <select ng-model="articleFilters.year" class="dropdown-select">
         <option ng-repeat="year in articleYears" value="{{year.tag}}">{{year.name}}</option>
       </select>
     </li>
