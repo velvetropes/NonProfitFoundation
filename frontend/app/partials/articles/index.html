@@ -10,16 +10,18 @@
   </div>
 </div>
 
-<section class='carousel thumblist full'>
-  <thumblist-nav>
+<section class='carousel'>
+  <thumblist-nav full="true">
     <div ng-repeat="article in articles | filter:{featured:'true'}">
-      <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-      <div class="content">
-        <p class="blog-category">{{article.blog_item_category}}</p>
-        <a href="#/articles/{{article.id}}">
-          <h4>{{article.title}}</h4>
-        </a>
-      </div>
+      <slide
+        thumblist="true"
+        image-url="{{article.thumbnail_image_url}}"
+        blog-category="{{article.blog_item_category}}"
+        video-url=""
+        link-url="#/articles/{{article.id}}"
+        headline="{{article.title}}"
+        link-text=""
+      ></slide>
     </div>
   </thumblist-nav>
 </section>

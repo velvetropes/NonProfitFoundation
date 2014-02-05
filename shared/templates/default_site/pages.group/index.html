@@ -11,10 +11,10 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/4c82bd6a.main.css"/>
+    <link rel="stylesheet" href="assets/styles/c97e7b78.main.css"/>
     
   </head>
-  <body class='home-page page' ng:app="homePageApp">
+  <body class='home-page page' ng:app="homePageApp" ng:controller="HomeIndexCtrl">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -150,23 +150,32 @@
 
     <!-- Main content section -->
     <section class="carousel hero">
-      <swiper class="swiper" continuous="true" speed="2000" identifier="swiper_1" auto="8000" paginator="true">
+
+      <swiper
+        continuous="true"
+        speed="2000"
+        identifier="swiper_1"
+        auto="8000"
+        tall="false"
+        paginator="true"
+        >
           {exp:channel:entries channel="homepage_features" limit="5"}
-            <div class="slide">
-              <article style="background: url('{homepage_feature_splash_image}'); background-size: cover;">
-              </article>
-              <div class="gradient-background"></div>
-              <aside>
-                <h1>{title}</h1>
-                <p>{homepage_feature_subtitle}</p>
-                <a href='{homepage_feature_link}' class="action-link">{homepage_feature_cta}</a>
-              </aside>
-            </div>
+            <slide
+              image-url="{homepage_feature_splash_image}"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url="{homepage_feature_link}"
+              headline="{title}"
+              body-copy="{homepage_feature_subtitle}"
+              logo-image-url=""
+              link-style=""
+              link-text="{homepage_feature_cta}"
+            >
+            </slide>
           {/exp:channel:entries}
 
-
       </swiper>
-
     </section>
 
     <section class='mission-statement'>
@@ -216,9 +225,10 @@
         </div>
       </div>
 
-      <div class='carousel bottom thumblist'>
+      <div class='carousel bottom'>
         <home-thumblist-nav articles="featuredArticles" clickaction="changeCurrentTab"></home-thumblist-nav>
       </div>
+
     </section>
 
     <!-- end main content section -->
@@ -284,7 +294,7 @@
     </footer>
     <script src="/assets/scripts/109209b4.vendor.js"></script>
     
-    <script src="/assets/scripts/02146104.main.js"></script>
+    <script src="/assets/scripts/12b195d9.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

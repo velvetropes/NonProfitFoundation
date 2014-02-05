@@ -49,16 +49,18 @@
   </div>
 
   <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel thumblist'>
+  <section class='carousel'>
     <thumblist-nav>
       <div ng-repeat="article in articles | filter:{featured:'true'}">
-      <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <div class="content">
-          <a href="#/articles/{{article.id}}">
-            <h4>{{article.title}}</h4>
-          </a>
-          <p class="date">{{article.date}}</p>
-        </div>
+        <slide
+          thumblist="true"
+          image-url="{{article.thumbnail_image_url}}"
+          video-url=""
+          link-url="#/articles/{{article.id}}"
+          headline="{{article.title}}"
+          link-style=""
+          date="{{article.date}}"
+        ></slide>
       </div>
     </thumblist-nav>
   </section>

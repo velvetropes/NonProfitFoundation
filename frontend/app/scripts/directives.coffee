@@ -149,20 +149,42 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
       scope.pane.jScrollPane config
     ), 2000
 
+    scope.thumbClasses = ->
+      if scope.full? and scope.full is "true"
+        "full thumblist thumblist-nav horizontal-only"
+      else
+        "thumblist thumblist-nav horizontal-only"
+
+  template = """
+    <div ng-class="thumbClasses()" ng-transclude></div>
+    """
   restrict: "E"
   link: link
-  template: "<div class='thumblist-nav horizontal-only' ng-transclude></div>"
+  template: template
   transclude: true
   replace: true
-  # scope:
-  #   articles: "="
+  scope:
+    full: "@"
 ]
+
+# Swiper format:
+# <swiper
+#   continuous="true"
+#   speed="2000"
+#   identifier="swiper_1"
+#   auto="8000"
+#   tall="false"
+#   paginator="true"
+# >
 
 sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   link = (scope, element, attrs) ->
     config = undefined
     config = {}
-    config.auto = attrs.auto or 1000
+    config.auto = if attrs.auto?.length > 0
+      attrs.auto
+    else
+      false
     config.speed = parseInt(attrs.speed, 10) or 500
     config.disableScroll = !!attrs.disableScroll  if attrs.disableScroll
     config.continuous = !!attrs.continuous  if attrs.continuous
@@ -170,7 +192,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     # TODO Use a promise
     $timeout (->
       scope.swipe = new Swipe(document.getElementById(scope.identifier), config)
-    ), 1400
+    ), 1800
 
     scope.showPaginator = ->
       scope.paginator? and scope.paginator is "true"
@@ -192,7 +214,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   link: link
   controller: controller
   template: """
-    <div ng-class="{'short': isShort()}">
+    <div class="swiper" ng-class="{'short': isShort()}">
       <div class="swiper-controls" ng-show="showPaginator()">
         <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
         <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
@@ -211,4 +233,187 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     tall: "@"
 ]
 
-# <div class='swiper-controls'><a href class='left' ng-click='prev()'><span class='icon starkey-pg-arrow-left'></span></a><a href class='right' ng-click='next()'><span class='icon starkey-pg-arrow-right'></span></a></div>
+# Slide directive format:
+# <slide
+#   image-url=""
+#   video-url=""
+#   headline=""
+#   body-copy=""
+#   link-url=""
+#   link-text=""
+#   thumblist="true"
+#   background-color=""
+#   quote=""
+#   logo-image-url=""
+#   link-style=""
+#  >
+
+sfDirectives.directive "slide", [ ->
+  link = (scope, element, attrs) ->
+
+      scope.youttubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+
+      scope.youtubeId = ->
+        scope.videoUrl.match(scope.youttubePattern)[1]
+
+      scope.hasVideo = ->
+        scope.videoUrl?.length > 0
+
+      scope.hasBlogCategory = ->
+        scope.blogCategory?.length > 0
+
+      scope.hasDate = ->
+        scope.date?.length > 0
+
+      scope.hasLinkText = ->
+        scope.linkText?.length > 0
+
+      scope.hasLinkStyle = ->
+        scope.linkStyle?.length > 0
+
+      scope.hasQuote = ->
+        scope.quote?.length > 0
+
+      scope.hasHeadline = ->
+        scope.headline?.length > 0
+
+      scope.hasBodyCopy = ->
+        scope.bodyCopy?.length > 0
+
+      scope.hasLogoImageUrl = ->
+        scope.logoImageUrl?.length > 0
+
+      scope.isThumblist = ->
+        scope.thumblist? and scope.thumblist is "true"
+
+      scope.getYoutubeVideoThumbnail = ->
+        if scope.hasVideo()
+          "http://img.youtube.com/vi/#{scope.youtubeId()}/1.jpg"
+
+      scope.getImage = ->
+        # Use imageUrl, and fall back to videoUrl thumb otherwise
+        scope.imageUrl or scope.getYoutubeVideoThumbnail()
+
+      scope.backgroundmageStyle = if scope.hasQuote()
+        {
+          'background': scope.backgroundColor
+        }
+      else
+        {
+          'background-image': 'url(' + scope.getImage() + ')'
+          'background-size': 'cover'
+        }
+
+      scope.actionLinkStyle = ->
+        if scope.isThumblist()
+          "call-to-action #{scope.linkStyle}"
+        else
+          "action-link #{scope.linkStyle}"
+
+      # TODO
+      # scope.linksToOverlay = ->
+      #   if scope.hasVideo()
+      #     # Send videoUrl to overlay
+      #     console.debug "Send videoUrl to video overlay directive"
+      #   else
+      #     # Regular link to external URL
+      #     console.debug "Regular link"
+
+  controller = ($scope, $element) ->
+
+  slideTemplate = """
+    <div class="slide">
+      <article ng-style="backgroundmageStyle"></article>
+      <blockquote ng-show="hasQuote()">{{quote}}</blockquote>
+      <div ng-show="!hasQuote()" class="gradient-background"></div>
+      <aside>
+        <h1 ng-show="hasHeadline()">{{headline}}</h1>
+        <p ng-show="hasBodyCopy()">{{bodyCopy}}</p>
+        <div class="logo" ng-show="hasLogoImageUrl()"><img ng-src="{{logoImageUrl}}"/></div>
+        <a href="{{linkUrl}}" ng-class="actionLinkStyle()" ng-show="hasLinkText()">{{linkText}}</a>
+      </aside>
+    </div>
+    """
+
+  thumbTemplate = """
+    <div>
+      <a href='{{linkUrl}}'>
+        <div class="image" ng-style="backgroundmageStyle"></div>
+        <div class="content">
+          <h4 ng-show="hasHeadline()">{{headline}}</h4>
+          <p class="blog-category" ng-show="hasBlogCategory()">{{date}}</p>
+          <p class="date" ng-show="hasDate()">{{date}}</p>
+          <p ng-class='actionLinkStyle()' ng-show="hasLinkText()">
+            {{linkText}} &rarr;
+          </p>
+        </div>
+      </a>
+    </div>
+    """
+
+  result =
+    restrict: "E"
+    controller: controller
+    replace: true
+    template: (elem, attr) ->
+      if attr.thumblist? and attr.thumblist is "true"
+        thumbTemplate
+      else
+        slideTemplate
+    link: link
+    scope:
+      imageUrl: "@"
+      videoUrl: "@"
+      linkUrl: "@"
+      linkText: "@"
+      headline: "@"
+      bodyCopy: "@"
+      thumblist: "@"
+      date: "@"
+      blogCategory: "@"
+      quote: "@"
+      backgroundColor: "@"
+      logoImageUrl: "@"
+      linkStyle: "@"
+  result
+
+]
+
+# <button ng-click='toggleModal("http://www.youtube.com/embed/xx2Dx_rRdws")'>Open Modal Dialog</button>
+
+# <modal-dialog show='modalVideo' width='90%' height='90%'>
+#   <p>Modal Content Goes here<p>
+#   <iframe
+#     width="853"
+#     height="480"
+#     src="{{modalVideo}}"
+#     frameborder="0"
+#     allowfullscreen>
+#   </iframe>
+# </modal-dialog>
+
+sfDirectives.directive 'videoModalDialog', [->
+  restrict: "E"
+  scope: {
+    show: "="
+  }
+  replace: true
+  transclude: true
+  link: (scope, element, attrs) ->
+    scope.dialogStyle = {}
+    scope.dialogStyle.width = attrs.width  if attrs.width
+    scope.dialogStyle.height = attrs.height  if attrs.height
+
+    scope.hideModal = ->
+      scope.show = false
+
+  template: """
+    <div class='ng-modal' ng-show='show'>
+      <div class='ng-modal-overlay' ng-click='hideModal()'></div>
+      <div class='ng-modal-dialog' ng-style='dialogStyle'>
+        <div class='ng-modal-close' ng-click='hideModal()'>X</div>
+        <div class='ng-modal-dialog-content' ng-transclude></div>
+      </div>
+    </div>
+    """
+]

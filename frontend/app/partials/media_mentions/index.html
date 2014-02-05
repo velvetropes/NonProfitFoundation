@@ -5,17 +5,29 @@
 </div>
 
 <section class="carousel hero short">
-  <swiper class="swiper" continuous="true" speed="2000" identifier="swiper_1" auto="8000" paginator="true">
-      <div class="slide" ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'Media Mention'}">
-        <article ng-style="backgroundStyle(media_mention);">
-        </article>
-        <blockquote ng-hide="!isQuote(media_mention)">{{media_mention.quote}}</blockquote>
-        <div class="gradient-background" ng-hide="isQuote(media_mention)"></div>
-        <aside>
-          <div class="logo"><img ng-src="{{media_mention.logo_image_url}}"/></div>
-          <a href='{{media_mention.call_to_action_link}}' target="_blank" class="action-link bordered" ng-hide="media_mention.call_to_action_text==''">{{media_mention.call_to_action_text}}</a>
-        </aside>
-      </div>
+  <swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_1"
+    auto="8000"
+    tall="false"
+    paginator="true"
+    >
+    <slide
+      ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'Media Mention'}"
+
+      image-url="{{media_mention.thumbnail_image_url}}"
+      background-color="#5CA5D6"
+      quote="{{media_mention.quote}}"
+      video-url=""
+      link-url="{{media_mention.call_to_action_link}}"
+      headline="{{media_mention.title}}"
+      body-copy=""
+      logo-image-url="{{media_mention.logo_image_url}}"
+      link-style="bordered"
+      link-text="{{media_mention.call_to_action_text}}"
+    >
+    </slide>
   </swiper>
 </section>
 

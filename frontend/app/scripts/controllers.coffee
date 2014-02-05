@@ -2,6 +2,16 @@ sfControllers = angular.module("sfControllers", [])
 
 # Home
 
+sfControllers.controller("HomeIndexCtrl", ["$scope",($scope) ->
+  $scope.modalShown = false
+  $scope.modalVideo = ""
+  $scope.toggleModal = (videoUrl)->
+    console.debug "toggleModal", videoUrl
+    $scope.modalShown = not $scope.modalShown
+    if $scope.modalShown is true
+      $scope.modalVideo = videoUrl
+])
+
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->
 
   FeaturedArticle.getIndex().then (data) ->
@@ -20,8 +30,12 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
     else
       $scope.currentBottomSlideTab = 2
       $scope.currentTabModel = $scope.featuredArticles[tabIndex-1]
-])
 
+  $scope.modalShown = false
+  $scope.toggleModal = ->
+    console.debug "toggleModal", $scope.modalShown
+    $scope.modalShown = not $scope.modalShown
+])
 # Blog
 
 sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", ($scope, Articles, Pagination) ->
@@ -133,16 +147,6 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
 
-  $scope.backgroundStyle = (item) ->
-    if item.quote?.length is 0
-      {
-        "background": "url(#{item.thumbnail_image_url})"
-        "background-size": "cover"
-      }
-    else
-      {background: '#5CA5D6'}
-  $scope.isQuote = (item) ->
-    item.quote.length > 0
 
 ])
 

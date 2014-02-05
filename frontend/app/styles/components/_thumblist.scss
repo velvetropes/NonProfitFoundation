@@ -1,6 +1,6 @@
 /* Thumblist nav */
 
-.thumblist .thumblist-nav {
+.thumblist-nav {
   height: 335px;
   .jspPane {
     position: absolute;
@@ -38,6 +38,7 @@
       letter-spacing: 1px;
       margin: 0 0 10px 0;
       color: $gray-title;
+      text-align: left;
     }
     .blog-category {
       font-weight: bold;
@@ -61,7 +62,7 @@
   }
 }
 
-.thumblist.full .thumblist-nav {
+.thumblist-nav.full {
   height: 422px;
   .jspPane {
     > div {
