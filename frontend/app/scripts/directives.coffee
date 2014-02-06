@@ -310,14 +310,14 @@ sfDirectives.directive "slide", [ ->
         else
           "action-link #{scope.linkStyle}"
 
-      # TODO
-      # scope.linksToOverlay = ->
-      #   if scope.hasVideo()
-      #     # Send videoUrl to overlay
-      #     console.debug "Send videoUrl to video overlay directive"
-      #   else
-      #     # Regular link to external URL
-      #     console.debug "Regular link"
+      scope.displayInVideoModal = ->
+        if scope.hasVideo()
+          # Send videoUrl to overlay
+          $scope.$emit('modal:show', scope.videoUrl)
+
+        else
+          # Regular link to external URL
+          window.location="#{scope.linkUrl}"
 
   controller = ($scope, $element) ->
 
@@ -330,7 +330,7 @@ sfDirectives.directive "slide", [ ->
         <h1 ng-show="hasHeadline()">{{headline}}</h1>
         <p ng-show="hasBodyCopy()">{{bodyCopy}}</p>
         <div class="logo" ng-show="hasLogoImageUrl()"><img ng-src="{{logoImageUrl}}"/></div>
-        <a href="{{linkUrl}}" ng-class="actionLinkStyle()" ng-show="hasLinkText()">{{linkText}}</a>
+        <a href ng-class="actionLinkStyle()" ng-show="hasLinkText()" ng-click="displayInVideoModal()">{{linkText}}</a>
       </aside>
     </div>
     """
@@ -381,7 +381,7 @@ sfDirectives.directive "slide", [ ->
 
 # <button ng-click='toggleModal("http://www.youtube.com/embed/xx2Dx_rRdws")'>Open Modal Dialog</button>
 
-# <modal-dialog show='modalVideo' width='90%' height='90%'>
+# <video-player-modal show='modalVideo' width='90%' height='90%'>
 #   <p>Modal Content Goes here<p>
 #   <iframe
 #     width="853"
@@ -390,9 +390,15 @@ sfDirectives.directive "slide", [ ->
 #     frameborder="0"
 #     allowfullscreen>
 #   </iframe>
-# </modal-dialog>
+# </video-player-modal>
 
-sfDirectives.directive 'videoModalDialog', [->
+# sfDirectives.directive 'videoTrigger', [->
+#   restrict: "A"
+#   link: (scope, element, attr) ->
+#     console.debug "attr", attr
+# ]
+
+sfDirectives.directive 'videoPlayerModal', [->
   restrict: "E"
   scope: {
     show: "="

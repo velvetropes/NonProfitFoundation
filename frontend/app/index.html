@@ -6,7 +6,7 @@
   <head>
     <!--(bake partials/head.html)-->
   </head>
-  <body class='home-page page' ng:app="homePageApp" ng:controller="HomeIndexCtrl">
+  <body class='home-page page' ng:app="homePageApp" ng:controller="globalVideoModalCtrl">
 
     <!--(bake partials/browser_check.html)-->
 
@@ -20,7 +20,6 @@
         speed="2000"
         identifier="swiper_1"
         auto="8000"
-        tall="false"
         paginator="true"
         >
         <!--(bake-start _if="dist")-->
@@ -146,6 +145,15 @@
 
     <!--(bake partials/footer.html)-->
     <!--(bake partials/js_includes.html)-->
-
+    <video-player-modal show='modalVideo' width='90%' height='90%'>
+      {{modalVideo}}
+      <iframe
+        width="853"
+        height="480"
+        src="{{modalVideo}}"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </video-player-modal>
 </body>
 </html>

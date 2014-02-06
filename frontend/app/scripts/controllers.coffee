@@ -2,11 +2,14 @@ sfControllers = angular.module("sfControllers", [])
 
 # Home
 
-sfControllers.controller("HomeIndexCtrl", ["$scope",($scope) ->
+sfControllers.controller("globalVideoModalCtrl", ["$scope",($scope) ->
   $scope.modalShown = false
   $scope.modalVideo = ""
+
+  $scope.$on 'modal:show', (event, url) ->
+    $scope.toggleModal(url)
+
   $scope.toggleModal = (videoUrl)->
-    console.debug "toggleModal", videoUrl
     $scope.modalShown = not $scope.modalShown
     if $scope.modalShown is true
       $scope.modalVideo = videoUrl

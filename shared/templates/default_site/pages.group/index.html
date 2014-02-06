@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/styles/c97e7b78.main.css"/>
     
   </head>
-  <body class='home-page page' ng:app="homePageApp" ng:controller="HomeIndexCtrl">
+  <body class='home-page page' ng:app="homePageApp" ng:controller="globalVideoModalCtrl">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -156,7 +156,6 @@
         speed="2000"
         identifier="swiper_1"
         auto="8000"
-        tall="false"
         paginator="true"
         >
           {exp:channel:entries channel="homepage_features" limit="5"}
@@ -294,10 +293,19 @@
     </footer>
     <script src="/assets/scripts/109209b4.vendor.js"></script>
     
-    <script src="/assets/scripts/12b195d9.main.js"></script>
+    <script src="/assets/scripts/df3356c1.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
-
+    <video-player-modal show='modalVideo' width='90%' height='90%'>
+      
+      <iframe
+        width="853"
+        height="480"
+        src=""
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </video-player-modal>
 </body>
 </html>
