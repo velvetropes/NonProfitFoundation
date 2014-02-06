@@ -1,6 +1,6 @@
 .swiper-controls {
   position: absolute;
-  margin-top: 25%;
+  margin-top: 350px;
   z-index: 9999;
   width: 100%;
 
@@ -63,7 +63,7 @@
 .swiper {
   &.short {
     .swiper-controls {
-      margin-top: 16%;
+      margin-top: 200px;
     }
     .swipe-wrap > div {
       height: 500px;
