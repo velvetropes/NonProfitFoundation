@@ -139,18 +139,22 @@ sfDirectives.directive 'homeThumblistNav', [->
 
 ]
 
+# <thumblist-nav full="true"></thumblist-nav>
+
 sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
   link = (scope, element, attrs) ->
     config = showArrows: false
-
     # TODO Use a promise
     $timeout (->
       scope.pane = $(".thumblist-nav")
       scope.pane.jScrollPane config
-    ), 2000
+    ), 800
+
+    scope.isFullHeight = ->
+      scope.full?.length > 0 and scope.full is "true"
 
     scope.thumbClasses = ->
-      if scope.full? and scope.full is "true"
+      if scope.isFullHeight()
         "full thumblist thumblist-nav horizontal-only"
       else
         "thumblist thumblist-nav horizontal-only"
@@ -235,89 +239,105 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
 
 # Slide directive format:
 # <slide
-#   image-url=""
-#   video-url=""
-#   headline=""
-#   body-copy=""
-#   link-url=""
-#   link-text=""
-#   thumblist="true"
-#   background-color=""
-#   quote=""
-#   logo-image-url=""
-#   link-style=""
-#  >
+#  image-url=""
+#  video-url=""
+#  link-url=""
+#  link-text=""
+#  headline=""
+#  body-copy=""
+#  thumblist="true"
+#  date=""
+#  blog-category=""
+#  quote=""
+#  background-color=""
+#  logo-image-url=""
+#  link-style=""
+# ></slide>
 
 sfDirectives.directive "slide", [ ->
+
   link = (scope, element, attrs) ->
+    scope.imageUrl ?= ""
+    scope.videoUrl ?= ""
+    scope.linkUrl ?= ""
+    scope.linkText ?= ""
+    scope.headline ?= ""
+    scope.bodyCopy ?= ""
+    scope.thumblist ?= "false"
+    scope.date ?= ""
+    scope.blogCategory ?= ""
+    scope.quote ?= ""
+    scope.backgroundColor ?= ""
+    scope.logoImageUrl ?= ""
+    scope.linkStyle ?= ""
 
-      scope.youttubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+    scope.youttubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
 
-      scope.youtubeId = ->
-        scope.videoUrl.match(scope.youttubePattern)[1]
+    scope.youtubeId = ->
+      scope.videoUrl.match(scope.youttubePattern)[1]
 
-      scope.hasVideo = ->
-        scope.videoUrl?.length > 0
+    scope.hasVideo = ->
+      scope.videoUrl?.length > 0
 
-      scope.hasBlogCategory = ->
-        scope.blogCategory?.length > 0
+    scope.hasBlogCategory = ->
+      scope.blogCategory?.length > 0
 
-      scope.hasDate = ->
-        scope.date?.length > 0
+    scope.hasDate = ->
+      scope.date?.length > 0
 
-      scope.hasLinkText = ->
-        scope.linkText?.length > 0
+    scope.hasLinkText = ->
+      scope.linkText?.length > 0
 
-      scope.hasLinkStyle = ->
-        scope.linkStyle?.length > 0
+    scope.hasLinkStyle = ->
+      scope.linkStyle?.length > 0
 
-      scope.hasQuote = ->
-        scope.quote?.length > 0
+    scope.hasQuote = ->
+      scope.quote?.length > 0
 
-      scope.hasHeadline = ->
-        scope.headline?.length > 0
+    scope.hasHeadline = ->
+      scope.headline?.length > 0
 
-      scope.hasBodyCopy = ->
-        scope.bodyCopy?.length > 0
+    scope.hasBodyCopy = ->
+      scope.bodyCopy?.length > 0
 
-      scope.hasLogoImageUrl = ->
-        scope.logoImageUrl?.length > 0
+    scope.hasLogoImageUrl = ->
+      scope.logoImageUrl?.length > 0
 
-      scope.isThumblist = ->
-        scope.thumblist? and scope.thumblist is "true"
+    scope.isThumblist = ->
+      scope.thumblist?.length > 0 and scope.thumblist is "true"
 
-      scope.getYoutubeVideoThumbnail = ->
-        if scope.hasVideo()
-          "http://img.youtube.com/vi/#{scope.youtubeId()}/1.jpg"
+    scope.getYoutubeVideoThumbnail = ->
+      if scope.hasVideo()
+        "http://img.youtube.com/vi/#{scope.youtubeId()}/1.jpg"
 
-      scope.getImage = ->
-        # Use imageUrl, and fall back to videoUrl thumb otherwise
-        scope.imageUrl or scope.getYoutubeVideoThumbnail()
+    scope.getImage = ->
+      # Use imageUrl, and fall back to videoUrl thumb otherwise
+      scope.imageUrl or scope.getYoutubeVideoThumbnail()
 
-      scope.backgroundmageStyle = if scope.hasQuote()
-        {
-          'background': scope.backgroundColor
-        }
+    scope.backgroundmageStyle = if scope.hasQuote()
+      {
+        'background': scope.backgroundColor
+      }
+    else
+      {
+        'background-image': 'url(' + scope.getImage() + ')'
+        # 'background-size': 'cover'
+      }
+
+    scope.actionLinkStyle = ->
+      if scope.isThumblist()
+        "call-to-action #{scope.linkStyle}"
       else
-        {
-          'background-image': 'url(' + scope.getImage() + ')'
-          'background-size': 'cover'
-        }
+        "action-link #{scope.linkStyle}"
 
-      scope.actionLinkStyle = ->
-        if scope.isThumblist()
-          "call-to-action #{scope.linkStyle}"
-        else
-          "action-link #{scope.linkStyle}"
+    scope.displayInModalIfVideo = ->
+      if scope.hasVideo()
+        # Send videoUrl to overlay
+        $scope.$emit('modal:show', scope.videoUrl)
 
-      scope.displayInVideoModal = ->
-        if scope.hasVideo()
-          # Send videoUrl to overlay
-          $scope.$emit('modal:show', scope.videoUrl)
-
-        else
-          # Regular link to external URL
-          window.location="#{scope.linkUrl}"
+      else
+        # Regular link to external URL
+        window.location="#{scope.linkUrl}"
 
   controller = ($scope, $element) ->
 
@@ -330,7 +350,7 @@ sfDirectives.directive "slide", [ ->
         <h1 ng-show="hasHeadline()">{{headline}}</h1>
         <p ng-show="hasBodyCopy()">{{bodyCopy}}</p>
         <div class="logo" ng-show="hasLogoImageUrl()"><img ng-src="{{logoImageUrl}}"/></div>
-        <a href ng-class="actionLinkStyle()" ng-show="hasLinkText()" ng-click="displayInVideoModal()">{{linkText}}</a>
+        <a href ng-class="actionLinkStyle()" ng-show="hasLinkText()" ng-click="displayInModalIfVideo()">{{linkText}}</a>
       </aside>
     </div>
     """

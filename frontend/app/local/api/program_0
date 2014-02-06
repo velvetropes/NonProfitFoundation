@@ -11,57 +11,67 @@
     identifier="swiper_1"
     auto="8000"
     tall="false"
-    paginator="true"
+    paginator="false"
     >
     <slide
       image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
       video-url=""
-      link-url="http://www.starkeyhearingfoundation.org/programs/hear-now/"
-      headline="Hear at Home"
-      body-copy="Hearing Foundation has provided more hearing help to people in the United States than to any other country"
-      link-text="Learn More"
-      logo-url=""
-      link-style=""
-      background-color=""
-    </slide>
-
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Commitment_to_Action_Film.jpg"
-      video-url="http://www.youtube.com/watch?v=ScjOkoueDYg"
       link-url=""
-      headline="Commitment to Action"
-      body-copy="In 2010, we committed to providing 100,000 hearing aids a year to those in need"
-      link-text="Watch Video"
-      logo-url=""
-      link-style=""
+      link-text=""
+      headline=""
+      body-copy=""
+      thumblist="false"
+      date=""
+      blog-category=""
+      quote=""
       background-color=""
-    </slide>
+      logo-image-url=""
+      link-style=""></slide>
   </swiper>
+<section class='carousel'>
+  <thumblist-nav full="false">
+    <slide
+      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
+      video-url=""
+      link-url="http://starkey.com"
+      link-text="Learn More"
+      headline="Hear at Home"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style=""></slide>
+    <slide
+      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
+      video-url=""
+      link-url="http://starkey.com"
+      link-text="Learn More"
+      headline="Second"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style=""></slide>
+    <slide
+      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
+      video-url=""
+      link-url="http://starkey.com"
+      link-text="Learn More"
+      headline="Third"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style=""></slide>
 
-<thumblist-nav>
-  <slide
-    thumblist="true"
-    image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-    video-url=""
-    link-url="http://www.starkeyhearingfoundation.org/programs/hear-now/"
-    headline="Hear at Home"
-    link-text="Learn More"
-    link-style=""
-  ></slide>
-  <slide
-    thumblist="true"
-    image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-    video-url=""
-    link-url="http://www.starkeyhearingfoundation.org/programs/hear-now/"
-    headline="Hear at Home"
-    link-text="Learn More"
-  ></slide>
-  <slide
-    thumblist="true"
-    image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-    video-url=""
-    link-url="http://www.starkeyhearingfoundation.org/programs/hear-now/"
-    headline="Hear at Home"
-    link-text="Learn More"
-  ></slide>
-</thumblist-nav>
+  </thumblist-nav>
+</section>

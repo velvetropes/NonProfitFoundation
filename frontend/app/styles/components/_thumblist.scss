@@ -1,17 +1,47 @@
 /* Thumblist nav */
 
+.horizontal-only {
+  height: auto;
+}
+
+// .thumblist-nav {
+//   width: 100%;
+//   overflow: auto;
+//   white-space: nowrap
+// }
+
+// .jspPane > div {
+//   display: inline-block;
+
+//   /* ie7 support */
+//   *display: inline;
+//   zoom: 1
+// }
+
+
 .thumblist-nav {
+  width: 100%;
+  overflow: auto;
+  white-space: nowrap;
   height: 335px;
   .jspPane {
     position: absolute;
-    img {
-      width: 400px;
-      height: 210px;
-    }
+    // .img {
+    //   width: 400px;
+    //   height: 210px;
+    // }
     > div {
       width: 400px;
       height: 330px;
       position: relative;
+      border: 1px dotted #ddd;
+      border-right: none;
+
+      display: inline-block;
+
+      /* ie7 support */
+      *display: inline;
+      zoom: 1;
       .image {
         background-size: cover;
         position: absolute;
@@ -28,10 +58,10 @@
         overflow: hidden;
       }
     }
-    .ng-scope {
-      border: 1px dotted #ddd;
-      border-right: none;
-    }
+    // .ng-scope {
+    //   border: 1px dotted #ddd;
+    //   border-right: none;
+    // }
     h4 {
       @extend .verlagbold;
       font-size: 1.5em;
@@ -60,39 +90,40 @@
   &.horizontal-only {
     max-height: 335px;
   }
-}
 
-.thumblist-nav.full {
-  height: 422px;
-  .jspPane {
-    > div {
-      width: 680px;
-      height: 410px;
-      .image {
-        bottom: 0;
+  &.full {
+    height: 422px;
+    .jspPane {
+      > div {
+        width: 680px;
+        height: 410px;
+        .image {
+          bottom: 0;
+        }
+        .content {
+          bottom: 10px;
+        }
       }
-      .content {
-        bottom: 10px;
+      h4 {
+        // margin-top: 3px;
+        color: white;
+        font-size: 2.25em;
+      }
+      .blog-category {
+        color: white;
+      }
+      img {
+        width:  680px;
+        height: 410px;
       }
     }
-    h4 {
-      // margin-top: 3px;
-      color: white;
-      font-size: 2.25em;
-    }
-    .blog-category {
-      color: white;
-    }
-    img {
-      width:  680px;
-      height: 410px;
+    &.horizontal-only {
+      max-height: 422px;
     }
   }
-  &.horizontal-only {
-    max-height: 422px;
-  }
-}
+} // End .thumblist-nav
 
+// Scrubber
 .jspDrag {
   background: blue;
 }
@@ -114,24 +145,6 @@
   float:left;
   width:100%;
   position: relative;
-}
-
-.thumblist-nav {
-  width: 100%;
-  overflow: auto;
-  white-space: nowrap
-}
-
-.horizontal-only {
-  height: auto;
-}
-
-.jspPane > div {
-  display: inline-block;
-
-  /* ie7 support */
-  *display: inline;
-  zoom: 1
 }
 
 .jspContainer {

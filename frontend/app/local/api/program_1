@@ -8,13 +8,29 @@
 <p>The program combines music and education to raise awareness about the fragility of hearing and the dangers of exposure to high decibel sounds.&nbsp;This year Starkey Hearing Foundation expanded Listen Carefully to offer educational support to more than 16,000 teachers and nearly 500,000 students nationwide.</p>
 
 </div>
-
-<swiper class="swiper" continuous="true" speed="2000" identifier="swiper_1" auto="8000" paginator=false tall="false">
-  <div class="slide">
-    <article style="background: url('http://starkey.ahundredyears.com/uploads/Screen_Shot_2014-01-31_at_12.29.23_PM.png'); background-size: cover;">
-    </article>
-  </div>
-</swiper>
+  <swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_1"
+    auto="8000"
+    tall="false"
+    paginator="false"
+    >
+    <slide
+      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
+      video-url=""
+      link-url=""
+      link-text=""
+      headline=""
+      body-copy=""
+      thumblist="false"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style=""></slide>
+  </swiper>
 
 <div class="outer-container">
   <h1>Make a Difference&nbsp;</h1>
@@ -22,12 +38,7 @@
   <p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. Because you know that 1 in 5 American teenagers has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
 </div>
 
-<swiper class="swiper" continuous="true" speed="2000" identifier="swiper_2" auto="8000" paginator=false tall="false">
-  <div class="slide">
-    <article style="background: url('http://starkey.ahundredyears.com/uploads/listencarefullygallery2.png'); background-size: cover;">
-    </article>
-  </div>
-</swiper>
+
 
 <div class="outer-container">
   <h1>Educate Yourself&nbsp;</h1>
@@ -35,18 +46,51 @@
   <h1>Additional Resources</h1>
 </div>
 
-<section class='carousel thumblist'>
-  <thumblist-nav articles="programResources">
-    <div ng-repeat="article in programResources">
-      <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-      <div class="content">
-        <h4 ng-bind="article.thumbnail_title"></h4>
-        <p class='call-to-action align-right'>
-          <a href='{{article.link_url}}' ng-bind="article.link_cta">
-             &rarr;
-          </a>
-        </p>
-      </div>
-    </div>
+
+<section class='carousel'>
+  <thumblist-nav>
+    <slide
+      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
+      video-url=""
+      link-url="http://starkey.com"
+      link-text="Learn More"
+      headline="Hear at Home"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style="align-right"></slide>
+    <slide
+      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
+      video-url=""
+      link-url="http://starkey.com"
+      link-text="Learn More"
+      headline="Second"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style="align-right"></slide>
+    <slide
+      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
+      video-url=""
+      link-url="http://starkey.com"
+      link-text="Learn More"
+      headline="Third"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style="align-right"></slide>
+
   </thumblist-nav>
 </section>
