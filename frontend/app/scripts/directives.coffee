@@ -220,8 +220,8 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   template: """
     <div class="swiper" ng-class="{'short': isShort()}">
       <div class="swiper-controls" ng-show="showPaginator()">
-        <a href="#" class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
-        <a href="#" class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
+        <a href class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
+        <a href class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
       </div>
       <div id='{{identifier}}' class='swipe'>
         <div class='swipe-wrap' ng-transclude>
