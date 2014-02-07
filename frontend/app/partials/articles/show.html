@@ -2,10 +2,10 @@
   <div class="image" ng-style="{'background-image': 'url(' + article.image_url + ')'}">
     <ul class="page-nav-links">
       <li>
-        <a href ng-disabled="currentPosition == 0" ng-click="currentPosition=currentPosition-1">&larr;</a>
+        <a href="#/articles/{{article.prev_item}}" ng-disabled="currentPosition == article.prev_item">&larr;</a>
       </li>
       <li>
-        <a href ng-click="currentPosition=currentPosition+1">&rarr;</a>
+        <a href="#/articles/{{article.next_item}}" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
       </li>
       <li>
         <a href="#">X</a>
