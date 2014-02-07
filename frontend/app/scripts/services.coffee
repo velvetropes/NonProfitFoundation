@@ -128,3 +128,9 @@ sfServices.factory "ProgramResource", ["$q", "$http", "urlChooser", ($q, $http, 
     deferred.promise
   {getIndex: getIndex}
 ]
+
+sfServices.service("Youtube", [->
+  regex = /(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/
+  regex: ->
+    regex
+])

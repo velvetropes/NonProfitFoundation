@@ -21,6 +21,7 @@
         identifier="swiper_1"
         auto="8000"
         paginator="true"
+        tall="false"
         >
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="homepage_features" limit="5"}
@@ -146,14 +147,7 @@
     <!--(bake partials/footer.html)-->
     <!--(bake partials/js_includes.html)-->
     <video-player-modal show='modalVideo' width='90%' height='90%'>
-      {{modalVideo}}
-      <iframe
-        width="853"
-        height="480"
-        src="{{modalVideo}}"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
+
     </video-player-modal>
 </body>
 </html>

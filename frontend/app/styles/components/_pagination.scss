@@ -66,6 +66,19 @@ pagination {
       }
     }
   }
+  &.press-items {
+    li {
+      .block {
+        .headline {
+          bottom: 33px;
+          height: 50px;
+          font-size: 1.25em;
+          line-height: 1.25em;
+          overflow: hidden;
+        }
+      }
+    }
+  }
 }
 
 .pagination {

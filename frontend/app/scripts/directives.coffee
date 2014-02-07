@@ -337,7 +337,7 @@ sfDirectives.directive "slide", [ ->
 
       else
         # Regular link to external URL
-        window.location="#{scope.linkUrl}"
+        window.location = "#{scope.linkUrl}"
 
   controller = ($scope, $element) ->
 
@@ -433,12 +433,23 @@ sfDirectives.directive 'videoPlayerModal', [->
     scope.hideModal = ->
       scope.show = false
 
+    scope.$watch('show', (newVal, oldVal) ->
+      if newVal && !oldVal
+        console.debug "modalVideo changed to", newVal
+        angular.element(element.find("div")[3]).html("<iframe frameborder='0' ng-src='show | youtubeIframe'></iframe>")
+        document.getElementsByTagName("body")[0].style.overflow = "hidden";
+      else
+        document.getElementsByTagName("body")[0].style.overflow = "";
+    )
+
   template: """
     <div class='ng-modal' ng-show='show'>
       <div class='ng-modal-overlay' ng-click='hideModal()'></div>
       <div class='ng-modal-dialog' ng-style='dialogStyle'>
         <div class='ng-modal-close' ng-click='hideModal()'>X</div>
-        <div class='ng-modal-dialog-content' ng-transclude></div>
+        <div class='ng-modal-dialog-content'>
+
+        </div>
       </div>
     </div>
     """

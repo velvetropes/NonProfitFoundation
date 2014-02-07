@@ -15,13 +15,11 @@
     >
     <slide
       ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'Media Mention'}"
-
       image-url="{{media_mention.thumbnail_image_url}}"
       background-color="#5CA5D6"
       quote="{{media_mention.quote}}"
-      video-url=""
+      video-url="{{media_mention.video_link}}"
       link-url="{{media_mention.call_to_action_link}}"
-      headline="{{media_mention.title}}"
       body-copy=""
       logo-image-url="{{media_mention.logo_image_url}}"
       link-style="bordered"
@@ -63,15 +61,15 @@
     </li>
   </ul>
 
-  <ul class="pagination-articles">
+  <ul class="pagination-articles press-items">
     <li ng-repeat="article in pressItems | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <div class='block'>
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <p class="category">{{article.category}}</p>
-        <h2 class="headline">{{article.headline}}</h2>
+        <p class="category">{{article.type}}</p>
+        <h2 class="headline">{{article.title}}</h2>
         <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
         <p class='read-more' ng-switch="article.type">
-          <a ng-switch-when="Press Item" href="#/media_mentions/{{article.id}}">
+          <a ng-switch-when="Press Release" href="#/media_mentions/{{article.id}}">
             Read more &rarr;
           </a>
           <a ng-switch-when="Media Mention" href="{{article.video_link}}" target="_blank">

@@ -1,10 +1,18 @@
 sfControllers = angular.module("sfControllers", [])
 
+sfControllers.config ['$sceProvider', ($sceProvider) ->
+  $sceProvider.enabled(false)
+]
+
 # Home
 
 sfControllers.controller("globalVideoModalCtrl", ["$scope",($scope) ->
   $scope.modalShown = false
   $scope.modalVideo = ""
+
+  $scope.youtubeUrl = 'http://www.youtube.com/watch?v=WrO9PTpuSSs';
+  $scope.codeExample1 = "<img ng-src='{{ youtubeUrl | youtubeImage }}'>"
+  $scope.codeExample2 = "<iframe frameborder='0' ng-src='{{ youtubeUrl | youtubeIframe }}'></iframe>"
 
   $scope.$on 'modal:show', (event, url) ->
     $scope.toggleModal(url)
@@ -150,7 +158,9 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
 
-
+  $scope.parseDate = (date) ->
+    parsedDate = Date.parse(date)
+    parsedDate
 ])
 
 sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressItem, MediaMentionOrPressItem, Pagination) ->
@@ -173,6 +183,9 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Pr
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
 
+  $scope.parseDate = (date) ->
+    parsedDate = Date.parse(date)
+    parsedDate
 ])
 
 # Programs

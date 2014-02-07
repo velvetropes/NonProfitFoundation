@@ -4,6 +4,7 @@
     {exp:channel:entries channel="media_mentions" backspace="6"}
     {
       "id":"{entry_id}",
+      "title": "{title}",
       "date":"{entry_date format='%m %d %Y'}",
       "year": "{entry_date format='%Y'}",
       "category":"{if blog_category}{media_mention_category}{/if}",
@@ -23,6 +24,7 @@
 {
   "id":"{entry_id}",
   "date":"{entry_date format='%m %d %Y'}",
+  "title": "{title}",
   "year": "{entry_date format='%Y'}",
   "category":"{if blog_category}{media_mention_category}{/if}",
   "type":"{media_mention_type}",
