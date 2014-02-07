@@ -403,6 +403,101 @@ sfDirectives.directive "slide", [ ->
 
 ]
 
+# Page tile format:
+# < page-tile
+#   feed_url=""
+#   title=""
+#   date=""
+#   year=""
+#   detail_page=""
+#   type=""
+#   featured=""
+#   header_image_url=""
+#   logo_image_url=""
+#   quote=""
+#   call_to_action_text=""
+#   call_to_action_link=""
+#   video_link=""
+# ></page-tile>
+
+sfDirectives.directive "pageTile", [ ->
+
+  link = (scope, element, attrs) ->
+    scope.feedUrl ?= ""
+    scope.title ?= ""
+    scope.date ?= ""
+    scope.year ?= ""
+    scope.detailPage ?= ""
+    scope.type ?= ""
+    scope.featured ?= ""
+    scope.headerImageUrl ?= ""
+    scope.logoImageUrl ?= ""
+    scope.quote ?= ""
+    scope.callToActionText ?= ""
+    scope.callToActionLink ?= ""
+    scope.videoLink ?= ""
+
+    # scope.hasVideo = ->
+    #   scope.videoLink?.length > 0
+
+    # scope.hasDetailPage = ->
+    #   scope.detailPage?.length > 0
+
+    # scope.isPressRelease = ->
+    #   scope.type?.length > 0 and scope.type is "Press Release"
+
+    # scope.hasQuote = ->
+    #   scope.quote?.length > 0
+
+    # scope.hasHeadline = ->
+    #   scope.headline?.length > 0
+
+    # scope.hasLogoImageUrl = ->
+    #   scope.logoImageUrl?.length > 0
+
+    scope.parseDate = (date) ->
+      Date.parse(date)
+
+  template = """
+    <div class='block'>
+      <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}"></div>
+      <p class="category">{{type}}</p>
+      <h2 class="headline">{{title}}</h2>
+      <p class='date'>{{parseDate(date) | date:"MMMM d yyyy"}}</p>
+      <p class='read-more' ng-switch="article.type">
+        <a ng-switch-when="Press Release" href="#/press_releases/{{article.id}}">
+          Read more &rarr;
+        </a>
+        <a ng-switch-when="Media Mention" href="{{article.video_link}}" target="_blank">
+          Read more &rarr;
+        </a>
+      </p>
+    </div>
+    """
+
+  result =
+    restrict: "E"
+    replace: true
+    template: template
+    link: link
+    scope:
+      feedUrl: "@"
+      title: "@"
+      date: "@"
+      year: "@"
+      detailPage: "@"
+      type: "@"
+      featured: "@"
+      headerImageUrl: "@"
+      logoImageUrl: "@"
+      quote: "@"
+      callToActionText: "@"
+      callToActionLink: "@"
+      videoLink: "@"
+  result
+
+]
+
 # <button ng-click='toggleModal("http://www.youtube.com/embed/xx2Dx_rRdws")'>Open Modal Dialog</button>
 
 # <video-player-modal show='modalVideo' width='90%' height='90%'>

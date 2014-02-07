@@ -34,7 +34,10 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/media_mentions",
     templateUrl: "partials/media_mentions/index.html"
     controller: "MediaMentionsIndexCtrl"
-  ).when("/media_mentions/:articleId",
+  ).when("/press_releases/:pressReleaseId",
+    templateUrl: "partials/press_releases/show.html"
+    controller: "PressReleasesShowCtrl"
+  ).when("/media_mentions/:mediaMentionId",
     templateUrl: "partials/media_mentions/show.html"
     controller: "MediaMentionsShowCtrl"
   ).otherwise redirectTo: "/media_mentions"

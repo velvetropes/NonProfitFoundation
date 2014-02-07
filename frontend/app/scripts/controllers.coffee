@@ -168,7 +168,7 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
     parsedDate
 ])
 
-sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressItem, MediaMentionOrPressItem, Pagination) ->
+sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "MediaMention", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, MediaMention, MediaMentionOrPressItem, Pagination) ->
 
   $scope.article = {
     prev_item: ""
@@ -178,8 +178,8 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Pr
   $scope.currentPosition = $routeParams.articleId
 
   $scope.pressItems = []
-  PressItem.get(
-    pressItemId: $routeParams.articleId
+  MediaMention.get(
+    mediaMentionId: $routeParams.mediaMentionId
   , (pressItem) ->
     if pressItem instanceof Array
       $scope.article = pressItem[0]
@@ -199,6 +199,39 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Pr
     parsedDate = Date.parse(date)
     parsedDate
 ])
+
+sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "PressRelease", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressRelease, MediaMentionOrPressItem, Pagination) ->
+
+  $scope.article = {
+    prev_item: ""
+    next_item: ""
+  }
+
+  $scope.currentPosition = $routeParams.pressReleaseId
+
+  $scope.pressItems = []
+  PressRelease.get(
+    pressReleaseId: $routeParams.pressReleaseId
+  , (pressItem) ->
+    if pressItem instanceof Array
+      $scope.article = pressItem[0]
+    else
+      $scope.article = pressItem
+  )
+
+  MediaMentionOrPressItem.getIndex().then (data) ->
+    $scope.pressItems = data
+    $scope.pagination = Pagination.getNew(9)
+    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
+
+  $scope.numberOfPages = ->
+    Math.ceil($scope.pressItems.length/$scope.pageSize)
+
+  $scope.parseDate = (date) ->
+    parsedDate = Date.parse(date)
+    parsedDate
+])
+
 
 # Programs
 

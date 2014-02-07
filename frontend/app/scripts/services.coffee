@@ -88,13 +88,14 @@ sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", "urlC
   {getIndex: getIndex}
 ]
 
-sfServices.factory "PressItem", ["$resource", "urlChooser", ($resource, urlChooser) ->
-  $resource "#{urlChooser.getUrl}/press/:pressItemId.json", {}, {}
+sfServices.factory "PressRelease", ["$resource", "urlChooser", ($resource, urlChooser) ->
+  $resource "#{urlChooser.getUrl}/press_releases/:pressReleaseId.json", {}, {}
 ]
 
-# sfServices.factory "ProgramContent", ["$resource", "urlChooser", ($resource, urlChooser) ->
-#   $resource "#{urlChooser.getUrl}/program_:programContentId.json", {}, {}
-# ]
+sfServices.factory "MediaMention", ["$resource", "urlChooser", ($resource, urlChooser) ->
+  $resource "#{urlChooser.getUrl}/media_mentions/:mediaMentionId.json", {}, {}
+]
+
 
 sfServices.factory "ProgramContent", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
   getResource = (programContentId)->
