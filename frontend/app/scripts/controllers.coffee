@@ -96,8 +96,13 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
     parsedDate
 ])
 
-sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "Articles", "Article", "Pagination", ($scope, $routeParams, Articles, Article, Pagination) ->
+sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "Article", "Pagination", ($scope, $routeParams, $location, Articles, Article, Pagination) ->
+  $scope.article = {
+    prev_item: ""
+    next_item: ""
+  }
 
+  $scope.currentPosition = $routeParams.articleId
   $scope.articles =[]
   Article.get(
     articleId: $routeParams.articleId
@@ -164,6 +169,13 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
 ])
 
 sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressItem, MediaMentionOrPressItem, Pagination) ->
+
+  $scope.article = {
+    prev_item: ""
+    next_item: ""
+  }
+
+  $scope.currentPosition = $routeParams.articleId
 
   $scope.pressItems = []
   PressItem.get(

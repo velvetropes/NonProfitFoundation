@@ -333,11 +333,11 @@ sfDirectives.directive "slide", [ ->
     scope.displayInModalIfVideo = ->
       if scope.hasVideo()
         # Send videoUrl to overlay
-        $scope.$emit('modal:show', scope.videoUrl)
+        scope.$emit('modal:show', scope.videoUrl)
 
-      else
-        # Regular link to external URL
-        window.location = "#{scope.linkUrl}"
+      # else
+      #   # Regular link to external URL
+      #   $window.location.href = "#{scope.linkUrl}"
 
   controller = ($scope, $element) ->
 
@@ -346,11 +346,15 @@ sfDirectives.directive "slide", [ ->
       <article ng-style="backgroundmageStyle"></article>
       <blockquote ng-show="hasQuote()">{{quote}}</blockquote>
       <div ng-show="!hasQuote()" class="gradient-background"></div>
+      <div ng-show="hasVideo()" class="play-video-link">
+        <a href ng-click="displayInModalIfVideo()"><span class="icon starkey-legend-3"></a>
+      </div>
       <aside>
         <h1 ng-show="hasHeadline()">{{headline}}</h1>
         <p ng-show="hasBodyCopy()">{{bodyCopy}}</p>
         <div class="logo" ng-show="hasLogoImageUrl()"><img ng-src="{{logoImageUrl}}"/></div>
-        <a href ng-class="actionLinkStyle()" ng-show="hasLinkText()" ng-click="displayInModalIfVideo()">{{linkText}}</a>
+        <a href="{{linkUrl}}" target="_blank" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText()">{{linkText}}</a>
+        <a href class="action-link" ng-show="hasVideo()" ng-click="displayInModalIfVideo()">Watch video</a>
       </aside>
     </div>
     """
@@ -434,8 +438,8 @@ sfDirectives.directive 'videoPlayerModal', [->
       scope.show = false
 
     scope.$watch('show', (newVal, oldVal) ->
+      # TODO
       if newVal && !oldVal
-        console.debug "modalVideo changed to", newVal
         angular.element(element.find("div")[3]).html("<iframe frameborder='0' ng-src='show | youtubeIframe'></iframe>")
         document.getElementsByTagName("body")[0].style.overflow = "hidden";
       else
