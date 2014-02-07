@@ -90,7 +90,7 @@ class hundies_shortcode {
 		  	 link-text=""
 		  	 headline=""
 		  	 body-copy=""
-		  	 thumblist="true"
+		  	 thumblist="false"
 		  	 date=""
 		  	 blog-category=""
 		  	 quote=""
