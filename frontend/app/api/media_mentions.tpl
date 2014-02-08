@@ -4,7 +4,7 @@
     "title": "{title}",
     "date":"{entry_date format='%m %d %Y'}",
     "year": "{entry_date format='%Y'}",
-    "type":"Media Mention",
+    "type":"media_mention",
     "featured":"{media_mention_feature_carousel}",
     "header_image_url":"{media_mention_image}",
     "logo_image_url":"{media_mention_logo}",

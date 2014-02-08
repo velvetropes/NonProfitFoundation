@@ -314,7 +314,7 @@ sfDirectives.directive "slide", [ ->
       # Use imageUrl, and fall back to videoUrl thumb otherwise
       scope.imageUrl or scope.getYoutubeVideoThumbnail()
 
-    scope.backgroundmageStyle = if scope.hasQuote()
+    scope.backgroundImageStyle = if scope.hasQuote()
       {
         'background': scope.backgroundColor
       }
@@ -343,7 +343,7 @@ sfDirectives.directive "slide", [ ->
 
   slideTemplate = """
     <div class="slide">
-      <article ng-style="backgroundmageStyle"></article>
+      <article ng-style="backgroundImageStyle"></article>
       <blockquote ng-show="hasQuote()">{{quote}}</blockquote>
       <div ng-show="!hasQuote()" class="gradient-background"></div>
       <div ng-show="hasVideo()" class="play-video-link">
@@ -362,7 +362,7 @@ sfDirectives.directive "slide", [ ->
   thumbTemplate = """
     <div>
       <a href='{{linkUrl}}'>
-        <div class="image" ng-style="backgroundmageStyle"></div>
+        <div class="image" ng-style="backgroundImageStyle"></div>
         <div class="content">
           <h4 ng-show="hasHeadline()">{{headline}}</h4>
           <p class="blog-category" ng-show="hasBlogCategory()">{{date}}</p>
@@ -405,6 +405,7 @@ sfDirectives.directive "slide", [ ->
 
 # Page tile format:
 # < page-tile
+#   id=""
 #   feed_url=""
 #   title=""
 #   date=""
@@ -455,20 +456,26 @@ sfDirectives.directive "pageTile", [ ->
     # scope.hasLogoImageUrl = ->
     #   scope.logoImageUrl?.length > 0
 
+    scope.getCategory = ->
+      if scope.type is "press_release"
+        "Press Release"
+      else
+        "Media Mention"
+
     scope.parseDate = (date) ->
       Date.parse(date)
 
   template = """
     <div class='block'>
       <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}"></div>
-      <p class="category">{{type}}</p>
+      <p class="category">{{getCategory()}}</p>
       <h2 class="headline">{{title}}</h2>
       <p class='date'>{{parseDate(date) | date:"MMMM d yyyy"}}</p>
-      <p class='read-more' ng-switch="article.type">
-        <a ng-switch-when="Press Release" href="#/press_releases/{{article.id}}">
+      <p class='read-more' ng-switch="type">
+        <a ng-switch-when="press_release" href="#/press_releases/{{id}}">
           Read more &rarr;
         </a>
-        <a ng-switch-when="Media Mention" href="{{article.video_link}}" target="_blank">
+        <a ng-switch-when="media_mention" href="{{videoLink}}" target="_blank">
           Read more &rarr;
         </a>
       </p>
@@ -481,6 +488,7 @@ sfDirectives.directive "pageTile", [ ->
     template: template
     link: link
     scope:
+      id: "@"
       feedUrl: "@"
       title: "@"
       date: "@"

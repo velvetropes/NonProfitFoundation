@@ -1,170 +1,117 @@
+
 [
-   {
-      "id":"1",
-      "date":"January 23, 2014",
-      "featured":"true",
-      "thumbnail_image_url":"",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"After his hearing aid business took off, Bill Austin decided in 1984 to add on a nonprofit arm to his mission, the Starkey Hearing Foundation, to give impoverished people the devices they need to hear. He donates 100,000 hearing aids annually and has donated more than 165,000 hearing aids this year alone.",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Media Mention"
-   },
-   {
-      "id":"2",
-      "date":"January 23, 2014",
-      "featured":"true",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"",
-      "call_to_action_text":"Watch video",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Media Mention"
-   },
-   {
-      "id":"3",
-      "date":"January 23, 2014",
-      "featured":"true",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"",
-      "call_to_action_text":"Watch video",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Media Mention"
-   },
-   {
-      "id":"4",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Media Mention"
-   },
-   {
-      "id":"5",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Media Mention"
-   },
-   {
-      "id":"6",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Media Mention"
-   },
-   {
-      "id":"7",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Media Mention"
-   },
-   {
-      "id":"8",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Press Release"
-   },
-   {
-      "id":"9",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Press Release"
-   },
-   {
-      "id":"10",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Press Release"
-   },
-   {
-      "id":"11",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Press Release"
-   },
-   {
-      "id":"12",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Press Release"
-   },
-   {
-      "id":"13",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Press Release"
-   },
-   {
-      "id":"14",
-      "date":"January 23, 2014",
-      "featured":"false",
-      "thumbnail_image_url":"uploads/home/feature/changing_lives_with_sir_richard_branson_and_virgin_unite.jpg",
-      "logo_image_url":"uploads/home/picto/info_totalaids.jpg",
-      "quote":"Commitment to Action Film",
-      "call_to_action_text":"Read more",
-      "call_to_action_link":"http://starkey.org",
-      "video_link":"http://starkey.org",
-      "type": "Press Release"
-   }
+
+  {
+
+    "id":"54",
+    "feed_url":"/api/press_releases/54",
+    "title": "Starkey Press Release Test",
+    "date":"02 07 2014",
+    "year": "2014",
+      "detail_page": "true",
+    "type":"press_release",
+    "featured":"false",
+    "header_image_url":"uploads/home/feature/2013_stwmh_awards_gala_highlights.jpg",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"Starkey Press Release Test",
+    "call_to_action_link":"Read More",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"18",
+    "feed_url":"/api/media_mentions/18",
+    "title": "Africa 2013: Day 5 Recap",
+    "date":"01 29 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"true",
+    "header_image_url":"uploads/home/feature/2013_stwmh_awards_gala_highlights.jpg",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":"http://youtube.com"
+
+  },
+
+  {
+
+    "id":"27",
+    "feed_url":"/api/media_mentions/27",
+    "title": "Starkey Hearing Foundation",
+    "date":"02 01 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"",
+    "header_image_url":"uploads/home/feature/2013_stwmh_awards_gala_highlights.jpg",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"28",
+    "feed_url":"/api/media_mentions/28",
+    "title": "World Leaders, Celebrities and Athletes Attend Starkey Hearing Foundation Gala",
+    "date":"02 01 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"",
+    "header_image_url":"uploads/home/feature/2013_stwmh_awards_gala_highlights.jpg",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"29",
+    "feed_url":"/api/media_mentions/29",
+    "title": "Twins Blog: The First Starkey Mission",
+    "date":"02 01 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"true",
+    "header_image_url":"",
+    "logo_image_url":"",
+    "quote":"This is a quote",
+    "call_to_action_text":"Read More",
+    "call_to_action_link":"http://starkey.org",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"55",
+    "feed_url":"/api/media_mentions/55",
+    "title": "CNN to Spotlight SHF",
+    "date":"02 07 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"true",
+    "header_image_url":"http://starkey.ahundredyears.com/uploads/CAROUSEL-William_F._Austin_Legacy_Film.jpg",
+    "logo_image_url":"http://starkey.ahundredyears.com/uploads/cnnlogo.png",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":"http://www.youtube.com/watch?v=CvYDRtPh46Q"
+
+  }
 ]

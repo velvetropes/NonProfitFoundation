@@ -44,7 +44,6 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 
   $scope.modalShown = false
   $scope.toggleModal = ->
-    console.debug "toggleModal", $scope.modalShown
     $scope.modalShown = not $scope.modalShown
 ])
 # Blog
@@ -141,8 +140,8 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
 
   $scope.articleCategories = [
     {name: "All", tag: ''}
-    {name: "Press Release", tag: "Press Release"}
-    {name: "Media Mention", tag: "Media Mention"}
+    {name: "Press Release", tag: "press_release"}
+    {name: "Media Mention", tag: "media_mention"}
   ]
 
   $scope.articleYears = [

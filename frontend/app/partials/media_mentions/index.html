@@ -14,8 +14,8 @@
     paginator="true"
     >
     <slide
-      ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'Media Mention'}"
-      image-url="{{media_mention.thumbnail_image_url}}"
+      ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'media_mention'}"
+      image-url="{{media_mention.header_image_url}}"
       background-color="#5CA5D6"
       quote="{{media_mention.quote}}"
       video-url="{{media_mention.video_link}}"
@@ -62,8 +62,9 @@
   </ul>
 
   <ul class="pagination-articles press-items">
-    <li ng-repeat="article in pressItems | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+    <li ng-repeat="article in pressItems">
       <page-tile
+        id="{{article.id}}"
         title="{{article.title}}"
         date="{{article.date}}"
         detail_page="{{article.detail_page}}"
