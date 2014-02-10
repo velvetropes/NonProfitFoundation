@@ -11,8 +11,11 @@
         @extend .alrightsanslight;
       }
     }
-    .become-a-provider-container.hidden {
-      display: none;
+    .become-a-provider-container {
+      @include outer-container;
+      &.hidden {
+        display: none;
+      }
     }
 
   }
