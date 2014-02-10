@@ -1,14 +1,12 @@
-
-<div class="outer-container">
+<article class='listen-carefully text-container'>
 
   <h1>Listen Carefully</h1>
 
-<p>Research shows that 1 in 8 children and teens in the United States has hearing loss, largely due to high-volume sounds in daily life, such as music streamed loudly into headphones. Most hearing loss among teens can be avoided if simple protective measures&ndash;such as lowering the volume&ndash;are taken.</p>
+  <p>Research shows that 1 in 8 children and teens in the United States has hearing loss, largely due to high-volume sounds in daily life, such as music streamed loudly into headphones. Most hearing loss among teens can be avoided if simple protective measures&ndash;such as lowering the volume&ndash;are taken.</p>
 
-<p>The program combines music and education to raise awareness about the fragility of hearing and the dangers of exposure to high decibel sounds.&nbsp;This year Starkey Hearing Foundation expanded Listen Carefully to offer educational support to more than 16,000 teachers and nearly 500,000 students nationwide.</p>
+  <p>The program combines music and education to raise awareness about the fragility of hearing and the dangers of exposure to high decibel sounds.&nbsp;This year Starkey Hearing Foundation expanded Listen Carefully to offer educational support to more than 16,000 teachers and nearly 500,000 students nationwide.</p>
 
-</div>
-  <swiper
+<p>  <swiper
     continuous="true"
     speed="2000"
     identifier="swiper_1"
@@ -31,23 +29,19 @@
       logo-image-url=""
       link-style=""></slide>
   </swiper>
-
-<div class="outer-container">
+</p>
   <h1>Make a Difference&nbsp;</h1>
 
   <p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. Because you know that 1 in 5 American teenagers has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
-</div>
 
 
 
-<div class="outer-container">
   <h1>Educate Yourself&nbsp;</h1>
 
   <h1>Additional Resources</h1>
-</div>
+</article>
 
-
-<section class='carousel'>
+<section class='carousel thumblist'>
   <thumblist-nav>
     <slide
       image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"

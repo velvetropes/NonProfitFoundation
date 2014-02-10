@@ -11,7 +11,7 @@
       "detail_page": "true",
     "type":"press_release",
     "featured":"false",
-    "header_image_url":"uploads/home/feature/2013_stwmh_awards_gala_highlights.jpg",
+    "header_image_url":"http://starkey.ahundredyears.com/uploads/Blog_A_Knight.jpg",
     "logo_image_url":"",
     "quote":"",
     "call_to_action_text":"Starkey Press Release Test",
@@ -29,13 +29,13 @@
     "year": "2014",
       "detail_page": "",
     "type":"media_mention",
-    "featured":"true",
-    "header_image_url":"uploads/home/feature/2013_stwmh_awards_gala_highlights.jpg",
+    "featured":"",
+    "header_image_url":"",
     "logo_image_url":"",
     "quote":"",
     "call_to_action_text":"",
     "call_to_action_link":"",
-    "video_link":"http://youtube.com"
+    "video_link":""
 
   },
 
@@ -49,7 +49,7 @@
       "detail_page": "",
     "type":"media_mention",
     "featured":"",
-    "header_image_url":"uploads/home/feature/2013_stwmh_awards_gala_highlights.jpg",
+    "header_image_url":"",
     "logo_image_url":"",
     "quote":"",
     "call_to_action_text":"",
@@ -68,7 +68,7 @@
       "detail_page": "",
     "type":"media_mention",
     "featured":"",
-    "header_image_url":"uploads/home/feature/2013_stwmh_awards_gala_highlights.jpg",
+    "header_image_url":"",
     "logo_image_url":"",
     "quote":"",
     "call_to_action_text":"",
@@ -86,12 +86,12 @@
     "year": "2014",
       "detail_page": "",
     "type":"media_mention",
-    "featured":"true",
+    "featured":"",
     "header_image_url":"",
     "logo_image_url":"",
-    "quote":"This is a quote",
-    "call_to_action_text":"Read More",
-    "call_to_action_link":"http://starkey.org",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
     "video_link":""
 
   },
@@ -105,13 +105,51 @@
     "year": "2014",
       "detail_page": "",
     "type":"media_mention",
-    "featured":"true",
+    "featured":"false",
     "header_image_url":"http://starkey.ahundredyears.com/uploads/CAROUSEL-William_F._Austin_Legacy_Film.jpg",
     "logo_image_url":"http://starkey.ahundredyears.com/uploads/cnnlogo.png",
     "quote":"",
     "call_to_action_text":"",
     "call_to_action_link":"",
     "video_link":"http://www.youtube.com/watch?v=CvYDRtPh46Q"
+
+  },
+
+  {
+
+    "id":"56",
+    "feed_url":"/api/media_mentions/56",
+    "title": "SHF Test Featured MM",
+    "date":"02 07 2014",
+    "year": "2014",
+      "detail_page": "false",
+    "type":"media_mention",
+    "featured":"true",
+    "header_image_url":"http://starkey.ahundredyears.com/uploads/Blog_A_Knight.jpg",
+    "logo_image_url":"http://starkey.ahundredyears.com/uploads/Clinton_Foundation_Logo.png",
+    "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc cursus aliquam diam, vitae mollis neque egestas sed. In eu tellus blandit, pellentesque mi non",
+    "call_to_action_text":"Read More ",
+    "call_to_action_link":"http://www.clintonfoundation.org/",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"57",
+    "feed_url":"/api/media_mentions/57",
+    "title": "Media Mentions Video Test",
+    "date":"02 07 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"true",
+    "header_image_url":"http://starkey.ahundredyears.com/uploads/CAROUSEL-Providing_Clean_Water_in_Tanzania.jpg",
+    "logo_image_url":"http://starkey.ahundredyears.com/uploads/cnnlogo.png",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":"http://www.youtube.com/watch?v=OJ4W9zzjgII"
 
   }
 ]

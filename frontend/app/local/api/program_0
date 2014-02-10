@@ -1,34 +1,34 @@
-<div class="outer-container">
+<article class='operation-change text-container'>
   <h1>Operation change</h1>
 
   <p>Our new docuseries - coming soon!&nbsp;</p>
   <br/>
   <h2>Our Partnerships</h2>
-</div>
-  <swiper
-    continuous="true"
-    speed="2000"
-    identifier="swiper_1"
-    auto="8000"
-    tall="false"
-    paginator="false"
-    >
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url=""
-      link-text=""
-      headline=""
-      body-copy=""
-      thumblist="false"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style=""></slide>
-  </swiper>
-<section class='carousel'>
+  <p><swiper
+      continuous="true"
+      speed="2000"
+      identifier="swiper_1"
+      auto="8000"
+      tall="false"
+      paginator="false"
+      >
+      <slide
+        image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
+        video-url=""
+        link-url=""
+        link-text=""
+        headline=""
+        body-copy=""
+        thumblist="false"
+        date=""
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style=""></slide>
+    </swiper></p>
+</article>
+<section class='carousel thumblist'>
   <thumblist-nav full="false">
     <slide
       image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"

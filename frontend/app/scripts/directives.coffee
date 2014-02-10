@@ -148,7 +148,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
     $timeout (->
       scope.pane = $(".thumblist-nav")
       scope.pane.jScrollPane config
-    ), 800
+    ), 1400
 
     scope.isFullHeight = ->
       scope.full?.length > 0 and scope.full is "true"
@@ -203,6 +203,8 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
 
     scope.isShort = ->
       scope.tall? and scope.tall is "false"
+
+    element.parent().addClass("no-container") if element.parent()?.is("p")
 
   controller = ($scope, $element) ->
     $scope.next = ->
