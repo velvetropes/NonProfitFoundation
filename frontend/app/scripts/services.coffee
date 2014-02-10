@@ -3,9 +3,9 @@
 sfServices = angular.module("sfServices", ["ngResource"])
 
 sfServices.factory "urlChooser", [->
-  # env = "development"
+  env = "development"
   # env = "staging"
-  env = "production"
+  # env = "production"
   urlChooserInstance = {}
   getUrl = ->
     switch env
@@ -72,6 +72,22 @@ sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, 
   # Return factory object
   {getIndex: getIndex}
 ]
+
+sfServices.factory "MissionsMapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/missions_markers#{urlChooser.getIndexFormat}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+
+    deferred.promise
+
+  # Return factory object
+  {getIndex: getIndex}
+]
+
 
 sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 

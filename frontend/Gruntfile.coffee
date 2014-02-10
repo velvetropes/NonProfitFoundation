@@ -20,6 +20,7 @@ module.exports = (grunt) ->
           ".tmp/programs.html" : 'app/programs.html',
           ".tmp/blog.html" : 'app/blog.html',
           ".tmp/media_mentions.html" : 'app/media_mentions.html'
+          ".tmp/missions.html" : 'app/missions.html'
       dist:
         options:
           content: "app/starkey.json",

@@ -19,6 +19,26 @@ blogPagesApp.config ["$routeProvider", ($routeProvider) ->
   ).otherwise redirectTo: "/articles"
 ]
 
+# Hearing Missions
+missionsPageApp = angular.module("missionsPageApp", [
+  "ngRoute",
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+missionsPageApp.config ["$routeProvider", ($routeProvider) ->
+  $routeProvider.when("/missions",
+    templateUrl: "partials/missions/index.html"
+    controller: "MissionsIndexCtrl"
+  ).when("/missions/:articleId",
+    templateUrl: "partials/missions/show.html"
+    controller: "MissionsShowCtrl"
+  ).otherwise redirectTo: "/missions"
+]
+
 # Media Mentions
 mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
   "ngRoute",

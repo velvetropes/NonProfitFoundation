@@ -46,8 +46,8 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
   $scope.toggleModal = ->
     $scope.modalShown = not $scope.modalShown
 ])
-# Blog
 
+# Blog
 sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", ($scope, Articles, Pagination) ->
   $scope.articles =[]
   $scope.articleFilters = {
@@ -126,6 +126,20 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
   $scope.parseDate = (date) ->
     parsedDate = Date.parse(date)
     parsedDate
+])
+
+# Hearing Missions
+
+# Blog
+
+sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker",($scope, MissionsMapMarker) ->
+  MissionsMapMarker.getIndex().then (data) ->
+    $scope.markers = data
+
+])
+
+sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", ($scope, $routeParams) ->
+
 ])
 
 # Media Mentions
