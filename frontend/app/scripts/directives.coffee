@@ -548,7 +548,7 @@ sfDirectives.directive "pageTile", [ ->
 #     console.debug "attr", attr
 # ]
 
-sfDirectives.directive 'videoPlayerModal', [->
+sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
   restrict: "E"
   scope: {
     show: "="
@@ -563,10 +563,46 @@ sfDirectives.directive 'videoPlayerModal', [->
     scope.hideModal = ->
       scope.show = false
 
+    scope.youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+
+    scope.destroyYoutubePlayer = ->
+      scope.player.destroy() if scope.player?
+
+    scope.createYoutubePlayer = (youtube_id) =>
+      scope.destroyYoutubePlayer()
+      target = "player"
+      scope.player = new YT.Player("#{target}",
+        width: '160'
+        height: '90'
+        origin: 'starkey.ahundredyears.com'
+        wmode: 'transparent'
+        playerVars:
+          controls: 0
+          enablejsapi: 1
+          html5: 1
+        videoId: "#{youtube_id}"
+      )
+      scope.player
+
+    scope.getYoutubeIframeApi = ->
+      $.getScript('//www.youtube.com/iframe_api')
+
+    scope.playVideo = (url) ->
+      console.debug "playing video", url
+      $window.onYouTubeIframeAPIReady = scope.createYoutubePlayer(url)
+      scope.getYoutubeIframeApi()
+
     scope.$watch('show', (newVal, oldVal) ->
       # TODO
       if newVal && !oldVal
-        angular.element(element.find("div")[3]).html("<iframe frameborder='0' ng-src='show | youtubeIframe'></iframe>")
+        # angular.element(element.find("div")[3]).html("<iframe frameborder='0' ng-src='show | youtubeIframe'></iframe>")
+        # Test the if our url matches youtube
+        # if scope.youtubePattern.test newVal
+        #   youtube_id = newVal.match(scope.youtubePattern)[1]
+        #   scope.playVideo(youtube_id)
+        # else
+        #   scope.destroyYoutubePlayer()
+
         document.getElementsByTagName("body")[0].style.overflow = "hidden";
       else
         document.getElementsByTagName("body")[0].style.overflow = "";
@@ -578,7 +614,7 @@ sfDirectives.directive 'videoPlayerModal', [->
       <div class='ng-modal-dialog' ng-style='dialogStyle'>
         <div class='ng-modal-close' ng-click='hideModal()'>X</div>
         <div class='ng-modal-dialog-content'>
-
+          <div id="player"></div>
         </div>
       </div>
     </div>

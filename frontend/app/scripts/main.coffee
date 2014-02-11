@@ -9,11 +9,13 @@ blogPagesApp = angular.module("blogPagesApp", [
   "sfServices"
 ])
 
-blogPagesApp.config ["$routeProvider", ($routeProvider) ->
+blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles",
     templateUrl: "partials/articles/index.html"
     controller: "BlogIndexCtrl"
   ).when("/articles/:articleId",
+    # templateUrl: (params) ->
+    #   "api/blog/{params.articleId}"
     templateUrl: "partials/articles/show.html"
     controller: "BlogShowCtrl"
   ).otherwise redirectTo: "/articles"
