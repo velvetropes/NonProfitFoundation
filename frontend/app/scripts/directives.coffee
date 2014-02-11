@@ -537,7 +537,7 @@ sfDirectives.directive "pageTile", [ ->
         <a ng-switch-when="media_mention" href="{{callToActionLink}}" target="_blank">
           Read more &rarr;
         </a>
-        <a ng-switch-when="media_mention_with_detail_page" href="#/press_releases/{{id}}">
+        <a ng-switch-when="media_mention_with_detail_page" href="#/media_mentions/{{id}}">
           Read more &rarr;
         </a>
         <a ng-switch-when="media_mention_with_video" href ng-click="displayInModalIfVideo()">
