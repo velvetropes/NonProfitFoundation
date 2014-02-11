@@ -511,6 +511,8 @@ sfDirectives.directive "pageTile", [ ->
         else if scope.type is "media_mention"
           if scope.videoLink?.length > 0
             "media_mention_with_video"
+          else if scope.detailPage?.length > 0 and scope.detailPage is "true"
+            "media_mention_with_detail_page"
           else
             "media_mention"
         else
@@ -529,10 +531,14 @@ sfDirectives.directive "pageTile", [ ->
       <h2 class="headline">{{title}}</h2>
       <p class='date'>{{parseDate(date) | date:"MMMM d yyyy"}}</p>
       <p class='read-more' ng-switch="linkByType()">
+        {{linkByType()}}
         <a ng-switch-when="press_release" href="#/press_releases/{{id}}">
           Read more &rarr;
         </a>
         <a ng-switch-when="media_mention" href="{{callToActionLink}}" target="_blank">
+          Read more &rarr;
+        </a>
+        <a ng-switch-when="media_mention_with_detail_page" href="#/press_releases/{{id}}">
           Read more &rarr;
         </a>
         <a ng-switch-when="media_mention_with_video" href ng-click="displayInModalIfVideo()">

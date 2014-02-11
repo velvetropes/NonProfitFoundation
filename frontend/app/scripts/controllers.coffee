@@ -147,7 +147,7 @@ sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", ($scope,
 sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
 
   $scope.articleFilters = {
-    featured: 'false'
+    featured: ''
     year: ''
     type: ''
   }

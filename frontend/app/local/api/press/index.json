@@ -22,12 +22,12 @@
 
   {
 
-    "id":"18",
-    "feed_url":"/api/media_mentions/18",
+    "id":"1",
+    "feed_url":"/api/media_mentions/1",
     "title": "Africa 2013: Day 5 Recap",
     "date":"01 29 2014",
     "year": "2014",
-      "detail_page": "",
+      "detail_page": "true",
     "type":"media_mention",
     "featured":"",
     "header_image_url":"",
