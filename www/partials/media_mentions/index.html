@@ -64,6 +64,7 @@
   <ul class="pagination-articles press-items">
     <li ng-repeat="article in pressItems">
       <page-tile
+        media-type="{{article.type}}"
         id="{{article.id}}"
         title="{{article.title}}"
         date="{{article.date}}"

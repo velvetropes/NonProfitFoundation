@@ -148,7 +148,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
     $timeout (->
       scope.pane = $(".thumblist-nav")
       scope.pane.jScrollPane config
-    ), 1400
+    ), 2400
 
     scope.isFullHeight = ->
       scope.full?.length > 0 and scope.full is "true"
@@ -440,8 +440,8 @@ sfDirectives.directive "pageTile", [ ->
     scope.callToActionLink ?= ""
     scope.videoLink ?= ""
 
-    # scope.hasVideo = ->
-    #   scope.videoLink?.length > 0
+    scope.hasVideo = ->
+      scope.videoLink?.length > 0
 
     # scope.hasDetailPage = ->
     #   scope.detailPage?.length > 0
@@ -467,18 +467,39 @@ sfDirectives.directive "pageTile", [ ->
     scope.parseDate = (date) ->
       Date.parse(date)
 
+    scope.linkByType = ->
+      if scope.type?
+        if scope.type is "press_release"
+          "pess_release"
+        else if scope.type is "media_mention"
+          if scope.videoLink?.length > 0
+            "media_mention_with_video"
+          else
+            "media_mention"
+        else
+          "default"
+      else
+        "default"
+
+    scope.displayInModalIfVideo = ->
+      if scope.hasVideo()
+        scope.$emit('modal:show', scope.videoLink)
+
   template = """
     <div class='block'>
       <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}"></div>
       <p class="category">{{getCategory()}}</p>
       <h2 class="headline">{{title}}</h2>
       <p class='date'>{{parseDate(date) | date:"MMMM d yyyy"}}</p>
-      <p class='read-more' ng-switch="type">
+      <p class='read-more' ng-switch="linkByType()">
         <a ng-switch-when="press_release" href="#/press_releases/{{id}}">
           Read more &rarr;
         </a>
-        <a ng-switch-when="media_mention" href="{{videoLink}}" target="_blank">
+        <a ng-switch-when="media_mention" href="{{callToActionLink}}" target="_blank">
           Read more &rarr;
+        </a>
+        <a ng-switch-when="media_mention_with_video" href ng-click="displayInModalIfVideo()">
+          Watch Video &rarr;
         </a>
       </p>
     </div>
