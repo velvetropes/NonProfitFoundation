@@ -1,0 +1,59 @@
+#missions-map .jvectormap-container {
+  @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+}
+
+.missions-map {
+  @include span-columns(12);
+  height: 560px;
+  background: #081920;
+  margin: 0;
+  position: relative;
+  .map-container {
+    border: none;
+    margin: 0;
+    margin-right: 250px;
+    .map {
+      border: none;
+    }
+  }
+  .missions-map-legend {
+    width: 250px;
+    height: 560px;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px 20px 20px;
+    h3 {
+      text-transform: uppercase;
+      color: white;
+      @extend .alrightsanslight;
+      font-size: .75em;
+      margin: 0 0 15px;
+    }
+    .continents {
+      display: block;
+      padding: 0;
+      margin: 0;
+      text-transform: uppercase;
+      li {
+        list-style: none;
+        a {
+          color: white;
+          font-weight: bold;
+        }
+      }
+      .countries, .states {
+        padding: 0;
+        margin: 0;
+        a {
+          text-transform: capitalize;
+          font-weight: normal;
+          @extend .alrightsanslight;
+          font-size: 1.125em;
+        }
+      }
+
+    }
+  }
+}

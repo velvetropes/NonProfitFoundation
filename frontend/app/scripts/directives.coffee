@@ -65,6 +65,43 @@ sfDirectives.directive "worldMap", [->
   }
 ]
 
+# Missions Map
+sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
+  link = (scope, element, attrs) ->
+
+    $timeout( ->
+      $("#missions-map").vectorMap
+        map: "world_mill_en"
+        markers: scope.markers.coords
+        markersSelectableOne: true
+        zoomOnScroll: false
+        series:
+          markers: [
+            attribute: "fill"
+            scale: ["#C8EEFF", "#0071A4"]
+          ]
+
+      mapObject = $("#missions-map").vectorMap("get", "mapObject")
+    , 1800)
+
+  controller = ($scope, $element) ->
+
+  template = """
+    <section class='map'>
+      <div id='missions-map'>
+      </div>
+    </section>
+    """
+  restrict: "E"
+  link: link
+  controller: controller
+  template: template
+  replace: true
+  scope: {
+    markers: "="
+  }
+]
+
 sfDirectives.directive "panelTab", [->
 
   template =  """

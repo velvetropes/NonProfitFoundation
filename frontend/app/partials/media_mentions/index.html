@@ -62,7 +62,7 @@
   </ul>
 
   <ul class="pagination-articles press-items">
-    <li ng-repeat="article in pressItems">
+    <li ng-repeat="article in pressItems | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <page-tile
         media-type="{{article.type}}"
         id="{{article.id}}"
