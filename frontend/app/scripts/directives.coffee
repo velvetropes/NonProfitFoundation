@@ -72,14 +72,12 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     $timeout( ->
       $("#missions-map").vectorMap
         map: "world_mill_en"
-        markers: scope.markers.coords
-        markersSelectableOne: true
         zoomOnScroll: false
-        series:
-          markers: [
-            attribute: "fill"
-            scale: ["#C8EEFF", "#0071A4"]
-          ]
+        # series:
+        #   markers: [
+        #     attribute: "fill"
+        #     scale: ["#C8EEFF", "#0071A4"]
+        #   ]
 
       mapObject = $("#missions-map").vectorMap("get", "mapObject")
     , 1800)
@@ -87,10 +85,40 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   controller = ($scope, $element) ->
 
   template = """
-    <section class='map'>
-      <div id='missions-map'>
+    <div class="missions-map">
+      <div class="map-container">
+        <section class='map'>
+          <div id='missions-map'>
+          </div>
+        </section>
       </div>
-    </section>
+      <div class="missions-map-legend">
+        <h3>Hearing Mission Regions</h3>
+        <ul class="continents">
+          <li>
+            <a href>USA</a>
+            <ul class="states">
+              <li>
+                <a href>New Jersey</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href>CENTRAL AMERICA &amp; CARIBBEAN</a></li>
+          <li><a href>SOUTH AMERICA</a></li>
+          <li>
+            <a href>AFRICA</a>
+            <ul class="countries">
+              <li>
+                <a href>Burundi</a>
+              </li>
+              <li>
+                <a href>Egypt</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
     """
   restrict: "E"
   link: link
@@ -98,7 +126,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   template: template
   replace: true
   scope: {
-    markers: "="
+    data: "="
   }
 ]
 
