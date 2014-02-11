@@ -531,7 +531,6 @@ sfDirectives.directive "pageTile", [ ->
       <h2 class="headline">{{title}}</h2>
       <p class='date'>{{parseDate(date) | date:"MMMM d yyyy"}}</p>
       <p class='read-more' ng-switch="linkByType()">
-        {{linkByType()}}
         <a ng-switch-when="press_release" href="#/press_releases/{{id}}">
           Read more &rarr;
         </a>
