@@ -8,7 +8,7 @@
                 AND w.channel_name IN ('press_releases','media_mentions');" backspace="2"}
   {
   {exp:channel:entries channel="{channel_name}" limit="1" entry_id="{item_id}"}
-    "id":"{entry_id}",
+    "id":"{item_id}",
     "feed_url":"/api/{channel_name}/{item_id}",
     "title": "{title}",
     "date":"{entry_date format='%m %d %Y'}",

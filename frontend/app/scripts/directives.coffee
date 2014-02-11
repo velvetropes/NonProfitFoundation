@@ -95,24 +95,16 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       <div class="missions-map-legend">
         <h3>Hearing Mission Regions</h3>
         <ul class="continents">
-          <li>
-            <a href>USA</a>
-            <ul class="states">
-              <li>
-                <a href>New Jersey</a>
+          <li ng-repeat="continent in data.continents">
+            <a href>{{continent.name}}</a>
+            <ul class="states" ng-show="continent.name==USA">
+              <li ng-repeat="country in continent.countries">
+                <a href>{{country.name}}</a>
               </li>
             </ul>
-          </li>
-          <li><a href>CENTRAL AMERICA &amp; CARIBBEAN</a></li>
-          <li><a href>SOUTH AMERICA</a></li>
-          <li>
-            <a href>AFRICA</a>
-            <ul class="countries">
-              <li>
-                <a href>Burundi</a>
-              </li>
-              <li>
-                <a href>Egypt</a>
+            <ul class="countries" ng-show="continent.name!=USA">
+              <li ng-repeat="country in continent.countries">
+                <a href>{{country.name}}</a>
               </li>
             </ul>
           </li>
