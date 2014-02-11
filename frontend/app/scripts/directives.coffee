@@ -470,7 +470,7 @@ sfDirectives.directive "pageTile", [ ->
     scope.linkByType = ->
       if scope.type?
         if scope.type is "press_release"
-          "pess_release"
+          "press_release"
         else if scope.type is "media_mention"
           if scope.videoLink?.length > 0
             "media_mention_with_video"
