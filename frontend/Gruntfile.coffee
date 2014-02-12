@@ -44,6 +44,7 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/programs.group/index.html" : 'app/programs.html',
           "<%= app.dist %>/templates/default_site/blog.group/index.html" : 'app/blog.html',
           "<%= app.dist %>/templates/default_site/media_mentions.group/index.html" : 'app/media_mentions.html',
+          "<%= app.dist %>/templates/default_site/missions.group/index.html" : 'app/missions.html',
      sass:
       dist:
         options:
