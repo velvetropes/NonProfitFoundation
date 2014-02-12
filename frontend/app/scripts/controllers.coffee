@@ -135,7 +135,6 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker",($scope, MissionsMapMarker) ->
   MissionsMapMarker.getIndex().then (data) ->
     $scope.data = data
-
 ])
 
 sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", ($scope, $routeParams) ->

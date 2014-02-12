@@ -68,7 +68,7 @@ sfDirectives.directive "worldMap", [->
 # Missions Map
 sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   link = (scope, element, attrs) ->
-
+    scope.mapObject = {}
     $timeout( ->
       $("#missions-map").vectorMap
         map: "world_mill_en"
@@ -78,11 +78,49 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         #     attribute: "fill"
         #     scale: ["#C8EEFF", "#0071A4"]
         #   ]
+        regionStyle:
+          selected:
+            fill: "#ffad20"
+        focusOn:
+          x: 0.5,
+          y: 0.5,
+          scale: .5
+        # onRegionClick: (e, c) ->
+        #   console.debug "onRegionClick", c
 
-      mapObject = $("#missions-map").vectorMap("get", "mapObject")
+      scope.mapObject = $("#missions-map").vectorMap("get", "mapObject")
     , 1800)
 
+    scope.countryClass = (name) ->
+      if name is "USA"
+        "states"
+      else
+        "countries"
+
   controller = ($scope, $element) ->
+
+    $scope.showContinent = (continent) ->
+      if continent.name is "US"
+        # TODO initialize US map, after making it visible
+        # $("#missions-map").vectorMap({map: 'us_aea_en'});
+
+      else
+        # $("#missions-map").vectorMap({map: 'world_mill_en'})
+        countryCodes = []
+        countryCodes.push country.abbreviation for country in continent.countries_visited
+        if countryCodes.length > 0
+          # mapObject = $("#missions-map").vectorMap('get', 'mapObject')
+          $scope.mapObject.clearSelectedRegions()
+          $scope.mapObject.setFocus countryCodes
+          $scope.mapObject.setSelectedRegions countryCodes
+
+    $scope.showCountryOrState = (country) ->
+      countryCode = country.abbreviation
+      if countryCode?.length > 0
+        # mapObject = $("#missions-map").vectorMap('get', 'mapObject')
+        $scope.mapObject.clearSelectedRegions()
+        $scope.mapObject.setFocus countryCode
+        $scope.mapObject.setSelectedRegions countryCode
 
   template = """
     <div class="missions-map">
@@ -96,15 +134,10 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         <h3>Hearing Mission Regions</h3>
         <ul class="continents">
           <li ng-repeat="continent in data.continents">
-            <a href>{{continent.name}}</a>
-            <ul class="states" ng-show="continent.name==USA">
-              <li ng-repeat="country in continent.countries">
-                <a href>{{country.name}}</a>
-              </li>
-            </ul>
-            <ul class="countries" ng-show="continent.name!=USA">
-              <li ng-repeat="country in continent.countries">
-                <a href>{{country.name}}</a>
+            <a href ng-click="showContinent(continent)">{{continent.name}}</a>
+            <ul ng-class="countryClass(continent.name)">
+              <li ng-repeat="country in continent.countries_visited">
+                <a href ng-click="showCountryOrState(country)">{{country.name}}</a>
               </li>
             </ul>
           </li>
@@ -117,9 +150,8 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   controller: controller
   template: template
   replace: true
-  scope: {
+  scope:
     data: "="
-  }
 ]
 
 sfDirectives.directive "panelTab", [->
@@ -650,7 +682,6 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
       $.getScript('//www.youtube.com/iframe_api')
 
     scope.playVideo = (url) ->
-      console.debug "playing video", url
       $window.onYouTubeIframeAPIReady = scope.createYoutubePlayer(url)
       scope.getYoutubeIframeApi()
 
