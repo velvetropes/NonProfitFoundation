@@ -68,28 +68,41 @@ sfDirectives.directive "worldMap", [->
 # Missions Map
 sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   link = (scope, element, attrs) ->
-    scope.mapObject = {}
-    $timeout( ->
-      $("#missions-map").vectorMap
-        map: "world_mill_en"
-        zoomOnScroll: false
-        # series:
-        #   markers: [
-        #     attribute: "fill"
-        #     scale: ["#C8EEFF", "#0071A4"]
-        #   ]
-        regionStyle:
-          selected:
-            fill: "#ffad20"
-        focusOn:
-          x: 0.5,
-          y: 0.5,
-          scale: .5
-        # onRegionClick: (e, c) ->
-        #   console.debug "onRegionClick", c
+    scope.worldMapObject = {}
+    scope.usMapObject = {}
+    scope.worldMapZIndex = 1
+    scope.usMapZIndex = 0
 
-      scope.mapObject = $("#missions-map").vectorMap("get", "mapObject")
-    , 1800)
+    scope.initializeMaps = ->
+      $timeout( ->
+        $("#missions-world-map").vectorMap
+          map: "world_mill_en"
+          zoomOnScroll: false
+          regionStyle:
+            selected:
+              fill: "#ffad20"
+          focusOn:
+            x: 0.5,
+            y: 0.5,
+            scale: .5
+
+        scope.worldMapObject = $("#missions-world-map").vectorMap("get", "mapObject")
+
+        $("#missions-us-map").vectorMap
+          map: "us_aea_en"
+          zoomOnScroll: false
+          regionStyle:
+            selected:
+              fill: "#ffad20"
+          focusOn:
+            x: 0.5,
+            y: 0.5,
+            scale: .5
+          onRegionClick: (e, c) ->
+            console.debug "onRegionClick", c
+
+        scope.usMapObject = $("#missions-us-map").vectorMap("get", "mapObject")
+      , 1800)
 
     scope.countryClass = (name) ->
       if name is "USA"
@@ -97,36 +110,61 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       else
         "countries"
 
+    scope.highlightContinentRegions = (continent, mapObj) ->
+      countryCodes = []
+      countryCodes.push country.abbreviation for country in continent.countries_visited
+      if countryCodes.length > 0
+        mapObj.clearSelectedRegions()
+        mapObj.setFocus countryCodes
+        mapObj.setSelectedRegions countryCodes
+
+    scope.highlightCountryRegion = (countryCode, mapObj) ->
+      mapObj.clearSelectedRegions()
+      mapObj.setFocus countryCode
+      mapObj.setSelectedRegions countryCode
+
+    scope.bringUSMapToFront = (flag, continent) ->
+      if flag is true
+        scope.worldMapZIndex = 0
+        scope.usMapZIndex = 1
+        scope.highlightContinentRegions(continent, scope.usMapObject)
+
+      else
+        scope.worldMapZIndex = 1
+        scope.usMapZIndex = 0
+        scope.highlightContinentRegions(continent, scope.worldMapObject)
+
+    scope.initializeMaps()
+
   controller = ($scope, $element) ->
 
     $scope.showContinent = (continent) ->
       if continent.name is "US"
-        # TODO initialize US map, after making it visible
-        # $("#missions-map").vectorMap({map: 'us_aea_en'});
+        $scope.bringUSMapToFront(true, continent)
 
       else
-        # $("#missions-map").vectorMap({map: 'world_mill_en'})
-        countryCodes = []
-        countryCodes.push country.abbreviation for country in continent.countries_visited
-        if countryCodes.length > 0
-          # mapObject = $("#missions-map").vectorMap('get', 'mapObject')
-          $scope.mapObject.clearSelectedRegions()
-          $scope.mapObject.setFocus countryCodes
-          $scope.mapObject.setSelectedRegions countryCodes
+        $scope.bringUSMapToFront(false, continent)
 
-    $scope.showCountryOrState = (country) ->
+    $scope.showCountry = (country, continent) ->
       countryCode = country.abbreviation
       if countryCode?.length > 0
-        # mapObject = $("#missions-map").vectorMap('get', 'mapObject')
-        $scope.mapObject.clearSelectedRegions()
-        $scope.mapObject.setFocus countryCode
-        $scope.mapObject.setSelectedRegions countryCode
+        if continent.name is "US"
+          $scope.bringUSMapToFront(true, continent)
+          $scope.highlightCountryRegion(countryCode, $scope.usMapObject)
+        else
+          $scope.bringUSMapToFront(false, continent)
+          $scope.highlightCountryRegion(countryCode, $scope.worldMapObject)
+
 
   template = """
     <div class="missions-map">
       <div class="map-container">
-        <section class='map'>
-          <div id='missions-map'>
+        <section class='map missions-world-map' ng-style="{'z-index': worldMapZIndex}">
+          <div id='missions-world-map'>
+          </div>
+        </section>
+        <section class='map missions-us-map' ng-style="{'z-index': usMapZIndex}">
+          <div id='missions-us-map'>
           </div>
         </section>
       </div>
@@ -137,7 +175,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
             <a href ng-click="showContinent(continent)">{{continent.name}}</a>
             <ul ng-class="countryClass(continent.name)">
               <li ng-repeat="country in continent.countries_visited">
-                <a href ng-click="showCountryOrState(country)">{{country.name}}</a>
+                <a href ng-click="showCountry(country, continent)">{{country.name}}</a>
               </li>
             </ul>
           </li>

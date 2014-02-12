@@ -1,17 +1,17 @@
 {
    "continents": [
       {
-         "name": "USA",
+         "name": "US",
          "total_hearing_aids_provided": "10000",
          "countries_visited": [
             {
                "name": "Massachusetts",
-               "abbreviation": "MA",
+               "abbreviation": "US-MA",
                "total_hearing_aids_provided": "3000"
             },
             {
                "name": "New Jersey",
-               "abbreviation": "NJ",
+               "abbreviation": "US-NJ",
                "total_hearing_aids_provided": "5000"
             }
          ]

@@ -84,7 +84,12 @@
     <article class='tab-content what-we-do'>
       <ul>
         <li>
+          <!--(bake-start _if="server")-->
           <a href="/missions.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='missions/index'}">
+          <!--(bake-end)-->
             <h3 class="highlight">Mission</h3>
             <h2>Our Global Impact</h2>
           </a>
