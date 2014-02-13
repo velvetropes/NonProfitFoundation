@@ -9,23 +9,117 @@
   </section>
 
   <missions-map data="data"></missions-map>
-
+  <section class="hearing-missions-statistics">
+    <ul>
+      <li class="first">
+        <h1>
+          1,000,000
+        </h1>
+        <p>
+          our hearing aid commitment this decade
+        </p>
+      </li>
+      <li>
+        <h1>
+          400,000
+        </h1>
+        <p>
+          delivered toward our commitment
+        </p>
+      </li>
+      <li>
+        <h1>
+          21,000
+        </h1>
+        <p>
+          delivered in 2014
+        </p>
+      </li>
+    </ul>
+  </section>
   <div class="outer-container">
     <section class='tabbed-content'>
-      <nav>
-          <ul class='tabs row-table'>
-            <li ng-class="{active: currentTab.tabId==0}">
+      <nav class="outer-container">
+          <ul class='three-tabs'>
+            <li ng-class="{active: currentTab==0}" ng-click="changeTab(0)">
               <a href>About Mission</a>
             </li>
-            <li ng-class="{active: currentTab.tabId==1}">
+            <li ng-class="{active: currentTab==1}" ng-click="changeTab(1)">
               <a href>Community Based</a>
             </li>
-            <li ng-class="{active: currentTab.tabId==2}">
+            <li class="last" ng-class="{active: currentTab==2}" ng-click="changeTab(2)">
               <a href>Three Phases</a>
             </li>
           </ul>
       </nav>
+      <article ng-show="currentTab==0">
+        <div class="image" style="background-image: url(uploads/home/feature/building_a_better_kibera.jpg); background-size:cover;">
+
+        </div>
+        <div class="content">
+          <h1>More than 360 million people worldwide have a disabling hearing loss.</h1>
+          <p>Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.</p>
+
+          <p>The wort Starkey Hearing Foundation highlights a transfer of services to the community level in order to facilitate sustainability. We develop a coherent and measurable model for hearing health delivery with strategic partners in recipient countries.</p>
+
+        </div>
+      </article>
+      <article ng-show="currentTab==1">
+        <div class="image" style="background-image: url(uploads/home/feature/west_bank_mission.jpg); background-size:cover;">
+
+        </div>
+        <div class="content">
+          <h1>Article 2</h1>
+          <p>Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.</p>
+
+          <p>The wort Starkey Hearing Foundation highlights a transfer of services to the community level in order to facilitate sustainability. We develop a coherent and measurable model for hearing health delivery with strategic partners in recipient countries.</p>
+
+        </div>
+      </article>
+      <article ng-show="currentTab==2">
+        <div class="image" style="background-image: url(uploads/home/feature/peru_mission_02.jpg); background-size:cover;">
+
+        </div>
+        <div class="content">
+          <h1>Article 3</h1>
+          <p>Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.</p>
+
+          <p>The wort Starkey Hearing Foundation highlights a transfer of services to the community level in order to facilitate sustainability. We develop a coherent and measurable model for hearing health delivery with strategic partners in recipient countries.</p>
+
+        </div>
+      </article>
     </section>
   </div>
 
-  <br/>
+  <section class='page-leader'>
+    <h1>
+      Highlights
+    </h1>
+  </section>
+
+  <section class="carousel hero">
+
+    <swiper
+      continuous="true"
+      speed="2000"
+      identifier="swiper_1"
+      auto="8000"
+      paginator="true"
+      tall="false"
+      >
+      <!--(bake-start _if="server")-->
+        <slide
+            image-url='uploads/home/feature/where_we_are_now_india.jpg'
+            background-color=""
+            quote=""
+            link-url="#/missions/1"
+            headline="Hearing Foundation has provided more hearing help"
+            body-copy="Hearing Foundation has provided more hearing help to people in the United States than to any other country"
+            logo-image-url=""
+            link-style="align-right"
+            link-text="Read more"
+            layout="side-panel"
+          >
+        </slide>
+    </swiper>
+  </section>

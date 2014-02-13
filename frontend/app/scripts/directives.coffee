@@ -72,6 +72,12 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     scope.usMapObject = {}
     scope.worldMapZIndex = 1
     scope.usMapZIndex = 0
+    scope.currentContinent = {}
+    scope.currentCountry = {}
+    scope.selectedList = {}
+
+    scope.selectTopLevelList = (continent) ->
+      scope.selectedList = continent
 
     scope.initializeMaps = ->
       $timeout( ->
@@ -98,30 +104,44 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
             x: 0.5,
             y: 0.5,
             scale: .5
-          onRegionClick: (e, c) ->
-            console.debug "onRegionClick", c
 
         scope.usMapObject = $("#missions-us-map").vectorMap("get", "mapObject")
       , 1800)
 
+    scope.hasContinentAndCountry = ->
+      scope.hasContinent() or scope.hasCountry()
+
+    scope.hasContinent = ->
+      scope.currentContinent?.name?
+
+    scope.hasCountry = ->
+      scope.currentCountry?.name?
+
     scope.countryClass = (name) ->
-      if name is "USA"
-        "states"
-      else
-        "countries"
+      if name?.length
+        if name is "US"
+          "states"
+        else
+          "countries"
+
+    scope.countryOrState = ->
+      scope.countryClass(scope.currentContinent.name) if scope.hasContinent()
 
     scope.highlightContinentRegions = (continent, mapObj) ->
+      scope.currentContinent = continent
+      scope.currentCountry = {}
       countryCodes = []
       countryCodes.push country.abbreviation for country in continent.countries_visited
       if countryCodes.length > 0
         mapObj.clearSelectedRegions()
-        mapObj.setFocus countryCodes
+        mapObj.setFocus countryCodes, .2
         mapObj.setSelectedRegions countryCodes
 
-    scope.highlightCountryRegion = (countryCode, mapObj) ->
+    scope.highlightCountryRegion = (country, mapObj) ->
+      scope.currentCountry = country
       mapObj.clearSelectedRegions()
-      mapObj.setFocus countryCode
-      mapObj.setSelectedRegions countryCode
+      mapObj.setFocus country.abbreviation
+      mapObj.setSelectedRegions country.abbreviation
 
     scope.bringUSMapToFront = (flag, continent) ->
       if flag is true
@@ -150,10 +170,10 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       if countryCode?.length > 0
         if continent.name is "US"
           $scope.bringUSMapToFront(true, continent)
-          $scope.highlightCountryRegion(countryCode, $scope.usMapObject)
+          $scope.highlightCountryRegion(country, $scope.usMapObject)
         else
           $scope.bringUSMapToFront(false, continent)
-          $scope.highlightCountryRegion(countryCode, $scope.worldMapObject)
+          $scope.highlightCountryRegion(country, $scope.worldMapObject)
 
 
   template = """
@@ -168,10 +188,30 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
           </div>
         </section>
       </div>
+      <div class="missions-map-greeting" ng-hide="hasContinentAndCountry()">
+        <h1>Our<br/>Global Impact</h1>
+        <p><a href ng-click="showContinent(data.continents[0])">Explore regions &gt;&gt;</a></p>
+      </div>
+      <div class="missions-map-info" ng-show="hasContinentAndCountry()">
+        <div class="country-info" ng-show="hasCountry()">
+          <h4>{{currentCountry.name}}</h4>
+          <h1>{{currentCountry.total_hearing_aids_provided}}</h1>
+          <p>hearing aids provided since 2010</p>
+        </div>
+
+        <div class="continent-info" ng-show="hasContinent()">
+          <h4>{{currentContinent.name}}</h4>
+          <h1>{{currentContinent.total_hearing_aids_provided}}</h1>
+          <p>hearing aids provided since 2010</p>
+          <h1>{{currentContinent.countries_visited.length}}</h1>
+          <p>{{countryOrState()}} visited</p>
+        </div>
+
+      </div>
       <div class="missions-map-legend">
         <h3>Hearing Mission Regions</h3>
         <ul class="continents">
-          <li ng-repeat="continent in data.continents">
+          <li ng-repeat="continent in data.continents" ng-click="selectTopLevelList(continent)" ng-class="{active: continent == selectedList}">
             <a href ng-click="showContinent(continent)">{{continent.name}}</a>
             <ul ng-class="countryClass(continent.name)">
               <li ng-repeat="country in continent.countries_visited">
@@ -399,8 +439,12 @@ sfDirectives.directive "slide", [ ->
     scope.backgroundColor ?= ""
     scope.logoImageUrl ?= ""
     scope.linkStyle ?= ""
+    scope.layout ?= ""
 
     scope.youttubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+
+    scope.hasSidePanel = ->
+      scope.layout?.length > 0 and scope.layout is "side-panel"
 
     scope.youtubeId = ->
       scope.videoUrl.match(scope.youttubePattern)[1]
@@ -478,7 +522,7 @@ sfDirectives.directive "slide", [ ->
       <div ng-show="hasVideo()" class="play-video-link">
         <a href ng-click="displayInModalIfVideo()"><span class="icon starkey-legend-3"></a>
       </div>
-      <aside>
+      <aside ng-class="{'side-panel': hasSidePanel()}">
         <h1 ng-show="hasHeadline()">{{headline}}</h1>
         <p ng-show="hasBodyCopy()">{{bodyCopy}}</p>
         <div class="logo" ng-show="hasLogoImageUrl()"><img ng-src="{{logoImageUrl}}"/></div>
@@ -528,6 +572,7 @@ sfDirectives.directive "slide", [ ->
       backgroundColor: "@"
       logoImageUrl: "@"
       linkStyle: "@"
+      layout: "@"
   result
 
 ]

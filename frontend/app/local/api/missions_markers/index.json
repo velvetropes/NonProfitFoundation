@@ -5,6 +5,11 @@
          "total_hearing_aids_provided": "10000",
          "countries_visited": [
             {
+               "name": "California",
+               "abbreviation": "US-CA",
+               "total_hearing_aids_provided": "300"
+            },
+            {
                "name": "Massachusetts",
                "abbreviation": "US-MA",
                "total_hearing_aids_provided": "3000"
@@ -18,7 +23,7 @@
       },
       {
          "name": "Central America & Caribbean",
-         "total_hearing_aids_provided": "",
+         "total_hearing_aids_provided": "2323",
          "countries_visited": [
             {
                "name": "Panama",
@@ -45,12 +50,17 @@
                "name": "Nigeria",
                "abbreviation": "NG",
                "total_hearing_aids_provided": "1200"
+            },
+            {
+               "name": "South Africa",
+               "abbreviation": "ZA",
+               "total_hearing_aids_provided": "100"
             }
          ]
       },
       {
          "name": "Asia",
-         "total_hearing_aids_provided": "",
+         "total_hearing_aids_provided": "2433",
          "countries_visited": [
             {
                "name": "Philippines",
@@ -66,7 +76,7 @@
       },
       {
          "name": "South America",
-         "total_hearing_aids_provided": "",
+         "total_hearing_aids_provided": "34534",
          "countries_visited": [
             {
                "name": "Colombia",
@@ -77,7 +87,7 @@
       },
       {
          "name": "Europe",
-         "total_hearing_aids_provided": "",
+         "total_hearing_aids_provided": "433",
          "countries_visited": [
             {
                "name": "Germany",
@@ -88,7 +98,7 @@
       },
       {
          "Australia": {
-            "total_hearing_aids_provided": "",
+            "total_hearing_aids_provided": "34",
             "countries_visited": [
                {
                   "name": "Australia",

@@ -133,8 +133,12 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 # Blog
 
 sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker",($scope, MissionsMapMarker) ->
+  $scope.currentTab = 0
   MissionsMapMarker.getIndex().then (data) ->
     $scope.data = data
+
+  $scope.changeTab = (tabId) ->
+    $scope.currentTab = tabId
 ])
 
 sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", ($scope, $routeParams) ->

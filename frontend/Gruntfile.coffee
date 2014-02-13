@@ -292,6 +292,12 @@ module.exports = (grunt) ->
             },
             { #TODO: fix and remove
               expand: true,
+              cwd: "app/styles/images/",
+              src: ['**'],
+              dest: '../www/assets/styles/images/',
+            },
+            { #TODO: fix and remove
+              expand: true,
               cwd: "app/partials/",
               src: ['**'],
               dest: '../www/partials/',

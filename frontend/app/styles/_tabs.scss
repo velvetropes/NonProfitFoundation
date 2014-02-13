@@ -132,5 +132,60 @@ nav {
         }
       }
     }
+    &.outer-container {
+      .three-tabs {
+        text-align: center;
+        padding: 0;
+        margin: 0 0 -1px;
+        li {
+          width: 200px;
+          display: inline-block;
+          border-left: 1px dotted #333;
+          border-top: 1px dotted #333;
+          margin: 0 0 0 -3px;
+          a {
+            font-size: .875em;
+            @extend .alrightsanslight;
+            display: block;
+            padding: 2px 10px;
+            text-transform: uppercase;
+          }
+          &.active {
+            border-bottom: 1px solid white;
+            a {
+              color: $light-blue;
+            }
+          }
+          &.last {
+            border-right: 1px dotted #333;
+          }
+          &:hover {
+            a {
+              color: $light-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  article {
+    margin-top: 30px;
+    .image {
+      float: left;
+      width: 50%;
+      height: 410px;
+      margin: 0 30px 0 0;
+    }
+    .content {
+      float: right;
+      width: 47%;
+      h1, h2, h3, p {
+        @extend .alrightsanslight;
+      }
+      h1, h2, h3 {
+        line-height: 1.2em;
+      }
+    }
   }
 }
