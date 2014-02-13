@@ -4,8 +4,8 @@
     {exp:channel:entries channel="blog" backspace="6"}
     {
       "id": "{entry_id}",
-      "date": "{entry_date format='%m %d %Y'}",
-      "year": "{entry_date format='%Y'}",
+      "date": "{blog_date format='%m %d %Y'}",
+      "year": "{blog_date format='%Y'}",
       "blog_item_category": "{if blog_category}{blog_category}{/if}",
       "related_blog_items": [],
       "featured": "{if blog_featured}{blog_featured}{/if}",

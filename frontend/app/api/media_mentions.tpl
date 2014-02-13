@@ -2,8 +2,8 @@
 {exp:channel:entries channel="media_mentions" limit="1"}
     "id":"{entry_id}",
     "title": "{title}",
-    "date":"{entry_date format='%m %d %Y'}",
-    "year": "{entry_date format='%Y'}",
+    "date":"{media_mention_date format='%m %d %Y'}",
+    "year": "{media_mention_date format='%Y'}",
     "type":"media_mention",
     "featured":"{media_mention_feature_carousel}",
     "header_image_url":"{media_mention_image}",
