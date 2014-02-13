@@ -141,9 +141,37 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker",($s
     $scope.currentTab = tabId
 ])
 
-sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", ($scope, $routeParams) ->
+sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
 
+  $scope.article = {
+    prev_item: ""
+    next_item: ""
+  }
+
+  $scope.currentPosition = $routeParams.articleId
+  $scope.articles =[]
+  HearingMissionArticle.get(
+    articleId: $routeParams.articleId
+  , (article) ->
+    $scope.article = article
+  )
+
+  Articles.getIndex().then (data) ->
+    if data instanceof Array
+      $scope.articles = data
+    else
+      $scope.articles = [data]
+    $scope.pagination = Pagination.getNew(9)
+    $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
+
+  $scope.numberOfPages = ->
+    Math.ceil($scope.articles.length/$scope.pageSize)
+
+  $scope.parseDate = (date) ->
+    parsedDate = Date.parse(date)
+    parsedDate
 ])
+
 
 # Media Mentions
 

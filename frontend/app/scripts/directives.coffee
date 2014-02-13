@@ -421,11 +421,13 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
 #  background-color=""
 #  logo-image-url=""
 #  link-style=""
+#  detail-page=""
 # ></slide>
 
 sfDirectives.directive "slide", [ ->
 
   link = (scope, element, attrs) ->
+    scope.detailPage ?= ""
     scope.imageUrl ?= ""
     scope.videoUrl ?= ""
     scope.linkUrl ?= ""
@@ -440,6 +442,7 @@ sfDirectives.directive "slide", [ ->
     scope.logoImageUrl ?= ""
     scope.linkStyle ?= ""
     scope.layout ?= ""
+    scope.subhead ?= ""
 
     scope.youttubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
 
@@ -457,6 +460,9 @@ sfDirectives.directive "slide", [ ->
 
     scope.hasDate = ->
       scope.date?.length > 0
+
+    scope.hasDetailPage = ->
+      scope.detailPage?.length > 0 and scope.detailPage is "true"
 
     scope.hasLinkText = ->
       scope.linkText?.length > 0
@@ -478,6 +484,9 @@ sfDirectives.directive "slide", [ ->
 
     scope.isThumblist = ->
       scope.thumblist?.length > 0 and scope.thumblist is "true"
+
+    scope.hasSubhead = ->
+      scope.subhead?.length > 0
 
     scope.getYoutubeVideoThumbnail = ->
       if scope.hasVideo()
@@ -523,11 +532,21 @@ sfDirectives.directive "slide", [ ->
         <a href ng-click="displayInModalIfVideo()"><span class="icon starkey-legend-3"></a>
       </div>
       <aside ng-class="{'side-panel': hasSidePanel()}">
-        <h1 ng-show="hasHeadline()">{{headline}}</h1>
-        <p ng-show="hasBodyCopy()">{{bodyCopy}}</p>
-        <div class="logo" ng-show="hasLogoImageUrl()"><img ng-src="{{logoImageUrl}}"/></div>
-        <a href="{{linkUrl}}" target="_blank" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText()">{{linkText}}</a>
-        <a href class="action-link" ng-show="hasVideo()" ng-click="displayInModalIfVideo()">Watch video</a>
+        <h1 ng-show="hasHeadline()" class="headline">{{headline}}</h1>
+        <p ng-show="hasSubhead()" class="subhead">{{subhead}}</p>
+        <p ng-show="hasBodyCopy()" class="body-copy">{{bodyCopy}}</p>
+        <div class="logo" ng-show="hasLogoImageUrl()">
+          <img ng-src="{{logoImageUrl}}"/>
+        </div>
+        <a href="{{linkUrl}}" target="_blank" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText() && !hasDetailPage()">
+          {{linkText}}
+        </a>
+        <a href class="action-link" ng-show="hasVideo()" ng-click="displayInModalIfVideo()">
+          Watch video
+        </a>
+        <a href="{{linkUrl}}" class="action-link" ng-show="hasDetailPage()">
+          {{linktext || "Read More"}} &rarr;
+        </a>
       </aside>
     </div>
     """
@@ -559,20 +578,22 @@ sfDirectives.directive "slide", [ ->
         slideTemplate
     link: link
     scope:
-      imageUrl: "@"
-      videoUrl: "@"
-      linkUrl: "@"
-      linkText: "@"
-      headline: "@"
-      bodyCopy: "@"
-      thumblist: "@"
-      date: "@"
-      blogCategory: "@"
-      quote: "@"
       backgroundColor: "@"
-      logoImageUrl: "@"
-      linkStyle: "@"
+      blogCategory: "@"
+      bodyCopy: "@"
+      date: "@"
+      detailPage: "@"
+      headline: "@"
+      imageUrl: "@"
       layout: "@"
+      linkStyle: "@"
+      linkText: "@"
+      linkUrl: "@"
+      logoImageUrl: "@"
+      quote: "@"
+      subhead: "@"
+      thumblist: "@"
+      videoUrl: "@"
   result
 
 ]
