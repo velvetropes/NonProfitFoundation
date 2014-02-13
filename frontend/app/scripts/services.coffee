@@ -57,6 +57,9 @@ sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", "urlChooser",
   {getIndex: getIndex}
 ]
 
+sfServices.factory "HearingMissionArticle", ["$resource", "urlChooser", ($resource, urlChooser) ->
+  $resource "#{urlChooser.getUrl}/missions/:articleId", {}, {}
+]
 
 sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 
