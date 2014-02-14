@@ -81,7 +81,7 @@ class hundies_shortcode {
 		  auto="8000"
 		  tall="false"
 		  >
-		  {exp:channel:entries channel="gallery" url_title="<?=$id?>"}
+		  {exp:channel:entries channel="gallery" dynamic="no" url_title="<?=$id?>" limit="1"}
 		  {item}
 		  	<slide
 		  	 image-url="{item:image}"
@@ -99,6 +99,7 @@ class hundies_shortcode {
 		  	 link-style=""
 		  	></slide>
 		  {/item}
+		  {if no_results}<!-- No gallery found -->{/if}
 		  {/exp:channel:entries}
 		</swiper>
 		<?
