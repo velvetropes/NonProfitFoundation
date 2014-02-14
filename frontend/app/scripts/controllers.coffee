@@ -95,7 +95,7 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
     parsedDate
 ])
 
-sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "Article", "Pagination", ($scope, $routeParams, $location, Articles, Article, Pagination) ->
+sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
   $scope.article = {
     prev_item: ""
     next_item: ""
@@ -103,14 +103,9 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 
   $scope.currentPosition = $routeParams.articleId
   $scope.articles =[]
-  Article.get(
-    articleId: $routeParams.articleId
-  , (article) ->
-    if article instanceof Array
-      $scope.article = article[0]
-    else
-      $scope.article = article
-  )
+
+  Article.getDetail($routeParams.articleId).then (html) ->
+    $scope.article = $sce.trustAsHtml(html)
 
   Articles.getIndex().then (data) ->
     if data instanceof Array
@@ -148,13 +143,11 @@ sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$locati
     next_item: ""
   }
 
-  $scope.currentPosition = $routeParams.articleId
+  $scope.currentPosition = $
   $scope.articles =[]
-  HearingMissionArticle.get(
-    articleId: $routeParams.articleId
-  , (article) ->
-    $scope.article = article
-  )
+  # HearingMissionArticle.getDetail($routeParams.articleId).then (response) ->
+  #   TODO
+  #   $scope.article = response.data
 
   Articles.getIndex().then (data) ->
     if data instanceof Array

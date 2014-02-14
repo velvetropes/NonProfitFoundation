@@ -1,0 +1,73 @@
+<div class="article-header-image">
+  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg');">
+    <ul class="page-nav-links">
+      <li>
+        <a href="#/articles/" ng-disabled="currentPosition == article.prev_item">&larr;</a>
+      </li>
+      <li>
+        <a href="#/articles/" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
+      </li>
+      <li>
+        <a href="#">X</a>
+      </li>
+    </ul>
+    <div class="gradient-background"></div>
+    <div class="outer-container">
+      <div class="relative-container">
+        <div class="banner">
+                      <p class="article-item-category">Hearing Missions</p>
+                    <h1  class="article-title">An Unstoppable Spirit</h1>
+          <p>{{parseDate(02 12 2014) | date:"MMMM d yyyy"}} | SHF Staff</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+
+<p>Like a typical 9-year-old girl, Maci Rowan loves the band One Direction and will proudly proclaim to anyone listening that her favorite song is&nbsp;What Makes You Beautiful. However, Maci is anything but typical. Born with cerebral palsy, she has had to overcome some significant physical obstacles in her short life. These obstacles became even more daunting last year when she began to suffer hearing loss.</p>
+
+<p>Despite her hearing loss, Maci continued to seek out ways to connect to the world and outlets for her jubilant energy and desire to learn. Unfortunately, Maci&rsquo;s normally excellent grades began to fall, and her frustration with not doing well in school and inability to connect with her peers and teachers, caused her to act out in class.&nbsp; At home, she turned to her dolls for company and connection. Her mother Christy became increasingly concerned over Maci&rsquo;s retreat into isolation. She recognized that hearing loss was to blame and reached out to Starkey Hearing Foundation for help.</p>
+
+<p>   <swiper
+      continuous="true"
+      speed="2000"
+      identifier="testing-gallery-2"
+      auto="8000"
+      tall="false"
+      >
+
+    </swiper>
+    </p>
+
+<p>When Maci came to see us in New Orleans, her smile lit up the room, and her laughter was contagious. We had invited Maci to our Friday mission in partnership with Garth Brooks&rsquo; Super ProCamps, so that she could not only receive the gift of hearing but also participate in all the fun activities for the children. We watched in amazement as NFL stars were drawn to her boundless joy and curiosity. The Foundation team and our celebrity volunteers just couldn&rsquo;t get enough of Maci. &nbsp;Explaining her daughter&rsquo;s unique spirit, Christy said with a smile, &ldquo;She has always been this way. Once she gets you wrapped around her finger, you&rsquo;re lost. You have no chance of disciplining her.&rdquo;</p>
+
+<p>By the time she sat in Bill Austin&rsquo;s chair to receive the gift of hearing, Maci had not heard her own voice in months, but once she was fit, she beamed her irrepressible light and cried out, &ldquo;Oh! I can talk again!&rdquo;</p>
+
+<p>Able to confidently connect with the world again, Maci immediately joined the kids participating in the ProCamps cheerleading activities and won the &ldquo;Champion of the Day&rdquo; award. We know that with the gift of hearing this amazing girl will continue winning and inspire many more hearts and minds.</p>
+
+<div class="outer-container">
+  <div class="share-this-post">
+    <ul>
+      <li><span class="note">Share this post</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-twitter"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-fb"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+<br/>
+

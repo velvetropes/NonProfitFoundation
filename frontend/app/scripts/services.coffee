@@ -23,8 +23,17 @@ sfServices.factory "urlChooser", [->
   }
 ]
 
-sfServices.factory "Article", ["$resource", "urlChooser", ($resource, urlChooser) ->
-  $resource "#{urlChooser.getUrl}/blog/:articleId", {}, {}
+sfServices.factory "Article", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+
+  getDetail = (id) ->
+    deferred = $q.defer()
+
+    $http.get("#{urlChooser.getUrl}/articles/#{id}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getDetail: getDetail}
 ]
 
 sfServices.factory "Articles", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
@@ -60,6 +69,19 @@ sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", "urlChooser",
 sfServices.factory "HearingMissionArticle", ["$resource", "urlChooser", ($resource, urlChooser) ->
   $resource "#{urlChooser.getUrl}/missions/:articleId", {}, {}
 ]
+
+# sfServices.factory "HearingMissionArticle", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+
+#   getDetail = (id) ->
+#     deferred = $q.defer()
+
+#     $http.get("#{urlChooser.getUrl}/missions_articles/#{id}").success((data) ->
+#       deferred.resolve data
+#     ).error (reason) ->
+#       deferred.reject reason
+#     deferred.promise
+#   {getDetail: getDetail}
+# ]
 
 sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 

@@ -1,0 +1,57 @@
+{exp:channel:entries channel="blog" limit="1"}
+<div class="article-header-image">
+  <div class="image" style="background-image: url('{blog_image}');">
+    <ul class="page-nav-links">
+      <li>
+        <a href="#/articles/" ng-disabled="currentPosition == article.prev_item">&larr;</a>
+      </li>
+      <li>
+        <a href="#/articles/" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
+      </li>
+      <li>
+        <a href="#">X</a>
+      </li>
+    </ul>
+    <div class="gradient-background"></div>
+    <div class="outer-container">
+      <div class="relative-container">
+        <div class="banner">
+          {if blog_category}
+            <p class="article-item-category">{blog_category}</p>
+          {/if}
+          <h1  class="article-title">{title}</h1>
+          <p>{{parseDate({entry_date format='%m %d %Y'}) | date:"MMMM d yyyy"}} | {blog_author}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+
+{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
+
+<div class="outer-container">
+  <div class="share-this-post">
+    <ul>
+      <li><span class="note">Share this post</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-twitter"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-fb"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+<br/>
+{/exp:channel:entries}

@@ -11,3 +11,4 @@ Thumbs.db
 node_modules/
 system/expressionengine/cache/*
 www/starkey.sql
+www/uploads/*
