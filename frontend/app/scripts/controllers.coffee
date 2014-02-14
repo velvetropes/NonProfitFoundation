@@ -96,16 +96,9 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
 ])
 
 sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
-  $scope.article = {
-    prev_item: ""
-    next_item: ""
-  }
 
   $scope.currentPosition = $routeParams.articleId
   $scope.articles =[]
-
-  Article.getDetail($routeParams.articleId).then (html) ->
-    $scope.article = $sce.trustAsHtml(html)
 
   Articles.getIndex().then (data) ->
     if data instanceof Array
@@ -118,9 +111,6 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
 
-  $scope.parseDate = (date) ->
-    parsedDate = Date.parse(date)
-    parsedDate
 ])
 
 # Hearing Missions
@@ -215,14 +205,15 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Me
   $scope.currentPosition = $routeParams.articleId
 
   $scope.pressItems = []
-  MediaMention.get(
-    mediaMentionId: $routeParams.mediaMentionId
-  , (pressItem) ->
-    if pressItem instanceof Array
-      $scope.article = pressItem[0]
-    else
-      $scope.article = pressItem
-  )
+  # TODO
+  # MediaMention.get(
+  #   mediaMentionId: $routeParams.mediaMentionId
+  # , (pressItem) ->
+  #   if pressItem instanceof Array
+  #     $scope.article = pressItem[0]
+  #   else
+  #     $scope.article = pressItem
+  # )
 
   MediaMentionOrPressItem.getIndex().then (data) ->
     $scope.pressItems = data
@@ -247,14 +238,15 @@ sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "Pr
   $scope.currentPosition = $routeParams.pressReleaseId
 
   $scope.pressItems = []
-  PressRelease.get(
-    pressReleaseId: $routeParams.pressReleaseId
-  , (pressItem) ->
-    if pressItem instanceof Array
-      $scope.article = pressItem[0]
-    else
-      $scope.article = pressItem
-  )
+  # TODO
+  # PressRelease.get(
+  #   pressReleaseId: $routeParams.pressReleaseId
+  # , (pressItem) ->
+  #   if pressItem instanceof Array
+  #     $scope.article = pressItem[0]
+  #   else
+  #     $scope.article = pressItem
+  # )
 
   MediaMentionOrPressItem.getIndex().then (data) ->
     $scope.pressItems = data
@@ -268,7 +260,6 @@ sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "Pr
     parsedDate = Date.parse(date)
     parsedDate
 ])
-
 
 # Programs
 

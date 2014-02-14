@@ -1,9 +1,11 @@
 {
    "continents": [
+
       {
          "name": "US",
          "total_hearing_aids_provided": "10000",
          "countries_visited": [
+
             {
                "name": "California",
                "abbreviation": "US-CA",
@@ -21,10 +23,12 @@
             }
          ]
       },
+
       {
          "name": "Central America & Caribbean",
          "total_hearing_aids_provided": "2323",
          "countries_visited": [
+
             {
                "name": "Panama",
                "abbreviation": "PA",
@@ -32,10 +36,12 @@
             }
          ]
       },
+
       {
          "name": "Africa",
          "total_hearing_aids_provided": "12,000",
          "countries_visited": [
+
             {
                "name": "Ethiopia",
                "abbreviation": "ET",
@@ -58,10 +64,12 @@
             }
          ]
       },
+
       {
          "name": "Asia",
          "total_hearing_aids_provided": "2433",
          "countries_visited": [
+
             {
                "name": "Philippines",
                "abbreviation": "PH",
@@ -74,10 +82,12 @@
             }
          ]
       },
+
       {
          "name": "South America",
          "total_hearing_aids_provided": "34534",
          "countries_visited": [
+
             {
                "name": "Colombia",
                "abbreviation": "CO",
@@ -85,10 +95,12 @@
             }
          ]
       },
+
       {
          "name": "Europe",
          "total_hearing_aids_provided": "433",
          "countries_visited": [
+
             {
                "name": "Germany",
                "abbreviation": "DE",
@@ -96,17 +108,18 @@
             }
          ]
       },
+
       {
-         "Australia": {
-            "total_hearing_aids_provided": "34",
-            "countries_visited": [
-               {
-                  "name": "Australia",
-                  "abbreviation": "AU",
-                  "total_hearing_aids_provided": "12123"
-               }
-            ]
-         }
+         "name": "Australia",
+         "total_hearing_aids_provided": "34",
+         "countries_visited": [
+
+            {
+               "name": "Australia",
+               "abbreviation": "AU",
+               "total_hearing_aids_provided": "12123"
+            }
+         ]
       }
    ]
 }

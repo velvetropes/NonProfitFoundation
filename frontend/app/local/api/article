@@ -1,0 +1,85 @@
+
+<div class="article-header-image">
+  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/BLOG-Impacting_a_life_in_Manila-LEAD.png');">
+    <ul class="page-nav-links">
+      <li>
+        <a href="#/articles/" ng-disabled="currentPosition == article.prev_item">&larr;</a>
+      </li>
+      <li>
+        <a href="#/articles/" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
+      </li>
+      <li>
+        <a href="#">X</a>
+      </li>
+    </ul>
+    <div class="gradient-background"></div>
+    <div class="outer-container">
+      <div class="relative-container">
+        <div class="banner">
+                      <p class="article-item-category">Hearing Missions</p>
+                    <h1  class="article-title">Impacting a Life in Manila</h1>
+          <p>Feb 14, 2014 | Foundation Staff </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+
+<p>In December 2011, Manny Pacquiao joined us as a volunteer on a mission in Manila, Philippines. There he met Parisse, a young bright girl struggling with her studies because of hearing loss. He helped us give her the gift of hearing, and today, she is thriving and loves school. Watch our latest video blog to see how well she&rsquo;s doing and her very special message for Manny.</p>
+
+<p>   <swiper
+      continuous="true"
+      speed="2000"
+      identifier="blog-impacting-a-life-in-manila-film"
+      auto="8000"
+      tall="false"
+      >
+
+
+        <slide
+         image-url=""
+         video-url="http://youtu.be/HVx-lUkcr38"
+         link-url=""
+         link-text=""
+         headline=""
+         body-copy=""
+         thumblist="false"
+         date=""
+         blog-category=""
+         quote=""
+         background-color=""
+         logo-image-url=""
+         link-style=""
+        ></slide>
+
+
+
+    </swiper>
+    </p>
+
+<div class="outer-container">
+  <div class="share-this-post">
+    <ul>
+      <li><span class="note">Share this post</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-twitter"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-fb"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+<br/>
+

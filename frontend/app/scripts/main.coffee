@@ -14,9 +14,9 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
     templateUrl: "partials/articles/index.html"
     controller: "BlogIndexCtrl"
   ).when("/articles/:articleId",
-    # templateUrl: (params) ->
-    #   "api/blog/{params.articleId}"
-    templateUrl: "partials/articles/show.html"
+    templateUrl: ->
+      "api/article"
+      # "local/api/article"
     controller: "BlogShowCtrl"
   ).otherwise redirectTo: "/articles"
 ]
