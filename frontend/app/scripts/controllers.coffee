@@ -126,6 +126,7 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker",($s
     $scope.currentTab = tabId
 ])
 
+# TODO Change to detail page format after feed is up
 sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
 
   $scope.article = {
@@ -135,9 +136,8 @@ sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$locati
 
   $scope.currentPosition = $
   $scope.articles =[]
-  # HearingMissionArticle.getDetail($routeParams.articleId).then (response) ->
-  #   TODO
-  #   $scope.article = response.data
+  HearingMissionArticle.getDetail($routeParams.articleId).then (response) ->
+    $scope.article = response.data
 
   Articles.getIndex().then (data) ->
     if data instanceof Array
@@ -195,6 +195,7 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
     parsedDate
 ])
 
+# TODO Change to detail page format
 sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "MediaMention", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, MediaMention, MediaMentionOrPressItem, Pagination) ->
 
   $scope.article = {
@@ -205,15 +206,15 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Me
   $scope.currentPosition = $routeParams.articleId
 
   $scope.pressItems = []
-  # TODO
-  # MediaMention.get(
-  #   mediaMentionId: $routeParams.mediaMentionId
-  # , (pressItem) ->
-  #   if pressItem instanceof Array
-  #     $scope.article = pressItem[0]
-  #   else
-  #     $scope.article = pressItem
-  # )
+
+  MediaMention.get(
+    mediaMentionId: $routeParams.mediaMentionId
+  , (pressItem) ->
+    if pressItem instanceof Array
+      $scope.article = pressItem[0]
+    else
+      $scope.article = pressItem
+  )
 
   MediaMentionOrPressItem.getIndex().then (data) ->
     $scope.pressItems = data
@@ -228,6 +229,7 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Me
     parsedDate
 ])
 
+# TODO Change to detail page
 sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "PressRelease", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressRelease, MediaMentionOrPressItem, Pagination) ->
 
   $scope.article = {
@@ -238,15 +240,15 @@ sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "Pr
   $scope.currentPosition = $routeParams.pressReleaseId
 
   $scope.pressItems = []
-  # TODO
-  # PressRelease.get(
-  #   pressReleaseId: $routeParams.pressReleaseId
-  # , (pressItem) ->
-  #   if pressItem instanceof Array
-  #     $scope.article = pressItem[0]
-  #   else
-  #     $scope.article = pressItem
-  # )
+
+  PressRelease.get(
+    pressReleaseId: $routeParams.pressReleaseId
+  , (pressItem) ->
+    if pressItem instanceof Array
+      $scope.article = pressItem[0]
+    else
+      $scope.article = pressItem
+  )
 
   MediaMentionOrPressItem.getIndex().then (data) ->
     $scope.pressItems = data
