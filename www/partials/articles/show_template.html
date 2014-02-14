@@ -27,9 +27,9 @@
   </div>
 </div>
 <br/>
-
+<div class="text-container">
 {exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
-
+</div>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>
@@ -51,17 +51,13 @@
       </li>
     </ul>
   </div>
-
 </div>
-<br/>
-{/exp:channel:entries}
-
 <br/>
 <div class="outer-container">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel'>
     <thumblist-nav>
-      <div ng-repeat="article in articles | filter:{featured:'true'}">
+      <div ng-repeat="article in articles">
         <slide
           thumblist="true"
           image-url="{{article.thumbnail_image_url}}"
@@ -99,3 +95,4 @@
     </li>
   </ul>
 </div>
+{/exp:channel:entries}

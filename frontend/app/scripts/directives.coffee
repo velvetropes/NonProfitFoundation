@@ -400,6 +400,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     """
   transclude: true
   replace: true
+  # priority: 0
   scope:
     identifier: "@"
     paginator: "@"
@@ -594,6 +595,183 @@ sfDirectives.directive "slide", [ ->
       subhead: "@"
       thumblist: "@"
       videoUrl: "@"
+  result
+
+]
+
+# Detail page directive format
+# <detail-page
+#   detail-page-type="blog"
+#   date="{entry_date format='%M %d, %Y'}"
+#   author="{blog_author}"
+#   category="{blog_category}"
+#   title="{title}"
+#   subhead=""
+#   body="{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}"
+#   header-image-url="{blog_image}"
+#   thumbnail-image-url=""
+#   previous-page-id=""
+#   next-page-id=""
+#   share-this="false"
+#   has-related-posts="false">
+# </detail-page>
+
+sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compile)->
+
+  link = (scope, element, attrs) ->
+    scope.author ?= ""
+    scope.body ?= ""
+    scope.category ?= ""
+    scope.date ?= ""
+    scope.detailPageType ?= ""
+    scope.hasRelatedPosts ?= ""
+    scope.headerImageUrl ?= ""
+    scope.previousPageId ?= ""
+    scope.nextPageId ?= ""
+    scope.shareThis ?= ""
+    scope.subhead ?= ""
+    scope.thumbnailImageUrl ?= ""
+    scope.title ?= ""
+    # template = if scope.detailPageType is "blog"
+    #   blogDetailTemplate
+    # else
+    #   pressReleaseDetailTemplate
+    # element.html(template)
+    # $compile(element.contents())(scope)
+    # $timeout( ->
+    #   element.html(template)
+    #   $compile(element.contents())(scope)
+    # , 4800)
+
+
+  pressReleaseDetailTemplate = """
+    <article>
+      <div class="article-header-image">
+        <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}">
+          <ul class="page-nav-links">
+            <li>
+              <a href="#/{{detailPageType}}/">&larr;</a>
+            </li>
+            <li>
+              <a href="#/{{detailPageType}}/">&rarr;</a>
+            </li>
+            <li>
+              <a href="#">X</a>
+            </li>
+          </ul>
+          <div class="gradient-background"></div>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <div class="outer-container detail-page-body">
+        <section class='page-leader'>
+          <h1>Press Release</h1>
+          <h3>For immediate release</h3>
+        </section>
+        <h1 class="article-headline">{{title}}</h1>
+        <p class="article-date">{{date}}</p>
+        <h3 class="article-subheadline">{{subhead}}</h3>
+        <div ng-bind-html="body"></div>
+        <div class="share-this-post">
+          <ul>
+            <li><span class="note">Share this post</span></li>
+            <li>
+              <a href="#">
+                <span class="icon starkey-share-twitter"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon starkey-share-fb"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon starkey-share-email"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </article>
+    """
+  blogDetailTemplate = """
+    <article>
+      <div class="article-header-image">
+        <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}">
+          <ul class="page-nav-links">
+            <li>
+              <a href="#/{{detailPageType}}/">&larr;</a>
+            </li>
+            <li>
+              <a href="#/{{detailPageType}}/">&rarr;</a>
+            </li>
+            <li>
+              <a href="#">X</a>
+            </li>
+          </ul>
+          <div class="gradient-background"></div>
+          <div class="outer-container">
+            <div class="relative-container">
+              <div class="banner">
+                <p class="article-item-category">{{category}}</p>
+                <h1  class="article-title">{{title}}</h1>
+                <p>{{date}} | {{author}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div ng-bind-html="body"></div>
+      <div class="outer-container">
+        <div class="share-this-post">
+          <ul>
+            <li><span class="note">Share this post</span></li>
+            <li>
+              <a href="#">
+                <span class="icon starkey-share-twitter"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon starkey-share-fb"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon starkey-share-email"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </article>
+    """
+  result =
+    restrict: "E"
+    replace: true
+    template: blogDetailTemplate
+    link: link
+    # priority: 1
+    scope:
+      author: "@"
+      body: "@"
+      category: "@"
+      date: "@"
+      detailPageType: "@"
+      hasRelatedPosts: "@"
+      headerImageUrl: "@"
+      previousPageId: "@"
+      nextPageId: "@"
+      shareThis: "@"
+      subhead: "@"
+      thumbnailImageUrl: "@"
+      title: "@"
   result
 
 ]
