@@ -502,7 +502,7 @@ sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compi
     replace: true
     templateUrl: ->
       # TODO - template chooser
-      "templates/blog_detail_page"
+      "templates/blog_detail_page.html"
     link: link
     # priority: 1
     scope:
