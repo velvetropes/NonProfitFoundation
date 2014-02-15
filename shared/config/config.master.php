@@ -123,6 +123,8 @@ if (isset($config))
 	$env_config['prv_msg_upload_path'] = $images_path . '/pm_attachments/';
 	// $env_config['third_party_path']    = $base_path . '/../third_party/';
 
+	/*
+	// Not sure what this was being used for?
 	$config['assets_source_settings'] = array(
 		1 => array (
 		  'access_key_id' => '',
@@ -130,24 +132,25 @@ if (isset($config))
 		  'bucket' => ''
 		)
 	);
+	*/
 
 	/**
 	 * Custom upload directory paths
 	 *
 	 * The array keys must match the ID from exp_upload_prefs
 	 */
-	// $env_config['upload_preferences'] = array(
-	//     1 => array(
-	//         'name'        => 'Default Uploads',
-	//         'server_path' => $images_path . '/uploads',
-	//         'url'         => $images_url  . '/uploads/'
-	//     ),
-	//     2 => array(
-	//         'name'        => 'Second Folder',
-	//         'server_path' => $images_path . '/another_one',
-	//         'url'         => $images_url  . '/another_one/'
-	//     )
-	// );
+	$env_config['upload_preferences'] = array(
+	    1 => array(
+	        'name'        => 'Image Uploads',
+	        'server_path' => $base_path . '/uploads/',
+	        'url'         => $base_url  . '/uploads/'
+	    ),
+	    2 => array(
+	        'name'        => 'File Uploads',
+	        'server_path' => $base_path . '/uploads/files/',
+	        'url'         => $base_url  . '/uploads/files/'
+	    )
+	);
 
 
 	/**
