@@ -1,11 +1,66 @@
 [
   {
-    "id": "1",
-    "date": "February 13, 2014",
-    "featured": "true",
-    "title": "An Unstoppable Spirit",
-    "body": "Like a typical 9-year-old girl, Maci Rowan loves the band One Direction and will proudly proclaim to anyone listening that her favorite song is&nbsp;What Makes You Beautiful. However, Maci is anything but typical. Born with cerebral palsy, she has had to overcome some significant physical obstacles in her short life. These obstacles became even more daunting last year when she began to suffer hearing loss.</p>  <p>Despite her hearing loss, Maci continued to seek out ways to connect to the world and outlets for her jubilant energy and desire to learn. Unfortunately, Maci’s normally excellent grades began to fall, and her frustration with not doing well in school and inability to connect with her peers and teachers, caused her to act out in class.&nbsp; At home, she turned to her dolls for company and connection. Her mother Christy became increasingly concerned over Maci’s retreat into isolation. She recognized that hearing loss was to blame and reached out to Starkey Hearing Foundation for help.</p> <p>When Maci came to see us in New Orleans, her smile lit up the room, and her laughter was contagious. We had invited Maci to our Friday mission in partnership with Garth Brooks’ Super ProCamps, so that she could not only receive the gift of hearing but also participate in all the fun activities for the children. We watched in amazement as NFL stars were drawn to her boundless joy and curiosity. The Foundation team and our celebrity volunteers just couldn’t get enough of Maci. &nbsp;Explaining her daughter’s unique spirit, Christy said with a smile, “She has always been this way. Once she gets you wrapped around her finger, you’re lost. You have no chance of disciplining her.”</p>  <p>By the time she sat in Bill Austin’s chair to receive the gift of hearing, Maci had not heard her own voice in months, but once she was fit, she beamed her irrepressible light and cried out, “Oh! I can talk again!”</p>  <p>Able to confidently connect with the world again, Maci immediately joined the kids participating in the ProCamps cheerleading activities and won the “Champion of the Day” award. We know that with the gift of hearing this amazing girl will continue winning and inspire many more hearts and minds.</p>",
-    "thumbnail_image_url": "http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg",
-    "header_image_url": "http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg"
+    "page_title" : "Hearing Missions",
+    "page_lead" : "Through 2010, we provided more than 1 million hearing aids to people in<br />need worldwide. We commit to providing 1 million more this decade.",
+    "hearing_mission_statistics" : [
+        {
+            "name": "1,000,000",
+            "tagline": "OUR HEARING AID COMMITMENT THIS DECADE"
+        },
+        {
+            "name": "1,000,000",
+            "tagline": "OUR HEARING AID COMMITMENT THIS DECADE"
+        },
+        {
+            "name": "1,000,000",
+            "tagline": "OUR HEARING AID COMMITMENT THIS DECADE"
+        }
+    ],
+    "content_tabs" : [
+        {
+            "tab_title" : "ABOUT MISSION",
+            "content_title" : "More than 360 million people worldwide have a disabling hearing loss.",
+            "content_image" : "uploads/home/feature/building_a_better_kibera.jpg",
+            "content" : "<p>Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.</p><p>The wort Starkey Hearing Foundation highlights a transfer of services to the community level in order to facilitate sustainability. We develop a coherent and measurable model for hearing health delivery with strategic partners in recipient countries.</p>"
+        },
+        {
+            "tab_title" : "COMMUNITY BASED",
+            "content_title" : "Article 2",
+            "content_image" : "uploads/home/feature/building_a_better_kibera.jpg",
+            "content" : "<p>Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.</p><p>The wort Starkey Hearing Foundation highlights a transfer of services to the community level in order to facilitate sustainability. We develop a coherent and measurable model for hearing health delivery with strategic partners in recipient countries.</p>"
+        },
+        {
+            "tab_title" : "THREE PHASES",
+            "content_title" : "Article 3",
+            "content_image" : "uploads/home/feature/building_a_better_kibera.jpg",
+            "content" : "<p>Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.</p><p>The wort Starkey Hearing Foundation highlights a transfer of services to the community level in order to facilitate sustainability. We develop a coherent and measurable model for hearing health delivery with strategic partners in recipient countries.</p>"
+        }
+    ],
+    "highlights" : [
+        {
+            "id"        : "{url_title}",
+            "title"     : "{title}",
+            "subtitle"  : "{subtitle}",
+            "excerpt"   : "{mission_excerpt}",
+            "image"     : "{mission_image:url}",
+            "video"     : "{mission_video_url}",
+        },
+        {
+            "id"        : "{url_title}",
+            "title"     : "{title}",
+            "subtitle"  : "{subtitle}",
+            "excerpt"   : "{mission_excerpt}",
+            "image"     : "{mission_image:url}",
+            "video"     : "{mission_video_url}",
+        },
+        {
+            "id"        : "{url_title}",
+            "title"     : "{title}",
+            "subtitle"  : "{subtitle}",
+            "excerpt"   : "{mission_excerpt}",
+            "image"     : "{mission_image:url}",
+            "video"     : "{mission_video_url}",
+        }
+    ]
   }
 ]
