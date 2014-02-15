@@ -175,58 +175,10 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
           $scope.bringUSMapToFront(false, continent)
           $scope.highlightCountryRegion(country, $scope.worldMapObject)
 
-
-  template = """
-    <div class="missions-map">
-      <div class="map-container">
-        <section class='map missions-world-map' ng-style="{'z-index': worldMapZIndex}">
-          <div id='missions-world-map'>
-          </div>
-        </section>
-        <section class='map missions-us-map' ng-style="{'z-index': usMapZIndex}">
-          <div id='missions-us-map'>
-          </div>
-        </section>
-      </div>
-      <div class="missions-map-greeting" ng-hide="hasContinentAndCountry()">
-        <h1>Our<br/>Global Impact</h1>
-        <p><a href ng-click="showContinent(data.continents[0])">Explore regions &gt;&gt;</a></p>
-      </div>
-      <div class="missions-map-info" ng-show="hasContinentAndCountry()">
-        <div class="country-info" ng-show="hasCountry()">
-          <h4>{{currentCountry.name}}</h4>
-          <h1>{{currentCountry.total_hearing_aids_provided}}</h1>
-          <p>hearing aids provided since 2010</p>
-        </div>
-
-        <div class="continent-info" ng-show="hasContinent()">
-          <h4>{{currentContinent.name}}</h4>
-          <h1>{{currentContinent.total_hearing_aids_provided}}</h1>
-          <p>hearing aids provided since 2010</p>
-          <h1>{{currentContinent.countries_visited.length}}</h1>
-          <p>{{countryOrState()}} visited</p>
-        </div>
-
-      </div>
-      <div class="missions-map-legend">
-        <h3>Hearing Mission Regions</h3>
-        <ul class="continents">
-          <li ng-repeat="continent in data.continents" ng-click="selectTopLevelList(continent)" ng-class="{active: continent == selectedList}">
-            <a href ng-click="showContinent(continent)">{{continent.name}}</a>
-            <ul ng-class="countryClass(continent.name)">
-              <li ng-repeat="country in continent.countries_visited">
-                <a href ng-click="showCountry(country, continent)">{{country.name}}</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-    """
   restrict: "E"
   link: link
   controller: controller
-  template: template
+  templateUrl: "templates/missions_map.html"
   replace: true
   scope:
     data: "="
@@ -234,28 +186,8 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
 
 sfDirectives.directive "panelTab", [->
 
-  template =  """
-    <section>
-      <div class='panel-image'>
-        <a href='{{featured.video_link_url}}' target='_blank' ng-style="{'background-image': 'url(' + featured.panel_image_url + ')'}">
-        </a>
-      </div>
-      <div class='panel-content'>
-        <div>
-          <h1>{{featured.panel_title}}</h1>
-          <div ng-bind-html="featured.body"></div>
-          <p class='call-to-action' ng-hide="featured.panel_call_to_action_link_url==''">
-            <a href='{{featured.panel_call_to_action_link_url}}'>
-              {{featured.panel_call_to_action_text}} &rarr;
-            </a>
-          </p>
-        </div>
-      </div>
-    <section>
-    """
-
   restrict: "E"
-  template: template
+  templateUrl: "templates/panel_tab.html"
   replace: true
   scope: {
     featured: "="
@@ -263,29 +195,6 @@ sfDirectives.directive "panelTab", [->
 ]
 
 sfDirectives.directive 'homeThumblistNav', [->
-
-  template =  """
-    <div class='thumblist-nav horizontal-only'>
-      <div>
-         <a href ng-click="clickaction(0)">
-          <div class="image" ng-style="{'background-image': 'url(/uploads/home/feature/building_a_better_kibera.jpg)'}"></div>
-          <div class="content">
-            <h4>Global Hearing Mission</h4>
-            <button>Read Stories &rarr;</button>
-          </div>
-        </a>
-      </div>
-      <div ng-repeat="article in articles">
-        <a href ng-click="clickaction($index+1)">
-          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-          <div class="content">
-            <h4 ng-bind="article.thumbnail_title"></h4>
-            <button ng-click="clickaction($index+1)" >{{article.thumbnail_call_to_action_text}} <span ng-hide="article.thumbnail_call_to_action_text==''">&rarr;</span>&nbsp;</button>
-          </div>
-        </a>
-      </div>
-    </div>
-    """
 
   link = (scope, element, attrs) ->
 
@@ -298,7 +207,7 @@ sfDirectives.directive 'homeThumblistNav', [->
 
   restrict: "E"
   link: link
-  template: template
+  templateUrl: "templates/home_thumblist_nav.html"
   repalce: true
   scope:
     articles: "="
@@ -386,18 +295,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   restrict: "E"
   link: link
   controller: controller
-  template: """
-    <div class="swiper" ng-class="{'short': isShort()}">
-      <div class="swiper-controls" ng-show="showPaginator()">
-        <a href class="left" ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
-        <a href class="right" ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
-      </div>
-      <div id='{{identifier}}' class='swipe'>
-        <div class='swipe-wrap' ng-transclude>
-        </div>
-      </div>
-    </div>
-    """
+  templateUrl: "templates/swipe.html"
   transclude: true
   replace: true
   # priority: 0
@@ -523,60 +421,15 @@ sfDirectives.directive "slide", [ ->
       #   $window.location.href = "#{scope.linkUrl}"
 
   controller = ($scope, $element) ->
-
-  slideTemplate = """
-    <div class="slide">
-      <article ng-style="backgroundImageStyle"></article>
-      <blockquote ng-show="hasQuote()">{{quote}}</blockquote>
-      <div ng-show="!hasQuote()" class="gradient-background"></div>
-      <div ng-show="hasVideo()" class="play-video-link">
-        <a href ng-click="displayInModalIfVideo()"><span class="icon starkey-legend-3"></a>
-      </div>
-      <aside ng-class="{'side-panel': hasSidePanel()}">
-        <h1 ng-show="hasHeadline()" class="headline">{{headline}}</h1>
-        <p ng-show="hasSubhead()" class="subhead">{{subhead}}</p>
-        <p ng-show="hasBodyCopy()" class="body-copy">{{bodyCopy}}</p>
-        <div class="logo" ng-show="hasLogoImageUrl()">
-          <img ng-src="{{logoImageUrl}}"/>
-        </div>
-        <a href="{{linkUrl}}" target="_blank" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText() && !hasDetailPage()">
-          {{linkText}}
-        </a>
-        <a href class="action-link" ng-show="hasVideo()" ng-click="displayInModalIfVideo()">
-          Watch video
-        </a>
-        <a href="{{linkUrl}}" class="action-link" ng-show="hasDetailPage()">
-          {{linktext || "Read More"}} &rarr;
-        </a>
-      </aside>
-    </div>
-    """
-
-  thumbTemplate = """
-    <div>
-      <a href='{{linkUrl}}'>
-        <div class="image" ng-style="backgroundImageStyle"></div>
-        <div class="content">
-          <h4 ng-show="hasHeadline()">{{headline}}</h4>
-          <p class="blog-category" ng-show="hasBlogCategory()">{{date}}</p>
-          <p class="date" ng-show="hasDate()">{{date}}</p>
-          <p ng-class='actionLinkStyle()' ng-show="hasLinkText()">
-            {{linkText}} &rarr;
-          </p>
-        </div>
-      </a>
-    </div>
-    """
-
   result =
     restrict: "E"
     controller: controller
     replace: true
-    template: (elem, attr) ->
+    templateUrl: (elem, attr) ->
       if attr.thumblist? and attr.thumblist is "true"
-        thumbTemplate
+        "templates/thumb_slide.html"
       else
-        slideTemplate
+        "templates/swipe_slide.html"
     link: link
     scope:
       backgroundColor: "@"
@@ -642,120 +495,14 @@ sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compi
     #   element.html(template)
     #   $compile(element.contents())(scope)
     # , 4800)
+    # el = $compile('<div class="text-container" ng-bind-html="body"></div>')(scope)
 
-
-  pressReleaseDetailTemplate = """
-    <article>
-      <div class="article-header-image">
-        <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}">
-          <ul class="page-nav-links">
-            <li>
-              <a href="#/{{detailPageType}}/">&larr;</a>
-            </li>
-            <li>
-              <a href="#/{{detailPageType}}/">&rarr;</a>
-            </li>
-            <li>
-              <a href="#">X</a>
-            </li>
-          </ul>
-          <div class="gradient-background"></div>
-        </div>
-      </div>
-      <br/>
-      <br/>
-      <br/>
-      <div class="outer-container detail-page-body">
-        <section class='page-leader'>
-          <h1>Press Release</h1>
-          <h3>For immediate release</h3>
-        </section>
-        <h1 class="article-headline">{{title}}</h1>
-        <p class="article-date">{{date}}</p>
-        <h3 class="article-subheadline">{{subhead}}</h3>
-        <div ng-bind-html="body"></div>
-        <div class="share-this-post">
-          <ul>
-            <li><span class="note">Share this post</span></li>
-            <li>
-              <a href="#">
-                <span class="icon starkey-share-twitter"></span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="icon starkey-share-fb"></span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="icon starkey-share-email"></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </article>
-    """
-  blogDetailTemplate = """
-    <article>
-      <div class="article-header-image">
-        <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}">
-          <ul class="page-nav-links">
-            <li>
-              <a href="#/{{detailPageType}}/">&larr;</a>
-            </li>
-            <li>
-              <a href="#/{{detailPageType}}/">&rarr;</a>
-            </li>
-            <li>
-              <a href="#">X</a>
-            </li>
-          </ul>
-          <div class="gradient-background"></div>
-          <div class="outer-container">
-            <div class="relative-container">
-              <div class="banner">
-                <p class="article-item-category">{{category}}</p>
-                <h1  class="article-title">{{title}}</h1>
-                <p>{{date}} | {{author}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br/>
-      <div ng-bind-html="body"></div>
-      <div class="outer-container">
-        <div class="share-this-post">
-          <ul>
-            <li><span class="note">Share this post</span></li>
-            <li>
-              <a href="#">
-                <span class="icon starkey-share-twitter"></span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="icon starkey-share-fb"></span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="icon starkey-share-email"></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </article>
-    """
   result =
     restrict: "E"
     replace: true
-    template: blogDetailTemplate
+    templateUrl: ->
+      # TODO - template chooser
+      "templates/blog_detail_page"
     link: link
     # priority: 1
     scope:

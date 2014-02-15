@@ -1,5 +1,21 @@
 {exp:channel:entries channel="blog" limit="1"}
-<div class="article-header-image">
+<detail-page
+  detail-page-type="blog"
+  date="{entry_date format='%M %d, %Y'}"
+  author="{blog_author}"
+  category="{blog_category}"
+  title="{title}"
+  subhead=""
+  body='{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}'
+  header-image-url="{blog_image}"
+  thumbnail-image-url=""
+  previous-page-id=""
+  next-page-id=""
+  share-this="false"
+  has-related-posts="false">
+</detail-page>
+
+<!-- <div class="article-header-image">
   <div class="image" style="background-image: url('{blog_image}');">
     <ul class="page-nav-links">
       <li>
@@ -95,4 +111,4 @@
     </li>
   </ul>
 </div>
-{/exp:channel:entries}
+ -->{/exp:channel:entries}

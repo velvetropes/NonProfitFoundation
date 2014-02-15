@@ -77,6 +77,7 @@ module.exports = (grunt) ->
           "<%= app.src %>/*.html",
           "<%= app.src %>/*.json",
           "<%= app.src %>/partials/**/*.html",
+          "<%= app.src %>/templates/**/*.html",
           ".tmp/styles/{,*/}*.css",
           "{.tmp,<%= app.src %>}/scripts/{,*/}*.js",
           "<%= app.src %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}"
@@ -157,7 +158,8 @@ module.exports = (grunt) ->
 
       html: [
             "<%= app.src %>/*.html",
-            "<%= app.src %>/partials/*.html"
+            "<%= app.src %>/partials/*.html",
+            "<%= app.src %>/templates/*.html"
           ]
 
     usemin:
@@ -304,6 +306,12 @@ module.exports = (grunt) ->
               cwd: "app/partials/",
               src: ['**'],
               dest: '../www/partials/',
+            },
+            { #TODO: fix and remove
+              expand: true,
+              cwd: "app/templates/",
+              src: ['**'],
+              dest: '../www/templates/',
             }
         ]
 

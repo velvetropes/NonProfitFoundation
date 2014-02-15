@@ -1,0 +1,52 @@
+<article>
+  <div class="article-header-image">
+    <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}">
+      <ul class="page-nav-links">
+        <li>
+          <a href="#/{{detailPageType}}/">&larr;</a>
+        </li>
+        <li>
+          <a href="#/{{detailPageType}}/">&rarr;</a>
+        </li>
+        <li>
+          <a href="#">X</a>
+        </li>
+      </ul>
+      <div class="gradient-background"></div>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <div class="outer-container detail-page-body">
+    <section class='page-leader'>
+      <h1>Press Release</h1>
+      <h3>For immediate release</h3>
+    </section>
+    <h1 class="article-headline">{{title}}</h1>
+    <p class="article-date">{{date}}</p>
+    <h3 class="article-subheadline">{{subhead}}</h3>
+    <div ng-bind-html="body"></div>
+    <div class="share-this-post">
+      <ul>
+        <li><span class="note">Share this post</span></li>
+        <li>
+          <a href="#">
+            <span class="icon starkey-share-twitter"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon starkey-share-fb"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon starkey-share-email"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</article>

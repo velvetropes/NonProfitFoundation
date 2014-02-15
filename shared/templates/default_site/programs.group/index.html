@@ -161,6 +161,8 @@
         {program_page_leader}
       </p>
     </section>
+    {/exp:channel:entries}
+
     <div ng:controller="ProgramsCtrl">
       <section class='tabbed-content'>
         <nav>
@@ -183,9 +185,53 @@
       <div class="program-section">
         <div ng-view></div>
       </div>
+      <h1></h1>
+      <section class='carousel thumblist' ng-show="currentTab.tabId==0">
+        <thumblist-nav>
+          <slide
+            ng-repeat="programPartnership in programPartnerships"
+            image-url=""
+            video-url=""
+            link-url=""
+            link-text=""
+            headline=""
+            body-copy=""
+            thumblist="true"
+            date=""
+            blog-category=""
+            quote=""
+            background-color=""
+            logo-image-url=""
+            link-style="align-right"
+          ></slide>
+        </thumblist-nav>
+      </section>
+
+      <section class='carousel thumblist' ng-show="currentTab.tabId==1">
+        <thumblist-nav>
+          <div ng-repeat="programResource in programResources">
+            <slide
+              image-url=""
+              video-url=""
+              link-url=""
+              link-text=""
+              headline=""
+              body-copy=""
+              thumblist="true"
+              date=""
+              blog-category=""
+              quote=""
+              background-color=""
+              logo-image-url=""
+              link-style="align-right"
+            ></slide>
+          </div>
+        </thumblist-nav>
+      </section>
+
+
     </div>
 
-    {/exp:channel:entries}
 
     <br/>
 
@@ -251,7 +297,7 @@
 
     <script src="/assets/scripts/a332a0e7.vendor.js"></script>
     
-    <script src="/assets/scripts/da7c4b25.main.js"></script>
+    <script src="/assets/scripts/2b29e63e.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

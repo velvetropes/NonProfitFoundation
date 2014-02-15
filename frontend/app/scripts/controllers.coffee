@@ -277,6 +277,7 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "Articles", 
       $scope.programPartnerships = data
     else
       $scope.programPartnerships = [data]
+
   ProgramResource.getIndex().then (data) ->
     if data instanceof Array
       $scope.programResources = data

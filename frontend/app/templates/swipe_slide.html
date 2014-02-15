@@ -1,0 +1,25 @@
+<div class="slide">
+  <article ng-style="backgroundImageStyle"></article>
+  <blockquote ng-show="hasQuote()">{{quote}}</blockquote>
+  <div ng-show="!hasQuote()" class="gradient-background"></div>
+  <div ng-show="hasVideo()" class="play-video-link">
+    <a href ng-click="displayInModalIfVideo()"><span class="icon starkey-legend-3"></a>
+  </div>
+  <aside ng-class="{'side-panel': hasSidePanel()}">
+    <h1 ng-show="hasHeadline()" class="headline">{{headline}}</h1>
+    <p ng-show="hasSubhead()" class="subhead">{{subhead}}</p>
+    <p ng-show="hasBodyCopy()" class="body-copy">{{bodyCopy}}</p>
+    <div class="logo" ng-show="hasLogoImageUrl()">
+      <img ng-src="{{logoImageUrl}}"/>
+    </div>
+    <a href="{{linkUrl}}" target="_blank" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText() && !hasDetailPage()">
+      {{linkText}}
+    </a>
+    <a href class="action-link" ng-show="hasVideo()" ng-click="displayInModalIfVideo()">
+      Watch video
+    </a>
+    <a href="{{linkUrl}}" class="action-link" ng-show="hasDetailPage()">
+      {{linktext || "Read More"}} &rarr;
+    </a>
+  </aside>
+</div>

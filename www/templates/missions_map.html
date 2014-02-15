@@ -1,0 +1,45 @@
+<div class="missions-map">
+  <div class="map-container">
+    <section class='map missions-world-map' ng-style="{'z-index': worldMapZIndex}">
+      <div id='missions-world-map'>
+      </div>
+    </section>
+    <section class='map missions-us-map' ng-style="{'z-index': usMapZIndex}">
+      <div id='missions-us-map'>
+      </div>
+    </section>
+  </div>
+  <div class="missions-map-greeting" ng-hide="hasContinentAndCountry()">
+    <h1>Our<br/>Global Impact</h1>
+    <p><a href ng-click="showContinent(data.continents[0])">Explore regions &gt;&gt;</a></p>
+  </div>
+  <div class="missions-map-info" ng-show="hasContinentAndCountry()">
+    <div class="country-info" ng-show="hasCountry()">
+      <h4>{{currentCountry.name}}</h4>
+      <h1>{{currentCountry.total_hearing_aids_provided}}</h1>
+      <p>hearing aids provided since 2010</p>
+    </div>
+
+    <div class="continent-info" ng-show="hasContinent()">
+      <h4>{{currentContinent.name}}</h4>
+      <h1>{{currentContinent.total_hearing_aids_provided}}</h1>
+      <p>hearing aids provided since 2010</p>
+      <h1>{{currentContinent.countries_visited.length}}</h1>
+      <p>{{countryOrState()}} visited</p>
+    </div>
+
+  </div>
+  <div class="missions-map-legend">
+    <h3>Hearing Mission Regions</h3>
+    <ul class="continents">
+      <li ng-repeat="continent in data.continents" ng-click="selectTopLevelList(continent)" ng-class="{active: continent == selectedList}">
+        <a href ng-click="showContinent(continent)">{{continent.name}}</a>
+        <ul ng-class="countryClass(continent.name)">
+          <li ng-repeat="country in continent.countries_visited">
+            <a href ng-click="showCountry(country, continent)">{{country.name}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
