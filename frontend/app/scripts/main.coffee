@@ -15,7 +15,7 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
     controller: "BlogIndexCtrl"
   ).when("/articles/:articleId",
     templateUrl: (params) ->
-      "api/article/#{params.articleId}"
+      "api/blog_detail/#{params.articleId}"
       # "local/api/article"
     controller: "BlogShowCtrl"
   ).otherwise redirectTo: "/articles"
@@ -36,7 +36,8 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
     templateUrl: "partials/missions/index.html"
     controller: "MissionsIndexCtrl"
   ).when("/missions/:articleId",
-    templateUrl: "partials/missions/show.html"
+  templateUrl: (params) ->
+      "api/missions_detail/#{params.articleId}"
     controller: "MissionsShowCtrl"
   ).otherwise redirectTo: "/missions"
 ]

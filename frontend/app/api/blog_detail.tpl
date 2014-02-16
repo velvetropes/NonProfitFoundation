@@ -1,23 +1,4 @@
-<detail-page
-{exp:channel:entries channel="blog" dynamic="no" url_title="{segment_3}" limit="1"}
-  detail-page-type="blog"
-  date="{blog_date format='%M %d, %Y'}"
-  author="{blog_author}"
-  category="{blog_category}"
-  title="{title}"
-  subhead=""
-  body='{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}'
-  header-image-url="{blog_image}"
-  thumbnail-image-url=""
-  share-this="false"
-  has-related-posts="false"
-{/exp:channel:entries}
-  previous-page-id="{exp:channel:prev_entry channel='blog' url_title='{segment_3}'}{url_title}{/exp:channel:prev_entry}"
-  next-page-id="{exp:channel:next_entry channel='blog' url_title='{segment_3}'}{url_title}{/exp:channel:next_entry}"
-  >
-</detail-page>
-
-<!-- <div class="article-header-image">
+<div class="article-header-image">
   <div class="image" style="background-image: url('{blog_image}');">
     <ul class="page-nav-links">
       <li>
@@ -78,12 +59,12 @@
       <div ng-repeat="article in articles">
         <slide
           thumblist="true"
-          image-url=""
+          image-url="{{article.thumbnail_image_url}}"
           video-url=""
-          link-url="#/articles/"
-          headline=""
+          link-url="#/articles/{{article.id}}"
+          headline="{{article.title}}"
           link-style=""
-          date=""
+          date="{{article.date}}"
         ></slide>
       </div>
     </thumblist-nav>
@@ -107,10 +88,10 @@
     <li ng-repeat="article in articles | startFrom:currentPage*pageSize | limitTo:pageSize">
       <div class='block'>
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <h2 class="headline"></h2>
-        <p class='read-more'><a href="#/articles/">Read more &rarr;</a></p>
+        <h2 class="headline">{{article.title}}</h2>
+        <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
       </div>
     </li>
   </ul>
 </div>
- -->
+

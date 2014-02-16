@@ -115,8 +115,6 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 
 # Hearing Missions
 
-# Blog
-
 sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker",($scope, MissionsMapMarker) ->
   $scope.currentTab = 0
   MissionsMapMarker.getIndex().then (data) ->
@@ -126,33 +124,27 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker",($s
     $scope.currentTab = tabId
 ])
 
-# TODO Change to detail page format after feed is up
 sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
 
-  $scope.article = {
-    prev_item: ""
-    next_item: ""
-  }
+  # $scope.currentPosition = $
+  # $scope.articles =[]
+  # HearingMissionArticle.getDetail($routeParams.articleId).then (response) ->
+  #   $scope.article = response.data
 
-  $scope.currentPosition = $
-  $scope.articles =[]
-  HearingMissionArticle.getDetail($routeParams.articleId).then (response) ->
-    $scope.article = response.data
+  # Articles.getIndex().then (data) ->
+  #   if data instanceof Array
+  #     $scope.articles = data
+  #   else
+  #     $scope.articles = [data]
+  #   $scope.pagination = Pagination.getNew(9)
+  #   $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
 
-  Articles.getIndex().then (data) ->
-    if data instanceof Array
-      $scope.articles = data
-    else
-      $scope.articles = [data]
-    $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
+  # $scope.numberOfPages = ->
+  #   Math.ceil($scope.articles.length/$scope.pageSize)
 
-  $scope.numberOfPages = ->
-    Math.ceil($scope.articles.length/$scope.pageSize)
-
-  $scope.parseDate = (date) ->
-    parsedDate = Date.parse(date)
-    parsedDate
+  # $scope.parseDate = (date) ->
+  #   parsedDate = Date.parse(date)
+  #   parsedDate
 ])
 
 
