@@ -10,12 +10,16 @@
 <div class="article-header-image">
   <div class="image" style="background-image:url('{mission_image:url}');">
     <ul class="page-nav-links">
+      {if {exp:stash:not_empty name="prev_entry"} }
       <li>
         <a href="#/missions/{exp:stash:prev_entry}" ng-disabled="currentPosition == article.prev_item">&larr;</a>
       </li>
+      {/if}
+      {if {exp:stash:not_empty name="next_entry"} }
       <li>
         <a href="#/missions/{exp:stash:next_entry}" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
       </li>
+      {/if}
       <li>
         <a href="#">X</a>
       </li>
