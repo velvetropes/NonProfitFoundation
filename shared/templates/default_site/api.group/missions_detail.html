@@ -28,7 +28,7 @@
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-          <p class="article-item-category">{categories show_group="1"}{category_name}{/categories}</p>
+          <p class="article-item-category">{categories show_group="1" backspace="2"}{category_name}, {/categories}</p>
           <h1  class="article-title">{title}</h1>
           <p>{entry_date format="%F %d, %Y"} | {author}</p>
         </div>

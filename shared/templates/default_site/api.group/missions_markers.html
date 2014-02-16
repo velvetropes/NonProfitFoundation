@@ -2,7 +2,7 @@
    "continents": [
       {exp:channel:entries channel="mission_markers" dynamic="no" backspace="8" orderby="mm_order" sort="asc"}
       {
-         "name": "{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}",
+         "name": "{if is_us_map}US{if:else}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/if}",
          "total_hearing_aids_provided": "{total_hearing_aids_provided}",
          "countries_visited": [
             {countries_visited}
