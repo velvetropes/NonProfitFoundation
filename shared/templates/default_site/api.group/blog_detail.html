@@ -1,13 +1,25 @@
-{exp:channel:entries channel="blog" limit="1"}
+{exp:channel:next_entry channel="blog" url_title="{segment_3}"}
+   {exp:stash:set_value parse_tags="yes" name="next_entry" value="{url_title}"}
+{/exp:channel:next_entry}
+
+{exp:channel:prev_entry channel="blog" url_title="{segment_3}"}
+    {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
+{/exp:channel:prev_entry}
+
+{exp:channel:entries channel="blog" dynamic="no" url_title="{segment_3}" limit="1"}
 <div class="article-header-image">
   <div class="image" style="background-image: url('{blog_image}');">
     <ul class="page-nav-links">
+      {if {exp:stash:not_empty name="next_entry"} }
       <li>
-        <a href="#/articles/" ng-disabled="currentPosition == article.prev_item">&larr;</a>
+        <a href="#/articles/{exp:stash:next_entry}" ng-disabled="currentPosition == article.next_item">&larr;</a>
       </li>
+      {/if}
+      {if {exp:stash:not_empty name="prev_entry"} }
       <li>
-        <a href="#/articles/" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
+        <a href="#/articles/{exp:stash:prev_entry}" ng-disabled="currentPosition == article.prev_item" >&rarr;</a>
       </li>
+      {/if}
       <li>
         <a href="#">X</a>
       </li>
