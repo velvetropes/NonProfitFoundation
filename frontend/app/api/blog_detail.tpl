@@ -1,3 +1,4 @@
+{exp:channel:entries channel="blog" limit="1"}
 <div class="article-header-image">
   <div class="image" style="background-image: url('{blog_image}');">
     <ul class="page-nav-links">
@@ -94,4 +95,4 @@
     </li>
   </ul>
 </div>
-
+{/exp:channel:entries}
