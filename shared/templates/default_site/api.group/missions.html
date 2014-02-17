@@ -28,7 +28,7 @@
             "subtitle"  : "{mission_highlights:mission_subtitle}",
             "excerpt"   : "{mission_highlights:mission_excerpt}",
             "image"     : "{mission_highlights:mission_image:url}",
-            "video"     : "{mission_highlights:mission_video_url}",
+            "video"     : "{mission_highlights:mission_video_url}"
         }{if mission_highlights:count != mission_highlights:total_results}{/if}
     {/mission_highlights}
     ]
