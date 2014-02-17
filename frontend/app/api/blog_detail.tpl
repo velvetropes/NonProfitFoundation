@@ -12,12 +12,12 @@
     <ul class="page-nav-links">
       {if {exp:stash:not_empty name="next_entry"} }
       <li>
-        <a href="#/articles/{exp:stash:next_entry}" ng-disabled="currentPosition == article.next_item">&larr;</a>
+        <a href="#/articles/{exp:stash:next_entry}" ng-disabled="'{exp:stash:next_entry}'==''">&larr;</a>
       </li>
       {/if}
       {if {exp:stash:not_empty name="prev_entry"} }
       <li>
-        <a href="#/articles/{exp:stash:prev_entry}" ng-disabled="currentPosition == article.prev_item" >&rarr;</a>
+        <a href="#/articles/{exp:stash:prev_entry}" ng-disabled="'{exp:stash:prev_entry}'=='{exp:stash:prev_entry}'" >&rarr;</a>
       </li>
       {/if}
       <li>
