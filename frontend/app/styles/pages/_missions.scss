@@ -1,5 +1,10 @@
-#missions-world-map .jvectormap-container, #missions-us-map .jvectormap-container {
-  @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+#missions-world-map, #missions-us-map {
+  .jvectormap-container {
+    @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+  }
+  .jvectormap-zoomin, .jvectormap-zoomout {
+    display: none;
+  }
 }
 
 .missions-map {

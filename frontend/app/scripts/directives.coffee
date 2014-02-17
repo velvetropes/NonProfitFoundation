@@ -85,6 +85,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         $("#missions-world-map").vectorMap
           map: "world_mill_en"
           zoomOnScroll: false
+          backgroundColor: "none";
           regionStyle:
             selected:
               fill: "#ffad20"
@@ -98,6 +99,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         $("#missions-us-map").vectorMap
           map: "us_aea_en"
           zoomOnScroll: false
+          backgroundColor: "none";
           regionStyle:
             selected:
               fill: "#ffad20"
