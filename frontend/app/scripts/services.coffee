@@ -83,6 +83,18 @@ sfServices.factory "HearingMissionArticle", ["$q", "$http", "urlChooser", ($q, $
   {getDetail: getDetail}
 ]
 
+sfServices.factory "MissionsIndex", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/missions#{urlChooser.getIndexFormat}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getIndex: getIndex}
+]
+
 sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 
   getIndex = ->

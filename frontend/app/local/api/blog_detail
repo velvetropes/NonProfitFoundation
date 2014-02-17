@@ -1,0 +1,105 @@
+<div class="article-header-image">
+  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/BLOG-Dave_Fabry_Lives_to_Listen_Carefully.jpg');">
+    <ul class="page-nav-links">
+                  <li>
+        <a href="#/articles/impacting-a-life-in-manila" ng-disabled="currentPosition == article.prev_item" >&rarr;</a>
+      </li>
+            <li>
+        <a href="#">X</a>
+      </li>
+    </ul>
+    <div class="gradient-background"></div>
+    <div class="outer-container">
+      <div class="relative-container">
+        <div class="banner">
+                      <p class="article-item-category">Events</p>
+                    <h1  class="article-title">testing blog post</h1>
+          <p>Feb 14, 2014 | </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="text-container">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eu eros quis ultrices. Integer blandit molestie felis. Nunc porttitor leo volutpat nibh elementum sollicitudin. Curabitur molestie velit at orci vulputate, at suscipit lacus mattis. Aenean eu velit lacus. In malesuada adipiscing erat ac vestibulum. Donec ultrices, est ut porta pellentesque, mi arcu gravida lorem, mollis egestas turpis turpis scelerisque felis. Ut risus massa, suscipit id orci interdum, consectetur malesuada felis. Nulla convallis elit diam, eget sollicitudin arcu fermentum et. Cras euismod vel dui sed tempus. Pellentesque egestas leo in lobortis malesuada. Curabitur cursus condimentum aliquet. Quisque non faucibus lacus. Praesent accumsan lacus sit amet urna pulvinar placerat.</p>
+
+<p>Donec id congue arcu. Duis sagittis, erat eget rhoncus volutpat, metus ipsum hendrerit lacus, ac accumsan risus orci accumsan diam. Ut ultrices nisl ante, a ultricies ligula malesuada vulputate. Vivamus aliquet enim at justo pellentesque, et scelerisque elit tincidunt. Nam consectetur, felis sit amet pretium fringilla, tortor est imperdiet augue, id aliquet velit lectus ac dui. Praesent blandit convallis nisl, et laoreet risus egestas nec. Donec aliquet tortor vitae ipsum porttitor fringilla vel non diam. Quisque fermentum egestas arcu non scelerisque. Cras nisi est, congue quis justo eget, laoreet porta nunc.</p>
+
+<p>In in lobortis sem. Nullam et sapien id turpis sodales porta. Sed pellentesque euismod nisl, vitae dictum erat faucibus at. Pellentesque blandit vehicula nisl, vel volutpat lorem fermentum quis. Duis a velit in lorem fermentum mattis. Donec interdum venenatis odio, ac volutpat elit porta vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+
+<p>Curabitur fringilla, lacus non facilisis tincidunt, est libero viverra tellus, adipiscing eleifend leo mi eget lacus. Phasellus a urna consequat, ultricies neque at, sagittis urna. Nam ac sollicitudin erat. Maecenas vel purus quis tellus faucibus auctor. Duis accumsan justo quis ligula sollicitudin aliquam. Nulla consequat tincidunt cursus. Proin id dui tempus, mollis metus et, venenatis dui. Morbi vestibulum elit massa, eu cursus lorem commodo ut. Duis pellentesque erat justo, vitae porta turpis vulputate sed. Nulla sollicitudin mattis justo, in aliquet risus rutrum nec.</p>
+
+<p>Duis tristique velit sapien, a placerat nunc lacinia at. Fusce metus dui, vulputate molestie ullamcorper quis, eleifend eu sapien. Sed pulvinar sem id massa sagittis condimentum. Nullam fermentum tellus hendrerit nisi suscipit, et scelerisque velit interdum. Nullam nec metus urna. Praesent vestibulum ipsum diam, eu viverra justo consequat vitae. Sed quis congue lectus, quis sodales libero. Maecenas malesuada dictum massa interdum aliquam.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>[gallery id="testing-gallery-2"]</p>
+</div>
+<div class="outer-container">
+  <div class="share-this-post">
+    <ul>
+      <li><span class="note">Share this post</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-twitter"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-fb"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<br/>
+<div class="outer-container">
+  <h3 class="section-title centered">Related posts</h3>
+  <section class='carousel'>
+    <thumblist-nav>
+      <div ng-repeat="article in articles">
+        <slide
+          thumblist="true"
+          image-url=""
+          video-url=""
+          link-url="#/articles/"
+          headline=""
+          link-style=""
+          date=""
+        ></slide>
+      </div>
+    </thumblist-nav>
+  </section>
+</div>
+<br/>
+<hr class="separator padded"/>
+
+<div class="outer-container">
+  <div class="pagination">
+    <ul>
+      <li ng-class="{disabled: currentPage == 0}">
+        <a href ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Prev</a>
+      </li>
+      <li ng-class="{disabled: currentPage >= articles.length/pageSize - 1}">
+        <a href ng-click="currentPage=currentPage+1">Next</a>
+      </li>
+    </ul>
+  </div>
+  <ul class="pagination-articles">
+    <li ng-repeat="article in articles | startFrom:currentPage*pageSize | limitTo:pageSize">
+      <div class='block'>
+        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+        <h2 class="headline"></h2>
+        <p class='read-more'><a href="#/articles/">Read more &rarr;</a></p>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -11,7 +11,7 @@
         }{if hearing_mission_statistics:count != hearing_mission_statistics:total_rows},{/if}
     {/hearing_mission_statistics}
     ],
-    "content_tabs" : [ 
+    "content_tabs" : [
     {content_tabs}
         {
             "tab_title" : "{content_tabs:tab_title}",
@@ -23,13 +23,13 @@
     "highlights" : [
     {mission_highlights limit="10"}
         {
-            "id"        : "{url_title}"
+            "id"        : "{url_title}",
             "title"     : "{title}",
             "subtitle"  : "{mission_highlights:mission_subtitle}",
-            "excerpt"   : "{mission_highlights:mission_excerpt}"
+            "excerpt"   : "{mission_highlights:mission_excerpt}",
             "image"     : "{mission_highlights:mission_image:url}",
             "video"     : "{mission_highlights:mission_video_url}",
-        }{if mission_highlights:count != mission_highlights:total_results},{/if}
+        }{if mission_highlights:count != mission_highlights:total_results}{/if}
     {/mission_highlights}
     ]
   }

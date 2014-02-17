@@ -115,10 +115,15 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 
 # Hearing Missions
 
-sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker",($scope, MissionsMapMarker) ->
+sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker", "MissionsIndex", ($scope, MissionsMapMarker, MissionsIndex) ->
   $scope.currentTab = 0
   MissionsMapMarker.getIndex().then (data) ->
     $scope.data = data
+  MissionsIndex.getIndex().then (data) ->
+    $scope.missions = data[0]
+    $scope.statistics = $scope.missions.hearing_mission_statistics
+    $scope.content_tabs = $scope.missions.content_tabs
+    $scope.highlights = $scope.missions.highlights
 
   $scope.changeTab = (tabId) ->
     $scope.currentTab = tabId

@@ -1,0 +1,63 @@
+<div class="article-header-image">
+  <div class="image" style="background-image:url('http://starkey.ahundredyears.com/uploads/building_a_better_kibera.jpg');">
+    <ul class="page-nav-links">
+                  <li>
+        <a href="#">X</a>
+      </li>
+    </ul>
+    <div class="gradient-background"></div>
+    <div class="outer-container">
+      <div class="relative-container">
+        <div class="banner">
+          <p class="article-item-category">Africa</p>
+          <h1  class="article-title">Lorem Ipsum dolor sit amet</h1>
+          <p>October 21, 2012 | 100YRS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<div class="text-container">
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+
+<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+</div>
+
+
+<br/>
+<div class="outer-container">
+
+  <div class="share-this-post">
+    <ul>
+      <li><span class="note">Share this post</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-twitter"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-fb"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="section-title centered">Related posts</h3>
+  <section class='carousel'>
+    <thumblist-nav>
+
+    </thumblist-nav>
+  </section>
+</div>
+<br/>

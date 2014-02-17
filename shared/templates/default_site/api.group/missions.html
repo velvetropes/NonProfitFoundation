@@ -11,7 +11,7 @@
         }{if hearing_mission_statistics:count != hearing_mission_statistics:total_rows},{/if}
     {/hearing_mission_statistics}
     ],
-    "content_tabs" : [ 
+    "content_tabs" : [
     {content_tabs}
         {
             "tab_title" : "{content_tabs:tab_title}",
@@ -29,7 +29,7 @@
             "excerpt"   : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_highlights:mission_excerpt}{/exp:low_replace}"
             "image"     : "{mission_highlights:mission_image:url}",
             "video"     : "{mission_highlights:mission_video_url}",
-        }{if mission_highlights:count != mission_highlights:total_results},{/if}
+        }{if mission_highlights:count != mission_highlights:total_results}{/if}
     {/mission_highlights}
     ]
   }
