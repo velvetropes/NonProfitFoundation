@@ -75,6 +75,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     scope.currentContinent = {}
     scope.currentCountry = {}
     scope.selectedList = {}
+    scope.greetingFlag = false
 
     scope.selectTopLevelList = (continent) ->
       scope.selectedList = continent
@@ -153,6 +154,9 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         scope.worldMapZIndex = 1
         scope.usMapZIndex = 0
         scope.highlightContinentRegions(continent, scope.worldMapObject)
+
+    scope.greetingClicked = ->
+      scope.greetingFlag = true
 
     scope.initializeMaps()
 

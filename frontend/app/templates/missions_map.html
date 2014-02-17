@@ -9,9 +9,9 @@
       </div>
     </section>
   </div>
-  <div class="missions-map-greeting" ng-hide="hasContinentAndCountry()">
+  <div class="missions-map-greeting" ng-hide="greetingFlag==true">
     <h1>Our<br/>Global Impact</h1>
-    <p><a href ng-click="showContinent(data.continents[0])">Explore regions &gt;&gt;</a></p>
+    <p><a href ng-click="greetingClicked()">Explore regions &gt;&gt;</a></p>
   </div>
   <div class="missions-map-info" ng-show="hasContinentAndCountry()">
     <div class="country-info" ng-show="hasCountry()">
@@ -29,7 +29,7 @@
     </div>
 
   </div>
-  <div class="missions-map-legend">
+  <div class="missions-map-legend" ng-show="greetingFlag==true">
     <h3>Hearing Mission Regions</h3>
     <ul class="continents">
       <li ng-repeat="continent in data.continents" ng-click="selectTopLevelList(continent)" ng-class="{active: continent == selectedList}">

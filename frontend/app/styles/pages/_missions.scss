@@ -7,6 +7,7 @@
   height: 560px;
   margin: 20px 0 0;
   position: relative;
+  @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
   .map-container {
     border: none;
     margin: 0;
