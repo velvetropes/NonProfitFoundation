@@ -21,6 +21,49 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/articles"
 ]
 
+# Gala
+galaPageApp = angular.module("galaPageApp", [
+  "ngRoute",
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
+  $routeProvider.when("/gala/:tabId",
+    templateUrl: (params) ->
+      "api/gala_#{params.tabId}"
+      # "local/api/gala_#{params.tabId}"
+    controller: "GalaCtrl"
+  ).otherwise redirectTo: "/gala/overview"
+]
+
+# Media Mentions
+mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
+  "ngRoute",
+  "ngAnimate",
+  "ngSanitize",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
+  $routeProvider.when("/media_mentions",
+    templateUrl: "partials/media_mentions/index.html"
+    controller: "MediaMentionsIndexCtrl"
+  ).when("/press_releases/:pressReleaseId",
+    templateUrl: "partials/press_releases/show.html"
+    controller: "PressReleasesShowCtrl"
+  ).when("/media_mentions/:mediaMentionId",
+    templateUrl: "partials/media_mentions/show.html"
+    controller: "MediaMentionsShowCtrl"
+  ).otherwise redirectTo: "/media_mentions"
+]
+
 # Hearing Missions
 missionsPageApp = angular.module("missionsPageApp", [
   "ngRoute",
@@ -45,29 +88,6 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
       # "local/api/missions_detail"
     controller: "MissionsShowCtrl"
   ).otherwise redirectTo: "/missions"
-]
-# Media Mentions
-mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
-  "ngRoute",
-  "ngAnimate",
-  "ngSanitize",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
-
-mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
-  $routeProvider.when("/media_mentions",
-    templateUrl: "partials/media_mentions/index.html"
-    controller: "MediaMentionsIndexCtrl"
-  ).when("/press_releases/:pressReleaseId",
-    templateUrl: "partials/press_releases/show.html"
-    controller: "PressReleasesShowCtrl"
-  ).when("/media_mentions/:mediaMentionId",
-    templateUrl: "partials/media_mentions/show.html"
-    controller: "MediaMentionsShowCtrl"
-  ).otherwise redirectTo: "/media_mentions"
 ]
 
 programsPageApp = angular.module("programsPageApp", [

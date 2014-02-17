@@ -1,0 +1,55 @@
+<!doctype html xmlns:ng="http://angularjs.org/">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+  <head>
+  <!--(bake partials/head.html)-->
+  </head>
+  <body class='gala-page page' ng:app="galaPageApp">
+
+    <!--(bake partials/browser_check.html)-->
+
+    <!--(bake partials/header.html)-->
+
+    <!-- Main content section -->
+    <!--  {exp:channel:entries channel="gala" limit="1"} -->
+    <section class='page-leader'>
+      <h1>
+        Gala
+      </h1>
+    </section>
+    <!-- {/exp:channel:entries} -->
+    <div ng:controller="GalaCtrl">
+      <div class="outer-container">
+        <section class='tabbed-content'>
+          <nav class="outer-container">
+              <ul class='two-tabs'>
+                  {{currentTab}}
+                  <li ng-class="{active: currentTab.tabId=='overview'}">
+                    <a href='#/gala/overview'>Overview</a>
+                  </li>
+                  <li class="last" ng-class="{active: currentTab.tabId=='upcoming'}">
+                    <a href='#/gala/upcoming'>Upcoming</a>
+                  </li>
+
+                </ul>
+            </nav>
+          </section>
+        </div>
+      <div class="gala-section">
+        <div ng-view></div>
+      </div>
+
+    </div>
+
+
+    <br/>
+
+    <!--(bake partials/footer.html)-->
+
+    <!--(bake partials/js_includes.html)-->
+
+</body>
+</html>

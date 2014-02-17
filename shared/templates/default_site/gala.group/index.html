@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/styles/3d8399a4.main.css"/>
   
   </head>
-  <body class='hearing-missions-page page' ng:app="missionsPageApp">
+  <body class='gala-page page' ng:app="galaPageApp">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -152,7 +152,39 @@
     
 
     <!-- Main content section -->
-    <div ng-view></div>
+    <!--  {exp:channel:entries channel="gala" limit="1"} -->
+    <section class='page-leader'>
+      <h1>
+        Gala
+      </h1>
+    </section>
+    <!-- {/exp:channel:entries} -->
+    <div ng:controller="GalaCtrl">
+      <div class="outer-container">
+        <section class='tabbed-content'>
+          <nav class="outer-container">
+              <ul class='two-tabs'>
+                  
+                  <li ng-class="{active: currentTab.tabId=='overview'}">
+                    <a href='#/gala/overview'>Overview</a>
+                  </li>
+                  <li class="last" ng-class="{active: currentTab.tabId=='upcoming'}">
+                    <a href='#/gala/upcoming'>Upcoming</a>
+                  </li>
+
+                </ul>
+            </nav>
+          </section>
+        </div>
+      <div class="gala-section">
+        <div ng-view></div>
+      </div>
+
+    </div>
+
+
+    <br/>
+
     <footer>
       <div>
         <section class='social-info'>

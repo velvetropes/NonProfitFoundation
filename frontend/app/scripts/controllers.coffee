@@ -113,6 +113,13 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 
 ])
 
+# Gala
+sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", ($scope, $routeParams ) ->
+
+  $scope.currentTab = $routeParams
+  console.debug "GalaCtrl: $scope.currentTab", $scope.currentTab
+])
+
 # Hearing Missions
 
 sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "MissionsPage", ($scope, MissionsMapMarker, MissionsPage) ->

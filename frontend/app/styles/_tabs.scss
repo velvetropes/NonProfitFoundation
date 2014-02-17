@@ -133,12 +133,11 @@ nav {
       }
     }
     &.outer-container {
-      .three-tabs {
+      .two-tabs, .three-tabs {
         text-align: center;
         padding: 0;
         margin: 0 0 -1px;
         li {
-          width: 200px;
           display: inline-block;
           border-left: 1px dotted #333;
           border-top: 1px dotted #333;
@@ -164,6 +163,16 @@ nav {
               color: $light-blue;
             }
           }
+        }
+      }
+      .two-tabs {
+        li {
+          width: 200px;
+        }
+      }
+      .three-tabs {
+        li {
+          width: 200px;
         }
       }
     }
