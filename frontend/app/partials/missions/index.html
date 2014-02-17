@@ -1,119 +1,81 @@
-  <section class='page-leader'>
-    <h1>
-      {{missions.page_title}}
-    </h1>
-    <p>
-    {{missions.page_lead}}
+<div class="outer-container">
+  <div class="masthead">
+    <h3 class="section-headline">Hearing Missions</h3>
+    <p>Read more about our missions all around the world.</p>
+    <p class="call-to-action">
+      <a href="#">Subscribe to our newsletter</a>
+      to stay up to date
     </p>
-  </section>
+  </div>
+</div>
 
-  <missions-map data="data"></missions-map>
-  <section class="hearing-missions-statistics">
+<div class="outer-container">
+  <div class="pagination">
     <ul>
-      <li class="first">
-        <h1>
-          {{statistics[0].name}}
-        </h1>
-        <p>
-          {{statistics[0].tagline}}
-        </p>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
-      <li>
-        <h1>
-          {{statistics[1].name}}
-        </h1>
-        <p>
-          {{statistics[1].tagline}}
-        </p>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
-      <li>
-        <h1>
-          {{statistics[2].name}}
-        </h1>
-        <p>
-          {{statistics[2].tagline}}
-        </p>
+      <li class="disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
-  </section>
-  <div class="outer-container">
-    <section class='tabbed-content'>
-      <nav class="outer-container">
-          <ul class='three-tabs'>
-            <li ng-class="{active: currentTab==0}" ng-click="changeTab(0)">
-              <a href>{{content_tabs[0].tab_title}}</a>
-            </li>
-            <li ng-class="{active: currentTab==1}" ng-click="changeTab(1)">
-              <a href>{{content_tabs[1].tab_title}}</a>
-            </li>
-            <li class="last" ng-class="{active: currentTab==2}" ng-click="changeTab(2)">
-              <a href>{{content_tabs[2].tab_title}}</a>
-            </li>
-          </ul>
-      </nav>
-      <article ng-show="currentTab==0">
-        <div class="image" style="background-image: url(uploads/home/feature/building_a_better_kibera.jpg); background-size:cover;">
-
-        </div>
-        <div class="content">
-          <h1>{{content_tabs[0].content_title}}</h1>
-          {{content_tabs[0].content}}"
-        </div>
-      </article>
-      <article ng-show="currentTab==1">
-        <div class="image" style="background-image: url(uploads/home/feature/west_bank_mission.jpg); background-size:cover;">
-
-        </div>
-        <div class="content">
-          <h1>{{content_tabs[1].content_title}}</h1>
-          {{content_tabs[1].content}}"
-        </div>
-      </article>
-      <article ng-show="currentTab==2">
-        <div class="image" style="background-image: url(uploads/home/feature/peru_mission_02.jpg); background-size:cover;">
-
-        </div>
-        <div class="content">
-          <h1>{{content_tabs[2].content_title}}</h1>
-          {{content_tabs[2].content}}"
-        </div>
-      </article>
-    </section>
   </div>
 
-  <section class='page-leader'>
-    <h1>
-      Highlights
-    </h1>
-  </section>
+  <ul class="articles-filters">
+    <li>Sort &nbsp;|&nbsp;</li>
+    <li class="dropdown wide">
+      <select ng-model="highlightsFilters.year" class="dropdown-select">
+        <option ng-repeat="year in highlightYears" value="{{year.tag}}">{{year.name}}</option>
+      </select>
+    </li>
+    <li>&nbsp;|&nbsp;</li>
+    <li class="dropdown wide">
+      <select ng-model="highlightsFilters.region" class="dropdown-select">
+        <option ng-repeat="cat in highlightRegions" value="{{cat.tag}}">{{cat.name}}</option>
+      </select>
+    </li>
+    <li>&nbsp;|&nbsp;</li>
+    <li class="dropdown wide">
+      <select ng-model="highlightsFilters.country" class="dropdown-select">
+        <option ng-repeat="cat in highlightCountries" value="{{cat.tag}}">{{cat.name}}</option>
+      </select>
+    </li>
+  </ul>
 
-  <section class="carousel hero">
+  <ul class="pagination-articles press-items">
+    <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+      <page-tile
+        id="{{highlight.id}}"
+        title="{{highlight.title}}"
+        date="{{highlight.date}}"
+        detail_page="true"
+        type="missions_highlight"
+        featured="{{highlight.featured}}"
+        header_image_url="{{highlight.header_image_url}}"
+        logo_image_url=""
+        quote=""
+        call_to_action_text=""
+        call_to_action_link=""
+        video_link=""
+        category="{{highlight.country}}"
+      ></page-tile>
+    </li>
+  </ul>
 
-    <swiper
-      continuous="true"
-      speed="2000"
-      identifier="swiper_1"
-      auto="8000"
-      paginator="true"
-      tall="false"
-      >
-        <slide
-          ng-repeat="highlight in highlights"
-          image-url="{{highlight.image}}"
-          background-color=""
-          quote=""
-          link-url="#/missions/{{highlight.id}}"
-          headline="{{highlight.title}}"
-          subhead="{{highlight.subtitle}}"
-          body-copy="{{highlight.excerpt}}"
-          logo-image-url=""
-          link-style=""
-          link-text=""
-          layout="side-panel"
-          detail-page="true"
-          >
-        </slide>
-    </swiper>
-  </section>
-
-  <p class="centered"><a href class="link-with-border">See all mission highlights</a></p>
+  <div class="pagination">
+    <ul>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+      </li>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li class="disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+      </li>
+    </ul>
+  </div>
+</div>

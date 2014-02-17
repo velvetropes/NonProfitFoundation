@@ -583,19 +583,20 @@ sfDirectives.directive "pageTile", [ ->
     #   scope.logoImageUrl?.length > 0
 
     scope.getCategory = ->
-      if scope.type is "press_release"
-        "Press Release"
-      else
-        "Media Mention"
+      switch scope.type
+        when "press_release"
+          "Press Release"
+        when "media_mention"
+          "Media Mention"
+        else
+          scope.category
 
     scope.parseDate = (date) ->
       Date.parse(date)
 
     scope.linkByType = ->
       if scope.type?
-        if scope.type is "press_release"
-          "press_release"
-        else if scope.type is "media_mention"
+        if scope.type is "media_mention"
           if scope.videoLink?.length > 0
             "media_mention_with_video"
           else if scope.detailPage?.length > 0 and scope.detailPage is "true"
@@ -603,7 +604,7 @@ sfDirectives.directive "pageTile", [ ->
           else
             "media_mention"
         else
-          "default"
+          scope.type
       else
         "default"
 
@@ -611,49 +612,27 @@ sfDirectives.directive "pageTile", [ ->
       if scope.hasVideo()
         scope.$emit('modal:show', scope.videoLink)
 
-  template = """
-    <div class='block'>
-      <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}"></div>
-      <p class="category">{{getCategory()}}</p>
-      <h2 class="headline">{{title}}</h2>
-      <p class='date'>{{parseDate(date) | date:"MMMM d yyyy"}}</p>
-      <p class='read-more' ng-switch="linkByType()">
-        <a ng-switch-when="press_release" href="#/press_releases/{{id}}">
-          Read more &rarr;
-        </a>
-        <a ng-switch-when="media_mention" href="{{callToActionLink}}" target="_blank">
-          Read more &rarr;
-        </a>
-        <a ng-switch-when="media_mention_with_detail_page" href="#/media_mentions/{{id}}">
-          Read more &rarr;
-        </a>
-        <a ng-switch-when="media_mention_with_video" href ng-click="displayInModalIfVideo()">
-          Watch Video &rarr;
-        </a>
-      </p>
-    </div>
-    """
-
   result =
     restrict: "E"
     replace: true
-    template: template
+    templateUrl: "templates/page_tile.html"
     link: link
     scope:
       id: "@"
-      feedUrl: "@"
-      title: "@"
+      callToActionLink: "@"
+      callToActionText: "@"
+      category: "@"
       date: "@"
-      year: "@"
       detailPage: "@"
-      type: "@"
       featured: "@"
+      feedUrl: "@"
       headerImageUrl: "@"
       logoImageUrl: "@"
       quote: "@"
-      callToActionText: "@"
-      callToActionLink: "@"
+      title: "@"
+      type: "@"
       videoLink: "@"
+      year: "@"
   result
 
 ]

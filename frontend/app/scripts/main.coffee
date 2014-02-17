@@ -33,7 +33,11 @@ missionsPageApp = angular.module("missionsPageApp", [
 
 missionsPageApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/missions",
-    templateUrl: "partials/missions/index.html"
+    templateUrl: "partials/missions/landing.html"
+    controller: "MissionsPageCtrl"
+  ).when("/highlights",
+    templateUrl: ->
+      "partials/missions/index.html"
     controller: "MissionsIndexCtrl"
   ).when("/missions/:articleId",
   templateUrl: (params) ->
@@ -42,7 +46,6 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
     controller: "MissionsShowCtrl"
   ).otherwise redirectTo: "/missions"
 ]
-
 # Media Mentions
 mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
   "ngRoute",

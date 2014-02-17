@@ -115,11 +115,11 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 
 # Hearing Missions
 
-sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker", "MissionsIndex", ($scope, MissionsMapMarker, MissionsIndex) ->
+sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "MissionsPage", ($scope, MissionsMapMarker, MissionsPage) ->
   $scope.currentTab = 0
   MissionsMapMarker.getIndex().then (data) ->
     $scope.data = data
-  MissionsIndex.getIndex().then (data) ->
+  MissionsPage.getPage().then (data) ->
     $scope.missions = data[0]
     $scope.statistics = $scope.missions.hearing_mission_statistics
     $scope.content_tabs = $scope.missions.content_tabs
@@ -128,6 +128,45 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "MissionsMapMarker", "M
   $scope.changeTab = (tabId) ->
     $scope.currentTab = tabId
 ])
+
+sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "MissionsIndex", ($scope, Pagination, MissionsIndex) ->
+
+  $scope.highlightsFilters = {
+    year: ''
+    region: ''
+    country: ''
+  }
+
+  $scope.highlightYears = [
+    {name: "Latest", tag: ''}
+    {name: '2014', tag: '2014'}
+    {name: '2013', tag: '2013'}
+    {name: '2012', tag: '2012'}
+    {name: '2011', tag: '2011'}
+    {name: '2010', tag: '2010'}
+  ]
+
+  $scope.highlightRegions = [
+    {name: "Region", tag: ''}
+    # TODO Read off JSON feed, collect all regions
+  ]
+
+  $scope.highlightCountries = [
+    {name: "Country", tag: ''}
+    # TODO Read off JSON feed, collect all regions
+  ]
+
+  $scope.missionsHighlights = []
+  MissionsIndex.getIndex().then (data) ->
+    $scope.missionsHighlights = data
+    $scope.pagination = Pagination.getNew(9)
+    $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
+
+  $scope.numberOfPages = ->
+    Math.ceil($scope.missionsHighlights.length/$scope.pageSize)
+
+])
+
 
 sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
 

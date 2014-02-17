@@ -1,0 +1,23 @@
+<div class='block'>
+  <div class="image" ng-style="{'background-image': 'url(' + headerImageUrl + ')'}"></div>
+  <p class="category">{{getCategory()}}</p>
+  <h2 class="headline">{{title}}</h2>
+  <p class='date'>{{parseDate(date) | date:"MMMM d yyyy"}}</p>
+  <p class='read-more' ng-switch="linkByType()">
+    <a ng-switch-when="press_release" href="#/press_releases/{{id}}">
+      Read more &rarr;
+    </a>
+    <a ng-switch-when="media_mention" href="{{callToActionLink}}" target="_blank">
+      Read more &rarr;
+    </a>
+    <a ng-switch-when="media_mention_with_detail_page" href="#/media_mentions/{{id}}">
+      Read more &rarr;
+    </a>
+    <a ng-switch-when="missions_highlight" href="#/missions/{{id}}">
+      Read more &rarr;
+    </a>
+    <a ng-switch-when="media_mention_with_video" href ng-click="displayInModalIfVideo()">
+      Watch Video &rarr;
+    </a>
+  </p>
+</div>

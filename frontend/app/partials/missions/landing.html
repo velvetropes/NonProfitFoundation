@@ -1,0 +1,78 @@
+  <section class='page-leader'>
+    <h1>
+      {{missions.page_title}}
+    </h1>
+    <p>
+    {{missions.page_lead}}
+    </p>
+  </section>
+
+  <missions-map data="data"></missions-map>
+  <section class="hearing-missions-statistics">
+    <ul>
+      <li ng-repeat="statistic in statistics" ng-clas="{first: $index==0}">
+        <h1>
+          {{statistic.name}}
+        </h1>
+        <p>
+          {{statistic.tagline}}
+        </p>
+      </li>
+    </ul>
+  </section>
+  <div class="outer-container">
+    <section class='tabbed-content'>
+      <nav class="outer-container">
+          <ul class='three-tabs'>
+            <li ng-repeat="content_tab in content_tabs" ng-class="{active: currentTab==$index,last:$index==2}" ng-click="changeTab($index)">
+              <a href>{{content_tab.tab_title}}</a>
+            </li>
+          </ul>
+      </nav>
+      <article ng-repeat="content_tab in content_tabs" ng-show="currentTab==$index">
+        <div class="image" ng-style="{'background-image': 'url(' + content_tab.thumbnail_image_url + ')', 'background-size': 'cover'}">
+        </div>
+        <div class="content">
+          <h1>{{content_tab.content_title}}</h1>
+          {{content_tab.content}}"
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <section class='page-leader'>
+    <h1>
+      Highlights
+    </h1>
+  </section>
+
+  <section class="carousel hero">
+
+    <swiper
+      continuous="true"
+      speed="2000"
+      identifier="swiper_1"
+      auto="8000"
+      paginator="true"
+      tall="false"
+      >
+        <slide
+          ng-repeat="highlight in highlights"
+          image-url="{{highlight.image}}"
+          background-color=""
+          quote=""
+          link-url="#/missions/{{highlight.id}}"
+          headline="{{highlight.title}}"
+          subhead="{{highlight.subtitle}}"
+          body-copy="{{highlight.excerpt}}"
+          logo-image-url=""
+          link-style=""
+          link-text=""
+          layout="side-panel"
+          detail-page="true"
+          >
+        </slide>
+    </swiper>
+  </section>
+
+  <p class="centered"><a href="#/highlights" class="link-with-border">See all mission highlights</a></p>
