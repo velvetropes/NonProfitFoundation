@@ -224,6 +224,7 @@ sfDirectives.directive 'homeThumblistNav', [->
 # <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
 
 sfDirectives.directive 'galaThumblistNav', [->
+  config = {}
 
   link = (scope, element, attrs) ->
     setTimeout( ->
@@ -238,7 +239,6 @@ sfDirectives.directive 'galaThumblistNav', [->
   scope:
     items: "="
     clickaction: "="
-
 ]
 
 # <thumblist-nav full="true"></thumblist-nav>

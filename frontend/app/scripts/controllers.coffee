@@ -114,11 +114,11 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 ])
 
 # Gala
-sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", ($scope, $routeParams ) ->
+sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", "GalaItems", ($scope, $routeParams, GalaItems ) ->
 
   $scope.currentTab = $routeParams
 
-  TimelineItems.getIndex().then (data) ->
+  GalaItems.getIndex().then (data) ->
     $scope.timelineItems = data
 
 ])

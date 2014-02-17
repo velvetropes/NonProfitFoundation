@@ -35,7 +35,7 @@
     </div>
     <div class="content">
       <h1>{title}</h1>
-      {content}"
+      {content}
       <p class="call-toaction">
         <a href="{call_to_action_url}">{call_to_action_text}</a>
       </p>
