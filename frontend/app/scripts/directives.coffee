@@ -214,9 +214,29 @@ sfDirectives.directive 'homeThumblistNav', [->
   restrict: "E"
   link: link
   templateUrl: "templates/home_thumblist_nav.html"
-  repalce: true
+  replace: true
   scope:
     articles: "="
+    clickaction: "="
+
+]
+
+# <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
+
+sfDirectives.directive 'galaThumblistNav', [->
+
+  link = (scope, element, attrs) ->
+    setTimeout( ->
+      scope.pane = $('.thumblist-nav')
+      scope.pane.jScrollPane(config)
+    , 1400)
+
+  restrict: "E"
+  link: link
+  templateUrl: "templates/gala_thumblist_nav.html"
+  replace: true
+  scope:
+    items: "="
     clickaction: "="
 
 ]

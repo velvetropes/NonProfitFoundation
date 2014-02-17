@@ -66,6 +66,22 @@ sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", "urlChooser",
   {getIndex: getIndex}
 ]
 
+sfServices.factory "GalaItem", ["$resource", "urlChooser", ($resource, urlChooser) ->
+  $resource "#{urlChooser.getUrl}/gala_item/:timelineItemId", {}, {}
+]
+
+sfServices.factory "GalaItems", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/gala_items").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getIndex: getIndex}
+]
+
 # sfServices.factory "HearingMissionArticle", ["$resource", "urlChooser", ($resource, urlChooser) ->
 #   $resource "#{urlChooser.getUrl}/missions/:articleId", {}, {}
 # ]
@@ -81,6 +97,21 @@ sfServices.factory "HearingMissionArticle", ["$q", "$http", "urlChooser", ($q, $
       deferred.reject reason
     deferred.promise
   {getDetail: getDetail}
+]
+
+sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/homepage_markers#{urlChooser.getIndexFormat}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+
+    deferred.promise
+
+  # Return factory object
+  {getIndex: getIndex}
 ]
 
 sfServices.factory "MissionsPage", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
@@ -104,21 +135,6 @@ sfServices.factory "MissionsIndex", ["$q", "$http", "$resource", "urlChooser", (
     ).error (reason) ->
       deferred.reject reason
     deferred.promise
-  {getIndex: getIndex}
-]
-
-sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
-
-  getIndex = ->
-    deferred = $q.defer()
-    $http.get("#{urlChooser.getUrl}/homepage_markers#{urlChooser.getIndexFormat}").success((data) ->
-      deferred.resolve data
-    ).error (reason) ->
-      deferred.reject reason
-
-    deferred.promise
-
-  # Return factory object
   {getIndex: getIndex}
 ]
 

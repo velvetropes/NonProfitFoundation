@@ -117,7 +117,10 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", ($scope, $routeParams ) ->
 
   $scope.currentTab = $routeParams
-  console.debug "GalaCtrl: $scope.currentTab", $scope.currentTab
+
+  TimelineItems.getIndex().then (data) ->
+    $scope.timelineItems = data
+
 ])
 
 # Hearing Missions
