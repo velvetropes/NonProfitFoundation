@@ -1,8 +1,8 @@
 {exp:http_header content_type="application/json"}{exp:channel:entries channel="hearing_landing" dynamic="no" limit="1"}
 [
   {
-    "page_title" : "{title}",
-    "page_lead" : "{hm_lead}",
+    "page_title" : "{exp:low_replace find="QUOTE" replace="\QUOTE" multiple="yes"}{title}{/exp:low_replace}",
+    "page_lead" : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{hm_lead}{/exp:low_replace}",
     "hearing_mission_statistics" : [
     {hearing_mission_statistics}
         {
@@ -24,7 +24,7 @@
     {mission_highlights limit="10"}
         {
             "id"        : "{url_title}"
-            "title"     : "{title}",
+            "title"     : ""{exp:low_replace find="QUOTE" replace="\QUOTE" multiple="yes"}{title}{/exp:low_replace}",
             "subtitle"  : "{mission_highlights:mission_subtitle}",
             "excerpt"   : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_highlights:mission_excerpt}{/exp:low_replace}"
             "image"     : "{mission_highlights:mission_image:url}",
