@@ -17,15 +17,12 @@
             "tab_title" : "{content_tabs:tab_title}",
             "content_title" : "{content_tabs:tab_content_title}",
             "content" : "{content_tabs:tab_content}",
-            <!-- TODO FOR KARA -->
             "thumbnail_image_url" : ""
-            <!-- "{content_tabs:thumbnail_image_url}" -->
         }{if content_tabs:count != content_tabs:total_rows},{/if}
     {/content_tabs}
     ],
     "highlights" : [
     {mission_highlights limit="10"}
-        <!-- KARA: see missions_highlights.tpl -->
         {
             "id"        : "{url_title}",
             "title"     : "{title}",
