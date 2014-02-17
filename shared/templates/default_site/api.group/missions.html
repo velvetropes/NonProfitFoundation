@@ -7,7 +7,7 @@
     {hearing_mission_statistics}
         {
             "name": "{hearing_mission_statistics:number}",
-            "tagline": "{hearing_mission_statistics:tagline}"
+            "tagline": "{exp:low_replace find="QUOTE" replace="\QUOTE" multiple="yes"}{hearing_mission_statistics:tagline}{/exp:low_replace}"
         }{if hearing_mission_statistics:count != hearing_mission_statistics:total_rows},{/if}
     {/hearing_mission_statistics}
     ],
@@ -15,8 +15,8 @@
     {content_tabs}
         {
             "tab_title" : "{content_tabs:tab_title}",
-            "content_title" : "{content_tabs:tab_content_title}",
-            "content" : "{content_tabs:tab_content}"
+            "content_title" : "{exp:low_replace find="QUOTE" replace="\QUOTE" multiple="yes"}{content_tabs:tab_content_title}{/exp:low_replace}",
+            "content" : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{content_tabs:tab_content}{/exp:low_replace}"
         }{if content_tabs:count != content_tabs:total_rows},{/if}
     {/content_tabs}
     ],
@@ -26,7 +26,7 @@
             "id"        : "{url_title}"
             "title"     : "{title}",
             "subtitle"  : "{mission_highlights:mission_subtitle}",
-            "excerpt"   : "{mission_highlights:mission_excerpt}"
+            "excerpt"   : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_highlights:mission_excerpt}{/exp:low_replace}"
             "image"     : "{mission_highlights:mission_image:url}",
             "video"     : "{mission_highlights:mission_video_url}",
         }{if mission_highlights:count != mission_highlights:total_results},{/if}
