@@ -1,68 +1,180 @@
 sfDirectives = angular.module("sfDirectives", ["ngSanitize", "sfFilters"])
 
-sfDirectives.factory("Pagination", ->
-  pagination = {}
-  pagination.getNew = (perPage) ->
-    perPage = (if perPage is `undefined` then 5 else perPage)
-    paginator =
-      numPages: 1
-      perPage: perPage
-      page: 0
+sfDirectives.directive "accordion", [->
+  template = """
+    <div class="accordion" ng-transclude></div>
+    """
+  restrict: "EA"
+  replace: true
+  transclude: true
+  template: template
+  # controller: controller
+  controller: ->
+    expanders = []
+    @gotOpened = (selectedExpander) ->
+      angular.forEach expanders, (expander) ->
+        expander.showMe = false  unless selectedExpander is expander
+        return
+      return
 
-    paginator.prevPage = ->
-      paginator.page -= 1  if paginator.page > 0
+    @addExpander = (expander) ->
+      expanders.push expander
+      return
+    return
+]
 
-    paginator.nextPage = ->
-      paginator.page += 1  if paginator.page < paginator.numPages - 1
+# Detail page directive format
+# <detail-page
+#   detail-page-type="blog"
+#   date="{entry_date format='%M %d, %Y'}"
+#   author="{blog_author}"
+#   category="{blog_category}"
+#   title="{title}"
+#   subhead=""
+#   body="{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}"
+#   header-image-url="{blog_image}"
+#   thumbnail-image-url=""
+#   previous-page-id=""
+#   next-page-id=""
+#   share-this="false"
+#   has-related-posts="false">
+# </detail-page>
+sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compile)->
 
-    paginator.toPageId = (id) ->
-      paginator.page = id  if id >= 0 and id <= paginator.numPages - 1
-
-    paginator
-
-  pagination
-)
-
-sfDirectives.directive "worldMap", [->
   link = (scope, element, attrs) ->
+    scope.author ?= ""
+    scope.body ?= ""
+    scope.category ?= ""
+    scope.date ?= ""
+    scope.detailPageType ?= ""
+    scope.hasRelatedPosts ?= ""
+    scope.headerImageUrl ?= ""
+    scope.previousPageId ?= ""
+    scope.nextPageId ?= ""
+    scope.shareThis ?= ""
+    scope.subhead ?= ""
+    scope.thumbnailImageUrl ?= ""
+    scope.title ?= ""
+    # template = if scope.detailPageType is "blog"
+    #   blogDetailTemplate
+    # else
+    #   pressReleaseDetailTemplate
+    # element.html(template)
+    # $compile(element.contents())(scope)
+    # $timeout( ->
+    #   element.html(template)
+    #   $compile(element.contents())(scope)
+    # , 4800)
+    # el = $compile('<div class="text-container" ng-bind-html="body"></div>')(scope)
 
+  result =
+    restrict: "E"
+    replace: true
+    templateUrl: ->
+      # TODO - template chooser
+      "templates/blog_detail_page.html"
+    link: link
+    # priority: 1
+    scope:
+      author: "@"
+      body: "@"
+      category: "@"
+      date: "@"
+      detailPageType: "@"
+      hasRelatedPosts: "@"
+      headerImageUrl: "@"
+      previousPageId: "@"
+      nextPageId: "@"
+      shareThis: "@"
+      subhead: "@"
+      thumbnailImageUrl: "@"
+      title: "@"
+  result
+]
+
+sfDirectives.directive "expander", [->
+  template = """
+    <div>
+      <div class="title" ng-click="toggle()">
+        {{title}}
+      </div>
+      <div class="body reveal" ng-show="showMe" ng-transclude>
+      </div>
+    </div>
+    """
+  restrict: "EA"
+  replace: true
+  transclude: true
+  require: "^?accordion"
+  # link: link
+  template: template
+  link: (scope, element, attrs, accordionController) ->
+    scope.showMe = false
+    accordionController.addExpander scope
+    scope.toggle = toggle = ->
+      scope.showMe = not scope.showMe
+      accordionController.gotOpened scope
+      return
+    return
+  scope:
+    title: "@"
+]
+
+sfDirectives.directive 'dynamic', ["$compile", ($compile) ->
+  restrict: 'A'
+  replace: true
+  link: (scope, element, attrs) ->
+    scope.$watch(attrs.dynamic, (html) ->
+      element.html(html)
+      $compile(element.contents())(scope)
+    )
+]
+
+# <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
+
+sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", ($http, $sce) ->
+  config = {}
+
+  link = (scope, element, attrs) ->
     setTimeout( ->
-      $("#world-map-gdp").vectorMap
-        map: "world_mill_en"
-        markers: scope.markers.coords
-        markersSelectableOne: true
-        zoomOnScroll: false
-        series:
-          markers: [
-            attribute: "fill"
-            scale: ["#C8EEFF", "#0071A4"]
-          ]
-
-        onMarkerClick: (event, index) =>
-          content = scope.markers.meta_data[index]
-          $popup = $('#map-popup')
-          $popup.fadeOut "slow", ->
-            $popup
-              .find(".content").empty()
-              .html("<span class='close'><a href ng-click='closePopup()'>X</a></span><img src='#{content.thumbnail_url}'/><div class='background-popup'><h1>#{content.title}</h1><p>#{content.text}</p></div>")
-            $popup
-              .fadeIn()
-      mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
-    , 1800)
+      scope.pane = $('.thumblist-nav')
+      scope.pane.jScrollPane(config)
+    , 1400)
 
   controller = ($scope, $element) ->
-    $scope.closePopup = ->
-      $('#map-popup').fadeOut()
+    $scope.getItem = (url)->
+      # $http.get("/api/gala_item/#{url}").then (response) ->
+      $http.get("/local/api/gala_item").then (response) ->
+        $scope.rawHtml = response.data
+
+  controller: controller
+  restrict: "E"
+  link: link
+  templateUrl: "templates/gala_thumblist_nav.html"
+  replace: true
+  scope:
+    items: "="
+]
+
+sfDirectives.directive 'homeThumblistNav', [->
+
+  link = (scope, element, attrs) ->
+
+    config = { showArrows: false }
+
+    setTimeout( ->
+      scope.pane = $('.thumblist-nav')
+      scope.pane.jScrollPane(config)
+    , 1400)
 
   restrict: "E"
   link: link
-  controller: controller
-  template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
-  transclude: true
+  templateUrl: "templates/home_thumblist_nav.html"
   replace: true
-  scope: {
-    markers: "="
-  }
+  scope:
+    articles: "="
+    clickaction: "="
+
 ]
 
 # Missions Map
@@ -190,6 +302,137 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     data: "="
 ]
 
+# Page tile format:
+# < page-tile
+#   id=""
+#   feed_url=""
+#   title=""
+#   date=""
+#   year=""
+#   detail_page=""
+#   type=""
+#   featured=""
+#   header_image_url=""
+#   logo_image_url=""
+#   quote=""
+#   call_to_action_text=""
+#   call_to_action_link=""
+#   video_link=""
+# ></page-tile>
+
+sfDirectives.directive "pageTile", [ ->
+
+  link = (scope, element, attrs) ->
+    scope.feedUrl ?= ""
+    scope.title ?= ""
+    scope.date ?= ""
+    scope.year ?= ""
+    scope.detailPage ?= ""
+    scope.type ?= ""
+    scope.featured ?= ""
+    scope.headerImageUrl ?= ""
+    scope.logoImageUrl ?= ""
+    scope.quote ?= ""
+    scope.callToActionText ?= ""
+    scope.callToActionLink ?= ""
+    scope.videoLink ?= ""
+
+    scope.hasVideo = ->
+      scope.videoLink?.length > 0
+
+    # scope.hasDetailPage = ->
+    #   scope.detailPage?.length > 0
+
+    # scope.isPressRelease = ->
+    #   scope.type?.length > 0 and scope.type is "Press Release"
+
+    # scope.hasQuote = ->
+    #   scope.quote?.length > 0
+
+    # scope.hasHeadline = ->
+    #   scope.headline?.length > 0
+
+    # scope.hasLogoImageUrl = ->
+    #   scope.logoImageUrl?.length > 0
+
+    scope.getCategory = ->
+      switch scope.type
+        when "press_release"
+          "Press Release"
+        when "media_mention"
+          "Media Mention"
+        else
+          scope.category
+
+    scope.parseDate = (date) ->
+      Date.parse(date)
+
+    scope.linkByType = ->
+      if scope.type?
+        if scope.type is "media_mention"
+          if scope.videoLink?.length > 0
+            "media_mention_with_video"
+          else if scope.detailPage?.length > 0 and scope.detailPage is "true"
+            "media_mention_with_detail_page"
+          else
+            "media_mention"
+        else
+          scope.type
+      else
+        "default"
+
+    scope.displayInModalIfVideo = ->
+      if scope.hasVideo()
+        scope.$emit('modal:show', scope.videoLink)
+
+  result =
+    restrict: "E"
+    replace: true
+    templateUrl: "templates/page_tile.html"
+    link: link
+    scope:
+      id: "@"
+      callToActionLink: "@"
+      callToActionText: "@"
+      category: "@"
+      date: "@"
+      detailPage: "@"
+      featured: "@"
+      feedUrl: "@"
+      headerImageUrl: "@"
+      logoImageUrl: "@"
+      quote: "@"
+      title: "@"
+      type: "@"
+      videoLink: "@"
+      year: "@"
+  result
+
+]
+
+sfDirectives.factory("Pagination", ->
+  pagination = {}
+  pagination.getNew = (perPage) ->
+    perPage = (if perPage is `undefined` then 5 else perPage)
+    paginator =
+      numPages: 1
+      perPage: perPage
+      page: 0
+
+    paginator.prevPage = ->
+      paginator.page -= 1  if paginator.page > 0
+
+    paginator.nextPage = ->
+      paginator.page += 1  if paginator.page < paginator.numPages - 1
+
+    paginator.toPageId = (id) ->
+      paginator.page = id  if id >= 0 and id <= paginator.numPages - 1
+
+    paginator
+
+  pagination
+)
+
 sfDirectives.directive "panelTab", [->
 
   restrict: "E"
@@ -198,153 +441,6 @@ sfDirectives.directive "panelTab", [->
   scope: {
     featured: "="
   }
-]
-
-sfDirectives.directive 'homeThumblistNav', [->
-
-  link = (scope, element, attrs) ->
-
-    config = { showArrows: false }
-
-    setTimeout( ->
-      scope.pane = $('.thumblist-nav')
-      scope.pane.jScrollPane(config)
-    , 1400)
-
-  restrict: "E"
-  link: link
-  templateUrl: "templates/home_thumblist_nav.html"
-  replace: true
-  scope:
-    articles: "="
-    clickaction: "="
-
-]
-
-# <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
-
-sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", ($http, $sce) ->
-  config = {}
-
-  link = (scope, element, attrs) ->
-    setTimeout( ->
-      scope.pane = $('.thumblist-nav')
-      scope.pane.jScrollPane(config)
-    , 1400)
-
-  controller = ($scope, $element) ->
-    $scope.getItem = (url)->
-      # $http.get("/api/gala_item/#{url}").then (response) ->
-      $http.get("/local/api/gala_item").then (response) ->
-        $scope.rawHtml = response.data
-
-  controller: controller
-  restrict: "E"
-  link: link
-  templateUrl: "templates/gala_thumblist_nav.html"
-  replace: true
-  scope:
-    items: "="
-]
-
-sfDirectives.directive 'dynamic', ["$compile", ($compile) ->
-  restrict: 'A'
-  replace: true
-  link: (scope, element, attrs) ->
-    scope.$watch(attrs.dynamic, (html) ->
-      element.html(html)
-      $compile(element.contents())(scope)
-    )
-]
-
-# <thumblist-nav full="true"></thumblist-nav>
-
-sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
-  link = (scope, element, attrs) ->
-    config = showArrows: false
-    # TODO Use a promise
-    $timeout (->
-      scope.pane = $(".thumblist-nav")
-      scope.pane.jScrollPane config
-    ), 2400
-
-    scope.isFullHeight = ->
-      scope.full?.length > 0 and scope.full is "true"
-
-    scope.thumbClasses = ->
-      if scope.isFullHeight()
-        "full thumblist thumblist-nav horizontal-only"
-      else
-        "thumblist thumblist-nav horizontal-only"
-
-  template = """
-    <div ng-class="thumbClasses()" ng-transclude></div>
-    """
-  restrict: "E"
-  link: link
-  template: template
-  transclude: true
-  replace: true
-  scope:
-    full: "@"
-]
-
-# Swiper format:
-# <swiper
-#   continuous="true"
-#   speed="2000"
-#   identifier="swiper_1"
-#   auto="8000"
-#   tall="false"
-#   paginator="true"
-# >
-
-sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
-  link = (scope, element, attrs) ->
-    config = undefined
-    config = {}
-    config.auto = if attrs.auto?.length > 0
-      attrs.auto
-    else
-      false
-    config.speed = parseInt(attrs.speed, 10) or 500
-    config.disableScroll = !!attrs.disableScroll  if attrs.disableScroll
-    config.continuous = !!attrs.continuous  if attrs.continuous
-
-    # TODO Use a promise
-    $timeout (->
-      scope.swipe = new Swipe(document.getElementById(scope.identifier), config)
-    ), 1800
-
-    scope.showPaginator = ->
-      scope.paginator? and scope.paginator is "true"
-
-    scope.isShort = ->
-      scope.tall? and scope.tall is "false"
-
-    element.parent().addClass("no-container") if element.parent()?.is("p")
-
-  controller = ($scope, $element) ->
-    $scope.next = ->
-      $scope.swipe.next()
-
-    $scope.prev = ->
-      $scope.swipe.prev()
-
-    $scope.slide = (index) ->
-      $scope.swipe.slide index
-
-  restrict: "E"
-  link: link
-  controller: controller
-  templateUrl: "templates/swipe.html"
-  transclude: true
-  replace: true
-  # priority: 0
-  scope:
-    identifier: "@"
-    paginator: "@"
-    tall: "@"
 ]
 
 # Slide directive format:
@@ -494,183 +590,98 @@ sfDirectives.directive "slide", [ ->
 
 ]
 
-# Detail page directive format
-# <detail-page
-#   detail-page-type="blog"
-#   date="{entry_date format='%M %d, %Y'}"
-#   author="{blog_author}"
-#   category="{blog_category}"
-#   title="{title}"
-#   subhead=""
-#   body="{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}"
-#   header-image-url="{blog_image}"
-#   thumbnail-image-url=""
-#   previous-page-id=""
-#   next-page-id=""
-#   share-this="false"
-#   has-related-posts="false">
-# </detail-page>
 
-sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compile)->
+# Swiper format:
+# <swiper
+#   continuous="true"
+#   speed="2000"
+#   identifier="swiper_1"
+#   auto="8000"
+#   tall="false"
+#   paginator="true"
+# >
 
+sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   link = (scope, element, attrs) ->
-    scope.author ?= ""
-    scope.body ?= ""
-    scope.category ?= ""
-    scope.date ?= ""
-    scope.detailPageType ?= ""
-    scope.hasRelatedPosts ?= ""
-    scope.headerImageUrl ?= ""
-    scope.previousPageId ?= ""
-    scope.nextPageId ?= ""
-    scope.shareThis ?= ""
-    scope.subhead ?= ""
-    scope.thumbnailImageUrl ?= ""
-    scope.title ?= ""
-    # template = if scope.detailPageType is "blog"
-    #   blogDetailTemplate
-    # else
-    #   pressReleaseDetailTemplate
-    # element.html(template)
-    # $compile(element.contents())(scope)
-    # $timeout( ->
-    #   element.html(template)
-    #   $compile(element.contents())(scope)
-    # , 4800)
-    # el = $compile('<div class="text-container" ng-bind-html="body"></div>')(scope)
+    config = undefined
+    config = {}
+    config.auto = if attrs.auto?.length > 0
+      attrs.auto
+    else
+      false
+    config.speed = parseInt(attrs.speed, 10) or 500
+    config.disableScroll = !!attrs.disableScroll  if attrs.disableScroll
+    config.continuous = !!attrs.continuous  if attrs.continuous
 
-  result =
-    restrict: "E"
-    replace: true
-    templateUrl: ->
-      # TODO - template chooser
-      "templates/blog_detail_page.html"
-    link: link
-    # priority: 1
-    scope:
-      author: "@"
-      body: "@"
-      category: "@"
-      date: "@"
-      detailPageType: "@"
-      hasRelatedPosts: "@"
-      headerImageUrl: "@"
-      previousPageId: "@"
-      nextPageId: "@"
-      shareThis: "@"
-      subhead: "@"
-      thumbnailImageUrl: "@"
-      title: "@"
-  result
+    # TODO Use a promise
+    $timeout (->
+      scope.swipe = new Swipe(document.getElementById(scope.identifier), config)
+    ), 1800
 
+    scope.showPaginator = ->
+      scope.paginator? and scope.paginator is "true"
+
+    scope.isShort = ->
+      scope.tall? and scope.tall is "false"
+
+    element.parent().addClass("no-container") if element.parent()?.is("p")
+
+  controller = ($scope, $element) ->
+    $scope.next = ->
+      $scope.swipe.next()
+
+    $scope.prev = ->
+      $scope.swipe.prev()
+
+    $scope.slide = (index) ->
+      $scope.swipe.slide index
+
+  restrict: "E"
+  link: link
+  controller: controller
+  templateUrl: "templates/swipe.html"
+  transclude: true
+  replace: true
+  # priority: 0
+  scope:
+    identifier: "@"
+    paginator: "@"
+    tall: "@"
 ]
 
-# Page tile format:
-# < page-tile
-#   id=""
-#   feed_url=""
-#   title=""
-#   date=""
-#   year=""
-#   detail_page=""
-#   type=""
-#   featured=""
-#   header_image_url=""
-#   logo_image_url=""
-#   quote=""
-#   call_to_action_text=""
-#   call_to_action_link=""
-#   video_link=""
-# ></page-tile>
+# <thumblist-nav full="true"></thumblist-nav>
 
-sfDirectives.directive "pageTile", [ ->
-
+sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
   link = (scope, element, attrs) ->
-    scope.feedUrl ?= ""
-    scope.title ?= ""
-    scope.date ?= ""
-    scope.year ?= ""
-    scope.detailPage ?= ""
-    scope.type ?= ""
-    scope.featured ?= ""
-    scope.headerImageUrl ?= ""
-    scope.logoImageUrl ?= ""
-    scope.quote ?= ""
-    scope.callToActionText ?= ""
-    scope.callToActionLink ?= ""
-    scope.videoLink ?= ""
+    config = showArrows: false
+    # TODO Use a promise
+    $timeout (->
+      scope.pane = $(".thumblist-nav")
+      scope.pane.jScrollPane config
+    ), 2400
 
-    scope.hasVideo = ->
-      scope.videoLink?.length > 0
+    scope.isFullHeight = ->
+      scope.full?.length > 0 and scope.full is "true"
 
-    # scope.hasDetailPage = ->
-    #   scope.detailPage?.length > 0
-
-    # scope.isPressRelease = ->
-    #   scope.type?.length > 0 and scope.type is "Press Release"
-
-    # scope.hasQuote = ->
-    #   scope.quote?.length > 0
-
-    # scope.hasHeadline = ->
-    #   scope.headline?.length > 0
-
-    # scope.hasLogoImageUrl = ->
-    #   scope.logoImageUrl?.length > 0
-
-    scope.getCategory = ->
-      switch scope.type
-        when "press_release"
-          "Press Release"
-        when "media_mention"
-          "Media Mention"
-        else
-          scope.category
-
-    scope.parseDate = (date) ->
-      Date.parse(date)
-
-    scope.linkByType = ->
-      if scope.type?
-        if scope.type is "media_mention"
-          if scope.videoLink?.length > 0
-            "media_mention_with_video"
-          else if scope.detailPage?.length > 0 and scope.detailPage is "true"
-            "media_mention_with_detail_page"
-          else
-            "media_mention"
-        else
-          scope.type
+    scope.thumbClasses = ->
+      if scope.isFullHeight()
+        "full thumblist thumblist-nav horizontal-only"
       else
-        "default"
+        "thumblist thumblist-nav horizontal-only"
 
-    scope.displayInModalIfVideo = ->
-      if scope.hasVideo()
-        scope.$emit('modal:show', scope.videoLink)
+    # So thumblist stretches full-width
+    element.parent().addClass("no-container") if element.parent()?.is("p")
 
-  result =
-    restrict: "E"
-    replace: true
-    templateUrl: "templates/page_tile.html"
-    link: link
-    scope:
-      id: "@"
-      callToActionLink: "@"
-      callToActionText: "@"
-      category: "@"
-      date: "@"
-      detailPage: "@"
-      featured: "@"
-      feedUrl: "@"
-      headerImageUrl: "@"
-      logoImageUrl: "@"
-      quote: "@"
-      title: "@"
-      type: "@"
-      videoLink: "@"
-      year: "@"
-  result
-
+  template = """
+    <div ng-class="thumbClasses()" ng-transclude></div>
+    """
+  restrict: "E"
+  link: link
+  template: template
+  transclude: true
+  replace: true
+  scope:
+    full: "@"
 ]
 
 # <button ng-click='toggleModal("http://www.youtube.com/embed/xx2Dx_rRdws")'>Open Modal Dialog</button>
@@ -762,4 +773,46 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
       </div>
     </div>
     """
+]
+
+sfDirectives.directive "worldMap", [->
+  link = (scope, element, attrs) ->
+
+    setTimeout( ->
+      $("#world-map-gdp").vectorMap
+        map: "world_mill_en"
+        markers: scope.markers.coords
+        markersSelectableOne: true
+        zoomOnScroll: false
+        series:
+          markers: [
+            attribute: "fill"
+            scale: ["#C8EEFF", "#0071A4"]
+          ]
+
+        onMarkerClick: (event, index) =>
+          content = scope.markers.meta_data[index]
+          $popup = $('#map-popup')
+          $popup.fadeOut "slow", ->
+            $popup
+              .find(".content").empty()
+              .html("<span class='close'><a href ng-click='closePopup()'>X</a></span><img src='#{content.thumbnail_url}'/><div class='background-popup'><h1>#{content.title}</h1><p>#{content.text}</p></div>")
+            $popup
+              .fadeIn()
+      mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
+    , 1800)
+
+  controller = ($scope, $element) ->
+    $scope.closePopup = ->
+      $('#map-popup').fadeOut()
+
+  restrict: "E"
+  link: link
+  controller: controller
+  template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
+  transclude: true
+  replace: true
+  scope: {
+    markers: "="
+  }
 ]
