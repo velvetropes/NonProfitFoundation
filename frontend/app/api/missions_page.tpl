@@ -26,7 +26,7 @@
         {
             "id"        : "{url_title}",
             "title"     : "{title}",
-            "date"      : "{mission_date format="format='%m %d %Y'}",
+            "date"      : "{mission_date format='%m %d %Y'}",
             "subtitle"  : "{mission_highlights:mission_subtitle}",
             "excerpt"   : "{mission_highlights:mission_excerpt}",
             "image"     : "{mission_highlights:mission_image:url}",
