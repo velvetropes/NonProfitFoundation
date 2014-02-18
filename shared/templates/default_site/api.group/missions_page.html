@@ -26,11 +26,12 @@
         {
             "id"        : "{url_title}",
             "title"     : "{title}",
+            "date"      : "{mission_date format="format='%m %d %Y'}",
             "subtitle"  : "{mission_highlights:mission_subtitle}",
             "excerpt"   : "{mission_highlights:mission_excerpt}",
             "image"     : "{mission_highlights:mission_image:url}",
             "video"     : "{mission_highlights:mission_video_url}",
-            "region"   : "{mission_region}{option_name}{/mission_region}",
+            "region"    : "{mission_region}{option_name}{/mission_region}",
             "country"   : "{mission_country}{option_name}{/mission_country}"
         }{if mission_highlights:count != mission_highlights:total_results}{/if}
     {/mission_highlights}

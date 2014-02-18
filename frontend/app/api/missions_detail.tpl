@@ -30,7 +30,7 @@
         <div class="banner">
           <p class="article-item-category">{mission_region}{option_name}{/mission_region}, {mission_country}{option_name}{/mission_country}</p>
           <h1  class="article-title">{title}</h1>
-          <p>{entry_date format="%F %d, %Y"} | {author}</p>
+          <p>{mission_date format="%F %d, %Y"} | {author}</p>
         </div>
       </div>
     </div>

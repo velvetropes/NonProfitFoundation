@@ -13,8 +13,8 @@
     "thumbnail_image_url"   : "{mission_thumb_image}",
     "header_image_url"      : "{if mission_image}{mission_image:url}{if:else}{mission_thumb_image}{/if}",
 
-    "date"                  : "{entry_date format="%Y"}",
-    "year"                  : "{entry_date format="%Y"}",
+    "date"                  : "{mission_date format="format='%m %d %Y'}",
+    "year"                  : "{mission_date format="%Y"}",
     "region"                : "{mission_region}{option_name}{/mission_region}",
     "country"               : "{mission_country}{option_name}{/mission_country}"
   }
