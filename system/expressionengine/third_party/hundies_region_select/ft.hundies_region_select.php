@@ -44,10 +44,24 @@ class Hundies_region_select_ft extends EE_Fieldtype {
 		{
 			ee()->load->library('javascript');
 
-			ee()->cp->add_to_head('<script type="text/javascript" src="'.URL_THIRD_THEMES.'hundies_region_select/lib/chosen/chosen.jquery.min.js"></script>');
-			ee()->cp->add_to_head('<link rel="stylesheet" media="all" href="'.URL_THIRD_THEMES.'hundies_region_select/lib/chosen/chosen.min.css">');
+			ee()->cp->add_to_foot('<script type="text/javascript" src="'.URL_THIRD_THEMES.'hundies_region_select/lib/chosen/chosen.jquery.min.js"></script>');
+			ee()->cp->add_to_foot('<link rel="stylesheet" media="all" href="'.URL_THIRD_THEMES.'hundies_region_select/lib/chosen/chosen.min.css">');
 
-			ee()->javascript->output('$(".chosen-select").chosen({width: "95%"});');
+			ee()->javascript->output('
+				function init_chosen() {
+					$(".chosen-select").each(function () {
+						$(this).chosen({width: "95%"});
+						$(".chosen-disabled").remove();
+					});
+
+				}
+				init_chosen();
+				Grid.bind("hundies_region_select", "display", function(cell)
+				{
+				   init_chosen();
+				   console.log($(".chosen-select"));
+				});
+			');
 
 			ee()->session->set_cache(__CLASS__, __FUNCTION__, true);
 		}
