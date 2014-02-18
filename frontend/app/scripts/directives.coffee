@@ -223,7 +223,7 @@ sfDirectives.directive 'homeThumblistNav', [->
 
 # <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
 
-sfDirectives.directive 'galaThumblistNav', [->
+sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", ($http, $sce) ->
   config = {}
 
   link = (scope, element, attrs) ->
@@ -232,13 +232,29 @@ sfDirectives.directive 'galaThumblistNav', [->
       scope.pane.jScrollPane(config)
     , 1400)
 
+  controller = ($scope, $element) ->
+    $scope.getItem = (url)->
+      # $http.get("/api/gala_item/#{url}").then (response) ->
+      $http.get("/local/api/gala_item").then (response) ->
+        $scope.rawHtml = response.data
+
+  controller: controller
   restrict: "E"
   link: link
   templateUrl: "templates/gala_thumblist_nav.html"
   replace: true
   scope:
     items: "="
-    clickaction: "="
+]
+
+sfDirectives.directive 'dynamic', ["$compile", ($compile) ->
+  restrict: 'A'
+  replace: true
+  link: (scope, element, attrs) ->
+    scope.$watch(attrs.dynamic, (html) ->
+      element.html(html)
+      $compile(element.contents())(scope)
+    )
 ]
 
 # <thumblist-nav full="true"></thumblist-nav>

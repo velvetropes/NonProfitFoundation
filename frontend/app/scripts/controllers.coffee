@@ -121,8 +121,6 @@ sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", "GalaItems", ($s
   GalaItems.getIndex().then (data) ->
     $scope.timelineItems = data
 
-  $scope.showGalaItem = (galaItemId) ->
-    console.debug "showGalaItem galaItemId", galaItemId
 ])
 
 # Hearing Missions
