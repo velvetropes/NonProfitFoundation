@@ -19,6 +19,12 @@ if ( ! defined('ENV'))
 			define('ENV_FULL', 'Staging');
 			define('ENV_DEBUG', FALSE);
 		break;
+		
+		case "production.starkey.ahundredyears.com":
+			define('ENV', 'stage');
+			define('ENV_FULL', 'Staging');
+			define('ENV_DEBUG', FALSE);
+		break;
 
 		case "starkey.local":
 			define('ENV', 'local');
