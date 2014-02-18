@@ -378,13 +378,16 @@ class Assets_upd
 					{
 						$first_asset_id = array_shift($asset_ids);
 
-						// point any entries that were using the duplicate IDs over to the first one
-						$this->EE->db->where_in('asset_id', $asset_ids)
-							->update('assets_entries', array('asset_id' => $first_asset_id));
+						if (count($asset_ids))
+						{
+							// point any entries that were using the duplicate IDs over to the first one
+							$this->EE->db->where_in('asset_id', $asset_ids)
+								->update('assets_entries', array('asset_id' => $first_asset_id));
 
-						// delete the duplicates in exp_assets
-						$this->EE->db->where_in('asset_id', $asset_ids)
-							->delete('assets');
+							// delete the duplicates in exp_assets
+							$this->EE->db->where_in('asset_id', $asset_ids)
+								->delete('assets');
+						}
 					}
 				}
 

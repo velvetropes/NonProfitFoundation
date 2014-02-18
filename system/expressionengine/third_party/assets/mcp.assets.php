@@ -550,7 +550,7 @@ class Assets_mcp
 		{
 			$vars['file'] = $file;
 			$vars['timestamp'] = version_compare(APP_VER, '2.6', '<') ? $this->EE->localize->set_localized_time($file->row_field('date') * 1000) : $this->EE->localize->format_date("%U", $file->row_field('date') * 1000);
-			$vars['human_readable_time'] = version_compare(APP_VER, '2.6', '<') ? $this->EE->localize->set_human_time($file->row_field('date')) : $this->EE->localize->format_date("%Y-%m-%d %H:%i %A", $file->row_field('date'));
+			$vars['human_readable_time'] = version_compare(APP_VER, '2.6', '<') ? $this->EE->localize->set_human_time($file->row_field('date')) : $this->EE->localize->format_date("%Y-%m-%d %h:%i %A", $file->row_field('date'));
 
 			switch ($file->kind())
 			{
@@ -584,7 +584,7 @@ class Assets_mcp
 		{
 			if (strpos($key, 'date') !== FALSE && $val)
 			{
-				$data[$key] = $this->EE->localize->convert_human_date_to_gmt($val);
+				$data[$key] = $this->EE->localize->string_to_timestamp($val);
 			}
 		}
 

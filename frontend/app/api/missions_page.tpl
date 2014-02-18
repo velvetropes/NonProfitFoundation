@@ -17,7 +17,7 @@
             "tab_title" : "{content_tabs:tab_title}",
             "content_title" : "{content_tabs:tab_content_title}",
             "content" : "{content_tabs:tab_content}",
-            "thumbnail_image_url" : ""
+            "thumbnail_image_url" : "{content_tabs:tab_image}{url}{/content_tabs:tab_image}"
         }{if content_tabs:count != content_tabs:total_rows},{/if}
     {/content_tabs}
     ],
@@ -29,7 +29,9 @@
             "subtitle"  : "{mission_highlights:mission_subtitle}",
             "excerpt"   : "{mission_highlights:mission_excerpt}",
             "image"     : "{mission_highlights:mission_image:url}",
-            "video"     : "{mission_highlights:mission_video_url}"
+            "video"     : "{mission_highlights:mission_video_url}",
+            "region"   : "{mission_region}{option_name}{/mission_region}",
+            "country"   : "{mission_country}{option_name}{/mission_country}"
         }{if mission_highlights:count != mission_highlights:total_results}{/if}
     {/mission_highlights}
     ]

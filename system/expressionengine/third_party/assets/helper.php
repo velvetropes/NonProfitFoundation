@@ -21,8 +21,8 @@ class Assets_helper
 	const ACTIONS_CANCEL = 'cancel';
 	const ACTIONS_KEEP_BOTH = 'keep_both';
 
-	private static $_skip_file_patterns = array('/^Thumbs\.db$/', '/^\.DS_STORE$/');
-	private static $_skip_folder_patterns = array('/^__MACOSX$/', '/^_/');
+	private static $_skip_file_patterns = array('^Thumbs\.db$', '^\.DS_STORE$');
+	private static $_skip_folder_patterns = array('^_');
 
 	/**
 	 * Constructor
@@ -810,7 +810,7 @@ class Assets_helper
 
 		foreach ($_combined_patterns as $pattern)
 		{
-			if (preg_match($pattern, $name))
+			if (preg_match('/'.trim($pattern, '/').'/', $name))
 			{
 				return FALSE;
 			}
@@ -840,7 +840,7 @@ class Assets_helper
 
 		foreach ($_combined_patterns as $pattern)
 		{
-			if (preg_match($pattern, $name))
+			if (preg_match('/'.trim($pattern, '/').'/', $name))
 			{
 				return FALSE;
 			}

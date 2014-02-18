@@ -32,7 +32,7 @@
  *
  * Adapted from http://undesigned.org.za/2007/10/22/amazon-s3-php-class
  */
-class GC
+class Assets_GC
 {
 	// ACL flags
 	const ACL_PRIVATE = 'private';
@@ -215,7 +215,7 @@ class GC
 	private static function __triggerError($message, $file, $line, $code = 0)
 	{
 		if (self::$useExceptions)
-			throw new GCException($message, $file, $line, $code);
+			throw new Assets_GCException($message, $file, $line, $code);
 		else
 			trigger_error($message, E_USER_WARNING);
 	}
@@ -229,7 +229,7 @@ class GC
 	 */
 	public static function listBuckets($detailed = false)
 	{
-		$rest = new GCRequest('GET', '', '', self::$endpoint);
+		$rest = new Assets_GCRequest('GET', '', '', self::$endpoint);
 		$rest = $rest->getResponse();
 		if ($rest->error === false && $rest->code !== 200)
 			$rest->error = array('code' => $rest->code, 'message' => 'Unexpected HTTP status');
@@ -274,7 +274,7 @@ class GC
 	*/
 	public static function getBucket($bucket, $prefix = null, $marker = null, $maxKeys = null, $delimiter = null, $returnCommonPrefixes = false)
 	{
-		$rest = new GCRequest('GET', $bucket, '', self::$endpoint);
+		$rest = new Assets_GCRequest('GET', $bucket, '', self::$endpoint);
 		if ($maxKeys == 0) $maxKeys = null;
 		if ($prefix !== null && $prefix !== '') $rest->setParameter('prefix', $prefix);
 		if ($marker !== null && $marker !== '') $rest->setParameter('marker', $marker);
@@ -322,7 +322,7 @@ class GC
 		if ($maxKeys == null && $nextMarker !== null && (string)$response->body->IsTruncated == 'true')
 			do
 			{
-				$rest = new GCRequest('GET', $bucket, '', self::$endpoint);
+				$rest = new Assets_GCRequest('GET', $bucket, '', self::$endpoint);
 				if ($prefix !== null && $prefix !== '') $rest->setParameter('prefix', $prefix);
 				$rest->setParameter('marker', $nextMarker);
 				if ($delimiter !== null && $delimiter !== '') $rest->setParameter('delimiter', $delimiter);
@@ -364,7 +364,7 @@ class GC
 	 */
 	public static function putBucket($bucket, $acl = self::ACL_PRIVATE, $location = false)
 	{
-		$rest = new GCRequest('PUT', $bucket, '', self::$endpoint);
+		$rest = new Assets_GCRequest('PUT', $bucket, '', self::$endpoint);
 		$rest->setAmzHeader('x-amz-acl', $acl);
 
 		if ($location !== false)
@@ -400,7 +400,7 @@ class GC
 	 */
 	public static function deleteBucket($bucket)
 	{
-		$rest = new GCRequest('DELETE', $bucket, '', self::$endpoint);
+		$rest = new Assets_GCRequest('DELETE', $bucket, '', self::$endpoint);
 		$rest = $rest->getResponse();
 		if ($rest->error === false && $rest->code !== 204)
 			$rest->error = array('code' => $rest->code, 'message' => 'Unexpected HTTP status');
@@ -469,7 +469,7 @@ class GC
 	public static function putObject($input, $bucket, $uri, $acl = self::ACL_PRIVATE, $metaHeaders = array(), $requestHeaders = array(), $storageClass = self::STORAGE_CLASS_STANDARD)
 	{
 		if ($input === false) return false;
-		$rest = new GCRequest('PUT', $bucket, $uri, self::$endpoint);
+		$rest = new Assets_GCRequest('PUT', $bucket, $uri, self::$endpoint);
 
 		if (!is_array($input)) $input = array(
 			'data' => $input, 'size' => strlen($input),
@@ -579,7 +579,7 @@ class GC
 	 */
 	public static function getObject($bucket, $uri, $saveTo = false)
 	{
-		$rest = new GCRequest('GET', $bucket, $uri, self::$endpoint);
+		$rest = new Assets_GCRequest('GET', $bucket, $uri, self::$endpoint);
 		if ($saveTo !== false)
 		{
 			if (is_resource($saveTo))
@@ -614,7 +614,7 @@ class GC
 	 */
 	public static function getObjectInfo($bucket, $uri, $returnInfo = true)
 	{
-		$rest = new GCRequest('HEAD', $bucket, $uri, self::$endpoint);
+		$rest = new Assets_GCRequest('HEAD', $bucket, $uri, self::$endpoint);
 		$rest = $rest->getResponse();
 
 		if ($rest->error === false && ($rest->code !== 200 && $rest->code !== 404))
@@ -644,7 +644,7 @@ class GC
 	 */
 	public static function copyObject($srcBucket, $srcUri, $bucket, $uri, $acl = self::ACL_PRIVATE, $metaHeaders = array(), $requestHeaders = array(), $storageClass = self::STORAGE_CLASS_STANDARD)
 	{
-		$rest = new GCRequest('PUT', $bucket, $uri, self::$endpoint);
+		$rest = new Assets_GCRequest('PUT', $bucket, $uri, self::$endpoint);
 		$rest->setHeader('Content-Length', 0);
 		foreach ($requestHeaders as $h => $v) $rest->setHeader($h, $v);
 		foreach ($metaHeaders as $h => $v) $rest->setAmzHeader('x-amz-meta-'.$h, $v);
@@ -716,7 +716,7 @@ class GC
 		}
 		$dom->appendChild($bucketLoggingStatus);
 
-		$rest = new GCRequest('PUT', $bucket, '', self::$endpoint);
+		$rest = new Assets_GCRequest('PUT', $bucket, '', self::$endpoint);
 		$rest->setParameter('logging', null);
 		$rest->data = $dom->saveXML();
 		$rest->size = strlen($rest->data);
@@ -745,7 +745,7 @@ class GC
 	 */
 	public static function getBucketLogging($bucket)
 	{
-		$rest = new GCRequest('GET', $bucket, '', self::$endpoint);
+		$rest = new Assets_GCRequest('GET', $bucket, '', self::$endpoint);
 		$rest->setParameter('logging', null);
 		$rest = $rest->getResponse();
 		if ($rest->error === false && $rest->code !== 200)
@@ -784,7 +784,7 @@ class GC
 	 */
 	public static function getBucketLocation($bucket)
 	{
-		$rest = new GCRequest('GET', $bucket, '', self::$endpoint);
+		$rest = new Assets_GCRequest('GET', $bucket, '', self::$endpoint);
 		$rest->setParameter('location', null);
 		$rest = $rest->getResponse();
 		if ($rest->error === false && $rest->code !== 200)
@@ -848,7 +848,7 @@ class GC
 		$accessControlPolicy->appendChild($accessControlList);
 		$dom->appendChild($accessControlPolicy);
 
-		$rest = new GCRequest('PUT', $bucket, $uri, self::$endpoint);
+		$rest = new Assets_GCRequest('PUT', $bucket, $uri, self::$endpoint);
 		$rest->setParameter('acl', null);
 		$rest->data = $dom->saveXML();
 		$rest->size = strlen($rest->data);
@@ -875,7 +875,7 @@ class GC
 	 */
 	public static function getAccessControlPolicy($bucket, $uri = '')
 	{
-		$rest = new GCRequest('GET', $bucket, $uri, self::$endpoint);
+		$rest = new Assets_GCRequest('GET', $bucket, $uri, self::$endpoint);
 		$rest->setParameter('acl', null);
 		$rest = $rest->getResponse();
 		if ($rest->error === false && $rest->code !== 200)
@@ -936,7 +936,7 @@ class GC
 	 */
 	public static function deleteObject($bucket, $uri)
 	{
-		$rest = new GCRequest('DELETE', $bucket, $uri, self::$endpoint);
+		$rest = new Assets_GCRequest('DELETE', $bucket, $uri, self::$endpoint);
 		$rest = $rest->getResponse();
 		if ($rest->error === false && $rest->code !== 204)
 			$rest->error = array('code' => $rest->code, 'message' => 'Unexpected HTTP status');
@@ -1099,7 +1099,7 @@ class GC
 		$useSSL = self::$useSSL;
 
 		self::$useSSL = true; // CloudFront requires SSL
-		$rest = new GCRequest('POST', '', '2010-11-01/distribution', 'cloudfront.amazonaws.com');
+		$rest = new Assets_GCRequest('POST', '', '2010-11-01/distribution', 'cloudfront.amazonaws.com');
 		$rest->data = self::__getCloudFrontDistributionConfigXML(
 			$bucket.'.storage.googleapis.com',
 			$enabled,
@@ -1147,7 +1147,7 @@ class GC
 		$useSSL = self::$useSSL;
 
 		self::$useSSL = true; // CloudFront requires SSL
-		$rest = new GCRequest('GET', '', '2010-11-01/distribution/'.$distributionId, 'cloudfront.amazonaws.com');
+		$rest = new Assets_GCRequest('GET', '', '2010-11-01/distribution/'.$distributionId, 'cloudfront.amazonaws.com');
 		$rest = self::__getCloudFrontResponse($rest);
 
 		self::$useSSL = $useSSL;
@@ -1189,7 +1189,7 @@ class GC
 		$useSSL = self::$useSSL;
 
 		self::$useSSL = true; // CloudFront requires SSL
-		$rest = new GCRequest('PUT', '', '2010-11-01/distribution/'.$dist['id'].'/config', 'cloudfront.amazonaws.com');
+		$rest = new Assets_GCRequest('PUT', '', '2010-11-01/distribution/'.$dist['id'].'/config', 'cloudfront.amazonaws.com');
 		$rest->data = self::__getCloudFrontDistributionConfigXML(
 			$dist['origin'],
 			$dist['enabled'],
@@ -1241,7 +1241,7 @@ class GC
 		$useSSL = self::$useSSL;
 
 		self::$useSSL = true; // CloudFront requires SSL
-		$rest = new GCRequest('DELETE', '', '2008-06-30/distribution/'.$dist['id'], 'cloudfront.amazonaws.com');
+		$rest = new Assets_GCRequest('DELETE', '', '2008-06-30/distribution/'.$dist['id'], 'cloudfront.amazonaws.com');
 		$rest->setHeader('If-Match', $dist['hash']);
 		$rest = self::__getCloudFrontResponse($rest);
 
@@ -1275,7 +1275,7 @@ class GC
 
 		$useSSL = self::$useSSL;
 		self::$useSSL = true; // CloudFront requires SSL
-		$rest = new GCRequest('GET', '', '2010-11-01/distribution', 'cloudfront.amazonaws.com');
+		$rest = new Assets_GCRequest('GET', '', '2010-11-01/distribution', 'cloudfront.amazonaws.com');
 		$rest = self::__getCloudFrontResponse($rest);
 		self::$useSSL = $useSSL;
 
@@ -1319,7 +1319,7 @@ class GC
 		}
 
 		self::$useSSL = true; // CloudFront requires SSL
-		$rest = new GCRequest('GET', '', '2010-11-01/origin-access-identity/cloudfront', 'cloudfront.amazonaws.com');
+		$rest = new Assets_GCRequest('GET', '', '2010-11-01/origin-access-identity/cloudfront', 'cloudfront.amazonaws.com');
 		$rest = self::__getCloudFrontResponse($rest);
 		$useSSL = self::$useSSL;
 
@@ -1364,7 +1364,7 @@ class GC
 
 		$useSSL = self::$useSSL;
 		self::$useSSL = true; // CloudFront requires SSL
-		$rest = new GCRequest('POST', '', '2010-08-01/distribution/'.$distributionId.'/invalidation', 'cloudfront.amazonaws.com');
+		$rest = new Assets_GCRequest('POST', '', '2010-08-01/distribution/'.$distributionId.'/invalidation', 'cloudfront.amazonaws.com');
 		$rest->data = self::__getCloudFrontInvalidationBatchXML($paths, (string)microtime(true));
 		$rest->size = strlen($rest->data);
 		$rest = self::__getCloudFrontResponse($rest);
@@ -1429,7 +1429,7 @@ class GC
 
 		$useSSL = self::$useSSL;
 		self::$useSSL = true; // CloudFront requires SSL
-		$rest = new GCRequest('GET', '', '2010-11-01/distribution/'.$distributionId.'/invalidation', 'cloudfront.amazonaws.com');
+		$rest = new Assets_GCRequest('GET', '', '2010-11-01/distribution/'.$distributionId.'/invalidation', 'cloudfront.amazonaws.com');
 		$rest = self::__getCloudFrontResponse($rest);
 		self::$useSSL = $useSSL;
 
@@ -1678,7 +1678,7 @@ class GC
 
 }
 
-final class GCRequest
+final class Assets_GCRequest
 {
 	private $endpoint, $verb, $bucket, $uri, $resource = '', $parameters = array(),
 		$amzHeaders = array(), $headers = array(
@@ -1802,7 +1802,7 @@ final class GCRequest
 		}
 		if (empty($url))
 		{
-			$url = (GC::$useSSL ? 'https://' : 'http://') . ($this->headers['Host'] !== '' ? $this->headers['Host'] : $this->endpoint) . $this->uri;
+			$url = (Assets_GC::$useSSL ? 'https://' : 'http://') . ($this->headers['Host'] !== '' ? $this->headers['Host'] : $this->endpoint) . $this->uri;
 		}
 
 		//var_dump('bucket: ' . $this->bucket, 'uri: ' . $this->uri, 'resource: ' . $this->resource, 'url: ' . $url);
@@ -1811,25 +1811,25 @@ final class GCRequest
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_USERAGENT, 'GC/php');
 
-		if (GC::$useSSL)
+		if (Assets_GC::$useSSL)
 		{
 			// SSL Validation can now be optional for those with broken OpenSSL installations
-			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, GC::$useSSLValidation ? 1 : 0);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, GC::$useSSLValidation ? 1 : 0);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, Assets_GC::$useSSLValidation ? 1 : 0);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, Assets_GC::$useSSLValidation ? 1 : 0);
 
-			if (GC::$sslKey !== null) curl_setopt($curl, CURLOPT_SSLKEY, GC::$sslKey);
-			if (GC::$sslCert !== null) curl_setopt($curl, CURLOPT_SSLCERT, GC::$sslCert);
-			if (GC::$sslCACert !== null) curl_setopt($curl, CURLOPT_CAINFO, GC::$sslCACert);
+			if (Assets_GC::$sslKey !== null) curl_setopt($curl, CURLOPT_SSLKEY, Assets_GC::$sslKey);
+			if (Assets_GC::$sslCert !== null) curl_setopt($curl, CURLOPT_SSLCERT, Assets_GC::$sslCert);
+			if (Assets_GC::$sslCACert !== null) curl_setopt($curl, CURLOPT_CAINFO, Assets_GC::$sslCACert);
 		}
 
 		curl_setopt($curl, CURLOPT_URL, $url);
 
-		if (GC::$proxy != null && isset(GC::$proxy['host']))
+		if (Assets_GC::$proxy != null && isset(Assets_GC::$proxy['host']))
 		{
-			curl_setopt($curl, CURLOPT_PROXY, GC::$proxy['host']);
-			curl_setopt($curl, CURLOPT_PROXYTYPE, GC::$proxy['type']);
-			if (isset(GC::$proxy['user'], GC::$proxy['pass']) && GC::$proxy['user'] != null && GC::$proxy['pass'] != null)
-				curl_setopt($curl, CURLOPT_PROXYUSERPWD, sprintf('%s:%s', GC::$proxy['user'], GC::$proxy['pass']));
+			curl_setopt($curl, CURLOPT_PROXY, Assets_GC::$proxy['host']);
+			curl_setopt($curl, CURLOPT_PROXYTYPE, Assets_GC::$proxy['type']);
+			if (isset(Assets_GC::$proxy['user'], Assets_GC::$proxy['pass']) && Assets_GC::$proxy['user'] != null && Assets_GC::$proxy['pass'] != null)
+				curl_setopt($curl, CURLOPT_PROXYUSERPWD, sprintf('%s:%s', Assets_GC::$proxy['user'], Assets_GC::$proxy['pass']));
 		}
 
 		// Headers
@@ -1851,14 +1851,14 @@ final class GCRequest
 			$amz = "\n".implode("\n", $amz);
 		} else $amz = '';
 
-		if (GC::hasAuth())
+		if (Assets_GC::hasAuth())
 		{
 			// Authorization string (CloudFront stringToSign should only contain a date)
 			if ($this->headers['Host'] == 'cloudfront.amazonaws.com')
-				$headers[] = 'Authorization: ' . GC::__getSignature($this->headers['Date']);
+				$headers[] = 'Authorization: ' . Assets_GC::__getSignature($this->headers['Date']);
 			else
 			{
-				$headers[] = 'Authorization: ' . GC::__getSignature(
+				$headers[] = 'Authorization: ' . Assets_GC::__getSignature(
 					$this->verb."\n".
 						$this->headers['Content-MD5']."\n".
 						$this->headers['Content-Type']."\n".
@@ -2045,7 +2045,7 @@ final class GCRequest
 
 }
 
-class GCException extends Exception {
+class Assets_GCException extends Exception {
 	function __construct($message, $file, $line, $code = 0)
 	{
 		parent::__construct($message, $code);

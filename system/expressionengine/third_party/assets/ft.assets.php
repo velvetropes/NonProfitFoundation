@@ -642,7 +642,16 @@ class Assets_ft extends EE_Fieldtype
 					$sql .= " ae.col_id = '{$this->col_id}'
 					          AND ae.row_id = '{$this->row_id}'
 					          AND";
+					$entry_id = $this->EE->security->xss_clean($this->EE->input->get('entry_id'));
+					if (!$entry_id)
+					{
+						$entry_id = $this->settings['entry_id'];
+					}
 
+					$sql .= " ae.entry_id ". ($entry_id ? "= '{$entry_id}'" : 'IS NULL')
+						. " AND ae.field_id ". ($this->field_id ? "= '{$this->field_id}'" : 'IS NULL');
+
+					break;
 				case 'channel':
 					$entry_id = $this->EE->security->xss_clean($this->EE->input->get('entry_id'));
 
@@ -868,10 +877,60 @@ class Assets_ft extends EE_Fieldtype
 	 */
 	function validate($data)
 	{
+		$require_upload = FALSE;
+
 		// is this a required field?
 		if ($this->settings['field_required'] == 'y' && ! (is_array($data) && array_filter($data)))
 		{
-			return lang('required');
+			if (empty($_FILES))
+			{
+				return lang('required');
+			}
+			else
+			{
+				$require_upload = TRUE;
+			}
+		}
+
+		if (!empty($_FILES))
+		{
+			$field_name = $this->EE->db->get_where('channel_fields', array('field_id' => $this->field_id))->row()->field_name;
+			$filedir_id = $this->EE->input->post($field_name .'_filedir');
+
+			if (!empty($_FILES[$field_name]['name']) && !empty($filedir_id))
+			{
+				$source = $this->EE->assets_lib->instantiate_source_type((object) array('source_type' => 'ee', 'filedir_id' => $filedir_id));
+				$filedir = $source->settings();
+
+				if ($filedir->max_size)
+				{
+					if (!is_array($_FILES[$field_name]['tmp_name']))
+					{
+						$sizes = array($_FILES[$field_name]['size']);
+					}
+					else
+					{
+						$sizes = $_FILES[$field_name]['size'];
+					}
+
+					foreach ($sizes as $size)
+					{
+						if ($size > $filedir->max_size)
+						{
+							$this->EE->lang->loadfile('assets');
+
+							return $this->EE->functions->var_swap(lang('file_too_large'), array(
+								'max_size' => Assets_helper::format_filesize($filedir->max_size)
+							));
+
+						}
+					}
+				}
+			}
+			elseif ($require_upload)
+			{
+				return lang('required');
+			}
 		}
 
 		return TRUE;
@@ -1026,7 +1085,27 @@ class Assets_ft extends EE_Fieldtype
 
 			if (!empty($_FILES[$field_name]['name']) && !empty($filedir_id))
 			{
-				$file_ids = array($this->_simple_html_upload($_FILES[$field_name], $filedir_id));
+				$file_data = array();
+
+				// If multiple files are submitted we can always rely on PHP to mess up the _FILES array.
+				if (is_array($_FILES[$field_name]['name']))
+				{
+					foreach ($_FILES[$field_name]['name'] as $index => $name)
+					{
+						$file_data[] = array('name' => $name, 'tmp_name' => $_FILES[$field_name]['tmp_name'][$index]);
+					}
+				}
+				else
+				{
+					$file_data[] = array('name' => $_FILES[$field_name]['name'], 'tmp_name' => $_FILES[$field_name]['tmp_name']);
+				}
+
+				$file_ids = array();
+				foreach ($file_data as $data)
+				{
+					$file_ids[] = $this->_simple_html_upload($data, $filedir_id);
+				}
+
 			}
 			else
 			{
@@ -1164,11 +1243,6 @@ class Assets_ft extends EE_Fieldtype
 			'field_id' => $this->field_id,
 			'is_draft' => $this->is_draft
 		);
-
-		if (!empty($this->cache['uploaded_assets'][$this->field_id]))
-		{
-			$file_ids[] = $this->cache['uploaded_assets'][$this->field_id]['file_id'];
-		}
 
 		// save the changes
 		$this->_save_field($file_ids, $where);
@@ -1419,6 +1493,14 @@ class Assets_ft extends EE_Fieldtype
 			// -------------------------------------------
 
 			$rows = $query->result_array();
+		}
+
+		// Since EE doesn't bother creating a new Fieldtype object for different context,
+		// we have to reset this, otherwise parsing non-Matrix Assets fields in the same entry
+		// are not possible once an Assets field is parsed within a Grid field.
+		if (isset($this->content_type) && $this->content_type == 'grid')
+		{
+			$this->row_id = NULL;
 		}
 
 		// -------------------------------------------
@@ -2037,11 +2119,17 @@ class Assets_ft extends EE_Fieldtype
 	private function _simple_html_upload($file_info, $filedir_id)
 	{
 		$filename = $file_info['name'];
+
 		try
 		{
 			$source = $this->EE->assets_lib->instantiate_source_type((object) array('source_type' => 'ee', 'filedir_id' => $filedir_id));
-
 			$filedir = $source->settings();
+
+			if($filedir->max_size && filesize($file_info['tmp_name']) > $filedir->max_size)
+			{
+				return FALSE;
+			}
+
 			$filename = preg_replace('/[^a-z0-9_\-\.]/i', '_', $filename);
 
 			$file_parts = explode('.', $filename);
@@ -2071,8 +2159,6 @@ class Assets_ft extends EE_Fieldtype
 			if ($file_id)
 			{
 				Assets_helper::create_ee_thumbnails($target, $filedir->id);
-
-				$this->cache['uploaded_assets'][$this->field_id] = array('file_id' => $file_id);
 				return $file_id;
 			}
 		}

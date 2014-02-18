@@ -338,7 +338,7 @@ abstract class Assets_base_source
 	 */
 	public function rename_folder($folder_id, $new_title)
 	{
-		if (substr_count($new_title, '/') > 0)
+		if (substr_count($new_title, '/') > 0 OR !Assets_helper::is_allowed_folder_name($new_title))
 		{
 			throw new Exception(lang('invalid_folder_path'));
 		}
@@ -1062,8 +1062,8 @@ abstract class Assets_base_source
 		}
 
 		$data = array(
-			'width' => $replace_with->width(),
-			'height' => $replace_with->height(),
+			'width' => (int) $replace_with->width(),
+			'height' => (int) $replace_with->height(),
 			'size' => $replace_with->size(),
 			'date_modified' => $replace_with->date_modified()
 		);
