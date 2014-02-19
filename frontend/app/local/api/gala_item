@@ -37,16 +37,22 @@
 
 </div>
 <accordion>
-  <expander class='expander' title='Title 1'>
+  <expander class='expander' title='Schedule'>
     <p>Body 1</p>
   </expander>
-  <expander class='expander' e-title='Title 2'>
+  <expander class='expander' title='Sponsorship Information'>
     <p>Body 2</p>
   </expander>
-  <expander class='expander' title='Title 3'>
+  <expander class='expander' title='Honoree Information'>
     <p>Body 3</p>
   </expander>
-  <expander class='expander' title='Title 4'>
+  <expander class='expander' title='Entertainers'>
+    <p>Body 4</p>
+  </expander>
+  <expander class='expander' title='Special Guests'>
+    <p>Body 4</p>
+  </expander>
+  <expander class='expander' title='Gala Sponsors'>
     <p>Body 4</p>
   </expander>
 </accordion>
