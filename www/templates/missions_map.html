@@ -36,7 +36,7 @@
         <a href ng-click="showContinent(continent)">{{continent.name}}</a>
         <ul ng-class="countryClass(continent.name)">
           <li ng-repeat="country in continent.countries_visited">
-            <a href ng-click="showCountry(country, continent)">{{country.name}}</a>
+            <a href ng-click="showCountry(country, continent)" ng-disabled="country.total_hearing_aids_provided==''">{{country.name}}</a>
           </li>
         </ul>
       </li>

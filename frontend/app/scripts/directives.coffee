@@ -285,7 +285,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
 
     $scope.showCountry = (country, continent) ->
       countryCode = country.abbreviation
-      if countryCode?.length > 0
+      if countryCode?.length > 0 and country.total_hearing_aids_provided?.length > 0
         if continent.name is "US"
           $scope.bringUSMapToFront(true, continent)
           $scope.highlightCountryRegion(country, $scope.usMapObject)
