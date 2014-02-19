@@ -156,21 +156,31 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
     {name: '2010', tag: '2010'}
   ]
 
-  $scope.highlightRegions = [
-    {name: "Region", tag: ''}
-    # TODO Read off JSON feed, collect all regions
-  ]
+  # $scope.highlightRegions = [
+  #   {name: "Region", tag: ''}
+  # ]
 
-  $scope.highlightCountries = [
-    {name: "Country", tag: ''}
-    # TODO Read off JSON feed, collect all regions
-  ]
+  # $scope.highlightCountries = [
+  #   {name: "Country", tag: ''}
+  # ]
 
   $scope.missionsHighlights = []
   MissionsIndex.getIndex().then (data) ->
     $scope.missionsHighlights = data
     $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
+    $scope.locationFilter = []
+    for highlight in $scope.missionsHighlights
+      temp = {
+        region:
+          name: highlight.region
+          tag: highlight.region
+        country:
+          name: highlight.country
+          tag: highlight.country
+      }
+      if temp not in $scope.locationFilter
+        $scope.locationFilter.push temp
 
   $scope.numberOfPages = ->
     Math.ceil($scope.missionsHighlights.length/$scope.pageSize)

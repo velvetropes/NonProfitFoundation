@@ -34,13 +34,15 @@
     <li>&nbsp;|&nbsp;</li>
     <li class="dropdown wide">
       <select ng-model="highlightsFilters.region" class="dropdown-select">
-        <option ng-repeat="cat in highlightRegions" value="{{cat.tag}}">{{cat.name}}</option>
+        <option value="">Regions</option>
+        <option ng-repeat="cat in locationFilter | orderBy:'region.name'" value="{{cat.region.tag}}">{{cat.region.name}}</option>
       </select>
     </li>
     <li>&nbsp;|&nbsp;</li>
     <li class="dropdown wide">
       <select ng-model="highlightsFilters.country" class="dropdown-select">
-        <option ng-repeat="cat in highlightCountries" value="{{cat.tag}}">{{cat.name}}</option>
+        <option value="">Countries</option>
+        <option ng-repeat="cat in locationFilter | orderBy:'country.name' | filter:{region.tag:highlightsFilters.region}"  value="{{cat.country.tag}}">{{cat.country.name}}</option>
       </select>
     </li>
   </ul>
