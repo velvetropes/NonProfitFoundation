@@ -70,7 +70,10 @@ module.exports = (grunt) ->
 
     watch:
       css:
-        files: ['**/*.scss'],
+        files: [
+          '<%= app.src %>/styles/*.{scss,sass}',
+          '<%= app.src %>/styles/**/*.{scss,sass}'
+        ],
         tasks: ['sass','autoprefixer']
 
       styles:
