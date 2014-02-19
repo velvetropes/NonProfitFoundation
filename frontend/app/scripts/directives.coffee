@@ -23,6 +23,44 @@ sfDirectives.directive "accordion", [->
     return
 ]
 
+sfDirectives.directive "accordionList", [->
+  link = (scope, element, attrs) ->
+
+  template = """
+    <div class="accordion-list">
+      <h3>{{title}}</h3>
+      <ul ng-transclude></ul>
+    </div>
+    """
+  restrict: "E"
+  replace: true
+  transclude: true
+  template: template
+  link: link
+  scope:
+    title: "@"
+]
+
+sfDirectives.directive "accordionListItem", [->
+  link = (scope, element, attrs) ->
+
+  template = """
+    <li class="accordion-list-item">
+      <h3>{{title}}</h3>
+      <h3>{{subhead}}</h3>
+      <div ng-transclude></div>
+    </li>
+    """
+  restrict: "E"
+  replace: true
+  transclude: true
+  template: template
+  link: link
+  scope:
+    title: "@"
+    subhead: "@"
+]
+
 # Detail page directive format
 # <detail-page
 #   detail-page-type="blog"
@@ -95,9 +133,7 @@ sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compi
 sfDirectives.directive "expander", [->
   template = """
     <div>
-      <div class="title" ng-click="toggle()">
-        {{title}}
-      </div>
+      <a class="title" href ng-click="toggle()">{{title}}</a>
       <div class="body reveal" ng-show="showMe" ng-transclude>
       </div>
     </div>
