@@ -10,7 +10,7 @@
 </div>
 
 <div class="outer-container">
-<!--   <div class="pagination">
+  <div class="pagination">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
@@ -23,7 +23,6 @@
       </li>
     </ul>
   </div>
- -->
   <ul class="articles-filters">
     <li>Sort &nbsp;|&nbsp;</li>
     <li class="dropdown wide">
@@ -33,23 +32,21 @@
     </li>
     <li>&nbsp;|&nbsp;</li>
     <li class="dropdown wide">
-      <select ng-model="highlightsFilters.region" class="dropdown-select">
+      <select ng-model="currentRegion" class="dropdown-select" ng-options="region.region for region in highlightRegions">
         <option value="">Regions</option>
-        <option ng-repeat="cat in locationFilter | orderBy:'region.name'" value="{{cat.region.tag}}">{{cat.region.name}}</option>
       </select>
     </li>
     <li>&nbsp;|&nbsp;</li>
     <li class="dropdown wide">
       <select ng-model="highlightsFilters.country" class="dropdown-select">
         <option value="">Countries</option>
-        <option ng-repeat="cat in locationFilter | orderBy:'country.name' | filter:{region.tag:highlightsFilters.region}"  value="{{cat.country.tag}}">{{cat.country.name}}</option>
+        <option ng-repeat="cat in currentRegion.countries" value="{{cat}}">{{cat}}</option>
       </select>
     </li>
   </ul>
 
   <ul class="pagination-articles press-items">
-    <!-- <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage"> -->
-    <li ng-repeat="highlight in missionsHighlights">
+    <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <page-tile
         id="{{highlight.id}}"
         title="{{highlight.title}}"
@@ -68,7 +65,7 @@
     </li>
   </ul>
 
-<!--   <div class="pagination">
+  <div class="pagination">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
@@ -81,4 +78,4 @@
       </li>
     </ul>
   </div>
-</div> -->
+</div>

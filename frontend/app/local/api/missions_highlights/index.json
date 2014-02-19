@@ -16,6 +16,21 @@
          "country":"Bhutan"
       },
       {
+         "id":"hearing-mission-test-entry",
+         "title":"Hearing Mission Test Entry",
+         "subtitle":"",
+         "excerpt":"",
+         "video":"",
+         "featured":"false",
+         "image":"",
+         "thumbnail_image_url":"",
+         "header_image_url":"",
+         "date":"11 18 2013",
+         "year":"2013",
+         "region":"Asia",
+         "country":"Philippines"
+      },
+      {
          "id":"lorem-ipsum-dolor-sit-amet",
          "title":"Lorem Ipsum dolor sit amet",
          "subtitle":"consectetur adipis",
@@ -41,7 +56,8 @@
       {
          "region":"Asia",
          "countries":[
-            "Bhutan"
+            "Bhutan",
+            "Philippines"
          ]
       }
    ],

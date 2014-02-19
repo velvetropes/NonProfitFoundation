@@ -141,6 +141,10 @@ sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "Mi
 
 sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "MissionsIndex", ($scope, Pagination, MissionsIndex) ->
 
+  $scope.highlightRegions = []
+  $scope.currentRegion = {}
+  $scope.missionsHighlights = []
+  $scope.currentCountry = ''
   $scope.highlightsFilters = {
     year: ''
     region: ''
@@ -149,38 +153,24 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
 
   $scope.highlightYears = [
     {name: "Latest", tag: ''}
-    {name: '2014', tag: '2014'}
-    {name: '2013', tag: '2013'}
-    {name: '2012', tag: '2012'}
-    {name: '2011', tag: '2011'}
-    {name: '2010', tag: '2010'}
   ]
 
-  $scope.highlightRegions = [
-    {name: "Region", tag: ''}
-  ]
-
-  $scope.highlightCountries = [
-    {name: "Country", tag: ''}
-  ]
-
-  $scope.missionsHighlights = []
   MissionsIndex.getIndex().then (data) ->
-    $scope.missionsHighlights = data
+    $scope.missionsHighlights = data.highlights
     $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
-    # $scope.locationFilter = []
-    # for highlight in $scope.missionsHighlights
-    #   temp = {
-    #     region:
-    #       name: highlight.region
-    #       tag: highlight.region
-    #     country:
-    #       name: highlight.country
-    #       tag: highlight.country
-    #   }
-    #   if temp not in $scope.locationFilter
-    #     $scope.locationFilter.push temp
+
+    $scope.highlightRegions = data.categories
+    for year in data.years
+      addedYear = {
+        name: year
+        tag: year
+      }
+      $scope.highlightYears.push addedYear
+
+  $scope.$watch('currentRegion', (newVal, oldVal) ->
+    $scope.highlightsFilters.region = if newVal?.region?.length > 0 then newVal.region else ''
+  )
 
   $scope.numberOfPages = ->
     Math.ceil($scope.missionsHighlights.length/$scope.pageSize)
