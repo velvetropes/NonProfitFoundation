@@ -1,4 +1,4 @@
-{exp:http_header content_type="application/json"}[
+{exp:http_header content_type="application/json"}
     {
         "highlights" : [
             {exp:channel:entries channel="hearing_missions" dynamic="no"}
@@ -7,7 +7,7 @@
                 "title"                 : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{title}{/exp:low_replace}",
                 "subtitle"              : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_subtitle}{/exp:low_replace}",
                 "excerpt"               : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_excerpt}{/exp:low_replace}",
-                
+
                 "video"                 : "{mission_video_url}",
                 "featured"              : "{mission_featured}",
 
@@ -50,4 +50,3 @@
       {!-- All the years that have entries --}
       "years" : [{exp:channel:entries channel="hearing_missions" backspace="1" dynamic="no"}"{mission_date format='%Y'}",{/exp:channel:entries}]
     }
-]

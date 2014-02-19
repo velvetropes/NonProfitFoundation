@@ -130,7 +130,7 @@ sfServices.factory "MissionsIndex", ["$q", "$http", "$resource", "urlChooser", (
 
   getIndex = ->
     deferred = $q.defer()
-    $http.get("#{urlChooser.getUrl}/missions_highlights#{urlChooser.getIndexFormat}").success((data) ->
+    $http.get("#{urlChooser.getUrl}/missions_highlights").success((data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason

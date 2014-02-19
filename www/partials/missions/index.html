@@ -10,7 +10,7 @@
 </div>
 
 <div class="outer-container">
-  <div class="pagination">
+<!--   <div class="pagination">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
@@ -23,7 +23,7 @@
       </li>
     </ul>
   </div>
-
+ -->
   <ul class="articles-filters">
     <li>Sort &nbsp;|&nbsp;</li>
     <li class="dropdown wide">
@@ -48,7 +48,8 @@
   </ul>
 
   <ul class="pagination-articles press-items">
-    <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+    <!-- <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage"> -->
+    <li ng-repeat="highlight in missionsHighlights">
       <page-tile
         id="{{highlight.id}}"
         title="{{highlight.title}}"
@@ -67,7 +68,7 @@
     </li>
   </ul>
 
-  <div class="pagination">
+<!--   <div class="pagination">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
@@ -80,4 +81,4 @@
       </li>
     </ul>
   </div>
-</div>
+</div> -->
