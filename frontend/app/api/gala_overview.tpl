@@ -1,6 +1,6 @@
-<!-- {exp:channel:entries channel="programs" limit="1"} -->
-<article class='outer-container'>
-  <section class="carousel">
+<!-- {exp:channel:entries channel="gala" limit="1"} -->
+<article class='gala-overview outer-container'>
+  <section class="carousel half-wit">
     <swiper
       continuous="true"
       speed="2000"
@@ -9,38 +9,51 @@
       paginator="true"
       tall="false"
       >
-        <!-- Kara: EE populates these slides -->
-        <slide
-          image-url=''
+      <slide
+          image-url='uploads/home/feature/tony_hawk_event.jpg'
           background-color=""
           quote=""
-          video-url=""
+          video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
           link-url=""
-          headline=""
+          headline="T"
           body-copy=""
           logo-image-url=""
           link-style=""
           link-text=""
         >
-        </slide>
+      </slide>
+      <slide
+          image-url='uploads/home/feature/west_bank_mission.jpg'
+          background-color=""
+          quote=""
+          video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
+          link-url=""
+          headline="T"
+          body-copy=""
+          logo-image-url=""
+          link-style=""
+          link-text=""
+        >
+      </slide>
     </swiper>
-  </section>
-  <h1>{headline}</h1>
+  <h1 class="headline">{headline}</h1>
   <p>{body}</p>
 
-  <hr class="separator"/>
-  <!-- Kara: EE populates these articles -->
-  <article>
-    <div class="image" style="background-image: url('{thumbnail_image_url}');background-size: cover;">
-    </div>
-    <div class="content">
-      <h1>{title}</h1>
-      {content}
-      <p class="call-toaction">
-        <a href="{call_to_action_url}">{call_to_action_text}</a>
-      </p>
-    </div>
-  </article>
-
+  <div class="highlights">
+    <ul>
+      <li>
+        <div class="highlight-thumbnail first" style="background: url('uploads/home/feature/peru_mission_02.jpg'); background-size: cover;">
+        </div>
+        <h3>Tani Austin Reflects on 12 Amazing Years</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
+      </li>
+      <li>
+        <div class="highlight-thumbnail" style="background: url('uploads/home/feature/providing_clean_water_in_tanzania.jpg'); background-size: cover;">
+        </div>
+        <h3>Can You Feel The Love Tonight</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
+      </li>
+    </ul>
+  </div>
 </article>
 <!-- {/exp:channel:entries}

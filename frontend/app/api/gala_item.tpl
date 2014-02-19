@@ -3,7 +3,6 @@
   {body}
   <p>
     <thumblist-nav>
-      <!-- EE: add thumblist shortcode here -->
       <slide
         thumblist="true"
         image-url="uploads/home/feature/tony_hawk_event.jpg"
