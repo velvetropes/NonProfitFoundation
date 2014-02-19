@@ -1,0 +1,35 @@
+.gala-overview {
+  .half-wit {
+    float: left;
+  }
+  .main-story {
+    width: 45%;
+    float: right;
+    .headline {
+
+    }
+  }
+  .highlights {
+    border-top: 1px dotted #333;
+    margin: 20px 0;
+    padding: 20px 0;
+    width: 100%;
+    float: left;
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        display: inline-block;
+        width: 49%;
+        &.first {
+          border-right: 1px dotted #333;
+        }
+        .highlight-thumbnail {
+          width: 230px;
+          height: 174px;
+          float: left;
+        }
+      }
+    }
+  }
+}
