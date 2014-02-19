@@ -130,7 +130,7 @@ sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "Mi
   MissionsMapMarker.getIndex().then (data) ->
     $scope.data = data
   MissionsPage.getPage().then (data) ->
-    $scope.missions = data[0]
+    $scope.missions = data
     $scope.statistics = $scope.missions.hearing_mission_statistics
     $scope.content_tabs = $scope.missions.content_tabs
     $scope.highlights = $scope.missions.highlights
