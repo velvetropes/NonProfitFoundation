@@ -30,8 +30,8 @@
 
   </div>
   <div class="missions-map-legend">
-    <h3 ng-show="greetingFlag==true">Hearing Mission Regions</h3>
-    <ul ng-show="greetingFlag==true" class="continents">
+    <h3>Hearing Mission Regions</h3>
+    <ul class="continents">
       <li ng-repeat="continent in data.continents" ng-click="selectTopLevelList(continent)" ng-class="{active: continent == selectedList}">
         <a href ng-click="showContinent(continent)">{{continent.name}}</a>
         <ul ng-class="countryClass(continent.name)">
