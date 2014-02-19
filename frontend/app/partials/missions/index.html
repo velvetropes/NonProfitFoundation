@@ -23,7 +23,6 @@
       </li>
     </ul>
   </div>
-
   <ul class="articles-filters">
     <li>Sort &nbsp;|&nbsp;</li>
     <li class="dropdown wide">
@@ -33,14 +32,15 @@
     </li>
     <li>&nbsp;|&nbsp;</li>
     <li class="dropdown wide">
-      <select ng-model="highlightsFilters.region" class="dropdown-select">
-        <option ng-repeat="cat in highlightRegions" value="{{cat.tag}}">{{cat.name}}</option>
+      <select ng-model="currentRegion" class="dropdown-select" ng-options="region.region for region in highlightRegions">
+        <option value="">Regions</option>
       </select>
     </li>
     <li>&nbsp;|&nbsp;</li>
     <li class="dropdown wide">
       <select ng-model="highlightsFilters.country" class="dropdown-select">
-        <option ng-repeat="cat in highlightCountries" value="{{cat.tag}}">{{cat.name}}</option>
+        <option value="">Countries</option>
+        <option ng-repeat="cat in currentRegion.countries" value="{{cat}}">{{cat}}</option>
       </select>
     </li>
   </ul>

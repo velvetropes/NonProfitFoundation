@@ -121,8 +121,6 @@ sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", "GalaItems", ($s
   GalaItems.getIndex().then (data) ->
     $scope.timelineItems = data
 
-  $scope.showGalaItem = (galaItemId) ->
-    console.debug "showGalaItem galaItemId", galaItemId
 ])
 
 # Hearing Missions
@@ -132,7 +130,7 @@ sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "Mi
   MissionsMapMarker.getIndex().then (data) ->
     $scope.data = data
   MissionsPage.getPage().then (data) ->
-    $scope.missions = data[0]
+    $scope.missions = data
     $scope.statistics = $scope.missions.hearing_mission_statistics
     $scope.content_tabs = $scope.missions.content_tabs
     $scope.highlights = $scope.missions.highlights
@@ -143,6 +141,10 @@ sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "Mi
 
 sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "MissionsIndex", ($scope, Pagination, MissionsIndex) ->
 
+  $scope.highlightRegions = []
+  $scope.currentRegion = {}
+  $scope.missionsHighlights = []
+  $scope.currentCountry = ''
   $scope.highlightsFilters = {
     year: ''
     region: ''
@@ -151,28 +153,24 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
 
   $scope.highlightYears = [
     {name: "Latest", tag: ''}
-    {name: '2014', tag: '2014'}
-    {name: '2013', tag: '2013'}
-    {name: '2012', tag: '2012'}
-    {name: '2011', tag: '2011'}
-    {name: '2010', tag: '2010'}
   ]
 
-  $scope.highlightRegions = [
-    {name: "Region", tag: ''}
-    # TODO Read off JSON feed, collect all regions
-  ]
-
-  $scope.highlightCountries = [
-    {name: "Country", tag: ''}
-    # TODO Read off JSON feed, collect all regions
-  ]
-
-  $scope.missionsHighlights = []
   MissionsIndex.getIndex().then (data) ->
-    $scope.missionsHighlights = data
+    $scope.missionsHighlights = data.highlights
     $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
+
+    $scope.highlightRegions = data.categories
+    for year in data.years
+      addedYear = {
+        name: year
+        tag: year
+      }
+      $scope.highlightYears.push addedYear
+
+  $scope.$watch('currentRegion', (newVal, oldVal) ->
+    $scope.highlightsFilters.region = if newVal?.region?.length > 0 then newVal.region else ''
+  )
 
   $scope.numberOfPages = ->
     Math.ceil($scope.missionsHighlights.length/$scope.pageSize)

@@ -76,6 +76,12 @@
           font-weight: normal;
           @extend .alrightsanslight;
           font-size: 1.125em;
+          &[disabled="disabled"] {
+            color: #666;
+            &:hover {
+              cursor: default;
+            }
+          }
         }
       }
     }

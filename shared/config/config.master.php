@@ -142,8 +142,8 @@ if (isset($config))
 	$env_config['upload_preferences'] = array(
 	    1 => array(
 	        'name'        => 'Image Uploads',
-	        'server_path' => $base_path . '/uploads/',
-	        'url'         => $base_url  . '/uploads/'
+	        'server_path' => $base_path . '/uploads/images/',
+	        'url'         => $base_url  . '/uploads/images/'
 	    ),
 	    2 => array(
 	        'name'        => 'File Uploads',

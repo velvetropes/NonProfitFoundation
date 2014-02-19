@@ -7,7 +7,7 @@
          "countries_visited": [
             {countries_visited}
             {
-               "name": "{countries_visited:name}",
+               "name": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{countries_visited:name}{/exp:low_replace}",
                "abbreviation": "{countries_visited:abbreviation}",
                "total_hearing_aids_provided": "{countries_visited:hearing_aids}"
             }{if countries_visited:count != countries_visited:total_rows},{/if}

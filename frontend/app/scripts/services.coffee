@@ -17,6 +17,9 @@ sfServices.factory "urlChooser", [->
         "/api"
   getIndexFormat = ->
     if env is "development" then "/index.json" else ""
+
+  getDetailFormat = (id)->
+    if env is "development" then "" else "/#{id}"
   {
     getUrl: getUrl()
     getIndexFormat: getIndexFormat()
@@ -66,10 +69,6 @@ sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", "urlChooser",
   {getIndex: getIndex}
 ]
 
-sfServices.factory "GalaItem", ["$resource", "urlChooser", ($resource, urlChooser) ->
-  $resource "#{urlChooser.getUrl}/gala_item/:timelineItemId", {}, {}
-]
-
 sfServices.factory "GalaItems", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 
   getIndex = ->
@@ -79,6 +78,7 @@ sfServices.factory "GalaItems", ["$q", "$http", "$resource", "urlChooser", ($q, 
     ).error (reason) ->
       deferred.reject reason
     deferred.promise
+
   {getIndex: getIndex}
 ]
 
@@ -130,7 +130,8 @@ sfServices.factory "MissionsIndex", ["$q", "$http", "$resource", "urlChooser", (
 
   getIndex = ->
     deferred = $q.defer()
-    $http.get("#{urlChooser.getUrl}/missions_highlights#{urlChooser.getIndexFormat}").success((data) ->
+    url = "#{urlChooser.getUrl}/missions_highlights#{urlChooser.getIndexFormat}"
+    $http.get(url).success((data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
