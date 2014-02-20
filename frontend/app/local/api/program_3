@@ -10,7 +10,7 @@
       speed="2000"
       identifier="hearingaidrecycling"
       auto="8000"
-      tall="false"
+      size="short"
       >
 
 

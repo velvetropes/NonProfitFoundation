@@ -634,12 +634,13 @@ sfDirectives.directive "slide", [ ->
 #   speed="2000"
 #   identifier="swiper_1"
 #   auto="8000"
-#   tall="false"
+#   size="short" also: "tall narrow"
 #   paginator="true"
 # >
 
 sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   link = (scope, element, attrs) ->
+    scope.size ?= "tall"
     config = undefined
     config = {}
     config.auto = if attrs.auto?.length > 0
@@ -658,8 +659,13 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     scope.showPaginator = ->
       scope.paginator? and scope.paginator is "true"
 
-    scope.isShort = ->
-      scope.tall? and scope.tall is "false"
+    scope.hasSize = ->
+      scope.size? and scope.size.length > 0
+
+    scope.addSize = ->
+      sizeClass = scope.size if scope.hasSize
+      console.debug "sizeClass", sizeClass
+      sizeClass
 
     element.parent().addClass("no-container") if element.parent()?.is("p")
 
@@ -683,7 +689,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   scope:
     identifier: "@"
     paginator: "@"
-    tall: "@"
+    size: "@"
 ]
 
 # <thumblist-nav full="true"></thumblist-nav>

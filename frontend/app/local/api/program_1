@@ -13,7 +13,7 @@
       speed="2000"
       identifier="listencarefully"
       auto="8000"
-      tall="false"
+      size="short"
       >
 
 
@@ -46,7 +46,7 @@
       speed="2000"
       identifier="listencarefully2"
       auto="8000"
-      tall="false"
+      size="short"
       >
 
 
@@ -83,7 +83,7 @@
       speed="2000"
       identifier="listencarefully3"
       auto="8000"
-      tall="false"
+      size="short"
       >
 
 

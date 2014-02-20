@@ -14,7 +14,7 @@
       speed="2000"
       identifier="operation-change-intro-video"
       auto="8000"
-      tall="false"
+      size="short"
       >
 
 

@@ -356,3 +356,17 @@ blockquote p {
 .uppercase {
   text-transform: uppercase;
 }
+
+// Generic page font styles
+.generic-article-typography {
+  h1 {
+    font-size: 2.25em;
+    line-height: 1.2em;
+  }
+  h1, h2, h3, p {
+    @extend .alrightsanslight;
+  }
+  p {
+    // line-height: 2.875em;
+  }
+}

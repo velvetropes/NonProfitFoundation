@@ -6,7 +6,7 @@
       identifier="swiper_1"
       auto="8000"
       paginator="true"
-      tall="false"
+      size="short narrow"
       >
       <slide
           image-url='uploads/home/feature/tony_hawk_event.jpg'
@@ -37,8 +37,8 @@
     </swiper>
   </div>
 
-  <div class="main-story">
-    <h1 class="headline">
+  <div class="main-story generic-article-typography">
+    <h1>
       Starkey Hearing Foundation’s annual So the World May Hear Awards Gala celebrates the spirit of giving.
     </h1>
 

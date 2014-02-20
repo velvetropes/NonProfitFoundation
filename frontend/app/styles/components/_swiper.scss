@@ -69,6 +69,11 @@
       height: 500px;
     }
   }
+  &.narrow {
+    .swiper-controls {
+      width: 544px;
+    }
+  }
   .swipe-wrap {
     > div {
       width: 100%;

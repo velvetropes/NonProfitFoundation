@@ -7,7 +7,7 @@
       identifier="swiper_1"
       auto="8000"
       paginator="true"
-      tall="false"
+      size="short narrow"
       >
       <slide
           image-url='uploads/home/feature/tony_hawk_event.jpg'

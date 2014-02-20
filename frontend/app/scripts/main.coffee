@@ -34,8 +34,8 @@ galaPageApp = angular.module("galaPageApp", [
 galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/gala/:tabId",
     templateUrl: (params) ->
-      "api/gala_#{params.tabId}"
-      # "local/api/gala_#{params.tabId}"
+      # "api/gala_#{params.tabId}"
+      "local/api/gala_#{params.tabId}"
     controller: "GalaCtrl"
   ).otherwise redirectTo: "/gala/overview"
 ]
@@ -102,8 +102,8 @@ programsPageApp = angular.module("programsPageApp", [
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/programs/:tabId",
     templateUrl: (params) ->
-      "api/program_#{params.tabId}"
-      # "local/api/program_#{params.tabId}"
+      # "api/program_#{params.tabId}"
+      "local/api/program_#{params.tabId}"
     controller: "ProgramsCtrl"
   ).otherwise redirectTo: "/programs/0"
 ]
