@@ -123,85 +123,6 @@ sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", "GalaItems", ($s
 
 ])
 
-# Hearing Missions
-
-sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "MissionsPage", ($scope, MissionsMapMarker, MissionsPage) ->
-  $scope.currentTab = 0
-  MissionsMapMarker.getIndex().then (data) ->
-    $scope.data = data
-  MissionsPage.getPage().then (data) ->
-    $scope.missions = data
-    $scope.statistics = $scope.missions.hearing_mission_statistics
-    $scope.content_tabs = $scope.missions.content_tabs
-    $scope.highlights = $scope.missions.highlights
-
-  $scope.changeTab = (tabId) ->
-    $scope.currentTab = tabId
-])
-
-sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "MissionsIndex", ($scope, Pagination, MissionsIndex) ->
-
-  $scope.highlightRegions = []
-  $scope.currentRegion = {}
-  $scope.missionsHighlights = []
-  $scope.currentCountry = ''
-  $scope.highlightsFilters = {
-    year: ''
-    region: ''
-    country: ''
-  }
-
-  $scope.highlightYears = [
-    {name: "Latest", tag: ''}
-  ]
-
-  MissionsIndex.getIndex().then (data) ->
-    $scope.missionsHighlights = data.highlights
-    $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
-
-    $scope.highlightRegions = data.categories
-    for year in data.years
-      addedYear = {
-        name: year
-        tag: year
-      }
-      $scope.highlightYears.push addedYear
-
-  $scope.$watch('currentRegion', (newVal, oldVal) ->
-    $scope.highlightsFilters.region = if newVal?.region?.length > 0 then newVal.region else ''
-  )
-
-  $scope.numberOfPages = ->
-    Math.ceil($scope.missionsHighlights.length/$scope.pageSize)
-
-])
-
-
-sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
-
-  # $scope.currentPosition = $
-  # $scope.articles =[]
-  # HearingMissionArticle.getDetail($routeParams.articleId).then (response) ->
-  #   $scope.article = response.data
-
-  # Articles.getIndex().then (data) ->
-  #   if data instanceof Array
-  #     $scope.articles = data
-  #   else
-  #     $scope.articles = [data]
-  #   $scope.pagination = Pagination.getNew(9)
-  #   $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
-
-  # $scope.numberOfPages = ->
-  #   Math.ceil($scope.articles.length/$scope.pageSize)
-
-  # $scope.parseDate = (date) ->
-  #   parsedDate = Date.parse(date)
-  #   parsedDate
-])
-
-
 # Media Mentions
 
 sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
@@ -273,6 +194,68 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Me
   $scope.parseDate = (date) ->
     parsedDate = Date.parse(date)
     parsedDate
+])
+
+# Missions
+
+sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "MissionsPage", ($scope, MissionsMapMarker, MissionsPage) ->
+  $scope.currentTab = 0
+  MissionsMapMarker.getIndex().then (data) ->
+    $scope.data = data
+  MissionsPage.getPage().then (data) ->
+    $scope.missions = data
+    $scope.statistics = $scope.missions.hearing_mission_statistics
+    $scope.content_tabs = $scope.missions.content_tabs
+    $scope.highlights = $scope.missions.highlights
+
+  $scope.changeTab = (tabId) ->
+    $scope.currentTab = tabId
+])
+
+sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "MissionsIndex", ($scope, Pagination, MissionsIndex) ->
+
+  $scope.highlightRegions = []
+  $scope.currentRegion = {}
+  $scope.missionsHighlights = []
+  $scope.currentCountry = ''
+  $scope.highlightsFilters = {
+    year: ''
+    region: ''
+    country: ''
+  }
+
+  $scope.highlightYears = [
+    {name: "Latest", tag: ''}
+  ]
+
+  MissionsIndex.getIndex().then (data) ->
+    $scope.missionsHighlights = data.highlights
+    $scope.pagination = Pagination.getNew(9)
+    $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
+
+    $scope.highlightRegions = data.categories
+    for year in data.years
+      addedYear = {
+        name: year
+        tag: year
+      }
+      $scope.highlightYears.push addedYear
+
+  $scope.$watch('currentRegion', (newVal, oldVal) ->
+    if newVal?.region?.length > 0
+      $scope.highlightsFilters.region = newVal.region
+      $scope.highlightsFilters.country = ''
+    else
+      $scope.highlightsFilters.region = ''
+
+  )
+
+  $scope.numberOfPages = ->
+    Math.ceil($scope.missionsHighlights.length/$scope.pageSize)
+
+])
+
+sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
 ])
 
 # TODO Change to detail page
