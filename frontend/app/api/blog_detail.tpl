@@ -70,17 +70,17 @@
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel'>
     <thumblist-nav>
-      <div ng-repeat="article in articles">
+      {blog_related_items}
         <slide
           thumblist="true"
-          image-url="{{article.thumbnail_image_url}}"
+          image-url="{blog_related_items:blog_image}"
           video-url=""
-          link-url="#/articles/{{article.id}}"
-          headline="{{article.title}}"
+          link-url="#/articles/{blog_related_items:url_title}"
+          headline="{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_related_items:title}{/exp:low_replace}"
           link-style=""
-          date="{{article.date}}"
+          date="{blog_related_items:blog_date format='%m %d %Y'}"
         ></slide>
-      </div>
+      {/blog_related_items}
     </thumblist-nav>
   </section>
 </div>

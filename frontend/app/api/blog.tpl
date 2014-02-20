@@ -11,8 +11,8 @@
       "featured": "{if blog_featured}{blog_featured}{/if}",
       "title": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{title}{/exp:low_replace}",
       "text": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_content}{/exp:low_replace}",
-      "thumbnail_image_url": "{if blog_image}{blog_image}{/if}",
-      "image_url": "{if blog_image}{blog_image}{/if}",
+      "thumbnail_image_url": "{blog_image}",
+      "image_url": "{blog_image}",
       "author":"{blog_author}"
     },
     {/exp:channel:entries}
@@ -38,8 +38,8 @@
   "featured": "{if blog_featured}{blog_featured}{/if}",
   "title": "{title}",
   "text": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_content}{/exp:low_replace}",
-  "thumbnail_image_url": "{if blog_image}{blog_image}{/if}",
-  "image_url": "{if blog_image}{blog_image}{/if}",
+  "thumbnail_image_url": "{blog_image}",
+  "image_url": "{blog_image}",
   "author":"{blog_author}"
 }
 {/exp:channel:entries}
