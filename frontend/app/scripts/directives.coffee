@@ -8,7 +8,6 @@ sfDirectives.directive "accordion", [->
   replace: true
   transclude: true
   template: template
-  # controller: controller
   controller: ->
     expanders = []
     @gotOpened = (selectedExpander) ->
@@ -133,7 +132,7 @@ sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compi
 sfDirectives.directive "expander", [->
   template = """
     <div>
-      <a class="title" href ng-click="toggle()">{{title}}</a>
+      <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}">{{title}} <span class="arrow">&gt;</span></a>
       <div class="body reveal" ng-show="showMe" ng-transclude>
       </div>
     </div>
@@ -664,7 +663,6 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
 
     scope.addSize = ->
       sizeClass = scope.size if scope.hasSize
-      console.debug "sizeClass", sizeClass
       sizeClass
 
     element.parent().addClass("no-container") if element.parent()?.is("p")
@@ -701,7 +699,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
     $timeout (->
       scope.pane = $(".thumblist-nav")
       scope.pane.jScrollPane config
-    ), 2400
+    ), 1400
 
     scope.isFullHeight = ->
       scope.full?.length > 0 and scope.full is "true"

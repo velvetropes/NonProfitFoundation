@@ -1,4 +1,3 @@
-{exp:channel:entries channel="gala" limit="1"}
 <article class='gala-overview outer-container'>
   <div class="carousel half-wit">
     <swiper
@@ -38,8 +37,8 @@
     </swiper>
   </div>
 
-  <div class="main-story">
-    <h1 class="headline">
+  <div class="main-story generic-article-typography">
+    <h1>
       Starkey Hearing Foundation’s annual So the World May Hear Awards Gala celebrates the spirit of giving.
     </h1>
 
@@ -52,17 +51,21 @@
       <li class="first">
         <div class="highlight-thumbnail" style="background: url('uploads/home/feature/peru_mission_02.jpg'); background-size: cover;">
         </div>
-        <h3>Tani Austin Reflects on 12 Amazing Years</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
+        <div class="content">
+          <h3>Tani Austin Reflects on 12 Amazing Years</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
+          <p class="action-link"><a href>Read more &rarr;</a></p>
+        </div>
       </li>
       <li>
         <div class="highlight-thumbnail" style="background: url('uploads/home/feature/providing_clean_water_in_tanzania.jpg'); background-size: cover;">
         </div>
-        <h3>Can You Feel The Love Tonight</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
+        <div class="content">
+          <h3>Can You Feel The Love Tonight</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
+          <p class="action-link"><a href>Read more &rarr;</a></p>
+        </div>
       </li>
     </ul>
   </div>
 </article>
-
-{/exp:channel:entries}
