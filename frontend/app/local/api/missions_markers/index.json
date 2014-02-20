@@ -1,3 +1,4 @@
+
 {
    "continents": [
 
@@ -45,7 +46,7 @@
             {
                "name": "Ethiopia",
                "abbreviation": "ET",
-               "total_hearing_aids_provided": ""
+               "total_hearing_aids_provided": "100"
             },
             {
                "name": "Malawi",
@@ -61,6 +62,21 @@
                "name": "South Africa",
                "abbreviation": "ZA",
                "total_hearing_aids_provided": "100"
+            },
+            {
+               "name": "Egypt ",
+               "abbreviation": "EG",
+               "total_hearing_aids_provided": ""
+            },
+            {
+               "name": "South Sudan ",
+               "abbreviation": "SS",
+               "total_hearing_aids_provided": "5000"
+            },
+            {
+               "name": "Morocco ",
+               "abbreviation": "MA",
+               "total_hearing_aids_provided": ""
             }
          ]
       },
