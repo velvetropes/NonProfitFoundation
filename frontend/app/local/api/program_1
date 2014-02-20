@@ -110,25 +110,3 @@
     <br/>
     <h2>Additional Resources</h2>
 </article>
-
-
-<section class='carousel thumblist '>
-  <thumblist-nav>
-    <slide
-      ng-repeat="programResource in programResources"
-      image-url=""
-      video-url=""
-      link-url=""
-      link-text=""
-      headline=""
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style="align-right"
-    ></slide>
-  </thumblist-nav>
-</section>

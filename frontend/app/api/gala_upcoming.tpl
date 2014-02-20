@@ -1,7 +1,11 @@
 <!-- {exp:channel:entries channel="programs" limit="1"} -->
 <div class="text-container">
-  <h1 class="centered">{title}</h1>
-  <div  class="centered">{body}</div>
+  <h1 class="centered">So the world may hear</h1>
+  <div  class="centered">
+    <p>
+      Starkey Hearing Foundation’s annual So the World May Hear Awards Gala celebrates the spirit of giving.The gala showcases the tremendous impact of reflecting caring and sharing into the lives of others. With the support we receive at the Gala, we are able to use hearing as a vehicle to change lives and give more than 100,000 hearing aids annually to people in need. Each year we honor humanitarians who dedicate their time and service to helping others around the world and here at home, and we have amazing perfor- mances from world-class entertainers.
+    </p>
+  </div>
   <p>
     <thumblist-nav>
       <slide

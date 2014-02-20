@@ -32,7 +32,6 @@
       ></slide>
     </thumblist-nav>
   </p>
-
 </div>
 
 <accordion>
