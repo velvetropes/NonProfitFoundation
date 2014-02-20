@@ -227,6 +227,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
 
     scope.selectTopLevelList = (continent) ->
       scope.selectedList = continent
+      scope.greetingFlag = true
 
     scope.initializeMaps = ->
       $timeout( ->

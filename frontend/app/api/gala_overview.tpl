@@ -1,4 +1,4 @@
-<!-- {exp:channel:entries channel="gala" limit="1"} -->
+{exp:channel:entries channel="gala" limit="1"}
 <article class='gala-overview outer-container'>
   <div class="carousel half-wit">
     <swiper
@@ -65,4 +65,4 @@
   </div>
 </article>
 
-<!-- {/exp:channel:entries}
+{/exp:channel:entries}

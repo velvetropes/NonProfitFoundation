@@ -1,6 +1,6 @@
-<!-- {exp:channel:entries channel="gala" limit="1"} -->
+{exp:channel:entries channel="gala" limit="1"}
 <article class='gala-overview outer-container'>
-  <section class="carousel half-wit">
+  <div class="carousel half-wit">
     <swiper
       continuous="true"
       speed="2000"
@@ -36,13 +36,21 @@
         >
       </slide>
     </swiper>
-  <h1 class="headline">{headline}</h1>
-  <p>{body}</p>
+  </div>
 
+  <div class="main-story">
+    <h1 class="headline">
+      Starkey Hearing Foundation’s annual So the World May Hear Awards Gala celebrates the spirit of giving.
+    </h1>
+
+    <p>
+      The gala showcases the tremendous impact of reflecting caring and sharing into the lives of others. With the support we receive at the Gala, we are able to use hearing as a vehicle to change lives and give more than 100,000 hearing aids annually to people in need. Each year we honor humanitarians who dedicate their time and service to helping others around the world and here at home, and we have amazing perfor- mances from world-class entertainers.
+    </p>
+  </div>
   <div class="highlights">
     <ul>
-      <li>
-        <div class="highlight-thumbnail first" style="background: url('uploads/home/feature/peru_mission_02.jpg'); background-size: cover;">
+      <li class="first">
+        <div class="highlight-thumbnail" style="background: url('uploads/home/feature/peru_mission_02.jpg'); background-size: cover;">
         </div>
         <h3>Tani Austin Reflects on 12 Amazing Years</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
@@ -56,4 +64,5 @@
     </ul>
   </div>
 </article>
-<!-- {/exp:channel:entries}
+
+{/exp:channel:entries}
