@@ -6,9 +6,10 @@
     {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
 {/exp:channel:prev_entry}
 
+
 {exp:channel:entries channel="blog" dynamic="no" url_title="{segment_3}" limit="1"}
 <div class="article-header-image">
-  <div class="image" style="background-image: url('{blog_image}');">
+  <div class="image" style="background-image: url('{if blog_header_image}{blog_header_image}{if:else}{blog_image}{/if}');">
     <ul class="page-nav-links">
       {if {exp:stash:not_empty name="next_entry"} }
       <li>

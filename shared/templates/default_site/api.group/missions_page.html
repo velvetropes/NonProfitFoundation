@@ -29,7 +29,7 @@
         "date"      : "{mission_highlights:mission_date format='%m %d %Y'}",
         "subtitle"  : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_highlights:mission_subtitle}{/exp:low_replace}",
         "excerpt"   : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_highlights:mission_excerpt}{/exp:low_replace}",
-        "image"     : "{if '{mission_highlights:mission_image:url}' != ''}{mission_highlights:mission_image:url}{if:else}{mission_highlights:mission_thumb_image:url}{/if}",
+        "image"     : "{mission_highlights:mission_thumb_image}",
         "video"     : "{mission_highlights:mission_video_url}",
         "region"    : "{mission_highlights:mission_region}{option_name}{/mission_highlights:mission_region}",
         "country"   : "{mission_highlights:mission_country}{option_name}{/mission_highlights:mission_country}"
