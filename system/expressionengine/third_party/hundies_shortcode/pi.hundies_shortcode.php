@@ -74,17 +74,19 @@ class hundies_shortcode {
 	private function getGallery($id) {
 		ob_start();
 		?>
-		<gallery slides="1">
+		
 		  {exp:channel:entries channel="gallery" dynamic="no" url_title="<?=$id?>" limit="1"}
-		  {item}
-		  	<gallery-slide
-		  	 image-url="{item:image}"
-		  	 video-url="{item:video}"
-		  	></gallery-slide>
-		  {/item}
-		  {if no_results}<!-- No gallery found -->{/if}
+			  {item}
+				  {if count == 1}<gallery slides="{total_rows}">{/if}
+					  	<gallery-slide
+					  	 image-url="{item:image}"
+					  	 video-url="{item:video}"
+					  	></gallery-slide>
+				  {if count == total_rows}</gallery>{/if}
+			  {/item}
+			  {if no_results}<!-- No gallery found -->{/if}
 		  {/exp:channel:entries}
-		</gallery>
+		
 		<?
 		$content = ob_get_contents();
 		ob_end_clean();
