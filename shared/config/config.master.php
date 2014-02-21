@@ -261,7 +261,10 @@ if (isset($config))
 		$assign_to_config['global_vars'] = array();
 	}
 
+	define(ENV_LANGUAGE, 'en');
 	$assign_to_config['global_vars']['language'] = ENV_LANGUAGE;
+
+
 
 	// Start our array with environment variables. This gives us {global:env} and {global:env_full} tags for our templates.
 	$master_global = array(
