@@ -1,4 +1,4 @@
-{exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_defaul}"}
+{exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_default}"}
 <article class='gala-overview outer-container'>
   <div class="carousel half-wit">
     <swiper

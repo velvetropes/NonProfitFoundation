@@ -1,13 +1,13 @@
-{!-- 
-=================================================================== 
-If you pass in the url_title (angular:id) as a 3rd url parameter 
+{!--
+===================================================================
+If you pass in the url_title (angular:id) as a 3rd url parameter
 you can get back that particular entry. Otherwise the latest entry
 (by year) is loaded
 ====================================================================
 --}
 
-{exp:channel:entries channel="galla" dynamic="no" limit="1" orderby="galla_year" sort="desc" 
- disable="{global:param_disable_defaul}" {if segment_3}url_title="{segment_3}"{/if} parse="inward"}
+{exp:channel:entries channel="galla" dynamic="no" limit="1" orderby="galla_year" sort="desc"
+ disable="{global:param_disable_default}" {if segment_3}url_title="{segment_3}"{/if} parse="inward"}
 <div class="gala-tab-content text-container">
   <h1>{galla_intro_title}</h1>
   <div>
@@ -57,7 +57,7 @@ the tag {col3_img:col1} will just return the image url.
                   </accordion-list>
                   {/col3_text}
               {/case}
-              
+
               {!-- If this is a three column image row --}
               {case value="images_3col"}
                   {col3_img}
