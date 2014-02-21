@@ -204,7 +204,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
     # if scope.isThumblist() then true else false
     if scope.isThumblist()
       $timeout (->
-        scope.pane = $(".thumblist-nav")
+        scope.pane = $(".gallery")
         scope.pane.jScrollPane config
       ), 1400
 
@@ -213,9 +213,9 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
     scope.galleryClasses = ->
       if scope.isThumblist()
-        "full thumblist thumblist-nav horizontal-only"
+        "gallery" #full thumblist thumblist-nav horizontal-only
       else
-        "swiper"
+        "single-image-gallery"
 
     # So thumblist stretches full-width
     element.parent().addClass("no-container") if element.parent()?.is("p")
@@ -249,6 +249,9 @@ sfDirectives.directive "gallerySlide", [ ->
     scope.youtubeId = ->
       scope.videoUrl.match(scope.youttubePattern)[1]
 
+    scope.hasImageUrl = ->
+      scope.imageUrl?.length > 0
+
     scope.hasVideo = ->
       scope.videoUrl?.length > 0
 
@@ -269,6 +272,12 @@ sfDirectives.directive "gallerySlide", [ ->
       # else
       #   # Regular link to external URL
       #   $window.location.href = "#{scope.linkUrl}"
+
+    scope.slideType = ->
+      if scope.hasVideo()
+        "links_to_video"
+      else
+        "plain_image"
 
     scope.backgroundImageStyle =
       {

@@ -59,10 +59,6 @@
         overflow: hidden;
       }
     }
-    // .ng-scope {
-    //   border: 1px dotted #ddd;
-    //   border-right: none;
-    // }
     h4 {
       @extend .verlagbold;
       font-size: 1.5em;
@@ -104,16 +100,16 @@
         .content {
           bottom: 10px;
         }
-        .year-overlay {
-          text-align: center;
-          opacity: .5;
-          font-size: 15em;
-          position: absolute;
-          top: 182px;
-          left: 0;
-          right: 0;
-          color: white;
-        }
+        // .year-overlay {
+        //   text-align: center;
+        //   opacity: .5;
+        //   font-size: 15em;
+        //   position: absolute;
+        //   top: 182px;
+        //   left: 0;
+        //   right: 0;
+        //   color: white;
+        // }
       }
       h4 {
         color: white;
@@ -131,6 +127,7 @@
       max-height: 422px;
     }
   }
+
 } // End .thumblist-nav
 
 // Scrubber

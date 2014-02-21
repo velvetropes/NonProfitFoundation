@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 <div class="article-header-image">
   <div class="image" style="background-image: url('');">
     <ul class="page-nav-links">
@@ -49,10 +39,9 @@
       ></gallery-slide>
       <gallery-slide
        image-url="uploads/home/feature/tony_hawk_event.jpg"
-
       ></gallery-slide>
     </gallery>
-    </p>
+  </p>
 
 <h2> A gallery with 1 slide:</h2>
 <p> <gallery slides="1">
@@ -63,6 +52,15 @@
     </gallery>
     </p>
 </div>
+
+<h2> A gallery with a video slide</h2>
+<p> <gallery slides="1">
+      <gallery-slide
+       image-url=""
+       video-url="http://youtu.be/HVx-lUkcr38"
+      ></gallery-slide>
+    </gallery>
+  </p>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>

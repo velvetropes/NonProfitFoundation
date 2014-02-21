@@ -8,34 +8,14 @@
 
 <p>The program combines music and education to raise awareness about the fragility of hearing and the dangers of exposure to high decibel sounds.&nbsp;This year Starkey Hearing Foundation expanded Listen Carefully to offer educational support to more than 16,000 teachers and nearly 500,000 students nationwide.</p>
 
-<p>   <swiper
-      continuous="true"
-      speed="2000"
-      identifier="listencarefully"
-      auto="8000"
-      size="short"
-      >
-
-
-        <slide
-         image-url="http://starkey.ahundredyears.com/uploads/listencarefully.jpg"
-         video-url=""
-         link-url=""
-         link-text=""
-         headline=""
-         body-copy=""
-         thumblist="false"
-         date=""
-         blog-category=""
-         quote=""
-         background-color=""
-         logo-image-url=""
-         link-style=""
-        ></slide>
-
-
-    </swiper>
+<p> <gallery slides="1">
+      <gallery-slide
+       image-url="uploads/home/feature/listencarefully.jpg"
+       video-url=""
+      ></gallery-slide>
+    </gallery>
     </p>
+</div>
 
 <h1>Make a Difference&nbsp;</h1>
 
