@@ -191,6 +191,104 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", ($http, $sce) ->
     items: "="
 ]
 
+# <gallery></gallery>
+
+sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
+
+  link = (scope, element, attrs) ->
+    scope.slides ?= 1
+    scope.isThumblist = ->
+      scope.slides > 1
+
+    config = { showArrows: if scope.isThumblist() then true else false }
+
+    if scope.isThumblist()
+      $timeout (->
+        scope.pane = $(".thumblist-nav")
+        scope.pane.jScrollPane config
+      ), 1400
+
+    scope.isFullHeight = ->
+      scope.full?.length > 0 and scope.full is "true"
+
+    scope.galleryClasses = ->
+      if scope.isThumblist()
+        "full thumblist thumblist-nav horizontal-only"
+      else
+        "swiper"
+
+    # So thumblist stretches full-width
+    element.parent().addClass("no-container") if element.parent()?.is("p")
+
+  template = """
+    <div ng-class="galleryClasses()" ng-transclude></div>
+    """
+  restrict: "E"
+  link: link
+  template: template
+  transclude: true
+  replace: true
+  scope:
+    slides: "@"
+]
+
+# Gallery slide directive format:
+# <gallery-slide
+#  image-url=""
+#  video-url=""
+# ></gallery-slide>
+
+sfDirectives.directive "gallerySlide", [ ->
+
+  link = (scope, element, attrs) ->
+    scope.imageUrl ?= ""
+    scope.videoUrl ?= ""
+
+    scope.youttubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+
+    scope.youtubeId = ->
+      scope.videoUrl.match(scope.youttubePattern)[1]
+
+    scope.hasVideo = ->
+      scope.videoUrl?.length > 0
+
+    scope.getYoutubeVideoThumbnail = ->
+      if scope.hasVideo()
+        console.debug "scope.youtubeId()", scope.youtubeId()
+        "http://img.youtube.com/vi/#{scope.youtubeId()}/1.jpg"
+
+    scope.getImage = ->
+      # Use imageUrl, and fall back to videoUrl thumb otherwise
+      scope.imageUrl or scope.getYoutubeVideoThumbnail()
+
+    scope.displayInModalIfVideo = ->
+      if scope.hasVideo()
+        # Send videoUrl to overlay
+        scope.$emit('modal:show', scope.videoUrl)
+
+      # else
+      #   # Regular link to external URL
+      #   $window.location.href = "#{scope.linkUrl}"
+
+    scope.backgroundImageStyle =
+      {
+        'background-image': 'url(' + scope.getImage() + ')'
+        'background-size': 'cover'
+      }
+
+  result =
+    restrict: "E"
+    replace: true
+    templateUrl:
+      "templates/gallery_slide.html"
+    link: link
+    scope:
+      imageUrl: "@"
+      videoUrl: "@"
+  result
+
+]
+
 sfDirectives.directive 'homeThumblistNav', [->
 
   link = (scope, element, attrs) ->
@@ -563,6 +661,7 @@ sfDirectives.directive "slide", [ ->
 
     scope.getYoutubeVideoThumbnail = ->
       if scope.hasVideo()
+        console.debug "scope.youtubeId()", scope.youtubeId()
         "http://img.youtube.com/vi/#{scope.youtubeId()}/1.jpg"
 
     scope.getImage = ->
@@ -666,7 +765,8 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
       sizeClass
 
     element.parent().addClass("no-container") if element.parent()?.is("p")
-
+    slides = element.children(".slide")
+    console.debug "slides", slides
   controller = ($scope, $element) ->
     $scope.next = ->
       $scope.swipe.next()
