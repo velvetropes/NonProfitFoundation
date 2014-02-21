@@ -257,7 +257,6 @@ sfDirectives.directive "gallerySlide", [ ->
 
     scope.getYoutubeVideoThumbnail = ->
       if scope.hasVideo()
-        console.debug "scope.youtubeId()", scope.youtubeId()
         "http://img.youtube.com/vi/#{scope.youtubeId()}/1.jpg"
 
     scope.getImage = ->
@@ -670,7 +669,6 @@ sfDirectives.directive "slide", [ ->
 
     scope.getYoutubeVideoThumbnail = ->
       if scope.hasVideo()
-        console.debug "scope.youtubeId()", scope.youtubeId()
         "http://img.youtube.com/vi/#{scope.youtubeId()}/1.jpg"
 
     scope.getImage = ->
@@ -775,7 +773,6 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
 
     element.parent().addClass("no-container") if element.parent()?.is("p")
     slides = element.children(".slide")
-    console.debug "slides", slides
   controller = ($scope, $element) ->
     $scope.next = ->
       $scope.swipe.next()

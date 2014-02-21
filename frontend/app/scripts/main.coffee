@@ -83,7 +83,7 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
       "partials/missions/index.html"
     controller: "MissionsIndexCtrl"
   ).when("/missions/:articleId",
-  templateUrl: (params) ->
+    templateUrl: (params) ->
       "api/missions_detail/#{params.articleId}"
       # "local/api/missions_detail"
     controller: "MissionsShowCtrl"
