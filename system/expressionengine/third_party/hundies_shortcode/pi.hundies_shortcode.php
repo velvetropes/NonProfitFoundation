@@ -77,12 +77,12 @@ class hundies_shortcode {
 		
 		  {exp:channel:entries channel="gallery" dynamic="no" url_title="<?=$id?>" limit="1"}
 			  {item}
-				  {if count == 1}<gallery slides="{total_rows}">{/if}
+				  {if item:count == 1}<gallery slides="{item:total_rows}">{/if}
 					  	<gallery-slide
 					  	 image-url="{item:image}"
 					  	 video-url="{item:video}"
 					  	></gallery-slide>
-				  {if count == total_rows}</gallery>{/if}
+				  {if item:count == item:total_rows}</gallery>{/if}
 			  {/item}
 			  {if no_results}<!-- No gallery found -->{/if}
 		  {/exp:channel:entries}

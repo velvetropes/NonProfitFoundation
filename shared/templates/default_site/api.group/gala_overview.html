@@ -1,3 +1,4 @@
+{exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_defaul}"}
 <article class='gala-overview outer-container'>
   <div class="carousel half-wit">
     <swiper
@@ -8,64 +9,42 @@
       paginator="true"
       size="short narrow"
       >
+      {galla_overview_carousel}
       <slide
-          image-url='uploads/home/feature/tony_hawk_event.jpg'
+          image-url='{galla_overview_carousel:image}'
           background-color=""
           quote=""
-          video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
+          video-url="{galla_overview_carousel:video_url}"
           link-url=""
-          headline="T"
-          body-copy=""
+          headline="{galla_overview_carousel:headline}"
+          body-copy="{galla_overview_carousel:content}"
           logo-image-url=""
           link-style=""
           link-text=""
         >
       </slide>
-      <slide
-          image-url='uploads/home/feature/west_bank_mission.jpg'
-          background-color=""
-          quote=""
-          video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
-          link-url=""
-          headline="T"
-          body-copy=""
-          logo-image-url=""
-          link-style=""
-          link-text=""
-        >
+      {/galla_overview_carousel}
       </slide>
     </swiper>
   </div>
 
   <div class="main-story generic-article-typography">
-    <h1>
-      Starkey Hearing Foundation’s annual So the World May Hear Awards Gala celebrates the spirit of giving.
-    </h1>
-
-    <p>
-      The gala showcases the tremendous impact of reflecting caring and sharing into the lives of others. With the support we receive at the Gala, we are able to use hearing as a vehicle to change lives and give more than 100,000 hearing aids annually to people in need. Each year we honor humanitarians who dedicate their time and service to helping others around the world and here at home, and we have amazing perfor- mances from world-class entertainers.
-    </p>
+    {galla_overview_intro}
   </div>
   <div class="highlights">
     <ul>
-      <li class="first">
-        <div class="highlight-thumbnail" style="background: url('uploads/home/feature/peru_mission_02.jpg'); background-size: cover;">
+      {galla_overview_highlights}
+      <li{if count == 1} class="first"{/if}>
+        <div class="highlight-thumbnail" style="background: url('{galla_overview_highlights:image}'); background-size: cover;">
         </div>
         <div class="content">
-          <h3>Tani Austin Reflects on 12 Amazing Years</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
-          <p class="action-link"><a href>Read more &rarr;</a></p>
+          <h3>{galla_overview_highlights:title}</h3>
+          <p>{galla_overview_highlights:body}</p>
+          <p class="action-link"><a href="{galla_overview_highlights:link}">Read more &rarr;</a></p>
         </div>
       </li>
-      <li>
-        <div class="highlight-thumbnail" style="background: url('uploads/home/feature/providing_clean_water_in_tanzania.jpg'); background-size: cover;">
-        </div>
-        <div class="content">
-          <h3>Can You Feel The Love Tonight</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
-          <p class="action-link"><a href>Read more &rarr;</a></p>
-        </div>
-      </li>
+      {/galla_overview_highlights}
     </ul>
   </div>
 </article>
+{/exp:channel:entries}

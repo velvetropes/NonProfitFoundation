@@ -1,22 +1,9 @@
-[
+{exp:http_header content_type="application/json"}[
+  {exp:channel:entries channel="galla" dynamic="no" limit="5" orderby="galla_year" sort="desc"}
   {
-    "id": "dummy",
-    "thumbnail_image_url":"uploads/home/feature/philippines_film.jpg",
-    "year": "2014"
-  },
-  {
-    "id": "dummy",
-    "thumbnail_image_url":"uploads/home/feature/tony_hawk_event.jpg",
-    "year": "2013"
-  },
-  {
-    "id": "dummy",
-    "thumbnail_image_url":"uploads/home/feature/vikings_mission.jpg",
-    "year": "2012"
-  },
-  {
-    "id": "dummy",
-    "thumbnail_image_url":"uploads/home/feature/west_bank_mission.jpg",
-    "year": "2011"
-  }
+    "id": "{url_title}",
+    "thumbnail_image_url":"{galla_thumb_image}",
+    "year": "{galla_year}"
+  }{if count != total_results},{/if}
+  {/exp:channel:entries}
 ]
