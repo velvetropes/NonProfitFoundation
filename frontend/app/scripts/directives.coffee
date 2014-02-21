@@ -178,8 +178,8 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", ($http, $sce) ->
 
   controller = ($scope, $element) ->
     $scope.getItem = (url)->
-      # $http.get("/api/gala_item/#{url}").then (response) ->
-      $http.get("/local/api/gala_item").then (response) ->
+      $http.get("/api/gala_item/#{url}").then (response) ->
+        # $http.get("/local/api/gala_item").then (response) ->
         $scope.rawHtml = response.data
 
   controller: controller

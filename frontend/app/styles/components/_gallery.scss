@@ -55,6 +55,8 @@
 }
 
 .single-image-gallery {
+  height: 525px;
+  max-height: 525px;
   .gallery-slide {
     width: 100%;
     &.links_to_video {
