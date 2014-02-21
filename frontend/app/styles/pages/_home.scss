@@ -47,11 +47,10 @@
 
 .bottom-slide-tabs {
   height: 525px;
-  background: #1B1B1B;
   .bottom-slide-tab {
     .panel-image {
       float: left;
-      width: 70%;
+      width: 100%;
       overflow: hidden;
       height: 525px;
       a {
@@ -62,11 +61,20 @@
       }
     }
     .panel-content {
-      float: right;
-      width: 30%;
-      height: 525px;
       color: #fff;
       position: relative;
+      width: 30%;
+      height: 525px;
+      float: right;
+      margin-left: -30%;
+      .panel-background {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(black, .8);
+        top: 0;
+      }
       > div {
         position: absolute;
         bottom: 30px;
