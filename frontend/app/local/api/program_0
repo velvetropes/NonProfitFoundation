@@ -1,5 +1,4 @@
 
-
 <article class='operation-change text-container'>
     <h1>Operation change</h1>
 
@@ -9,13 +8,59 @@
 
 <p>We believe that the actions of a single person can create a ripple effect that will ignite a movement and change the world.</p>
 
-<p> <gallery slides="1">
-      <gallery-slide
-       image-url=""
-       video-url="http://youtu.be/HVx-lUkcr38"
-      ></gallery-slide>
-    </gallery>
-  </p>
+<p>
+
+
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/HERO-Program-Operation_Change.png"
+               video-url="http://www.youtube.com/watch?v=na5j0wDq7kc"
+              ></gallery-slide>
+          </gallery>
+
+
+
+    </p>
     <br/>
     <h2>Our Partnerships</h2>
 </article>
+
+
+
+<section class='carousel thumblist'>
+  <thumblist-nav>
+
+
+    <slide
+      image-url="http://starkey.local/uploads/images/Operation-Change-Ray-Lewis-Film.jpg"
+      video-url=""
+      link-url="http://www.youtube.com/watch?v=K9F21dP7Fts"
+      link-text="Watch Video"
+      headline="Super Bowl Champion Ray Lewis Makes A Change"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style="align-right"
+    ></slide>
+
+    <slide
+      image-url="http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg"
+      video-url=""
+      link-url="http://www.youtube.com/watch?v=tTLHRnADGXk"
+      link-text="Watch Video"
+      headline="Donna Karan Taking About Change and Sustainability"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style="align-right"
+    ></slide>
+
+</thumblist-nav>
+</section>

@@ -4,34 +4,57 @@
 
     <h1>Listen Carefully</h1>
 
-<p>Research shows that 1 in 8 children and teens in the United States has hearing loss, largely due to high-volume sounds in daily life, such as music streamed loudly into headphones. Most hearing loss among teens can be avoided if simple protective measures&ndash;such as lowering the volume&ndash;are taken.</p>
+<p>Research shows that 1 in 8 children and teens in the United States has hearing loss, largely due to high-volume sounds in daily life. Most hearing loss among teens can be avoided if simple protective measures&ndash;such as lowering the volume&ndash;are taken.</p>
 
 <p>The program combines music and education to raise awareness about the fragility of hearing and the dangers of exposure to high decibel sounds.&nbsp;This year Starkey Hearing Foundation expanded Listen Carefully to offer educational support to more than 16,000 teachers and nearly 500,000 students nationwide.</p>
 
-<p> <gallery slides="1">
-      <gallery-slide
-       image-url="uploads/home/feature/listencarefully.jpg"
-       video-url=""
-      ></gallery-slide>
-    </gallery>
+<p>   <swiper
+      continuous="true"
+      speed="2000"
+      identifier="listen-carefully-10-second-film"
+      auto="8000"
+      tall="false"
+      >
+
+
+        <slide
+         image-url="http://starkey.ahundredyears.com/uploads/images/LC-10-Sec-Video-02.png"
+         video-url="http://www.youtube.com/watch?v=HXC2R5SR9aE"
+         link-url=""
+         link-text=""
+         headline=""
+         body-copy=""
+         thumblist="false"
+         date=""
+         blog-category=""
+         quote=""
+         background-color=""
+         logo-image-url=""
+         link-style=""
+        ></slide>
+
+
+
+    </swiper>
     </p>
-</div>
+
+<h1>&nbsp;</h1>
 
 <h1>Make a Difference&nbsp;</h1>
 
-<p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. Because you know that 1 in 5 American teenagers has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
+<p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. 1 in 5 Americans has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
 
 <p>   <swiper
       continuous="true"
       speed="2000"
       identifier="listencarefully2"
       auto="8000"
-      size="short"
+      tall="false"
       >
 
 
         <slide
-         image-url="http://starkey.ahundredyears.com/uploads/listencarefully2.jpg"
+         image-url="http://starkey.ahundredyears.com/uploads/images/listencarefully2.jpg"
          video-url=""
          link-url=""
          link-text=""
@@ -47,6 +70,7 @@
         ></slide>
 
 
+
     </swiper>
     </p>
 
@@ -54,21 +78,21 @@
 
 <h1>Educate Yourself&nbsp;</h1>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis suscipit arcu, vel congue ante dictum at. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean ac adipiscing lacus, vitae volutpat nulla. Nullam enim purus, gravida et purus placerat, pretium scelerisque dui. Donec diam turpis, consequat at feugiat at, accumsan ac libero. Vivamus aliquam imperdiet semper. Pellentesque ultricies blandit arcu ut volutpat. Sed auctor sapien massa, a facilisis sapien suscipit non.</p>
+<p>Loud sounds are often part of daily life. Repeat or elongated exposure to high-volume sounds&ndash;such as music pumped through headphones&ndash;harms hearing over time.</p>
 
-<p>Pellentesque vestibulum ligula vitae sem porta lobortis. Sed vitae pharetra elit, at mattis dui. Vivamus quis sagittis lacus, ut imperdiet nunc. Sed a vulputate metus. Maecenas ac augue metus. Aliquam in lacus at ipsum scelerisque interdum quis in neque. Aliquam velit lacus, porta quis sem nec, laoreet ultricies quam. Praesent eleifend volutpat accumsan. Vivamus eu eleifend magna. Suspendisse vitae ligula non ligula accumsan molestie.</p>
+<p>Your ears are complex organs, but protecting them is relatively simple. Use these resources to increase your awareness. And share what you know.</p>
 
 <p>   <swiper
       continuous="true"
       speed="2000"
       identifier="listencarefully3"
       auto="8000"
-      size="short"
+      tall="false"
       >
 
 
         <slide
-         image-url="http://starkey.ahundredyears.com/uploads/listencarefully3.jpg"
+         image-url="http://starkey.ahundredyears.com/uploads/images/listencarefully3.jpg"
          video-url="http://www.youtube.com/watch?v=rlyH-ZcCf7o"
          link-url=""
          link-text=""
@@ -82,6 +106,7 @@
          logo-image-url=""
          link-style=""
         ></slide>
+
 
 
     </swiper>

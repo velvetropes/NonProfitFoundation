@@ -54,27 +54,7 @@
       <div class="program-section">
         <div ng-view></div>
       </div>
-      <h1>{{currentTab}}</h1>
-      <section class='carousel thumblist' ng-show="currentTab.tabId==0">
-        <thumblist-nav>
-          <slide
-            ng-repeat="programPartnership in programPartnerships"
-            image-url="{{programPartnership.thumbnail_image_url}}"
-            video-url=""
-            link-url="{{programPartnership.link_url}}"
-            link-text="{{programPartnership.link_cta}}"
-            headline="{{programPartnership.thumbnail_title}}"
-            body-copy=""
-            thumblist="true"
-            date=""
-            blog-category=""
-            quote=""
-            background-color=""
-            logo-image-url=""
-            link-style="align-right"
-          ></slide>
-        </thumblist-nav>
-      </section>
+      <h1>currentTab: {{currentTab}}</h1>
 
       <section class='carousel thumblist' ng-show="currentTab.tabId==1">
         <thumblist-nav>
