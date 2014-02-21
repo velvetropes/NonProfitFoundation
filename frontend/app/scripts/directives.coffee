@@ -200,8 +200,8 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
     scope.isThumblist = ->
       scope.slides > 1
 
-    config = { showArrows: if scope.isThumblist() then true else false }
-
+    config = { showArrows: true}
+    # if scope.isThumblist() then true else false
     if scope.isThumblist()
       $timeout (->
         scope.pane = $(".thumblist-nav")
