@@ -26,15 +26,10 @@ you can get back that particular entry. Otherwise the latest entry
 {/exp:channel:entries}
 
 
-{!--
-==================================== 
-Get Gala Panels
-- - - - - - - -
-Bobby right now I just have the images printing to image tags, 
-but obviously this could be handled better...
-The tag {col3_img:col1} will just return the image url.
-==================================== 
---}
+{!-- Get Gala Panels
+Bobby right now I just have the images printing to image tags, but obviously this could be handled better,
+the tag {col3_img:col1} will just return the image url.
+==================================== --}
 {exp:stash:parse process="end"}
   <accordion>
     {exp:stash:get_list name="panels" context="current"}
@@ -44,8 +39,11 @@ The tag {col3_img:col1} will just return the image url.
 
               {!-- If this is just a single text block --}
               {case value="single"}
-                  {tab_content_block}
+                <div class="outer-container">
+                  {content_block}
+                </div>
               {/case}
+
 
               {!-- If this is a three column text row --}
               {case value="text_3col"}

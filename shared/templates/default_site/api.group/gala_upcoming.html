@@ -44,7 +44,9 @@ The tag {col3_img:col1} will just return the image url.
 
               {!-- If this is just a single text block --}
               {case value="single"}
-                  {tab_content_block}
+                <div class="outer-container">
+                  {content_block}
+                </div>
               {/case}
 
               {!-- If this is a three column text row --}
