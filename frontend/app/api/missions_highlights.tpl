@@ -4,8 +4,8 @@
             {exp:channel:entries channel="hearing_missions" dynamic="no"}
               {
                 "id"                    : "{url_title}",
-                "title"                 : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{title}{/exp:low_replace}",
-                "subtitle"              : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_subtitle}{/exp:low_replace}",
+                "title"                 : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
+                "subtitle"              : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
                 "excerpt"               : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_excerpt}{/exp:low_replace}",
 
                 "video"                 : "{mission_video_url}",

@@ -5,7 +5,7 @@
 {
     "id":"{url_title}",
     "feed_url":"/api/{channel_name}/{url_title}",
-    "title": "{title}",
+    "title": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
     "year": "{entry_date format='%Y'}",
 {if channel_name == "press_releases"}
     "date":"{entry_date format='%m %d %Y'}",

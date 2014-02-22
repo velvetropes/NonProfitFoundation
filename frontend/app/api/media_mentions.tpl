@@ -17,7 +17,7 @@
     "prev_item" : "{exp:stash:next_entry}",
     "next_item" : "{exp:stash:prev_entry}",
     "id":"{url_title}",
-    "title": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{title}{/exp:low_replace}",
+    "title": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
     "date":"{media_mention_date format='%m %d %Y'}",
     "year": "{media_mention_date format='%Y'}",
     "type":"media_mention",
