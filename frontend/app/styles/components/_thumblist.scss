@@ -58,6 +58,16 @@
         left: 20px;
         overflow: hidden;
       }
+      .year-overlay {
+        text-align: center;
+        opacity: .5;
+        font-size: 15em;
+        position: absolute;
+        top: 182px;
+        left: 0;
+        right: 0;
+        color: white;
+      }
     }
     h4 {
       @extend .verlagbold;
@@ -100,16 +110,6 @@
         .content {
           bottom: 10px;
         }
-        // .year-overlay {
-        //   text-align: center;
-        //   opacity: .5;
-        //   font-size: 15em;
-        //   position: absolute;
-        //   top: 182px;
-        //   left: 0;
-        //   right: 0;
-        //   color: white;
-        // }
       }
       h4 {
         color: white;
