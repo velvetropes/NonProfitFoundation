@@ -1,0 +1,11 @@
+<div class="gallery-slide" ng-switch="slideType()" ng-class="slideType()">
+  <a ng-switch-when="links_to_video" ng-click="displayInModalIfVideo()">
+    <div class="image" ng-style="backgroundImageStyle"></div>
+    <div class="play-video-link">
+      <span class="icon starkey-legend-3"></span>
+    </div>
+  </a>
+  <a ng-switch-when="plain_image">
+    <div class="image" ng-style="backgroundImageStyle"></div>
+  </a>
+</div>

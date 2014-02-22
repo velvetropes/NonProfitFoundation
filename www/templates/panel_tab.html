@@ -1,0 +1,18 @@
+<section>
+  <div class='panel-image'>
+    <a href='{{featured.video_link_url}}' target='_blank' ng-style="{'background-image': 'url(' + featured.panel_image_url + ')'}">
+    </a>
+  </div>
+  <div class='panel-content'>
+    <div class="panel-background"></div>
+    <div>
+      <h1>{{featured.panel_title}}</h1>
+      <div ng-bind-html="featured.body"></div>
+      <p class='call-to-action' ng-hide="featured.panel_call_to_action_link_url==''">
+        <a href='{{featured.panel_call_to_action_link_url}}'>
+          {{featured.panel_call_to_action_text}} &rarr;
+        </a>
+      </p>
+    </div>
+  </div>
+<section>

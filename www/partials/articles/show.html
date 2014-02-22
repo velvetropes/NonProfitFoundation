@@ -1,53 +1,6 @@
-<div class="article-header-image">
-  <div class="image" ng-style="{'background-image': 'url(' + article.image_url + ')'}">
-    <ul class="page-nav-links">
-      <li>
-        <a href="#/articles/{{article.prev_item}}" ng-disabled="currentPosition == article.prev_item">&larr;</a>
-      </li>
-      <li>
-        <a href="#/articles/{{article.next_item}}" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
-      </li>
-      <li>
-        <a href="#">X</a>
-      </li>
-    </ul>
-    <div class="gradient-background"></div>
-    <div class="outer-container">
-      <div class="relative-container">
-        <div class="banner">
-          <p class="article-item-category">{{article.blog_item_category}}</p>
-          <h1  class="article-title">{{article.title}}</h1>
-          <p>{{parseDate(article.date) | date:"MMMM d yyyy"}} | {{article.author}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div ng-bind-html="article"></div>
 <br/>
 <div class="outer-container">
-  <div ng-bind-html="article.text"></div>
-
-  <div class="share-this-post">
-    <ul>
-      <li><span class="note">Share this post</span></li>
-      <li>
-        <a href="#">
-          <span class="icon starkey-share-twitter"></span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon starkey-share-fb"></span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon starkey-share-email"></span>
-        </a>
-      </li>
-    </ul>
-  </div>
-
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel'>
     <thumblist-nav>

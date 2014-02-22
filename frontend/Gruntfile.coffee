@@ -17,9 +17,11 @@ module.exports = (grunt) ->
           section: "server"
         files:
           ".tmp/index.html" : 'app/index.html',
-          ".tmp/programs.html" : 'app/programs.html',
           ".tmp/blog.html" : 'app/blog.html',
-          ".tmp/media_mentions.html" : 'app/media_mentions.html'
+          ".tmp/gala.html" : 'app/gala.html'
+          ".tmp/media_mentions.html" : 'app/media_mentions.html',
+          ".tmp/missions.html" : 'app/missions.html',
+          ".tmp/programs.html" : 'app/programs.html',
       dist:
         options:
           content: "app/starkey.json",
@@ -28,21 +30,32 @@ module.exports = (grunt) ->
           # API
           "<%= app.dist %>/templates/default_site/api.group/homepage_markers.html" : 'app/api/homepage_markers.tpl',
           "<%= app.dist %>/templates/default_site/api.group/blog.html" : 'app/api/blog.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/blog_detail.html" : 'app/api/blog_detail.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/gala_overview.html" : 'app/api/gala_overview.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/gala_upcoming.html" : 'app/api/gala_upcoming.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/gala_items.html" : 'app/api/gala_items.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/gala_item.html" : 'app/api/gala_item.tpl',
           "<%= app.dist %>/templates/default_site/api.group/press.html" : 'app/api/press.tpl',
           "<%= app.dist %>/templates/default_site/api.group/press_releases.html" : 'app/api/press_releases.tpl',
           "<%= app.dist %>/templates/default_site/api.group/media_mentions.html" : 'app/api/media_mentions.tpl',
           "<%= app.dist %>/templates/default_site/api.group/featured_articles.html" : 'app/api/featured_articles.tpl',
-          "<%= app.dist %>/templates/default_site/api.group/program_0.html" : 'app/partials/programs/0.html',
-          "<%= app.dist %>/templates/default_site/api.group/program_1.html" : 'app/partials/programs/1.html',
-          "<%= app.dist %>/templates/default_site/api.group/program_2.html" : 'app/partials/programs/2.html',
-          "<%= app.dist %>/templates/default_site/api.group/program_3.html" : 'app/partials/programs/3.html',
+          "<%= app.dist %>/templates/default_site/api.group/program_0.html" : 'app/api/program_0.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/program_1.html" : 'app/api/program_1.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/program_2.html" : 'app/api/program_2.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/program_3.html" : 'app/api/program_3.tpl',
           "<%= app.dist %>/templates/default_site/api.group/program_partnerships.html" : 'app/api/program_partnerships.tpl',
           "<%= app.dist %>/templates/default_site/api.group/program_resources.html" : 'app/api/program_resources.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/missions_markers.html" : 'app/api/missions_markers.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/missions_page.html" : 'app/api/missions_page.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/missions_highlights.html" : 'app/api/missions_highlights.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/missions_detail.html" : 'app/api/missions_detail.tpl',
           # Templates
           "<%= app.dist %>/templates/default_site/pages.group/index.html" : 'app/index.html',
           "<%= app.dist %>/templates/default_site/programs.group/index.html" : 'app/programs.html',
           "<%= app.dist %>/templates/default_site/blog.group/index.html" : 'app/blog.html',
           "<%= app.dist %>/templates/default_site/media_mentions.group/index.html" : 'app/media_mentions.html',
+          "<%= app.dist %>/templates/default_site/missions.group/index.html" : 'app/missions.html',
+          "<%= app.dist %>/templates/default_site/gala.group/index.html" : 'app/gala.html'
      sass:
       dist:
         options:
@@ -57,7 +70,10 @@ module.exports = (grunt) ->
 
     watch:
       css:
-        files: ['**/*.scss'],
+        files: [
+          '<%= app.src %>/styles/*.{scss,sass}',
+          '<%= app.src %>/styles/**/*.{scss,sass}'
+        ],
         tasks: ['sass','autoprefixer']
 
       styles:
@@ -72,6 +88,7 @@ module.exports = (grunt) ->
           "<%= app.src %>/*.html",
           "<%= app.src %>/*.json",
           "<%= app.src %>/partials/**/*.html",
+          "<%= app.src %>/templates/**/*.html",
           ".tmp/styles/{,*/}*.css",
           "{.tmp,<%= app.src %>}/scripts/{,*/}*.js",
           "<%= app.src %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}"
@@ -152,7 +169,8 @@ module.exports = (grunt) ->
 
       html: [
             "<%= app.src %>/*.html",
-            "<%= app.src %>/partials/*.html"
+            "<%= app.src %>/partials/*.html",
+            "<%= app.src %>/templates/*.html"
           ]
 
     usemin:
@@ -290,9 +308,21 @@ module.exports = (grunt) ->
             },
             { #TODO: fix and remove
               expand: true,
+              cwd: "app/styles/images/",
+              src: ['**'],
+              dest: '../www/assets/styles/images/',
+            },
+            { #TODO: fix and remove
+              expand: true,
               cwd: "app/partials/",
               src: ['**'],
               dest: '../www/partials/',
+            },
+            { #TODO: fix and remove
+              expand: true,
+              cwd: "app/templates/",
+              src: ['**'],
+              dest: '../www/templates/',
             }
         ]
 

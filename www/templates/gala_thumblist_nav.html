@@ -1,0 +1,11 @@
+<div class="gala-timeline">
+  <div class='thumblist-nav horizontal-only full'>
+    <div ng-repeat="item in items">
+      <a href ng-click="getItem(item.id)">
+        <div class="image" ng-style="{'background-image': 'url(' + item.thumbnail_image_url + ')'}"></div>
+        <div class="year-overlay">{{item.year}}</div>
+      </a>
+    </div>
+  </div>
+  <div dynamic="rawHtml"> <div>
+</div>

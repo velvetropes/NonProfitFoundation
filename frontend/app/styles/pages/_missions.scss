@@ -1,0 +1,195 @@
+#missions-world-map, #missions-us-map {
+  .jvectormap-container {
+    @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+  }
+  .jvectormap-zoomin, .jvectormap-zoomout {
+    display: none;
+  }
+}
+
+.missions-map {
+  @include span-columns(12);
+  height: 560px;
+  margin: 20px 0 0;
+  position: relative;
+  @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+  .map-container {
+    border: none;
+    margin: 0;
+    margin-right: 250px;
+    .map {
+      border: none;
+    }
+    .missions-world-map, .missions-us-map {
+      position: absolute;
+      top: 0;
+      right: 250px;
+      bottom: 0;
+      left: 0;
+    }
+    .missions-world-map {
+      z-index: 1;
+    }
+    .missions-us-map {
+      z-index: 0;
+    }
+  }
+  .missions-map-legend {
+    width: 250px;
+    height: 560px;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px 20px 50px;
+    background: url('images/missions/map/transparent_darker_background.png') repeat;
+    h3 {
+      text-transform: uppercase;
+      color: white;
+      @extend .alrightsanslight;
+      font-size: .75em;
+      margin: 0 0 15px;
+    }
+    .continents {
+      display: block;
+      padding: 0;
+      margin: 0;
+      text-transform: uppercase;
+      li {
+        list-style: none;
+        a {
+          color: white;
+          font-weight: bold;
+        }
+        &.active {
+          .countries, .states {
+            display: block;
+          }
+        }
+      }
+      .countries, .states {
+        padding: 0;
+        margin: 0;
+        display: none;
+        a {
+          text-transform: capitalize;
+          font-weight: normal;
+          @extend .alrightsanslight;
+          font-size: 1.125em;
+          &[disabled="disabled"] {
+            color: #666;
+            &:hover {
+              cursor: default;
+            }
+          }
+        }
+      }
+    }
+  }
+  .missions-map-greeting {
+    width: 428px;
+    height: 428px;
+    overflow: auto;
+    position: absolute;
+    top: 85px;
+    right: 360px;
+    z-index: 2;
+    padding: 130px 20px 50px;
+    background: url('images/missions/map/dark_circle.png') no-repeat;
+    text-align: center;
+    h1 {
+      color: white;
+      font-size: 3em;
+      @extend .alrightsanslight;
+      margin: 0 0 10px;
+      line-height: 1.25em;
+    }
+    p a {
+      color: #ffad20;
+      text-transform: uppercase;
+      @extend .alrightsansbold;
+      font-size:1.125em;
+    }
+  }
+  .missions-map-info {
+    width: 290px;
+    height: 560px;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    right: 251px;
+    z-index: 2;
+    padding: 30px 20px 50px;
+    background: url('images/missions/map/transparent_dark_background.png') repeat;
+    .continent-info, .country-info {
+      width: 264px;
+      height: 264px;
+      position: absolute;
+      color: white;
+      padding: 50px 20px 0 50px;
+      h1 {
+        @extend .alrightsansbold;
+        margin: 0 0 3px;
+        font-size: 1.875em;
+        line-height: 1em;
+      }
+      h4 {
+        font-size: 1.5em;
+        line-height: 1em;
+      }
+      h4, p {
+        @extend .alrightsanslight;
+        margin: 0 0 10px;
+      }
+      p {
+        text-transform: uppercase;
+        font-size: .875em;
+        line-height: 1.2em;
+      }
+    }
+    .continent-info {
+      top: 26px;
+      right: 12px;
+      background: url('images/missions/map/blue_circle.png') no-repeat;
+    }
+    .country-info {
+      top: 236px;
+      right: 12px;
+      background: url('images/missions/map/yellow_circle.png') no-repeat;
+      padding-top: 80px;
+    }
+  }
+}
+.hearing-missions-statistics {
+  @include span-columns(12);
+  border-bottom: 1px dotted #333;
+  margin: 0 0 55px;
+  ul {
+    margin: 0;
+    padding: 0;
+    @include row(table);
+    li {
+      height: 200px;
+      background: #B6B6B6;
+      border-left: 1px solid white;
+      text-align: center;
+      color: white;
+      @include span-columns(4);
+      @include pad(0);
+      @extend .alrightsansbold;
+      &.first {
+        border: none;
+        background: #333333;
+      }
+      h1 {
+        font-size: 3.75em;
+        margin: 65px 0 0;
+      }
+      p {
+        font-size: 1.125em;
+        text-transform: uppercase;
+        margin: 25px 50px;
+      }
+    }
+  }
+}

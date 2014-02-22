@@ -70,11 +70,18 @@ pagination {
     li {
       .block {
         .headline {
-          bottom: 33px;
-          height: 50px;
+          bottom: 42px;
+          height: 41px;
           font-size: 1.25em;
-          line-height: 1.25em;
+          line-height: 1em;
           overflow: hidden;
+        }
+        .date {
+          position: absolute;
+          bottom: 8px;
+          left: 20px;
+          font-size: 14px;
+          text-transform: uppercase;
         }
       }
     }

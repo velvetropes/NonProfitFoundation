@@ -1,8 +1,61 @@
-<article class='hearing-aid-recycling reveal'>
-  <div class="outer-container">
-    <h1>Hearing Aid Recycling</h1>
 
-    <p>Every year thousands of hearing aids are donated to our Hear Now program from hearing professionals and other people looking to help. Those hearing aids open up the world of sound to someone in need. Many of the hearing aids used on international missions come from the recycling program, making hearing aid donations vital to the success of the Foundation. However, the journey from donation to the mission field is an absolute labor of love.&nbsp;</p>
 
-  </div>
+<article class='hearing-aid-recycling text-container'>
+  <h1>Hearing Aid Recycling</h1>
+
+  <p>Every year thousands of hearing aids are donated to our Hear Now program from hearing professionals and other people looking to help. Those hearing aids open up the world of sound to someone in need. Many of the hearing aids used on international missions come from the recycling program, making hearing aid donations vital to the success of the Foundation. However, the journey from donation to the mission field is an absolute labor of love.&nbsp;</p>
+
+<p>   <swiper
+      continuous="true"
+      speed="2000"
+      identifier="hearingaidrecycling"
+      auto="8000"
+      size="short"
+      >
+
+
+        <slide
+         image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Hearing_Aid_Recycling.jpg"
+         video-url="http://www.youtube.com/watch?v=tF-9R4UUWa8"
+         link-url=""
+         link-text=""
+         headline=""
+         body-copy=""
+         thumblist="false"
+         date=""
+         blog-category=""
+         quote=""
+         background-color=""
+         logo-image-url=""
+         link-style=""
+        ></slide>
+
+
+
+    </swiper>
+    </p>
+
+<p>Send us your old hearing aids, to give the gift of hearing to those in need and contribute to a healthy environment. Any make or model, regardless of age, can be donated. All donations are tax deductible* and a letter of acknowledgment will be sent to all donors.<br />
+&nbsp;</p>
+
+<h2><strong>Ready to contribute your hearing devices? Follow these simple steps to send them in:</strong></h2>
+
+<p>1. Place the hearing aid in a crush-proof box, old pill bottle, or other secure package.</p>
+
+<p>2. Register and insure the package, if possible, to ensure that receipt of your donated device</p>
+
+<p>3. Mail to:<br />
+Starkey Hearing Foundation<br />
+ATTN: Hearing Aid Recycling<br />
+6700 Washington Avenue South<br />
+Eden Prairie, MN 55344<br />
+<br />
+<strong>For more information, contact us at:</strong><br />
+hearnow@starkeyfoundation.org<br />
+(866) 354-3254</p>
+
+<hr />
+<p><small>*Please note: Due to the diversity in age, make, and condition of the aids we receive, it is not possible for us to determine a tax-deductible value for each aid.<br />
+Please consult your tax advisor.</small></p>
+
 </article>

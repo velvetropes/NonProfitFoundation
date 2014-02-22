@@ -1,77 +1,66 @@
-<div class="outer-container">
-  <h1>Operation change</h1>
 
-  <p>Our new docuseries - coming soon!&nbsp;</p>
-  <br/>
-  <h2>Our Partnerships</h2>
-</div>
-  <swiper
-    continuous="true"
-    speed="2000"
-    identifier="swiper_1"
-    auto="8000"
-    tall="false"
-    paginator="false"
-    >
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url=""
-      link-text=""
-      headline=""
-      body-copy=""
-      thumblist="false"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style=""></slide>
-  </swiper>
-<section class='carousel'>
-  <thumblist-nav full="false">
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url="http://starkey.com"
-      link-text="Learn More"
-      headline="Hear at Home"
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style=""></slide>
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url="http://starkey.com"
-      link-text="Learn More"
-      headline="Second"
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style=""></slide>
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url="http://starkey.com"
-      link-text="Learn More"
-      headline="Third"
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style=""></slide>
+<article class='operation-change text-container'>
+    <h1>Operation change</h1>
 
-  </thumblist-nav>
+    <p>Our global work developing sustainable systems of hearing care gives us a unique window into the many challenges facing people around the world. Hearing is our vehicle to change lives, but we know we can only do so much alone. In order to create real change, we must harness the power of many and develop a holistic approach to address the multitude of pressing global challenges.</p>
+
+<p>It empowers individuals to discover their passions and channel them in ways that will improve their communities and ultimately, the world. Through Operation Change we are providing the inspiration to drive engagement and develop a roadmap to create collective impact. This multimedia campaign incorporates a documentary series, a web platform and social media to encourage individual philanthropy and tap into the energy of a generation.</p>
+
+<p>We believe that the actions of a single person can create a ripple effect that will ignite a movement and change the world.</p>
+
+<p>
+
+
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/HERO-Program-Operation_Change.png"
+               video-url="http://www.youtube.com/watch?v=na5j0wDq7kc"
+              ></gallery-slide>
+          </gallery>
+
+
+
+    </p>
+    <br/>
+    <h2>Our Partnerships</h2>
+</article>
+
+
+
+<section class='carousel thumblist'>
+  <thumblist-nav>
+
+
+    <slide
+      image-url="http://starkey.local/uploads/images/Operation-Change-Ray-Lewis-Film.jpg"
+      video-url=""
+      link-url="http://www.youtube.com/watch?v=K9F21dP7Fts"
+      link-text="Watch Video"
+      headline="Super Bowl Champion Ray Lewis Makes A Change"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style="align-right"
+    ></slide>
+
+    <slide
+      image-url="http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg"
+      video-url=""
+      link-url="http://www.youtube.com/watch?v=tTLHRnADGXk"
+      link-text="Watch Video"
+      headline="Donna Karan Taking About Change and Sustainability"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style="align-right"
+    ></slide>
+
+</thumblist-nav>
 </section>

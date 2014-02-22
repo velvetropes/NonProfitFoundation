@@ -351,8 +351,10 @@ body.assets-noscroll { overflow: hidden; }
 
 .assets-sheet .assets-fm .assets-fm-sidebar, .assets-sheet .assets-fm .assets-fm-main { height: 100%; overflow: auto; }
 
-/*-- Matrix/Low Variables overrides --*/
+/*-- Matrix/Grid/Low Variables overrides --*/
 #low-varlist .assets-field, .matrix .assets-field { margin-top: -6px; }
+
+.grid_cell .assets-field { margin: 0 0; }
 
 table.mainTable .assets-listview table thead, table.mainTable .assets-listview table th, table.mainTable .assets-listview table td { border-left: none; background: none; }
 

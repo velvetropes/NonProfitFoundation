@@ -2,6 +2,7 @@
 
 .horizontal-only {
   height: auto;
+  text-align: center;
 }
 
 // .thumblist-nav {
@@ -57,11 +58,17 @@
         left: 20px;
         overflow: hidden;
       }
+      .year-overlay {
+        text-align: center;
+        opacity: .5;
+        font-size: 15em;
+        position: absolute;
+        top: 182px;
+        left: 0;
+        right: 0;
+        color: white;
+      }
     }
-    // .ng-scope {
-    //   border: 1px dotted #ddd;
-    //   border-right: none;
-    // }
     h4 {
       @extend .verlagbold;
       font-size: 1.5em;
@@ -105,7 +112,6 @@
         }
       }
       h4 {
-        // margin-top: 3px;
         color: white;
         font-size: 2.25em;
       }
@@ -121,6 +127,7 @@
       max-height: 422px;
     }
   }
+
 } // End .thumblist-nav
 
 // Scrubber
@@ -203,4 +210,41 @@
   width: 16px;
   float: left;
   height: 100%;
+}
+
+//
+.jspArrow
+{
+  background: #50506d;
+  text-indent: -20000px;
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.jspArrow.jspDisabled
+{
+  cursor: default;
+  background: #80808d;
+}
+
+.jspHorizontalBar .jspArrow
+{
+  width: 16px;
+  float: left;
+  height: 100%;
+}
+
+.jspCorner
+{
+  background: #eeeef4;
+  float: left;
+  height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+  margin: 0 -3px 0 0;
 }

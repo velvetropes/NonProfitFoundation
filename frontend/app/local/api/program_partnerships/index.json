@@ -1,26 +1,18 @@
 [
-   {
-      "id":"1",
+
+    {"id":"1",
       "date":"",
-      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/COVER_pianoboy_cc.jpg",
-      "thumbnail_title":"Fundamental Facts: Learn about hearing loss and how to prevent it.",
-      "link_cta":"Learn More ",
-      "link_url":"http://www.starkey.com/improve-your-hearing"
-   },
-   {
-      "id":"2",
-      "date":"",
-      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/_DSC0608cc.jpg",
-      "thumbnail_title":"Hearing News: Are musicians at greater risk for hearing loss? ",
-      "link_cta":"Read More ",
-      "link_url":"http://www.starkey.com/"
-   },
-   {
-      "id":"3",
-      "date":"",
-      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/marleemartin.jpeg",
-      "thumbnail_title":"Marlee Martin: In her own words ",
+      "thumbnail_image_url":"http://starkey.local/uploads/images/Operation-Change-Ray-Lewis-Film.jpg",
+      "thumbnail_title":"Super Bowl Champion Ray Lewis Makes A Change",
       "link_cta":"Watch Video",
-      "link_url":"http://www.youtube.com/watch?v=GIapKv8Pa1c&noredirect=1"
-   }
+      "link_url":"http://www.youtube.com/watch?v=K9F21dP7Fts"
+    },
+
+    {"id":"3",
+      "date":"",
+      "thumbnail_image_url":"http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg",
+      "thumbnail_title":"Donna Karan Taking About Change and Sustainability",
+      "link_cta":"Watch Video",
+      "link_url":"http://www.youtube.com/watch?v=tTLHRnADGXk"
+    }
 ]

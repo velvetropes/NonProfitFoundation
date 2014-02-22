@@ -9,14 +9,35 @@ blogPagesApp = angular.module("blogPagesApp", [
   "sfServices"
 ])
 
-blogPagesApp.config ["$routeProvider", ($routeProvider) ->
+blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles",
     templateUrl: "partials/articles/index.html"
     controller: "BlogIndexCtrl"
   ).when("/articles/:articleId",
-    templateUrl: "partials/articles/show.html"
+    templateUrl: (params) ->
+      "api/blog_detail/#{params.articleId}"
+      # "local/api/blog_detail"
     controller: "BlogShowCtrl"
   ).otherwise redirectTo: "/articles"
+]
+
+# Gala
+galaPageApp = angular.module("galaPageApp", [
+  "ngRoute",
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
+  $routeProvider.when("/gala/:tabId",
+    templateUrl: (params) ->
+      "api/gala_#{params.tabId}"
+      # "local/api/gala_#{params.tabId}"
+    controller: "GalaCtrl"
+  ).otherwise redirectTo: "/gala/overview"
 ]
 
 # Media Mentions
@@ -34,10 +55,39 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/media_mentions",
     templateUrl: "partials/media_mentions/index.html"
     controller: "MediaMentionsIndexCtrl"
-  ).when("/media_mentions/:articleId",
+  ).when("/press_releases/:pressReleaseId",
+    templateUrl: "partials/press_releases/show.html"
+    controller: "PressReleasesShowCtrl"
+  ).when("/media_mentions/:mediaMentionId",
     templateUrl: "partials/media_mentions/show.html"
     controller: "MediaMentionsShowCtrl"
   ).otherwise redirectTo: "/media_mentions"
+]
+
+# Hearing Missions
+missionsPageApp = angular.module("missionsPageApp", [
+  "ngRoute",
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+missionsPageApp.config ["$routeProvider", ($routeProvider) ->
+  $routeProvider.when("/missions",
+    templateUrl: "partials/missions/landing.html"
+    controller: "MissionsPageCtrl"
+  ).when("/highlights",
+    templateUrl: ->
+      "partials/missions/index.html"
+    controller: "MissionsIndexCtrl"
+  ).when("/missions/:articleId",
+    templateUrl: (params) ->
+      "api/missions_detail/#{params.articleId}"
+      # "local/api/missions_detail"
+    controller: "MissionsShowCtrl"
+  ).otherwise redirectTo: "/missions"
 ]
 
 programsPageApp = angular.module("programsPageApp", [

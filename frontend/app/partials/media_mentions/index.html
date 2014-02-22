@@ -10,12 +10,12 @@
     speed="2000"
     identifier="swiper_1"
     auto="8000"
-    tall="false"
+    size="short"
     paginator="true"
     >
     <slide
-      ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'Media Mention'}"
-      image-url="{{media_mention.thumbnail_image_url}}"
+      ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'media_mention'}"
+      image-url="{{media_mention.header_image_url}}"
       background-color="#5CA5D6"
       quote="{{media_mention.quote}}"
       video-url="{{media_mention.video_link}}"
@@ -63,20 +63,20 @@
 
   <ul class="pagination-articles press-items">
     <li ng-repeat="article in pressItems | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-      <div class='block'>
-        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <p class="category">{{article.type}}</p>
-        <h2 class="headline">{{article.title}}</h2>
-        <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
-        <p class='read-more' ng-switch="article.type">
-          <a ng-switch-when="Press Release" href="#/media_mentions/{{article.id}}">
-            Read more &rarr;
-          </a>
-          <a ng-switch-when="Media Mention" href="{{article.video_link}}" target="_blank">
-            Read more &rarr;
-          </a>
-        </p>
-      </div>
+      <page-tile
+        id="{{article.id}}"
+        title="{{article.title}}"
+        date="{{article.date}}"
+        detail_page="{{article.detail_page}}"
+        type="{{article.type}}"
+        featured="{{article.featured}}"
+        header_image_url="{{article.header_image_url}}"
+        logo_image_url="{{article.logo_image_url}}"
+        quote="{{article.quote}}"
+        call_to_action_text="{{article.call_to_action_text}}"
+        call_to_action_link="{{article.call_to_action_link}}"
+        video_link="{{article.video_link}}"
+      ></page-tile>
     </li>
   </ul>
 

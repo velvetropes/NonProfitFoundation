@@ -1,26 +1,33 @@
 {exp:channel:entries channel="programs" limit="1"}
-<article class='listen-carefully'>
-  <div class="outer-container">
+<article class='listen-carefully text-container'>
 
     {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
 
     <br/>
     <h2>Additional Resources</h2>
-  </div>
-  <!-- <section class='carousel thumblist '>
-    <thumblist-nav articles="programResources">
-      <div ng-repeat="article in programResources">
-        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <div class="content">
-          <h4 ng-bind="article.thumbnail_title"></h4>
-          <p class='call-to-action align-right'>
-            <a href='' ng-bind="article.link_cta">
-               &rarr;
-            </a>
-          </p>
-        </div>
-      </div>
-    </thumblist-nav>
-  </section> -->
 </article>
 {/exp:channel:entries}
+
+<section class='carousel thumblist'>
+  <thumblist-nav>
+
+  {exp:channel:entries channel="programs" backspace="6"}{listen_carefully_additional_reso}
+      <slide
+        image-url="{listen_carefully_additional_reso:image}"
+        video-url=""
+        link-url="{listen_carefully_additional_reso:link}"
+        link-text="{listen_carefully_additional_reso:cta}"
+        headline="{listen_carefully_additional_reso:title}"
+        body-copy=""
+        thumblist="true"
+        date="{listen_carefully_additional_reso:date format='%F %d%S %Y'}"
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+      {/listen_carefully_additional_reso}
+    {/exp:channel:entries}
+</thumblist-nav>
+</section>

@@ -123,6 +123,8 @@ if (isset($config))
 	$env_config['prv_msg_upload_path'] = $images_path . '/pm_attachments/';
 	// $env_config['third_party_path']    = $base_path . '/../third_party/';
 
+	/*
+	// Not sure what this was being used for?
 	$config['assets_source_settings'] = array(
 		1 => array (
 		  'access_key_id' => '',
@@ -130,24 +132,25 @@ if (isset($config))
 		  'bucket' => ''
 		)
 	);
+	*/
 
 	/**
 	 * Custom upload directory paths
 	 *
 	 * The array keys must match the ID from exp_upload_prefs
 	 */
-	// $env_config['upload_preferences'] = array(
-	//     1 => array(
-	//         'name'        => 'Default Uploads',
-	//         'server_path' => $images_path . '/uploads',
-	//         'url'         => $images_url  . '/uploads/'
-	//     ),
-	//     2 => array(
-	//         'name'        => 'Second Folder',
-	//         'server_path' => $images_path . '/another_one',
-	//         'url'         => $images_url  . '/another_one/'
-	//     )
-	// );
+	$env_config['upload_preferences'] = array(
+	    1 => array(
+	        'name'        => 'Image Uploads',
+	        'server_path' => $base_path . '/uploads/images/',
+	        'url'         => $base_url  . '/uploads/images/'
+	    ),
+	    2 => array(
+	        'name'        => 'File Uploads',
+	        'server_path' => $base_path . '/uploads/files/',
+	        'url'         => $base_url  . '/uploads/files/'
+	    )
+	);
 
 
 	/**
@@ -258,12 +261,21 @@ if (isset($config))
 		$assign_to_config['global_vars'] = array();
 	}
 
+	define(ENV_LANGUAGE, 'en');
 	$assign_to_config['global_vars']['language'] = ENV_LANGUAGE;
+
+
 
 	// Start our array with environment variables. This gives us {global:env} and {global:env_full} tags for our templates.
 	$master_global = array(
 		'global:env'      => ENV,
-		'global:env_full' => ENV_FULL
+		'global:env_full' => ENV_FULL,
+
+        // Tag parameters - Short hand tag params
+        'global:param_disable_default'  => 'disable="categories|pagination|member_data"',
+        'global:param_disable_all'      => 'disable="categories|custom_fields|member_data|pagination"',
+        'global:param_cache_param'      => 'cache="yes" refresh="10"',
+        '-global:param_cache_param'     => '-cache="yes" refresh="10"'
 	);
 
 	/**

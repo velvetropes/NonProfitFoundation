@@ -44,11 +44,10 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 
   $scope.modalShown = false
   $scope.toggleModal = ->
-    console.debug "toggleModal", $scope.modalShown
     $scope.modalShown = not $scope.modalShown
 ])
-# Blog
 
+# Blog
 sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", ($scope, Articles, Pagination) ->
   $scope.articles =[]
   $scope.articleFilters = {
@@ -96,22 +95,10 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
     parsedDate
 ])
 
-sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "Article", "Pagination", ($scope, $routeParams, $location, Articles, Article, Pagination) ->
-  $scope.article = {
-    prev_item: ""
-    next_item: ""
-  }
+sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
 
   $scope.currentPosition = $routeParams.articleId
   $scope.articles =[]
-  Article.get(
-    articleId: $routeParams.articleId
-  , (article) ->
-    if article instanceof Array
-      $scope.article = article[0]
-    else
-      $scope.article = article
-  )
 
   Articles.getIndex().then (data) ->
     if data instanceof Array
@@ -124,9 +111,16 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
   $scope.numberOfPages = ->
     Math.ceil($scope.articles.length/$scope.pageSize)
 
-  $scope.parseDate = (date) ->
-    parsedDate = Date.parse(date)
-    parsedDate
+])
+
+# Gala
+sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", "GalaItems", ($scope, $routeParams, GalaItems ) ->
+
+  $scope.currentTab = $routeParams
+
+  GalaItems.getIndex().then (data) ->
+    $scope.timelineItems = data
+
 ])
 
 # Media Mentions
@@ -134,15 +128,15 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
 
   $scope.articleFilters = {
-    featured: 'false'
+    featured: ''
     year: ''
     type: ''
   }
 
   $scope.articleCategories = [
     {name: "All", tag: ''}
-    {name: "Press Release", tag: "Press Release"}
-    {name: "Media Mention", tag: "Media Mention"}
+    {name: "Press Release", tag: "press_release"}
+    {name: "Media Mention", tag: "media_mention"}
   ]
 
   $scope.articleYears = [
@@ -168,7 +162,8 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
     parsedDate
 ])
 
-sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "PressItem", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressItem, MediaMentionOrPressItem, Pagination) ->
+# TODO Change to detail page format
+sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "MediaMention", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, MediaMention, MediaMentionOrPressItem, Pagination) ->
 
   $scope.article = {
     prev_item: ""
@@ -178,8 +173,105 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Pr
   $scope.currentPosition = $routeParams.articleId
 
   $scope.pressItems = []
-  PressItem.get(
-    pressItemId: $routeParams.articleId
+
+  MediaMention.get(
+    mediaMentionId: $routeParams.mediaMentionId
+  , (pressItem) ->
+    if pressItem instanceof Array
+      $scope.article = pressItem[0]
+    else
+      $scope.article = pressItem
+  )
+
+  MediaMentionOrPressItem.getIndex().then (data) ->
+    $scope.pressItems = data
+    $scope.pagination = Pagination.getNew(9)
+    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
+
+  $scope.numberOfPages = ->
+    Math.ceil($scope.pressItems.length/$scope.pageSize)
+
+  $scope.parseDate = (date) ->
+    parsedDate = Date.parse(date)
+    parsedDate
+])
+
+# Missions
+
+sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "MissionsPage", ($scope, MissionsMapMarker, MissionsPage) ->
+  $scope.currentTab = 0
+  MissionsMapMarker.getIndex().then (data) ->
+    $scope.data = data
+  MissionsPage.getPage().then (data) ->
+    $scope.missions = data
+    $scope.statistics = $scope.missions.hearing_mission_statistics
+    $scope.content_tabs = $scope.missions.content_tabs
+    $scope.highlights = $scope.missions.highlights
+
+  $scope.changeTab = (tabId) ->
+    $scope.currentTab = tabId
+])
+
+sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "MissionsIndex", ($scope, Pagination, MissionsIndex) ->
+
+  $scope.highlightRegions = []
+  $scope.currentRegion = {}
+  $scope.missionsHighlights = []
+  $scope.currentCountry = ''
+  $scope.highlightsFilters = {
+    year: ''
+    region: ''
+    country: ''
+  }
+
+  $scope.highlightYears = [
+    {name: "Latest", tag: ''}
+  ]
+
+  MissionsIndex.getIndex().then (data) ->
+    $scope.missionsHighlights = data.highlights
+    $scope.pagination = Pagination.getNew(9)
+    $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
+
+    $scope.highlightRegions = data.categories
+    for year in data.years
+      addedYear = {
+        name: year
+        tag: year
+      }
+      $scope.highlightYears.push addedYear
+
+  $scope.$watch('currentRegion', (newVal, oldVal) ->
+    if newVal?.region?.length > 0
+      $scope.highlightsFilters.region = newVal.region
+      $scope.highlightsFilters.country = ''
+    else
+      $scope.highlightsFilters.region = ''
+
+  )
+
+  $scope.numberOfPages = ->
+    Math.ceil($scope.missionsHighlights.length/$scope.pageSize)
+
+])
+
+sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
+])
+
+# TODO Change to detail page
+sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "PressRelease", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressRelease, MediaMentionOrPressItem, Pagination) ->
+
+  $scope.article = {
+    prev_item: ""
+    next_item: ""
+  }
+
+  $scope.currentPosition = $routeParams.pressReleaseId
+
+  $scope.pressItems = []
+
+  PressRelease.get(
+    pressReleaseId: $routeParams.pressReleaseId
   , (pressItem) ->
     if pressItem instanceof Array
       $scope.article = pressItem[0]
@@ -214,6 +306,7 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "Articles", 
       $scope.programPartnerships = data
     else
       $scope.programPartnerships = [data]
+
   ProgramResource.getIndex().then (data) ->
     if data instanceof Array
       $scope.programResources = data

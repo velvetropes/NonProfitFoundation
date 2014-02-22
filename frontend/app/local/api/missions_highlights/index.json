@@ -1,0 +1,101 @@
+
+{
+    "highlights" : [
+
+          {
+            "id"                    : "featured-carousel-test",
+            "title"                 : "Featured Carousel Test",
+            "subtitle"              : "Austria Europe ",
+            "excerpt"               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum justo id metus suscipit luctus. Quisque eu erat vitae dui convallis pellentesque at vitae dui. Suspendisse potenti. Proin pretium est pulvinar, euismod dolor sit amet, ornare nisl. Nam massa sem, mollis et egestas vel, mollis non ipsum. Vestibulum imperdiet turpis enim, nec varius ligula dictum nec. Donec quis mauris eget diam interdum feugiat et sed nulla. Mauris tristique eros metus, a eleifend eros fermentum eu. Etiam auctor varius augue, et laoreet nibh volutpat eu.<br /> ",
+
+            "video"                 : "",
+            "featured"              : "true",
+
+            "image"                 : "",
+            "thumbnail_image_url"   : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_01.jpg",
+            "header_image_url"      : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_01.jpg",
+
+            "date"                  : "10 04 2013",
+            "year"                  : "2013",
+            "region"                : "Europe",
+            "country"               : "Austria"
+          },
+          {
+            "id"                    : "testing-hearing-missions-post-123",
+            "title"                 : "Testing Hearing Missions Post 123",
+            "subtitle"              : "",
+            "excerpt"               : "",
+
+            "video"                 : "",
+            "featured"              : "false",
+
+            "image"                 : "",
+            "thumbnail_image_url"   : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_02.jpg",
+            "header_image_url"      : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_02.jpg",
+
+            "date"                  : "09 16 2013",
+            "year"                  : "2013",
+            "region"                : "Australia",
+            "country"               : "Australia"
+          },
+          {
+            "id"                    : "hearing-mission-test-entry",
+            "title"                 : "Hearing Mission Test Entry",
+            "subtitle"              : "",
+            "excerpt"               : "",
+
+            "video"                 : "",
+            "featured"              : "false",
+
+            "image"                 : "",
+            "thumbnail_image_url"   : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+            "header_image_url"      : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+
+            "date"                  : "11 18 2013",
+            "year"                  : "2013",
+            "region"                : "Asia",
+            "country"               : "Bhutan"
+          },
+          {
+            "id"                    : "lorem-ipsum-dolor-sit-amet",
+            "title"                 : "Lorem Ipsum dolor sit amet",
+            "subtitle"              : "consectetur adipis",
+            "excerpt"               : "Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
+
+            "video"                 : "",
+            "featured"              : "true",
+
+            "image"                 : "",
+            "thumbnail_image_url"   : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+            "header_image_url"      : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+
+            "date"                  : "02 11 2014",
+            "year"                  : "2014",
+            "region"                : "Africa",
+            "country"               : "Egypt"
+          }
+    ],
+
+  "categories" :  [
+
+    {
+        "region" : "Africa",
+        "countries" : ["Egypt"]
+    },
+    {
+        "region" : "Asia",
+        "countries" : ["Bhutan"]
+    },
+    {
+        "region" : "Australia",
+        "countries" : ["Australia"]
+    },
+    {
+        "region" : "Europe",
+        "countries" : ["Austria"]
+    }
+  ],
+
+
+  "years" : ["2013","2013","2013","2014"]
+}

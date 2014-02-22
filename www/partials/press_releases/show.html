@@ -1,0 +1,116 @@
+<div class="article-header-image">
+  <div class="image" ng-style="{'background-image': 'url(' + article.header_image_url + ')'}">
+    <ul class="page-nav-links">
+      <li>
+        <a href="#/articles/{{article.prev_item}}" ng-disabled="currentPosition == article.prev_item">&larr;</a>
+      </li>
+      <li>
+        <a href="#/articles/{{article.next_item}}" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
+      </li>
+      <li>
+        <a href="#">X</a>
+      </li>
+    </ul>
+    <div class="gradient-background"></div>
+    </div>
+  </div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<div class="outer-container detail-page-body">
+  <section class='page-leader'>
+    <h1>Press Release</h1>
+    <h3>For immediate release</h3>
+  </section>
+  <h1 class="article-headline">{{article.title}}</h1>
+  <p class="article-date">{{article.date}}</p>
+  <h3 class="article-subheadline">{{article.sub_headline}}</h3>
+  <div ng-bind-html="article.body"></div>
+
+<div class="share-this-post">
+    <ul>
+      <li><span class="note">Media Contact</span></li>
+      <li>
+        <a href="mailto:{{article.press_release_contact}}">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+      <li><span class="note">Share this post</span></li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-twitter"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon starkey-share-fb"></span>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:{{article.press_release_contact}}">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+      <li><span class="note">Download PDF</span></li>
+      <li>
+        <a href="{{article.press_release_pdf_download}}">
+          <span class="icon starkey-pdf"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<br/>
+<hr class="separator padded"/>
+
+<div class="outer-container">
+  <div class="pagination">
+    <ul>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+      </li>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li class="disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <ul class="pagination-articles">
+    <li ng-repeat="article in articles | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+      <page-tile
+        media-type="{{article.type}}"
+        id="{{article.id}}"
+        title="{{article.title}}"
+        date="{{article.date}}"
+        detail_page="{{article.detail_page}}"
+        type="{{article.type}}"
+        featured="{{article.featured}}"
+        header_image_url="{{article.header_image_url}}"
+        logo_image_url="{{article.logo_image_url}}"
+        quote="{{article.quote}}"
+        call_to_action_text="{{article.call_to_action_text}}"
+        call_to_action_link="{{article.call_to_action_link}}"
+        video_link="{{article.video_link}}"
+      ></page-tile>
+    </li>
+  </ul>
+
+  <div class="pagination">
+    <ul>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+      </li>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li class="disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+      </li>
+    </ul>
+  </div>
+</div>

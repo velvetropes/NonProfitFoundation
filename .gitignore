@@ -10,3 +10,6 @@ Thumbs.db
 .vagrant
 node_modules/
 system/expressionengine/cache/*
+www/starkey.sql
+www/uploads/*
+frontend/app/uploads/images/*

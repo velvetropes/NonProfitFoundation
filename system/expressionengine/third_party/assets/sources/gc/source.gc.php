@@ -21,7 +21,7 @@ class Assets_gc_source extends Assets_base_source
 	const IMAGE_SOURCE_SIZE = '400x400';
 
 	/**
-	 * @var GC
+	 * @var Assets_GC
 	 */
 	public $GC = null;
 
@@ -32,8 +32,8 @@ class Assets_gc_source extends Assets_base_source
 	{
 		parent::__construct();
 
-		require_once PATH_THIRD . 'assets/sources/gc/lib/GC.php';
-		$this->GC = new GC($settings->access_key_id, $settings->secret_access_key);
+		require_once PATH_THIRD . 'assets/sources/gc/lib/Assets_GC.php';
+		$this->GC = new Assets_GC($settings->access_key_id, $settings->secret_access_key);
 
 		$this->_source_settings = $settings;
 		$this->_source_id = $source_id;
@@ -72,8 +72,8 @@ class Assets_gc_source extends Assets_base_source
 	 */
 	public static function get_bucket_list($key_id, $secret_key)
 	{
-		require_once PATH_THIRD . 'assets/sources/gc/lib/GC.php';
-		$gc = new GC($key_id, $secret_key);
+		require_once PATH_THIRD . 'assets/sources/gc/lib/Assets_GC.php';
+		$gc = new Assets_GC($key_id, $secret_key);
 		$buckets = @$gc->listBuckets();
 		if (empty($buckets))
 		{
@@ -106,7 +106,7 @@ class Assets_gc_source extends Assets_base_source
 	{
 		$bucket_data = $this->get_source_settings();
 
-		return $this->GC->putObject('', $bucket_data->bucket, $this->_get_path_prefix().rtrim($server_path, '/') . '/', GC::ACL_PUBLIC_READ);
+		return $this->GC->putObject('', $bucket_data->bucket, $this->_get_path_prefix().rtrim($server_path, '/') . '/', Assets_GC::ACL_PUBLIC_READ);
 	}
 
 	/**
@@ -130,7 +130,7 @@ class Assets_gc_source extends Assets_base_source
 
 			$this->GC->copyObject($bucket_data->bucket, str_replace('//', '/', $file['name']),
 				$bucket_data->bucket, $this->_get_path_prefix().ltrim(str_replace('//', '/', $new_path . '/' . $file_path), '/'),
-				GC::ACL_PUBLIC_READ);
+				Assets_GC::ACL_PUBLIC_READ);
 
 			$this->GC->deleteObject($bucket_data->bucket, $file['name']);
 		}
@@ -241,7 +241,7 @@ class Assets_gc_source extends Assets_base_source
 
 		$this->_gc_set_creds($bucket_data->access_key_id, $bucket_data->secret_access_key);
 
-		if ($this->GC->putObject(array('file' => $temp_file_path), $bucket_data->bucket, $this->_get_path_prefix().$file_path, GC::ACL_PUBLIC_READ))
+		if ($this->GC->putObject(array('file' => $temp_file_path), $bucket_data->bucket, $this->_get_path_prefix().$file_path, Assets_GC::ACL_PUBLIC_READ))
 		{
 			return array('success' => TRUE, 'path' => $file_path);
 		}
@@ -284,7 +284,7 @@ class Assets_gc_source extends Assets_base_source
 
 		$old_prefix = !empty($old_bucket_data->subfolder) ? rtrim($old_bucket_data->subfolder, '/').'/' : '';
 		$this->_gc_set_creds($new_bucket_data->access_key_id, $new_bucket_data->secret_access_key);
-		if ($this->GC->copyObject($old_bucket_data->bucket, $old_prefix.ltrim($old_path, '/') . $file->filename(), $new_bucket_data->bucket, $this->_get_path_prefix().ltrim($new_path, '/') . $new_file_name,GC::ACL_PUBLIC_READ))
+		if ($this->GC->copyObject($old_bucket_data->bucket, $old_prefix.ltrim($old_path, '/') . $file->filename(), $new_bucket_data->bucket, $this->_get_path_prefix().ltrim($new_path, '/') . $new_file_name,Assets_GC::ACL_PUBLIC_READ))
 		{
 			$this->_delete_source_file($file->server_path(), $old_bucket_data);
 			return array(
@@ -772,6 +772,6 @@ class Assets_gc_source extends Assets_base_source
 	 */
 	private function _gc_set_creds($accessKey, $secretKey)
 	{
-		GC::setAuth($accessKey, $secretKey);
+		Assets_GC::setAuth($accessKey, $secretKey);
 	}
 }

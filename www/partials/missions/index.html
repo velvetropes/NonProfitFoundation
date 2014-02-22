@@ -1,0 +1,81 @@
+<div class="outer-container">
+  <div class="masthead">
+    <h3 class="section-headline">Hearing Missions</h3>
+    <p>Read more about our missions all around the world.</p>
+    <p class="call-to-action">
+      <a href="#">Subscribe to our newsletter</a>
+      to stay up to date
+    </p>
+  </div>
+</div>
+
+<div class="outer-container">
+  <div class="pagination">
+    <ul>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+      </li>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li class="disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+      </li>
+    </ul>
+  </div>
+  <ul class="articles-filters">
+    <li>Sort &nbsp;|&nbsp;</li>
+    <li class="dropdown wide">
+      <select ng-model="highlightsFilters.year" class="dropdown-select">
+        <option ng-repeat="year in highlightYears" value="{{year.tag}}">{{year.name}}</option>
+      </select>
+    </li>
+    <li>&nbsp;|&nbsp;</li>
+    <li class="dropdown wide">
+      <select ng-model="currentRegion" class="dropdown-select" ng-options="region.region for region in highlightRegions">
+        <option value="">Regions</option>
+      </select>
+    </li>
+    <li>&nbsp;|&nbsp;</li>
+    <li class="dropdown wide">
+      <select ng-model="highlightsFilters.country" class="dropdown-select">
+        <option value="">Countries</option>
+        <option ng-repeat="cat in currentRegion.countries" value="{{cat}}">{{cat}}</option>
+      </select>
+    </li>
+  </ul>
+
+  <ul class="pagination-articles press-items">
+    <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+      <page-tile
+        id="{{highlight.id}}"
+        title="{{highlight.title}}"
+        date="{{highlight.date}}"
+        detail_page="true"
+        type="missions_highlight"
+        featured="{{highlight.featured}}"
+        header_image_url="{{highlight.thumbnail_image_url}}"
+        logo_image_url=""
+        quote=""
+        call_to_action_text=""
+        call_to_action_link=""
+        video_link=""
+        category="{{highlight.country}}"
+      ></page-tile>
+    </li>
+  </ul>
+
+  <div class="pagination">
+    <ul>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+      </li>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li class="disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+      </li>
+    </ul>
+  </div>
+</div>

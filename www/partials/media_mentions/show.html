@@ -19,12 +19,11 @@
 <br/>
 <br/>
 <br/>
-<div class="outer-container detail-page-body">
+<div class="text-container detail-page-body">
   <section class='page-leader'>
-    <h1>Press Release</h1>
-    <h3>For immediate release</h3>
+    <h1>Media Mention</h1>
   </section>
-  <h1 class="article-headline">{{article.headline}}</h1>
+  <h1 class="article-headline">{{article.title}}</h1>
   <p class="article-date">{{article.date}}</p>
   <h3 class="article-subheadline">{{article.sub_headline}}</h3>
   <div ng-bind-html="article.body"></div>
@@ -49,13 +48,13 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="mailto:{{article.press_release_contact}}">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
       <li><span class="note">Download PDF</span></li>
       <li>
-        <a href="#">
+        <a href="{{article.press_release_pdf_download}}">
           <span class="icon starkey-pdf"></span>
         </a>
       </li>

@@ -1,96 +1,117 @@
 
-<div class="outer-container">
 
-  <h1>Listen Carefully</h1>
+<article class='listen-carefully text-container'>
 
-<p>Research shows that 1 in 8 children and teens in the United States has hearing loss, largely due to high-volume sounds in daily life, such as music streamed loudly into headphones. Most hearing loss among teens can be avoided if simple protective measures&ndash;such as lowering the volume&ndash;are taken.</p>
+    <h1>Listen Carefully</h1>
+
+<p>Research shows that 1 in 8 children and teens in the United States has hearing loss, largely due to high-volume sounds in daily life. Most hearing loss among teens can be avoided if simple protective measures&ndash;such as lowering the volume&ndash;are taken.</p>
 
 <p>The program combines music and education to raise awareness about the fragility of hearing and the dangers of exposure to high decibel sounds.&nbsp;This year Starkey Hearing Foundation expanded Listen Carefully to offer educational support to more than 16,000 teachers and nearly 500,000 students nationwide.</p>
 
-</div>
-  <swiper
-    continuous="true"
-    speed="2000"
-    identifier="swiper_1"
-    auto="8000"
-    tall="false"
-    paginator="false"
-    >
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url=""
-      link-text=""
-      headline=""
-      body-copy=""
-      thumblist="false"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style=""></slide>
-  </swiper>
+<p>   <swiper
+      continuous="true"
+      speed="2000"
+      identifier="listen-carefully-10-second-film"
+      auto="8000"
+      tall="false"
+      >
 
-<div class="outer-container">
-  <h1>Make a Difference&nbsp;</h1>
 
-  <p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. Because you know that 1 in 5 American teenagers has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
-</div>
+        <slide
+         image-url="http://starkey.ahundredyears.com/uploads/images/LC-10-Sec-Video-02.png"
+         video-url="http://www.youtube.com/watch?v=HXC2R5SR9aE"
+         link-url=""
+         link-text=""
+         headline=""
+         body-copy=""
+         thumblist="false"
+         date=""
+         blog-category=""
+         quote=""
+         background-color=""
+         logo-image-url=""
+         link-style=""
+        ></slide>
 
 
 
-<div class="outer-container">
-  <h1>Educate Yourself&nbsp;</h1>
+    </swiper>
+    </p>
 
-  <h1>Additional Resources</h1>
-</div>
+<h1>&nbsp;</h1>
+
+<h1>Make a Difference&nbsp;</h1>
+
+<p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. 1 in 5 Americans has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
+
+<p>   <swiper
+      continuous="true"
+      speed="2000"
+      identifier="listencarefully2"
+      auto="8000"
+      tall="false"
+      >
 
 
-<section class='carousel'>
-  <thumblist-nav>
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url="http://starkey.com"
-      link-text="Learn More"
-      headline="Hear at Home"
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style="align-right"></slide>
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url="http://starkey.com"
-      link-text="Learn More"
-      headline="Second"
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style="align-right"></slide>
-    <slide
-      image-url="http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg"
-      video-url=""
-      link-url="http://starkey.com"
-      link-text="Learn More"
-      headline="Third"
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style="align-right"></slide>
+        <slide
+         image-url="http://starkey.ahundredyears.com/uploads/images/listencarefully2.jpg"
+         video-url=""
+         link-url=""
+         link-text=""
+         headline=""
+         body-copy=""
+         thumblist="false"
+         date=""
+         blog-category=""
+         quote=""
+         background-color=""
+         logo-image-url=""
+         link-style=""
+        ></slide>
 
-  </thumblist-nav>
-</section>
+
+
+    </swiper>
+    </p>
+
+<p>&nbsp;</p>
+
+<h1>Educate Yourself&nbsp;</h1>
+
+<p>Loud sounds are often part of daily life. Repeat or elongated exposure to high-volume sounds&ndash;such as music pumped through headphones&ndash;harms hearing over time.</p>
+
+<p>Your ears are complex organs, but protecting them is relatively simple. Use these resources to increase your awareness. And share what you know.</p>
+
+<p>   <swiper
+      continuous="true"
+      speed="2000"
+      identifier="listencarefully3"
+      auto="8000"
+      tall="false"
+      >
+
+
+        <slide
+         image-url="http://starkey.ahundredyears.com/uploads/images/listencarefully3.jpg"
+         video-url="http://www.youtube.com/watch?v=rlyH-ZcCf7o"
+         link-url=""
+         link-text=""
+         headline=""
+         body-copy=""
+         thumblist="false"
+         date=""
+         blog-category=""
+         quote=""
+         background-color=""
+         logo-image-url=""
+         link-style=""
+        ></slide>
+
+
+
+    </swiper>
+    </p>
+
+    <br/>
+    <h2>Additional Resources</h2>
+</article>

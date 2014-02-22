@@ -1,62 +1,155 @@
+
 [
 
-    {"id":"29",
-      "title": "Twins Blog: The First Starkey Mission",
-      "date":"02 01 2014",
-      "year": "2014",
-      "category":"",
-      "type":"Media Mention",
-      "featured":"true",
-      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/CBSStarkey.jpg",
-      "logo_image_url":"http://starkey.ahundredyears.com/uploads/cbslogo.png",
-      "quote":"If you watch Bill Austin in his element, you’ll quickly see he’s the real deal.",
-      "call_to_action_text":"Read More ",
-      "call_to_action_link":"http://minnesota.cbslocal.com/2014/01/27/twins-blog-the-first-starkey-mission/",
-      "video_link":""
-    },
+  {
 
-    {"id":"28",
-      "title": "World Leaders, Celebrities and Athletes Attend Starkey Hearing Foundation Gala",
-      "date":"02 01 2014",
-      "year": "2014",
-      "category":"",
-      "type":"Press Release",
-      "featured":"false",
-      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg",
-      "logo_image_url":"",
-      "quote":"",
-      "call_to_action_text":"",
-      "call_to_action_link":"",
-      "video_link":""
-    },
+    "id":"54",
+    "feed_url":"/api/press_releases/54",
+    "title": "Starkey Press Release Test",
+    "date":"02 07 2014",
+    "year": "2014",
+      "detail_page": "true",
+    "type":"press_release",
+    "featured":"false",
+    "header_image_url":"http://starkey.ahundredyears.com/uploads/Blog_A_Knight.jpg",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"Starkey Press Release Test",
+    "call_to_action_link":"Read More",
+    "video_link":""
 
-    {"id":"27",
-      "title": "Starkey Hearing Foundation",
-      "date":"02 01 2014",
-      "year": "2014",
-      "category":"",
-      "type":"Media Mention",
-      "featured":"true",
-      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/billaustin.jpg",
-      "logo_image_url":"http://starkey.ahundredyears.com/uploads/cnnlogo.png",
-      "quote":"",
-      "call_to_action_text":"",
-      "call_to_action_link":"Watch Video ",
-      "video_link":"http://ireport.cnn.com/docs/DOC-616289"
-    },
+  },
 
-    {"id":"18",
-      "title": "Africa 2013: Day 5 Recap",
-      "date":"01 29 2014",
-      "year": "2014",
-      "category":"",
-      "type":"Media Mention",
-      "featured":"true",
-      "thumbnail_image_url":"",
-      "logo_image_url":"http://starkey.ahundredyears.com/uploads/Clinton_Foundation_Logo.png",
-      "quote":"At the fitting, Starkey Hearing Foundation representatives fit children, some of whom have never heard before, with hearing aids",
-      "call_to_action_text":"Read More ",
-      "call_to_action_link":"http://www.clintonfoundation.org/main/clinton-foundation-blog.html/2013/08/06/africa-2013-day-5-recap",
-      "video_link":""
-    }
+  {
+
+    "id":"1",
+    "feed_url":"/api/media_mentions/1",
+    "title": "Africa 2013: Day 5 Recap",
+    "date":"01 29 2014",
+    "year": "2014",
+      "detail_page": "true",
+    "type":"media_mention",
+    "featured":"",
+    "header_image_url":"",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"27",
+    "feed_url":"/api/media_mentions/27",
+    "title": "Starkey Hearing Foundation",
+    "date":"02 01 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"",
+    "header_image_url":"",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"28",
+    "feed_url":"/api/media_mentions/28",
+    "title": "World Leaders, Celebrities and Athletes Attend Starkey Hearing Foundation Gala",
+    "date":"02 01 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"",
+    "header_image_url":"",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"29",
+    "feed_url":"/api/media_mentions/29",
+    "title": "Twins Blog: The First Starkey Mission",
+    "date":"02 01 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"",
+    "header_image_url":"",
+    "logo_image_url":"",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"55",
+    "feed_url":"/api/media_mentions/55",
+    "title": "CNN to Spotlight SHF",
+    "date":"02 07 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"false",
+    "header_image_url":"http://starkey.ahundredyears.com/uploads/CAROUSEL-William_F._Austin_Legacy_Film.jpg",
+    "logo_image_url":"http://starkey.ahundredyears.com/uploads/cnnlogo.png",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":"http://www.youtube.com/watch?v=CvYDRtPh46Q"
+
+  },
+
+  {
+
+    "id":"56",
+    "feed_url":"/api/media_mentions/56",
+    "title": "SHF Test Featured MM",
+    "date":"02 07 2014",
+    "year": "2014",
+      "detail_page": "false",
+    "type":"media_mention",
+    "featured":"true",
+    "header_image_url":"http://starkey.ahundredyears.com/uploads/Blog_A_Knight.jpg",
+    "logo_image_url":"http://starkey.ahundredyears.com/uploads/Clinton_Foundation_Logo.png",
+    "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc cursus aliquam diam, vitae mollis neque egestas sed. In eu tellus blandit, pellentesque mi non",
+    "call_to_action_text":"Read More ",
+    "call_to_action_link":"http://www.clintonfoundation.org/",
+    "video_link":""
+
+  },
+
+  {
+
+    "id":"57",
+    "feed_url":"/api/media_mentions/57",
+    "title": "Media Mentions Video Test",
+    "date":"02 07 2014",
+    "year": "2014",
+      "detail_page": "",
+    "type":"media_mention",
+    "featured":"true",
+    "header_image_url":"http://starkey.ahundredyears.com/uploads/CAROUSEL-Providing_Clean_Water_in_Tanzania.jpg",
+    "logo_image_url":"http://starkey.ahundredyears.com/uploads/cnnlogo.png",
+    "quote":"",
+    "call_to_action_text":"",
+    "call_to_action_link":"",
+    "video_link":"http://www.youtube.com/watch?v=OJ4W9zzjgII"
+
+  }
 ]

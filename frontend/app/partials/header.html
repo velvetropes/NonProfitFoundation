@@ -84,7 +84,12 @@
     <article class='tab-content what-we-do'>
       <ul>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/missions.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='missions/index'}">
+          <!--(bake-end)-->
             <h3 class="highlight">Mission</h3>
             <h2>Our Global Impact</h2>
           </a>
@@ -102,7 +107,12 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/gala.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='gala/index'}">
+          <!--(bake-end)-->
             <h3 class="highlight">Gala</h3>
             <h2>So the world may hear</h2>
             <p>Lorem ipsum dolor sit amet, vix dico voluptua</p>

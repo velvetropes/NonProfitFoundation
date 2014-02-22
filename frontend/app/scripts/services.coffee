@@ -17,14 +17,26 @@ sfServices.factory "urlChooser", [->
         "/api"
   getIndexFormat = ->
     if env is "development" then "/index.json" else ""
+
+  getDetailFormat = (id)->
+    if env is "development" then "" else "/#{id}"
   {
     getUrl: getUrl()
     getIndexFormat: getIndexFormat()
   }
 ]
 
-sfServices.factory "Article", ["$resource", "urlChooser", ($resource, urlChooser) ->
-  $resource "#{urlChooser.getUrl}/blog/:articleId", {}, {}
+sfServices.factory "Article", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+
+  getDetail = (id) ->
+    deferred = $q.defer()
+
+    $http.get("#{urlChooser.getUrl}/articles/#{id}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getDetail: getDetail}
 ]
 
 sfServices.factory "Articles", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
@@ -57,6 +69,35 @@ sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", "urlChooser",
   {getIndex: getIndex}
 ]
 
+sfServices.factory "GalaItems", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/gala_items").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+
+  {getIndex: getIndex}
+]
+
+# sfServices.factory "HearingMissionArticle", ["$resource", "urlChooser", ($resource, urlChooser) ->
+#   $resource "#{urlChooser.getUrl}/missions/:articleId", {}, {}
+# ]
+
+sfServices.factory "HearingMissionArticle", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+
+  getDetail = (id) ->
+    deferred = $q.defer()
+
+    $http.get("#{urlChooser.getUrl}/missions_articles/#{id}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getDetail: getDetail}
+]
 
 sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 
@@ -73,6 +114,47 @@ sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, 
   {getIndex: getIndex}
 ]
 
+sfServices.factory "MissionsPage", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getPage = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/missions_page#{urlChooser.getIndexFormat}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getPage: getPage}
+]
+
+sfServices.factory "MissionsIndex", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    url = "#{urlChooser.getUrl}/missions_highlights#{urlChooser.getIndexFormat}"
+    $http.get(url).success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getIndex: getIndex}
+]
+
+sfServices.factory "MissionsMapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/missions_markers#{urlChooser.getIndexFormat}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+
+    deferred.promise
+
+  # Return factory object
+  {getIndex: getIndex}
+]
+
+
 sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 
   getIndex = ->
@@ -88,13 +170,14 @@ sfServices.factory "MediaMentionOrPressItem", ["$q", "$http", "$resource", "urlC
   {getIndex: getIndex}
 ]
 
-sfServices.factory "PressItem", ["$resource", "urlChooser", ($resource, urlChooser) ->
-  $resource "#{urlChooser.getUrl}/press/:pressItemId.json", {}, {}
+sfServices.factory "PressRelease", ["$resource", "urlChooser", ($resource, urlChooser) ->
+  $resource "#{urlChooser.getUrl}/press_releases/:pressReleaseId.json", {}, {}
 ]
 
-# sfServices.factory "ProgramContent", ["$resource", "urlChooser", ($resource, urlChooser) ->
-#   $resource "#{urlChooser.getUrl}/program_:programContentId.json", {}, {}
-# ]
+sfServices.factory "MediaMention", ["$resource", "urlChooser", ($resource, urlChooser) ->
+  $resource "#{urlChooser.getUrl}/media_mentions/:mediaMentionId.json", {}, {}
+]
+
 
 sfServices.factory "ProgramContent", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
   getResource = (programContentId)->

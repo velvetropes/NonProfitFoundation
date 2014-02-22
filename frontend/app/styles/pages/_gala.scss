@@ -1,0 +1,78 @@
+.gala-overview {
+  .half-wit {
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .main-story {
+    width: 50%;
+    float: left;
+    margin-top: 50px;
+    padding-left: 45px;
+    .headline {
+
+    }
+  }
+  .highlights {
+    border: 1px dotted #333;
+    border-right: none;
+    border-left: none;
+    margin: 20px 0 0;
+    padding: 20px 0;
+    width: 100%;
+    float: left;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        float: left;
+        width: 50%;
+        padding: 15px 0 20px 45px;
+        &.first {
+          border-right: 1px dotted #333;
+          padding-left: 0;
+        }
+        .content {
+          float: left;
+          width: 239px;
+          margin-left: 30px;
+          h3 {
+            font-size: 1.625em;
+            @extend .alrightsanslight;
+            line-height: 1.2em;
+            margin-bottom: 10px;
+            margin-top: 0;
+          }
+          p {
+            margin: 0;
+          }
+        }
+        .highlight-thumbnail {
+          width: 230px;
+          height: 174px;
+          float: left;
+        }
+        .action-link {
+          text-align: right;
+          text-transform: uppercase;
+          font-size: .75em;
+          @extend .verlagbold;
+        }
+      }
+    }
+  }
+}
+.gala-tab-content {
+  @extend .generic-article-typography;
+  text-align: center;
+  h1, h2, h3, h4 {
+    margin: 40px 0 20px;
+  }
+  p {
+    margin: 0;
+  }
+  p.no-container {
+    margin: 40px 0 0;
+  }
+}
