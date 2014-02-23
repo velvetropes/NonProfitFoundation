@@ -34,7 +34,7 @@ the tag {col3_img:col1} will just return the image url.
   <accordion>
     {exp:stash:get_list name="panels" context="current"}
     <expander class='expander' title='{label}'>
-        {exp:channel:entries channel="galla_panel" entry_id="{panel_id}" parse="inward"}
+        {exp:channel:entries channel="galla_panel" entry_id="{panel_id}" dynamic="no" parse="inward" disable="{global:param_disable_default}"}
           {exp:switchee variable = "{display_type}" parse="inward"}
 
               {!-- If this is just a single text block --}
