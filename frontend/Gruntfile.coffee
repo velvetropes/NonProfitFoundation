@@ -49,6 +49,7 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/api.group/missions_page.html" : 'app/api/missions_page.tpl',
           "<%= app.dist %>/templates/default_site/api.group/missions_highlights.html" : 'app/api/missions_highlights.tpl',
           "<%= app.dist %>/templates/default_site/api.group/missions_detail.html" : 'app/api/missions_detail.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/gala_tabs.html" : 'app/api/gala_tabs.tpl',
           # Templates
           "<%= app.dist %>/templates/default_site/pages.group/index.html" : 'app/index.html',
           "<%= app.dist %>/templates/default_site/programs.group/index.html" : 'app/programs.html',
