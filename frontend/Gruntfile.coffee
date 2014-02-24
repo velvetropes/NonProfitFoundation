@@ -16,12 +16,15 @@ module.exports = (grunt) ->
           content: "app/starkey.json",
           section: "server"
         files:
+          ".tmp/about_us.html" : 'app/about_us.html',
           ".tmp/index.html" : 'app/index.html',
           ".tmp/blog.html" : 'app/blog.html',
+          ".tmp/contact.html" : 'app/contact.html',
           ".tmp/gala.html" : 'app/gala.html'
           ".tmp/media_mentions.html" : 'app/media_mentions.html',
           ".tmp/missions.html" : 'app/missions.html',
           ".tmp/programs.html" : 'app/programs.html',
+          ".tmp/team.html" : 'app/team.html'
       dist:
         options:
           content: "app/starkey.json",

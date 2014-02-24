@@ -6,36 +6,60 @@
   <head>
     <!--(bake partials/head.html)-->
   </head>
-  <body class='blog-page page' ng:app="blogPagesApp">
+  <body class='team-page page'>
 
     <!--(bake partials/browser_check.html)-->
 
     <!--(bake partials/header.html)-->
 
+    <!--(bake-start _if="dist")-->
     {exp:channel:entries channel="team" dynamic="no" limit="1" disable="{global:param_disable_default}"}
-    <article class='team'>
-        <section class="page-leader">
-          <h2>{team_tagline}</h2>
-          <h1>{title}</h1>
-          {team_intro}
+    <div class="outer-container">
+      <div class="masthead">
+        <h3 class="section-title">{team_tagline}</h3>
+        <h3 class="section-headline">{title}</h3>
+        {team_intro}
 
-          <ul class="team members">
-            {team_members}
-            <li>{team_members:name} <small>{team_members:title}</small></li>
-            {/team_members}
-          </ul>
-        </section>
-
-        <section class="board members">
-          <h2>Board of Directors</h2>
-          <ul class="board members">
-            {team_board}
-            <li>{team_board:name} <small>{team_board:title}</small></li>
-            {/team_board}
-          </ul>
-        </section>
-    </article>
+        <ul class="team-list">
+          {team_members}
+          <li>{team_members:name} <small>{team_members:title}</small></li>
+          {/team_members}
+        </ul>
+      </div>
+      <div class="masthead">
+        <h3 class="section-title">Board of Directors</h3>
+        <ul class="team-list">
+          {team_board}
+          <li class="box">{team_board:name} <small>{team_board:title}</small></li>
+          {/team_board}
+        </ul>
+      </div>
+    </div>
     {/exp:channel:entries}
+    <!--(bake-end)-->
+    <!--(bake-start _if="server")-->
+    <div class="outer-container">
+      <div class="masthead">
+        <h3 class="section-title">The people who make it possible</h3>
+        <h3 class="section-headline">Team</h3>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+        <ul class="team-list">
+          <li class="box">William F. Austin <small>Founder</small></li>
+          <li class="box">Tani Austin <small>Co-Founder</small></li>
+          <li class="box">Steven Sawalich <small>Senior Executive Director</small></li>
+          <li class="box">Dr. Carla E. R. Rondeu <small>Clinical Director</small></li>
+          <li class="box">Frederic Rondeu <small>International Director</small></li>
+        </ul>
+      </div>
+      <div class="masthead">
+        <h3 class="section-title">Board of Directors</h3>
+        <ul class="team-list">
+          <li class="box">Richard Brown <small>President</small></li>
+          <li class="box">Liz Tulach <small>Vice President</small></li>
+        </ul>
+      </div>
+    </div>
+    <!--(bake-end)-->
 
     <!--(bake partials/footer.html)-->
 
