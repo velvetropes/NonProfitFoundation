@@ -298,19 +298,4 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "Articles", 
 
   $scope.currentTab = $routeParams
 
-  $scope.programPartnerships = []
-  $scope.programResources = []
-
-  ProgramPartnership.getIndex().then (data) ->
-    if data instanceof Array
-      $scope.programPartnerships = data
-    else
-      $scope.programPartnerships = [data]
-
-  ProgramResource.getIndex().then (data) ->
-    if data instanceof Array
-      $scope.programResources = data
-    else
-      $scope.programResources = [data]
-
 ])
