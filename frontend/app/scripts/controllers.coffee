@@ -21,6 +21,10 @@ sfControllers.controller("globalVideoModalCtrl", ["$scope",($scope) ->
     $scope.modalShown = not $scope.modalShown
     if $scope.modalShown is true
       $scope.modalVideo = videoUrl
+
+      iframe = videoUrl.replace(/(?:http:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>');
+
+      $('#player').html(iframe)
 ])
 
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->

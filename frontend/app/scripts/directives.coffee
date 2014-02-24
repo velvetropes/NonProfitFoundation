@@ -864,6 +864,7 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
 
     scope.hideModal = ->
       scope.show = false
+      $('#player').html("")
 
     scope.youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
 
