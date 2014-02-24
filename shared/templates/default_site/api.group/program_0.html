@@ -1,4 +1,4 @@
-{exp:channel:entries channel="programs" limit="1"}
+{exp:channel:entries channel="programs" limit="1" dynamic="no" limit="1" disable="{global:param_disable_default}"}
 <article class='operation-change text-container'>
     <h1>Operation change</h1>
 
