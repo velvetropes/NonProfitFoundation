@@ -13,7 +13,7 @@
 
                 "image"                 : "{if mission_image}{if:else}{mission_image:url}{/if}",
                 "thumbnail_image_url"   : "{mission_thumb_image}",
-                "header_image_url"      : "{mission_thumb_image}",
+                "header_image_url"      : "{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}",
 
                 "date"                  : "{mission_date format='%m %d %Y'}",
                 "year"                  : "{mission_date format="%Y"}",
