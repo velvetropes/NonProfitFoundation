@@ -50,7 +50,16 @@
     </section>
     <section class='footer-links'>
       <ul>
-        <li><a href='#'>Legal/financials &rarr;</a></li>
+        <li>
+          <!--(bake-start _if="server")-->
+          <a href="/legal.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='legal/index'}">
+          <!--(bake-end)-->
+            Legal/financials &rarr;
+          </a>
+        </li>
         <li><a href='#'>Subscribe to our newsletter &rarr;</a></li>
         <li><p>&copy; Starkey Hearing Foundation 2013</p></li>
       </ul>

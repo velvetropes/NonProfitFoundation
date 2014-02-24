@@ -1,20 +1,21 @@
 <!doctype html xmlns:ng="http://angularjs.org/">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Starkey Hearing Foundation</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    
-    <link rel="stylesheet" href="assets/styles/56f5d5c8.main.css"/>
-    
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Starkey Hearing Foundation</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  
+  <link rel="stylesheet" href="assets/styles/56f5d5c8.main.css"/>
+  
   </head>
-  <body class='blog-page page' ng:app="blogPagesApp">
+  <body class='legal-page' ng:app="legalPagesApp">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -156,8 +157,47 @@
     
 
     <!-- Main content section -->
-    <div ng-view></div>
-    <!-- end main content section -->
+    <section class='page-leader'>
+      <h1>
+
+        {title}
+      </h1>
+    </section>
+
+    <div ng:controller="LegalPagesCtrl">
+      <section class='tabbed-content'>
+        <nav class="outer-container">
+            <ul class='three-tabs'>
+              <li ng-class="{active: currentTab==0}">
+                <a href ng-click="currentTab=0">Terms &amp; Conditions</a>
+              </li>
+              <li ng-class="{active: currentTab==1}">
+                <a href ng-click="currentTab=1">Privacy Policy</a>
+              </li>
+              <li class="last" ng-class="{active: currentTab==2}">
+                <a href ng-click="currentTab=2">Financials</a>
+              </li>
+            </ul>
+        </nav>
+      </section>
+
+      <article class="article-section" class="" ng-show="currentTab==0">
+
+      </article>
+
+      <article class="article-section" ng-show="currentTab==0">
+
+      </article>
+
+      <article class="article-section" ng-show="currentTab==1">
+
+      </article>
+
+      <article class="article-section" ng-show="currentTab==2">
+
+      </article>
+    </div>
+
     <footer>
       <div>
         <section class='social-info'>
@@ -229,5 +269,6 @@
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
+
 </body>
 </html>

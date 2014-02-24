@@ -20,7 +20,8 @@ module.exports = (grunt) ->
           ".tmp/index.html" : 'app/index.html',
           ".tmp/blog.html" : 'app/blog.html',
           ".tmp/contact.html" : 'app/contact.html',
-          ".tmp/gala.html" : 'app/gala.html'
+          ".tmp/gala.html" : 'app/gala.html',
+          ".tmp/legal.html" : 'app/legal.html',
           ".tmp/media_mentions.html" : 'app/media_mentions.html',
           ".tmp/missions.html" : 'app/missions.html',
           ".tmp/programs.html" : 'app/programs.html',
@@ -70,7 +71,8 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/gala.group/index.html" : 'app/gala.html'
           "<%= app.dist %>/templates/default_site/pages.group/about_us.html" : 'app/about_us.html',
           "<%= app.dist %>/templates/default_site/pages.group/contact.html" : 'app/contact.html',
-          "<%= app.dist %>/templates/default_site/pages.group/take_action.html" : 'app/take_action.html',
+          "<%= app.dist %>/templates/default_site/legal.group/index.html" : 'app/legal.html'
+          "<%= app.dist %>/templates/default_site/take_action.group/index.html" : 'app/take_action.html'
           "<%= app.dist %>/templates/default_site/pages.group/team.html" : 'app/team.html'
      sass:
       dist:

@@ -123,8 +123,14 @@ sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", "GalaItems", ($s
 
 ])
 
-# Media Mentions
+# Legal
+sfControllers.controller("LegalPagesCtrl", ["$scope", "$routeParams", ($scope, $routeParams ) ->
 
+  $scope.currentTab = 0
+
+])
+
+# Media Mentions
 sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
 
   $scope.articleFilters = {

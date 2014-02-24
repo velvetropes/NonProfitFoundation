@@ -40,6 +40,15 @@ galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/gala/overview"
 ]
 
+legalPagesApp = angular.module("legalPagesApp", [
+  "ngRoute",
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
 # Media Mentions
 mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
   "ngRoute",
@@ -125,7 +134,6 @@ takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
     controller: "TakeActionCtrl"
   ).otherwise redirectTo: "/fundraising"
 ]
-
 
 HomePageApp = angular.module('homePageApp', [
   "ngRoute",
