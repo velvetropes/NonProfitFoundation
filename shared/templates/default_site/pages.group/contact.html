@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/59644d37.main.css"/>
+    <link rel="stylesheet" href="assets/styles/0b8acc52.main.css"/>
     
   </head>
   <body class='blog-page page' ng:app="blogPagesApp">
@@ -152,27 +152,24 @@
     
 
     {exp:channel:entries channel="contact" dynamic="no" limit="1" disable="{global:param_disable_default}"}
-    <article class='contact'>
-        <section class="page-leader">
-          <h1>{title}</h1>
-          <h2>{contact_tagline}</h2>
-          {contact_intro}
-        </section>
-
-        <section class="contact main">
+    <div class="outer-container">
+      <div class="masthead">
+        <h3 class="section-title">{title}</h3>
+        <h3 class="section-headline">{contact_tagline}</h3>
+        {contact_intro}
+      </div>
+        <section class="contact_main">
           {contact_main}
         </section>
 
-        <div class="contact secondary">
-          <section>
-            {contact_top_right}
-          </section>
-          <section>
-            {contact_bottom_right}
-          </section>
-        </div>
-    </article>
+        <section class="contact_secondary">
+          {contact_top_right}
+          <hr class="separator"/>
+          {contact_bottom_right}
+        </section>
+    </div>
     {/exp:channel:entries}
+
 
     <footer>
       <div>
