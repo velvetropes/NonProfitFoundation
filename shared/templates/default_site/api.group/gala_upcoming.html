@@ -1,36 +1,28 @@
-{!--
-===================================================================
-If you pass in the url_title (angular:id) as a 3rd url parameter
-you can get back that particular entry. Otherwise the latest entry
-(by year) is loaded
-====================================================================
---}
-
-{exp:channel:entries channel="galla" dynamic="no" limit="1" orderby="galla_year" sort="desc"
- disable="{global:param_disable_default}" {if segment_3}url_title="{segment_3}"{/if} parse="inward"}
-<div class="gala-tab-content text-container">
-  <h1>{galla_intro_title}</h1>
-  <div>
-    <p>{galla_intro_text}</p>
-  </div>
-  <p>{exp:hundies_shortcode parse="inward"}[gallery id="{galla_gallery_code:url_title}"]{/exp:hundies_shortcode}</p>
-</div>
-
-  {exp:stash:set_list name="panels" parse_tags="yes" parse_depth="3" context="current"}
-    {galla_panel}
-      {stash:label}{galla_panel:tab_label}{/stash:label}
-      {stash:panel_id}{galla_panel:tab_content:entry_id}{/stash:panel_id}
-    {/galla_panel}
-  {/exp:stash:set_list}
-
+{exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+  {exp:stash:set name="upcoming_id" parse_tags="yes"}{gala_upcoming:entry_id}{/exp:stash:set}
 {/exp:channel:entries}
 
-
-{!-- Get Gala Panels
-Bobby right now I just have the images printing to image tags, but obviously this could be handled better,
-the tag {col3_img:col1} will just return the image url.
-==================================== --}
 {exp:stash:parse process="end"}
+  {exp:channel:entries channel="galla" dynamic="no" limit="1" disable="{global:param_disable_default}" entry_id="{exp:stash:upcoming_id}" parse="inward"}
+  <div class="gala-tab-content text-container">
+    <h1>{galla_intro_title}</h1>
+    <div>
+      <p>{galla_intro_text}</p>
+    </div>
+    <p>{exp:hundies_shortcode parse="inward"}[gallery id="{galla_gallery_code:url_title}"]{/exp:hundies_shortcode}</p>
+  </div>
+
+    {exp:stash:set_list name="panels" parse_tags="yes" parse_depth="3" context="current"}
+      {galla_panel}
+        {stash:label}{galla_panel:tab_label}{/stash:label}
+        {stash:panel_id}{galla_panel:tab_content:entry_id}{/stash:panel_id}
+      {/galla_panel}
+    {/exp:stash:set_list}
+
+  {/exp:channel:entries}
+{/exp:stash:parse}
+
+{exp:stash:parse process="end" priority="2"}
   <accordion>
     {exp:stash:get_list name="panels" context="current"}
     <expander class='expander' title='{label}'>

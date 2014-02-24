@@ -7,7 +7,7 @@ you can get back that particular entry. Otherwise the latest entry
 --}
 
 {exp:channel:entries channel="galla" dynamic="no" limit="1" orderby="galla_year" sort="desc" 
- disable="{global:param_disable_defaul}" {if segment_3}url_title="{segment_3}"{/if} parse="inward"}
+ disable="{global:param_disable_default}" {if segment_3}url_title="{segment_3}"{/if} parse="inward"}
 <div class="gala-tab-content text-container">
   <h1>{galla_intro_title}</h1>
   <div>
