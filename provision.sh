@@ -29,10 +29,17 @@ cat > /etc/apache2/sites-available/$PROJECT_ABBR.conf <<DELIM
   DocumentRoot /var/www/$PROJECT_ABBR/www/
   <Directory "/var/www/$PROJECT_ABBR/www/">
     <IfModule mod_rewrite.c>
-      RewriteEngine On
-      RewriteRule ^index\.php$ - [L]
-      RewriteCond %{REQUEST_FILENAME} !-f
-      RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteEngine On
+
+    # Removes index.php from ExpressionEngine URLs
+    RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+    RewriteCond %{REQUEST_URI} !/system/.* [NC]
+    RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+    # Directs all EE web requests through the site index file
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.php/$1 [L]
     </IfModule>
   </Directory>
 </VirtualHost>
