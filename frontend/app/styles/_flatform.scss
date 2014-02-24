@@ -5,7 +5,7 @@
   }
 
   &.invert {
-    select, input[type="text"], label {
+    select, input[type="text"], label, textarea {
       border-color: #FFF;
       color: $gray-title;
     }
@@ -18,10 +18,14 @@
       color: $light-blue;
       text-transform: uppercase;
     }
+    textarea {
+      height: 180px;
+    }
   }
 
   select,
-  input[type="text"] {
+  input[type="text"],
+  textarea {
     outline: none;
     font-size: 1em;
     line-height: 1.2;
@@ -94,8 +98,5 @@
       float: left;
     }
 
-    // &.leftHalf .small, &.rightHalf .small, &.leftHalf .medium, &.rightHalf .medium, &.leftThird .small, &.middleThird .small, &.rightThird .small, &.leftThird .medium, &.middleThird .medium, &.rightThird .medium {
-    //   width: 100% !important;
-    // }
   }
 }

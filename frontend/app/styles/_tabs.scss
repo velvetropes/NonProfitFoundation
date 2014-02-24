@@ -133,7 +133,7 @@ nav {
       }
     }
     &.outer-container {
-      .two-tabs, .three-tabs {
+      .two-tabs, .three-tabs, .five-tabs {
         text-align: center;
         padding: 0;
         margin: 0 0 -1px;
@@ -173,6 +173,14 @@ nav {
       .three-tabs {
         li {
           width: 200px;
+        }
+      }
+      .five-tabs {
+        li {
+          width: 210px;
+          a {
+            padding: 10px 0 8px;
+          }
         }
       }
     }

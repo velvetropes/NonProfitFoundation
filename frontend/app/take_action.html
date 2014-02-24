@@ -1,0 +1,68 @@
+<!doctype html xmlns:ng="http://angularjs.org/">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+  <head>
+  <!--(bake partials/head.html)-->
+  </head>
+  <body class='take-action-page' ng:app="takeActionPagesApp">
+
+    <!--(bake partials/browser_check.html)-->
+
+    <!--(bake partials/header.html)-->
+
+    <!-- Main content section -->
+    <section class='page-leader'>
+      <h1>
+        <!--(bake-start _if="server")-->
+        Take Action
+        <!--(bake-end)-->
+        <!--(bake-start _if="dist")-->
+        {title}
+        <!--(bake-end)-->
+      </h1>
+      <p>
+        <!--(bake-start _if="server")-->
+        Take Action blurb goes here
+        <!--(bake-end)-->
+        <!--(bake-start _if="dist")-->
+        {program_page_leader}
+        <!--(bake-end)-->
+      </p>
+    </section>
+
+    <div ng:controller="TakeActionCtrl">
+      <section class='tabbed-content'>
+        <nav class="outer-container">
+            <ul class='five-tabs'>
+              <li ng-class="{active: currentTab.tabId=='fundraising'}">
+                <a href='#/fundraising'>Fundraising</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId=='operation-change'}">
+                <a href='#/operation-change'>Operation Change</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId=='volunteer'}">
+                <a href='#/volunteer'>Volunteer</a>
+              </li>
+              <li ng-class="{active: currentTab.tabId=='hearing-aid-recycling'}">
+                <a href='#/hearing-aid-recycling'>Hearing Aid Recycling</a>
+              </li>
+              <li class="last" ng-class="{active: currentTab.tabId=='share-your-story'}">
+                <a href='#/share-your-story'>Share Your Story</a>
+              </li>
+            </ul>
+        </nav>
+      </section>
+      <div class="take-action-section">
+        <div ng-view></div>
+      </div>
+    </div>
+
+    <!--(bake partials/footer.html)-->
+
+    <!--(bake partials/js_includes.html)-->
+
+</body>
+</html>

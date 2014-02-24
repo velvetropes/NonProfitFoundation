@@ -24,6 +24,7 @@ module.exports = (grunt) ->
           ".tmp/media_mentions.html" : 'app/media_mentions.html',
           ".tmp/missions.html" : 'app/missions.html',
           ".tmp/programs.html" : 'app/programs.html',
+          ".tmp/take_action.html" : 'app/take_action.html',
           ".tmp/team.html" : 'app/team.html'
       dist:
         options:
@@ -53,6 +54,13 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/api.group/missions_highlights.html" : 'app/api/missions_highlights.tpl',
           "<%= app.dist %>/templates/default_site/api.group/missions_detail.html" : 'app/api/missions_detail.tpl',
           "<%= app.dist %>/templates/default_site/api.group/gala_tabs.html" : 'app/api/gala_tabs.tpl',
+
+          # API: Take Action tabs
+          "<%= app.dist %>/templates/default_site/api.group/fundraising.html" : 'app/api/fundraising.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/hearing-aid-recycling.html" : 'app/api/hearing-aid-recycling.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/operation-change.html" : 'app/api/operation-change.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/share-your-story.html" : 'app/api/share-your-story.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/volunteer.html" : 'app/api/volunteer.tpl'
           # Templates
           "<%= app.dist %>/templates/default_site/pages.group/index.html" : 'app/index.html',
           "<%= app.dist %>/templates/default_site/programs.group/index.html" : 'app/programs.html',
@@ -62,7 +70,8 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/gala.group/index.html" : 'app/gala.html'
           "<%= app.dist %>/templates/default_site/pages.group/about_us.html" : 'app/about_us.html',
           "<%= app.dist %>/templates/default_site/pages.group/contact.html" : 'app/contact.html',
-          "<%= app.dist %>/templates/default_site/pages.group/team.html" : 'app/team.html',
+          "<%= app.dist %>/templates/default_site/pages.group/take_action.html" : 'app/take_action.html',
+          "<%= app.dist %>/templates/default_site/pages.group/team.html" : 'app/team.html'
      sass:
       dist:
         options:

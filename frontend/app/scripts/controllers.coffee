@@ -299,3 +299,14 @@ sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "Articles", 
   $scope.currentTab = $routeParams
 
 ])
+
+# Take Action
+
+sfControllers.controller("TakeActionCtrl", ["$scope", "$routeParams", ($scope, $routeParams) ->
+
+  $scope.currentTab = $routeParams
+  $scope.showForm = false
+
+  $scope.toggleForm = ->
+    $scope.showForm = !$scope.showForm
+])

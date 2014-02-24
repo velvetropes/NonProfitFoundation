@@ -50,7 +50,14 @@
     <article class='tab-content who-we-are'>
       <ul>
         <li>
+          <!--(bake-start _if="server")-->
+          <a href="/about_us.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
           <a href="{site_url}/about-us">
+          <!--(bake-end)-->
+
+
             <h3 class="highlight">About Us</h3>
             <h2>Our Mission</h2>
           </a>
@@ -144,7 +151,12 @@
     <article class='tab-content get-involved'>
       <ul>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/take_action.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{site_url}/take-action">
+          <!--(bake-end)-->
             <h3 class="highlight">Take Action</h3>
             <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
           </a>

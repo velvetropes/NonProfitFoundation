@@ -1,0 +1,12 @@
+.take-action-page {
+  .take-action-section {
+    text-align: center;
+    margin-top: 60px;
+    width: 100%;
+    @extend .generic-article-typography;
+    h1 {
+      margin-top: 50px;
+    }
+  }
+
+}

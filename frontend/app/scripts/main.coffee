@@ -108,6 +108,25 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/programs/0"
 ]
 
+takeActionPagesApp = angular.module("takeActionPagesApp", [
+  "ngRoute",
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
+  $routeProvider.when("/:tabId",
+    templateUrl: (params) ->
+      "api/#{params.tabId}"
+      # "local/api/#{params.tabId}.html"
+    controller: "TakeActionCtrl"
+  ).otherwise redirectTo: "/fundraising"
+]
+
+
 HomePageApp = angular.module('homePageApp', [
   "ngRoute",
   "ngAnimate",
