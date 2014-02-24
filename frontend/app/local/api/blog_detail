@@ -1,11 +1,11 @@
 <div class="article-header-image">
-  <div class="image" style="background-image: url('');">
+  <div class="image" style="background-image: url('http://starkey.local/uploads/images/BLOG_Giving_Back_the-World_in_Trujillo-LEAD.jpg');">
     <ul class="page-nav-links">
             <li>
-        <a href="#/articles/testing-blog-post" ng-disabled="'testing-blog-post'==''">&larr;</a>
+        <a href="#/articles/preparing-to-give-the-gift-of-hearing" ng-disabled="'preparing-to-give-the-gift-of-hearing'==''">&larr;</a>
       </li>
                   <li>
-        <a href="#/articles/preparing-to-give-the-gift-of-hearing" ng-disabled="'preparing-to-give-the-gift-of-hearing'=='preparing-to-give-the-gift-of-hearing'" >&rarr;</a>
+        <a href="#/articles/an-unstoppable-spirit" ng-disabled="'an-unstoppable-spirit'=='an-unstoppable-spirit'" >&rarr;</a>
       </li>
             <li>
         <a href="#">X</a>
@@ -16,8 +16,8 @@
       <div class="relative-container">
         <div class="banner">
                       <p class="article-item-category">Hearing Missions</p>
-                    <h1  class="article-title">Impacting a Life in Manila</h1>
-          <p>Feb 14, 2014 | Foundation Staff </p>
+                    <h1  class="article-title">Giving Back the World in Trujillo</h1>
+          <p>Feb 13, 2014 | Foundation Staff</p>
         </div>
       </div>
     </div>
@@ -25,42 +25,23 @@
 </div>
 <br/>
 <div class="text-container">
-<p>In December 2011, Manny Pacquiao joined us as a volunteer on a mission in Manila, Philippines. There he met Parisse, a young bright girl struggling with her studies because of hearing loss. He helped us give her the gift of hearing, and today, she is thriving and loves school. Watch our latest video blog to see how well she&rsquo;s doing and her very special message for Manny.</p>
+<p>Here&rsquo;s something to brighten your day! It certainly brightened ours. Witness the overwhelming joy and gratitude of a 96-year-old man in Trujillo, Peru reconnected to the world of sound after 40 years of silence. Praising God and everyone around him, the man sang, &ldquo;Continue to watch over me! I am here with my brothers. Please give us your grace. All my life this is how I will be. I will carry on, thanks to everyone! Thanks to God!&rdquo;</p>
 
-<h2> A gallery with 3 slides: video/image/image</h2>
-<p> <gallery slides="3">
-      <gallery-slide
-       image-url=""
-       video-url="http://youtu.be/HVx-lUkcr38"
-      ></gallery-slide>
-      <gallery-slide
-       image-url="uploads/home/feature/philippines_film.jpg"
-       video-url=""
-      ></gallery-slide>
-      <gallery-slide
-       image-url="uploads/home/feature/tony_hawk_event.jpg"
-      ></gallery-slide>
-    </gallery>
-  </p>
+<p>His unbridled joy brought him to his feet in dance, as he immediately began to relish in all the sounds of life.</p>
 
-<h2> A gallery with 1 slide:</h2>
-<p> <gallery slides="1">
-      <gallery-slide
-       image-url="uploads/home/feature/philippines_film.jpg"
-       video-url=""
-      ></gallery-slide>
-    </gallery>
+<p>
+
+
+          <gallery slides="1">              <gallery-slide
+               image-url=""
+               video-url="http://youtu.be/jK1lFYKgc7k"
+              ></gallery-slide>
+          </gallery>
+
+
+
     </p>
 </div>
-
-<h2> A gallery with a video slide</h2>
-<p> <gallery slides="1">
-      <gallery-slide
-       image-url=""
-       video-url="http://youtu.be/HVx-lUkcr38"
-      ></gallery-slide>
-    </gallery>
-  </p>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>

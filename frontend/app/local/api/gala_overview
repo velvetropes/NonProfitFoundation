@@ -16,8 +16,8 @@
           quote=""
           video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
           link-url=""
-          headline="Lorem Ipsum"
-          body-copy="Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+          headline=""
+          body-copy=""
           logo-image-url=""
           link-style=""
           link-text=""
@@ -30,8 +30,8 @@
           quote=""
           video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
           link-url=""
-          headline="Dolor Sit Amet"
-          body-copy="Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+          headline=""
+          body-copy=""
           logo-image-url=""
           link-style=""
           link-text=""
@@ -60,7 +60,7 @@
         </div>
       </li>
 
-      <li class="first">
+      <li>
         <div class="highlight-thumbnail" style="background: url('http://starkey.local/uploads/images/BLOG-Preparing_to_give_the__Gift_of-Hearing-LEAD.jpg'); background-size: cover;">
         </div>
         <div class="content">
