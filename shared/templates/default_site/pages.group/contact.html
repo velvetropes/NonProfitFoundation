@@ -1,21 +1,20 @@
 <!doctype html xmlns:ng="http://angularjs.org/">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Starkey Hearing Foundation</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  
-  <link rel="stylesheet" href="assets/styles/e263ecf5.main.css"/>
-  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Starkey Hearing Foundation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
+    <link rel="stylesheet" href="assets/styles/e263ecf5.main.css"/>
+    
   </head>
-  <body class='programs-page page' ng:app="programsPageApp">
+  <body class='blog-page page' ng:app="blogPagesApp">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -151,70 +150,28 @@
     </section>
     
 
-    <!-- Main content section -->
-    {exp:channel:entries channel="programs" limit="1"}
-    <section class='page-leader'>
-      <h1>
+    {exp:channel:entries channel="contact" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+    <article class='contact'>
+        <section class="page-leader">
+          <h1>{title}</h1>
+          <h2>{contact_tagline}</h2>
+          {contact_intro}
+        </section>
 
-        {title}
-      </h1>
-      <p>
-        {program_page_leader}
-      </p>
-    </section>
+        <section class="contact main">
+          {contact_main}
+        </section>
+
+        <div class="contact secondary">
+          <section>
+            {contact_top_right}
+          </section>
+          <section>
+            {contact_bottom_right}
+          </section>
+        </div>
+    </article>
     {/exp:channel:entries}
-
-    <div ng:controller="ProgramsCtrl">
-      <section class='tabbed-content'>
-        <nav>
-            <ul class='tabs row-table'>
-              <li ng-class="{active: currentTab.tabId==0}">
-                <a href='#/programs/0'>Operation Change</a>
-              </li>
-              <li ng-class="{active: currentTab.tabId==1}">
-                <a href='#/programs/1'>Listen Carefully</a>
-              </li>
-              <li ng-class="{active: currentTab.tabId==2}">
-                <a href='#/programs/2'>Hear Now</a>
-              </li>
-              <li ng-class="{active: currentTab.tabId==3}">
-                <a href='#/programs/3'>Hearing Aid Recycling</a>
-              </li>
-            </ul>
-        </nav>
-      </section>
-      <div class="program-section">
-        <div ng-view></div>
-      </div>
-      <h1>currentTab: </h1>
-
-      <section class='carousel thumblist' ng-show="currentTab.tabId==1">
-        <thumblist-nav>
-          <div ng-repeat="programResource in programResources">
-            <slide
-              image-url=""
-              video-url=""
-              link-url=""
-              link-text=""
-              headline=""
-              body-copy=""
-              thumblist="true"
-              date=""
-              blog-category=""
-              quote=""
-              background-color=""
-              logo-image-url=""
-              link-style="align-right"
-            ></slide>
-          </div>
-        </thumblist-nav>
-      </section>
-
-
-    </div>
-
-
-    <br/>
 
     <footer>
       <div>
@@ -282,6 +239,5 @@
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
-
 </body>
 </html>

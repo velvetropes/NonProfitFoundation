@@ -57,6 +57,9 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/media_mentions.group/index.html" : 'app/media_mentions.html',
           "<%= app.dist %>/templates/default_site/missions.group/index.html" : 'app/missions.html',
           "<%= app.dist %>/templates/default_site/gala.group/index.html" : 'app/gala.html'
+          "<%= app.dist %>/templates/default_site/pages.group/about_us.html" : 'app/about_us.html',
+          "<%= app.dist %>/templates/default_site/pages.group/contact.html" : 'app/contact.html',
+          "<%= app.dist %>/templates/default_site/pages.group/team.html" : 'app/team.html',
      sass:
       dist:
         options:

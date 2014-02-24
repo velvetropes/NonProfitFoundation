@@ -1,0 +1,35 @@
+<!doctype html xmlns:ng="http://angularjs.org/">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
+  <head>
+    <!--(bake partials/head.html)-->
+  </head>
+  <body class='blog-page page' ng:app="blogPagesApp">
+
+    <!--(bake partials/browser_check.html)-->
+
+    <!--(bake partials/header.html)-->
+
+	{exp:channel:entries channel="about" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+	  <article class='about-us'>
+	    <section class="page-leader">
+	      <h2 class="highlight">{title}</h2>
+	      <h1>{about_tagline}</h1>
+	    </section>
+	    <div class="text-container">
+	      {exp:hundies_shortcode}{about_content}{/exp:hundies_shortcode}
+	    </div>
+	  </article>
+
+	  {about_action}
+	  <p class="centered"><a href="{about_action:url}" class="link-with-border">{about_action:text}</a></p>
+	  {/about_action}
+	{/exp:channel:entries}
+
+    <!--(bake partials/footer.html)-->
+
+    <!--(bake partials/js_includes.html)-->
+</body>
+</html>

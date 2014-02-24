@@ -1,0 +1,44 @@
+<!doctype html xmlns:ng="http://angularjs.org/">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
+  <head>
+    <!--(bake partials/head.html)-->
+  </head>
+  <body class='blog-page page' ng:app="blogPagesApp">
+
+    <!--(bake partials/browser_check.html)-->
+
+    <!--(bake partials/header.html)-->
+
+    {exp:channel:entries channel="team" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+    <article class='team'>
+        <section class="page-leader">
+          <h2>{team_tagline}</h2>
+          <h1>{title}</h1>
+          {team_intro}
+
+          <ul class="team members">
+            {team_members}
+            <li>{team_members:name} <small>{team_members:title}</small></li>
+            {/team_members}
+          </ul>
+        </section>
+
+        <section class="board members">
+          <h2>Board of Directors</h2>
+          <ul class="board members">
+            {team_board}
+            <li>{team_board:name} <small>{team_board:title}</small></li>
+            {/team_board}
+          </ul>
+        </section>
+    </article>
+    {/exp:channel:entries}
+
+    <!--(bake partials/footer.html)-->
+
+    <!--(bake partials/js_includes.html)-->
+</body>
+</html>

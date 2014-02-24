@@ -1,0 +1,42 @@
+<!doctype html xmlns:ng="http://angularjs.org/">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
+  <head>
+    <!--(bake partials/head.html)-->
+  </head>
+  <body class='blog-page page' ng:app="blogPagesApp">
+
+    <!--(bake partials/browser_check.html)-->
+
+    <!--(bake partials/header.html)-->
+
+    {exp:channel:entries channel="contact" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+    <article class='contact'>
+        <section class="page-leader">
+          <h1>{title}</h1>
+          <h2>{contact_tagline}</h2>
+          {contact_intro}
+        </section>
+
+        <section class="contact main">
+          {contact_main}
+        </section>
+
+        <div class="contact secondary">
+          <section>
+            {contact_top_right}
+          </section>
+          <section>
+            {contact_bottom_right}
+          </section>
+        </div>
+    </article>
+    {/exp:channel:entries}
+
+    <!--(bake partials/footer.html)-->
+
+    <!--(bake partials/js_includes.html)-->
+</body>
+</html>
