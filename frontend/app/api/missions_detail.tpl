@@ -77,10 +77,10 @@
           thumblist="true"
           image-url="{mission_rel:mission_thumb_image:url}"
           video-url=""
-          link-url="#/missions/{url_title}"
-          headline="{title}"
+          link-url="#/missions/{mission_rel:url_title}"
+          headline="{mission_rel:title}"
           link-style=""
-          date="{entry_date format='%F %d, %Y'}"
+          date="{mission_rel:mission_date format='%F %d, %Y'}"
         ></slide>
       </div>
       {/mission_rel}
