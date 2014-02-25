@@ -148,6 +148,9 @@ nav {
             display: block;
             padding: 2px 10px;
             text-transform: uppercase;
+            &:hover {
+              cursor: pointer;
+            }
           }
           &.active {
             border-bottom: 1px solid white;
