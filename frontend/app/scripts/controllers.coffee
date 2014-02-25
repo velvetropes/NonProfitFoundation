@@ -320,3 +320,11 @@ sfControllers.controller("TakeActionCtrl", ["$scope", "$routeParams", ($scope, $
   $scope.toggleForm = ->
     $scope.showForm = !$scope.showForm
 ])
+
+# Preview
+sfControllers.controller("PreviewShowCtrl", ["$scope", "$routeParams", "$sce",  "Preview", ($scope, $routeParams, $sce, Preview) ->
+
+  Preview.getDetail($routeParams.articleId).then (data) ->
+    $scope.article = data
+
+])

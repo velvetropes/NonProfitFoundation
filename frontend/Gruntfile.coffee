@@ -24,6 +24,7 @@ module.exports = (grunt) ->
           ".tmp/legal.html" : 'app/legal.html',
           ".tmp/media_mentions.html" : 'app/media_mentions.html',
           ".tmp/missions.html" : 'app/missions.html',
+          ".tmp/preview.html" : 'app/preview.html',
           ".tmp/programs.html" : 'app/programs.html',
           ".tmp/take_action.html" : 'app/take_action.html',
           ".tmp/team.html" : 'app/team.html'
@@ -44,6 +45,7 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/api.group/press_releases.html" : 'app/api/press_releases.tpl',
           "<%= app.dist %>/templates/default_site/api.group/media_mentions.html" : 'app/api/media_mentions.tpl',
           "<%= app.dist %>/templates/default_site/api.group/featured_articles.html" : 'app/api/featured_articles.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/preview.html" : 'app/api/preview.tpl',
           "<%= app.dist %>/templates/default_site/api.group/program_0.html" : 'app/api/program_0.tpl',
           "<%= app.dist %>/templates/default_site/api.group/program_1.html" : 'app/api/program_1.tpl',
           "<%= app.dist %>/templates/default_site/api.group/program_2.html" : 'app/api/program_2.tpl',
@@ -71,7 +73,8 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/gala.group/index.html" : 'app/gala.html'
           "<%= app.dist %>/templates/default_site/pages.group/about_us.html" : 'app/about_us.html',
           "<%= app.dist %>/templates/default_site/pages.group/contact.html" : 'app/contact.html',
-          "<%= app.dist %>/templates/default_site/legal.group/index.html" : 'app/legal.html'
+          "<%= app.dist %>/templates/default_site/legal.group/index.html" : 'app/legal.html',
+          "<%= app.dist %>/templates/default_site/preview.group/index.html" : 'app/preview.html',
           "<%= app.dist %>/templates/default_site/take_action.group/index.html" : 'app/take_action.html'
           "<%= app.dist %>/templates/default_site/pages.group/team.html" : 'app/team.html'
      sass:

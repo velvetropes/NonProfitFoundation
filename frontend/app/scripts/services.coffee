@@ -3,9 +3,9 @@
 sfServices = angular.module("sfServices", ["ngResource"])
 
 sfServices.factory "urlChooser", [->
-  env = "development"
+  # env = "development"
   # env = "staging"
-  # env = "production"
+  env = "production"
   urlChooserInstance = {}
   getUrl = ->
     switch env
@@ -174,6 +174,18 @@ sfServices.factory "PressRelease", ["$resource", "urlChooser", ($resource, urlCh
   $resource "#{urlChooser.getUrl}/press_releases/:pressReleaseId.json", {}, {}
 ]
 
+sfServices.factory "Preview", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+
+  getDetail = (id) ->
+    deferred = $q.defer()
+
+    $http.get("#{urlChooser.getUrl}/preview/#{id}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getDetail: getDetail}
+]
 sfServices.factory "MediaMention", ["$resource", "urlChooser", ($resource, urlChooser) ->
   $resource "#{urlChooser.getUrl}/media_mentions/:mediaMentionId.json", {}, {}
 ]

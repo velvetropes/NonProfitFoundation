@@ -144,3 +144,22 @@ HomePageApp = angular.module('homePageApp', [
   "sfFilters",
   "sfServices"
 ])
+
+# Preview
+previewPageApp = angular.module("previewPageApp", [
+  "ngRoute",
+  "ngAnimate",
+  "ngSanitize",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
+  $routeProvider.when("/articles/:articleId",
+    templateUrl: (params) ->
+      "api/preview/#{params.articleId}"
+    controller: "PreviewShowCtrl"
+  ).otherwise redirectTo: "/articles"
+]

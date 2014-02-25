@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/styles/6cdca0a8.main.css"/>
     
   </head>
-  <body class='blog-page page' ng:app="blogPagesApp">
+  <body class='preview-page blog-page page' ng:app="previewPageApp">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -155,20 +155,9 @@
     </section>
     
 
-	{exp:channel:entries channel="about" dynamic="no" limit="1" disable="{global:param_disable_default}"}
-    <div class="text-container">
-      <div class="masthead">
-        <h3 class="section-title">{title}</h3>
-        <h3 class="section-headline">{about_tagline}</h3>
-          {exp:hundies_shortcode}{about_content}{/exp:hundies_shortcode}
-
-      </div>
-    </div>
-	  {about_action}
-	  <p class="centered"><a href="{about_action:url}" class="link-with-border">{about_action:text}</a></p>
-	  {/about_action}
-	{/exp:channel:entries}
-
+    <!-- Main content section -->
+    <div ng-view></div>
+    <!-- end main content section -->
     <footer>
       <div>
         <section class='social-info'>
