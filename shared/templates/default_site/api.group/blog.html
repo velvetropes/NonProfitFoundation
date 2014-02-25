@@ -7,7 +7,7 @@
       "date": "{blog_date format='%m %d %Y'}",
       "year": "{blog_date format='%Y'}",
       "blog_item_category": "{if blog_category}{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_category}{/exp:low_replace}{/if}",
-      "related_blog_items": [{blog_related_items backspace="1"}{blog_related_items:url_title},{/blog_related_items}],
+      "related_blog_items": [{blog_related_items backspace="1"}"{blog_related_items:url_title}",{/blog_related_items}],
       "featured": "{if blog_featured}{blog_featured}{/if}",
       "title": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
       "text": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_content}{/exp:low_replace}",
