@@ -1,24 +1,14 @@
 .swiper-controls {
   position: absolute;
-  margin-top: 350px;
-  z-index: 9999;
-  width: 100%;
-
+  top: 225px;
+  z-index: 99;
+  height: 50px;
+  width: 50px;
   a {
-    padding-top: 0.5em;
+    padding-top: 17px;
     color: rbga(0, 0, 0, 0.25);
     font-size: 3em;
-    height: 100px;
-    width: 50px;
     background-color: rgba(255, 255, 255, 0.75);
-  }
-
-  .left {
-    float: left;
-    border-radius: 0 100px 100px 0;
-    -moz-border-radius: 0 100px 100px 0;
-    -webkit-border-radius:  0 100px 100px 0;
-    padding-right: 10px;
     span {
       -webkit-transform: rotate(180deg);
       -moz-transform: rotate(180deg);
@@ -28,42 +18,55 @@
     }
   }
 
-  .right {
-    float: right;
-    border-radius: 100px 0 0 100px;
-    -moz-border-radius: 100px 0 0 100px;
-    -webkit-border-radius: 100px 0 0 100px;
-    padding-left: 10px;
+  &.left {
+    left: -10px;
+    a {
+      border-radius: 0 100px 100px 0;
+      -moz-border-radius: 0 100px 100px 0;
+      -webkit-border-radius:  0 100px 100px 0;
+      padding-right: 5px;
+    }
+  }
+
+  &.right {
+    right: -10px;
+    a {
+      border-radius: 100px 0 0 100px;
+      -moz-border-radius: 100px 0 0 100px;
+      -webkit-border-radius: 100px 0 0 100px;
+      padding-left: 5px;
+    }
   }
 
   .position-indicator {
-      z-index: 99999;
-      margin-right: auto;
-      margin-left: auto;
-      margin-top: 5.5em;
-      text-align: center;
-      li {
-          @include inline-block;
-          a {
-              background: rgba(255,255,255,0.5);
-              &:hover {
-                  background: #333;
-              }
-          }
-
-          &.on {
-              a {
-                  background: #FFF;
-              }
+    z-index: 99999;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5.5em;
+    text-align: center;
+    li {
+      @include inline-block;
+      a {
+          background: rgba(255,255,255,0.5);
+          &:hover {
+              background: #333;
           }
       }
+
+      &.on {
+          a {
+              background: #FFF;
+          }
+      }
+    }
   }
 }
 
 .swiper {
+  position: relative;
   &.short {
     .swiper-controls {
-      margin-top: 200px;
+      // margin-top: 200px;
     }
     .swipe-wrap > div {
       height: 500px;
@@ -71,7 +74,7 @@
   }
   &.narrow {
     .swiper-controls {
-      width: 544px;
+      // width: 544px;
     }
   }
   .swipe-wrap {
@@ -192,4 +195,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
+}
+
+.half-wit {
+  .action-link {
+    display: none;
+  }
+  .play-video-link {
+    z-index: 9999;
+  }
 }

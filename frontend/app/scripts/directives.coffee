@@ -268,10 +268,6 @@ sfDirectives.directive "gallerySlide", [ ->
         # Send videoUrl to overlay
         scope.$emit('modal:show', scope.videoUrl)
 
-      # else
-      #   # Regular link to external URL
-      #   $window.location.href = "#{scope.linkUrl}"
-
     scope.slideType = ->
       if scope.hasVideo()
         "links_to_video"
@@ -482,21 +478,6 @@ sfDirectives.directive "pageTile", [ ->
     scope.hasVideo = ->
       scope.videoLink?.length > 0
 
-    # scope.hasDetailPage = ->
-    #   scope.detailPage?.length > 0
-
-    # scope.isPressRelease = ->
-    #   scope.type?.length > 0 and scope.type is "Press Release"
-
-    # scope.hasQuote = ->
-    #   scope.quote?.length > 0
-
-    # scope.hasHeadline = ->
-    #   scope.headline?.length > 0
-
-    # scope.hasLogoImageUrl = ->
-    #   scope.logoImageUrl?.length > 0
-
     scope.getCategory = ->
       switch scope.type
         when "press_release"
@@ -685,7 +666,6 @@ sfDirectives.directive "slide", [ ->
     else
       {
         'background-image': 'url(' + scope.getImage() + ')'
-        # 'background-size': 'cover'
       }
 
     scope.actionLinkStyle = ->
@@ -696,12 +676,7 @@ sfDirectives.directive "slide", [ ->
 
     scope.displayInModalIfVideo = ->
       if scope.hasVideo()
-        # Send videoUrl to overlay
         scope.$emit('modal:show', scope.videoUrl)
-
-      # else
-      #   # Regular link to external URL
-      #   $window.location.href = "#{scope.linkUrl}"
 
   controller = ($scope, $element) ->
   result =
@@ -889,52 +864,21 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
     scope.dialogStyle.width = attrs.width  if attrs.width
     scope.dialogStyle.height = attrs.height  if attrs.height
 
+    scope.playerDiv = angular.element(element.find("div")[3])
+    scope.bodyDiv = document.getElementsByTagName("body")[0]
+    scope.iframeContent = ""
+
     scope.hideModal = ->
       scope.show = false
-      $('#player').html("")
-
-    scope.youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
-
-    scope.destroyYoutubePlayer = ->
-      scope.player.destroy() if scope.player?
-
-    scope.createYoutubePlayer = (youtube_id) =>
-      scope.destroyYoutubePlayer()
-      target = "player"
-      scope.player = new YT.Player("#{target}",
-        width: '160'
-        height: '90'
-        origin: 'starkey.ahundredyears.com'
-        wmode: 'transparent'
-        playerVars:
-          controls: 0
-          enablejsapi: 1
-          html5: 1
-        videoId: "#{youtube_id}"
-      )
-      scope.player
-
-    scope.getYoutubeIframeApi = ->
-      $.getScript('//www.youtube.com/iframe_api')
-
-    scope.playVideo = (url) ->
-      $window.onYouTubeIframeAPIReady = scope.createYoutubePlayer(url)
-      scope.getYoutubeIframeApi()
+      scope.$emit('modal:hide')
 
     scope.$watch('show', (newVal, oldVal) ->
-      # TODO
       if newVal && !oldVal
-        # angular.element(element.find("div")[3]).html("<iframe frameborder='0' ng-src='show | youtubeIframe'></iframe>")
-        # Test the if our url matches youtube
-        # if scope.youtubePattern.test newVal
-        #   youtube_id = newVal.match(scope.youtubePattern)[1]
-        #   scope.playVideo(youtube_id)
-        # else
-        #   scope.destroyYoutubePlayer()
-
-        document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        scope.iframeContent = newVal.replace(/(?:http:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>')
+        scope.bodyDiv.style.overflow = "hidden";
       else
-        document.getElementsByTagName("body")[0].style.overflow = "";
+        scope.bodyDiv.style.overflow = ""
+        scope.iframeContent = ""
     )
 
   template: """
@@ -943,7 +887,7 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
       <div class='ng-modal-dialog' ng-style='dialogStyle'>
         <div class='ng-modal-close' ng-click='hideModal()'>X</div>
         <div class='ng-modal-dialog-content'>
-          <div id="player"></div>
+          <div class="player" ng-bind-html="iframeContent"></div>
         </div>
       </div>
     </div>

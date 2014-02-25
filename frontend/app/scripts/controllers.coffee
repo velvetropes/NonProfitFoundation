@@ -7,24 +7,17 @@ sfControllers.config ['$sceProvider', ($sceProvider) ->
 # Home
 
 sfControllers.controller("globalVideoModalCtrl", ["$scope",($scope) ->
-  $scope.modalShown = false
-  $scope.modalVideo = ""
+  $scope.showModal = false
+  $scope.videoIframe = ""
 
-  $scope.youtubeUrl = 'http://www.youtube.com/watch?v=WrO9PTpuSSs';
-  $scope.codeExample1 = "<img ng-src='{{ youtubeUrl | youtubeImage }}'>"
-  $scope.codeExample2 = "<iframe frameborder='0' ng-src='{{ youtubeUrl | youtubeIframe }}'></iframe>"
+  $scope.$on 'modal:hide', (event) ->
+    $scope.showModal = false
 
   $scope.$on 'modal:show', (event, url) ->
-    $scope.toggleModal(url)
+    $scope.showModal = not $scope.showModal
+    if $scope.showModal is true
+      $scope.videoIframe = url
 
-  $scope.toggleModal = (videoUrl)->
-    $scope.modalShown = not $scope.modalShown
-    if $scope.modalShown is true
-      $scope.modalVideo = videoUrl
-
-      iframe = videoUrl.replace(/(?:http:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>');
-
-      $('#player').html(iframe)
 ])
 
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->
