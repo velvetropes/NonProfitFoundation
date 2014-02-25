@@ -3,6 +3,10 @@ header, .pictograms, footer {
   @include outer-container;
 }
 
+.pictograms {
+  min-width: 765px;
+}
+
 .outer-container {
   @include outer-container;
 }

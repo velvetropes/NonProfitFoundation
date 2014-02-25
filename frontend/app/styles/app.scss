@@ -38,7 +38,8 @@ body, a {
 
 .pictograms {
   .pict {
-    @include span-columns(4);
+    width: 33.33%;
+    float: left;
     border-right: 1px dotted #333;
     img {
       opacity: 0.5;
