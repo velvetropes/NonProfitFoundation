@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   
-  <link rel="stylesheet" href="assets/styles/2d3dff7a.main.css"/>
+  <link rel="stylesheet" href="assets/styles/46635a74.main.css"/>
   
   </head>
   <body class='gala-page page' ng:app="galaPageApp">
@@ -157,31 +157,18 @@
     
 
     <!-- Main content section -->
-    <!--  {exp:channel:entries channel="gala" limit="1"} -->
-    <!-- {/exp:channel:entries} -->
-      <section class='page-leader'>
+    <section class='page-leader'>
       <h1>
         Gala
       </h1>
     </section>
 
     <div ng:controller="GalaCtrl">
-      <div class="outer-container">
-        <section class='tabbed-content'>
-          <nav class="outer-container">
-              <ul class='two-tabs'>
-                  
-                  <li ng-class="{active: currentTab.tabId=='overview'}">
-                    <a href='#/gala/overview'>Overview</a>
-                  </li>
-                  <li class="last" ng-class="{active: currentTab.tabId=='upcoming'}">
-                    <a href='#/gala/upcoming'>Upcoming</a>
-                  </li>
+      <tabbed-nav
+        tab-class="two-tabs"
+        tabs="galaTabs"
+      ></tabbed-nav>
 
-                </ul>
-            </nav>
-          </section>
-        </div>
       <div class="gala-section">
         <div ng-view></div>
       </div>
@@ -192,8 +179,6 @@
       </section>
       <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
     </div>
-
-
     <footer>
       <div>
         <section class='social-info'>
@@ -259,9 +244,9 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/f2a788bb.vendor.js"></script>
+    <script src="/assets/scripts/a332a0e7.vendor.js"></script>
     
-    <script src="/assets/scripts/f6adf64f.main.js"></script>
+    <script src="/assets/scripts/244139b0.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

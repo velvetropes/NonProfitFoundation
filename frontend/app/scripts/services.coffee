@@ -82,6 +82,18 @@ sfServices.factory "GalaItems", ["$q", "$http", "$resource", "urlChooser", ($q, 
   {getIndex: getIndex}
 ]
 
+sfServices.factory "GalaTabs", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/gala_tabs").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+
+  {getIndex: getIndex}
+]
 # sfServices.factory "HearingMissionArticle", ["$resource", "urlChooser", ($resource, urlChooser) ->
 #   $resource "#{urlChooser.getUrl}/missions/:articleId", {}, {}
 # ]

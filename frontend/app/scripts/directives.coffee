@@ -244,10 +244,10 @@ sfDirectives.directive "gallerySlide", [ ->
     scope.imageUrl ?= ""
     scope.videoUrl ?= ""
 
-    scope.youttubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+    scope.youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
 
     scope.youtubeId = ->
-      scope.videoUrl.match(scope.youttubePattern)[1]
+      scope.videoUrl.match(scope.youtubePattern)[1]
 
     scope.hasImageUrl = ->
       scope.imageUrl?.length > 0
@@ -623,13 +623,16 @@ sfDirectives.directive "slide", [ ->
     scope.layout ?= ""
     scope.subhead ?= ""
 
-    scope.youttubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+    scope.youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
 
     scope.hasSidePanel = ->
       scope.layout?.length > 0 and scope.layout is "side-panel"
 
     scope.youtubeId = ->
-      scope.videoUrl.match(scope.youttubePattern)[1]
+      if scope.videoUrl.match(scope.youtubePattern)?
+        scope.videoUrl.match(scope.youtubePattern)[1]
+      else
+        ""
 
     scope.hasVideo = ->
       scope.videoUrl?.length > 0
@@ -668,7 +671,7 @@ sfDirectives.directive "slide", [ ->
       scope.subhead?.length > 0
 
     scope.getYoutubeVideoThumbnail = ->
-      if scope.hasVideo()
+      if scope.hasVideo() and scope.youtubeId()?.length > 0
         "http://img.youtube.com/vi/#{scope.youtubeId()}/1.jpg"
 
     scope.getImage = ->
@@ -794,6 +797,30 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     identifier: "@"
     paginator: "@"
     size: "@"
+]
+
+#  Tabbed Nav
+# <tabbed-nav
+#   tab-class="two-tabs"
+#   tabs="{{galaTabs}}"
+# ></tabbed-nav>
+sfDirectives.directive "tabbedNav", ["$window", ($window) ->
+
+  link = (scope, element, attrs) ->
+    scope.currentTab = 0
+
+    scope.navigateTo = (tabIndex) ->
+      scope.currentTab = tabIndex
+      $window.location.href = scope.tabs[tabIndex].link
+
+  restrict: "E"
+  link: link
+  templateUrl: "templates/tabbed_nav.html"
+  transclude: true
+  replace: true
+  scope:
+    tabClass: "@"
+    tabs: "="
 ]
 
 # <thumblist-nav full="true"></thumblist-nav>
