@@ -158,6 +158,7 @@
     </section>
     
 
+    {exp:channel:entries channel="take_action" dynamic="no" limit="1" disable="{global:param_disable_default}"}
     <!-- Main content section -->
     <section class='page-leader'>
       <h1>
@@ -166,7 +167,7 @@
       </h1>
       <p>
 
-        {Take Action blurb goes here}
+        {ta_tagline}
       </p>
     </section>
 
@@ -196,6 +197,7 @@
         <div ng-view></div>
       </div>
     </div>
+    {/exp:channel:entries}
 
     <footer>
       <div>
