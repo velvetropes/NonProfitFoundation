@@ -3,8 +3,13 @@
   position: relative;
 }
 
-#world-map-gdp .jvectormap-container {
-  @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+#world-map-gdp {
+  .jvectormap-marker  {
+    cursor: pointer;
+  }
+  .jvectormap-container {
+    @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+  }
 }
 
 .jvectormap-label {
@@ -26,10 +31,7 @@
     position: absolute;
     right: 18px;
     top: 13px;
-    z-index: 10;
-    a {
-      color: white;
-    }
+    cursor: pointer;
   }
   .background-popup {
     background: rgba(41, 41, 41, 0.7);

@@ -922,15 +922,17 @@ sfDirectives.directive "worldMap", [->
           $popup.fadeOut "slow", ->
             $popup
               .find(".content").empty()
-              .html("<span class='close'><a href ng-click='closePopup()'>X</a></span><img src='#{content.thumbnail_url}'/><div class='background-popup'><div class='text-popup'><h1>#{content.title}</h1><p>#{content.text}</p><p><a href='#{content.action_target}'>Read More →</a></div></div>")
+              .html("<span class='close' ng-click='closePopup()'>X</span><img src='#{content.thumbnail_url}'/><div class='background-popup'><div class='text-popup'><h1>#{content.title}</h1><p>#{content.text}</p><p><a href='#{content.action_target}'>Read More →</a></div></div>")
             $popup
               .fadeIn()
+            $popup.find('.close').click ->
+              console.log "click"
+              $popup.fadeOut()
       mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
     , 1800)
 
   controller = ($scope, $element) ->
-    $scope.closePopup = ->
-      $('#map-popup').fadeOut()
+    # N/A
 
   restrict: "E"
   link: link
