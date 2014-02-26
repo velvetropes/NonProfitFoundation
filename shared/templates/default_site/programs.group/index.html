@@ -12,15 +12,17 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   
-  <link rel="stylesheet" href="assets/styles/c1590057.main.css"/>
+  <link rel="stylesheet" href="assets/styles/37e34871.main.css"/>
   
   </head>
-  <body class='programs-page page' ng:app="programsPageApp">
+  <body class='programs-page page' ng:app="programsPageApp" ng:controller="globalVideoModalCtrl">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <video-player-modal show='videoIframe' width='90%' height='90%'></video-player-modal>
+    
     <header>
       <div class="logo">
         <a href="/">
@@ -66,17 +68,20 @@
             </li>
           </ul>
         </div>
-          <!-- <hr/> -->
         <article class='tab-content who-we-are'>
           <ul>
             <li>
-              <a href="#">
+
+              <a href="{site_url}/about-us">
+    
+    
                 <h3 class="highlight">About Us</h3>
                 <h2>Our Mission</h2>
               </a>
             </li>
             <li>
-              <a href="#">
+
+              <a href="{site_url}/team">
                 <h3 class="highlight">Team</h3>
                 <h2>Lorem ipsum dolor sit amet, vixtua</h2>
               </a>
@@ -89,7 +94,8 @@
               </a>
             </li>
             <li>
-              <a href="#">
+
+              <a href="{site_url}/contact">
                 <h3 class="highlight">Contact</h3>
                 <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
               </a>
@@ -134,7 +140,8 @@
         <article class='tab-content get-involved'>
           <ul>
             <li>
-              <a href="#">
+
+              <a href="{path='take_action/index'}">
                 <h3 class="highlight">Take Action</h3>
                 <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
               </a>
@@ -186,55 +193,7 @@
       <div class="program-section">
         <div ng-view></div>
       </div>
-      <h1></h1>
-      <section class='carousel thumblist' ng-show="currentTab.tabId==0">
-        <thumblist-nav>
-          <slide
-            ng-repeat="programPartnership in programPartnerships"
-            image-url=""
-            video-url=""
-            link-url=""
-            link-text=""
-            headline=""
-            body-copy=""
-            thumblist="true"
-            date=""
-            blog-category=""
-            quote=""
-            background-color=""
-            logo-image-url=""
-            link-style="align-right"
-          ></slide>
-        </thumblist-nav>
-      </section>
-
-      <section class='carousel thumblist' ng-show="currentTab.tabId==1">
-        <thumblist-nav>
-          <div ng-repeat="programResource in programResources">
-            <slide
-              image-url=""
-              video-url=""
-              link-url=""
-              link-text=""
-              headline=""
-              body-copy=""
-              thumblist="true"
-              date=""
-              blog-category=""
-              quote=""
-              background-color=""
-              logo-image-url=""
-              link-style="align-right"
-            ></slide>
-          </div>
-        </thumblist-nav>
-      </section>
-
-
     </div>
-
-
-    <br/>
 
     <footer>
       <div>
@@ -288,9 +247,14 @@
         </section>
         <section class='footer-links'>
           <ul>
-            <li><a href='#'>Legal/financials &rarr;</a></li>
+            <li>
+
+              <a href="{path='legal/index'}">
+                Legal/financials &rarr;
+              </a>
+            </li>
             <li><a href='#'>Subscribe to our newsletter &rarr;</a></li>
-            <li><p>&copy; Starkey Hearing Foundation 2013</p></li>
+            <li><p>&copy; Starkey Hearing Foundation 2014</p></li>
           </ul>
         </section>
       </div>
@@ -298,7 +262,7 @@
 
     <script src="/assets/scripts/a332a0e7.vendor.js"></script>
     
-    <script src="/assets/scripts/3fd16762.main.js"></script>
+    <script src="/assets/scripts/6a3696c1.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

@@ -40,6 +40,15 @@ galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/gala/overview"
 ]
 
+legalPagesApp = angular.module("legalPagesApp", [
+  "ngRoute",
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
 # Media Mentions
 mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
   "ngRoute",
@@ -83,7 +92,7 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
       "partials/missions/index.html"
     controller: "MissionsIndexCtrl"
   ).when("/missions/:articleId",
-  templateUrl: (params) ->
+    templateUrl: (params) ->
       "api/missions_detail/#{params.articleId}"
       # "local/api/missions_detail"
     controller: "MissionsShowCtrl"
@@ -108,6 +117,24 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/programs/0"
 ]
 
+takeActionPagesApp = angular.module("takeActionPagesApp", [
+  "ngRoute",
+  "ngAnimate",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
+  $routeProvider.when("/:tabId",
+    templateUrl: (params) ->
+      "api/#{params.tabId}"
+      # "local/api/#{params.tabId}.html"
+    controller: "TakeActionCtrl"
+  ).otherwise redirectTo: "/fundraising"
+]
+
 HomePageApp = angular.module('homePageApp', [
   "ngRoute",
   "ngAnimate",
@@ -117,3 +144,22 @@ HomePageApp = angular.module('homePageApp', [
   "sfFilters",
   "sfServices"
 ])
+
+# Preview
+previewPageApp = angular.module("previewPageApp", [
+  "ngRoute",
+  "ngAnimate",
+  "ngSanitize",
+  "sfControllers",
+  "sfDirectives",
+  "sfFilters",
+  "sfServices"
+])
+
+previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
+  $routeProvider.when("/articles/:articleId",
+    templateUrl: (params) ->
+      "api/preview/#{params.articleId}"
+    controller: "PreviewShowCtrl"
+  ).otherwise redirectTo: "/articles"
+]

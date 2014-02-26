@@ -7,7 +7,7 @@
   <head>
   <!--(bake partials/head.html)-->
   </head>
-  <body class='programs-page page' ng:app="programsPageApp">
+  <body class='programs-page page' ng:app="programsPageApp" ng:controller="globalVideoModalCtrl">
 
     <!--(bake partials/browser_check.html)-->
 
@@ -54,55 +54,7 @@
       <div class="program-section">
         <div ng-view></div>
       </div>
-      <h1>{{currentTab}}</h1>
-      <section class='carousel thumblist' ng-show="currentTab.tabId==0">
-        <thumblist-nav>
-          <slide
-            ng-repeat="programPartnership in programPartnerships"
-            image-url="{{programPartnership.thumbnail_image_url}}"
-            video-url=""
-            link-url="{{programPartnership.link_url}}"
-            link-text="{{programPartnership.link_cta}}"
-            headline="{{programPartnership.thumbnail_title}}"
-            body-copy=""
-            thumblist="true"
-            date=""
-            blog-category=""
-            quote=""
-            background-color=""
-            logo-image-url=""
-            link-style="align-right"
-          ></slide>
-        </thumblist-nav>
-      </section>
-
-      <section class='carousel thumblist' ng-show="currentTab.tabId==1">
-        <thumblist-nav>
-          <div ng-repeat="programResource in programResources">
-            <slide
-              image-url="{{programResource.thumbnail_image_url}}"
-              video-url=""
-              link-url="{{programResource.link_url}}"
-              link-text="{{programResource.link_cta}}"
-              headline="{{programResource.thumbnail_title}}"
-              body-copy=""
-              thumblist="true"
-              date=""
-              blog-category=""
-              quote=""
-              background-color=""
-              logo-image-url=""
-              link-style="align-right"
-            ></slide>
-          </div>
-        </thumblist-nav>
-      </section>
-
-
     </div>
-
-
-    <br/>
 
     <!--(bake partials/footer.html)-->
 

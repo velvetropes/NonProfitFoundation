@@ -82,6 +82,18 @@ sfServices.factory "GalaItems", ["$q", "$http", "$resource", "urlChooser", ($q, 
   {getIndex: getIndex}
 ]
 
+sfServices.factory "GalaTabs", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
+
+  getIndex = ->
+    deferred = $q.defer()
+    $http.get("#{urlChooser.getUrl}/gala_tabs").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+
+  {getIndex: getIndex}
+]
 # sfServices.factory "HearingMissionArticle", ["$resource", "urlChooser", ($resource, urlChooser) ->
 #   $resource "#{urlChooser.getUrl}/missions/:articleId", {}, {}
 # ]
@@ -174,6 +186,18 @@ sfServices.factory "PressRelease", ["$resource", "urlChooser", ($resource, urlCh
   $resource "#{urlChooser.getUrl}/press_releases/:pressReleaseId.json", {}, {}
 ]
 
+sfServices.factory "Preview", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+
+  getDetail = (id) ->
+    deferred = $q.defer()
+
+    $http.get("#{urlChooser.getUrl}/preview/#{id}").success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+    deferred.promise
+  {getDetail: getDetail}
+]
 sfServices.factory "MediaMention", ["$resource", "urlChooser", ($resource, urlChooser) ->
   $resource "#{urlChooser.getUrl}/media_mentions/:mediaMentionId.json", {}, {}
 ]

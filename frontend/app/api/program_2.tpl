@@ -1,4 +1,4 @@
-{exp:channel:entries channel="programs" limit="1"}
+{exp:channel:entries channel="programs" dynamic="no" limit="1" disable="{global:param_disable_default}"}
 <article class='hear-now text-container'>
     <h1>Hear Now</h1>
     {exp:hundies_shortcode}{hear_now_content}{/exp:hundies_shortcode}
@@ -25,8 +25,7 @@
 
     <hr class="separator padded"/>
     <br/>
-    <h1>Providers Looking to Give Back</h1>
-    <p>Help us give the gift of hearing into the lives of people in need. If you are a hearing professional, we need your help! Become a Hear Now volunteer and volunteer to fit and follow up with our Hear Now recipients. Your crucial support will help change lives forever and have a lasting impact on your community.</p>
+    {hear_now_provider_text}
     <br/>
     <hr class="separator padded"/>
     <h3><a href="#programs/2" class="become-a-provider highlight">Become a Provider</a></h3>

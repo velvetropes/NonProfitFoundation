@@ -12,15 +12,17 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   
-  <link rel="stylesheet" href="assets/styles/c1590057.main.css"/>
+  <link rel="stylesheet" href="assets/styles/37e34871.main.css"/>
   
   </head>
-  <body class='gala-page page' ng:app="galaPageApp">
+  <body class='gala-page page' ng:app="galaPageApp" ng:controller="globalVideoModalCtrl">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <video-player-modal show='videoIframe' width='90%' height='90%'></video-player-modal>
+    
     <header>
       <div class="logo">
         <a href="/">
@@ -66,17 +68,20 @@
             </li>
           </ul>
         </div>
-          <!-- <hr/> -->
         <article class='tab-content who-we-are'>
           <ul>
             <li>
-              <a href="#">
+
+              <a href="{site_url}/about-us">
+    
+    
                 <h3 class="highlight">About Us</h3>
                 <h2>Our Mission</h2>
               </a>
             </li>
             <li>
-              <a href="#">
+
+              <a href="{site_url}/team">
                 <h3 class="highlight">Team</h3>
                 <h2>Lorem ipsum dolor sit amet, vixtua</h2>
               </a>
@@ -89,7 +94,8 @@
               </a>
             </li>
             <li>
-              <a href="#">
+
+              <a href="{site_url}/contact">
                 <h3 class="highlight">Contact</h3>
                 <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
               </a>
@@ -134,7 +140,8 @@
         <article class='tab-content get-involved'>
           <ul>
             <li>
-              <a href="#">
+
+              <a href="{path='take_action/index'}">
                 <h3 class="highlight">Take Action</h3>
                 <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
               </a>
@@ -152,31 +159,18 @@
     
 
     <!-- Main content section -->
-    <!--  {exp:channel:entries channel="gala" limit="1"} -->
-    <!-- {/exp:channel:entries} -->
-      <section class='page-leader'>
+    <section class='page-leader'>
       <h1>
         Gala
       </h1>
     </section>
 
     <div ng:controller="GalaCtrl">
-      <div class="outer-container">
-        <section class='tabbed-content'>
-          <nav class="outer-container">
-              <ul class='two-tabs'>
-                  
-                  <li ng-class="{active: currentTab.tabId=='overview'}">
-                    <a href='#/gala/overview'>Overview</a>
-                  </li>
-                  <li class="last" ng-class="{active: currentTab.tabId=='upcoming'}">
-                    <a href='#/gala/upcoming'>Upcoming</a>
-                  </li>
+      <tabbed-nav
+        tab-class="two-tabs"
+        tabs="galaTabs"
+      ></tabbed-nav>
 
-                </ul>
-            </nav>
-          </section>
-        </div>
       <div class="gala-section">
         <div ng-view></div>
       </div>
@@ -187,8 +181,6 @@
       </section>
       <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
     </div>
-
-
     <footer>
       <div>
         <section class='social-info'>
@@ -241,9 +233,14 @@
         </section>
         <section class='footer-links'>
           <ul>
-            <li><a href='#'>Legal/financials &rarr;</a></li>
+            <li>
+
+              <a href="{path='legal/index'}">
+                Legal/financials &rarr;
+              </a>
+            </li>
             <li><a href='#'>Subscribe to our newsletter &rarr;</a></li>
-            <li><p>&copy; Starkey Hearing Foundation 2013</p></li>
+            <li><p>&copy; Starkey Hearing Foundation 2014</p></li>
           </ul>
         </section>
       </div>
@@ -251,7 +248,7 @@
 
     <script src="/assets/scripts/a332a0e7.vendor.js"></script>
     
-    <script src="/assets/scripts/3fd16762.main.js"></script>
+    <script src="/assets/scripts/6a3696c1.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

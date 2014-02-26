@@ -235,7 +235,7 @@ hr.separator {
     margin-bottom: 40px;
   }
   p {
-    margin: 10px 0 0;
+    margin: 20px 0;
   }
   .call-to-action {
     text-transform: uppercase;
@@ -355,4 +355,18 @@ blockquote p {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+// Generic page font styles
+.generic-article-typography {
+  h1 {
+    font-size: 2.25em;
+    line-height: 1.2em;
+  }
+  h1, h2, h3, p {
+    @extend .alrightsanslight;
+  }
+  p {
+    line-height: 1.875em;
+  }
 }

@@ -13,17 +13,24 @@
 
 @import "common/header";
 @import "common/footer";
+@import "components/accordion";
+@import "components/dialog";
+@import "components/dropdown";
+@import "components/gallery";
+@import "components/pagination";
 @import "components/swiper";
 @import "components/thumblist";
 @import "components/vectormap";
-@import "components/pagination";
-@import "components/dropdown";
-@import "components/dialog";
 
-@import "pages/home";
 @import "pages/blog";
+@import "pages/contact";
+@import "pages/gala";
+@import "pages/home";
+@import "pages/legal";
 @import "pages/programs";
 @import "pages/missions";
+@import "pages/take_action";
+@import "pages/team";
 
 body, a {
   color: #4d4d4d;
@@ -31,7 +38,8 @@ body, a {
 
 .pictograms {
   .pict {
-    @include span-columns(4);
+    width: 33.33%;
+    float: left;
     border-right: 1px dotted #333;
     img {
       opacity: 0.5;

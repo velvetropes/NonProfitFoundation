@@ -1,3 +1,5 @@
+<video-player-modal show='videoIframe' width='90%' height='90%'></video-player-modal>
+
 <header>
   <div class="logo">
     <a href="/">
@@ -47,17 +49,28 @@
         </li>
       </ul>
     </div>
-      <!-- <hr/> -->
     <article class='tab-content who-we-are'>
       <ul>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/about_us.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{site_url}/about-us">
+          <!--(bake-end)-->
+
+
             <h3 class="highlight">About Us</h3>
             <h2>Our Mission</h2>
           </a>
         </li>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/team.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{site_url}/team">
+          <!--(bake-end)-->
             <h3 class="highlight">Team</h3>
             <h2>Lorem ipsum dolor sit amet, vixtua</h2>
           </a>
@@ -74,7 +87,12 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/contact.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{site_url}/contact">
+          <!--(bake-end)-->
             <h3 class="highlight">Contact</h3>
             <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
           </a>
@@ -135,7 +153,12 @@
     <article class='tab-content get-involved'>
       <ul>
         <li>
-          <a href="#">
+          <!--(bake-start _if="server")-->
+          <a href="/take_action.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='take_action/index'}">
+          <!--(bake-end)-->
             <h3 class="highlight">Take Action</h3>
             <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
           </a>

@@ -74,34 +74,19 @@ class hundies_shortcode {
 	private function getGallery($id) {
 		ob_start();
 		?>
-		<swiper
-		  continuous="true"
-		  speed="2000"
-		  identifier="<?=$id?>"
-		  auto="8000"
-		  tall="false"
-		  >
+		
 		  {exp:channel:entries channel="gallery" dynamic="no" url_title="<?=$id?>" limit="1"}
-		  {item}
-		  	<slide
-		  	 image-url="{item:image}"
-		  	 video-url="{item:video}"
-		  	 link-url=""
-		  	 link-text=""
-		  	 headline=""
-		  	 body-copy=""
-		  	 thumblist="false"
-		  	 date=""
-		  	 blog-category=""
-		  	 quote=""
-		  	 background-color=""
-		  	 logo-image-url=""
-		  	 link-style=""
-		  	></slide>
-		  {/item}
-		  {if no_results}<!-- No gallery found -->{/if}
+			  {item}
+				  {if item:count == 1}<gallery slides="{item:total_rows}">{/if}
+					  	<gallery-slide
+					  	 image-url="{item:image}"
+					  	 video-url="{item:video}"
+					  	></gallery-slide>
+				  {if item:count == item:total_rows}</gallery>{/if}
+			  {/item}
+			  {if no_results}<!-- No gallery found -->{/if}
 		  {/exp:channel:entries}
-		</swiper>
+		
 		<?
 		$content = ob_get_contents();
 		ob_end_clean();

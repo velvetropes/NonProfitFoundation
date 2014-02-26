@@ -1,0 +1,131 @@
+<!doctype html xmlns:ng="http://angularjs.org/">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+  <head>
+  <!--(bake partials/head.html)-->
+  </head>
+  <body class='legal-page page' ng:app="legalPagesApp">
+
+    <!--(bake partials/browser_check.html)-->
+
+    <!--(bake partials/header.html)-->
+
+    <!-- Main content section -->
+    <section class='page-leader'>
+      <h1>
+        <!--(bake-start _if="server")-->
+        Legal &amp; Financials
+        <!--(bake-end)-->
+        <!--(bake-start _if="dist")-->
+        {title}
+        <!--(bake-end)-->
+      </h1>
+    </section>
+
+    <div ng:controller="LegalPagesCtrl">
+      <section class='tabbed-content'>
+        <nav class="outer-container">
+            <ul class='three-tabs'>
+              <li ng-class="{active: currentTab==0}">
+                <a href ng-click="currentTab=0">Terms &amp; Conditions</a>
+              </li>
+              <li ng-class="{active: currentTab==1}">
+                <a href ng-click="currentTab=1">Privacy Policy</a>
+              </li>
+              <li class="last" ng-class="{active: currentTab==2}">
+                <a href ng-click="currentTab=2">Financials</a>
+              </li>
+            </ul>
+        </nav>
+      </section>
+
+      <article class="article-section" class="" ng-show="currentTab==0">
+        <!--(bake-start _if="server")-->
+        <p>Nunc vitae diam scelerisque quam condimentum faucibus. Ut ut massa leo. Suspendisse molestie hendrerit diam, id tempor eros interdum in. Aliquam sed lobortis erat, eget vestibulum turpis. Praesent ultrices, ipsum tempus fringilla molestie, ipsum ipsum tristique diam, sed faucibus nisi sapien lacinia massa. Vivamus est felis, sollicitudin et tincidunt eget, interdum lacinia urna.</p>
+
+        <h1>In hac habitasse platea dictumst. Etiam at enim pellentesque, pretium sapien id, volutpat orci. Vestibulum congue eget arcu et tempus. Fusce euismod enim quam, eget porttitor erat laoreet at. Sed convallis interdum congue.</h1>
+
+        <p>Sed urna ligula, euismod a sollicitudin vitae, varius a nibh. Etiam pharetra pellentesque lacus vel adipiscing. Phasellus vehicula metus non sapien cursus commodo. Nam fringilla vel lorem id egestas. Nullam ante est, fermentum sit amet ante vitae, lacinia auctor lectus. Integer tincidunt, risus sed consectetur porta, odio arcu elementum orci, eget mattis tortor massa eu mauris. Suspendisse interdum odio libero, vitae cursus dui fermentum tempor. Praesent iaculis sapien sit amet nunc adipiscing, ac sagittis tortor placerat. Quisque bibendum nunc eu nunc convallis tempus.</p>
+
+        <p>Curabitur aliquet faucibus magna, ac aliquam lacus dapibus sit amet. Nullam ultricies mi id ultricies dictum. Ut est nisl, mattis ac nulla non, placerat posuere metus. Ut lacinia vestibulum iaculis. Aliquam eget sollicitudin risus. Nulla urna velit, convallis vitae feugiat facilisis, pellentesque ut lacus. In pellentesque metus nunc, vitae hendrerit massa pretium venenatis.</p>
+
+        <p>Cras molestie in massa vitae blandit. Donec sollicitudin semper magna, eget rutrum sem congue vel. Integer bibendum dolor ac lacus sollicitudin, sed posuere lacus molestie. Nullam ultricies odio eget eleifend auctor. Duis venenatis convallis lectus, sit amet tempor nibh fringilla iaculis. Maecenas tincidunt semper magna, ut tempor arcu facilisis molestie. Nunc rhoncus, turpis eu sodales commodo, velit arcu hendrerit magna, nec auctor eros urna eget augue. Aliquam erat volutpat.
+        </p>
+
+        <h2>Donec commodo lectus vitae volutpat viverra. Curabitur sit amet dui eu sapien tempor auctor sit amet sed lorem. Cras bibendum neque a ligula ultricies pellentesque. </h2>
+        <p>Phasellus fermentum commodo odio, quis convallis nulla aliquam ac. Aliquam erat volutpat. Nam magna elit, euismod id mauris sed, gravida condimentum nibh. In rutrum interdum mi ullamcorper imperdiet. Ut fermentum ultricies mauris. Nunc placerat sed eros in ornare. Aenean a velit sed turpis ultricies bibendum ac tristique orci. Mauris ac dapibus arcu, sit amet placerat nunc. Nullam rhoncus sed lorem sed laoreet. Sed eget viverra lectus. Suspendisse potenti. Phasellus pulvinar adipiscing mauris, at sagittis ligula imperdiet et.
+        </p>
+        <p>Etiam fermentum tortor mi, eu bibendum massa placerat non. Praesent semper urna quam, id malesuada nisl vulputate sed. Nam non congue odio, ac gravida diam. Proin bibendum varius feugiat. Sed consectetur scelerisque tempor. Ut vulputate arcu non lacus varius sollicitudin a ut purus. Etiam ornare ac tellus at viverra. Ut iaculis vitae ante eget rutrum. Duis luctus id metus ac hendrerit. Nulla in semper risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed nec elit quis ipsum imperdiet interdum. In eleifend dictum tortor et sagittis. Vivamus fringilla ultrices dolor sed dignissim. Fusce egestas tincidunt metus.</p>
+
+        <p>Fusce eget rutrum ipsum, rutrum bibendum justo. In ac sem in turpis ultricies lacinia a et justo. Aliquam rhoncus eros lorem, vitae tincidunt eros molestie eget. Ut ullamcorper, ante ac pellentesque malesuada, libero tellus aliquet nisi, eu dignissim leo neque et felis. Vivamus iaculis lectus lectus, id tempor felis sollicitudin vitae. Fusce ut vestibulum dolor. Quisque sodales fermentum lacus non eleifend. Curabitur feugiat, quam quis pretium ultrices, nisl magna feugiat arcu, non fermentum arcu sem eu massa. Sed consectetur purus commodo vulputate tempus. Aenean varius eu urna eget tristique. Curabitur metus lacus, scelerisque ornare ante vitae, congue accumsan nisi. Sed congue mollis lobortis. Praesent tincidunt est at sapien sodales commodo. Nullam eu eros vehicula, malesuada mauris sit amet, hendrerit metus.</p>
+
+        <p>Fusce viverra erat eu tempus semper. Duis eleifend, lectus ac tincidunt condimentum, arcu nisi vulputate magna, eget eleifend nibh ante sed diam. Donec venenatis nulla non velit vestibulum ultricies. Duis vel arcu quis nisi pulvinar feugiat non nec ipsum. Vestibulum bibendum, nulla sit amet luctus accumsan, magna tortor laoreet mauris, vel blandit urna urna vitae lacus. Etiam accumsan posuere pulvinar. Aliquam erat volutpat. Mauris fermentum placerat ornare. Maecenas tristique vehicula commodo. Fusce risus eros, viverra a suscipit ut, congue ut elit. Aliquam ut urna vitae eros ullamcorper lobortis at non dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus fermentum mollis ante a tincidunt. Ut a lobortis ipsum.
+        </p>
+        <p>Curabitur eget neque facilisis, lobortis quam egestas, posuere arcu. Maecenas sapien ante, condimentum vel metus vel, dignissim lobortis metus. Nulla pulvinar auctor accumsan. Proin enim leo, consectetur vitae dignissim quis, iaculis ullamcorper purus. Suspendisse et lacus ac massa vulputate luctus. Duis ante magna, viverra vel imperdiet in, egestas sed nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur dui nisi, hendrerit eu elit ac, molestie pharetra leo. Curabitur ultrices leo quis augue aliquet, non accumsan magna elementum. Phasellus vel magna leo.</p>
+
+        <p>Etiam nibh magna, suscipit accumsan nisl ut, porta commodo dui. Nunc dictum sagittis leo nec iaculis. Donec pretium fermentum enim. Maecenas venenatis enim tortor, vel tempus nisl euismod in. Praesent massa velit, rutrum sit amet magna non, rutrum tincidunt arcu. Proin fringilla elit metus, ut sodales velit bibendum dapibus. Quisque consequat lorem ut elit vestibulum, at pulvinar nunc varius. Vestibulum tellus purus, facilisis a mattis nec, gravida eu libero. Maecenas vestibulum erat eu magna tincidunt euismod. Mauris tincidunt, arcu vel tristique eleifend, nisl metus suscipit risus, ut scelerisque diam lacus sit amet nisl. Nunc id erat elit. Donec vel malesuada nisi. Pellentesque in tempor nulla.
+        </p>
+        <!--(bake-end)-->
+      </article>
+
+      <article class="article-section" ng-show="currentTab==0">
+        <!--(bake-start _if="server")-->
+        <p>Nunc vitae diam scelerisque quam condimentum faucibus. Ut ut massa leo. Suspendisse molestie hendrerit diam, id tempor eros interdum in. Aliquam sed lobortis erat, eget vestibulum turpis. Praesent ultrices, ipsum tempus fringilla molestie, ipsum ipsum tristique diam, sed faucibus nisi sapien lacinia massa. Vivamus est felis, sollicitudin et tincidunt eget, interdum lacinia urna.</p>
+
+        <h1>In hac habitasse platea dictumst. Etiam at enim pellentesque, pretium sapien id, volutpat orci. Vestibulum congue eget arcu et tempus. Fusce euismod enim quam, eget porttitor erat laoreet at. Sed convallis interdum congue.</h1>
+
+        <p>Sed urna ligula, euismod a sollicitudin vitae, varius a nibh. Etiam pharetra pellentesque lacus vel adipiscing. Phasellus vehicula metus non sapien cursus commodo. Nam fringilla vel lorem id egestas. Nullam ante est, fermentum sit amet ante vitae, lacinia auctor lectus. Integer tincidunt, risus sed consectetur porta, odio arcu elementum orci, eget mattis tortor massa eu mauris. Suspendisse interdum odio libero, vitae cursus dui fermentum tempor. Praesent iaculis sapien sit amet nunc adipiscing, ac sagittis tortor placerat. Quisque bibendum nunc eu nunc convallis tempus.</p>
+
+        <h2>Donec commodo lectus vitae volutpat viverra. Curabitur sit amet dui eu sapien tempor auctor sit amet sed lorem. Cras bibendum neque a ligula ultricies pellentesque. </h2>
+
+        <p>Etiam fermentum tortor mi, eu bibendum massa placerat non. Praesent semper urna quam, id malesuada nisl vulputate sed. Nam non congue odio, ac gravida diam. Proin bibendum varius feugiat. Sed consectetur scelerisque tempor. Ut vulputate arcu non lacus varius sollicitudin a ut purus. Etiam ornare ac tellus at viverra. Ut iaculis vitae ante eget rutrum. Duis luctus id metus ac hendrerit. Nulla in semper risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed nec elit quis ipsum imperdiet interdum. In eleifend dictum tortor et sagittis. Vivamus fringilla ultrices dolor sed dignissim. Fusce egestas tincidunt metus.</p>
+
+        <p>Etiam nibh magna, suscipit accumsan nisl ut, porta commodo dui. Nunc dictum sagittis leo nec iaculis. Donec pretium fermentum enim. Maecenas venenatis enim tortor, vel tempus nisl euismod in. Praesent massa velit, rutrum sit amet magna non, rutrum tincidunt arcu. Proin fringilla elit metus, ut sodales velit bibendum dapibus. Quisque consequat lorem ut elit vestibulum, at pulvinar nunc varius. Vestibulum tellus purus, facilisis a mattis nec, gravida eu libero. Maecenas vestibulum erat eu magna tincidunt euismod. Mauris tincidunt, arcu vel tristique eleifend, nisl metus suscipit risus, ut scelerisque diam lacus sit amet nisl. Nunc id erat elit. Donec vel malesuada nisi. Pellentesque in tempor nulla.
+        </p>
+        <!--(bake-end)-->
+      </article>
+
+      <article class="article-section" ng-show="currentTab==1">
+        <!--(bake-start _if="server")-->
+        <h1>In hac habitasse platea dictumst. Etiam at enim pellentesque, pretium sapien id, volutpat orci. Vestibulum congue eget arcu et tempus. Fusce euismod enim quam, eget porttitor erat laoreet at. Sed convallis interdum congue.</h1>
+
+        <p>Cras molestie in massa vitae blandit. Donec sollicitudin semper magna, eget rutrum sem congue vel. Integer bibendum dolor ac lacus sollicitudin, sed posuere lacus molestie. Nullam ultricies odio eget eleifend auctor. Duis venenatis convallis lectus, sit amet tempor nibh fringilla iaculis. Maecenas tincidunt semper magna, ut tempor arcu facilisis molestie. Nunc rhoncus, turpis eu sodales commodo, velit arcu hendrerit magna, nec auctor eros urna eget augue. Aliquam erat volutpat.
+        </p>
+
+        <h2>Donec commodo lectus vitae volutpat viverra. Curabitur sit amet dui eu sapien tempor auctor sit amet sed lorem. Cras bibendum neque a ligula ultricies pellentesque. </h2>
+
+        <p>Fusce viverra erat eu tempus semper. Duis eleifend, lectus ac tincidunt condimentum, arcu nisi vulputate magna, eget eleifend nibh ante sed diam. Donec venenatis nulla non velit vestibulum ultricies. Duis vel arcu quis nisi pulvinar feugiat non nec ipsum. Vestibulum bibendum, nulla sit amet luctus accumsan, magna tortor laoreet mauris, vel blandit urna urna vitae lacus. Etiam accumsan posuere pulvinar. Aliquam erat volutpat. Mauris fermentum placerat ornare. Maecenas tristique vehicula commodo. Fusce risus eros, viverra a suscipit ut, congue ut elit. Aliquam ut urna vitae eros ullamcorper lobortis at non dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus fermentum mollis ante a tincidunt. Ut a lobortis ipsum.
+        </p>
+        <p>Curabitur eget neque facilisis, lobortis quam egestas, posuere arcu. Maecenas sapien ante, condimentum vel metus vel, dignissim lobortis metus. Nulla pulvinar auctor accumsan. Proin enim leo, consectetur vitae dignissim quis, iaculis ullamcorper purus. Suspendisse et lacus ac massa vulputate luctus. Duis ante magna, viverra vel imperdiet in, egestas sed nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur dui nisi, hendrerit eu elit ac, molestie pharetra leo. Curabitur ultrices leo quis augue aliquet, non accumsan magna elementum. Phasellus vel magna leo.</p>
+
+        <p>Etiam nibh magna, suscipit accumsan nisl ut, porta commodo dui. Nunc dictum sagittis leo nec iaculis. Donec pretium fermentum enim. Maecenas venenatis enim tortor, vel tempus nisl euismod in. Praesent massa velit, rutrum sit amet magna non, rutrum tincidunt arcu. Proin fringilla elit metus, ut sodales velit bibendum dapibus. Quisque consequat lorem ut elit vestibulum, at pulvinar nunc varius. Vestibulum tellus purus, facilisis a mattis nec, gravida eu libero. Maecenas vestibulum erat eu magna tincidunt euismod. Mauris tincidunt, arcu vel tristique eleifend, nisl metus suscipit risus, ut scelerisque diam lacus sit amet nisl. Nunc id erat elit. Donec vel malesuada nisi. Pellentesque in tempor nulla.
+        </p>
+        <!--(bake-end)-->
+      </article>
+
+      <article class="article-section" ng-show="currentTab==2">
+        <!--(bake-start _if="server")-->
+        <p>Sed urna ligula, euismod a sollicitudin vitae, varius a nibh. Etiam pharetra pellentesque lacus vel adipiscing. Phasellus vehicula metus non sapien cursus commodo. Nam fringilla vel lorem id egestas. Nullam ante est, fermentum sit amet ante vitae, lacinia auctor lectus. Integer tincidunt, risus sed consectetur porta, odio arcu elementum orci, eget mattis tortor massa eu mauris. Suspendisse interdum odio libero, vitae cursus dui fermentum tempor. Praesent iaculis sapien sit amet nunc adipiscing, ac sagittis tortor placerat. Quisque bibendum nunc eu nunc convallis tempus.</p>
+
+        <h2>Donec commodo lectus vitae volutpat viverra. Curabitur sit amet dui eu sapien tempor auctor sit amet sed lorem. Cras bibendum neque a ligula ultricies pellentesque. </h2>
+        <p>Phasellus fermentum commodo odio, quis convallis nulla aliquam ac. Aliquam erat volutpat. Nam magna elit, euismod id mauris sed, gravida condimentum nibh. In rutrum interdum mi ullamcorper imperdiet. Ut fermentum ultricies mauris. Nunc placerat sed eros in ornare. Aenean a velit sed turpis ultricies bibendum ac tristique orci. Mauris ac dapibus arcu, sit amet placerat nunc. Nullam rhoncus sed lorem sed laoreet. Sed eget viverra lectus. Suspendisse potenti. Phasellus pulvinar adipiscing mauris, at sagittis ligula imperdiet et.
+        </p>
+        <p>Fusce viverra erat eu tempus semper. Duis eleifend, lectus ac tincidunt condimentum, arcu nisi vulputate magna, eget eleifend nibh ante sed diam. Donec venenatis nulla non velit vestibulum ultricies. Duis vel arcu quis nisi pulvinar feugiat non nec ipsum. Vestibulum bibendum, nulla sit amet luctus accumsan, magna tortor laoreet mauris, vel blandit urna urna vitae lacus. Etiam accumsan posuere pulvinar. Aliquam erat volutpat. Mauris fermentum placerat ornare. Maecenas tristique vehicula commodo. Fusce risus eros, viverra a suscipit ut, congue ut elit. Aliquam ut urna vitae eros ullamcorper lobortis at non dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus fermentum mollis ante a tincidunt. Ut a lobortis ipsum.
+        </p>
+        <p>Curabitur eget neque facilisis, lobortis quam egestas, posuere arcu. Maecenas sapien ante, condimentum vel metus vel, dignissim lobortis metus. Nulla pulvinar auctor accumsan. Proin enim leo, consectetur vitae dignissim quis, iaculis ullamcorper purus. Suspendisse et lacus ac massa vulputate luctus. Duis ante magna, viverra vel imperdiet in, egestas sed nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur dui nisi, hendrerit eu elit ac, molestie pharetra leo. Curabitur ultrices leo quis augue aliquet, non accumsan magna elementum. Phasellus vel magna leo.</p>
+
+        <p>Etiam nibh magna, suscipit accumsan nisl ut, porta commodo dui. Nunc dictum sagittis leo nec iaculis. Donec pretium fermentum enim. Maecenas venenatis enim tortor, vel tempus nisl euismod in. Praesent massa velit, rutrum sit amet magna non, rutrum tincidunt arcu. Proin fringilla elit metus, ut sodales velit bibendum dapibus. Quisque consequat lorem ut elit vestibulum, at pulvinar nunc varius. Vestibulum tellus purus, facilisis a mattis nec, gravida eu libero. Maecenas vestibulum erat eu magna tincidunt euismod. Mauris tincidunt, arcu vel tristique eleifend, nisl metus suscipit risus, ut scelerisque diam lacus sit amet nisl. Nunc id erat elit. Donec vel malesuada nisi. Pellentesque in tempor nulla.
+        </p>
+        <!--(bake-end)-->
+      </article>
+    </div>
+
+    <!--(bake partials/footer.html)-->
+
+    <!--(bake partials/js_includes.html)-->
+
+</body>
+</html>

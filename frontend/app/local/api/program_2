@@ -13,7 +13,7 @@
       speed="2000"
       identifier="hearnow"
       auto="8000"
-      tall="false"
+      size="short"
       >
 
 

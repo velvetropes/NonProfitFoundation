@@ -1,4 +1,4 @@
-{exp:channel:entries channel="programs" limit="1"}
+{exp:channel:entries channel="programs" dynamic="no" limit="1" disable="{global:param_disable_default}"}
 <article class='hearing-aid-recycling text-container'>
   <h1>Hearing Aid Recycling</h1>
 

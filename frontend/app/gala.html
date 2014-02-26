@@ -7,38 +7,25 @@
   <head>
   <!--(bake partials/head.html)-->
   </head>
-  <body class='gala-page page' ng:app="galaPageApp">
+  <body class='gala-page page' ng:app="galaPageApp" ng:controller="globalVideoModalCtrl">
 
     <!--(bake partials/browser_check.html)-->
 
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-    <!--  {exp:channel:entries channel="gala" limit="1"} -->
-    <!-- {/exp:channel:entries} -->
-      <section class='page-leader'>
+    <section class='page-leader'>
       <h1>
         Gala
       </h1>
     </section>
 
     <div ng:controller="GalaCtrl">
-      <div class="outer-container">
-        <section class='tabbed-content'>
-          <nav class="outer-container">
-              <ul class='two-tabs'>
-                  {{currentTab}}
-                  <li ng-class="{active: currentTab.tabId=='overview'}">
-                    <a href='#/gala/overview'>Overview</a>
-                  </li>
-                  <li class="last" ng-class="{active: currentTab.tabId=='upcoming'}">
-                    <a href='#/gala/upcoming'>Upcoming</a>
-                  </li>
+      <tabbed-nav
+        tab-class="two-tabs"
+        tabs="galaTabs"
+      ></tabbed-nav>
 
-                </ul>
-            </nav>
-          </section>
-        </div>
       <div class="gala-section">
         <div ng-view></div>
       </div>
@@ -49,8 +36,6 @@
       </section>
       <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
     </div>
-
-
     <!--(bake partials/footer.html)-->
 
     <!--(bake partials/js_includes.html)-->

@@ -261,12 +261,17 @@ if (isset($config))
 		$assign_to_config['global_vars'] = array();
 	}
 
-	$assign_to_config['global_vars']['language'] = ENV_LANGUAGE;
 
 	// Start our array with environment variables. This gives us {global:env} and {global:env_full} tags for our templates.
 	$master_global = array(
 		'global:env'      => ENV,
-		'global:env_full' => ENV_FULL
+		'global:env_full' => ENV_FULL,
+
+        // Tag parameters - Short hand tag params
+        'global:param_disable_default'  => 'disable="categories|pagination|member_data"',
+        'global:param_disable_all'      => 'disable="categories|custom_fields|member_data|pagination"',
+        'global:param_cache_param'      => 'cache="yes" refresh="10"',
+        '-global:param_cache_param'     => '-cache="yes" refresh="10"'
 	);
 
 	/**

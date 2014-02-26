@@ -7,7 +7,6 @@
     <!--(bake partials/head.html)-->
   </head>
   <body class='home-page page' ng:app="homePageApp" ng:controller="globalVideoModalCtrl">
-
     <!--(bake partials/browser_check.html)-->
 
     <!--(bake partials/header.html)-->
@@ -21,7 +20,7 @@
         identifier="swiper_1"
         auto="8000"
         paginator="true"
-        tall="false"
+        size="short"
         >
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="homepage_features" limit="5"}
@@ -29,7 +28,7 @@
               image-url="{homepage_feature_splash_image}"
               background-color=""
               quote=""
-              video-url=""
+              video-url="{homepage_feature_video}"
               link-url="{homepage_feature_link}"
               headline="{title}"
               body-copy="{homepage_feature_subtitle}"
@@ -42,29 +41,42 @@
         <!--(bake-end)-->
         <!--(bake-start _if="server")-->
           <slide
-              image-url='http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg'
-              background-color=""
-              quote=""
-              video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
-              link-url=""
-              headline="This has a video"
-              body-copy="Hearing Foundation has provided more hearing help to people in the United States than to any other country"
-              logo-image-url=""
-              link-style=""
-              link-text="Watch video"
+            image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Vikings_Mission-IMG_6312.jpg"
+            background-color=""
+            quote=""
+            video-url=""
+            link-url="http://www.starkeyhearingfoundation.org/programs/hear-now/"
+            headline="Hear at Home"
+            body-copy="We provide more hearing help to people in the United States than to any other country"
+            logo-image-url=""
+            link-style=""
+            link-text="Learn More"
             >
           </slide>
           <slide
-              image-url='http://starkey.ahundredyears.com/uploads/HERO-Vikings_Mission-IMG_6312.jpg'
-              background-color=""
-              quote=""
-              video-url=""
-              link-url="http://starkey.ahundredyears.com/uploads/CAROUSEL-Listen_Carefully.jpg"
-              headline="Hear at Home"
-              body-copy="Hearing Foundation has provided more hearing help to people in the United States than to any other country"
-              logo-image-url=""
-              link-style=""
-              link-text="Learn More"
+            image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg"
+            background-color=""
+            quote=""
+            video-url="http://www.youtube.com/watch?v=ScjOkoueDYg"
+            link-url=""
+            headline="Commitment to Action"
+            body-copy="In 2010, we committed to providing 100,000 hearing aids a year to those in need"
+            logo-image-url=""
+            link-style=""
+            link-text="Watch Video"
+            >
+          </slide>
+          <slide
+            image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Building_Sustainable_Systems_of_Hearing_Care-02.2.jpg"
+            background-color=""
+            quote=""
+            video-url="http://www.youtube.com/watch?v=W50L7eNGT2U"
+            link-url=""
+            headline="Building Sustainable Systems of Hearing Care"
+            body-copy="To truly make an impact, our efforts must be sustainable"
+            logo-image-url=""
+            link-style=""
+            link-text="Watch Video"
             >
           </slide>
         <!--(bake-end)-->
@@ -146,8 +158,5 @@
 
     <!--(bake partials/footer.html)-->
     <!--(bake partials/js_includes.html)-->
-    <video-player-modal show='modalVideo' width='90%' height='90%'>
-
-    </video-player-modal>
 </body>
 </html>

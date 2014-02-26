@@ -1,5 +1,4 @@
 
-
 <article class='operation-change text-container'>
     <h1>Operation change</h1>
 
@@ -9,49 +8,34 @@
 
 <p>We believe that the actions of a single person can create a ripple effect that will ignite a movement and change the world.</p>
 
-<p>   <swiper
-      continuous="true"
-      speed="2000"
-      identifier="operation-change-intro-video"
-      auto="8000"
-      tall="false"
-      >
+<p>
 
 
-        <slide
-         image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Program-Operation_Change.png"
-         video-url="http://www.youtube.com/watch?v=na5j0wDq7kc"
-         link-url=""
-         link-text=""
-         headline=""
-         body-copy=""
-         thumblist="false"
-         date=""
-         blog-category=""
-         quote=""
-         background-color=""
-         logo-image-url=""
-         link-style=""
-        ></slide>
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/HERO-Program-Operation_Change.png"
+               video-url="http://www.youtube.com/watch?v=na5j0wDq7kc"
+              ></gallery-slide>
+          </gallery>
 
 
 
-    </swiper>
     </p>
     <br/>
     <h2>Our Partnerships</h2>
 </article>
 
 
+
 <section class='carousel thumblist'>
   <thumblist-nav>
+
+
     <slide
-      ng-repeat="programPartnership in programPartnerships"
-      image-url=""
+      image-url="http://starkey.local/uploads/images/Operation-Change-Ray-Lewis-Film.jpg"
       video-url=""
-      link-url=""
-      link-text=""
-      headline=""
+      link-url="http://www.youtube.com/watch?v=K9F21dP7Fts"
+      link-text="Watch Video"
+      headline="Super Bowl Champion Ray Lewis Makes A Change"
       body-copy=""
       thumblist="true"
       date=""
@@ -61,5 +45,22 @@
       logo-image-url=""
       link-style="align-right"
     ></slide>
-  </thumblist-nav>
+
+    <slide
+      image-url="http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg"
+      video-url=""
+      link-url="http://www.youtube.com/watch?v=tTLHRnADGXk"
+      link-text="Watch Video"
+      headline="Donna Karan Taking About Change and Sustainability"
+      body-copy=""
+      thumblist="true"
+      date=""
+      blog-category=""
+      quote=""
+      background-color=""
+      logo-image-url=""
+      link-style="align-right"
+    ></slide>
+
+</thumblist-nav>
 </section>

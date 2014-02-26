@@ -8,7 +8,7 @@
 
 {exp:channel:entries channel="hearing_missions" dynamic="no" url_title="{segment_3}" limit="1"}
 <div class="article-header-image">
-  <div class="image" style="background-image:url('{mission_image:url}');">
+  <div class="image" style="background-image:url('{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}');">
     <ul class="page-nav-links">
       {if {exp:stash:not_empty name="next_entry"} }
       <li>
@@ -77,10 +77,10 @@
           thumblist="true"
           image-url="{mission_rel:mission_thumb_image:url}"
           video-url=""
-          link-url="#/missions/{url_title}"
-          headline="{title}"
+          link-url="#/missions/{mission_rel:url_title}"
+          headline="{mission_rel:title}"
           link-style=""
-          date="{entry_date format='%F %d, %Y'}"
+          date="{mission_rel:mission_date format='%F %d, %Y'}"
         ></slide>
       </div>
       {/mission_rel}
