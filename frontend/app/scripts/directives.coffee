@@ -557,10 +557,17 @@ sfDirectives.factory("Pagination", ->
 )
 
 sfDirectives.directive "panelTab", [->
+  link = (scope,element, attrs) ->
+    scope.hasVideo = ->
+      scope.featured?.videoLinkUrl?
+
+    scope.displayInModalIfVideo = ->
+      scope.$emit('modal:show', scope.featured.video_link_url)
 
   restrict: "E"
   templateUrl: "templates/panel_tab.html"
   replace: true
+  link: link
   scope: {
     featured: "="
   }
