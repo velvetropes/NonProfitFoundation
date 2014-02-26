@@ -159,6 +159,7 @@
     
 
     <!-- Main content section -->
+    {exp:channel:entries channel="legal" dynamic="no" limit="1" disable="{global:param_disable_default}"}
     <section class='page-leader'>
       <h1>
 
@@ -183,22 +184,25 @@
         </nav>
       </section>
 
-      <article class="article-section" class="" ng-show="currentTab==0">
-
-      </article>
-
       <article class="article-section" ng-show="currentTab==0">
-
+        {legal_terms}
       </article>
 
       <article class="article-section" ng-show="currentTab==1">
-
+        {legal_privacy}
       </article>
 
       <article class="article-section" ng-show="currentTab==2">
+        <h2>{legal_financials_title}</h2>
 
+        <ul class="documents-list">
+        {legal_financials}
+          <li><a href="{legal_financials:file}">{legal_financials:label}<br>Download ({legal_financials:file:extension}, {legal_financials:file:size}s)</a></li>
+        {/legal_financials}
+        </ul>
       </article>
     </div>
+    {/exp:channel:entries}
 
     <footer>
       <div>
