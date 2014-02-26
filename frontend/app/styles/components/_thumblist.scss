@@ -57,6 +57,7 @@
         right: 20px;
         left: 20px;
         overflow: hidden;
+        text-align: left;
       }
       .year-overlay {
         text-align: center;
@@ -92,6 +93,7 @@
       margin: 5px 0 0;
       padding: 0;
       color: $gray-title;
+      text-align: left;
     }
   }
   &.horizontal-only {

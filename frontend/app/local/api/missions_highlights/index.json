@@ -1,47 +1,64 @@
-
 {
     "highlights" : [
 
           {
-            "id"                    : "featured-carousel-test",
-            "title"                 : "Featured Carousel Test",
-            "subtitle"              : "Austria Europe ",
-            "excerpt"               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum justo id metus suscipit luctus. Quisque eu erat vitae dui convallis pellentesque at vitae dui. Suspendisse potenti. Proin pretium est pulvinar, euismod dolor sit amet, ornare nisl. Nam massa sem, mollis et egestas vel, mollis non ipsum. Vestibulum imperdiet turpis enim, nec varius ligula dictum nec. Donec quis mauris eget diam interdum feugiat et sed nulla. Mauris tristique eros metus, a eleifend eros fermentum eu. Etiam auctor varius augue, et laoreet nibh volutpat eu.<br /> ",
+            "id"                    : "test-hearing-mission-jh",
+            "title"                 : "Test Hearing Mission JH",
+            "subtitle"              : "Test Hearing Mission JH",
+            "excerpt"               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non justo ac turpis posuere lobortis ut in dui. Aliquam ultricies interdum arcu, eu sodales felis malesuada at. Donec ut varius mauris. Donec bibendum purus neque, eu imperdiet ipsum accumsan a. Phasellus purus mi, tempus a lacinia vitae, auctor vitae ligula. Integer vulputate iaculis magna, in faucibus neque tempor eget. In ornare tempor commodo. Mauris pharetra, leo sit amet cursus sollicitudin, tortor tellus consequat velit, id volutpat urna neque vitae eros. Maecenas quis magna ut augue posuere tincidunt. Fusce leo arcu, laoreet quis ultricies a, viverra a arcu. Aenean vitae tellus dictum, ornare lorem eu, ",
 
             "video"                 : "",
             "featured"              : "true",
 
             "image"                 : "",
-            "thumbnail_image_url"   : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_01.jpg",
-            "header_image_url"      : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_01.jpg",
+            "thumbnail_image_url"   : "http://starkey.local/uploads/images/billaustin.jpg",
+            "header_image_url"      : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_02.jpg",
 
-            "date"                  : "10 04 2013",
-            "year"                  : "2013",
-            "region"                : "Europe",
-            "country"               : "Austria"
+            "date"                  : "02 24 2014",
+            "year"                  : "2014",
+            "region"                : "Asia",
+            "country"               : "China"
           },
           {
-            "id"                    : "testing-hearing-missions-post-123",
-            "title"                 : "Testing Hearing Missions Post 123",
-            "subtitle"              : "",
+            "id"                    : "hearing-mission-test-entry-3",
+            "title"                 : "Hearing Mission Test Entry 3",
+            "subtitle"              : "Hearing Mission Test Entry 3",
             "excerpt"               : "",
 
             "video"                 : "",
             "featured"              : "false",
 
             "image"                 : "",
-            "thumbnail_image_url"   : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_02.jpg",
-            "header_image_url"      : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_02.jpg",
+            "thumbnail_image_url"   : "http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg",
+            "header_image_url"      : "http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg",
 
-            "date"                  : "09 16 2013",
-            "year"                  : "2013",
-            "region"                : "Australia",
-            "country"               : "Australia"
+            "date"                  : "02 23 2014",
+            "year"                  : "2014",
+            "region"                : "South America",
+            "country"               : "Brazil"
+          },
+          {
+            "id"                    : "hearing-mission-test-entry-2",
+            "title"                 : "Hearing Mission Test Entry 2",
+            "subtitle"              : "Hearing Mission Test Entry 2",
+            "excerpt"               : "Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat. Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
+
+            "video"                 : "",
+            "featured"              : "false",
+
+            "image"                 : "",
+            "thumbnail_image_url"   : "",
+            "header_image_url"      : "",
+
+            "date"                  : "02 25 2014",
+            "year"                  : "2014",
+            "region"                : "Europe",
+            "country"               : "Finland"
           },
           {
             "id"                    : "hearing-mission-test-entry",
             "title"                 : "Hearing Mission Test Entry",
-            "subtitle"              : "",
+            "subtitle"              : "Hearing Mission Test Entry",
             "excerpt"               : "",
 
             "video"                 : "",
@@ -49,7 +66,7 @@
 
             "image"                 : "",
             "thumbnail_image_url"   : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
-            "header_image_url"      : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+            "header_image_url"      : "",
 
             "date"                  : "11 18 2013",
             "year"                  : "2013",
@@ -59,15 +76,15 @@
           {
             "id"                    : "lorem-ipsum-dolor-sit-amet",
             "title"                 : "Lorem Ipsum dolor sit amet",
-            "subtitle"              : "consectetur adipis",
+            "subtitle"              : "Lorem Ipsum dolor sit amet",
             "excerpt"               : "Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
 
             "video"                 : "",
             "featured"              : "true",
 
             "image"                 : "",
-            "thumbnail_image_url"   : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
-            "header_image_url"      : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+            "thumbnail_image_url"   : "http://starkey.local/uploads/images/westbank2.jpeg",
+            "header_image_url"      : "http://starkey.local/uploads/images/westbank2.jpeg",
 
             "date"                  : "02 11 2014",
             "year"                  : "2014",
@@ -75,6 +92,19 @@
             "country"               : "Egypt"
           }
     ],
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   "categories" :  [
 
@@ -84,18 +114,18 @@
     },
     {
         "region" : "Asia",
-        "countries" : ["Bhutan"]
-    },
-    {
-        "region" : "Australia",
-        "countries" : ["Australia"]
+        "countries" : ["Bhutan","China"]
     },
     {
         "region" : "Europe",
-        "countries" : ["Austria"]
+        "countries" : ["Finland"]
+    },
+    {
+        "region" : "South America",
+        "countries" : ["Brazil"]
     }
   ],
 
 
-  "years" : ["2013","2013","2013","2014"]
+  "years" : ["2014","2014","2014","2013","2014"]
 }
