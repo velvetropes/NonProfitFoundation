@@ -2,6 +2,9 @@
   <div class='panel-image'>
     <a href ng-click="displayInModalIfVideo()" target='_blank' ng-style="{'background-image': 'url(' + featured.panel_image_url + ')'}">
     </a>
+    <div ng-show="hasVideo()" class="play-video-link">
+      <span class="icon starkey-legend-3"></span>
+  </div>
   </div>
   <div class='panel-content'>
     <div class="panel-background"></div>
