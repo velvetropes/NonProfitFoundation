@@ -216,6 +216,13 @@ hr.separator {
   }
   p {
     @extend .alrightsansregular;
+    &.fixed-width {
+      margin: 0 auto 15px;
+      width: 820px;
+    }
+    &.bigger {
+      font-size: 1.25em;
+    }
   }
 }
 
