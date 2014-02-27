@@ -34,15 +34,42 @@
     cursor: pointer;
   }
   .background-popup {
-    background: rgba(41, 41, 41, 0.7);
-    width: 50%;
-    height: 100%;
+    background: rgba(41, 41, 41, 0.8);
+    width: 350px;
+    height: 340px;
     float: right;
-    padding: 30px 10px 10px;
+    padding: 10px 0;
   }
   .text-popup {
-    overflow-y: scroll;
-    height: 100%;
+    overflow: auto;
+    width: 350px;
+    height: 320px;
+    padding: 10px 25px 10px 18px;
+    h2 {
+      margin-bottom: 0;
+    }
+    .location {
+      @extend .alrightsansbold;
+      color: $light-orange;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    p {
+      @extend .alrightsansregular;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .centered {
+      padding-top: 8px;
+    }
+    .read-more {
+      @extend .alrightsansbold;
+      -webkit-font-smoothing: antialiased;
+      margin-top: 5px;
+      padding: 10px 14px 7px;
+      border: 2px solid $light-blue;
+      font-size: 15px;
+    }
   }
   img {
     float: left;
@@ -69,7 +96,7 @@
     color: white;
     text-transform: uppercase;
     li {
-      @extend .alrightsanbold;
+      @extend .alrightsansbold;
       font-size: .75em;
       line-height: 2.5em;
       .icon {
