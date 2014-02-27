@@ -750,7 +750,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
         bullets.removeClass('on')
         bullets.eq(pos).addClass('on')
       )
-    ), 1800
+    ), 1000
 
     scope.showPaginator = ->
       scope.paginator? and scope.paginator is "true"
