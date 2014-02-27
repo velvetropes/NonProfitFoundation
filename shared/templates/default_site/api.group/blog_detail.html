@@ -33,7 +33,7 @@
             <p class="article-item-category">{blog_category}</p>
           {/if}
           <h1  class="article-title">{title}</h1>
-          <p>{entry_date format='%M %d, %Y'} | {blog_author}</p>
+          <p>{blog_date format='%M %d, %Y'} | {blog_author}</p>
         </div>
       </div>
     </div>
