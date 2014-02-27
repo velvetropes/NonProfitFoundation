@@ -327,7 +327,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     scope.greetingFlag = false
 
     scope.mapConfig =
-      regionsSelectable: true
+      # regionsSelectable: true
       zoomOnScroll: false
       backgroundColor: "none"
       regionStyle:
