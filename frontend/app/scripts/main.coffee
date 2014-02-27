@@ -9,6 +9,10 @@ blogPagesApp = angular.module("blogPagesApp", [
   "sfServices"
 ])
 
+blogPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
+  $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
+    $anchorScroll()
+
 blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles",
     templateUrl: "partials/articles/index.html"
@@ -60,6 +64,10 @@ mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
   "sfServices"
 ])
 
+mediaMentionsPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
+  $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
+    $anchorScroll()
+
 mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/media_mentions",
     templateUrl: "partials/media_mentions/index.html"
@@ -83,6 +91,10 @@ missionsPageApp = angular.module("missionsPageApp", [
   "sfServices"
 ])
 
+missionsPageApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
+  $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
+    $anchorScroll()
+
 missionsPageApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/missions",
     templateUrl: "partials/missions/landing.html"
@@ -93,8 +105,8 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
     controller: "MissionsIndexCtrl"
   ).when("/missions/:articleId",
     templateUrl: (params) ->
-      "api/missions_detail/#{params.articleId}"
-      # "local/api/missions_detail"
+      # "api/missions_detail/#{params.articleId}"
+      "local/api/missions_detail"
     controller: "MissionsShowCtrl"
   ).otherwise redirectTo: "/missions"
 ]
