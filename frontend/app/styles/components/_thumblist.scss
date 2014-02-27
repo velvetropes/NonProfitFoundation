@@ -5,21 +5,6 @@
   text-align: center;
 }
 
-// .thumblist-nav {
-//   width: 100%;
-//   overflow: auto;
-//   white-space: nowrap
-// }
-
-// .jspPane > div {
-//   display: inline-block;
-
-//   /* ie7 support */
-//   *display: inline;
-//   zoom: 1
-// }
-
-
 .thumblist-nav {
   width: 100%;
   overflow: auto;
@@ -56,9 +41,12 @@
         bottom: 10px;
         right: 20px;
         left: 20px;
-        overflow: hidden;
         text-align: left;
         height: 88px;
+        white-space: normal;
+        .call-to-action {
+          line-height: 1em;
+        }
       }
       .year-overlay {
         text-align: center;

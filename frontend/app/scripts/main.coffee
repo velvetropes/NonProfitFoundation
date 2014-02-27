@@ -1,13 +1,16 @@
-# Blog
-blogPagesApp = angular.module("blogPagesApp", [
+requiredModules = [
   "ngRoute",
   "ngAnimate",
   "ngSanitize",
+  "truncate",
   "sfControllers",
   "sfDirectives",
   "sfFilters",
   "sfServices"
-])
+]
+
+# Blog
+blogPagesApp = angular.module("blogPagesApp", requiredModules)
 
 blogPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -26,14 +29,7 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 ]
 
 # Gala
-galaPageApp = angular.module("galaPageApp", [
-  "ngRoute",
-  "ngAnimate",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
+galaPageApp = angular.module("galaPageApp", requiredModules )
 
 galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/gala/:tabId",
@@ -44,25 +40,10 @@ galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/gala/overview"
 ]
 
-legalPagesApp = angular.module("legalPagesApp", [
-  "ngRoute",
-  "ngAnimate",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
+legalPagesApp = angular.module("legalPagesApp", requiredModules )
 
 # Media Mentions
-mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", [
-  "ngRoute",
-  "ngAnimate",
-  "ngSanitize",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
+mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", requiredModules )
 
 mediaMentionsPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -82,14 +63,7 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
 ]
 
 # Hearing Missions
-missionsPageApp = angular.module("missionsPageApp", [
-  "ngRoute",
-  "ngAnimate",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
+missionsPageApp = angular.module("missionsPageApp", requiredModules )
 
 missionsPageApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -105,20 +79,13 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
     controller: "MissionsIndexCtrl"
   ).when("/missions/:articleId",
     templateUrl: (params) ->
-      # "api/missions_detail/#{params.articleId}"
-      "local/api/missions_detail"
+      "api/missions_detail/#{params.articleId}"
+      # "local/api/missions_detail"
     controller: "MissionsShowCtrl"
   ).otherwise redirectTo: "/missions"
 ]
 
-programsPageApp = angular.module("programsPageApp", [
-  "ngRoute",
-  "ngAnimate",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
+programsPageApp = angular.module("programsPageApp", requiredModules )
 
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/programs/:tabId",
@@ -129,14 +96,7 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/programs/0"
 ]
 
-takeActionPagesApp = angular.module("takeActionPagesApp", [
-  "ngRoute",
-  "ngAnimate",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
+takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules )
 
 takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/:tabId",
@@ -147,26 +107,10 @@ takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/fundraising"
 ]
 
-HomePageApp = angular.module('homePageApp', [
-  "ngRoute",
-  "ngAnimate",
-  "ngSanitize",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
+HomePageApp = angular.module('homePageApp', requiredModules )
 
 # Preview
-previewPageApp = angular.module("previewPageApp", [
-  "ngRoute",
-  "ngAnimate",
-  "ngSanitize",
-  "sfControllers",
-  "sfDirectives",
-  "sfFilters",
-  "sfServices"
-])
+previewPageApp = angular.module("previewPageApp", requiredModules )
 
 previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles/:articleId",
