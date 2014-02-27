@@ -38,6 +38,18 @@
             >
             </slide>
           {/exp:channel:entries}
+
+          <ul data-swiper="swiper_1" class="swiper-position">
+            <? $i=0; ?>
+            {exp:channel:entries channel="homepage_features" limit="5"}
+              <? if($i==0) { ?>
+              <li class="on"></li>
+              <? } else { ?>
+              <li></li>
+              <? } ?>
+              <? $i++ ?>
+            {/exp:channel:entries}
+          </ul>
         <!--(bake-end)-->
         <!--(bake-start _if="server")-->
           <slide
@@ -81,6 +93,11 @@
           </slide>
         <!--(bake-end)-->
       </swiper>
+      <ul data-swiper="swiper_1" class="swiper-position">
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+      </ul>
     </section>
 
     <section class='mission-statement'>

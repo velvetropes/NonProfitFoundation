@@ -3,6 +3,7 @@
     width: 50%;
   }
   &.hero {
+    position: relative;
     article {
       width: 100%;
       img {
@@ -14,6 +15,13 @@
     }
     .slide {
       text-align: center;
+    }
+    .swiper-position {
+      width: 96px;
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      margin-left: -48px;
     }
   }
   &.bottom {

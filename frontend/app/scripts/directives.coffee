@@ -740,7 +740,16 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
 
     # TODO Use a promise
     $timeout (->
-      scope.swipe = new Swipe(document.getElementById(scope.identifier), config)
+      scope.swipe = new Swipe(document.getElementById(scope.identifier),
+      auto: config.auto
+      speed: config.speed
+      disableScroll: config.disableScroll
+      continuous: config.continuous
+      callback: (pos) ->
+        bullets = $("[data-swiper='" + scope.identifier + "'] li")
+        bullets.removeClass('on')
+        bullets.eq(pos).addClass('on')
+      )
     ), 1800
 
     scope.showPaginator = ->
