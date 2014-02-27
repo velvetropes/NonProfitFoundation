@@ -326,37 +326,34 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     scope.selectedList = {}
     scope.greetingFlag = false
 
+    scope.mapConfig =
+      regionsSelectable: true
+      zoomOnScroll: false
+      backgroundColor: "none"
+      regionStyle:
+        selected:
+          fill: "#ffad20"
+      focusOn:
+        x: 0.5,
+        y: 0.5,
+        scale: .5
+      # onRegionSelected: (e, str) ->
+      #   console.debug "Clicked", str
+
+    scope.worldMapConfig = _.extend({map: "world_mill_en"}, scope.mapConfig)
+    scope.usMapConfig = _.extend({map: "us_aea_en"}, scope.mapConfig)
+
     scope.selectTopLevelList = (continent) ->
       scope.selectedList = continent
       scope.greetingFlag = true
 
     scope.initializeMaps = ->
       $timeout( ->
-        $("#missions-world-map").vectorMap
-          map: "world_mill_en"
-          zoomOnScroll: false
-          backgroundColor: "none";
-          regionStyle:
-            selected:
-              fill: "#ffad20"
-          focusOn:
-            x: 0.5,
-            y: 0.5,
-            scale: .5
+        $("#missions-world-map").vectorMap(scope.worldMapConfig)
 
         scope.worldMapObject = $("#missions-world-map").vectorMap("get", "mapObject")
 
-        $("#missions-us-map").vectorMap
-          map: "us_aea_en"
-          zoomOnScroll: false
-          backgroundColor: "none";
-          regionStyle:
-            selected:
-              fill: "#ffad20"
-          focusOn:
-            x: 0.5,
-            y: 0.5,
-            scale: .5
+        $("#missions-us-map").vectorMap(scope.usMapConfig)
 
         scope.usMapObject = $("#missions-us-map").vectorMap("get", "mapObject")
       , 1800)
