@@ -36,8 +36,8 @@
         <option value="">Regions</option>
       </select>
     </li>
-    <li>&nbsp;|&nbsp;</li>
-    <li class="dropdown wider">
+    <li ng-hide="hideCountryDropdown()">&nbsp;|&nbsp;</li>
+    <li class="dropdown wider" ng-hide="hideCountryDropdown()">
       <select ng-model="highlightsFilters.country" class="dropdown-select">
         <option value="">Countries</option>
         <option ng-repeat="cat in currentRegion.countries" value="{{cat}}">{{cat}}</option>

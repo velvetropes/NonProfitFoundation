@@ -244,6 +244,9 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
       }
       $scope.highlightYears.push addedYear
 
+  $scope.hideCountryDropdown = ->
+    $scope.highlightsFilters.region==''
+
   $scope.$watch('currentRegion', (newVal, oldVal) ->
     if newVal?.region?.length > 0
       $scope.highlightsFilters.region = newVal.region
