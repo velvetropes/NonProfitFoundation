@@ -1,0 +1,26 @@
+<!doctype html xmlns:ng="http://angularjs.org/">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
+  <head>
+    <!--(bake partials/head.html)-->
+  </head>
+  <body class='preview-page blog-page page' ng:app="previewPageApp">
+
+    <!--(bake partials/browser_check.html)-->
+
+    <!--(bake partials/header.html)-->
+
+    <!-- Main content section -->
+    {if logged_in} {embed="api/missions_detail"} {/if}
+    {if logged_out}
+      <div class="text-container"><p style="text-align:center">You are not authorized to view this page.</p></div>
+    {/if}
+    <!-- end main content section -->
+
+    <!--(bake partials/footer.html)-->
+
+    <!--(bake partials/js_includes.html)-->
+</body>
+</html>

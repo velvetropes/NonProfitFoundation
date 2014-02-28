@@ -74,7 +74,8 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/pages.group/about_us.html" : 'app/about_us.html',
           "<%= app.dist %>/templates/default_site/pages.group/contact.html" : 'app/contact.html',
           "<%= app.dist %>/templates/default_site/legal.group/index.html" : 'app/legal.html',
-          "<%= app.dist %>/templates/default_site/preview.group/index.html" : 'app/preview.html',
+          "<%= app.dist %>/templates/default_site/preview.group/blog.html" : 'app/preview_blog.html',
+          "<%= app.dist %>/templates/default_site/preview.group/missions.html" : 'app/preview_missions.html',
           "<%= app.dist %>/templates/default_site/take_action.group/index.html" : 'app/take_action.html'
           "<%= app.dist %>/templates/default_site/pages.group/team.html" : 'app/team.html'
      sass:
