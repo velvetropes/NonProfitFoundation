@@ -29,7 +29,7 @@ sfControllers.controller("globalCtrl", ["$scope", ($scope) ->
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->
 
   FeaturedArticle.getIndex().then (data) ->
-    $scope.featuredArticles = data
+    $scope.featuredArticlesHash = data
 
   MapMarker.getIndex().then (data) ->
     $scope.markers = data
@@ -43,7 +43,7 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
       $scope.currentBottomSlideTab = 1
     else
       $scope.currentBottomSlideTab = 2
-      $scope.currentTabModel = $scope.featuredArticles[tabIndex-1]
+      $scope.currentTabModel = $scope.featuredArticlesHash.articles[tabIndex-1]
 
   $scope.modalShown = false
   $scope.toggleModal = ->

@@ -296,7 +296,6 @@ sfDirectives.directive "gallerySlide", [ ->
 sfDirectives.directive 'homeThumblistNav', [->
 
   link = (scope, element, attrs) ->
-
     config = { showArrows: false }
 
     setTimeout( ->
@@ -309,7 +308,7 @@ sfDirectives.directive 'homeThumblistNav', [->
   templateUrl: "templates/home_thumblist_nav.html"
   replace: true
   scope:
-    articles: "="
+    featured: "="
     clickaction: "="
 
 ]
