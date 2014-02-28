@@ -12,6 +12,7 @@
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
+    {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
     <section class="carousel hero">
 
       <swiper
@@ -23,33 +24,21 @@
         size="short"
         >
         <!--(bake-start _if="dist")-->
-          {exp:channel:entries channel="homepage_features" limit="5"}
-            <slide
-              image-url="{homepage_feature_splash_image}"
-              background-color=""
-              quote=""
-              video-url="{homepage_feature_video}"
-              link-url="{homepage_feature_link}"
-              headline="{title}"
-              body-copy="{homepage_feature_subtitle}"
-              logo-image-url=""
-              link-style=""
-              link-text="{homepage_feature_cta}"
-            >
-            </slide>
-          {/exp:channel:entries}
-
-          <ul data-swiper="swiper_1" class="swiper-position">
-            <? $i=0; ?>
-            {exp:channel:entries channel="homepage_features" limit="5"}
-              <? if($i==0) { ?>
-              <li class="on"></li>
-              <? } else { ?>
-              <li></li>
-              <? } ?>
-              <? $i++ ?>
-            {/exp:channel:entries}
-          </ul>
+          {home_hero limit="5" disable="{global:param_disable_default}"}
+          <slide
+            image-url="{home_hero:homepage_feature_splash_image}"
+            background-color=""
+            quote=""
+            video-url="{home_hero:homepage_feature_video}"
+            link-url="{home_hero:homepage_feature_link}"
+            headline="{home_hero:title}"
+            body-copy="{home_hero:homepage_feature_subtitle}"
+            logo-image-url=""
+            link-style=""
+            link-text="{home_hero:homepage_feature_cta}"
+          >
+          </slide>
+          {/home_hero}
         <!--(bake-end)-->
         <!--(bake-start _if="server")-->
           <slide
@@ -93,11 +82,20 @@
           </slide>
         <!--(bake-end)-->
       </swiper>
+
+      <!--(bake-start _if="dist")-->
+      <ul data-swiper="swiper_1" class="swiper-position">
+        {home_hero limit="5" disable="{global:param_disable_default}"}<li{if home_hero:count == 1} class="on"{/if}></li>{/home_hero}
+      </ul>
+      <!--(bake-end)-->
+
+      <!--(bake-start _if="server")-->
       <ul data-swiper="swiper_1" class="swiper-position">
         <li class="on"></li>
         <li></li>
         <li></li>
       </ul>
+       <!--(bake-end)-->
     </section>
 
     <section class='mission-statement'>
@@ -166,7 +164,7 @@
       </div>
 
       <div class='carousel bottom'>
-        <home-thumblist-nav articles="featuredArticles" clickaction="changeCurrentTab"></home-thumblist-nav>
+        <home-thumblist-nav articles="featuredArticles.articles" missionImg="featuredArticles.mission_thumb" clickaction="changeCurrentTab"></home-thumblist-nav>
       </div>
 
     </section>
