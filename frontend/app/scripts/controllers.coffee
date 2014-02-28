@@ -319,7 +319,7 @@ sfControllers.controller("TakeActionCtrl", ["$scope", "$routeParams", ($scope, $
 
 # Preview
 sfControllers.controller("PreviewShowCtrl", ["$scope", "$routeParams", "$sce",  "Preview", ($scope, $routeParams, $sce, Preview) ->
-
+  console.debug "PreviewShowCtrl"
   Preview.getDetail($routeParams.articleId).then (data) ->
     $scope.article = data
 

@@ -116,6 +116,7 @@ previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles/:articleId",
     templateUrl: (params) ->
       "api/preview/#{params.articleId}"
+      # "local/api/preview"
     controller: "PreviewShowCtrl"
-  ).otherwise redirectTo: "/articles"
+  )
 ]
