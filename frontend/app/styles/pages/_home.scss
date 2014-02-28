@@ -154,7 +154,8 @@
 
 .map-as-feed {
   display: none;
-  background: url('uploads/home/map-as-feed-bg.jpg') #41bbe4;
+  background: url('images/map-as-feed-bg.jpg') #41bbe4;
+  background-size: 100%;
   color: white;
   margin-top: 14px;
   -webkit-font-smoothing: antialiased;
@@ -165,8 +166,8 @@
   h2 {
     text-align: center;
     margin: 0;
-    padding: 24px 0 19px;
-    font-size: 19px;
+    padding: 25px 0 20px;
+    font-size: 20px;
   }
   .heading {
     padding-left: 14px;
@@ -218,12 +219,45 @@
     color: #006b8a;
     text-align: center;
     padding: 13px;
-    font-size: 11px;
-    line-height: 12px;
+    font-size: 12px;
+    line-height: 13px;
     font-weight: bold;
     cursor: pointer;
   }
 }
+.starkey-stories-carousel {
+  background: #2d2d2d;
+  display: none;
+  @include breakpoint($mobile) {
+    display: block;
+  }
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 27px 0;
+    font-size: 20px;
+    color: #bebebe;
+  }
+  .swiper-controls {
+    a {
+      padding: 12px 0;
+    }
+  }
+  .swiper {
+    aside {
+      background: #fff;
+      color: #333;
+      h1 {
+        margin-bottom: 24px;
+      }
+      a {
+        color: #333;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
 .clearfix {
   clear: both;
 }
