@@ -201,7 +201,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
       scope.slides > 1
 
     config = { showArrows: true}
-    # if scope.isThumblist() then true else false
+
     if scope.isThumblist()
       $timeout (->
         scope.pane = $(".gallery")
@@ -944,18 +944,12 @@ sfDirectives.directive "worldMap", [->
             $popup
               .fadeIn()
             $popup.find('.close').click ->
-              console.log "click"
               $popup.fadeOut()
-            # $popup.find('.text-popup').jScrollPane()
       mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
     , 1800)
 
-  controller = ($scope, $element) ->
-    # N/A
-
   restrict: "E"
   link: link
-  controller: controller
   template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
   transclude: true
   replace: true
