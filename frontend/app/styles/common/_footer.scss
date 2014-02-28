@@ -5,6 +5,9 @@ footer {
   &>div {
     @include outer-container;
   }
+  .form {
+    padding: 50px 150px;
+  }
 }
 .social-info {
   display: inline-block;

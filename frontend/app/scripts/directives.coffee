@@ -570,6 +570,18 @@ sfDirectives.directive "panelTab", [->
   }
 ]
 
+# <a scroll-to-position="element-id">
+sfDirectives.directive "scrollToPosition", [->
+  restrict: "A"
+  link: (scope, element, attrs) ->
+    idToScrollTo = attrs.scrollToPosition
+    element.on "click", ->
+      $("body").animate
+        scrollTop: $("##{idToScrollTo}").offset().top
+      , "slow"
+  scope: {}
+]
+
 # Slide directive format:
 # <slide
 #  image-url=""

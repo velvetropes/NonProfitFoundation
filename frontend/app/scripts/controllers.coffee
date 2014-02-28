@@ -6,9 +6,10 @@ sfControllers.config ['$sceProvider', ($sceProvider) ->
 
 # Home
 
-sfControllers.controller("globalVideoModalCtrl", ["$scope",($scope) ->
+sfControllers.controller("globalCtrl", ["$scope", ($scope) ->
   $scope.showModal = false
   $scope.videoIframe = ""
+  $scope.showSubscribeForm = false
 
   $scope.$on 'modal:hide', (event) ->
     $scope.showModal = false
@@ -18,6 +19,11 @@ sfControllers.controller("globalVideoModalCtrl", ["$scope",($scope) ->
     if $scope.showModal is true
       $scope.videoIframe = url
 
+  $scope.toggleSubscribeForm = ->
+    $scope.showSubscribeForm = not $scope.showSubscribeForm
+
+  $scope.openSubscribeForm = ->
+    $scope.showSubscribeForm = true
 ])
 
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->

@@ -11,10 +11,10 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="/assets/styles/852f80f3.main.css"/>
+    <link rel="stylesheet" href="/assets/styles/16ca980c.main.css"/>
     
   </head>
-  <body class='preview-page blog-page page' ng:app="previewPageApp">
+  <body class='preview-page blog-page page' ng:app="previewPageApp" ng:controller="globalCtrl">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -222,16 +222,57 @@
                 Legal/financials &rarr;
               </a>
             </li>
-            <li><a href='#'>Subscribe to our newsletter &rarr;</a></li>
+            <li><a href ng-click="toggleSubscribeForm()" scroll-to-position="subscribeFormAnchor" >Subscribe to our newsletter &rarr;</a></li>
             <li><p>&copy; Starkey Hearing Foundation 2014</p></li>
           </ul>
         </section>
+        <section>
+          <div class="reveal outer-container form" ng-show="showSubscribeForm==true">
+            <form action="" accept-charset="utf-8" class="flatform invert" method="post">
+              <ul>
+                <li class="leftHalf">
+                    <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="FIRST NAME*"  />
+                </li>
+    
+                <li class="rightHalf">
+                    <input type="text" name="last_name" value="" id="freeform_last_name" maxlength="150" placeholder="LAST NAME*"  />
+                </li>
+    
+                <li class="full">
+                    <input type="text" name="email" value="" id="freeform_email" maxlength="150" placeholder="EMAIL*"  />
+                </li>
+    
+                <li class="leftFourth">
+                    <input type="text" name="address" value="" id="freeform_address" maxlength="150" placeholder="ADDRESS*"  />
+                </li>
+    
+                <li class="middleFourthFirst">
+                    <input type="text" name="city" value="" id="freeform_city" maxlength="150" placeholder="CITY*"  />
+                </li>
+    
+                <li class="middleFourthSecond">
+                    <input type="text" name="state" value="" id="freeform_state" maxlength="150" placeholder="STATE*"  />
+                </li>
+    
+                <li class="rightFourth">
+                    <input type="text" name="zip" value="" id="freeform_zip" maxlength="150" placeholder="ZIP*"  />
+                </li>
+    
+                <li class="full centered">
+                  <br/>
+                    <input type="submit" name="submit" value="SUBMIT"/>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </section>
+        <p id="subscribeFormAnchor" style="display: block;">&nbsp;</p>
       </div>
     </footer>
 
-    <script src="/assets/scripts/38b6f4e8.vendor.js"></script>
+    <script src="/assets/scripts/52ac805d.vendor.js"></script>
     
-    <script src="/assets/scripts/9990fd52.main.js"></script>
+    <script src="/assets/scripts/a20c2d08.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
