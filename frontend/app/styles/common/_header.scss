@@ -1,16 +1,42 @@
+body {
+  @include breakpoint($mobile) {
+    padding-top: 55px;
+  }
+}
 // Header
 header {
   margin-top: 1.5em;
   @include row();
+  @include breakpoint($mobile) {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    height: 55px;
+    background: #fff;
+    width: 100%;
+    z-index: 100;
+  }
   .logo {
     @include span-columns(3);
     @include pad(0);
+    @include breakpoint($mobile) {
+      width: 92px;
+      padding: 0;
+      margin: 6px 12px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   .tagline {
     @include span-columns(7);
     @include pad(0);
     text-align: center;
+    @include breakpoint($mobile) {
+      display: none;
+    }
     h1 {
       margin-top: 38px;
       margin-right: 60px;
@@ -24,6 +50,9 @@ header {
     @include omega();
     text-align: right;
     margin-top: 26px;
+    @include breakpoint($mobile) {
+      display: none;
+    }
     ul {
       margin-left: 11px;
     }

@@ -4,6 +4,9 @@
   z-index: 99;
   height: 50px;
   width: 50px;
+  @include breakpoint($mobile) {
+    top: 60px;
+  }
   a {
     padding-top: 17px;
     color: rbga(0, 0, 0, 0.25);
@@ -66,22 +69,21 @@
   position: relative;
   background-color: #000;
   &.short {
-    .swiper-controls {
-      // margin-top: 200px;
-    }
     .swipe-wrap > div {
       height: 500px;
-    }
-  }
-  &.narrow {
-    .swiper-controls {
-      // width: 544px;
+      @include breakpoint($mobile) {
+        height: 300px;
+      }
     }
   }
   .swipe-wrap {
     > div {
       width: 100%;
       height: 800px;
+      @include breakpoint($mobile) {
+        height: 300px;
+      }
+
     }
   }
   article {
@@ -105,8 +107,12 @@
   }
   .play-video-link {
     position: absolute;
-    left: 47%;
-    top: 43%;
+    left: 50%;
+    top: 100px;
+    margin-left: -40px;
+    @include breakpoint($mobile) {
+      top: 44px;
+    }
     a {
       display: block;
       font-size: 5em;
@@ -122,6 +128,8 @@
       color: #FFF;
       width: 100%;
       bottom: 50px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       h1 {
         @extend .alrightsansbold;
         margin-bottom: 0;
@@ -139,6 +147,23 @@
         color: #FFF;
         font-weight: bold;
         font-size: .875em;
+      }
+      @include breakpoint($mobile) {
+        bottom: 0px;
+        background: #2d2d2d;
+        text-align: left;
+        padding: 4px 20px 8px;
+        h1 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 13px;
+          line-height: 1.2;
+        }
+        a {
+          float: right;
+          font-size: 13px;
+        }
       }
     }
     &.side-panel {
@@ -212,6 +237,9 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  @include breakpoint($mobile) {
+    display: none;
+  }
   li {
     display: inline-block;
     width: 12px;

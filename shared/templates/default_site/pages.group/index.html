@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Starkey Hearing Foundation</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="assets/styles/94017d94.main.css"/>
+    <link rel="stylesheet" href="assets/styles/852f80f3.main.css"/>
     
   </head>
   <body class='home-page page' ng:app="homePageApp" ng:controller="globalVideoModalCtrl">
@@ -217,11 +217,11 @@
         <img src="{homepage_pictograms:slot_1}">
       </div>
 
-      <div class="pict" style="text-align: center;">
+      <div class="pict">
         <img src="{homepage_pictograms:slot_2}">
       </div>
 
-      <div class="pict" style="text-align: right; border-right: none;">
+      <div class="pict">
         <img src="{homepage_pictograms:slot_3}">
       </div>
       {/homepage_pictograms}
@@ -254,6 +254,26 @@
         <home-thumblist-nav articles="featuredArticles" clickaction="changeCurrentTab"></home-thumblist-nav>
       </div>
 
+    </section>
+
+    <section class='mobile map-as-feed'>
+      <h2>GLOBAL HEARING MISSION</h2>
+      <div class='heading'>RECENT MISSION</div>
+      {exp:channel:entries channel="homepage_map_items"}
+        <div class="entry">
+          <div class="entry-image">
+            <a href="{homepage_map_item_cta_link}"><img src="{homepage_map_item_image}"></a>
+          </div>
+          <div class="entry-content">
+            <h3><a href="{homepage_map_item_cta_link}">{title}</a></h3>
+            <span>{homepage_map_item_location}</span>
+            <a class="read-more" href="{homepage_map_item_cta_link}">Read More →</a>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      {/exp:channel:entries}
+
+      <div class="load-more">LOAD MORE</div>
     </section>
 
     <!-- end main content section -->
@@ -322,7 +342,7 @@
         </section>
       </div>
     </footer>
-    <script src="/assets/scripts/52ac805d.vendor.js"></script>
+    <script src="/assets/scripts/4f310634.vendor.js"></script>
     
     <script src="/assets/scripts/9990fd52.main.js"></script>
     

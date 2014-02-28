@@ -100,6 +100,9 @@ nav {
     border: none;
     border-bottom: 1px dotted #333;
   }
+  @include breakpoint($mobile) {
+    display: none;
+  }
 }
 
 // Tabbed content

@@ -10,14 +10,8 @@ $visual-grid: true;
 // $visual-grid-index: front;
 // $visual-grid-opacity: 0.3;
 
-// Media
-$mobile-size: em(320);
-$tablet-size: em(720);
-$desktop-size: em(960);
-$largedesktop-size: em(1200);
-
 // Bourbon Neat Breakpoints
-$mobile: new-breakpoint(min-width $mobile-size 4);
-$tablet: new-breakpoint(min-width $tablet-size 8);
-$desktop: new-breakpoint(min-width $desktop-size 12);
-$largedesktop: new-breakpoint(min-width $largedesktop-size 16);
+$mobile:       max-width 479px 4;
+$tablet:       max-width 767px 8;
+$desktop:      max-width 959px 12;
+$largedesktop: max-width 1199px 16;
