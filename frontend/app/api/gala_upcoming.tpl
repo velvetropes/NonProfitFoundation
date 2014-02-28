@@ -55,9 +55,21 @@
                   {col3_img}
                   <accordion-list title="{col3_img:row_title}" {if col3_img:count == 1}ng-class="{active: showMe==tr}"{/if}>
                     <div class="outer-container">
-                      <accordion-list-item><img src="{col3_img:col1}" alt="" style="max-width:100%;height:auto;"></accordion-list-item>
-                      <accordion-list-item><img src="{col3_img:col2}" alt="" style="max-width:100%;height:auto;"></accordion-list-item>
-                      <accordion-list-item><img src="{col3_img:col3}" alt="" style="max-width:100%;height:auto;"></accordion-list-item>
+                      <accordion-list-item>
+                        <div class="image">
+                          <img src="{col3_img:col1}" alt=""/>
+                        </div>
+                      </accordion-list-item>
+                      <accordion-list-item>
+                        <div class="image">
+                          <img src="{col3_img:col2}" alt=""/>
+                        </div>
+                      </accordion-list-item>
+                      <accordion-list-item>
+                        <div class="image">
+                          <img src="{col3_img:col1}" alt=""/>
+                        </div>
+                      </accordion-list-item>
                     </div>
                   </accordion-list>
                   {/col3_img}

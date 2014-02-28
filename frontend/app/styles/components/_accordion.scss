@@ -44,6 +44,13 @@
           p {
             margin: 0;
           }
+          .image {
+            text-align: center;
+            img {
+              max-width:100%;
+              height:auto;
+            }
+          }
         }
         &:last-child {
           ul {
