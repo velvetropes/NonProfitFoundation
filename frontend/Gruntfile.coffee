@@ -24,7 +24,8 @@ module.exports = (grunt) ->
           ".tmp/legal.html" : 'app/legal.html',
           ".tmp/media_mentions.html" : 'app/media_mentions.html',
           ".tmp/missions.html" : 'app/missions.html',
-          ".tmp/preview.html" : 'app/preview.html',
+          ".tmp/preview_blog.html" : 'app/preview_blog.html',
+          ".tmp/preview_missions.html" : 'app/preview_missions.html',
           ".tmp/programs.html" : 'app/programs.html',
           ".tmp/take_action.html" : 'app/take_action.html',
           ".tmp/team.html" : 'app/team.html'
