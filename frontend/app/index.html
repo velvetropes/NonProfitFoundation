@@ -12,7 +12,6 @@
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-    {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
     <section class="carousel hero">
 
       <swiper
@@ -24,21 +23,23 @@
         size="short"
         >
         <!--(bake-start _if="dist")-->
-          {home_hero limit="5" disable="{global:param_disable_default}"}
-          <slide
-            image-url="{home_hero:homepage_feature_splash_image}"
-            background-color=""
-            quote=""
-            video-url="{home_hero:homepage_feature_video}"
-            link-url="{home_hero:homepage_feature_link}"
-            headline="{home_hero:title}"
-            body-copy="{home_hero:homepage_feature_subtitle}"
-            logo-image-url=""
-            link-style=""
-            link-text="{home_hero:homepage_feature_cta}"
-          >
-          </slide>
-          {/home_hero}
+          {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+            {home_hero limit="5" disable="{global:param_disable_default}"}
+            <slide
+              image-url="{home_hero:homepage_feature_splash_image}"
+              background-color=""
+              quote=""
+              video-url="{home_hero:homepage_feature_video}"
+              link-url="{home_hero:homepage_feature_link}"
+              headline="{home_hero:title}"
+              body-copy="{home_hero:homepage_feature_subtitle}"
+              logo-image-url=""
+              link-style=""
+              link-text="{home_hero:homepage_feature_cta}"
+            >
+            </slide>
+            {/home_hero}
+          {/exp:channel:entries}
         <!--(bake-end)-->
         <!--(bake-start _if="server")-->
           <slide
