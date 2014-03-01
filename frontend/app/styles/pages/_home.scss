@@ -67,6 +67,7 @@
     width: 33.33%;
     float: left;
     border-right: 1px dotted #333;
+    text-align: center;
     img {
       opacity: 0.5;
       &:hover {
@@ -74,7 +75,6 @@
       }
     }
     &:last-child {
-      text-align: right;
       border: none;
     }
   }
@@ -85,10 +85,6 @@
       float: none;
       border-right: none;
       border-bottom: 1px dotted #333;
-      text-align: center;
-      &:last-child {
-        text-align: center;
-      }
     }
   }
 }
