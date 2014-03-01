@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="/assets/styles/025e8770.main.css"/>
+    <link rel="stylesheet" href="/assets/styles/bd78e515.main.css"/>
     
   </head>
   <body class='home-page page' ng:app="homePageApp" ng:controller="globalCtrl">
@@ -298,6 +298,9 @@
     <!-- end main content section -->
 
     <footer>
+      <div class='mobile-footer-subscribe'>
+        <a href ng-click="toggleSubscribeForm()" scroll-to-position="subscribeFormAnchor">SUBSCRIBE TO OUR NEWSLETTER &rarr;</a>
+      </div>
       <div>
         <section class='social-info'>
           <ul>
@@ -307,14 +310,14 @@
                 <h4>From our blog</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
               </div>
-              <p><a href='#'>Check out our blog &rarr;</a></p>
+              <p class="read-more"><a href='#'>Check out our blog &rarr;</a></p>
             </li>
             <li class='facebook'>
               <span class="icon starkey-fb"></span>
               <div>
                 <h1>29,000 <strong>fans</strong></h1>
               </div>
-              <p><a href='#'>Like us</a></p>
+              <p class="read-more"><a href='#'>Like us</a></p>
             </li>
             <li class='instagram'>
               <span class="icon starkey-insta"></span>
@@ -334,7 +337,7 @@
                   </li>
                 </ul>
               </div>
-              <p><a href='#'>Follow us &rarr;</a></p>
+              <p class="read-more"><a href='#'>Follow us &rarr;</a></p>
             </li>
             <li class='twitter'>
               <span class="icon starkey-share-twitter"></span>
@@ -342,23 +345,24 @@
                 <p class='tweet'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, ducimus atque veniam magni debitis dignissimos.</p>
                 <span class="time">15 sec ago</span>
               </div>
-              <p><a href='#'>Follow us &rarr;</a></p>
+              <p class="read-more"><a href='#'>Follow us &rarr;</a></p>
     
             </li>
           </ul>
         </section>
         <section class='footer-links'>
           <ul>
-            <li>
+            <li class='legal-links'>
 
               <a href="{path='legal/index'}">
-                Legal/financials &rarr;
+                Legal / Financials &rarr;
               </a>
             </li>
-            <li><a href ng-click="toggleSubscribeForm()" scroll-to-position="subscribeFormAnchor" >Subscribe to our newsletter &rarr;</a></li>
-            <li><p>&copy; Starkey Hearing Foundation 2014</p></li>
+            <li class='desktop-footer-subscribe'><a href ng-click="toggleSubscribeForm()" scroll-to-position="subscribeFormAnchor" >Subscribe to our newsletter &rarr;</a></li>
+            <li class='copyright'><p>&copy; Starkey Hearing Foundation 2014</p></li>
           </ul>
         </section>
+        <div class="clearfix"></div>
         <section>
           <div class="reveal outer-container form" ng-show="showSubscribeForm==true">
             <form action="" accept-charset="utf-8" class="flatform invert" method="post">
@@ -402,7 +406,7 @@
         <p id="subscribeFormAnchor" style="display: block;">&nbsp;</p>
       </div>
     </footer>
-    <script src="/assets/scripts/52ac805d.vendor.js"></script>
+    <script src="/assets/scripts/4f310634.vendor.js"></script>
     
     <script src="/assets/scripts/61342484.main.js"></script>
     

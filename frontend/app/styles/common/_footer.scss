@@ -7,27 +7,34 @@ footer {
   }
   .form {
     padding: 50px 150px;
+    @include breakpoint($mobile) {
+      padding: 24px 5px;
+    }
   }
 }
 .social-info {
   display: inline-block;
+
+  ul {
+    li {
+      @include inline-block;
+    }
+  }
 
   &>ul {
     margin-top: 0;
     padding-left: 0;
     @include clearfix;
 
-
     &>li {
       float: left;
       width: 25%;
       height: 230px;
       padding: 10px;
-
-      @include boxsizing;
-
       border-right: 1px dotted #CECECE;
       padding: 1.9em;
+      position: relative;
+      @include boxsizing;
 
       div {
         height: 80px;
@@ -50,7 +57,7 @@ footer {
           text-transform: uppercase;
           font-size: 10px;
           font-weight: 600;
-          line-height: 18px;
+          line-height: 1;
         }
 
         h5 {
@@ -63,8 +70,6 @@ footer {
           line-height: 17px;
           margin-top: 5px;
         }
-
-
       }
 
       .icon {
@@ -104,35 +109,43 @@ footer {
         }
       }
 
-    }
-  }
-
-  ul {
-    li {
-      @include inline-block;
-    }
-
-    .blog {
-
-    }
-    .facebook {
-
-    }
-    .instagram {
-      .thumbs {
-
-      }
-    }
-    .twitter {
       .time {
         float: right;
         font-size: 13px;
       }
+
+      @include breakpoint($mobile) {
+        float: none;
+        width: 100%;
+        height: auto;
+        border-bottom: 1px dotted #CECECE;
+        padding: 24px 24px 0;
+        .icon {
+          position: absolute;
+          top: 50%;
+          margin-top: -20px;
+        }
+        div {
+          height: auto;
+          float: left;
+          margin-left: 72px;
+        }
+        .thumbs {
+          margin-left: 0;
+        }
+        .time {
+          float: none;
+          line-height: 1.8;
+        }
+        .read-more {
+          float: right;
+          margin: 0;
+        }
+      }
     }
-
   }
-
 }
+
 .footer-links {
   @include span-columns(12);
   ul {
@@ -147,5 +160,38 @@ footer {
         font-size: .625em;
       }
     }
+    @include breakpoint($mobile) {
+      margin-top: -6px;
+      padding: 0;
+      li {
+        @include span-columns(12 of 12);
+        border-bottom: 1px dotted #CECECE;
+        &.legal-links {
+          padding-bottom: 9px;
+        }
+        &.desktop-footer-subscribe {
+          display: none;
+        }
+        &.copyright {
+          padding: 2px 0;
+        }
+      }
+    }
+  }
+}
+
+.mobile-footer-subscribe {
+  font-weight: bold;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: .5px;
+  border-top: 1px dotted #CECECE;
+  border-bottom: 1px dotted #CECECE;
+  padding: 15px 0 14px;
+  -webkit-font-smoothing: antialiased;
+  display: none;
+  @include breakpoint($mobile) {
+    display: block;
   }
 }
