@@ -69,7 +69,7 @@
   }
   &.short {
     .swipe-wrap > div {
-      height: 500px;
+      height: 600px;
       @include breakpoint($mobile) {
         height: 300px;
       }
@@ -107,7 +107,7 @@
   .play-video-link {
     position: absolute;
     left: 50%;
-    top: 100px;
+    top: 30%;
     margin-left: -40px;
     @include breakpoint($mobile) {
       top: 44px;
@@ -126,19 +126,20 @@
       z-index: 9999;
       color: #FFF;
       width: 100%;
-      bottom: 50px;
+      bottom: 43px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       h1 {
         @extend .alrightsansbold;
         margin-bottom: 0;
-        font-size: 3.75em;
-        line-height: 1em;
+        font-size: 2.875em;
+        line-height: 1.08em;
       }
       p {
         @extend .alrightsanslight;
         font-size: 1.2em;
         font-weight: 400;
+        margin:0.15em 0 0.1em 0
       }
       a {
         @extend .verlag;
@@ -245,7 +246,7 @@
     height: 12px;
     border-radius: 12px;
     background: #fff;
-    margin: 0 2px;
+    margin: 0 5px;
     cursor: pointer;
     &.on {
       background: $orange;

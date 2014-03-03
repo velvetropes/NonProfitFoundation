@@ -20,39 +20,77 @@
   display: none;
   position: absolute;
   color: white;
-  font-family: sans-serif, Verdana;
+  @extend .alrightsansregular;
   padding: 10px;
   width: 720px;
   height: 360px;
   top: 10%;
   left: 25%;
   z-index: 1;
+
   .close {
+    $size:16px;
     position: absolute;
-    right: 18px;
-    top: 13px;
+    display: block;
+    width:$size;
+    height:$size;
+    text-indent: -9999em;
+    right: 20px;
+    top: 15px;
     cursor: pointer;
+    @include transform(rotate(45deg));
+    z-index: 50;
+
+    &::after, &::before {
+        content: "";
+        position: absolute;
+        background: #fff;
+    }
+    &::before {
+      top:0;
+      left: floor($size / 2);
+      width: 1px;
+      height: 100%;
+    }
+    &::after {
+      left:0;
+      top: floor($size / 2);
+      height: 1px;
+      width: 100%;
+    }
   }
   .background-popup {
     background: rgba(41, 41, 41, 0.8);
-    width: 350px;
+    width: 300px;
     height: 340px;
     float: right;
-    padding: 10px 0;
+    padding:0;
   }
   .text-popup {
     overflow: auto;
-    width: 350px;
-    height: 320px;
-    padding: 10px 25px 10px 18px;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: relative;
+    padding-left: 20px;
+    right: -10px;
+    padding-top: 35px;
+    padding-right: 20px;
+
     h2 {
+      @extend .alrightsansbold;
       margin-bottom: 0;
+      margin-top:0;
     }
     .location {
       @extend .alrightsansbold;
+      display: block;
       color: $light-orange;
       text-transform: uppercase;
-      font-size: 13px;
+      font-size: 11px;
+      line-height: 13px;
+      margin-top: 10px;
+      margin-bottom: 25px;
     }
     p {
       @extend .alrightsansregular;
@@ -72,9 +110,10 @@
     }
   }
   img {
-    float: left;
-    width: 50%;
-    height: 100%;
+    position: absolute;
+    right: 300px;
+    height: 340px;
+    width: auto;
   }
   a {
     color: #fff;

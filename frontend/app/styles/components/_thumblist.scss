@@ -9,7 +9,7 @@
   width: 100%;
   overflow: auto;
   white-space: nowrap;
-  height: 335px;
+  height: 324px;
   .jspPane {
     position: absolute;
     // .img {
@@ -18,7 +18,7 @@
     // }
     > div {
       width: 400px;
-      height: 330px;
+      height: 313px;
       position: relative;
       border: 1px dotted #ddd;
       border-right: none;
@@ -31,18 +31,17 @@
       .image {
         background-size: cover;
         position: absolute;
-        bottom: 115px;
+        bottom: 101px;
         right: 0;
         left: 0;
         top: 0;
       }
       .content {
         position: absolute;
-        bottom: 10px;
+        bottom: 23px;
         right: 20px;
         left: 20px;
         text-align: left;
-        height: 88px;
         white-space: normal;
         .call-to-action {
           line-height: 1em;
@@ -63,7 +62,7 @@
       @extend .verlagbold;
       font-size: 1.5em;
       letter-spacing: 1px;
-      margin: 0 0 10px 0;
+      margin: 6px 0 8px 0;
       color: $gray-title;
       text-align: left;
     }

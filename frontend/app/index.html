@@ -86,7 +86,9 @@
 
       <!--(bake-start _if="dist")-->
       <ul data-swiper="swiper_1" class="swiper-position">
-        {home_hero limit="5" disable="{global:param_disable_default}"}<li{if home_hero:count == 1} class="on"{/if}></li>{/home_hero}
+        {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+          {home_hero limit="5" disable="{global:param_disable_default}"}<li{if home_hero:count == 1} class="on"{/if}></li>{/home_hero}
+        {/exp:channel:entries}
       </ul>
       <!--(bake-end)-->
 
