@@ -143,7 +143,7 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   }
 
   $scope.articleCategories = [
-    {name: "All", tag: ''}
+    {name: "All Articles", tag: ''}
     {name: "Press Release", tag: "press_release"}
     {name: "Media Mention", tag: "media_mention"}
   ]
