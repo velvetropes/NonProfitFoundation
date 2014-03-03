@@ -33,6 +33,9 @@
     @include breakpoint($mobile) {
       display: none;
     }
+    .thumblist-nav .jspPane > div .content {
+      bottom: 23px;
+    }
     h1 {
       text-align: center;
       color: white;
@@ -58,7 +61,7 @@
 .mission-statement {
   text-align: center;
   border-bottom: 1px dotted #333;
-  
+
   h1 {
     font-size: 2.375em;
     line-height: 1.71em;

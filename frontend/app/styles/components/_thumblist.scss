@@ -38,7 +38,7 @@
       }
       .content {
         position: absolute;
-        bottom: 23px;
+        bottom: -6px;
         right: 20px;
         left: 20px;
         text-align: left;
@@ -60,8 +60,8 @@
     }
     h4 {
       @extend .verlagbold;
-      font-size: 1.5em;
-      letter-spacing: 1px;
+      font-size: 1.125em;
+      line-height: 1.375em;
       margin: 6px 0 8px 0;
       color: $gray-title;
       text-align: left;

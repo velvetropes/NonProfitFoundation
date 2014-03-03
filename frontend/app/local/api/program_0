@@ -1,65 +1,137 @@
 
-<article class='operation-change text-container'>
-    <h1>Operation change</h1>
+<article class='listen-carefully text-container'>
 
-    <p>Our global work developing sustainable systems of hearing care gives us a unique window into the many challenges facing people around the world. Hearing is our vehicle to change lives, but we know we can only do so much alone. In order to create real change, we must harness the power of many and develop a holistic approach to address the multitude of pressing global challenges.</p>
+    <h1>Listen Carefully</h1>
 
-<p>It empowers individuals to discover their passions and channel them in ways that will improve their communities and ultimately, the world. Through Operation Change we are providing the inspiration to drive engagement and develop a roadmap to create collective impact. This multimedia campaign incorporates a documentary series, a web platform and social media to encourage individual philanthropy and tap into the energy of a generation.</p>
+<p>Research shows that 1 in 8 children and teens in the United States has hearing loss, largely due to high-volume sounds in daily life. Most hearing loss among teens can be avoided if simple protective measures&ndash;such as lowering the volume&ndash;are taken.</p>
 
-<p>We believe that the actions of a single person can create a ripple effect that will ignite a movement and change the world.</p>
+<p>The program combines music and education to raise awareness about the fragility of hearing and the dangers of exposure to high decibel sounds.&nbsp;This year Starkey Hearing Foundation expanded Listen Carefully to offer educational support to more than 16,000 teachers and nearly 500,000 students nationwide.</p>
 
 <p>
 
 
           <gallery slides="1">              <gallery-slide
-               image-url="http://starkey.local/uploads/images/HERO-Program-Operation_Change.png"
-               video-url="http://www.youtube.com/watch?v=na5j0wDq7kc"
+               image-url="http://starkey.local/uploads/images/LC-10-Sec-Video-02.png"
+               video-url="http://www.youtube.com/watch?v=HXC2R5SR9aE"
               ></gallery-slide>
           </gallery>
 
 
 
     </p>
-    <br/>
-    <h2>Our Partnerships</h2>
-</article>
 
+<h1>&nbsp;</h1>
+
+<h1>Make a Difference&nbsp;</h1>
+
+<p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. 1 in 5 Americans has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
+
+<p>
+
+
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/listencarefully2.jpg"
+               video-url=""
+              ></gallery-slide>
+          </gallery>
+
+
+
+    </p>
+
+<p>&nbsp;</p>
+
+<h1>Educate Yourself&nbsp;</h1>
+
+<p>Loud sounds are often part of daily life. Repeat or elongated exposure to high-volume sounds&ndash;such as music pumped through headphones&ndash;harms hearing over time.</p>
+
+<p>Your ears are complex organs, but protecting them is relatively simple. Use these resources to increase your awareness. And share what you know.</p>
+
+<p>
+
+
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/listencarefully3.jpg"
+               video-url="http://www.youtube.com/watch?v=rlyH-ZcCf7o"
+              ></gallery-slide>
+          </gallery>
+
+
+
+    </p>
+
+    <br/>
+    <h2>Additional Resources</h2>
+</article>
 
 
 <section class='carousel thumblist'>
   <thumblist-nav>
 
 
-    <slide
-      image-url="http://starkey.local/uploads/images/Operation-Change-Ray-Lewis-Film.jpg"
-      video-url=""
-      link-url="http://www.youtube.com/watch?v=K9F21dP7Fts"
-      link-text="Watch Video"
-      headline="Super Bowl Champion Ray Lewis Makes A Change"
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style="align-right"
-    ></slide>
+      <slide
+        image-url=""
+        video-url=""
+        link-url="http://www.starkeyhearingfoundation.org/Listen-Carefully-Loudness-Wars.pdf"
+        link-text="Learn More"
+        headline="Loudness Wars: Does louder music compromise the listening experience? How some recorded music muddles sound and puts your hearing at risk."
+        body-copy=""
+        thumblist="true"
+        date=""
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
 
-    <slide
-      image-url="http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg"
-      video-url=""
-      link-url="http://www.youtube.com/watch?v=tTLHRnADGXk"
-      link-text="Watch Video"
-      headline="Donna Karan Taking About Change and Sustainability"
-      body-copy=""
-      thumblist="true"
-      date=""
-      blog-category=""
-      quote=""
-      background-color=""
-      logo-image-url=""
-      link-style="align-right"
-    ></slide>
+      <slide
+        image-url=""
+        video-url=""
+        link-url="http://www.starkey.com/improve-your-hearing"
+        link-text="Learn More "
+        headline="Fundamental Facts: Learn about hearing loss and how to prevent it."
+        body-copy=""
+        thumblist="true"
+        date=""
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+
+      <slide
+        image-url=""
+        video-url=""
+        link-url="http://www.starkey.com/"
+        link-text="Learn More"
+        headline="Hearing News: Are musicians at greater risk for hearing loss? "
+        body-copy=""
+        thumblist="true"
+        date=""
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+
+      <slide
+        image-url="http://starkey.local/uploads/images/marleemartin.jpeg"
+        video-url=""
+        link-url="http://www.youtube.com/watch?v=GIapKv8Pa1c&noredirect=1"
+        link-text="Watch Video"
+        headline="Marlee Martin: In her own words, the Oscar-winning actress explains how a hearing aid changed her life."
+        body-copy=""
+        thumblist="true"
+        date=""
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+
 </thumblist-nav>
 </section>
