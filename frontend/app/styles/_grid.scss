@@ -28,3 +28,8 @@ header, footer {
     line-height: 1.8em;
   }
 }
+
+.narrow {
+  @include span-columns(6);
+  @include shift(3);
+}

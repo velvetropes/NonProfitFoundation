@@ -229,7 +229,8 @@ hr.separator {
 // Page mastheads
 .masthead {
   text-align: center;
-  margin-top: 50px;
+  width: 70%;
+  margin: 50px auto 0;
   .section-title {
     color: $light-blue;
     text-transform: uppercase;
