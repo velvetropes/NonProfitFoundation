@@ -8,5 +8,26 @@
     h1 {
       margin-top: 50px;
     }
+    &.documents-list {
+      text-align: left;
+      h3 {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: .75em;
+        margin: 0;
+      }
+      ul {
+        margin: 100px 100px 0;
+        padding: 0;
+        li {
+          @include span-columns(4);
+          width: 270px;
+          margin-bottom: 40px;
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }

@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   
-  <link rel="stylesheet" href="/assets/styles/3d7b8384.main.css"/>
+  <link rel="stylesheet" href="/assets/styles/99b0485b.main.css"/>
   
   </head>
   <body class='legal-page page' ng:app="legalPagesApp" ng:controller="globalCtrl">
@@ -186,24 +186,29 @@
 
       <article class="article-section" ng-show="currentTab==0">
         {legal_terms}
+
+
       </article>
 
       <article class="article-section" ng-show="currentTab==1">
         {legal_privacy}
       </article>
 
-      <article class="article-section" ng-show="currentTab==2">
-        <h2>{legal_financials_title}</h2>
+      <article class="article-section documents-list" ng-show="currentTab==2">
 
-        <ul class="documents-list">
-        {legal_financials}
-          <li><a href="{legal_financials:file}">{legal_financials:label}<br>Download ({legal_financials:file:extension}, {legal_financials:file:size}s)</a></li>
-        {/legal_financials}
+        <ul>
+          <h3>
+
+            {legal_financials_title}
+          </h3>
+
+          {legal_financials}
+            <li><a href="{legal_financials:file}"><span class="uppercase">{legal_financials:label}</span><br>Download <span class="uppercase">({legal_financials:file:extension}, {legal_financials:file:size}s)</span></a></li>
+          {/legal_financials}
         </ul>
       </article>
     </div>
     {/exp:channel:entries}
-
     <footer>
       <div class='mobile-footer-subscribe'>
         <a href ng-click="toggleSubscribeForm()" scroll-to-position="subscribeFormAnchor">SUBSCRIBE TO OUR NEWSLETTER &rarr;</a>

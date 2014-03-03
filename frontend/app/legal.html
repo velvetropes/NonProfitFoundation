@@ -14,7 +14,9 @@
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
+    <!--(bake-start _if="dist")-->
     {exp:channel:entries channel="legal" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+    <!--(bake-end)-->
     <section class='page-leader'>
       <h1>
         <!--(bake-start _if="server")-->
@@ -44,25 +46,67 @@
       </section>
 
       <article class="article-section" ng-show="currentTab==0">
+        <!--(bake-start _if="dist")-->
         {legal_terms}
+        <!--(bake-end)-->
+
+        <!--(bake-start _if="server")-->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ornare tincidunt elit at aliquam. Nulla fringilla pharetra turpis. Nulla facilisi. Pellentesque quis ultricies tortor, eget tincidunt dui. Curabitur consequat mauris a aliquam bibendum. Etiam eget consectetur mi. Maecenas tempus nunc id lobortis ultrices. Mauris sed porttitor sem. Quisque convallis dui ligula, in dapibus felis luctus nec. Pellentesque arcu est, porta eget laoreet quis, faucibus sit amet nisi. Duis luctus nec quam a tristique.</p>
+
+        <p>Donec gravida rutrum mi, a tempor est malesuada quis. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas volutpat augue purus, et sodales purus suscipit in. Maecenas aliquet arcu tortor, eget suscipit lacus accumsan at. Donec vulputate pretium massa euismod aliquam. Phasellus congue scelerisque imperdiet. Phasellus dictum nulla quis sapien commodo pulvinar. Integer a erat orci. Cras vestibulum lectus ac turpis vestibulum porttitor.</p>
+
+        <p>Nam augue urna, fermentum ac risus nec, condimentum vulputate erat. Curabitur nisl erat, venenatis a urna sed, vulputate bibendum nisi. Donec interdum felis sit amet sem consequat tincidunt ut ut magna. Cras pulvinar placerat euismod. Vivamus imperdiet nec turpis non euismod. Aliquam blandit sapien mollis arcu pellentesque accumsan. Cras faucibus orci ultrices convallis consectetur. Nulla facilisis vulputate velit at adipiscing. Nulla ligula sapien, tincidunt id neque vel, varius pharetra nisi. Nullam placerat sem at nibh malesuada, et vestibulum quam vestibulum. Maecenas adipiscing rhoncus ornare. Etiam sed ligula luctus, tincidunt ante ut, aliquam ante. Nullam sed dolor pulvinar metus semper fermentum.</p>
+
+        <p>Nulla erat sapien, ultrices sit amet elementum ac, varius ut turpis. Fusce viverra massa quis est varius sagittis. Aenean dignissim massa eu odio accumsan, id blandit odio adipiscing. Pellentesque imperdiet suscipit iaculis. Aliquam nec cursus urna. Nulla nec elit a nibh posuere dapibus. Aenean consequat vestibulum est, in ultrices tortor bibendum vel. Vivamus non convallis ipsum, non posuere dui. Suspendisse eget gravida leo. Pellentesque ac nibh interdum, mollis dui et, aliquet quam. Sed bibendum massa ac commodo imperdiet.</p>
+
+        <p>Aliquam pretium quam et tortor fermentum, eu rutrum tellus laoreet. Pellentesque porttitor purus vitae porta dapibus. Donec at ultricies libero, a tristique sem. Nam eget sagittis ligula, in blandit nulla. Quisque mi turpis, placerat nec consectetur vel, feugiat et massa. Morbi auctor mollis lorem, vitae egestas mi euismod nec. Fusce a purus id leo accumsan consequat sit amet id nulla. Nullam a enim ac magna scelerisque egestas.</p>
+
+        <p>Maecenas dui dolor, porttitor sit amet sem faucibus, consequat tempus odio. Maecenas eu odio eu turpis eleifend sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta, nulla sit amet tempus luctus, quam augue pulvinar massa, in porttitor nulla justo vel diam. Pellentesque eu arcu a risus commodo tempus sit amet in felis. In hac habitasse platea dictumst. Maecenas euismod eros nec mauris vehicula, sit amet tempor ligula tempus. Maecenas congue massa non gravida venenatis. Praesent vel risus condimentum, semper mauris quis, pellentesque diam. In nulla eros, consectetur non posuere in, laoreet sit amet enim. Nulla nec mi molestie, egestas ipsum sit amet, congue leo. Nulla facilisi.</p>
+
+        <p>Quisque semper pharetra libero, vel suscipit nulla tempor vitae. Pellentesque placerat, ipsum in porta consequat, tortor leo tincidunt massa, ut fermentum elit dolor vitae quam. Vivamus consequat porttitor velit, sed lobortis nisl fringilla facilisis. Duis lectus est, molestie sit amet placerat in, consectetur non dui. Nulla facilisi. Praesent tempor sapien diam, vitae feugiat sem suscipit eu. Cras scelerisque interdum purus, ac feugiat nisl eleifend sit amet. Nullam vehicula fringilla quam nec rhoncus. Ut facilisis massa ut pellentesque porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus metus nisl, egestas sit amet nisi sit amet, feugiat auctor justo. Donec et adipiscing dolor, et molestie neque. In malesuada tellus bibendum, hendrerit ante vel, pretium orci.</p>
+
+        <p>Suspendisse ac tellus vel nisi sollicitudin placerat. Nullam rutrum purus eget luctus tempor. Fusce sed ante vel arcu rhoncus gravida sed quis ligula. Etiam condimentum, eros ac euismod varius, eros massa congue est, sed aliquet risus sem quis tortor. Nunc facilisis ultricies metus, ac pretium lectus. Cras imperdiet porttitor lacus imperdiet rutrum. Ut sed tempus ligula. Proin condimentum vestibulum neque in tincidunt. Ut vel faucibus tortor, vitae facilisis elit. Donec purus quam, eleifend id blandit eu, suscipit sit amet mauris. Pellentesque pulvinar et tortor non gravida. Curabitur molestie turpis et dolor eleifend egestas scelerisque non lectus. Vivamus malesuada ligula velit, eu venenatis turpis posuere vel.</p>
+
+        <p>Duis vulputate tortor orci, et dictum nulla euismod eget. Proin ac nibh quis tellus tempus dignissim. In feugiat venenatis urna, ac molestie arcu tempor non. Proin id magna eget justo consequat elementum. Nullam ullamcorper quam leo, vel hendrerit purus consequat sed. Ut hendrerit, turpis at mollis ultrices, felis risus aliquet libero, in laoreet nibh ligula et sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+        <p>Ut est leo, aliquet id varius ac, scelerisque rhoncus metus. Aenean condimentum et erat eget posuere. Nulla sed nibh non elit hendrerit posuere. Integer rhoncus adipiscing posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla eget sodales leo. Mauris nulla tellus, tempus at ultricies et, pretium at urna.</p>
+        <!--(bake-end)-->
       </article>
 
       <article class="article-section" ng-show="currentTab==1">
+        <!--(bake-start _if="dist")-->
         {legal_privacy}
+        <!--(bake-end)-->
       </article>
 
-      <article class="article-section" ng-show="currentTab==2">
-        <h2>{legal_financials_title}</h2>
+      <article class="article-section documents-list" ng-show="currentTab==2">
 
-        <ul class="documents-list">
-        {legal_financials}
-          <li><a href="{legal_financials:file}">{legal_financials:label}<br>Download ({legal_financials:file:extension}, {legal_financials:file:size}s)</a></li>
-        {/legal_financials}
+        <ul>
+          <h3>
+            <!--(bake-start _if="server")-->
+              Financial Documents
+            <!--(bake-end)-->
+            <!--(bake-start _if="dist")-->
+            {legal_financials_title}
+            <!--(bake-end)-->
+          </h3>
+          <!--(bake-start _if="server")-->
+          <li><a href="#"><span class="uppercase">2011 Starkey Tax Return</span><br>Download <span class="uppercase">(pdf, 2 MBs)</span></a></li>
+          <li><a href="#"><span class="uppercase">2010 Starkey Tax Return</span> <br>Download <span class="uppercase">(pdf, 255 KBs)</span></a></li>
+          <li><a href="#"><span class="uppercase">2009 Starkey Tax Return</span> <br>Download <span class="uppercase">(pdf, 2 MBs)</span></a></li>
+          <li><a href="#"><span class="uppercase">2008 Starkey Tax Return</span> <br>Download <span class="uppercase">(pdf, 2 MBs)</span></a></li>
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          {legal_financials}
+            <li><a href="{legal_financials:file}"><span class="uppercase">{legal_financials:label}</span><br>Download <span class="uppercase">({legal_financials:file:extension}, {legal_financials:file:size}s)</span></a></li>
+          {/legal_financials}
+          <!--(bake-end)-->
         </ul>
       </article>
     </div>
+    <!--(bake-start _if="dist")-->
     {/exp:channel:entries}
-
+    <!--(bake-end)-->
     <!--(bake partials/footer.html)-->
 
     <!--(bake partials/js_includes.html)-->
