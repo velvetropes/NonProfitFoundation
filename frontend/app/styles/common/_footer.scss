@@ -7,7 +7,7 @@ footer {
   }
   .form {
     padding: 50px 150px;
-    @include breakpoint($mobile) {
+    @include breakpoint($tablet-down) {
       padding: 24px 5px;
     }
   }
@@ -114,7 +114,7 @@ footer {
         font-size: 13px;
       }
 
-      @include breakpoint($mobile) {
+      @include breakpoint($tablet-down) {
         float: none;
         width: 100%;
         height: auto;
@@ -147,10 +147,12 @@ footer {
 }
 
 .footer-links {
-  @include span-columns(12);
+  width: 100%;
   ul {
+    padding: 0;
     li {
-      @include span-columns(4 of 12);
+      width: 33%;
+      float: left;
       text-align: center;
       text-transform: uppercase;
       @extend .verlagbold;
@@ -161,10 +163,10 @@ footer {
       }
     }
   }
-  @include breakpoint($mobile) {
+  @include breakpoint($tablet-down) {
     display: block;
     ul {
-      margin-top: -6px;
+      margin-top: -23px;
       padding: 0;
       li {
         display: block;
@@ -195,7 +197,7 @@ footer {
   padding: 15px 0 14px;
   -webkit-font-smoothing: antialiased;
   display: none;
-  @include breakpoint($mobile) {
+  @include breakpoint($tablet-down) {
     display: block;
   }
 }
