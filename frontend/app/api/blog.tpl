@@ -4,7 +4,7 @@
     {exp:channel:entries channel="blog" dynamic="no" backspace="6"}
     {
       "id": "{url_title}",
-      "date": "{blog_date format='%m %d %Y'}",
+      "date": "{blog_date format='%m/%d/%Y'}",
       "year": "{blog_date format='%Y'}",
       "blog_item_category": "{if blog_category}{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_category}{/exp:low_replace}{/if}",
       "related_blog_items": [
