@@ -11,7 +11,7 @@ $visual-grid: true;
 // $visual-grid-opacity: 0.3;
 
 // Bourbon Neat Breakpoints
-$mobile:       max-width 479px 4;
-$tablet:       max-width 767px 8;
-$desktop:      max-width 959px 12;
-$largedesktop: max-width 1199px 16;
+$mobile:       max-width 479px;
+$tablet:       min-width 480px max-width 767px;
+$desktop:      min-width 768px max-width 959px;
+$largedesktop: min-width 960px;

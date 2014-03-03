@@ -1,7 +1,7 @@
 .swiper-controls {
   position: absolute;
   top: 225px;
-  z-index: 99;
+  z-index: 95;
   height: 50px;
   width: 50px;
   @include breakpoint($mobile) {
@@ -37,7 +37,7 @@
   }
 
   .position-indicator {
-    z-index: 99999;
+    z-index: 95;
     margin-right: auto;
     margin-left: auto;
     margin-top: 5.5em;
@@ -123,7 +123,7 @@
   aside {
     position: absolute;
     &:not(.side-panel) {
-      z-index: 9999;
+      z-index: 90;
       color: #FFF;
       width: 100%;
       bottom: 43px;
@@ -228,7 +228,7 @@
     display: none;
   }
   .play-video-link {
-    z-index: 9999;
+    z-index: 95;
   }
 }
 

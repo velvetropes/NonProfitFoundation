@@ -160,11 +160,15 @@ footer {
         font-size: .625em;
       }
     }
-    @include breakpoint($mobile) {
+  }
+  @include breakpoint($mobile) {
+    display: block;
+    ul {
       margin-top: -6px;
       padding: 0;
       li {
-        @include span-columns(12 of 12);
+        display: block;
+        width: 100%;
         border-bottom: 1px dotted #CECECE;
         &.legal-links {
           padding-bottom: 9px;
