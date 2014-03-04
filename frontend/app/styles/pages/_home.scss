@@ -186,6 +186,7 @@
     padding: 8px;
     margin-bottom: 2px;
     position: relative;
+    display: none;
   }
   .entry-image {
     float: left;
@@ -222,6 +223,7 @@
     right: 8px;
   }
   .load-more {
+    display: none;
     color: #006b8a;
     text-align: center;
     padding: 13px;
