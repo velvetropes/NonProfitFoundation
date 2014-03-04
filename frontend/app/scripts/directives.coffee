@@ -373,6 +373,30 @@ sfDirectives.directive("instagramGallery", [
     }
 ])
 
+sfDirectives.directive("latestBlogPost", [
+  "$http"
+  "LatestBlog"
+  ($http, LatestBlog) ->
+    return {
+      restrict: "E"
+      scope: {}
+      replace: true
+      template: """
+        <div>
+          <h4>From our blog</h4>
+          <p>{{article.title}}</p>
+          <p class="align-right">{{article.date}}</p>
+          <p class="read-more"><a href="/blog#articles/{{article.id}}">Check out our blog &rarr;</a></p>
+        </div>
+        """
+      link: (scope, element, attr) ->
+        scope.article = {}
+        LatestBlog.fetchLatest().then (data) ->
+          scope.article = data
+
+    }
+])
+
 # Missions Map
 sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   link = (scope, element, attrs) ->
