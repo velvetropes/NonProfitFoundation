@@ -26,6 +26,10 @@ header {
     background: #fff;
     width: 100%;
     z-index: 100;
+    border-bottom: 1px solid #bebebe;
+    &.active {
+      border-bottom: none;
+    }
   }
   .logo {
     width: 25%;
@@ -130,7 +134,7 @@ header {
   opacity: 0;
   width: 100%;
   position: fixed;
-  top: -600px;
+  top: -265px;
   left: 0;
   background: #FFF;
   z-index: 99;
