@@ -93,6 +93,10 @@ footer {
         li {
           margin-left: 2px;
           border: 2px solid white;
+          img {
+            width: 40px;
+            height: 40px;
+          }
         }
       }
 
@@ -114,6 +118,14 @@ footer {
         font-size: 13px;
       }
 
+      &.facebook {
+        h1 {
+          margin-top: 20px;
+        }
+        p {
+          margin-top: 12px;
+        }
+      }
       @include breakpoint($tablet-down) {
         float: none;
         width: 100%;

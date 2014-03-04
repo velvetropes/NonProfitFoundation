@@ -196,6 +196,9 @@ a {
 
 .uppercase {
   text-transform: uppercase;
+  strong {
+    color: $light_blue;
+  }
 }
 
 hr.separator {

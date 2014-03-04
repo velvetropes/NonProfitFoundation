@@ -165,6 +165,42 @@ sfDirectives.directive 'dynamic', ["$compile", ($compile) ->
     )
 ]
 
+# Facebook
+sfDirectives.directive("facebook", [
+  "$timeout"
+  "$http"
+  ($timeout, $http) ->
+    return {
+      restrict: "E"
+      scope:
+        url: "@"
+        caption: "@"
+      replace: true
+      template: """
+        <div class="centered">
+          <div>
+            <h1>{{shares}} <strong>fans</strong></h1>
+          </div>
+          <p class="read-more"><a href>Like us</a></p>
+        </div>
+        """
+      link: (scope, element, attr) ->
+        scope.shares = 0
+        $http.get("https://api.facebook.com/method/links.getStats?urls=" + scope.url + "&format=json").success((res) ->
+          scope.shares = res[0].share_count
+        ).error ->
+          scope.shares = 0
+
+        $timeout ->
+          element.bind "click", ->
+            FB.ui
+              method: "feed"
+              name: "Facebook shares"
+              link: scope.url
+              caption: scope.caption
+    }
+])
+
 # <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
 
 sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", ($http, $sce) ->
@@ -312,6 +348,31 @@ sfDirectives.directive 'homeThumblistNav', [->
     clickaction: "="
 
 ]
+
+sfDirectives.directive("instagramGallery", [
+  "$http"
+  "Instagram"
+  ($http, Instagram) ->
+    return {
+      restrict: "E"
+      scope: {}
+      replace: true
+      template: """
+        <ul class='thumbs'>
+          <li ng-repeat="p in pics">
+            <a href="{{p.link}}" target="_blank"><img ng-src="{{p.images.thumbnail.url}}" /></a>
+          </li>
+        </ul>
+
+        """
+      link: (scope, element, attr) ->
+        scope.pics = []
+        Instagram.fetchLatest( (data) ->
+          scope.pics = data
+          console.debug "scope.pics", scope.pics
+        )
+    }
+])
 
 # Missions Map
 sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->

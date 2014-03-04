@@ -108,6 +108,8 @@ takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 ]
 
 HomePageApp = angular.module('homePageApp', requiredModules )
+HomePageApp.run ($FB) ->
+  $FB.init('1391926457745223')
 
 # Preview
 previewPageApp = angular.module("previewPageApp", requiredModules )
