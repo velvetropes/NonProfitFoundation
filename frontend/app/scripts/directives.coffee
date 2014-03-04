@@ -369,7 +369,6 @@ sfDirectives.directive("instagramGallery", [
         scope.pics = []
         Instagram.fetchLatest( (data) ->
           scope.pics = data
-          console.debug "scope.pics", scope.pics
         )
     }
 ])
