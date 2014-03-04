@@ -15,10 +15,10 @@ pagination {
   margin-bottom: 42px;
   padding: 0;
   clear: both;
+  @include row(table);
   .article {
      @include span-columns(4);
      @include omega(3n);
-     display: block;
      margin-bottom: 42px;
     .block {
       background: #F8F6F0;

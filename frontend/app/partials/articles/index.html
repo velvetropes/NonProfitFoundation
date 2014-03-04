@@ -121,8 +121,8 @@
     </li>
   </ul>
 
-  <div class='pagination-articles'>
-    <div class='article' ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+  <section class="pagination-articles">
+    <div class="article" ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <div class='block'>
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
         <div class="content">
@@ -131,8 +131,8 @@
           <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
+  </section>
 
   <div class="pagination">
     <ul>
