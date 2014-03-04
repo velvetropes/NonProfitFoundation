@@ -55,6 +55,22 @@ sfServices.factory "Articles", ["$q", "$http", "$resource", "urlChooser", ($q, $
   {getIndex: getIndex}
 ]
 
+sfServices.factory "LatestBlog", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+
+  fetchLatest = ->
+    endPoint = "#{urlChooser.getUrl}/latest_blog"
+    deferred = $q.defer()
+
+    $http.get(endPoint).success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+
+    deferred.promise
+
+  {fetchLatest: fetchLatest}
+]
+
 sfServices.factory("$FB", [
   "$window"
   ($window) ->

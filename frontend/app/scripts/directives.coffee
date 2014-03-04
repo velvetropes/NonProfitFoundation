@@ -360,7 +360,7 @@ sfDirectives.directive("instagramGallery", [
       template: """
         <ul class='thumbs'>
           <li ng-repeat="p in pics">
-            <a href="{{p.link}}" target="_blank"><img ng-src="{{p.images.thumbnail.url}}" /></a>
+            <a href="{{p.link}}" target="_blank" ng-style="{'background-image': 'url(' + p.images.thumbnail.url + ')'}">&nbsp;</a>
           </li>
         </ul>
 
@@ -370,6 +370,30 @@ sfDirectives.directive("instagramGallery", [
         Instagram.fetchLatest( (data) ->
           scope.pics = data
         )
+    }
+])
+
+sfDirectives.directive("latestBlogPost", [
+  "$http"
+  "LatestBlog"
+  ($http, LatestBlog) ->
+    return {
+      restrict: "E"
+      scope: {}
+      replace: true
+      template: """
+        <div>
+          <h4>From our blog</h4>
+          <p>{{article.title}}</p>
+          <p class="align-right">{{article.date}}</p>
+          <p class="read-more"><a href="/blog#articles/{{article.id}}">Check out our blog &rarr;</a></p>
+        </div>
+        """
+      link: (scope, element, attr) ->
+        scope.article = {}
+        LatestBlog.fetchLatest().then (data) ->
+          scope.article = data
+
     }
 ])
 
