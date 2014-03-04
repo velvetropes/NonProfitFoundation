@@ -360,7 +360,7 @@ sfDirectives.directive("instagramGallery", [
       template: """
         <ul class='thumbs'>
           <li ng-repeat="p in pics">
-            <a href="{{p.link}}" target="_blank"><img ng-src="{{p.images.thumbnail.url}}" /></a>
+            <a href="{{p.link}}" target="_blank" ng-style="{'background-image': 'url(' + p.images.thumbnail.url + ')'}">&nbsp;</a>
           </li>
         </ul>
 
