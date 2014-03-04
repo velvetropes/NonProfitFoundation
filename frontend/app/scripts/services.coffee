@@ -3,9 +3,9 @@
 sfServices = angular.module("sfServices", ["ngResource"])
 
 sfServices.factory "urlChooser", [->
-  env = "development"
+  # env = "development"
   # env = "staging"
-  # env = "production"
+  env = "production"
 
   getUrl = ->
     switch env
