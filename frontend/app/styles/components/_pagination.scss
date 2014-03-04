@@ -16,7 +16,7 @@ pagination {
   padding: 0;
   clear: both;
   @include row(table);
-  .article {
+  li {
      @include span-columns(4);
      @include omega(3n);
      margin-bottom: 42px;
