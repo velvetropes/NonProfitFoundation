@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="/assets/styles/0f7f2e1a.main.css"/>
+    <link rel="stylesheet" href="/assets/styles/633096da.main.css"/>
     
   </head>
   <body class='home-page page' ng:app="homePageApp" ng:controller="globalCtrl">
@@ -364,16 +364,19 @@
         >
           {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
             {home_bot}
-              <div class="entry">
-                <div class="entry-image">
-                  <a href="{home_bot:carousel_video_url}"><img src="{home_bot:carousel_image}"></a>
-                </div>
-                <div class="entry-content">
-                  <h3><a href="{home_bot:carousel_video_url}">{home_bot:title}</a></h3>
-                  <a class="read-more" href="{home_bot:carousel_video_url}">Watch Video</a>
-                </div>
-                <div class="clearfix"></div>
-              </div>
+              <slide
+                image-url="{home_bot:carousel_image}"
+                background-color=""
+                quote=""
+                video-url="{home_bot:carousel_video_url}"
+                link-url=""
+                headline="{home_bot:title}"
+                body-copy=""
+                logo-image-url=""
+                link-style=""
+                link-text="Watch Video"
+              >
+              </slide>
             {/home_bot}
           {/exp:channel:entries}
 

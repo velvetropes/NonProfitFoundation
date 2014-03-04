@@ -10,6 +10,70 @@
   </div>
 </div>
 
+<section class='starkey-stories-carousel carousel hero'>
+  <swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_1"
+    auto="8000"
+    paginator="true"
+    size="short"
+    >
+    thumblist="true"
+    image-url="{{article.thumbnail_image_url}}"
+    blog-category="{{article.blog_item_category}}"
+    video-url=""
+    link-url="#/articles/{{article.id}}"
+    headline="{{article.title}}"
+    link-text=""
+    <!--(bake-start _if="dist")-->
+      {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+        <slide
+          image-url="{article.thumbnail_image_url}"
+          background-color=""
+          quote=""
+          video-url=""
+          link-url="#/articles/{article.id}"
+          headline="{article.title}"
+          body-copy=""
+          logo-image-url=""
+          link-style=""
+          link-text="Read More →"
+        >
+      </slide>
+      {/exp:channel:entries}
+    <!--(bake-end)-->
+    <!--(bake-start _if="server")-->
+      <slide
+          image-url="http://starkey.local/uploads/images/MAP-Vikings_Mission-IMG_6064.JPG"
+          background-color=""
+          quote=""
+          video-url=""
+          link-url="http://www.youtube.com/watch?v=pfW1S5KAi44"
+          headline="Building Momentum for Peace in the West Bank"
+          body-copy=""
+          logo-image-url=""
+          link-style=""
+          link-text="Read More →"
+        >
+      </slide>
+      <slide
+          image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg"
+          background-color=""
+          quote=""
+          video-url=""
+          link-url="http://www.youtube.com/watch?v=pfW1S5KAi44"
+          headline="Building Momentum for Peace in the West Bank"
+          body-copy=""
+          logo-image-url=""
+          link-style=""
+          link-text="Read More →"
+        >
+      </slide>
+    <!--(bake-end)-->
+  </swiper>
+</section>
+
 <section class='carousel'>
   <thumblist-nav full="true">
     <div ng-repeat="article in articles | filter:{featured:'true'}">
@@ -61,9 +125,11 @@
     <li ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <div class='block'>
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <h2 class="headline">{{article.title}}</h2>
-        <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
-        <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+        <div class="content">
+          <h2 class="headline">{{article.title}}</h2>
+          <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
+          <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+        </div>
       </div>
     </li>
   </ul>

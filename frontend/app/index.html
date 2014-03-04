@@ -265,45 +265,48 @@
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
             {home_bot}
-              <div class="entry">
-                <div class="entry-image">
-                  <a href="{home_bot:carousel_video_url}"><img src="{home_bot:carousel_image}"></a>
-                </div>
-                <div class="entry-content">
-                  <h3><a href="{home_bot:carousel_video_url}">{home_bot:title}</a></h3>
-                  <a class="read-more" href="{home_bot:carousel_video_url}">Watch Video</a>
-                </div>
-                <div class="clearfix"></div>
-              </div>
+              <slide
+                image-url="{home_bot:carousel_image}"
+                background-color=""
+                quote=""
+                video-url="{home_bot:carousel_video_url}"
+                link-url=""
+                headline="{home_bot:title}"
+                body-copy=""
+                logo-image-url=""
+                link-style=""
+                link-text="Watch Video"
+              >
+              </slide>
             {/home_bot}
           {/exp:channel:entries}
         <!--(bake-end)-->
         <!--(bake-start _if="server")-->
           <slide
-              image-url="http://starkey.local/uploads/images/MAP-Vikings_Mission-IMG_6064.JPG"
-              background-color=""
-              quote=""
-              video-url="http://www.youtube.com/watch?v=pfW1S5KAi44"
-              link-url=""
-              headline="Building Momentum for Peace in the West Bank"
-              body-copy=""
-              logo-image-url=""
-              link-style=""
-              link-text="Watch Video"
-            >
+            image-url="http://starkey.local/uploads/images/MAP-Vikings_Mission-IMG_6064.JPG"
+            background-color=""
+            quote=""
+            video-url="http://www.youtube.com/watch?v=pfW1S5KAi44"
+            link-url=""
+            headline="Building Momentum for Peace in the West Bank"
+            body-copy=""
+            logo-image-url=""
+            link-style=""
+            link-text="Watch Video"
+          >
           </slide>
           <slide
-              image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg"
-              background-color=""
-              quote=""
-              video-url="http://www.youtube.com/watch?v=pfW1S5KAi44"
-              link-url=""
-              headline="Building Momentum for Peace in the West Bank"
-              body-copy=""
-              logo-image-url=""
-              link-style=""
-              link-text="Watch Video"
-            >
+            image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg"
+            background-color=""
+            quote=""
+            video-url="http://www.youtube.com/watch?v=pfW1S5KAi44"
+            link-url=""
+            headline="Building Momentum for Peace in the West Bank"
+            body-copy=""
+            logo-image-url=""
+            link-style=""
+            link-text="Watch Video"
+          >
           </slide>
         <!--(bake-end)-->
       </swiper>

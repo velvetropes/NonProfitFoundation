@@ -1,3 +1,56 @@
+.blog-page {
+  @include breakpoint($tablet-down) {
+    .carousel {
+      display: none;
+    }
+    .pagination-articles {
+      li {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 3px;
+        .block {
+          padding: 4px;
+          height: 140px;
+          .image {
+            position: static;
+            width: 45%;
+            height: 100%;
+            float: left;
+          }
+          .content {
+            float: left;
+            width: 50%;
+          }
+          .headline {
+            position: static;
+            padding: 10px 10px 5px;
+            margin: 0;
+            font-weight: 400;
+            font-size: 18px;
+            height: auto;
+            overflow: visible;
+          }
+          .date {
+            position: static;
+            font-size: 11px;
+            font-weight: bold;
+          }
+          .read-more {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+  .starkey-stories-carousel {
+    @include breakpoint($mobile) {
+      margin-top: 22px;
+    }
+    @include breakpoint($tablet-down) {
+      display: block;
+    }
+  }
+}
 .articles-filters {
   padding: 0;
   float: left;
