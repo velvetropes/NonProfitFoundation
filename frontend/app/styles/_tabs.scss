@@ -3,13 +3,13 @@ nav {
     margin-bottom: 0;
     li {
       text-align: center;
-      border-top: 1px dotted #333;
-      border-right: 1px dotted #333;
+      border-top: $dotted-border;
+      border-right: $dotted-border;
       background: white;
-      border-bottom: 1px dotted #333;
+      border-bottom: $dotted-border;
       @include pad();
       &:first-child {
-        border-left: 1px dotted #333;
+        border-left: $dotted-border;
       }
       a {
         font-family: "Verlag A", "Verlag B";
@@ -29,7 +29,7 @@ nav {
 }
 
 .header-nav {
-  border-top: 1px dotted #333;
+  border-top: $dotted-border;
   margin-top: 80px;
   @include breakpoint($tablet) {
     margin-top: 60px;
@@ -67,10 +67,13 @@ nav {
         @include span-columns(2 of 6);
         border-bottom: 5px solid #3d4144;
         height: 185px;
-        border-left: 1px dotted #333;
+        border-left: $dotted-border;
         padding: 20px;
+        &:first-child {
+          border-left: none;
+        }
         &:last-child {
-          border-right: 1px dotted #333;
+          border-right: none;
         }
         &:hover {
           border-bottom-color: $light-blue;
@@ -110,7 +113,7 @@ nav {
   hr {
     margin: -1px 0 0;
     border: none;
-    border-bottom: 1px dotted #333;
+    border-bottom: $dotted-border;
   }
   @include breakpoint($mobile) {
     display: none;
@@ -121,7 +124,7 @@ nav {
 .tabbed-content {
 
   nav {
-    border-bottom: 1px dotted #333;
+    border-bottom: $dotted-border;
     .tabs {
       text-align: center;
       margin-bottom: -1px;
@@ -154,8 +157,8 @@ nav {
         margin: 0 0 -1px;
         li {
           display: inline-block;
-          border-left: 1px dotted #333;
-          border-top: 1px dotted #333;
+          border-left: $dotted-border;
+          border-top: $dotted-border;
           margin: 0 0 0 -3px;
           a {
             font-size: .875em;
@@ -174,7 +177,7 @@ nav {
             }
           }
           &.last {
-            border-right: 1px dotted #333;
+            border-right: $dotted-border;
           }
           &:hover {
             a {

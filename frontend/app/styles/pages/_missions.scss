@@ -164,7 +164,7 @@
 .hearing-missions-statistics {
   // @include span-columns(12);
   width: 100%;
-  border-bottom: 1px dotted #333;
+  border-bottom: $dotted-border;
   margin: 0 0 55px;
   ul {
     margin: 0;

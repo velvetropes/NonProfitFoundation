@@ -44,3 +44,13 @@ $ ->
       enteries.eq(1).fadeIn(200)
       if !$('.map-as-feed-wrap .entry:hidden').length
         loadMore.hide()
+
+$(window).load ->
+  blogFeed = $('.blog-articles-list')
+  loadMore = $('.blog-articles-list .load-more')
+
+  if $('.next-page-trigger').length > 0
+    loadMore.show()
+
+    loadMore.click ->
+      $('.next-page-trigger').first().click()

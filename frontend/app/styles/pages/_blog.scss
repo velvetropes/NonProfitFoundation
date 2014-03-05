@@ -1,5 +1,5 @@
 .blog-page {
-  .pagination-articles {
+  ul.pagination-articles {
     .block {
       .headline {
         bottom: 55px;
@@ -22,7 +22,11 @@
     .carousel {
       display: none;
     }
-    .pagination-articles {
+    .pagination {
+      display: none;
+    }
+    ul.pagination-articles {
+      margin-bottom: 0;
       li {
         margin-right: 0;
         width: 100%;
@@ -68,6 +72,9 @@
     }
     @include breakpoint($tablet-down) {
       display: block;
+      border-bottom: $dotted-border;
+      padding-bottom: 10px;
+      background: #fff;
     }
   }
 }

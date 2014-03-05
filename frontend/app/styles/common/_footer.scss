@@ -130,7 +130,7 @@ footer {
       }
       &.blog {
         .read-more {
-          margin-top: 31px;
+          margin-top: 21px;
         }
       }
       @include breakpoint($tablet-down) {
@@ -147,7 +147,14 @@ footer {
         div {
           height: auto;
           float: left;
-          margin-left: 72px;
+          width: 100%;
+          padding-left: 72px;
+        }
+        .facebook-fans {
+          text-align: left;
+          h1 {
+            margin-top: 1px;
+          }
         }
         .thumbs {
           margin-left: 0;

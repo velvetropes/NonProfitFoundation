@@ -26,7 +26,7 @@
         video-url=""
         link-url="#/articles/{{article.id}}"
         headline="{{article.title}}"
-        link-text=""
+        link-text="Read More →"
       ></slide>
     </div>
   </swiper>
@@ -58,7 +58,7 @@
       <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
-      <li class="disabled">
+      <li class="next-page-trigger disabled">
         <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
@@ -79,20 +79,22 @@
     </li>
   </ul>
 
-  <ul class="pagination-articles">
-    <li ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-      <div class='block'>
-        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <div class="content">
-          <h2 class="headline">{{article.title}}</h2>
-          <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
-          <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+  <section class='blog-articles-list'>
+    <ul class="pagination-articles">
+      <li ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+        <div class='block'>
+          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+          <div class="content">
+            <h2 class="headline">{{article.title}}</h2>
+            <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
+            <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-
-  <div class="clearfix"></div>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="load-more">LOAD MORE</div>
+  </section>
 
   <div class="pagination">
     <ul>

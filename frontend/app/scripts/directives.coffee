@@ -177,11 +177,9 @@ sfDirectives.directive("facebook", [
         caption: "@"
       replace: true
       template: """
-        <div class="centered">
-          <div>
+        <div class="facebook-fans centered">
             <h1>{{shares}} <strong>fans</strong></h1>
-          </div>
-          <p class="read-more"><a href>Like us</a></p>
+          <p class="read-more"><a href>Like us →</a></p>
         </div>
         """
       link: (scope, element, attr) ->
@@ -385,7 +383,7 @@ sfDirectives.directive("latestBlogPost", [
         <div>
           <h4>From our blog</h4>
           <p>{{article.title}}</p>
-          <p class="align-right">{{article.date}}</p>
+          <p>{{article.date}}</p>
           <p class="read-more"><a href="/blog#articles/{{article.id}}">Check out our blog &rarr;</a></p>
         </div>
         """

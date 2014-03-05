@@ -27,7 +27,7 @@ ul.pagination-articles {
     }
     .block {
       background: #F8F6F0;
-      border-left: 1px dotted #333;
+      border-left: $dotted-border;
       height: 345px;
       overflow: hidden;
       position: relative;

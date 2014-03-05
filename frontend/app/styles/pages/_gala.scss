@@ -14,7 +14,7 @@
     }
   }
   .highlights {
-    border: 1px dotted #333;
+    border: $dotted-border;
     border-right: none;
     border-left: none;
     margin: 20px 0 0;
@@ -30,7 +30,7 @@
         width: 50%;
         padding: 15px 0 20px 45px;
         &.first {
-          border-right: 1px dotted #333;
+          border-right: $dotted-border;
           padding-left: 0;
         }
         .content {
