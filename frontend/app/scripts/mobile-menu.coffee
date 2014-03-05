@@ -52,11 +52,11 @@ $ ->
         loadMore.hide()
 
 $(window).load ->
-  blogFeed = $('.articles-list')
+  # blogFeed = $('.articles-list')
   loadMore = $('.articles-list .load-more')
 
   if $('.next-page-trigger').length > 0
     loadMore.addClass 'visible'
 
-    loadMore.click ->
-      $('.next-page-trigger').first().click()
+  #   loadMore.click ->
+  #     $('.next-page-trigger').first().click()

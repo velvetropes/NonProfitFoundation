@@ -80,8 +80,20 @@
   </ul>
 
   <section class='articles-list'>
-    <ul class="pagination-articles blog-items">
+    <ul class="pagination-articles desktop blog-items">
       <li ng-repeat="article in nonFeaturedArticles | filter:articleFilters | startFrom: pageStart() | limitTo: pageEnd()" class="reveal">
+        <div class='block'>
+          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+          <div class="content">
+            <h2 class="headline">{{article.title}}</h2>
+            <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
+            <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="pagination-articles tablet">
+      <li ng-repeat="article in articlesForMobile track by article.id" class="reveal">
         <div class='block'>
           <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
           <div class="content">

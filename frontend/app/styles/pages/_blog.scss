@@ -1,4 +1,36 @@
 .blog-page {
+  ul.pagination-articles {
+    &.tablet {
+      display: none;
+    }
+    &.desktop {
+        display: block;
+      }
+    @include breakpoint($tablet-down) {
+      &.tablet {
+        display: block;
+      }
+      &.desktop {
+        display: none;
+      }
+    }
+    .block {
+      .headline {
+        bottom: 55px;
+        height: 48px;
+        line-height: 1em;
+        overflow: hidden;
+      }
+      .date {
+        position: absolute;
+        bottom: 6px;
+        left: 20px;
+        text-transform: uppercase;
+        font-size: .875em;
+        text-align: left;
+      }
+    }
+  }
   .starkey-stories-carousel {
     @include breakpoint($mobile) {
       margin-top: 22px;

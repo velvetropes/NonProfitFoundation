@@ -52,8 +52,10 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 
 # Blog
 sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", ($scope, $window, Articles, Pagination) ->
+  itemsPerPage = 9
   $scope.articles =[]
   $scope.nonFeaturedArticles = []
+  $scope.articlesForMobile = []
   $scope.articleFilters = {
     featured:'false'
     blog_item_category: ''
@@ -88,9 +90,10 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
       $scope.articles = data
     else
       $scope.articles = [data]
-    $scope.pagination = Pagination.getNew(9)
+    $scope.pagination = Pagination.getNew(itemsPerPage)
     $scope.nonFeaturedArticles = _.filter $scope.articles, (article) ->
       article.featured is 'false'
+    $scope.articlesForMobile = $scope.nonFeaturedArticles[0..itemsPerPage-1]
     $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
 
   $scope.numberOfPages = ->
@@ -101,6 +104,7 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
 
   $scope.loadMore = ->
     $scope.pagination.nextPage()
+    $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.nonFeaturedArticles[currentPageCollection()..(currentPageCollection() + $scope.pagination.perPage)])
 
   isMobile = ->
     $scope.windowWidth < 768
@@ -123,7 +127,7 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
     $scope.pagination.page * $scope.pagination.perPage
 
   $scope.isAtPaginationEnd = ->
-    $scope.nonFeaturedArticles.length == $scope.pageEnd()
+    $scope.articlesForMobile.length >= $scope.nonFeaturedArticles.length
 
 ])
 
