@@ -25,6 +25,11 @@
     .pagination {
       display: none;
     }
+    .load-more {
+      &.visible {
+        display: block;
+      }
+    }
     ul.pagination-articles {
       margin-bottom: 0;
       li {

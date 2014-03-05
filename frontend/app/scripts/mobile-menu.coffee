@@ -50,7 +50,7 @@ $(window).load ->
   loadMore = $('.blog-articles-list .load-more')
 
   if $('.next-page-trigger').length > 0
-    loadMore.show()
+    loadMore.addClass 'visible'
 
     loadMore.click ->
       $('.next-page-trigger').first().click()
