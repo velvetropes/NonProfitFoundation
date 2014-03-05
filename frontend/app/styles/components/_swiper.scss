@@ -1,6 +1,6 @@
 .swiper-controls {
   position: absolute;
-  top: 225px;
+  top: 265px;
   z-index: 95;
   height: 50px;
   width: 50px;
@@ -108,7 +108,7 @@
   .play-video-link {
     position: absolute;
     left: 50%;
-    top: 30%;
+    top: 43%;
     margin-left: -40px;
     @include breakpoint($mobile) {
       top: 44px;
