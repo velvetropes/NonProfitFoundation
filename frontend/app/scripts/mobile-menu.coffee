@@ -52,8 +52,8 @@ $ ->
         loadMore.hide()
 
 $(window).load ->
-  blogFeed = $('.blog-articles-list')
-  loadMore = $('.blog-articles-list .load-more')
+  blogFeed = $('.articles-list')
+  loadMore = $('.articles-list .load-more')
 
   if $('.next-page-trigger').length > 0
     loadMore.addClass 'visible'

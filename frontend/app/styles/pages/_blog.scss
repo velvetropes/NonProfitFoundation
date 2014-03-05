@@ -17,60 +17,6 @@
       }
     }
   }
-
-  @include breakpoint($tablet-down) {
-    .carousel {
-      display: none;
-    }
-    .pagination {
-      display: none;
-    }
-    .load-more {
-      &.visible {
-        display: block;
-      }
-    }
-    ul.pagination-articles {
-      margin-bottom: 0;
-      li {
-        margin-right: 0;
-        width: 100%;
-        margin-bottom: 3px;
-        .block {
-          padding: 4px;
-          height: 140px;
-          .image {
-            position: static;
-            width: 45%;
-            height: 100%;
-            float: left;
-          }
-          .content {
-            float: left;
-            width: 50%;
-          }
-          .headline {
-            position: static;
-            padding: 10px 10px 5px;
-            margin: 0;
-            font-weight: 400;
-            font-size: 18px;
-            height: auto;
-            overflow: visible;
-          }
-          .date {
-            position: static;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 0 10px;
-          }
-          .read-more {
-            font-size: 11px;
-          }
-        }
-      }
-    }
-  }
   .starkey-stories-carousel {
     @include breakpoint($mobile) {
       margin-top: 22px;
@@ -80,6 +26,11 @@
       border-bottom: $dotted-border;
       padding-bottom: 10px;
       background: #fff;
+    }
+  }
+  @include breakpoint($tablet-down) {
+    .carousel {
+      display: none;
     }
   }
 }

@@ -45,25 +45,28 @@
     </li>
   </ul>
 
-  <ul class="pagination-articles press-items">
-    <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-      <page-tile
-        id="{{highlight.id}}"
-        title="{{highlight.title}}"
-        date="{{highlight.date}}"
-        detail_page="true"
-        type="missions_highlight"
-        featured="{{highlight.featured}}"
-        header_image_url="{{highlight.thumbnail_image_url}}"
-        logo_image_url=""
-        quote=""
-        call_to_action_text=""
-        call_to_action_link=""
-        video_link=""
-        category="{{highlight.country}}"
-      ></page-tile>
-    </li>
-  </ul>
+  <section class='articles-list'>
+    <ul class="pagination-articles press-items">
+      <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+        <page-tile
+          id="{{highlight.id}}"
+          title="{{highlight.title}}"
+          date="{{highlight.date}}"
+          detail_page="true"
+          type="missions_highlight"
+          featured="{{highlight.featured}}"
+          header_image_url="{{highlight.thumbnail_image_url}}"
+          logo_image_url=""
+          quote=""
+          call_to_action_text=""
+          call_to_action_link=""
+          video_link=""
+          category="{{highlight.country}}"
+        ></page-tile>
+      </li>
+    </ul>
+    <div class="load-more">LOAD MORE</div>
+  </section>
 
   <div class="pagination">
     <ul>

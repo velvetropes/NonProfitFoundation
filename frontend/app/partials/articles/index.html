@@ -79,7 +79,7 @@
     </li>
   </ul>
 
-  <section class='blog-articles-list'>
+  <section class='articles-list'>
     <ul class="pagination-articles">
       <li ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
         <div class='block'>
@@ -92,7 +92,6 @@
         </div>
       </li>
     </ul>
-    <div class="clearfix"></div>
     <div class="load-more">LOAD MORE</div>
   </section>
 
