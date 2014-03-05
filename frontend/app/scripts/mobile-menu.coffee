@@ -28,6 +28,11 @@ $ ->
         submenu.toggleClass 'active'
         submenu.children('ul').slideToggle 200
 
+  $(window).resize ->
+    mask.removeClass 'active'
+    menu.removeClass 'active'
+    header.removeClass 'active'
+
 $ ->
   mapAsFeed = $('.map-as-feed-wrap')
   enteries  = $('.map-as-feed-wrap .entry')
