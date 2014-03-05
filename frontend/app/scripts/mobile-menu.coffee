@@ -14,18 +14,19 @@ $ ->
     mask.removeClass 'active'
     menu.removeClass 'active'
 
-  submenus.click ->
-    $('.mobile-menu .main-menu > li.active').not($(@)).each ->
+  submenus.click (e) ->
+    unless $(e.target).parents('.sub-menu').length > 0
+      $('.mobile-menu .main-menu > li.active').not($(@)).each ->
+        submenu = $(@)
+        $(@).children('ul').slideToggle 200, ->
+          submenu.toggleClass 'active'
       submenu = $(@)
-      $(@).children('ul').slideToggle 200, ->
+      if submenu.hasClass 'active'
+        submenu.children('ul').slideToggle 200, ->
+          submenu.toggleClass 'active'
+      else
         submenu.toggleClass 'active'
-    submenu = $(@)
-    if submenu.hasClass 'active'
-      submenu.children('ul').slideToggle 200, ->
-        submenu.toggleClass 'active'
-    else
-      submenu.toggleClass 'active'
-      submenu.children('ul').slideToggle 200
+        submenu.children('ul').slideToggle 200
 
 $ ->
   mapAsFeed = $('.map-as-feed-wrap')
