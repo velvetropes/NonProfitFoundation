@@ -51,13 +51,15 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 ])
 
 # Blog
-sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", ($scope, Articles, Pagination) ->
+sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", ($scope, $window, Articles, Pagination) ->
   $scope.articles =[]
+  $scope.nonFeaturedArticles = []
   $scope.articleFilters = {
     featured:'false'
     blog_item_category: ''
     year: ''
   }
+  $scope.windowWidth = $window.innerWidth
 
   $scope.articleCategories = [
     {name: "All", tag: ''}
@@ -86,16 +88,43 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
       $scope.articles = data
     else
       $scope.articles = [data]
-
     $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
+    $scope.nonFeaturedArticles = _.filter $scope.articles, (article) ->
+      article.featured is 'false'
+    $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
 
   $scope.numberOfPages = ->
-    Math.ceil($scope.articles.length/$scope.pageSize)
+    Math.ceil($scope.nonFeaturedArticles.length/$scope.pageSize)
 
   $scope.parseDate = (date) ->
-    parsedDate = Date.parse(date)
-    parsedDate
+    Date.parse(date)
+
+  $scope.loadMore = ->
+    $scope.pagination.nextPage()
+
+  isMobile = ->
+    $scope.windowWidth < 768
+
+  $scope.pageStart = ->
+    if $scope.pagination?
+      if isMobile()
+        0
+      else
+        currentPageCollection()
+
+  $scope.pageEnd = ->
+    if $scope.pagination?
+      if isMobile()
+        ($scope.pagination.page+1) * $scope.pagination.perPage
+      else
+        $scope.pagination.perPage
+
+  currentPageCollection = ->
+    $scope.pagination.page * $scope.pagination.perPage
+
+  $scope.isAtPaginationEnd = ->
+    $scope.nonFeaturedArticles.length == $scope.pageEnd()
+
 ])
 
 sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->

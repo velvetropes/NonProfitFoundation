@@ -81,7 +81,7 @@
 
   <section class='articles-list'>
     <ul class="pagination-articles">
-      <li ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+      <li ng-repeat="article in nonFeaturedArticles | filter:articleFilters | startFrom: pageStart() | limitTo: pageEnd()" class="reveal">
         <div class='block'>
           <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
           <div class="content">
@@ -92,7 +92,12 @@
         </div>
       </li>
     </ul>
+<<<<<<< HEAD
     <div class="load-more">LOAD MORE</div>
+=======
+    <div class="clearfix"></div>
+    <div class="load-more" ng-click="loadMore()" ng-hide="isAtPaginationEnd()">LOAD MORE</div>
+>>>>>>> Blog articles pagination for tablets append additional items
   </section>
 
   <div class="pagination">
