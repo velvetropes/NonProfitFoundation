@@ -4,6 +4,9 @@
   z-index: 95;
   height: 50px;
   width: 50px;
+  @include breakpoint($tablet) {
+    top: 185px;
+  }
   @include breakpoint($mobile) {
     top: 69px;
   }
@@ -64,13 +67,14 @@
   position: relative;
   background-color: #000;
   width: 100%;
-  @include breakpoint($mobile) {
-    max-width: 480px;
-    overflow: hidden;
-  }
+  max-width: 100%;
+  overflow: hidden;
   &.short {
     .swipe-wrap > div {
       height: 600px;
+      @include breakpoint($tablet) {
+        height: 440px;
+      }
       @include breakpoint($mobile) {
         height: 300px;
       }
@@ -80,10 +84,12 @@
     > div {
       width: 100%;
       height: 800px;
+      @include breakpoint($tablet) {
+        height: 440px;
+      }
       @include breakpoint($mobile) {
         height: 300px;
       }
-
     }
   }
   article {
@@ -110,6 +116,9 @@
     left: 50%;
     top: 43%;
     margin-left: -40px;
+    @include breakpoint($tablet) {
+      top: 135px;
+    }
     @include breakpoint($mobile) {
       top: 44px;
     }
@@ -132,7 +141,7 @@
       -moz-osx-font-smoothing: grayscale;
       h1 {
         @extend .alrightsansbold;
-        margin-bottom: 0;
+        margin: 0 10px;
         font-size: 2.875em;
         line-height: 1.08em;
       }
@@ -140,7 +149,7 @@
         @extend .alrightsanslight;
         font-size: 1.2em;
         font-weight: 400;
-        margin:0.15em 0 0.1em 0
+        margin: 0.15em 10px 0.1em;
       }
       a {
         @extend .verlag;
