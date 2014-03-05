@@ -80,7 +80,7 @@
   </ul>
 
   <section class='articles-list'>
-    <ul class="pagination-articles">
+    <ul class="pagination-articles blog-items">
       <li ng-repeat="article in nonFeaturedArticles | filter:articleFilters | startFrom: pageStart() | limitTo: pageEnd()" class="reveal">
         <div class='block'>
           <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
