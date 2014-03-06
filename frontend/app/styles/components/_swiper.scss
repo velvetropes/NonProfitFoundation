@@ -160,19 +160,22 @@
       }
       @include breakpoint($mobile) {
         bottom: 0px;
-        background: #2d2d2d;
+        background: #fff;
+        color: #333;
         text-align: left;
         padding: 4px 20px 8px;
         h1 {
           font-size: 18px;
+          margin-bottom: 24px;
+        }
+        a {
+          float: right;
+          color: #333;
+          font-size: 11px;
         }
         p {
           font-size: 13px;
           line-height: 1.2;
-        }
-        a {
-          float: right;
-          font-size: 13px;
         }
       }
     }
@@ -260,6 +263,32 @@
     cursor: pointer;
     &.on {
       background: $orange;
+    }
+  }
+}
+
+.carousel.thumblist {
+  @include breakpoint($tablet-down) {
+    display: none;
+  }
+}
+
+.mobile-carousel {
+  display: none;
+  @include breakpoint($tablet-down) {
+    display: block;
+    background: #2d2d2d;
+  }
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 27px 0;
+    font-size: 20px;
+    color: #bebebe;
+  }
+  .swiper-controls {
+    a {
+      padding: 12px 0;
     }
   }
 }

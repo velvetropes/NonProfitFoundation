@@ -33,7 +33,7 @@
 </thumblist-nav>
 </section>
 
-<section class="starkey-stories-carousel carousel hero short">
+<section class="mobile-carousel carousel hero short">
   <swiper
     continuous="true"
     speed="2000"

@@ -30,9 +30,6 @@
   }
   &.bottom {
     width: 100%;
-    @include breakpoint($mobile) {
-      display: none;
-    }
     .thumblist-nav .jspPane > div .content {
       bottom: 23px;
     }
@@ -66,6 +63,12 @@
     font-size: 2.375em;
     line-height: 1.71em;
     margin: 0.32em 0;
+    padding: 0 16px;
+  }
+  @include breakpoint($mobile) {
+    h1 {
+      line-height: 1.3em;
+    }
   }
 }
 
@@ -88,7 +91,7 @@
       border: none;
     }
   }
-  @include breakpoint($mobile) {
+  @include breakpoint($tablet-down) {
     min-width: 400px;
     .pict {
       width: 100%;
@@ -225,42 +228,6 @@
   .load-more {
     color: #006b8a;
   }
-}
-.starkey-stories-carousel {
-  background: #2d2d2d;
-  display: none;
-  @include breakpoint($mobile) {
-    display: block;
-  }
-  h2 {
-    text-align: center;
-    margin: 0;
-    padding: 27px 0;
-    font-size: 20px;
-    color: #bebebe;
-  }
-  .swiper-controls {
-    a {
-      padding: 12px 0;
-    }
-  }
-  .swiper {
-    aside {
-      background: #fff;
-      color: #333;
-      h1 {
-        margin-bottom: 24px;
-      }
-      a {
-        color: #333;
-        font-size: 11px;
-      }
-    }
-  }
-}
-
-.clearfix {
-  clear: both;
 }
 
 .home-page .thumblist .thumblist-nav .jspPane > div .content {

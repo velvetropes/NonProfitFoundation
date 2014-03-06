@@ -81,7 +81,7 @@
   </div>
 
   <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel'>
+  <section class='carousel thumblist'>
     <thumblist-nav>
       {mission_rel}
       <div>

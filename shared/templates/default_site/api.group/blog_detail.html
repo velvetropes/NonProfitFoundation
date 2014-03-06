@@ -79,7 +79,7 @@
 <br/>
 <div class="outer-container">
   <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel'>
+  <section class='carousel thumblist'>
     <thumblist-nav>
       {blog_related_items}
         <slide

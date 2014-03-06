@@ -3,7 +3,7 @@ body {
     padding-top: 55px;
   }
 }
-// Header
+
 .CENTERPIN {
   width: 2px;
   height: 100%;
@@ -16,6 +16,10 @@ body {
   opacity: 0.5;
   display: none;
 }
+.clearfix {
+  clear: both;
+}
+
 header {
   margin-top: 1em;
   @include breakpoint($mobile) {
