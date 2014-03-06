@@ -231,16 +231,11 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
   link = (scope, element, attrs) ->
     scope.slides ?= 1
+
     scope.isThumblist = ->
       scope.slides > 1
 
     config = { showArrows: true}
-
-    if scope.isThumblist()
-      $timeout (->
-        scope.pane = $(".gallery")
-        scope.pane.jScrollPane config
-      ), 1400
 
     scope.isFullHeight = ->
       scope.full?.length > 0 and scope.full is "true"
@@ -253,6 +248,24 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
     # So thumblist stretches full-width
     element.parent().addClass("no-container") if element.parent()?.is("p")
+
+    if scope.isThumblist()
+      element.jScrollPane config
+      scope.api = element.data("jsp")
+      scope.$watch (->
+        element.find(".gallery-slide").length
+      ), (length) ->
+        # scope.api.reinitialise()
+        setTimeout( ->
+          scope.api.reinitialise()
+        , 800)
+
+      # $timeout (->
+      #   scope.pane = $(".gallery")
+      #   scope.pane.jScrollPane config
+      #   # scope.api = scope.pane.data("jsp")
+      # ), 1400
+
 
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
@@ -314,6 +327,11 @@ sfDirectives.directive "gallerySlide", [ ->
         'background-size': 'cover'
       }
 
+    scope.imageStyle =
+      {
+        'width': '530px'
+      }
+
   result =
     restrict: "E"
     replace: true
@@ -325,6 +343,21 @@ sfDirectives.directive "gallerySlide", [ ->
       videoUrl: "@"
   result
 
+]
+
+sfDirectives.directive 'resizer', [->
+  restrict: "A"
+  link: (scope, elem, attr) ->
+    elem.on "load", ->
+      fixedHeightValue = 525
+      ratio = $(this).height()/520
+
+      console.debug "ratio", ratio
+      w = $(this).width()
+      h = $(this).height()
+      elem.css
+        "width": "#{Math.round(w/ratio)}px"
+        "height": "525px"
 ]
 
 sfDirectives.directive 'homeThumblistNav', [->

@@ -103,6 +103,12 @@ ul.pagination-articles {
       }
     }
   }
+  &.desktop {
+    display: block;
+  }
+  &.tablet {
+    display: none;
+  }
 }
 
 .pagination {
@@ -214,6 +220,12 @@ pagination {
           }
         }
       }
+    }
+    &.desktop {
+      display: none;
+    }
+    &.tablet {
+      display: block;
     }
   }
 }
