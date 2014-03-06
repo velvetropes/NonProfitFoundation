@@ -238,6 +238,7 @@ hr.separator {
     }
   }
   @include breakpoint($mobile) {
+    margin-top: 40px;
     h1 {
       font-size: 2em;
     }
