@@ -141,9 +141,6 @@ sfServices.factory "GalaTabs", ["$q", "$http", "$resource", "urlChooser", ($q, $
 
   {getIndex: getIndex}
 ]
-# sfServices.factory "HearingMissionArticle", ["$resource", "urlChooser", ($resource, urlChooser) ->
-#   $resource "#{urlChooser.getUrl}/missions/:articleId", {}, {}
-# ]
 
 sfServices.factory "HearingMissionArticle", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
 

@@ -390,6 +390,7 @@ sfDirectives.directive("latestBlogPost", [
       link: (scope, element, attr) ->
         scope.article = {}
         LatestBlog.fetchLatest().then (data) ->
+          console.debug "data", data
           scope.article = data
 
     }
