@@ -12,16 +12,44 @@
       <div class='sub-devider'></div>
       <ul class='sub-menu'>
         <li>
-          <a href="/about_us.html">About Us</a>
+          <!--(bake-start _if="server")-->
+          <a href="/team.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{site_url}/team">
+          <!--(bake-end)-->
+            About Us
+          </a>
         </li>
         <li>
-          <a href="/team.html">Team</a>
+          <!--(bake-start _if="server")-->
+          <a href="/team.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{site_url}/team">
+          <!--(bake-end)-->
+            Team
+          </a>
         </li>
         <li>
-          <a href="/media_mentions.html">Media Mentions</a>
+          <!--(bake-start _if="server")-->
+          <a href="/media_mentions.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='media_mentions/index'}">
+          <!--(bake-end)-->
+            Media Mentions
+          </a>
         </li>
         <li>
-          <a href="/contact.html">Contact</a>
+          <!--(bake-start _if="server")-->
+          <a href="/contact.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{site_url}/contact">
+          <!--(bake-end)-->
+            Contact
+          </a>
         </li>
       </ul>
     </li>
@@ -31,16 +59,44 @@
       <div class='sub-devider'></div>
       <ul class='sub-menu'>
         <li>
-          <a href="/missions.html">Hearing Mission</a>
+          <!--(bake-start _if="server")-->
+          <a href="/missions.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='missions/index'}">
+          <!--(bake-end)-->
+            Hearing Mission
+          </a>
         </li>
         <li>
-          <a href="/programs.html">Programs</a>
+          <!--(bake-start _if="server")-->
+          <a href="/programs.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='programs/index'}">
+          <!--(bake-end)-->
+            Programs
+          </a>
         </li>
         <li>
-          <a href="/gala.html">Gala</a>
+          <!--(bake-start _if="server")-->
+          <a href="/gala.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='gala/index'}">
+          <!--(bake-end)-->
+            Gala
+          </a>
         </li>
         <li>
-          <a href="/blog.html">Blog</a>
+          <!--(bake-start _if="server")-->
+          <a href="/blog.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='blog/index'}">
+          <!--(bake-end)-->
+            Blog
+          </a>
         </li>
       </ul>
     </li>
@@ -50,10 +106,17 @@
       <div class='sub-devider'></div>
       <ul class='sub-menu'>
         <li>
-          <a href="/take_action.html">Take Action</a>
+          <!--(bake-start _if="server")-->
+          <a href="/take_action.html">
+          <!--(bake-end)-->
+          <!--(bake-start _if="dist")-->
+          <a href="{path='take_action/index'}">
+          <!--(bake-end)-->
+            Take Action
+          </a>
         </li>
         <li>
-          <a href="#">Donate Now</a>
+          <a href="https://action.starkeyhearingfoundation.org/">Donate Now</a>
         </li>
       </ul>
     </li>
@@ -245,7 +308,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="https://action.starkeyhearingfoundation.org/">
           <h3 class="highlight">Donate Now</h3>
           <h2>Lorem ipsum dolor sit amet, vix dico voluptua</h2>
         </a>
