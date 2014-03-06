@@ -212,6 +212,7 @@ hr.separator {
   @include outer-container;
   text-align: center;
   margin-top: 70px;
+  padding: 0 16px;
   h1 {
     font-size: 3.75em;
     text-transform: uppercase;
@@ -219,12 +220,29 @@ hr.separator {
   }
   p {
     @extend .alrightsansregular;
+    line-height: 1.5;
     &.fixed-width {
       margin: 0 auto 15px;
       width: 820px;
     }
     &.bigger {
       font-size: 1.25em;
+    }
+  }
+  @include breakpoint($tablet) {
+    h1 {
+      font-size: 3em;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+  @include breakpoint($mobile) {
+    h1 {
+      font-size: 2em;
+    }
+    p {
+      font-size: 14px;
     }
   }
 }
