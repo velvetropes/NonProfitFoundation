@@ -114,8 +114,28 @@ footer {
           display: block;
         }
       }
+      #twitter {
+        ul {
+          margin: 0;
+          padding: 0;
+        }
+        .user, .interact {
+          display: none;
+        }
+        .tweet {
+          text-align: justify;
+          a {
+            display: inline;
+            text-align: left;
+            color: inherit;
+            font-weight: normal;
+            text-transform: none;
+            font-size: 13px;
+          }
+        }
+      }
 
-      .time {
+      .timePosted {
         float: right;
         font-size: 13px;
       }

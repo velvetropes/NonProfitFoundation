@@ -1,4 +1,6 @@
 $ ->
+  twitterFetcher.fetch('441358329231572992', 'twitter', 1, true)
+
   mask     = $('.mobile-menu-mask')
   trigger  = $('.mobile-menu-icon .icon')
   menu     = $('.mobile-menu')
