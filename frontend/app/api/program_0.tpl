@@ -42,22 +42,20 @@
     size="short"
     paginator="true"
     >
-    {exp:channel:entries channel="programs" backspace="6"}{operation_change_partnerships}
+    {exp:channel:entries channel="programs"}{operation_change_partnerships}
       <slide
         image-url="{operation_change_partnerships:image}"
+        background-color=""
+        quote=""
         video-url=""
         link-url="{operation_change_partnerships:link}"
-        link-text="{operation_change_partnerships:cta}"
         headline="{operation_change_partnerships:title}"
-        body-copy=""
-        thumblist="true"
-        date="{operation_change_partnerships:date format='%F %d%S %Y'}"
-        blog-category=""
-        quote=""
-        background-color=""
+        body-copy="{operation_change_partnerships:date format='%F %d%S %Y'}"
         logo-image-url=""
-        link-style="align-right"
-      ></slide>
+        link-style=""
+        link-text="Read More →"
+      >
+      </slide>
       {/operation_change_partnerships}
     {/exp:channel:entries}
   </swiper>
