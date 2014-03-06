@@ -32,3 +32,33 @@
 {/exp:channel:entries}
 </thumblist-nav>
 </section>
+
+<section class="carousel hero short">
+  <swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_1"
+    auto="8000"
+    size="short"
+    paginator="true"
+    >
+    {exp:channel:entries channel="programs" backspace="6"}{operation_change_partnerships}
+      <slide
+        image-url="{operation_change_partnerships:image}"
+        video-url=""
+        link-url="{operation_change_partnerships:link}"
+        link-text="{operation_change_partnerships:cta}"
+        headline="{operation_change_partnerships:title}"
+        body-copy=""
+        thumblist="true"
+        date="{operation_change_partnerships:date format='%F %d%S %Y'}"
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+      {/operation_change_partnerships}
+    {/exp:channel:entries}
+  </swiper>
+</section>

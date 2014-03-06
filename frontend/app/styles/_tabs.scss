@@ -131,6 +131,7 @@ nav {
       li {
         @include span-columns(1 of 4);
         padding: 5px;
+        vertical-align: middle;
         a {
           font-size: .875em;
           @extend .alrightsanslight;
