@@ -292,7 +292,7 @@
   }
 }
 
- @include breakpoint($tablet-down) {
+ @include breakpoint($mobile) {
   .add-bottom-border {
     border-bottom: $dotted-border;
     padding-bottom: 8px;
