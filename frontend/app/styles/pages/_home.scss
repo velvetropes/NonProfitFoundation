@@ -67,6 +67,7 @@
   }
   @include breakpoint($mobile) {
     h1 {
+      font-size: 2.1em;
       line-height: 1.3em;
     }
   }

@@ -1,12 +1,3 @@
-.blog-page {
-  .mobile-carousel {
-    @include breakpoint($tablet-down) {
-      border-bottom: $dotted-border;
-      padding-bottom: 10px;
-      background: #fff;
-    }
-  }
-}
 .articles-filters {
   padding: 0;
   float: left;
