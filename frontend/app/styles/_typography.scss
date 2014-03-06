@@ -208,6 +208,12 @@ hr.separator {
     margin: 20px 0;
   }
 }
+
+.fixed-width {
+  margin: 0 auto 15px;
+  width: 820px;
+}
+
 .page-leader {
   @include outer-container;
   text-align: center;
@@ -221,14 +227,11 @@ hr.separator {
   p {
     @extend .alrightsansregular;
     line-height: 1.5;
-    &.fixed-width {
-      margin: 0 auto 15px;
-      width: 820px;
-    }
     &.bigger {
       font-size: 1.25em;
     }
   }
+
   @include breakpoint($tablet-down) {
     h1 {
       font-size: 3em;
@@ -260,6 +263,7 @@ hr.separator {
   text-align: center;
   width: 100%;
   margin: 50px auto 0;
+  float: left;
   .section-title {
     color: $light-blue;
     text-transform: uppercase;
@@ -268,7 +272,7 @@ hr.separator {
   .section-headline {
     text-transform: uppercase;
     font-size: 3.75em;
-    margin-top: 30px 0 40px;
+    margin: 30px 0 40px;
   }
   p {
     margin: 20px 0;
