@@ -19,6 +19,12 @@ body {
 .clearfix {
   clear: both;
 }
+.mobile-only {
+  display: none;
+  @include breakpoint($mobile) {
+    display: block;
+  }
+}
 
 header {
   margin-top: 1em;

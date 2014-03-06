@@ -178,7 +178,7 @@ nav {
           display: inline-block;
           border-left: $dotted-border;
           border-top: $dotted-border;
-          margin: 0 0 0 -3px;
+          margin: 0 0 0 -1px;
           a {
             font-size: .875em;
             @extend .alrightsanslight;
@@ -213,6 +213,9 @@ nav {
       .three-tabs {
         li {
           width: 200px;
+          @include breakpoint($tablet) {
+            width: 32%;
+          }
           a {
             padding: 10px 0 8px;
           }
@@ -220,7 +223,7 @@ nav {
       }
       .five-tabs {
         li {
-          width: 210px;
+          width: 19.5%;
           a {
             padding: 10px 0 8px;
           }
