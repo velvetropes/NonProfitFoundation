@@ -1,0 +1,158 @@
+@font-face {
+ font-family: "Alright Sans";
+ src: url("http://wac.6a25.edgecastcdn.net/006A25/webtype/ff/3/f2d44ac3-c698-4b93-837a-21393bf8b421") format("woff");
+ font-style: normal;
+ font-weight: normal;
+}
+@font-face {
+ font-family: "Alright Sans";
+ src: url("http://wac.6a25.edgecastcdn.net/006A25/webtype/ff/3/e2b2e6a0-531d-40f3-99af-5fb26c7951b4") format("woff");
+ font-style: normal;
+ font-weight: normal;
+}
+@font-face {
+ font-family: "Alright Sans";
+ src: url("http://wac.6a25.edgecastcdn.net/006A25/webtype/ff/3/53a5dd52-92f6-4907-93ed-cff076de3aef") format("woff");
+ font-style: normal;
+ font-weight: bold;
+}
+
+#BodyId {background: #ffffff;}
+#wrapTagline {right: 38%;}
+#headerLogo {width: 160px; height: auto;}
+#wrapNav {background: none; height: 1px; border-bottom: 1px dotted #333333;}
+h1, .BBListingHeading {
+  font-family: "Alright Sans";
+  font-style: normal;
+  font-weight: normal;
+  color: #3D4144;
+}
+
+h1 {
+  font-size: 2.25em;
+  line-height: 1.2em;
+}
+
+.donationAppeal h1 {
+  font-size: 3.75em;
+  text-transform: uppercase;
+  font-weight: : bold;
+}
+
+.donationAppeal p {
+  font-family: "Alright Sans";
+  font-style: normal;
+  font-weight: normal;
+}
+
+.DonationButtonCell input[type="submit"] {
+  text-align: center;
+  background: none;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 6px 60px 5px;
+  border: 2px solid #00B3D2;
+  color: #00B3D2;
+  text-transform: uppercase;
+  margin-left: 136px;
+}
+
+.DonationCaptureFieldControlCell input[type="text"] {
+  outline: none;
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 5px 15px 0px;
+  height: 40px;
+  border: 1px solid #FFF;
+  background: #EEE;
+  -webkit-appearance: none;
+  box-shadow: none;
+  width: 100%;
+  border-radius: 0px;
+  color: #3D4144;
+}
+
+.DonationFieldControlCell input[type="text"] {
+  outline: none;
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 5px 15px 0px;
+  height: 40px;
+  border: 1px solid #FFF;
+  background: #EEE;
+  -webkit-appearance: none;
+  box-shadow: none;
+  width: 100%;
+  border-radius: 0px;
+  color: #3D4144;
+}
+
+.DonationTextArea {
+  outline: none;
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 5px 15px 0px;
+  height: 300px;
+  border: 1px solid #FFF;
+  background: #EEE;
+  -webkit-appearance: none;
+  box-shadow: none;
+  width: 100%;
+  border-radius: 0px;
+  color: #3D4144;
+}
+
+.DonationCaptureTextArea {
+  outline: none;
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 5px 15px 0px;
+  height: 300px;
+  border: 1px solid #FFF;
+  background: #EEE;
+  -webkit-appearance: none;
+  box-shadow: none;
+  width: 100%;
+  border-radius: 0px;
+  color: #3D4144;
+}
+
+.DonationCaptureSelectList input[type="radio"] {
+  margin-right: 5px;
+}
+
+.DonationCaptureSelectList label {
+  margin-right: 10px;
+}
+
+.DonationCaptureFieldControlCell select {
+  margin: 15px 0;
+}
+
+.DonationFieldCheckboxCaption {
+  margin: 15px 0;
+}
+
+.DonationFieldCheckboxCaption input {
+  margin-right: 10px;
+}
+
+.DonationFieldControlCell input[type="radio"] {
+  margin: 10px 10px 10px 0;
+}
+
+#wrapFooter {
+  background: #F8F6F0;
+  border: none;
+}
+
+.footerMenuWrap ul.menu li a {
+  color: #3D4144;
+}
+.footerMenuWrap ul.menu li::before {
+  color: #3D4144;
+}
+
+.footerContactWrap p {
+  color: #3D4144;
+}
