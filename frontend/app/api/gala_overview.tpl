@@ -35,7 +35,7 @@
     <ul>
       {galla_overview_highlights}
       <li{if galla_overview_highlights:count == 1} class="first"{/if}>
-        <div class="highlight-thumbnail" style="background: url('{galla_overview_highlights:image}'); background-size: cover;">
+        <div class="highlight-thumbnail" style="background: url('{galla_overview_highlights:image}');">
         </div>
         <div class="content">
           <h3>{galla_overview_highlights:title}</h3>
