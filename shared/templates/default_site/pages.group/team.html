@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <link rel="stylesheet" href="/assets/styles/3db16c7b.main.css"/>
+    <link rel="stylesheet" href="/assets/styles/9b516a25.main.css"/>
     
   </head>
   <body class='team-page page' ng:app="homePageApp"  ng:controller="globalCtrl">
@@ -296,7 +296,7 @@
       <div class='mobile-footer-subscribe'>
         <a href ng-click="toggleSubscribeForm()" scroll-to-position="subscribeFormAnchor">SUBSCRIBE TO OUR NEWSLETTER &rarr;</a>
       </div>
-      <div>
+      <div class="outer-container">
         <section class='social-info'>
           <ul>
             <li class='blog'>
@@ -309,33 +309,35 @@
             </li>
             <li class='instagram'>
               <span class="icon starkey-insta"></span>
-              <div>
+              <div class="footer-list-item">
                 <instagram-gallery></instagram-gallery>
               </div>
               <p class="read-more"><a href='http://instagram.com/starkeycares'>Follow us &rarr;</a></p>
             </li>
             <li class='twitter'>
               <span class="icon starkey-share-twitter"></span>
-              <div id="twitter">
+              <div id="twitter" class="footer-list-item">
               </div>
               <p class="read-more"><a href='#'>Follow us &rarr;</a></p>
     
             </li>
           </ul>
         </section>
-        <section class='footer-links'>
-          <ul>
-            <li class='legal-links'>
+      </div>
+      <section class='footer-links'>
+        <ul>
+          <li class='legal-links'>
 
-              <a href="{path='legal/index'}">
-                Legal / Financials &rarr;
-              </a>
-            </li>
-            <li class='desktop-footer-subscribe'><a href ng-click="toggleSubscribeForm()" scroll-to-position="subscribeFormAnchor" >Subscribe to our newsletter &rarr;</a></li>
-            <li class='copyright'><p>&copy; Starkey Hearing Foundation 2014</p></li>
-          </ul>
-        </section>
-        <div class="clearfix"></div>
+            <a href="{path='legal/index'}">
+              Legal / Financials &rarr;
+            </a>
+          </li>
+          <li class='desktop-footer-subscribe'><a href ng-click="toggleSubscribeForm()" scroll-to-position="subscribeFormAnchor" >Subscribe to our newsletter &rarr;</a></li>
+          <li class='copyright'><p>&copy; Starkey Hearing Foundation 2014</p></li>
+        </ul>
+      </section>
+      <div class="clearfix"></div>
+      <div class="outer-container">
         <section>
           <div class="reveal outer-container form" ng-show="showSubscribeForm==true">
             <form action="" accept-charset="utf-8" class="flatform invert" method="post">
@@ -376,13 +378,14 @@
             </form>
           </div>
         </section>
+      </div>
         <p id="subscribeFormAnchor" style="display: block;">&nbsp;</p>
       </div>
     </footer>
 
     <script src="/assets/scripts/98c468b6.vendor.js"></script>
     
-    <script src="/assets/scripts/657945a8.main.js"></script>
+    <script src="/assets/scripts/ca70f74b.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
