@@ -1,18 +1,18 @@
-{exp:channel:next_entry channel="blog" 
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if} 
+{exp:channel:next_entry channel="blog"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
   {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
 }
    {exp:stash:set_value parse_tags="yes" name="next_entry" value="{url_title}"}
 {/exp:channel:next_entry}
 
-{exp:channel:prev_entry channel="blog" 
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if} 
+{exp:channel:prev_entry channel="blog"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
   {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
 }
     {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
 {/exp:channel:prev_entry}
 
-{exp:channel:entries channel="blog" dynamic="no" limit="1" 
+{exp:channel:entries channel="blog" dynamic="no" limit="1"
   {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
   {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
 }
@@ -44,7 +44,7 @@
             <p class="article-item-category">{blog_category}</p>
           {/if}
           <h1  class="article-title">{title}</h1>
-          <p>{blog_date format='%M %d, %Y'} | {blog_author}</p>
+          <p>{blog_date format='%M %d, %Y'} {if blog_author}| {blog_author}{/if}</p>
         </div>
       </div>
     </div>

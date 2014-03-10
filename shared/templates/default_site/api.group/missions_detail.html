@@ -1,19 +1,19 @@
-{exp:channel:next_entry channel="hearing_missions" 
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if} 
+{exp:channel:next_entry channel="hearing_missions"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
   {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
 }
    {exp:stash:set_value parse_tags="yes" name="next_entry" value="{url_title}"}
 {/exp:channel:next_entry}
 
-{exp:channel:prev_entry channel="hearing_missions" 
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if} 
+{exp:channel:prev_entry channel="hearing_missions"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
   {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
 }
     {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
 {/exp:channel:prev_entry}
 
 {exp:channel:entries channel="hearing_missions" dynamic="no" limit="1"
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if} 
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
   {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
 }
 
@@ -42,7 +42,7 @@
         <div class="banner">
           <p class="article-item-category">{mission_region}{option_name}{/mission_region}, {mission_country}{option_name}{/mission_country}</p>
           <h1  class="article-title">{title}</h1>
-          <p>{mission_date format="%F %d, %Y"} | {author}</p>
+          <p>{mission_date format="%F %d, %Y"}{if author} | {author}{/if}</p>
         </div>
       </div>
     </div>
