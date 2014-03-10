@@ -1,3 +1,8 @@
+.contact-page {
+  .outer-container {
+    max-width: 50em;
+  }
+}
 .contact_main, .contact_secondary {
   @include span-columns(6);
   a {
@@ -7,16 +12,23 @@
     text-transform: uppercase;
     color: #f15c22;
     font-size: 1.125em;
+    @extend .alrightsansbold;
   }
   h2 {
     margin: 0;
     line-height: 1.4em;
+    @extend .alrightsansbold;
+    font-size: 1.125em;
   }
   p {
    font-size: .875em;
    margin: 0 0 15px;
    line-height: 1.5em;
   }
+}
+
+.contact_main {
+  padding-left: 20px;
 }
 
 .contact_secondary {

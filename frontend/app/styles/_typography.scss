@@ -268,11 +268,13 @@ hr.separator {
     color: $light-blue;
     text-transform: uppercase;
     font-size: 1.125em;
+    @extend .alrightsansbold;
   }
   .section-headline {
     text-transform: uppercase;
     font-size: 3.75em;
     margin: 30px 0 40px;
+    @extend .alrightsansbold;
   }
   p {
     margin: 20px 0;
@@ -445,15 +447,6 @@ blockquote p {
   }
   p {
     line-height: 1.875em;
-  }
-  @include breakpoint($mobile) {
-    h1 {
-      font-size: 1.5em;
-    }
-    p {
-      font-size: 12px;
-      line-height: 1.2em;
-    }
   }
 }
 
