@@ -446,6 +446,15 @@ blockquote p {
   p {
     line-height: 1.875em;
   }
+  @include breakpoint($mobile) {
+    h1 {
+      font-size: 1.5em;
+    }
+    p {
+      font-size: 12px;
+      line-height: 1.2em;
+    }
+  }
 }
 
 .ellipsis {

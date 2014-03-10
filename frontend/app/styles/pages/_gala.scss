@@ -9,59 +9,10 @@
     float: left;
     margin-top: 50px;
     padding-left: 45px;
-    .headline {
-
-    }
-  }
-  .highlights {
-    border: $dotted-border;
-    border-right: none;
-    border-left: none;
-    margin: 20px 0 0;
-    padding: 20px 0;
-    width: 100%;
-    float: left;
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      li {
-        float: left;
-        width: 50%;
-        padding: 15px 0 20px 45px;
-        &.first {
-          border-right: $dotted-border;
-          padding-left: 0;
-        }
-        .content {
-          float: left;
-          width: 239px;
-          margin-left: 30px;
-          h3 {
-            font-size: 1.625em;
-            @extend .alrightsanslight;
-            line-height: 1.2em;
-            margin-bottom: 10px;
-            margin-top: 0;
-          }
-          p {
-            margin: 0;
-          }
-        }
-        .highlight-thumbnail {
-          width: 230px;
-          height: 174px;
-          float: left;
-          background-size: cover;
-          background-position: center;
-        }
-        .action-link {
-          text-align: right;
-          text-transform: uppercase;
-          font-size: .75em;
-          @extend .verlagbold;
-        }
-      }
+    @include breakpoint($mobile) {
+      width: 100%;
+      float: none;
+      padding-left: 0;
     }
   }
 }
@@ -79,6 +30,95 @@
   }
 }
 
+.highlights {
+  border: $dotted-border;
+  border-right: none;
+  border-left: none;
+  margin: 20px 0 0;
+  padding: 20px 0;
+  width: 100%;
+  float: left;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      float: left;
+      width: 50%;
+      padding: 15px 0 20px 45px;
+      &.first {
+        border-right: $dotted-border;
+        padding-left: 0;
+      }
+      .content {
+        float: left;
+        width: 239px;
+        margin-left: 30px;
+        h3 {
+          font-size: 1.625em;
+          @extend .alrightsanslight;
+          line-height: 1.2em;
+          margin-bottom: 10px;
+          margin-top: 0;
+        }
+        p {
+          margin: 0;
+        }
+      }
+      .highlight-thumbnail {
+        width: 230px;
+        height: 174px;
+        float: left;
+        background-size: cover;
+        background-position: center;
+      }
+      .action-link {
+        text-align: right;
+        text-transform: uppercase;
+        font-size: .75em;
+        @extend .verlagbold;
+      }
+    }
+  }
+  @include breakpoint($mobile) {
+    border-bottom: none;
+    padding: 0;
+    ul {
+      li {
+        display: block;
+        float: none;
+        width: 100%;
+        padding: 4px;
+        border-bottom: $dotted-border;
+        &.first {
+          border-right: none;
+          padding-left: 4px;
+        }
+        .highlight-thumbnail {
+          width: 40%;
+          height: 140px;
+        }
+        .content {
+          width: 60%;
+          padding-left: 16px;
+          margin: 0;
+          h3 {
+            font-size: 1em;
+            line-height: 1.2;
+            margin-top: 8px;
+          }
+          p {
+            line-height: 1.2;
+            font-size: 0.8em;
+          }
+          .action {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}
 .overview-mode {
 
   .gala-upcoming {

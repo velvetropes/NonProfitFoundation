@@ -244,6 +244,14 @@
   .play-video-link {
     z-index: 95;
   }
+  @include breakpoint($mobile) {
+    float: none;
+    width: 100%;
+    .play-video-link {
+      top: 50%;
+      margin-top: -40px;
+    }
+  }
 }
 
 .swiper-position {
