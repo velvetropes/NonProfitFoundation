@@ -46,10 +46,11 @@
           }
           .image {
             text-align: center;
-            img {
-              max-width:100%;
-              height:auto;
-            }
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            width: 200px;
+            margin: 10px auto;
           }
         }
         &:last-child {

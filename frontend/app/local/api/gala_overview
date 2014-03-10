@@ -1,4 +1,3 @@
-
 <article class='gala-overview outer-container'>
   <div class="carousel half-wit">
     <swiper
@@ -51,12 +50,12 @@
     <ul>
 
       <li class="first">
-        <div class="highlight-thumbnail" style="background: url('');">
+        <div class="highlight-thumbnail" style="background: url('http://starkey.local/uploads/images/BLOG-Preparing_to_give_the__Gift_of-Hearing-LEAD.jpg');">
         </div>
         <div class="content">
           <h3>Tani Austin Reflects on 12 Amazing Years</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
-          <p class="action-link"><a href="#sample-link">Read more &rarr;</a></p>
+          <p class="action-link"><a href="/programs#/programs/0">Read more &rarr;</a></p>
         </div>
       </li>
 
@@ -66,7 +65,7 @@
         <div class="content">
           <h3>Can You Feel The Love Tonight</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
-          <p class="action-link"><a href="#sample-link2">Read more &rarr;</a></p>
+          <p class="action-link"><a href="/blog#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank">Read more &rarr;</a></p>
         </div>
       </li>
 

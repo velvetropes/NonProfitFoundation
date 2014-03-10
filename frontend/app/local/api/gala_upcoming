@@ -1,9 +1,3 @@
-
-
-
-
-
-
   <div class="gala-tab-content text-container">
     <h1>Upcoming Gala Event</h1>
     <div>
@@ -107,18 +101,15 @@
                   <accordion-list title="Sample Row" ng-class="{active: showMe==tr}">
                     <div class="outer-container">
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url()'}">
                         </div>
                       </accordion-list-item>
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url()'}">
                         </div>
                       </accordion-list-item>
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url()'}">
                         </div>
                       </accordion-list-item>
                     </div>
@@ -198,18 +189,15 @@
                   <accordion-list title="Sample Row" ng-class="{active: showMe==tr}">
                     <div class="outer-container">
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url()'}">
                         </div>
                       </accordion-list-item>
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url()'}">
                         </div>
                       </accordion-list-item>
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url()'}">
                         </div>
                       </accordion-list-item>
                     </div>
@@ -226,18 +214,15 @@
                   <accordion-list title="First Tier Sponsors " ng-class="{active: showMe==tr}">
                     <div class="outer-container">
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="http://starkey.local/uploads/images/ABClogo.jpg" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url(http://starkey.local/uploads/images/ABClogo.jpg)'}">
                         </div>
                       </accordion-list-item>
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="http://starkey.local/uploads/images/cnnlogo.png" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url(http://starkey.local/uploads/images/cnnlogo.png)'}">
                         </div>
                       </accordion-list-item>
                       <accordion-list-item>
-                        <div class="image">
-                          <img src="http://starkey.local/uploads/images/ABClogo.jpg" alt=""/>
+                        <div class="image" ng-style="{'background-image': 'url(http://starkey.local/uploads/images/ABClogo.jpg)'}">
                         </div>
                       </accordion-list-item>
                     </div>
