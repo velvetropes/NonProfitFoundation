@@ -2,9 +2,7 @@
     <h1>
       {{missions.page_title}}
     </h1>
-    <p class="fixed-width bigger uppercase">
-    {{missions.page_lead}}
-    </p>
+    <div class="fixed-width bigger uppercase" ng-bind-html-unsafe="missions.page_lead"></div>
   </section>
 
   <missions-map data="data"></missions-map>
