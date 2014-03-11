@@ -19,6 +19,9 @@ body {
 .clearfix {
   clear: both;
 }
+.overflow-hidden {
+  overflow: hidden;
+}
 .mobile-only {
   display: none;
   @include breakpoint($mobile) {
