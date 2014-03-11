@@ -43,6 +43,7 @@
   height: 525px;
   .gallery-slide {
     max-width: 1600px;
+    width: 100%;
   }
   @include breakpoint($tablet) {
     height: 440px;
