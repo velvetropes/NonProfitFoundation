@@ -26,6 +26,9 @@
   }
   .carousel.hero {
     display: none;
+    .swiper-controls.right {
+      right: -14px;
+    }
   }
   @include breakpoint($tablet-down) {
     .carousel.hero {
