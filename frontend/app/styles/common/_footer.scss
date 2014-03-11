@@ -176,6 +176,9 @@ footer {
           float: left;
           width: 100%;
           padding-left: 72px;
+          div {
+            padding-left: 0;
+          }
         }
         .facebook-fans {
           text-align: left;
