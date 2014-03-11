@@ -15,10 +15,14 @@
         display: block;
         height: 100%;
         width: 100%;
-        .icon{
+        background-position: center;
+        background-size: cover;
+        .icon {
           position: absolute;
-          left: 47%;
-          top: 43%;
+          left: 50%;
+          top: 50%;
+          margin-left: -40px;
+          margin-top: -40px;
           color: white;
           font-size: 5em;
         }
