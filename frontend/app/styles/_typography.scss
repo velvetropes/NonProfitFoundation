@@ -287,6 +287,11 @@ hr.separator {
       text-decoration: underline;
     }
   }
+  @include breakpoint($tablet-down) {
+    .section-headline {
+      font-size: 3em;
+    }
+  }
   @include breakpoint($mobile) {
     margin-top: 18px;
     .section-title {
