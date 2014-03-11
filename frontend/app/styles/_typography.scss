@@ -461,6 +461,10 @@ blockquote p {
       font-size: 14px;
       line-height: 1.2em;
     }
+    h1, h2, h3, p {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
   @include breakpoint($mobile) {
     h1 {
