@@ -43,6 +43,7 @@
               <p>{galla_overview_highlights:body}</p>
               <p class="action-link"><a href="{galla_overview_highlights:link}">Read more &rarr;</a></p>
             </div>
+            <div class="clearfix"></div>
           </li>
           {/galla_overview_highlights}
         </ul>

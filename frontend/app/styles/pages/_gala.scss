@@ -3,6 +3,15 @@
     float: left;
     margin-top: 30px;
     margin-bottom: 10px;
+    @include breakpoint($mobile) {
+      width: 100%;
+      float: none;
+      padding: 0 16px;
+      margin-top: 0;
+      .swiper-controls {
+        top: 116px;
+      }
+    }
   }
   .main-story {
     width: 50%;
@@ -91,6 +100,7 @@
         width: 100%;
         padding: 4px;
         border-bottom: $dotted-border;
+        position: relative;
         &.first {
           border-right: none;
           padding-left: 4px;
@@ -112,8 +122,11 @@
             line-height: 1.2;
             font-size: 0.8em;
           }
-          .action {
+          .action-link {
             font-size: 11px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
           }
         }
       }
