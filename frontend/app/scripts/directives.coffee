@@ -353,8 +353,6 @@ sfDirectives.directive 'resizer', [->
     elem.on "load", ->
       fixedHeightValue = 525
       ratio = $(this).height()/520
-
-      console.debug "ratio", ratio
       w = $(this).width()
       h = $(this).height()
       elem.css
@@ -858,6 +856,8 @@ sfDirectives.directive "slide", [ ->
 sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   link = (scope, element, attrs) ->
     scope.size ?= "tall"
+    # There has to be a better way
+    scope.childSlides = element.children().eq(2).children().eq(0).children()
     config = undefined
     config = {}
     config.auto = if attrs.auto?.length > 0
@@ -871,14 +871,12 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     # TODO Use a promise
     $timeout (->
       scope.swipe = new Swipe(document.getElementById(scope.identifier),
-      auto: config.auto
-      speed: config.speed
-      disableScroll: config.disableScroll
-      continuous: config.continuous
-      callback: (pos) ->
-        bullets = $("[data-swiper='" + scope.identifier + "'] li")
-        bullets.removeClass('on')
-        bullets.eq(pos).addClass('on')
+        auto: config.auto
+        speed: config.speed
+        disableScroll: config.disableScroll
+        continuous: config.continuous
+        callback: (pos) ->
+          scope.setAsCurrent(pos)
       )
     ), 1000
 
@@ -892,8 +890,20 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
       sizeClass = scope.size if scope.hasSize
       sizeClass
 
+    # TODO: Take out duplicate function
+    scope.setAsCurrent = (pos) ->
+      selectedSwipeControl = scope.swipeControls[pos]
+      angular.forEach scope.swipeControls, (swipeControl) ->
+        if selectedSwipeControl is swipeControl
+          swipeControl.toggleActiveState(true)
+        else
+          swipeControl.toggleActiveState(false)
+        return
+      return
+
     element.parent().addClass("no-container") if element.parent()?.is("p")
-    slides = element.children(".slide")
+    return
+
   controller = ($scope, $element) ->
     $scope.next = ->
       $scope.swipe.next()
@@ -904,17 +914,60 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     $scope.slide = (index) ->
       $scope.swipe.slide index
 
-  restrict: "E"
-  link: link
+    $scope.stop = ->
+      $scope.swipe.stop()
+
+    $scope.swipeControls = []
+    @setAsCurrent = (selectedSwipeControl, pos) ->
+      angular.forEach $scope.swipeControls, (swipeControl) ->
+        if selectedSwipeControl is swipeControl
+          swipeControl.isCurrent = true
+          $scope.slide(pos)
+          $scope.swipe.stop()
+        else
+          swipeControl.isCurrent = false
+        return
+      return
+
+    @addSwipeControl = (swipeControl) ->
+      $scope.swipeControls.push swipeControl
+      return
+    return
+
+  restrict: "EA"
   controller: controller
+  link: link
   templateUrl: "templates/swipe.html"
   transclude: true
   replace: true
-  # priority: 0
   scope:
     identifier: "@"
     paginator: "@"
     size: "@"
+]
+
+# <swipe-paginator position="0"></swipe-paginator>
+sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
+  link = (scope, element, attrs, swiperController) ->
+    scope.isCurrent = if scope.position is "0" then true else false
+    swiperController.addSwipeControl scope
+    scope.toggle = (pos) ->
+      swiperController.setAsCurrent scope, pos
+      return
+
+    scope.toggleActiveState = (flag) ->
+      scope.isCurrent = flag
+
+  restrict: "E"
+  template: """
+    <li ng-click="toggle(position)" ng-class="{'on':isCurrent==true}"></li>
+    """
+  transclude: true
+  replace: true
+  require: "^?swiper"
+  link: link
+  scope:
+    position: "@"
 ]
 
 #  Tabbed Nav
