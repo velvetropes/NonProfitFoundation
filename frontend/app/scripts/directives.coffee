@@ -876,7 +876,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
         disableScroll: config.disableScroll
         continuous: config.continuous
         callback: (pos) ->
-          scope.setAsCurrent(pos)
+          scope.setAsCurrent(scope.swipeControls[pos])
       )
     ), 1000
 
@@ -891,13 +891,10 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
       sizeClass
 
     # TODO: Take out duplicate function
-    scope.setAsCurrent = (pos) ->
-      selectedSwipeControl = scope.swipeControls[pos]
+    scope.setAsCurrent = (selectedSwipeControl) ->
       angular.forEach scope.swipeControls, (swipeControl) ->
-        if selectedSwipeControl is swipeControl
-          swipeControl.toggleActiveState(true)
-        else
-          swipeControl.toggleActiveState(false)
+        swipeControl.safeApply ->
+          swipeControl.toggleActiveState(selectedSwipeControl is swipeControl)
         return
       return
 
@@ -918,6 +915,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
       $scope.swipe.stop()
 
     $scope.swipeControls = []
+
     @setAsCurrent = (selectedSwipeControl, pos) ->
       angular.forEach $scope.swipeControls, (swipeControl) ->
         if selectedSwipeControl is swipeControl
@@ -958,9 +956,17 @@ sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
     scope.toggleActiveState = (flag) ->
       scope.isCurrent = flag
 
+    scope.safeApply = (fn) ->
+      phase = @$root.$$phase
+      if phase is "$apply" or phase is "$digest"
+        fn()  if fn and (typeof (fn) is "function")
+      else
+        @$apply fn
+      return
+
   restrict: "E"
   template: """
-    <li ng-click="toggle(position)" ng-class="{'on':isCurrent==true}"></li>
+    <li ng-click="toggle(position)" ng-class="{on:isCurrent==true}"></li>
     """
   transclude: true
   replace: true
