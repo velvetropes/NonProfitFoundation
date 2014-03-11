@@ -26,13 +26,13 @@ footer {
     margin-top: 5px;
     width: 100%;
   }
-  &>ul {
+  & > ul {
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
     @include clearfix;
 
-    &>li {
+    & > li {
       float: left;
       width: 25%;
       height: 230px;
@@ -159,7 +159,15 @@ footer {
           margin-bottom: 3px;
         }
       }
-      @include breakpoint($tablet-down) {
+    }
+  }
+  @include breakpoint($tablet-down) {
+    .footer-list-item {
+      height: auto;
+      margin-top: 0;
+    }
+    & > ul {
+      & > li {
         float: none;
         width: 100%;
         height: auto;
@@ -176,17 +184,21 @@ footer {
           width: 100%;
           padding-left: 72px;
         }
-        .timePosted {
+        .tweet, .tweet a, .timePosted {
           float: none;
+          font-size: 12px;
         }
         .facebook-fans {
           text-align: left;
           h1 {
-            margin-top: 1px;
+            margin-top: -7px;
+            padding: 6px 0;
           }
         }
         .thumbs {
           margin-left: 0;
+          margin-top: -7px;
+          padding: 6px 0;
         }
         .time {
           float: none;
