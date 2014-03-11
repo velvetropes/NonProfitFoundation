@@ -12,11 +12,8 @@ nav {
         border-left: $dotted-border;
       }
       a {
-        font-family: "Verlag A", "Verlag B";
         font-weight: 700;
-        font-style: normal;
         font-size: 1em;
-        text-decoration: none;
         text-transform: uppercase;
       }
       &:hover, &.active {
