@@ -24,7 +24,8 @@ module.exports = (grunt) ->
           ".tmp/legal.html" : 'app/legal.html',
           ".tmp/media_mentions.html" : 'app/media_mentions.html',
           ".tmp/missions.html" : 'app/missions.html',
-          ".tmp/preview.html" : 'app/preview.html',
+          ".tmp/preview_blog.html" : 'app/preview_blog.html',
+          ".tmp/preview_missions.html" : 'app/preview_missions.html',
           ".tmp/programs.html" : 'app/programs.html',
           ".tmp/take_action.html" : 'app/take_action.html',
           ".tmp/team.html" : 'app/team.html'
@@ -37,6 +38,7 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/api.group/homepage_markers.html" : 'app/api/homepage_markers.tpl',
           "<%= app.dist %>/templates/default_site/api.group/blog.html" : 'app/api/blog.tpl',
           "<%= app.dist %>/templates/default_site/api.group/blog_detail.html" : 'app/api/blog_detail.tpl',
+          "<%= app.dist %>/templates/default_site/api.group/latest_blog.html" : 'app/api/latest_blog.tpl',
           "<%= app.dist %>/templates/default_site/api.group/gala_overview.html" : 'app/api/gala_overview.tpl',
           "<%= app.dist %>/templates/default_site/api.group/gala_upcoming.html" : 'app/api/gala_upcoming.tpl',
           "<%= app.dist %>/templates/default_site/api.group/gala_items.html" : 'app/api/gala_items.tpl',
@@ -74,7 +76,8 @@ module.exports = (grunt) ->
           "<%= app.dist %>/templates/default_site/pages.group/about_us.html" : 'app/about_us.html',
           "<%= app.dist %>/templates/default_site/pages.group/contact.html" : 'app/contact.html',
           "<%= app.dist %>/templates/default_site/legal.group/index.html" : 'app/legal.html',
-          "<%= app.dist %>/templates/default_site/preview.group/index.html" : 'app/preview.html',
+          "<%= app.dist %>/templates/default_site/preview.group/blog.html" : 'app/preview_blog.html',
+          "<%= app.dist %>/templates/default_site/preview.group/missions.html" : 'app/preview_missions.html',
           "<%= app.dist %>/templates/default_site/take_action.group/index.html" : 'app/take_action.html'
           "<%= app.dist %>/templates/default_site/pages.group/team.html" : 'app/team.html'
      sass:

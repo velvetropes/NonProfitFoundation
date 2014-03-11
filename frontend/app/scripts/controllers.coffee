@@ -6,9 +6,10 @@ sfControllers.config ['$sceProvider', ($sceProvider) ->
 
 # Home
 
-sfControllers.controller("globalVideoModalCtrl", ["$scope",($scope) ->
+sfControllers.controller("globalCtrl", ["$scope", ($scope) ->
   $scope.showModal = false
   $scope.videoIframe = ""
+  $scope.showSubscribeForm = false
 
   $scope.$on 'modal:hide', (event) ->
     $scope.showModal = false
@@ -18,12 +19,17 @@ sfControllers.controller("globalVideoModalCtrl", ["$scope",($scope) ->
     if $scope.showModal is true
       $scope.videoIframe = url
 
+  $scope.toggleSubscribeForm = ->
+    $scope.showSubscribeForm = not $scope.showSubscribeForm
+
+  $scope.openSubscribeForm = ->
+    $scope.showSubscribeForm = true
 ])
 
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->
 
   FeaturedArticle.getIndex().then (data) ->
-    $scope.featuredArticles = data
+    $scope.featuredArticlesHash = data
 
   MapMarker.getIndex().then (data) ->
     $scope.markers = data
@@ -37,7 +43,7 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
       $scope.currentBottomSlideTab = 1
     else
       $scope.currentBottomSlideTab = 2
-      $scope.currentTabModel = $scope.featuredArticles[tabIndex-1]
+      $scope.currentTabModel = $scope.featuredArticlesHash.articles[tabIndex-1]
 
   $scope.modalShown = false
   $scope.toggleModal = ->
@@ -45,13 +51,17 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 ])
 
 # Blog
-sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", ($scope, Articles, Pagination) ->
+sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", ($scope, $window, Articles, Pagination) ->
+  itemsPerPage = 9
   $scope.articles =[]
+  $scope.nonFeaturedArticles = []
+  $scope.articlesForMobile = []
   $scope.articleFilters = {
     featured:'false'
     blog_item_category: ''
     year: ''
   }
+  $scope.windowWidth = $window.innerWidth
 
   $scope.articleCategories = [
     {name: "All", tag: ''}
@@ -80,16 +90,45 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "Articles", "Pagination", (
       $scope.articles = data
     else
       $scope.articles = [data]
-
-    $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
+    $scope.pagination = Pagination.getNew(itemsPerPage)
+    $scope.nonFeaturedArticles = _.filter $scope.articles, (article) ->
+      article.featured is 'false'
+    $scope.articlesForMobile = $scope.nonFeaturedArticles[0..itemsPerPage-1]
+    $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
 
   $scope.numberOfPages = ->
-    Math.ceil($scope.articles.length/$scope.pageSize)
+    Math.ceil($scope.nonFeaturedArticles.length/$scope.pageSize)
 
   $scope.parseDate = (date) ->
-    parsedDate = Date.parse(date)
-    parsedDate
+    Date.parse(date)
+
+  $scope.loadMore = ->
+    $scope.pagination.nextPage()
+    $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.nonFeaturedArticles[currentPageCollection()..(currentPageCollection() + $scope.pagination.perPage)])
+
+  isMobile = ->
+    $scope.windowWidth < 768
+
+  $scope.pageStart = ->
+    if $scope.pagination?
+      if isMobile()
+        0
+      else
+        currentPageCollection()
+
+  $scope.pageEnd = ->
+    if $scope.pagination?
+      if isMobile()
+        ($scope.pagination.page+1) * $scope.pagination.perPage
+      else
+        $scope.pagination.perPage
+
+  currentPageCollection = ->
+    $scope.pagination.page * $scope.pagination.perPage
+
+  $scope.isAtPaginationEnd = ->
+    $scope.articlesForMobile.length >= $scope.nonFeaturedArticles.length
+
 ])
 
 sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
@@ -137,7 +176,7 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   }
 
   $scope.articleCategories = [
-    {name: "All", tag: ''}
+    {name: "All Articles", tag: ''}
     {name: "Press Release", tag: "press_release"}
     {name: "Media Mention", tag: "media_mention"}
   ]
@@ -244,6 +283,9 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
       }
       $scope.highlightYears.push addedYear
 
+  $scope.hideCountryDropdown = ->
+    $scope.highlightsFilters.region==''
+
   $scope.$watch('currentRegion', (newVal, oldVal) ->
     if newVal?.region?.length > 0
       $scope.highlightsFilters.region = newVal.region
@@ -316,7 +358,6 @@ sfControllers.controller("TakeActionCtrl", ["$scope", "$routeParams", ($scope, $
 
 # Preview
 sfControllers.controller("PreviewShowCtrl", ["$scope", "$routeParams", "$sce",  "Preview", ($scope, $routeParams, $sce, Preview) ->
-
   Preview.getDetail($routeParams.articleId).then (data) ->
     $scope.article = data
 

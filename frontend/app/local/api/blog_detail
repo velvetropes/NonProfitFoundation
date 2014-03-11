@@ -1,11 +1,11 @@
 <div class="article-header-image">
-  <div class="image" style="background-image: url('http://starkey.local/uploads/images/BLOG_Giving_Back_the-World_in_Trujillo-LEAD.jpg');">
+  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully.jpg');">
     <ul class="page-nav-links">
             <li>
-        <a href="#/articles/preparing-to-give-the-gift-of-hearing" ng-disabled="'preparing-to-give-the-gift-of-hearing'==''">&larr;</a>
+        <a href="#/articles/tani-austins-inspiring-words-on-her-journey-through-mexico-and-colombia" ng-disabled="'tani-austins-inspiring-words-on-her-journey-through-mexico-and-colombia'==''">&larr;</a>
       </li>
                   <li>
-        <a href="#/articles/an-unstoppable-spirit" ng-disabled="'an-unstoppable-spirit'=='an-unstoppable-spirit'" >&rarr;</a>
+        <a href="#/articles/impacting-a-life-in-manila" ng-disabled="'impacting-a-life-in-manila'=='impacting-a-life-in-manila'" >&rarr;</a>
       </li>
             <li>
         <a href="#">X</a>
@@ -15,9 +15,9 @@
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-                      <p class="article-item-category">Hearing Missions</p>
-                    <h1  class="article-title">Giving Back the World in Trujillo</h1>
-          <p>Feb 13, 2014 | Foundation Staff</p>
+                      <p class="article-item-category">Events</p>
+                    <h1  class="article-title">testing blog post</h1>
+          <p>Feb 03, 2014 | </p>
         </div>
       </div>
     </div>
@@ -25,16 +25,41 @@
 </div>
 <br/>
 <div class="text-container">
-<p>Here&rsquo;s something to brighten your day! It certainly brightened ours. Witness the overwhelming joy and gratitude of a 96-year-old man in Trujillo, Peru reconnected to the world of sound after 40 years of silence. Praising God and everyone around him, the man sang, &ldquo;Continue to watch over me! I am here with my brothers. Please give us your grace. All my life this is how I will be. I will carry on, thanks to everyone! Thanks to God!&rdquo;</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eu eros quis ultrices. Integer blandit molestie felis. Nunc porttitor leo volutpat nibh elementum sollicitudin. Curabitur molestie velit at orci vulputate, at suscipit lacus mattis. Aenean eu velit lacus. In malesuada adipiscing erat ac vestibulum. Donec ultrices, est ut porta pellentesque, mi arcu gravida lorem, mollis egestas turpis turpis scelerisque felis. Ut risus massa, suscipit id orci interdum, consectetur malesuada felis. Nulla convallis elit diam, eget sollicitudin arcu fermentum et. Cras euismod vel dui sed tempus. Pellentesque egestas leo in lobortis malesuada. Curabitur cursus condimentum aliquet. Quisque non faucibus lacus. Praesent accumsan lacus sit amet urna pulvinar placerat.</p>
 
-<p>His unbridled joy brought him to his feet in dance, as he immediately began to relish in all the sounds of life.</p>
+<p>Donec id congue arcu. Duis sagittis, erat eget rhoncus volutpat, metus ipsum hendrerit lacus, ac accumsan risus orci accumsan diam. Ut ultrices nisl ante, a ultricies ligula malesuada vulputate. Vivamus aliquet enim at justo pellentesque, et scelerisque elit tincidunt. Nam consectetur, felis sit amet pretium fringilla, tortor est imperdiet augue, id aliquet velit lectus ac dui. Praesent blandit convallis nisl, et laoreet risus egestas nec. Donec aliquet tortor vitae ipsum porttitor fringilla vel non diam. Quisque fermentum egestas arcu non scelerisque. Cras nisi est, congue quis justo eget, laoreet porta nunc.</p>
+
+<p>In in lobortis sem. Nullam et sapien id turpis sodales porta. Sed pellentesque euismod nisl, vitae dictum erat faucibus at. Pellentesque blandit vehicula nisl, vel volutpat lorem fermentum quis. Duis a velit in lorem fermentum mattis. Donec interdum venenatis odio, ac volutpat elit porta vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+
+<p>Curabitur fringilla, lacus non facilisis tincidunt, est libero viverra tellus, adipiscing eleifend leo mi eget lacus. Phasellus a urna consequat, ultricies neque at, sagittis urna. Nam ac sollicitudin erat. Maecenas vel purus quis tellus faucibus auctor. Duis accumsan justo quis ligula sollicitudin aliquam. Nulla consequat tincidunt cursus. Proin id dui tempus, mollis metus et, venenatis dui. Morbi vestibulum elit massa, eu cursus lorem commodo ut. Duis pellentesque erat justo, vitae porta turpis vulputate sed. Nulla sollicitudin mattis justo, in aliquet risus rutrum nec.</p>
+
+<p>Duis tristique velit sapien, a placerat nunc lacinia at. Fusce metus dui, vulputate molestie ullamcorper quis, eleifend eu sapien. Sed pulvinar sem id massa sagittis condimentum. Nullam fermentum tellus hendrerit nisi suscipit, et scelerisque velit interdum. Nullam nec metus urna. Praesent vestibulum ipsum diam, eu viverra justo consequat vitae. Sed quis congue lectus, quis sodales libero. Maecenas malesuada dictum massa interdum aliquam.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
 
 <p>
 
 
-          <gallery slides="1">              <gallery-slide
-               image-url=""
-               video-url="http://youtu.be/jK1lFYKgc7k"
+          <gallery slides="4">              <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/billaustin.jpg"
+               video-url=""
+              ></gallery-slide>
+
+                        <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/Blog_A_Knight.jpg"
+               video-url=""
+              ></gallery-slide>
+
+                        <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Providing_Clean_Water_in_Tanzania.jpg"
+               video-url="http://www.youtube.com/watch?v=OJ4W9zzjgII"
+              ></gallery-slide>
+
+                        <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Building_a_Better_Kibera.jpg"
+               video-url=""
               ></gallery-slide>
           </gallery>
 
@@ -67,7 +92,7 @@
 <br/>
 <div class="outer-container">
   <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel'>
+  <section class='carousel thumblist'>
     <thumblist-nav>
 
     </thumblist-nav>

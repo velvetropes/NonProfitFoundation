@@ -1,45 +1,46 @@
 .swiper-controls {
   position: absolute;
-  top: 225px;
-  z-index: 99;
+  top: 265px;
+  z-index: 95;
   height: 50px;
   width: 50px;
+  @include breakpoint($tablet) {
+    top: 185px;
+  }
+  @include breakpoint($mobile) {
+    top: 74px;
+  }
   a {
-    padding-top: 17px;
-    color: rbga(0, 0, 0, 0.25);
-    font-size: 3em;
+    display: block;
+    padding: 12px 0;
+    font-size: 34px;
     background-color: rgba(255, 255, 255, 0.75);
     span {
-      -webkit-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-      -o-transform: rotate(180deg);
-      transform: rotate(180deg);
+      @include transform(rotate(180deg))
     }
   }
 
   &.left {
-    left: -10px;
+    left: -20px;
     a {
       border-radius: 0 100px 100px 0;
       -moz-border-radius: 0 100px 100px 0;
       -webkit-border-radius:  0 100px 100px 0;
-      padding-right: 5px;
+      margin-left: 16px;
     }
   }
 
   &.right {
-    right: -10px;
+    right: -22px;
     a {
       border-radius: 100px 0 0 100px;
       -moz-border-radius: 100px 0 0 100px;
       -webkit-border-radius: 100px 0 0 100px;
-      padding-left: 5px;
     }
   }
 
   .position-indicator {
-    z-index: 99999;
+    z-index: 95;
     margin-right: auto;
     margin-left: auto;
     margin-top: 5.5em;
@@ -64,32 +65,44 @@
 
 .swiper {
   position: relative;
+  background-color: #000;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   &.short {
-    .swiper-controls {
-      // margin-top: 200px;
-    }
     .swipe-wrap > div {
-      height: 500px;
-    }
-  }
-  &.narrow {
-    .swiper-controls {
-      // width: 544px;
+      height: 600px;
+      @include breakpoint($tablet) {
+        height: 440px;
+      }
+      @include breakpoint($mobile) {
+        height: 300px;
+      }
     }
   }
   .swipe-wrap {
     > div {
       width: 100%;
       height: 800px;
+      @include breakpoint($tablet) {
+        height: 440px;
+      }
+      @include breakpoint($mobile) {
+        height: 300px;
+      }
     }
   }
   article {
     z-index: 0;
-    position: absolute;
+    // position: absolute;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: #000;
   }
   .gradient-background {
     position: absolute;
@@ -101,8 +114,15 @@
   }
   .play-video-link {
     position: absolute;
-    left: 47%;
+    left: 50%;
     top: 43%;
+    margin-left: -40px;
+    @include breakpoint($tablet) {
+      top: 135px;
+    }
+    @include breakpoint($mobile) {
+      top: 44px;
+    }
     a {
       display: block;
       font-size: 5em;
@@ -114,20 +134,23 @@
   aside {
     position: absolute;
     &:not(.side-panel) {
-      z-index: 9999;
+      z-index: 90;
       color: #FFF;
       width: 100%;
-      bottom: 50px;
+      bottom: 43px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       h1 {
         @extend .alrightsansbold;
-        margin-bottom: 0;
-        font-size: 3.75em;
-        line-height: 1em;
+        margin: 3px 10px;
+        font-size: 2.875em;
+        line-height: 1.08em;
       }
       p {
         @extend .alrightsanslight;
         font-size: 1.2em;
         font-weight: 400;
+        margin: 0.15em 10px 0.1em;
       }
       a {
         @extend .verlag;
@@ -135,6 +158,25 @@
         color: #FFF;
         font-weight: bold;
         font-size: .875em;
+      }
+      @include breakpoint($mobile) {
+        bottom: 0px;
+        background: #fff;
+        color: #333;
+        text-align: left;
+        padding: 4px 20px 8px;
+        h1 {
+          font-size: 18px;
+        }
+        a {
+          float: right;
+          color: #333;
+          font-size: 11px;
+        }
+        p {
+          font-size: 13px;
+          line-height: 1.2;
+        }
       }
     }
     &.side-panel {
@@ -191,6 +233,7 @@
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: block;
 }
 
@@ -199,6 +242,69 @@
     display: none;
   }
   .play-video-link {
-    z-index: 9999;
+    z-index: 95;
+  }
+  @include breakpoint($mobile) {
+    float: none;
+    width: 100%;
+    .play-video-link {
+      top: 50%;
+      margin-top: -40px;
+    }
+  }
+}
+
+.swiper-position {
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include breakpoint($mobile) {
+    display: none;
+  }
+  li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    background: #fff;
+    margin: 0 5px;
+    cursor: pointer;
+    &.on {
+      background: $orange;
+    }
+  }
+}
+
+.carousel.thumblist {
+  @include breakpoint($tablet-down) {
+    display: none;
+  }
+}
+
+.mobile-carousel {
+  display: none;
+  background: #fff;
+  @include breakpoint($tablet-down) {
+    display: block;
+  }
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 27px 0;
+    font-size: 20px;
+    color: #bebebe;
+  }
+  .swiper-controls {
+    a {
+      padding: 12px 0;
+    }
+  }
+}
+
+ @include breakpoint($mobile) {
+  .add-bottom-border {
+    border-bottom: $dotted-border;
+    padding-bottom: 8px;
   }
 }

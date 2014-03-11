@@ -1,5 +1,4 @@
 
-
 <article class='listen-carefully text-container'>
 
     <h1>Listen Carefully</h1>
@@ -8,34 +7,32 @@
 
 <p>The program combines music and education to raise awareness about the fragility of hearing and the dangers of exposure to high decibel sounds.&nbsp;This year Starkey Hearing Foundation expanded Listen Carefully to offer educational support to more than 16,000 teachers and nearly 500,000 students nationwide.</p>
 
-<p>   <swiper
-      continuous="true"
-      speed="2000"
-      identifier="listen-carefully-10-second-film"
-      auto="8000"
-      tall="false"
-      >
+<p>
 
 
-        <slide
-         image-url="http://starkey.ahundredyears.com/uploads/images/LC-10-Sec-Video-02.png"
-         video-url="http://www.youtube.com/watch?v=HXC2R5SR9aE"
-         link-url=""
-         link-text=""
-         headline=""
-         body-copy=""
-         thumblist="false"
-         date=""
-         blog-category=""
-         quote=""
-         background-color=""
-         logo-image-url=""
-         link-style=""
-        ></slide>
+          <gallery slides="4">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/billaustin.jpg"
+               video-url=""
+              ></gallery-slide>
+
+                        <gallery-slide
+               image-url=""
+               video-url="https://www.youtube.com/watch?v=W50L7eNGT2U"
+              ></gallery-slide>
+
+                        <gallery-slide
+               image-url=""
+               video-url=""
+              ></gallery-slide>
+
+                        <gallery-slide
+               image-url=""
+               video-url=""
+              ></gallery-slide>
+          </gallery>
 
 
 
-    </swiper>
     </p>
 
 <h1>&nbsp;</h1>
@@ -44,34 +41,17 @@
 
 <p>Start with yourself. Your family. Your friends. Because you understand the transformative, interconnecting power of hearing. 1 in 5 Americans has hearing loss-meaning we&rsquo;re losing our hearing faster, today, than our parents or grandparents did.</p>
 
-<p>   <swiper
-      continuous="true"
-      speed="2000"
-      identifier="listencarefully2"
-      auto="8000"
-      tall="false"
-      >
+<p>
 
 
-        <slide
-         image-url="http://starkey.ahundredyears.com/uploads/images/listencarefully2.jpg"
-         video-url=""
-         link-url=""
-         link-text=""
-         headline=""
-         body-copy=""
-         thumblist="false"
-         date=""
-         blog-category=""
-         quote=""
-         background-color=""
-         logo-image-url=""
-         link-style=""
-        ></slide>
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/listencarefully2.jpg"
+               video-url=""
+              ></gallery-slide>
+          </gallery>
 
 
 
-    </swiper>
     </p>
 
 <p>&nbsp;</p>
@@ -82,36 +62,78 @@
 
 <p>Your ears are complex organs, but protecting them is relatively simple. Use these resources to increase your awareness. And share what you know.</p>
 
-<p>   <swiper
-      continuous="true"
-      speed="2000"
-      identifier="listencarefully3"
-      auto="8000"
-      tall="false"
-      >
-
-
-        <slide
-         image-url="http://starkey.ahundredyears.com/uploads/images/listencarefully3.jpg"
-         video-url="http://www.youtube.com/watch?v=rlyH-ZcCf7o"
-         link-url=""
-         link-text=""
-         headline=""
-         body-copy=""
-         thumblist="false"
-         date=""
-         blog-category=""
-         quote=""
-         background-color=""
-         logo-image-url=""
-         link-style=""
-        ></slide>
-
-
-
-    </swiper>
-    </p>
-
     <br/>
     <h2>Additional Resources</h2>
 </article>
+
+
+<section class='carousel thumblist'>
+  <thumblist-nav>
+
+
+      <slide
+        image-url="http://starkey.local/uploads/images/Blog_A_Knight.jpg"
+        video-url=""
+        link-url="http://www.starkeyhearingfoundation.org/Listen-Carefully-Loudness-Wars.pdf"
+        link-text="Learn More"
+        headline="Loudness Wars: Does louder music compromise the listening experience? How some recorded music muddles sound and puts your hearing at risk."
+        body-copy=""
+        thumblist="true"
+        date="February 25th 2014"
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+
+      <slide
+        image-url="http://starkey.local/uploads/images/CAROUSEL-Tony_Hawk_Event.JPG"
+        video-url=""
+        link-url="http://www.starkey.com/improve-your-hearing"
+        link-text="Learn More "
+        headline="Fundamental Facts: Learn about hearing loss and how to prevent it."
+        body-copy=""
+        thumblist="true"
+        date="February 24th 2014"
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+
+      <slide
+        image-url="http://starkey.local/uploads/images/BillandTani.jpg"
+        video-url=""
+        link-url="http://www.starkey.com/"
+        link-text="Learn More"
+        headline="Hearing News: Are musicians at greater risk for hearing loss? "
+        body-copy=""
+        thumblist="true"
+        date="February 23rd 2014"
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+
+      <slide
+        image-url="http://starkey.local/uploads/images/marleemartin.jpeg"
+        video-url=""
+        link-url="http://www.youtube.com/watch?v=GIapKv8Pa1c&noredirect=1"
+        link-text="Watch Video"
+        headline="Marlee Martin: In her own words, the Oscar-winning actress explains how a hearing aid changed her life."
+        body-copy=""
+        thumblist="true"
+        date="February 15th 2014"
+        blog-category=""
+        quote=""
+        background-color=""
+        logo-image-url=""
+        link-style="align-right"
+      ></slide>
+
+</thumblist-nav>
+</section>

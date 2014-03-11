@@ -6,7 +6,7 @@
   <head>
     <!--(bake partials/head.html)-->
   </head>
-  <body class='blog-page page' ng:app="blogPagesApp">
+  <body class='blog-page page' ng:app="blogPagesApp" ng:controller="globalCtrl">
 
     <!--(bake partials/browser_check.html)-->
 
@@ -17,6 +17,7 @@
       <div class="masthead">
         <h3 class="section-title">{title}</h3>
         <h3 class="section-headline">{about_tagline}</h3>
+      </div>
         <!--(bake-start _if="dist")-->
           {exp:hundies_shortcode}{about_content}{/exp:hundies_shortcode}
         <!--(bake-end)-->
@@ -37,7 +38,7 @@
         <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
         <!--(bake-end)-->
       </div>
-    </div>
+
 	  {about_action}
 	  <p class="centered"><a href="{about_action:url}" class="link-with-border">{about_action:text}</a></p>
 	  {/about_action}

@@ -2,9 +2,7 @@
     <h1>
       {{missions.page_title}}
     </h1>
-    <p>
-    {{missions.page_lead}}
-    </p>
+    <div class="fixed-width bigger uppercase" ng-bind-html-unsafe="missions.page_lead"></div>
   </section>
 
   <missions-map data="data"></missions-map>
@@ -46,7 +44,7 @@
     </h1>
   </section>
 
-  <section class="carousel hero">
+  <section class="carousel hero mission-highlights-carousel">
 
     <swiper
       continuous="true"
@@ -64,7 +62,7 @@
           link-url="#/missions/{{highlight.id}}"
           headline="{{highlight.title}}"
           subhead="{{highlight.subtitle}}"
-          body-copy="{{highlight.excerpt}}"
+          body-copy="{{highlight.excerpt | characters:450}}"
           logo-image-url=""
           link-style=""
           link-text=""
@@ -73,6 +71,23 @@
           >
         </slide>
     </swiper>
+  </section>
+
+  <section class='articles-list mission-highlights-list'>
+    <ul class="pagination-articles tablet">
+      <li ng-repeat="highlight in highlights" class="reveal">
+        <div class='block'>
+          <div class="image" ng-style="{'background-image': 'url(' + highlight.image + ')'}"></div>
+          <div class="content">
+            <h2 class="headline">{{highlight.title}}</h2>
+            <p class='date'>{{parseDate(highlight.date) | date:"MMMM d yyyy"}}</p>
+            <p class='read-more'><a href="#/articles/{{highlight.id}}">Read more &rarr;</a></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="load-more" ng-click="loadMore()" ng-hide="isAtPaginationEnd()">LOAD MORE</div>
   </section>
 
   <p class="centered"><a href="#/highlights" class="link-with-border">See all mission highlights</a></p>

@@ -6,16 +6,22 @@
   li {
     display: inline-block;
   }
+  @include breakpoint($tablet-down) {
+    padding: 0 16px;
+  }
 }
-
 .article-header-image {
   color: white;
   margin-bottom: 0;
+  background-color: #000;
   .image {
     background-size: cover;
+    background-position: center;
     height: 500px;
     width: 100%;
     position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
     .relative-container {
       position: relative;
       height: 100%;
@@ -95,4 +101,8 @@
       }
     }
   }
+}
+
+.blog-page .text-container p {
+  text-align: center;
 }

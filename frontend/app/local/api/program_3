@@ -1,38 +1,20 @@
 
-
 <article class='hearing-aid-recycling text-container'>
   <h1>Hearing Aid Recycling</h1>
 
   <p>Every year thousands of hearing aids are donated to our Hear Now program from hearing professionals and other people looking to help. Those hearing aids open up the world of sound to someone in need. Many of the hearing aids used on international missions come from the recycling program, making hearing aid donations vital to the success of the Foundation. However, the journey from donation to the mission field is an absolute labor of love.&nbsp;</p>
 
-<p>   <swiper
-      continuous="true"
-      speed="2000"
-      identifier="hearingaidrecycling"
-      auto="8000"
-      size="short"
-      >
+<p>
 
 
-        <slide
-         image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Hearing_Aid_Recycling.jpg"
-         video-url="http://www.youtube.com/watch?v=tF-9R4UUWa8"
-         link-url=""
-         link-text=""
-         headline=""
-         body-copy=""
-         thumblist="false"
-         date=""
-         blog-category=""
-         quote=""
-         background-color=""
-         logo-image-url=""
-         link-style=""
-        ></slide>
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/HERO-Hearing_Aid_Recycling.jpg"
+               video-url="http://www.youtube.com/watch?v=tF-9R4UUWa8"
+              ></gallery-slide>
+          </gallery>
 
 
 
-    </swiper>
     </p>
 
 <p>Send us your old hearing aids, to give the gift of hearing to those in need and contribute to a healthy environment. Any make or model, regardless of age, can be donated. All donations are tax deductible* and a letter of acknowledgment will be sent to all donors.<br />

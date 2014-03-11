@@ -1,63 +1,51 @@
 <div class="text-container">
-  <h1>Volunteer</h1>
-
-  <p>It empowers individuals to discover their passions and channel them in ways that will improve their communities and ultimately, the world. Through Operation Change we are providing the inspiration to drive engagement and develop a roadmap to create collective impact. This multimedia campaign incorporates a documentary series, a web platform and social media to encourage individual philanthropy and tap into the energy of a generation.</p>
-
-  <p>We believe that the actions of a single person can create a ripple effect that will ignite a movement and change the world.</p>
-
-  <p>
-    <gallery slides="1">
-      <gallery-slide
-         image-url="uploads/images/billaustin.jpg"
-         video-url="http://www.youtube.com/watch?v=na5j0wDq7kc"
-        ></gallery-slide>
-    </gallery>
-  </p>
+{exp:channel:entries channel="take_action" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+  {exp:hundies_shortcode}{ta_volunteer}{/exp:hundies_shortcode}
+{/exp:channel:entries}
 
   <p><a href ng-click="toggleForm()">Stay Connected and Join Our Volunteer Directory <span class="arrow">&gt;</span></a></p>
     <br/>
     <div class="reveal outer-container" ng-show="showForm==true">
-      <form action="" id="" class="flatform invert" method="post">
+        {exp:freeform:form form_id="3" form:id="volunteer-form" form:class="flatform invert" return="/#thank_you"}
         <ul>
             <li class="leftHalf">
-                <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="First Name"  />
+                {freeform:field:first_name attr:placeholder="First Name"}
             </li>
 
             <li class="rightHalf">
-                <input type="text" name="last_name" value="" id="freeform_last_name" maxlength="150" placeholder="Last Name"  />
+                {freeform:field:last_name attr:placeholder="Last Name"}
             </li>
 
             <li class="leftFourth">
-                <input type="text" name="address" value="" id="freeform_address" maxlength="150" placeholder="Address"  />
+               {freeform:field:address attr:placeholder="Address"}
             </li>
 
             <li class="middleFourthFirst">
-                <input type="text" name="city" value="" id="freeform_city" maxlength="150" placeholder="City"  />
+               {freeform:field:city attr:placeholder="City"}
             </li>
 
             <li class="middleFourthSecond">
-                <input type="text" name="state" value="" id="freeform_state" maxlength="150" placeholder="State"  />
+               {freeform:field:state attr:placeholder="State"}
             </li>
 
             <li class="rightFourth">
-                <input type="text" name="zip" value="" id="freeform_zip" maxlength="150" placeholder="Zip"  />
+               {freeform:field:zip attr:placeholder="Zip"}
             </li>
 
 
             <li class="leftFourth">
-                <input type="text" name="email" value="" id="freeform_email" maxlength="150" placeholder="Email"  />
+                {freeform:field:email attr:placeholder="Email"}
             </li>
 
             <li class="middleFourthFirst">
-                <input type="text" name="phone" value="" id="freeform_phone" maxlength="150" placeholder="Phone"  />
+               {freeform:field:phone attr:placeholder="Phone"}
             </li>
 
             <li class="full">
               <br/>
-                <input type="submit" name="submit" value="Submit" id=""  />
+                {freeform:submit attr:id="volunteer_submit"}
             </li>
         </ul>
-
-      </form>
+      {/exp:freeform:form}
     </div>
 </div>

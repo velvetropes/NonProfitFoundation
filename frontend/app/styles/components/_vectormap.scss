@@ -1,10 +1,15 @@
 .map {
-  border-top: 1px dotted #333;
+  border-top: $dotted-border;
   position: relative;
 }
 
-#world-map-gdp .jvectormap-container {
-  @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+#world-map-gdp {
+  .jvectormap-marker  {
+    cursor: pointer;
+  }
+  .jvectormap-container {
+    @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
+  }
 }
 
 .jvectormap-label {
@@ -15,35 +20,100 @@
   display: none;
   position: absolute;
   color: white;
-  font-family: sans-serif, Verdana;
+  @extend .alrightsansregular;
   padding: 10px;
   width: 720px;
   height: 360px;
   top: 10%;
   left: 25%;
   z-index: 1;
+
   .close {
+    $size:16px;
     position: absolute;
-    right: 18px;
-    top: 13px;
-    z-index: 10;
-    a {
-      color: white;
+    display: block;
+    width:$size;
+    height:$size;
+    text-indent: -9999em;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    @include transform(rotate(45deg));
+    z-index: 50;
+
+    &::after, &::before {
+        content: "";
+        position: absolute;
+        background: #fff;
+    }
+    &::before {
+      top:0;
+      left: floor($size / 2);
+      width: 1px;
+      height: 100%;
+    }
+    &::after {
+      left:0;
+      top: floor($size / 2);
+      height: 1px;
+      width: 100%;
     }
   }
   .background-popup {
-    background: #292929;
-    width: 50%;
-    height: 100%;
-    opacity: 0.7;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    background: rgba(41, 41, 41, 0.8);
+    width: 300px;
+    height: 340px;
     float: right;
-    padding: 30px 10px 10px;
+    padding:0;
+  }
+  .text-popup {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: relative;
+    padding-left: 20px;
+    right: -10px;
+    padding-top: 35px;
+    padding-right: 20px;
+
+    h2 {
+      @extend .alrightsansbold;
+      margin-bottom: 0;
+      margin-top:0;
+    }
+    .location {
+      @extend .alrightsansbold;
+      display: block;
+      color: $light-orange;
+      text-transform: uppercase;
+      font-size: 11px;
+      line-height: 13px;
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+    p {
+      @extend .alrightsansregular;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .centered {
+      padding-top: 8px;
+    }
+    .read-more {
+      @extend .alrightsansbold;
+      -webkit-font-smoothing: antialiased;
+      margin-top: 5px;
+      padding: 10px 14px 7px;
+      border: 2px solid $light-blue;
+      font-size: 15px;
+    }
   }
   img {
-    float: left;
-    width: 50%;
-    height: 100%;
+    position: absolute;
+    right: 300px;
+    height: 340px;
+    width: auto;
   }
   a {
     color: #fff;

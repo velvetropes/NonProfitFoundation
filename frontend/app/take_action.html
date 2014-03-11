@@ -7,12 +7,13 @@
   <head>
   <!--(bake partials/head.html)-->
   </head>
-  <body class='take-action-page page' ng:app="takeActionPagesApp" ng:controller="globalVideoModalCtrl">
+  <body class='take-action-page page' ng:app="takeActionPagesApp" ng:controller="globalCtrl">
 
     <!--(bake partials/browser_check.html)-->
 
     <!--(bake partials/header.html)-->
 
+    {exp:channel:entries channel="take_action" dynamic="no" limit="1" disable="{global:param_disable_default}"}
     <!-- Main content section -->
     <section class='page-leader'>
       <h1>
@@ -28,7 +29,7 @@
         Take Action blurb goes here
         <!--(bake-end)-->
         <!--(bake-start _if="dist")-->
-        {Take Action blurb goes here}
+        {ta_tagline}
         <!--(bake-end)-->
       </p>
     </section>
@@ -59,6 +60,7 @@
         <div ng-view></div>
       </div>
     </div>
+    {/exp:channel:entries}
 
     <!--(bake partials/footer.html)-->
 

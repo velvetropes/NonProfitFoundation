@@ -8,7 +8,7 @@
 }
 
 .missions-map {
-  @include span-columns(12);
+  @include reset-display;
   height: 560px;
   margin: 20px 0 0;
   position: relative;
@@ -91,8 +91,9 @@
     height: 428px;
     overflow: auto;
     position: absolute;
-    top: 85px;
-    right: 360px;
+    top: 50%;
+    left: 50%;
+    margin: -214px 0 0 -339px;
     z-index: 2;
     padding: 130px 20px 50px;
     background: url('images/missions/map/dark_circle.png') no-repeat;
@@ -103,8 +104,11 @@
       @extend .alrightsanslight;
       margin: 0 0 10px;
       line-height: 1.25em;
+      span {
+        display: block;
+      }
     }
-    p a {
+    a {
       color: #ffad20;
       text-transform: uppercase;
       @extend .alrightsansbold;
@@ -161,8 +165,8 @@
   }
 }
 .hearing-missions-statistics {
-  @include span-columns(12);
-  border-bottom: 1px dotted #333;
+  @include reset-display;
+  border-bottom: $dotted-border;
   margin: 0 0 55px;
   ul {
     margin: 0;
@@ -189,6 +193,157 @@
         font-size: 1.125em;
         text-transform: uppercase;
         margin: 25px 50px;
+      }
+    }
+  }
+}
+.mission-highlights-list {
+  display: none;
+}
+@include breakpoint($tablet-down) {
+  .mission-highlights-carousel {
+    display: none;
+  }
+  .mission-highlights-list {
+    display: block;
+  }
+}
+@include breakpoint($tablet) {
+  .hearing-missions-statistics {
+    ul {
+      li {
+        h1 {
+          font-size: 3em;
+        }
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .missions-map {
+    .missions-map-greeting {
+      width: 210px;
+      height: 210px;
+      margin: -105px 0 0 -230px;
+      background-size: 100%;
+      padding: 49px 0 0 0;
+      h1 {
+        font-size: 27px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+  .hearing-missions-statistics {
+    ul {
+      @include reset-display;
+      display: block;
+      li {
+        @include span-columns(12);
+        @include pad(0);
+        height: 164px;
+        border: none;
+        border-top: 1px solid #fff;
+        &.first {
+          border-top: 1px solid #fff;
+        }
+        h1 {
+          margin: 44px 0 0;
+        }
+      }
+    }
+  }
+}
+@include breakpoint($mobile) {
+  .missions-map {
+    height: 242px;
+    background: url('images/hearing-mission-bg.jpg') #41bbe4;
+    background-size: 100%;
+    .map-container,
+    .missions-map-legend,
+    .missions-map-info {
+      display: none;
+    }
+    .missions-map-greeting {
+      margin-left: -105px;
+      padding: 61px 0 0 0;
+      h1 {
+        font-size: 20px;
+        margin: 0 0 -12px;
+        span {
+          display: inline;
+        }
+      }
+      p {
+        display: none;
+      }
+      p.mobile-only {
+        display: block;
+        color: #fff;
+        line-height: 1.4;
+        opacity: 0.8;
+        padding: 0 17px;
+      }
+    }
+  }
+  .hearing-missions-statistics {
+    margin: 0;
+    ul {
+      li {
+        height: 66px;
+        h1 {
+          margin: 10px 0 0;
+          font-size: 2em;
+        }
+        p {
+          font-size: 12px;
+          margin: 0;
+          -webkit-font-smoothing: antialiased;
+        }
+      }
+    }
+  }
+  .tabbed-content {
+    nav.outer-container {
+      .three-tabs {
+        li {
+          display: none;
+          margin: 0;
+          width: 100%;
+          border: none;
+          a {
+            font-size: 12px;
+            font-weight: bold;
+            cursor: default;
+          }
+          &:first-child {
+            display: block;
+          }
+        }
+      }
+    }
+    article {
+      margin-top: 0;
+      .image {
+        width: 100%;
+        height: 200px;
+        margin: 0;
+        background: #efefef;
+        float: none;
+      }
+      .content {
+        width: 100%;
+        float: none;
+        padding: 0 16px;
+        font-size: 12px;
+        line-height: 1.7;
+        h1 {
+          font-size: 2em;
+        }
       }
     }
   }

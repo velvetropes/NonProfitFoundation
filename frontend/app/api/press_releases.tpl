@@ -17,7 +17,7 @@
     "next_item" : "{exp:stash:prev_entry}",
     "id":"{url_title}",
     "title": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
-    "date":"{entry_date format='%m %d %Y'}",
+    "date":"{entry_date format='%m/%d/%Y'}",
     "year": "{entry_date format='%Y'}",
     "type":"press_release",
     "header_image_url":"{if press_header_image}{press_header_image}{if:else}{press_release_image}{/if}",

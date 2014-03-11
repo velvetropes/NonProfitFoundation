@@ -3,13 +3,13 @@ nav {
     margin-bottom: 0;
     li {
       text-align: center;
-      border-top: 1px dotted #333;
-      border-right: 1px dotted #333;
+      border-top: $dotted-border;
+      border-right: $dotted-border;
       background: white;
-      border-bottom: 1px dotted #333;
+      border-bottom: $dotted-border;
       @include pad();
       &:first-child {
-        border-left: 1px dotted #333;
+        border-left: $dotted-border;
       }
       a {
         font-family: "Verlag A", "Verlag B";
@@ -29,16 +29,28 @@ nav {
 }
 
 .header-nav {
-  border-top: 1px dotted #333;
-  margin-top: 60px;
+  border-top: $dotted-border;
+  margin-top: 80px;
+  @include breakpoint($tablet) {
+    margin-top: 60px;
+  }
   @include row(table);
-  .centered-half-container {
-    margin-top: -68px;
+  .tabs-wrap {
+    max-width: 40em;
+    margin: auto;
   }
   .tabs {
+    margin: -50px 0 0 0;
+    padding: 0;
     li {
-      @include span-columns(2 of 6);
-      @include pad();
+      float: left;
+      width: 33.33%;
+      padding: 0;
+      a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+      }
       &:hover, &.active {
         border-bottom: 1px solid #fff;
       }
@@ -55,10 +67,13 @@ nav {
         @include span-columns(2 of 6);
         border-bottom: 5px solid #3d4144;
         height: 185px;
-        border-left: 1px dotted #333;
+        border-left: $dotted-border;
         padding: 20px;
+        &:first-child {
+          border-left: none;
+        }
         &:last-child {
-          border-right: 1px dotted #333;
+          border-right: none;
         }
         &:hover {
           border-bottom-color: $light-blue;
@@ -98,15 +113,17 @@ nav {
   hr {
     margin: -1px 0 0;
     border: none;
-    border-bottom: 1px dotted #333;
+    border-bottom: $dotted-border;
+  }
+  @include breakpoint($mobile) {
+    display: none;
   }
 }
 
 // Tabbed content
 .tabbed-content {
-
   nav {
-    border-bottom: 1px dotted #333;
+    border-bottom: $dotted-border;
     .tabs {
       text-align: center;
       margin-bottom: -1px;
@@ -114,6 +131,7 @@ nav {
       li {
         @include span-columns(1 of 4);
         padding: 5px;
+        vertical-align: middle;
         a {
           font-size: .875em;
           @extend .alrightsanslight;
@@ -131,6 +149,25 @@ nav {
           }
         }
       }
+      @include breakpoint($tablet-down) {
+        padding: 0;
+        margin: 10px 0 0 0;
+        @include reset-display;
+        li {
+          display: block;
+          width: 50%;
+          float: left;
+          border: none;
+          border-left: 1px dotted #333;
+          border-top: 1px dotted #333;
+          &:nth-child(even) {
+            border-right: 1px dotted #333;
+          }
+          &.active {
+            border-bottom: inherit;
+          }
+        }
+      }
     }
     &.outer-container {
       .two-tabs, .three-tabs, .five-tabs {
@@ -139,9 +176,9 @@ nav {
         margin: 0 0 -1px;
         li {
           display: inline-block;
-          border-left: 1px dotted #333;
-          border-top: 1px dotted #333;
-          margin: 0 0 0 -3px;
+          border-left: $dotted-border;
+          border-top: $dotted-border;
+          margin: 0 0 0 -1px;
           a {
             font-size: .875em;
             @extend .alrightsanslight;
@@ -159,7 +196,7 @@ nav {
             }
           }
           &.last {
-            border-right: 1px dotted #333;
+            border-right: $dotted-border;
           }
           &:hover {
             a {
@@ -176,6 +213,9 @@ nav {
       .three-tabs {
         li {
           width: 200px;
+          @include breakpoint($tablet) {
+            width: 32%;
+          }
           a {
             padding: 10px 0 8px;
           }
@@ -183,7 +223,7 @@ nav {
       }
       .five-tabs {
         li {
-          width: 210px;
+          width: 19.5%;
           a {
             padding: 10px 0 8px;
           }

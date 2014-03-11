@@ -6,7 +6,7 @@ sfServices.factory "urlChooser", [->
   # env = "development"
   # env = "staging"
   env = "production"
-  urlChooserInstance = {}
+
   getUrl = ->
     switch env
       when "development"
@@ -55,6 +55,53 @@ sfServices.factory "Articles", ["$q", "$http", "$resource", "urlChooser", ($q, $
   {getIndex: getIndex}
 ]
 
+sfServices.factory "LatestBlog", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
+
+  fetchLatest = ->
+    endPoint = "#{urlChooser.getUrl}/latest_blog"
+    deferred = $q.defer()
+
+    $http.get(endPoint).success((data) ->
+      deferred.resolve data
+    ).error (reason) ->
+      deferred.reject reason
+
+    deferred.promise
+
+  {fetchLatest: fetchLatest}
+]
+
+sfServices.factory("$FB", [
+  "$window"
+  ($window) ->
+    return init: (fbId) ->
+      if fbId
+        @fbId = fbId
+        $window.fbAsyncInit = ->
+          FB.init
+            appId: fbId
+            channelUrl: "app/channel.html"
+            status: true
+            xfbml: true
+          return
+
+        ((d) ->
+          js = undefined
+          id = "facebook-jssdk"
+          ref = d.getElementsByTagName("script")[0]
+          return  if d.getElementById(id)
+          js = d.createElement("script")
+          js.id = id
+          js.async = true
+          js.src = "//connect.facebook.net/en_US/all.js"
+          ref.parentNode.insertBefore js, ref
+          return
+        ) document
+      else
+        throw ("FB App Id Cannot be blank")
+      return
+])
+
 sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 
   getIndex = ->
@@ -94,9 +141,6 @@ sfServices.factory "GalaTabs", ["$q", "$http", "$resource", "urlChooser", ($q, $
 
   {getIndex: getIndex}
 ]
-# sfServices.factory "HearingMissionArticle", ["$resource", "urlChooser", ($resource, urlChooser) ->
-#   $resource "#{urlChooser.getUrl}/missions/:articleId", {}, {}
-# ]
 
 sfServices.factory "HearingMissionArticle", ["$q", "$http", "urlChooser", ($q, $http, urlChooser) ->
 
@@ -109,6 +153,16 @@ sfServices.factory "HearingMissionArticle", ["$q", "$http", "urlChooser", ($q, $
       deferred.reject reason
     deferred.promise
   {getDetail: getDetail}
+]
+
+sfServices.factory "Instagram", [
+  "$http"
+  ($http) ->
+    {
+      fetchLatest: (callback) ->
+        endPoint = "https://api.instagram.com/v1/users/331318543/media/recent/?client_id=1f359684e8ab4da6ae6ff618be26c638&callback=JSON_CALLBACK&count=4"
+        $http.jsonp(endPoint).success (response) ->
+          callback response.data}
 ]
 
 sfServices.factory "MapMarker", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->

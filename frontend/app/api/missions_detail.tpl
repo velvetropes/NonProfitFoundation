@@ -1,12 +1,24 @@
-{exp:channel:next_entry channel="hearing_missions" url_title="{segment_3}"}
+{exp:channel:next_entry channel="hearing_missions"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
+  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
+}
    {exp:stash:set_value parse_tags="yes" name="next_entry" value="{url_title}"}
 {/exp:channel:next_entry}
 
-{exp:channel:prev_entry channel="hearing_missions" url_title="{segment_3}"}
+{exp:channel:prev_entry channel="hearing_missions"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
+  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
+}
     {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
 {/exp:channel:prev_entry}
 
-{exp:channel:entries channel="hearing_missions" dynamic="no" url_title="{segment_3}" limit="1"}
+{exp:channel:entries channel="hearing_missions" dynamic="no" limit="1"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
+  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
+}
+
+{if no_results}<div class="text-container"><p style="text-align:center">No article was found</p></div>{/if}
+
 <div class="article-header-image">
   <div class="image" style="background-image:url('{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}');">
     <ul class="page-nav-links">
@@ -30,7 +42,7 @@
         <div class="banner">
           <p class="article-item-category">{mission_region}{option_name}{/mission_region}, {mission_country}{option_name}{/mission_country}</p>
           <h1  class="article-title">{title}</h1>
-          <p>{mission_date format="%F %d, %Y"} | {author}</p>
+          <p>{mission_date format="%F %d, %Y"}{if author} | {author}{/if}</p>
         </div>
       </div>
     </div>
@@ -69,7 +81,7 @@
   </div>
 
   <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel'>
+  <section class='carousel thumblist'>
     <thumblist-nav>
       {mission_rel}
       <div>

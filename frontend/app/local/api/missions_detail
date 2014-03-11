@@ -1,7 +1,13 @@
 <div class="article-header-image">
-  <div class="image" style="background-image:url('http://starkey.ahundredyears.com/uploads/building_a_better_kibera.jpg');">
+  <div class="image" style="background-image:url('');">
     <ul class="page-nav-links">
+            <li>
+        <a href="#/missions/hearing-mission-test-entry-2" ng-disabled="'hearing-mission-test-entry-2'==''">&larr;</a>
+      </li>
                   <li>
+        <a href="#/missions/lorem-ipsum-dolor-sit-amet" ng-disabled="'lorem-ipsum-dolor-sit-amet'=='lorem-ipsum-dolor-sit-amet'" >&rarr;</a>
+      </li>
+            <li>
         <a href="#">X</a>
       </li>
     </ul>
@@ -9,9 +15,9 @@
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-          <p class="article-item-category">Africa</p>
-          <h1  class="article-title">Lorem Ipsum dolor sit amet</h1>
-          <p>October 21, 2012 | 100YRS</p>
+          <p class="article-item-category">Asia, Bhutan</p>
+          <h1  class="article-title">Hearing Mission Test Entry</h1>
+          <p>November 18, 2013 | Julie</p>
         </div>
       </div>
     </div>
@@ -21,11 +27,15 @@
 <br/>
 
 <div class="text-container">
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat porttitor sem sed facilisis. Pellentesque scelerisque ante sed risus vestibulum interdum. Proin tincidunt, ante eget tincidunt adipiscing, dui nisl accumsan neque, eu feugiat enim nibh ac libero. Duis erat lorem, accumsan in hendrerit vel, dignissim at urna. Morbi imperdiet sapien quis eros ultrices varius. Aliquam vel dolor quis mauris faucibus dapibus. Curabitur ultricies scelerisque aliquam. In dignissim at dui ac aliquam. Pellentesque vulputate malesuada facilisis. Aliquam mattis lorem non accumsan interdum. Curabitur vitae nibh sed orci egestas aliquam ut a eros. Nullam tempor justo nec nibh bibendum hendrerit. Sed adipiscing arcu ligula, eget gravida tellus sodales ut. Morbi auctor erat sit amet aliquam ullamcorper. Ut vel fermentum neque. Fusce nibh tortor, ultricies et purus quis, auctor facilisis lorem.</p>
 
-<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+<p>Pellentesque porttitor diam a sagittis lacinia. Mauris at felis lobortis, malesuada ante eget, dictum augue. Integer consequat at tellus ut lobortis. Aliquam rhoncus vitae justo et luctus. Nullam non sem non lorem cursus feugiat ut non nunc. Cras lobortis luctus augue, sit amet porttitor mi posuere non. In ornare nibh ac fermentum aliquam. Duis ut tempor arcu.</p>
 
-<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+<p>Nunc vehicula id tellus vel eleifend. Suspendisse in mauris ac nibh aliquam placerat sed et turpis. Aenean vel massa ornare, condimentum arcu vitae, commodo dolor. Fusce eleifend accumsan leo eget malesuada. Etiam augue dui, accumsan quis eros vel, pulvinar fringilla lacus. Nunc eu porttitor est, at pulvinar nisi. Mauris consectetur, nunc et facilisis porta, neque erat placerat velit, blandit lobortis velit lorem quis leo. Nullam pulvinar a nibh ut pulvinar. Nam suscipit tellus id porta imperdiet. Phasellus ultricies ante et est consectetur tincidunt. Phasellus tempus nec nisi sit amet egestas. In quam felis, bibendum sed laoreet non, aliquam ac metus. Donec hendrerit, turpis nec tincidunt sodales, leo mauris hendrerit purus, nec eleifend metus arcu non metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+<p>Suspendisse potenti. Ut diam ipsum, scelerisque ac nisi sed, pellentesque vulputate turpis. Praesent nec velit feugiat, dignissim est a, adipiscing lectus. Donec in nisi non metus lobortis dictum eget eget turpis. Mauris ornare, justo dictum cursus varius, elit tellus rhoncus arcu, eu pulvinar massa tellus vitae elit. Sed dictum sapien at facilisis tempus. Suspendisse consectetur consectetur diam, vitae faucibus lectus consectetur vel. Donec ante sem, posuere ac nunc lobortis, consectetur gravida felis. Integer pulvinar eleifend augue in dapibus. Morbi eget hendrerit arcu, vel volutpat felis. Nulla dapibus nibh ut lectus gravida, congue venenatis dui vehicula. Nulla facilisi. Praesent egestas libero ut justo tempor, nec tempor est porttitor. Nam semper mollis rhoncus. Nulla facilisis pulvinar urna, consequat egestas tellus semper hendrerit. Pellentesque molestie pulvinar lacus in scelerisque.</p>
+
+<p>Integer sollicitudin id est ut sagittis. Ut interdum porttitor massa, sit amet hendrerit lectus lacinia feugiat. Nunc ut tincidunt justo. Maecenas varius mauris eget quam hendrerit, nec ultrices justo tincidunt. Pellentesque luctus tempus ipsum in consectetur. Nulla sodales fermentum ante id porta. Maecenas facilisis faucibus cursus. Nulla eleifend magna sed eleifend molestie. Nulla quis risus tempor, pellentesque augue quis, dictum sem. Donec porttitor cursus nisl eget accumsan. Etiam accumsan vestibulum ligula at iaculis. Fusce luctus mauris non augue egestas, non faucibus sem blandit. Nunc ac risus at nulla hendrerit volutpat. Pellentesque quis leo sed urna dignissim tempus eu nec velit.</p>
 </div>
 
 
@@ -56,6 +66,18 @@
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel'>
     <thumblist-nav>
+
+      <div>
+        <slide
+          thumblist="true"
+          image-url="http://starkey.local/uploads/images/westbank2.jpeg"
+          video-url=""
+          link-url="#/missions/lorem-ipsum-dolor-sit-amet"
+          headline="Lorem Ipsum dolor sit amet"
+          link-style=""
+          date="February 11, 2014"
+        ></slide>
+      </div>
 
     </thumblist-nav>
   </section>

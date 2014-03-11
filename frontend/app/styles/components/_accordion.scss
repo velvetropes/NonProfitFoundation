@@ -1,7 +1,7 @@
 .accordion {
-  border-top: 1px dotted #333;
+  border-top: $dotted-border;
   .expander {
-    border-bottom: 1px dotted #333;
+    border-bottom: $dotted-border;
     .title {
       display: block;
       padding: 20px;
@@ -23,12 +23,13 @@
       }
     }
     .body {
+      padding-bottom: 20px;
       .accordion-list {
         @extend .outer-container;
         ul {
           margin: 0 0 30px;
           padding: 0 0 30px;
-          border-bottom: 1px dotted #333;
+          border-bottom: $dotted-border;
         }
         h3 {
           text-transform: uppercase;
@@ -42,6 +43,14 @@
           }
           p {
             margin: 0;
+          }
+          .image {
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            width: 200px;
+            margin: 10px auto;
           }
         }
         &:last-child {

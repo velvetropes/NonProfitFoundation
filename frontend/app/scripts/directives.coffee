@@ -165,6 +165,42 @@ sfDirectives.directive 'dynamic', ["$compile", ($compile) ->
     )
 ]
 
+# Facebook
+sfDirectives.directive("facebook", [
+  "$timeout"
+  "$http"
+  ($timeout, $http) ->
+    return {
+      restrict: "E"
+      scope:
+        url: "@"
+        caption: "@"
+      replace: true
+      template: """
+        <div class="facebook-fans centered">
+          <div class="footer-list-item">
+            <h1>{{shares}} <strong>fans</strong></h1>
+          </div>
+          <p class="read-more"><a href>Like us →</a></p>
+        </div>
+        """
+      link: (scope, element, attr) ->
+        scope.shares = 0
+        $http.get("https://api.facebook.com/method/links.getStats?urls=" + scope.url + "&format=json").success((res) ->
+          scope.shares = res[0].share_count
+        ).error ->
+          scope.shares = 0
+
+        $timeout ->
+          element.bind "click", ->
+            FB.ui
+              method: "feed"
+              name: "Facebook shares"
+              link: scope.url
+              caption: scope.caption
+    }
+])
+
 # <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
 
 sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", ($http, $sce) ->
@@ -197,16 +233,11 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
   link = (scope, element, attrs) ->
     scope.slides ?= 1
+
     scope.isThumblist = ->
       scope.slides > 1
 
     config = { showArrows: true}
-    # if scope.isThumblist() then true else false
-    if scope.isThumblist()
-      $timeout (->
-        scope.pane = $(".gallery")
-        scope.pane.jScrollPane config
-      ), 1400
 
     scope.isFullHeight = ->
       scope.full?.length > 0 and scope.full is "true"
@@ -219,6 +250,24 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
     # So thumblist stretches full-width
     element.parent().addClass("no-container") if element.parent()?.is("p")
+
+    if scope.isThumblist()
+      element.jScrollPane config
+      scope.api = element.data("jsp")
+      scope.$watch (->
+        element.find(".gallery-slide").length
+      ), (length) ->
+        # scope.api.reinitialise()
+        setTimeout( ->
+          scope.api.reinitialise()
+        , 800)
+
+      # $timeout (->
+      #   scope.pane = $(".gallery")
+      #   scope.pane.jScrollPane config
+      #   # scope.api = scope.pane.data("jsp")
+      # ), 1400
+
 
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
@@ -280,6 +329,11 @@ sfDirectives.directive "gallerySlide", [ ->
         'background-size': 'cover'
       }
 
+    scope.imageStyle =
+      {
+        'width': '530px'
+      }
+
   result =
     restrict: "E"
     replace: true
@@ -293,10 +347,24 @@ sfDirectives.directive "gallerySlide", [ ->
 
 ]
 
+sfDirectives.directive 'resizer', [->
+  restrict: "A"
+  link: (scope, elem, attr) ->
+    elem.on "load", ->
+      fixedHeightValue = 525
+      ratio = $(this).height()/520
+
+      console.debug "ratio", ratio
+      w = $(this).width()
+      h = $(this).height()
+      elem.css
+        "width": "#{Math.round(w/ratio)}px"
+        "height": "525px"
+]
+
 sfDirectives.directive 'homeThumblistNav', [->
 
   link = (scope, element, attrs) ->
-
     config = { showArrows: false }
 
     setTimeout( ->
@@ -309,10 +377,60 @@ sfDirectives.directive 'homeThumblistNav', [->
   templateUrl: "templates/home_thumblist_nav.html"
   replace: true
   scope:
-    articles: "="
+    featured: "="
     clickaction: "="
 
 ]
+
+sfDirectives.directive("instagramGallery", [
+  "$http"
+  "Instagram"
+  ($http, Instagram) ->
+    return {
+      restrict: "E"
+      scope: {}
+      replace: true
+      template: """
+        <ul class='thumbs'>
+          <li ng-repeat="p in pics">
+            <a href="{{p.link}}" target="_blank" ng-style="{'background-image': 'url(' + p.images.thumbnail.url + ')'}">&nbsp;</a>
+          </li>
+        </ul>
+
+        """
+      link: (scope, element, attr) ->
+        scope.pics = []
+        Instagram.fetchLatest( (data) ->
+          scope.pics = data
+        )
+    }
+])
+
+sfDirectives.directive("latestBlogPost", [
+  "$http"
+  "LatestBlog"
+  ($http, LatestBlog) ->
+    return {
+      restrict: "E"
+      scope: {}
+      replace: true
+      template: """
+        <div>
+          <div class="footer-list-item">
+            <h4>From our blog</h4>
+            <p>{{article.title}}</p>
+            <p class="align-right">{{article.date}}</p>
+          </div>
+          <p class="read-more"><a href="/blog#articles/{{article.id}}">Check out our blog &rarr;</a></p>
+        </div>
+        """
+      link: (scope, element, attr) ->
+        scope.article = {}
+        LatestBlog.fetchLatest().then (data) ->
+          scope.article = data
+
+    }
+])
 
 # Missions Map
 sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
@@ -326,37 +444,34 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     scope.selectedList = {}
     scope.greetingFlag = false
 
+    scope.mapConfig =
+      # regionsSelectable: true
+      zoomOnScroll: false
+      backgroundColor: "none"
+      regionStyle:
+        selected:
+          fill: "#ffad20"
+      focusOn:
+        x: 0.5,
+        y: 0.5,
+        scale: .5
+      # onRegionSelected: (e, str) ->
+      #   console.debug "Clicked", str
+
+    scope.worldMapConfig = _.extend({map: "world_mill_en"}, scope.mapConfig)
+    scope.usMapConfig = _.extend({map: "us_aea_en"}, scope.mapConfig)
+
     scope.selectTopLevelList = (continent) ->
       scope.selectedList = continent
       scope.greetingFlag = true
 
     scope.initializeMaps = ->
       $timeout( ->
-        $("#missions-world-map").vectorMap
-          map: "world_mill_en"
-          zoomOnScroll: false
-          backgroundColor: "none";
-          regionStyle:
-            selected:
-              fill: "#ffad20"
-          focusOn:
-            x: 0.5,
-            y: 0.5,
-            scale: .5
+        $("#missions-world-map").vectorMap(scope.worldMapConfig)
 
         scope.worldMapObject = $("#missions-world-map").vectorMap("get", "mapObject")
 
-        $("#missions-us-map").vectorMap
-          map: "us_aea_en"
-          zoomOnScroll: false
-          backgroundColor: "none";
-          regionStyle:
-            selected:
-              fill: "#ffad20"
-          focusOn:
-            x: 0.5,
-            y: 0.5,
-            scale: .5
+        $("#missions-us-map").vectorMap(scope.usMapConfig)
 
         scope.usMapObject = $("#missions-us-map").vectorMap("get", "mapObject")
       , 1800)
@@ -557,13 +672,32 @@ sfDirectives.factory("Pagination", ->
 )
 
 sfDirectives.directive "panelTab", [->
+  link = (scope,element, attrs) ->
+    scope.hasVideo = ->
+      scope.featured?.video_link_url?
+
+    scope.displayInModalIfVideo = ->
+      scope.$emit('modal:show', scope.featured.video_link_url)
 
   restrict: "E"
   templateUrl: "templates/panel_tab.html"
   replace: true
+  link: link
   scope: {
     featured: "="
   }
+]
+
+# <a scroll-to-position="element-id">
+sfDirectives.directive "scrollToPosition", [->
+  restrict: "A"
+  link: (scope, element, attrs) ->
+    idToScrollTo = attrs.scrollToPosition
+    element.on "click", ->
+      $("body").animate
+        scrollTop: $("##{idToScrollTo}").offset().top
+      , "slow"
+  scope: {}
 ]
 
 # Slide directive format:
@@ -736,8 +870,17 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
 
     # TODO Use a promise
     $timeout (->
-      scope.swipe = new Swipe(document.getElementById(scope.identifier), config)
-    ), 1800
+      scope.swipe = new Swipe(document.getElementById(scope.identifier),
+      auto: config.auto
+      speed: config.speed
+      disableScroll: config.disableScroll
+      continuous: config.continuous
+      callback: (pos) ->
+        bullets = $("[data-swiper='" + scope.identifier + "'] li")
+        bullets.removeClass('on')
+        bullets.eq(pos).addClass('on')
+      )
+    ), 1000
 
     scope.showPaginator = ->
       scope.paginator? and scope.paginator is "true"
@@ -874,7 +1017,7 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
 
     scope.$watch('show', (newVal, oldVal) ->
       if newVal && !oldVal
-        scope.iframeContent = newVal.replace(/(?:http:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>')
+        scope.iframeContent = newVal.replace(/(?:http:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen></iframe>')
         scope.bodyDiv.style.overflow = "hidden";
       else
         scope.bodyDiv.style.overflow = ""
@@ -915,19 +1058,16 @@ sfDirectives.directive "worldMap", [->
           $popup.fadeOut "slow", ->
             $popup
               .find(".content").empty()
-              .html("<span class='close'><a href ng-click='closePopup()'>X</a></span><img src='#{content.thumbnail_url}'/><div class='background-popup'><h1>#{content.title}</h1><p>#{content.text}</p><p><a href='#{content.action_target}'>Read More →</a></div>")
+              .html("<span class='close' ng-click='closePopup()'>X</span><img src='#{content.thumbnail_url}'/><div class='background-popup'><div class='text-popup'><h2>#{content.title}</h2><span class='location'>#{content.location}</span></span><p>#{content.text}</p><p class='centered'><a class='read-more' href='#{content.action_target}'>LEARN MORE</a></div></div>")
             $popup
               .fadeIn()
+            $popup.find('.close').click ->
+              $popup.fadeOut()
       mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
     , 1800)
 
-  controller = ($scope, $element) ->
-    $scope.closePopup = ->
-      $('#map-popup').fadeOut()
-
   restrict: "E"
   link: link
-  controller: controller
   template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
   transclude: true
   replace: true

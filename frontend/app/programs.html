@@ -7,14 +7,17 @@
   <head>
   <!--(bake partials/head.html)-->
   </head>
-  <body class='programs-page page' ng:app="programsPageApp" ng:controller="globalVideoModalCtrl">
+  <body class='programs-page page' ng:app="programsPageApp" ng:controller="globalCtrl">
 
     <!--(bake partials/browser_check.html)-->
 
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
+    <!--(bake-start _if="dist")-->
     {exp:channel:entries channel="programs" limit="1"}
+    <!--(bake-end)-->
+
     <section class='page-leader'>
       <h1>
         <!--(bake-start _if="server")-->
@@ -30,7 +33,10 @@
         <!--(bake-end)-->
       </p>
     </section>
+
+    <!--(bake-start _if="dist")-->
     {/exp:channel:entries}
+    <!--(bake-end)-->
 
     <div ng:controller="ProgramsCtrl">
       <section class='tabbed-content'>

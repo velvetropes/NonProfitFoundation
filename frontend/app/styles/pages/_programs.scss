@@ -6,11 +6,32 @@
     @extend .generic-article-typography;
     h1 {
       margin-top: 50px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    p {
+      padding-left: 16px;
+      padding-right: 16px;
+      &.no-container {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
   .become-a-provider-container {
     @include outer-container;
     &.hidden {
+      display: none;
+    }
+  }
+  .carousel.hero {
+    display: none;
+  }
+  @include breakpoint($tablet-down) {
+    .carousel.hero {
+      display: block;
+    }
+    .carousel.thumblist {
       display: none;
     }
   }

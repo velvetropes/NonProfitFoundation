@@ -2,29 +2,45 @@
 footer {
   background: #F8F6F0;
   max-width: 100%;
-  &>div {
-    @include outer-container;
+  // &>div {
+  //   @include outer-container;
+  // }
+  .form {
+    padding: 50px 150px;
+    @include breakpoint($tablet-down) {
+      padding: 24px 5px;
+    }
   }
 }
 .social-info {
   display: inline-block;
 
+  ul {
+    li {
+      @include inline-block;
+    }
+  }
+  .footer-list-item {
+    height: 100px;
+    float: left;
+    margin-top: 5px;
+    width: 100%;
+  }
   &>ul {
     margin-top: 0;
+    margin-bottom: 0;
     padding-left: 0;
     @include clearfix;
-
 
     &>li {
       float: left;
       width: 25%;
       height: 230px;
       padding: 10px;
-
-      @include boxsizing;
-
       border-right: 1px dotted #CECECE;
       padding: 1.9em;
+      position: relative;
+      @include boxsizing;
 
       div {
         height: 80px;
@@ -47,7 +63,7 @@ footer {
           text-transform: uppercase;
           font-size: 10px;
           font-weight: 600;
-          line-height: 18px;
+          line-height: 1.4em;
         }
 
         h5 {
@@ -60,8 +76,6 @@ footer {
           line-height: 17px;
           margin-top: 5px;
         }
-
-
       }
 
       .icon {
@@ -85,11 +99,18 @@ footer {
         li {
           margin-left: 2px;
           border: 2px solid white;
+          a {
+            width: 40px;
+            height: 40px;
+            display: block;
+            background-size: cover;
+            background-position: center;
+          }
         }
       }
 
       p {
-        margin-bottom: 2px;
+        margin: 0 0 2px;
         clear: both;
         a {
           color: #00B9E4;
@@ -98,43 +119,100 @@ footer {
           font-weight: 600;
           text-align: center;
           display: block;
+          line-height: 1;
+        }
+      }
+      #twitter {
+        ul {
+          margin: 0;
+          padding: 0;
+        }
+        .user, .interact {
+          display: none;
+        }
+        .tweet {
+          a {
+            display: inline;
+            text-align: left;
+            color: inherit;
+            font-weight: normal;
+            text-transform: none;
+            font-size: 13px;
+          }
         }
       }
 
-    }
-  }
-
-  ul {
-    li {
-      @include inline-block;
-    }
-
-    .blog {
-
-    }
-    .facebook {
-
-    }
-    .instagram {
-      .thumbs {
-
-      }
-    }
-    .twitter {
-      .time {
+      .timePosted {
         float: right;
         font-size: 13px;
       }
+
+      &.facebook {
+        h1 {
+          margin-top: 3px;
+        }
+        p {
+          margin-top: 0;
+        }
+      }
+      &.blog {
+        .read-more {
+          margin-top: 21px;
+        }
+      }
+      @include breakpoint($tablet-down) {
+        float: none;
+        width: 100%;
+        height: auto;
+        border-bottom: 1px dotted #CECECE;
+        padding: 24px 24px 0;
+        .icon {
+          position: absolute;
+          top: 50%;
+          margin-top: -20px;
+        }
+        div {
+          height: auto;
+          float: left;
+          width: 100%;
+          padding-left: 72px;
+        }
+        .facebook-fans {
+          text-align: left;
+          h1 {
+            margin-top: 1px;
+          }
+        }
+        .thumbs {
+          margin-left: 0;
+        }
+        .time {
+          float: none;
+          line-height: 1.8;
+        }
+        .read-more {
+          float: right;
+          margin: 0;
+        }
+      }
     }
-
   }
-
 }
+
 .footer-links {
-  @include span-columns(12);
+  width: 100%;
+  border: 1px dotted #CECECE;
+  float: left;
+  border-right: none;
+  border-left: none;
   ul {
+    padding: 0;
+    margin: 7px 0 6px;
+    float: left;
+    width: 100%;
     li {
-      @include span-columns(4 of 12);
+      width: 33%;
+      float: left;
       text-align: center;
       text-transform: uppercase;
       @extend .verlagbold;
@@ -144,5 +222,42 @@ footer {
         font-size: .625em;
       }
     }
+  }
+  @include breakpoint($tablet-down) {
+    display: block;
+    ul {
+      margin-top: -23px;
+      padding: 0;
+      li {
+        display: block;
+        width: 100%;
+        border-bottom: 1px dotted #CECECE;
+        &.legal-links {
+          padding-bottom: 9px;
+        }
+        &.desktop-footer-subscribe {
+          display: none;
+        }
+        &.copyright {
+          padding: 2px 0;
+        }
+      }
+    }
+  }
+}
+
+.mobile-footer-subscribe {
+  font-weight: bold;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: .5px;
+  border-top: 1px dotted #CECECE;
+  border-bottom: 1px dotted #CECECE;
+  padding: 15px 0 14px;
+  -webkit-font-smoothing: antialiased;
+  display: none;
+  @include breakpoint($tablet-down) {
+    display: block;
   }
 }

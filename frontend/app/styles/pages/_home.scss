@@ -3,8 +3,16 @@
     width: 50%;
   }
   &.hero {
+    position: relative;
+    width: 100%;
+    .slide {
+      text-align: center;
+    }
     article {
       width: 100%;
+      @include breakpoint($mobile) {
+        height: 235px;
+      }
       img {
         display:block;
         width: 100%;
@@ -12,52 +20,116 @@
         height: auto;
       }
     }
-    .slide {
-      text-align: center;
+    .swiper-position {
+      width: 96px;
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      margin-left: -48px;
     }
   }
   &.bottom {
     width: 100%;
+    .thumblist-nav .jspPane > div .content {
+      bottom: 23px;
+    }
     h1 {
       text-align: center;
       color: white;
     }
-
     .nav {
       list-style: none;
       width: 50%;
       margin: 20px auto;
-    }
-
-    .nav li {
-      display: inline;
-      padding: 10px;
-      margin: 5px;
-      border: 1px solid #eee;
+       li {
+        display: inline;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #eee;
+      }
     }
   }
-  &.short .slide {
-    height: 525px;
+  &.short {
+    .slide {
+      height: 525px;
+    }
   }
 }
 .mission-statement {
   text-align: center;
-  border-bottom: 1px dotted #333;
+  border-bottom: $dotted-border;
+
+  h1 {
+    font-size: 2.375em;
+    line-height: 1.71em;
+    margin: 0.32em 0;
+    padding: 0 16px;
+  }
+  @include breakpoint($mobile) {
+    h1 {
+      font-size: 2.1em;
+      line-height: 1.3em;
+    }
+  }
+}
+
+.pictograms {
+  @include outer-container;
+  padding:20px 0 15px 0;
+  min-width: 765px;
+  .pict {
+    width: 33.33%;
+    float: left;
+    border-right: $dotted-border;
+    text-align: center;
+    img {
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+  @include breakpoint($tablet-down) {
+    min-width: 400px;
+    .pict {
+      width: 100%;
+      float: none;
+      border-right: none;
+      border-bottom: $dotted-border;
+    }
+  }
 }
 
 .bottom-slide-tabs {
   height: 525px;
+  @include breakpoint($mobile) {
+    display: none;
+  }
   .bottom-slide-tab {
     .panel-image {
       float: left;
       width: 100%;
       overflow: hidden;
       height: 525px;
+      position: relative;
       a {
         width: 100%;
         height: 100%;
         display: block;
         background-size: cover;
+        background-position: center;
+      }
+      .play-video-link {
+        position: absolute;
+        left: 50%;
+        top: 43%;
+        .icon {
+          font-size: 5em;
+          color: white;
+        }
       }
     }
     .panel-content {
@@ -88,6 +160,75 @@
         }
       }
     }
+  }
+}
+
+.map-as-feed {
+  display: none;
+  background: url('images/map-as-feed-bg.jpg') #41bbe4;
+  background-size: 100%;
+  color: white;
+  margin-top: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include breakpoint($mobile) {
+    display: block;
+  }
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 25px 0 20px;
+    font-size: 20px;
+  }
+  .heading {
+    padding-left: 14px;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: bold;
+  }
+  .entry {
+    background: #1996c0;
+    padding: 8px;
+    margin-bottom: 2px;
+    position: relative;
+    display: none;
+  }
+  .entry-image {
+    float: left;
+    height: 104px;
+    width: 30%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .entry-content {
+    float: left;
+    width: 60%;
+    padding-left: 5%;
+  }
+  h3 {
+    margin: 4px 0;
+    a {
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+  }
+  a, span {
+    color: #82ffff;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  a.read-more {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+  }
+  .load-more {
+    color: #006b8a;
   }
 }
 

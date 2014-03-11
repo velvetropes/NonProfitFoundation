@@ -48,7 +48,7 @@
 
   <ul class="articles-filters">
     <li>Sort &nbsp;|</li>
-    <li class="dropdown wide">
+    <li class="dropdown widest">
       <select ng-model="articleFilters.type" class="dropdown-select">
         <option ng-repeat="cat in articleCategories" value="{{cat.tag}}">{{cat.name}}</option>
       </select>
@@ -61,24 +61,28 @@
     </li>
   </ul>
 
-  <ul class="pagination-articles press-items">
-    <li ng-repeat="article in pressItems | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-      <page-tile
-        id="{{article.id}}"
-        title="{{article.title}}"
-        date="{{article.date}}"
-        detail_page="{{article.detail_page}}"
-        type="{{article.type}}"
-        featured="{{article.featured}}"
-        header_image_url="{{article.header_image_url}}"
-        logo_image_url="{{article.logo_image_url}}"
-        quote="{{article.quote}}"
-        call_to_action_text="{{article.call_to_action_text}}"
-        call_to_action_link="{{article.call_to_action_link}}"
-        video_link="{{article.video_link}}"
-      ></page-tile>
-    </li>
-  </ul>
+  <section class='articles-list'>
+    <ul class="pagination-articles press-items">
+      <li ng-repeat="article in pressItems | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+        <page-tile
+          id="{{article.id}}"
+          title="{{article.title}}"
+          date="{{article.date}}"
+          detail_page="{{article.detail_page}}"
+          type="{{article.type}}"
+          featured="{{article.featured}}"
+          header_image_url="{{article.header_image_url}}"
+          logo_image_url="{{article.logo_image_url}}"
+          quote="{{article.quote}}"
+          call_to_action_text="{{article.call_to_action_text}}"
+          call_to_action_link="{{article.call_to_action_link}}"
+          video_link="{{article.video_link}}"
+        ></page-tile>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="load-more">LOAD MORE</div>
+  </section>
 
   <div class="pagination">
     <ul>

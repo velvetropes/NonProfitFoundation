@@ -5,26 +5,11 @@
   text-align: center;
 }
 
-// .thumblist-nav {
-//   width: 100%;
-//   overflow: auto;
-//   white-space: nowrap
-// }
-
-// .jspPane > div {
-//   display: inline-block;
-
-//   /* ie7 support */
-//   *display: inline;
-//   zoom: 1
-// }
-
-
 .thumblist-nav {
   width: 100%;
   overflow: auto;
   white-space: nowrap;
-  height: 335px;
+  height: 324px;
   .jspPane {
     position: absolute;
     // .img {
@@ -33,7 +18,7 @@
     // }
     > div {
       width: 400px;
-      height: 330px;
+      height: 313px;
       position: relative;
       border: 1px dotted #ddd;
       border-right: none;
@@ -45,18 +30,23 @@
       zoom: 1;
       .image {
         background-size: cover;
+        background-position: center;
         position: absolute;
-        bottom: 115px;
+        bottom: 101px;
         right: 0;
         left: 0;
         top: 0;
       }
       .content {
         position: absolute;
-        bottom: 10px;
+        bottom: -6px;
         right: 20px;
         left: 20px;
-        overflow: hidden;
+        text-align: left;
+        white-space: normal;
+        .call-to-action {
+          line-height: 1em;
+        }
       }
       .year-overlay {
         text-align: center;
@@ -71,9 +61,9 @@
     }
     h4 {
       @extend .verlagbold;
-      font-size: 1.5em;
-      letter-spacing: 1px;
-      margin: 0 0 10px 0;
+      font-size: 1.125em;
+      line-height: 1.375em;
+      margin: 6px 0 8px 0;
       color: $gray-title;
       text-align: left;
     }
@@ -92,6 +82,7 @@
       margin: 5px 0 0;
       padding: 0;
       color: $gray-title;
+      text-align: left;
     }
   }
   &.horizontal-only {

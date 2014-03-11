@@ -4,13 +4,35 @@
     <h3 class="section-headline">News &amp; Events</h3>
     <p>Click around to read our latest news and updates.</p>
     <p class="call-to-action">
-      <a href="#">Subscribe to our newsletter</a>
+      <a href ng-click="openSubscribeForm()" scroll-to-position="subscribeFormAnchor">Subscribe to our newsletter</a>
       to stay up to date
     </p>
   </div>
 </div>
 
-<section class='carousel'>
+<section class='mobile-carousel carousel hero add-bottom-border'>
+  <swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_1"
+    auto="8000"
+    paginator="true"
+    size="short"
+    >
+    <div ng-repeat="article in articles | filter:{featured:'true'}">
+      <slide
+        image-url="{{article.thumbnail_image_url}}"
+        blog-category="{{article.blog_item_category}}"
+        video-url=""
+        link-url="#/articles/{{article.id}}"
+        headline="{{article.title}}"
+        link-text="Read More →"
+      ></slide>
+    </div>
+  </swiper>
+</section>
+
+<section class='carousel thumblist'>
   <thumblist-nav full="true">
     <div ng-repeat="article in articles | filter:{featured:'true'}">
       <slide
@@ -36,7 +58,7 @@
       <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
-      <li class="disabled">
+      <li class="next-page-trigger disabled">
         <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
@@ -57,16 +79,34 @@
     </li>
   </ul>
 
-  <ul class="pagination-articles">
-    <li ng-repeat="article in articles | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-      <div class='block'>
-        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <h2 class="headline">{{article.title}}</h2>
-        <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
-        <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
-      </div>
-    </li>
-  </ul>
+  <section class='articles-list'>
+    <ul class="pagination-articles desktop blog-items">
+      <li ng-repeat="article in nonFeaturedArticles | filter:articleFilters | startFrom: pageStart() | limitTo: pageEnd()" class="reveal">
+        <div class='block'>
+          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+          <div class="content">
+            <h2 class="headline">{{article.title}}</h2>
+            <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
+            <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="pagination-articles tablet">
+      <li ng-repeat="article in articlesForMobile track by article.id" class="reveal">
+        <div class='block'>
+          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+          <div class="content">
+            <h2 class="headline">{{article.title}}</h2>
+            <p class='date'>{{parseDate(article.date) | date:"MMMM d yyyy"}}</p>
+            <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="load-more" ng-click="loadMore()" ng-hide="isAtPaginationEnd()">LOAD MORE</div>
+  </section>
 
   <div class="pagination">
     <ul>

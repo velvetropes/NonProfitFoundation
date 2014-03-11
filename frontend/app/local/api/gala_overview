@@ -1,75 +1,197 @@
-
-<article class='gala-overview outer-container'>
-  <div class="carousel half-wit">
-    <swiper
-      continuous="true"
-      speed="2000"
-      identifier="swiper_1"
-      auto="8000"
-      paginator="true"
-      size="short narrow"
-      >
-
-      <slide
-          image-url='http://starkey.local/uploads/images/CAROUSEL-Tony_Hawk_Event.JPG'
-          background-color=""
-          quote=""
-          video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
-          link-url=""
-          headline=""
-          body-copy=""
-          logo-image-url=""
-          link-style=""
-          link-text=""
+<div class="overview-mode">
+  <article class='gala-overview outer-container'>
+    <div class="carousel half-wit">
+      <swiper
+        continuous="true"
+        speed="2000"
+        identifier="swiper_1"
+        auto="8000"
+        paginator="true"
+        size="short narrow"
         >
-      </slide>
 
-      <slide
-          image-url='http://starkey.local/uploads/images/billaustin.jpg'
-          background-color=""
-          quote=""
-          video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
-          link-url=""
-          headline=""
-          body-copy=""
-          logo-image-url=""
-          link-style=""
-          link-text=""
-        >
-      </slide>
+        <slide
+            image-url='http://starkey.local/uploads/images/CAROUSEL-Tony_Hawk_Event.JPG'
+            background-color=""
+            quote=""
+            video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
+            link-url=""
+            headline=""
+            body-copy=""
+            logo-image-url=""
+            link-style=""
+            link-text=""
+          >
+        </slide>
 
-      </slide>
-    </swiper>
+        <slide
+            image-url='http://starkey.local/uploads/images/billaustin.jpg'
+            background-color=""
+            quote=""
+            video-url="http://www.youtube.com/watch?v=tF-9R4UUWa"
+            link-url=""
+            headline=""
+            body-copy=""
+            logo-image-url=""
+            link-style=""
+            link-text=""
+          >
+        </slide>
+
+        </slide>
+      </swiper>
+    </div>
+
+    <div class="main-story generic-article-typography">
+      <h1>Starkey Hearing Foundation&amp;rsquo;s annual So the World May Hear Awards Gala celebrates the spirit of giving.</h1>
+
+      <p>The gala showcases the tremendous impact of reflecting caring and sharing into the lives of others. With the support we receive at the Gala, we are able to use hearing as a vehicle to change lives and give more than 100,000 hearing aids annually to people in need. Each year we honor humanitarians who dedicate their time and service to helping others around the world and here at home, and we have amazing perfor- mances from world-class entertainers.</p>
+    </div>
+    <div class="highlights">
+      <ul>
+
+        <li class="first">
+          <div class="highlight-thumbnail" style="background: url('http://starkey.local/uploads/images/BLOG-Preparing_to_give_the__Gift_of-Hearing-LEAD.jpg');">
+          </div>
+          <div class="content">
+            <h3>Tani Austin Reflects on 12 Amazing Years</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
+            <p class="action-link"><a href="/programs#/programs/0">Read more &rarr;</a></p>
+          </div>
+        </li>
+
+        <li>
+          <div class="highlight-thumbnail" style="background: url('http://starkey.local/uploads/images/BLOG-Preparing_to_give_the__Gift_of-Hearing-LEAD.jpg');">
+          </div>
+          <div class="content">
+            <h3>Can You Feel The Love Tonight</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
+            <p class="action-link"><a href="/blog#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank">Read more &rarr;</a></p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </article>
+  <article class='gala-upcoming'>
+    <div class="gala-tab-content text-container">
+      <h1>Upcoming Gala Event</h1>
+      <div>
+      <p>Starkey Hearing Foundation’s annual So the World May Hear Awards Gala celebrates the spirit of giving.The gala showcases the tremendous impact of reflecting caring and sharing into the lives of others. With the support we receive at the Gala, we are able to use hearing as a vehicle to change lives and give more than 100,000 hearing aids annually to people in need. Each year we honor humanitarians who dedicate their time and service to helping others around the world and here at home, and we have amazing perfor- mances from world-class entertainers.</p>
+    </div>
+    <p>
+      <gallery slides="1">
+        <gallery-slide
+           image-url="http://starkey.local/uploads/images/listencarefully3.jpg"
+           video-url="http://www.youtube.com/watch?v=rlyH-ZcCf7o"
+          ></gallery-slide>
+      </gallery>
+    </p>
   </div>
 
-  <div class="main-story generic-article-typography">
-    <h1>Starkey Hearing Foundation&amp;rsquo;s annual So the World May Hear Awards Gala celebrates the spirit of giving.</h1>
+  <accordion>
+    <expander class='expander' title='Sponsorship Information'>
+      <accordion-list title="Sample Row" ng-class="{active: showMe==tr}">
+        <div class="outer-container">
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url()'}">
+            </div>
+          </accordion-list-item>
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url()'}">
+            </div>
+          </accordion-list-item>
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url()'}">
+            </div>
+          </accordion-list-item>
+        </div>
+      </accordion-list>
+    </expander>
 
-<p>The gala showcases the tremendous impact of reflecting caring and sharing into the lives of others. With the support we receive at the Gala, we are able to use hearing as a vehicle to change lives and give more than 100,000 hearing aids annually to people in need. Each year we honor humanitarians who dedicate their time and service to helping others around the world and here at home, and we have amazing perfor- mances from world-class entertainers.</p>
+    <expander class='expander' title='Honoree Information'>
+      <div class="outer-container">
+        <h2>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</h2>
+
+        <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing <strong>elitr, sed diam nonumy eirmod</strong> tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore <a href="#">magna aliquyam erat</a>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+        <h3>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</h3>
+
+        <ul>
+        <li>vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim</li>
+        <li>qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</li>
+        <li>tincidunt ut laoreet dolore magna aliquam erat volutpat.</li>
+        </ul>
+      </div>
+    </expander>
+    <expander class='expander' title='Entertainers'>
+      <div class="outer-container">
+        <h2>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</h2>
+
+        <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing <strong>elitr, sed diam nonumy eirmod</strong> tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore <a href="#">magna aliquyam erat</a>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+        <h3>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</h3>
+
+        <ul>
+        <li>vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim</li>
+        <li>qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</li>
+        <li>tincidunt ut laoreet dolore magna aliquam erat volutpat.</li>
+        </ul>
+      </div>
+    </expander>
+    <expander class='expander' title='Special Guests'>
+      <div class="outer-container">
+        <h2>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</h2>
+
+        <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing <strong>elitr, sed diam nonumy eirmod</strong> tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore <a href="#">magna aliquyam erat</a>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+        <h3>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</h3>
+        <ul>
+        <li>vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim</li>
+        <li>qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</li>
+        <li>tincidunt ut laoreet dolore magna aliquam erat volutpat.</li>
+        </ul>
+      </div>
+    </expander>
+    <expander class='expander' title='Gala Sponsors'>
+      <accordion-list title="Sample Row" ng-class="{active: showMe==tr}">
+        <div class="outer-container">
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url()'}">
+            </div>
+          </accordion-list-item>
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url()'}">
+            </div>
+          </accordion-list-item>
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url()'}">
+            </div>
+          </accordion-list-item>
+        </div>
+      </accordion-list>
+    </expander>
+    <expander class='expander' title='Sponsors '>
+      <accordion-list title="First Tier Sponsors " ng-class="{active: showMe==tr}">
+        <div class="outer-container">
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url(http://starkey.local/uploads/images/ABClogo.jpg)'}">
+            </div>
+          </accordion-list-item>
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url(http://starkey.local/uploads/images/cnnlogo.png)'}">
+            </div>
+          </accordion-list-item>
+          <accordion-list-item>
+            <div class="image" ng-style="{'background-image': 'url(http://starkey.local/uploads/images/ABClogo.jpg)'}">
+            </div>
+          </accordion-list-item>
+        </div>
+      </accordion-list>
+      </expander>
+    </accordion>
   </div>
-  <div class="highlights">
-    <ul>
-
-      <li class="first">
-        <div class="highlight-thumbnail" style="background: url(''); background-size: cover;">
-        </div>
-        <div class="content">
-          <h3>Tani Austin Reflects on 12 Amazing Years</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
-          <p class="action-link"><a href="#sample-link">Read more &rarr;</a></p>
-        </div>
-      </li>
-
-      <li>
-        <div class="highlight-thumbnail" style="background: url('http://starkey.local/uploads/images/BLOG-Preparing_to_give_the__Gift_of-Hearing-LEAD.jpg'); background-size: cover;">
-        </div>
-        <div class="content">
-          <h3>Can You Feel The Love Tonight</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut sapien vel massa dictum malesuada sed quis nibh.</p>
-          <p class="action-link"><a href="#sample-link2">Read more &rarr;</a></p>
-        </div>
-      </li>
-
-    </ul>
-  </div>
-</article>
+</div>

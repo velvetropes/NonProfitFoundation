@@ -32,3 +32,31 @@
 {/exp:channel:entries}
 </thumblist-nav>
 </section>
+
+<section class="mobile-carousel carousel hero short">
+  <swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_1"
+    auto="8000"
+    size="short"
+    paginator="true"
+    >
+    {exp:channel:entries channel="programs"}{operation_change_partnerships}
+      <slide
+        image-url="{operation_change_partnerships:image}"
+        background-color=""
+        quote=""
+        video-url=""
+        link-url="{operation_change_partnerships:link}"
+        headline="{operation_change_partnerships:title}"
+        body-copy="{operation_change_partnerships:date format='%F %d%S %Y'}"
+        logo-image-url=""
+        link-style=""
+        link-text="Read More →"
+      >
+      </slide>
+      {/operation_change_partnerships}
+    {/exp:channel:entries}
+  </swiper>
+</section>

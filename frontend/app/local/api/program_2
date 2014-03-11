@@ -1,56 +1,37 @@
 
-
 <article class='hear-now text-container'>
     <h1>Hear Now</h1>
-    <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country. We do this through domestic missions and also Hear Now, our application-based program that provides hearing help to low-income Americans. Each person we help is fit with new, top-of-the-line digital hearing aids that are customized to their hearing loss.&nbsp;</p>
+    <p>Starkey Hearing Foundation has provided more hearing help to people in the United States than to any other country. We do this through domestic missions and also Hear Now, our application-based program that provides hearing help to low-income Americans. Hear Now is committed to assisting U.S. residents with hearing loss, who have no resources to acquire hearing aids. Starkey Hearing Foundation provides the hearing aids and runs the program, but we count on the generosity of Hear Now providers and donors across the country to ensure its success.&nbsp;Each person we help is fit with new, top-of-the-line digital hearing aids that are customized to their hearing loss.&nbsp;</p>
 
 <p>If you or someone you know is struggling with hearing loss and unable to afford hearing aids, call 1-800-328-8602 or complete the form below, and a Hear Now representative will be in touch with you.&nbsp;</p>
 
-<p>If you have already spoken with a representative and need an application, you can download one here:</p>
-
-<p>   <swiper
-      continuous="true"
-      speed="2000"
-      identifier="hearnow"
-      auto="8000"
-      size="short"
-      >
+<p>
 
 
-        <slide
-         image-url="http://starkey.ahundredyears.com/uploads/hearnow1.jpg"
-         video-url=""
-         link-url=""
-         link-text=""
-         headline=""
-         body-copy=""
-         thumblist="false"
-         date=""
-         blog-category=""
-         quote=""
-         background-color=""
-         logo-image-url=""
-         link-style=""
-        ></slide>
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.local/uploads/images/hearnow1.jpg"
+               video-url=""
+              ></gallery-slide>
+          </gallery>
 
 
-    </swiper>
+
     </p>
     <p class="centered"><a href="mailto:programs@starkeyfoundation.org" class="link-with-border">Contact us</a></p>
 
-    <p></p>
+    <p>If you have already spoken with a representative and need an application, you can download one here:</p>
 
     <div class="share-this-post">
       <ul>
         <li><span class="note">Download application</span></li>
         <li>
-          <a href="http://starkey.ahundredyears.com/uploads/files/pdf_download_tes.pdf">
+          <a href="http://starkey.local/uploads/files/FORM7970-10-EE-XX-Hear-Now-Application-2014.pdf">
             <span class="icon starkey-pdf"></span>
           </a>
         </li>
         <li><span class="note">Descargar Solicitud</span></li>
         <li>
-          <a href="http://starkey.ahundredyears.com/uploads/files/pdf_download_tes.pdf">
+          <a href="http://starkey.local/uploads/files/FORM7970-10-EE-XX-Hear-Now-Application-2014_SPANISH.pdf">
             <span class="icon starkey-pdf"></span>
           </a>
         </li>
@@ -60,7 +41,8 @@
     <hr class="separator padded"/>
     <br/>
     <h1>Providers Looking to Give Back</h1>
-    <p>Help us give the gift of hearing into the lives of people in need. If you are a hearing professional, we need your help! Become a Hear Now volunteer and volunteer to fit and follow up with our Hear Now recipients. Your crucial support will help change lives forever and have a lasting impact on your community.</p>
+
+<p>Help us give the gift of hearing into the lives of people in need. If you are a hearing professional, we need your help! Become a Hear Now volunteer and volunteer to fit and follow up with our Hear Now recipients. Your crucial support will help change lives forever and have a lasting impact on your community.</p>
     <br/>
     <hr class="separator padded"/>
     <h3><a href="#programs/2" class="become-a-provider highlight">Become a Provider</a></h3>
@@ -68,8 +50,8 @@
     <div class="become-a-provider-container hidden">
       <br/>
       <form action="http://starkey.local/?ACT=23" accept-charset="utf-8" id="become_a_provider_form" class="flatform invert" method="post"><div style="display:none">
-<input type="hidden" name="params_id" value="57" />
-<input type="hidden" name="XID" value="54fdde562cadc72a4f838233bb5c098b29d782e1" />
+<input type="hidden" name="params_id" value="89" />
+<input type="hidden" name="XID" value="992aa6d82a172eb6ce1192ef1a5c94336f49f50d" />
 </div>
         <ul>
             <li class="leftHalf">

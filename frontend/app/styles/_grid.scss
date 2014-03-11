@@ -1,10 +1,6 @@
 // Grid
-header, .pictograms, footer {
+header, footer {
   @include outer-container;
-}
-
-.pictograms {
-  min-width: 765px;
 }
 
 .outer-container {
@@ -31,4 +27,8 @@ header, .pictograms, footer {
   p:not(.no-container) {
     line-height: 1.8em;
   }
+}
+
+.narrow {
+  width: 50%;
 }

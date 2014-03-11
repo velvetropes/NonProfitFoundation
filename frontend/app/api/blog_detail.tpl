@@ -1,13 +1,24 @@
-{exp:channel:next_entry channel="blog" url_title="{segment_3}"}
+{exp:channel:next_entry channel="blog"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
+  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
+}
    {exp:stash:set_value parse_tags="yes" name="next_entry" value="{url_title}"}
 {/exp:channel:next_entry}
 
-{exp:channel:prev_entry channel="blog" url_title="{segment_3}"}
+{exp:channel:prev_entry channel="blog"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
+  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
+}
     {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
 {/exp:channel:prev_entry}
 
+{exp:channel:entries channel="blog" dynamic="no" limit="1"
+  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
+  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
+}
 
-{exp:channel:entries channel="blog" dynamic="no" url_title="{segment_3}" limit="1"}
+{if no_results}<div class="text-container"><p style="text-align:center">No article was found</p></div>{/if}
+
 <div class="article-header-image">
   <div class="image" style="background-image: url('{if blog_header_image}{blog_header_image}{if:else}{blog_image}{/if}');">
     <ul class="page-nav-links">
@@ -33,7 +44,7 @@
             <p class="article-item-category">{blog_category}</p>
           {/if}
           <h1  class="article-title">{title}</h1>
-          <p>{entry_date format='%M %d, %Y'} | {blog_author}</p>
+          <p>{blog_date format='%M %d, %Y'} {if blog_author}| {blog_author}{/if}</p>
         </div>
       </div>
     </div>
@@ -68,7 +79,7 @@
 <br/>
 <div class="outer-container">
   <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel'>
+  <section class='carousel thumblist'>
     <thumblist-nav>
       {blog_related_items}
         <slide
@@ -102,8 +113,8 @@
     <li ng-repeat="article in articles | startFrom:currentPage*pageSize | limitTo:pageSize">
       <div class='block'>
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <h2 class="headline">{{article.title}}</h2>
-        <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+        <h2 class="headline"></h2>
+        <p class='read-more'><a href="#/articles/">Read more &rarr;</a></p>
       </div>
     </li>
   </ul>
