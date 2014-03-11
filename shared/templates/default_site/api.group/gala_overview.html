@@ -1,6 +1,9 @@
  <div class="overview-mode">
   {exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_default}"}
     <article class='gala-overview outer-container'>
+      <div class="mobile-only load-more">
+        Overview
+      </div>
       <div class="carousel half-wit">
         <swiper
           continuous="true"

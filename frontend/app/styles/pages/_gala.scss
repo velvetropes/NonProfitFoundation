@@ -1,3 +1,8 @@
+.gala-page {
+  .load-more {
+    color: $light-blue;
+  }
+}
 .gala-overview {
   .half-wit {
     float: left;
@@ -23,6 +28,7 @@
       width: 100%;
       float: none;
       padding: 0 16px;
+      margin-top: 0;
     }
   }
 }
@@ -37,6 +43,14 @@
   }
   p.no-container {
     margin: 40px 0 0;
+  }
+}
+
+.gala-tabs {
+  @include breakpoint($mobile) {
+    .tabbed-content {
+      display: none;
+    }
   }
 }
 
@@ -125,8 +139,8 @@
           .action-link {
             font-size: 11px;
             position: absolute;
-            bottom: 0;
-            right: 0;
+            bottom: 3px;
+            right: 16px;
           }
         }
       }
@@ -134,7 +148,6 @@
   }
 }
 .overview-mode {
-
   .gala-upcoming {
     display: none;
     @include breakpoint($tablet-down) {
