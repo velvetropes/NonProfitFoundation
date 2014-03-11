@@ -1,6 +1,21 @@
 .gala-page {
-  .load-more {
-    color: $light-blue;
+  @include breakpoint($mobile) {
+    .page-leader {
+      h1 {
+        margin-bottom: 12px;
+      }
+    }
+    .load-more {
+      color: $light-blue;
+      cursor: default;
+      padding-top: 0;
+    }
+    .body {
+      h2, p, h3 {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
   }
 }
 .gala-overview {

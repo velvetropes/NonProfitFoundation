@@ -1,7 +1,3 @@
-<div class="mobile-only load-more">
-  Upcoming
-</div>
-
 {exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_default}"}
   {exp:stash:set name="upcoming_id" parse_tags="yes"}{gala_upcoming:entry_id}{/exp:stash:set}
 {/exp:channel:entries}
