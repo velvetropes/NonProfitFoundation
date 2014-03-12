@@ -13,7 +13,7 @@
       "latLng" : [{homepage_map_item_lat}, {homepage_map_item_lon}],
       "style" : {
         "r" : "15",
-        "fill" : "url('#jvm-video')",
+        "fill" : "url('#jvm-{homepage_map_item_category:url_title}')",
         "stroke-width" : 0
       }
     }, {/exp:channel:entries}
