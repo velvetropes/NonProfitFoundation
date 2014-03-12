@@ -36,8 +36,8 @@
 {exp:channel:entries channel="blog" dynamic="no" url_title="{segment_3}" limit="1"}
 {
   "id": "{url_title}",
-  "date": "{entry_date format='%m %d %Y'}",
-  "year": "{entry_date format='%Y'}",
+  "date": "{blog_date format='%F %d, %Y'}",
+  "year": "{blog_date format='%Y'}",
   "blog_item_category": {if blog_category}"{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_category}{/exp:low_replace}{/if}",
   "related_blog_items": [
     {blog_related_items backspace="2"}

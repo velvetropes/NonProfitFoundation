@@ -44,7 +44,7 @@
             <p class="article-item-category">{blog_category}</p>
           {/if}
           <h1  class="article-title">{title}</h1>
-          <p>{blog_date format='%M %d, %Y'} {if blog_author}| {blog_author}{/if}</p>
+          <p>{blog_date format='%F %d, %Y'} {if blog_author}| {blog_author}{/if}</p>
         </div>
       </div>
     </div>
@@ -77,11 +77,14 @@
   </div>
 </div>
 <br/>
+
+{blog_related_items}
+{if blog_related_items:count == 1}
 <div class="outer-container">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>
     <thumblist-nav>
-      {blog_related_items}
+{/if}
         <slide
           thumblist="true"
           image-url="{blog_related_items:blog_image}"
@@ -89,12 +92,15 @@
           link-url="#/articles/{blog_related_items:url_title}"
           headline="{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_related_items:title}{/exp:low_replace}"
           link-style=""
-          date="{blog_related_items:blog_date format='%m %d %Y'}"
+          date="{blog_related_items:blog_date format='%F %d, %Y'}"
         ></slide>
-      {/blog_related_items}
+{if blog_related_items:count == blog_related_items:total_results} 
     </thumblist-nav>
   </section>
 </div>
+{/if}
+{/blog_related_items}
+
 <br/>
 <hr class="separator padded"/>
 
