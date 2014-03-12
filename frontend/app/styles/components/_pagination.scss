@@ -170,16 +170,16 @@ pagination {
       margin-bottom: 3px;
       .block {
         padding: 4px;
-        height: 140px;
+        height: 130px;
         .image {
           position: static;
-          width: 45%;
+          width: 48%;
           height: 100%;
           float: left;
         }
         .content {
           float: left;
-          width: 50%;
+          width: 52%;
         }
         .headline {
           position: static;
@@ -187,6 +187,7 @@ pagination {
           margin: 0;
           font-weight: 400;
           font-size: 18px;
+          line-height: 1.1;
           height: auto;
           overflow: visible;
         }
@@ -203,6 +204,7 @@ pagination {
         }
         .read-more {
           font-size: 11px;
+          bottom: -4px;
         }
       }
     }
