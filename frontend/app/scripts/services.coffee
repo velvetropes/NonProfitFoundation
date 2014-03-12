@@ -2,10 +2,15 @@
 
 sfServices = angular.module("sfServices", ["ngResource"])
 
-sfServices.factory "urlChooser", [->
-  # env = "development"
-  # env = "staging"
-  env = "production"
+sfServices.factory "urlChooser", ["$location", ($location) ->
+
+  switch $location.host()
+    when "127.0.0.1"
+      env = "development"
+    when "starkey.local"
+      env = "staging"
+    else
+      env = "production"
 
   getUrl = ->
     switch env

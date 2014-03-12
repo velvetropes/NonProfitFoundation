@@ -442,10 +442,10 @@ sfDirectives.directive 'homeThumblistNav', [->
 
 ]
 
-sfDirectives.directive("insvalueramGallery", [
+sfDirectives.directive("instagramGallery", [
   "$http"
-  "Insvalueram"
-  ($http, Insvalueram) ->
+  "Instagram"
+  ($http, Instagram) ->
     return {
       restrict: "E"
       scope: {}
@@ -460,7 +460,7 @@ sfDirectives.directive("insvalueramGallery", [
         """
       link: (scope, element, attr) ->
         scope.pics = []
-        Insvalueram.fetchLatest( (data) ->
+        Instagram.fetchLatest( (data) ->
           scope.pics = data
         )
     }
