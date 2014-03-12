@@ -5,6 +5,9 @@
   text-transform: uppercase;
   li {
     display: inline-block;
+    strong {
+      font-weight: bold;
+    }
   }
   @include breakpoint($tablet-down) {
     padding: 0 16px;
