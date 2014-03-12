@@ -5,7 +5,7 @@
 	{/exp:channel:entries}
 
   {exp:stash:parse process="end"}
-	  {exp:channel:entries channel="galla" dynamic="no" limit="5" orderby="galla_year" sort="desc"
+	  {exp:channel:entries channel="galla" dynamic="no" orderby="galla_year" sort="desc"
 		entry_id="not {exp:stash:upcoming_id}" parse="inward"}
 		  {
 		    "id": "{url_title}",
