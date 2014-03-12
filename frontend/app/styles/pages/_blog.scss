@@ -11,6 +11,11 @@
   }
   @include breakpoint($tablet-down) {
     padding: 0 16px;
+    margin-top: -35px;
+    margin-bottom: 0px;
+  }
+  @include breakpoint($mobile) {
+    font-size: 13px;
   }
 }
 .article-header-image {
