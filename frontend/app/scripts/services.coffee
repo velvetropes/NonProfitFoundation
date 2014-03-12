@@ -10,7 +10,7 @@ sfServices.factory "urlChooser", ["$location", ($location) ->
     when "starkey.local"
       env = "staging"
     else 
-      env = "development"
+      env = "production"
 
   getUrl = ->
     switch env

@@ -1164,7 +1164,7 @@
             break;
 
           default:
-            env = "development";
+            env = "production";
         }
         return getUrl = function() {
             switch (env) {
