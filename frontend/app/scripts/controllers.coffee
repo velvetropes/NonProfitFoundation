@@ -202,6 +202,10 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   $scope.parseDate = (date) ->
     parsedDate = Date.parse(date)
     parsedDate
+
+  $scope.setTypeFilter = (filterObj)->
+    $scope.articleFilters.type = filterObj.value
+
 ])
 
 # TODO Change to detail page format

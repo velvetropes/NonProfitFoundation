@@ -92,17 +92,6 @@ sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compi
     scope.subhead ?= ""
     scope.thumbnailImageUrl ?= ""
     scope.title ?= ""
-    # template = if scope.detailPageType is "blog"
-    #   blogDetailTemplate
-    # else
-    #   pressReleaseDetailTemplate
-    # element.html(template)
-    # $compile(element.contents())(scope)
-    # $timeout( ->
-    #   element.html(template)
-    #   $compile(element.contents())(scope)
-    # , 4800)
-    # el = $compile('<div class="text-container" ng-bind-html="body"></div>')(scope)
 
   result =
     restrict: "E"
@@ -126,6 +115,80 @@ sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compi
       subhead: "@"
       thumbnailImageUrl: "@"
       title: "@"
+  result
+]
+
+# Dropdown
+sfDirectives.directive "dropdown", [ ->
+
+  link = (scope, element, attrs) ->
+    scope.isActive = false
+    scope.currentOption = scope.options[0] or {}
+    console.debug "scope.currentOption", scope.currentOption
+
+  controller = ($scope) ->
+    dropdownOptions = []
+    @gotSelected = (selectedDropdownOption) ->
+      angular.forEach dropdownOptions, (dropdownOption) ->
+        if selectedDropdownOption is dropdownOption
+          $scope.currentOption = selectedDropdownOption
+          $scope.callFilter = $scope.currentOption.value
+        else
+          dropdownOption.isCurrent = false
+        return
+      return
+
+    @addDropdownOption = (dropdownOption) ->
+      dropdownOptions.push dropdownOption
+      return
+    return
+
+  result =
+    restrict: "E"
+    transclude: true
+    replace: true
+    controller: controller
+    template: """
+      <div class="outer-dropdown-wrapper">
+        <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
+          <span >{{currentOption.name}}</span>
+          <ul class="dropdown-list" ng-show="isActive==true">
+            <dropdown-option ng-repeat="option in options" name="{{option.name}}" value="{{option.tag}}"></dropdown-option>
+          </ul>
+        </div>
+      </div>
+      """
+    link: link
+    scope:
+      options: "="
+      callFilter: "="
+  result
+]
+
+sfDirectives.directive "dropdownOption", [ ->
+
+  link = (scope, element, attrs, dropdownController) ->
+    scope.isSelected = false
+    dropdownController.addDropdownOption scope
+    scope.selectOption = ->
+      scope.isSelected = not scope.isSelected
+      dropdownController.gotSelected scope
+      return
+    return
+
+  result =
+    restrict: "E"
+    replace: true
+    require: "^?dropdown"
+    template: """
+      <li>
+        <a href ng-click="selectOption()">{{name}}</a>
+      </li>
+      """
+    link: link
+    scope:
+      name: "@"
+      value: "@"
   result
 ]
 
