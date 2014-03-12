@@ -1096,20 +1096,63 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
     """
 ]
 
-sfDirectives.directive "worldMap", [->
-  link = (scope, element, attrs) ->
+sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
+  restrict: "E"
+  template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
+  transclude: true
+  replace: true
+  scope:
+    markers: "="
+  link: (scope, element, attrs) ->
 
-    setTimeout( ->
+    createImagePattern = (id, url) ->
+      # Set namespace for SVG elements.
+      svgMap      = $('.jvectormap-container > svg').get(0);
+      svgNS       = 'http://www.w3.org/2000/svg';
+      svgNSXLink  = 'http://www.w3.org/1999/xlink';
+
+      svgMap.setAttribute('xmlns',        svgNS);
+      svgMap.setAttribute('xmlns:link',   svgNSXLink);
+      svgMap.setAttribute('xmlns:ev',     'http://www.w3.org/2001/xml-events');
+
+      # Create pattern for markers.
+      pattern     = document.createElementNS(svgNS, 'pattern');
+      pattern.setAttribute('id', id);
+      
+      # pattern.setAttribute('patternUnits', 'userSpaceOnUse');
+      pattern.setAttribute('width',       '30');
+      pattern.setAttribute('height',      '30');
+
+      # Create image for pattern.
+      image       = document.createElementNS(svgNS, 'image');
+      image.setAttribute('x',             '0');
+      image.setAttribute('y',             '0');
+      image.setAttribute('width',         '30');
+      image.setAttribute('height',        '30');
+      image.setAttributeNS(svgNSXLink, 'xlink:href', url);
+
+      # Put it together
+      svgMap.appendChild(pattern);
+      pattern.appendChild(image);
+      undefined
+
+    generateMap = () ->
+      console.log(scope)
+
       $("#world-map-gdp").vectorMap
         map: "world_mill_en"
         markers: scope.markers.coords
         markersSelectableOne: true
         zoomOnScroll: false
-        series:
-          markers: [
-            attribute: "fill"
-            scale: ["#C8EEFF", "#0071A4"]
-          ]
+        markerStyle:
+          initial:
+            "stroke-width": 0
+            "stroke-opacity": 0
+            r: 15
+          hover:
+            stroke: "#1b74a4"
+            "stroke-opacity": 1
+            "stroke-width": 2
 
         onMarkerClick: (event, index) =>
           content = scope.markers.meta_data[index]
@@ -1122,15 +1165,12 @@ sfDirectives.directive "worldMap", [->
               .fadeIn()
             $popup.find('.close').click ->
               $popup.fadeOut()
-      mapObject = $("#world-map-gdp").vectorMap("get", "mapObject")
-    , 1800)
 
-  restrict: "E"
-  link: link
-  template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
-  transclude: true
-  replace: true
-  scope: {
-    markers: "="
-  }
+      for icon, i in scope.markers.icons
+        createImagePattern(icon.id, icon.path)
+
+      undefined
+
+    $timeout(generateMap, 1200);
+    undefined
 ]
