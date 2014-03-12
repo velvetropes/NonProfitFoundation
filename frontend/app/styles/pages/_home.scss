@@ -55,7 +55,6 @@
 .mission-statement {
   text-align: center;
   border-bottom: $dotted-border;
-
   h1 {
     font-size: 2.375em;
     line-height: 1.71em;
@@ -64,8 +63,11 @@
   }
   @include breakpoint($mobile) {
     h1 {
-      font-size: 2.1em;
+      max-width: 300px;
+      width: 100%;
+      font-size: 17px;
       line-height: 1.3em;
+      margin: 8px auto;
     }
   }
 }
