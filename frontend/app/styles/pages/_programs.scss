@@ -26,9 +26,6 @@
   }
   .carousel.hero {
     display: none;
-    .swiper-controls.right {
-      right: -14px;
-    }
   }
   @include media($tablet-down) {
     .carousel.hero {

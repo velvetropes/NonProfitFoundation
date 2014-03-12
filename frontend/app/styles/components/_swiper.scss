@@ -1,63 +1,80 @@
 .swiper-controls {
   position: absolute;
-  top: 265px;
+  top: 50%;
+  margin-top: -57px;
   z-index: 95;
-  height: 50px;
-  width: 50px;
-  @include media($tablet) {
-    top: 185px;
+  a {
+    width: 50px;
+    height: 114px;
+    display: block;
+  }
+  &.left {
+    left: 0px;
+    a {
+      background: url('images/carousel/arrow-left-retina.png') no-repeat;
+    }
+  }
+  &.right {
+    right: 0px;
+    a {
+      background: url('images/carousel/arrow-right-retina.png') no-repeat;
+    }
   }
   @include media($mobile) {
-    top: 74px;
-  }
-  a {
-    display: block;
-    padding: 12px 0;
-    font-size: 34px;
-    background-color: rgba(255, 255, 255, 0.75);
-    span {
-      @include transform(rotate(180deg))
-    }
-  }
-
-  &.left {
-    left: -20px;
+    margin-top: -86px;
     a {
-      border-radius: 0 100px 100px 0;
-      -moz-border-radius: 0 100px 100px 0;
-      -webkit-border-radius:  0 100px 100px 0;
-      margin-left: 16px;
+      width: 25px;
+      height: 57px;
+      display: block;
     }
-  }
-
-  &.right {
-    right: -22px;
-    a {
-      border-radius: 100px 0 0 100px;
-      -moz-border-radius: 100px 0 0 100px;
-      -webkit-border-radius: 100px 0 0 100px;
-    }
-  }
-
-  .position-indicator {
-    z-index: 95;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 5.5em;
-    text-align: center;
-    li {
-      @include inline-block;
+    &.left {
       a {
-          background: rgba(255,255,255,0.5);
-          &:hover {
-              background: #2d2d2d;
-          }
+        background: url('images/carousel/arrow-left.png') no-repeat;
       }
+    }
+    &.right {
+      a {
+        background: url('images/carousel/arrow-right.png') no-repeat;
+      }
+    }
+  }
+}
 
-      &.on {
-          a {
-              background: #FFF;
-          }
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .swiper-controls {
+    &.left {
+      a {
+        background: url('images/carousel/arrow-left-retina.png') no-repeat;
+        background-size: 100%;
+      }
+    }
+    &.right {
+      a {
+        background: url('images/carousel/arrow-right-retina.png') no-repeat;
+        background-size: 100%;
+      }
+    }
+  }
+}
+
+
+.position-indicator {
+  z-index: 95;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5.5em;
+  text-align: center;
+  li {
+    @include inline-block;
+    a {
+      background: rgba(255,255,255,0.5);
+      &:hover {
+        background: #2d2d2d;
+      }
+    }
+    &.on {
+      a {
+        background: #FFF;
       }
     }
   }
@@ -65,7 +82,7 @@
 
 .swiper {
   position: relative;
-  background-color: $light-blue;
+  background-color: #000;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
@@ -76,7 +93,7 @@
         height: 440px;
       }
       @include media($mobile) {
-        height: 300px;
+        height: 317px;
       }
     }
   }
@@ -112,25 +129,6 @@
     top: 50%;
     @include background-image(linear-gradient(top,  rgba(30,87,153,0) 0%,rgba(0,0,0,0.54) 42%,rgba(5,2,3,1) 100%));
   }
-  .play-video-link {
-    position: absolute;
-    left: 50%;
-    top: 43%;
-    margin-left: -40px;
-    @include media($tablet) {
-      top: 135px;
-    }
-    @include media($mobile) {
-      top: 55px;
-    }
-    a {
-      display: block;
-      font-size: 5em;
-      .icon {
-        color: white;
-      }
-    }
-  }
   aside {
     position: absolute;
     &:not(.side-panel) {
@@ -165,6 +163,8 @@
         color: #2d2d2d;
         text-align: left;
         padding: 4px 20px 8px;
+        height: 107px;
+        overflow: hidden;
         h1 {
           font-size: 18px;
           margin: 10px 10px 4px;
@@ -237,6 +237,39 @@
   }
 }
 
+.play-video-link {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  a {
+    width: 100px;
+    height: 100px;
+    background: url('images/carousel/video-play-button-retina.png') no-repeat;
+    display: block;
+  }
+  @include media($mobile) {
+    position: absolute;
+    margin-top: -83px;
+    margin-left: -25px;
+    a {
+      width: 50px;
+      height: 50px;
+      background: url('images/carousel/video-play-button.png') no-repeat;
+      display: block;
+    }
+  }
+}
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .play-video-link {
+    a {
+      background: url('images/carousel/video-play-button-retina.png') no-repeat;
+      background-size: 100%;
+    }
+  }
+}
+
 .slide-standalone {
   width: 100%;
   height: 500px;
@@ -251,16 +284,9 @@
   .action-link {
     display: none;
   }
-  .play-video-link {
-    z-index: 95;
-  }
   @include media($mobile) {
     float: none;
     width: 100%;
-    .play-video-link {
-      top: 50%;
-      margin-top: -40px;
-    }
   }
 }
 
@@ -304,13 +330,8 @@
     padding: 27px 0;
     font-size: 20px;
     color: #bebebe;
-    &.starkey-stories {
+    &.stories-title {
       background: #2d2d2d;
-    }
-  }
-  .swiper-controls {
-    a {
-      padding: 12px 0;
     }
   }
 }

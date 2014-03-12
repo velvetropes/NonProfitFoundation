@@ -48,7 +48,6 @@
   &.narrow {
     width: 100px;
   }
-
   @include media($mobile) {
     &.wide {
       width: 65px;
