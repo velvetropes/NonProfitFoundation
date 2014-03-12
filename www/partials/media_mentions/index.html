@@ -54,7 +54,7 @@
     </li>
     <li class="dropdown widest tablet-down">
       <select ng-model="articleFilters.type" class="dropdown-select">
-        <option ng-repeat="cat in articleCategories" value="{{cat.tag}}">{{cat.name}}</option>
+        <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
       </select>
     </li>
     <li>&nbsp;|&nbsp;</li>
@@ -63,7 +63,7 @@
     </li>
     <li class="dropdown widest tablet-down">
       <select ng-model="articleFilters.year" class="dropdown-select">
-        <option ng-repeat="year in articleYears" value="{{year.tag}}">{{year.name}}</option>
+        <option ng-repeat="year in articleYears" value="{{year.value}}">{{year.name}}</option>
       </select>
     </li>
   </ul>

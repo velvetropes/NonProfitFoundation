@@ -64,25 +64,25 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
   $scope.windowWidth = $window.innerWidth
 
   $scope.articleCategories = [
-    {name: "All", tag: ''}
-    {name: "News", tag: "News"}
-    {name: "Events", tag: "Events"}
-    {name: "Hear Now", tag: "Hear Now"}
-    {name: "Gala", tag: "Gala"}
-    {name: "Films", tag: "Films"}
-    {name: "Celebrity", tag: "Celebrity"}
-    {name: "Operation Change", tag: "Operation Change"}
-    {name: "Hearing Missions", tag: "Hearing Missions"}
-    {name: "Listen Carefully", tag: "Listen Carefully"}
+    {name: "All", value: ''}
+    {name: "News", value: "News"}
+    {name: "Events", value: "Events"}
+    {name: "Hear Now", value: "Hear Now"}
+    {name: "Gala", value: "Gala"}
+    {name: "Films", value: "Films"}
+    {name: "Celebrity", value: "Celebrity"}
+    {name: "Operation Change", value: "Operation Change"}
+    {name: "Hearing Missions", value: "Hearing Missions"}
+    {name: "Listen Carefully", value: "Listen Carefully"}
   ]
 
   $scope.articleYears = [
-    {name: "Latest", tag: ''}
-    {name: '2014', tag: '2014'}
-    {name: '2013', tag: '2013'}
-    {name: '2012', tag: '2012'}
-    {name: '2011', tag: '2011'}
-    {name: '2010', tag: '2010'}
+    {name: "Latest", value: ''}
+    {name: '2014', value: '2014'}
+    {name: '2013', value: '2013'}
+    {name: '2012', value: '2012'}
+    {name: '2011', value: '2011'}
+    {name: '2010', value: '2010'}
   ]
 
   Articles.getIndex().then (data) ->
@@ -176,18 +176,18 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   }
 
   $scope.articleCategories = [
-    {name: "All Articles", tag: ''}
-    {name: "Press Release", tag: "press_release"}
-    {name: "Media Mention", tag: "media_mention"}
+    {name: "All Articles", value: ''}
+    {name: "Press Release", value: "press_release"}
+    {name: "Media Mention", value: "media_mention"}
   ]
 
   $scope.articleYears = [
-    {name: "Latest", tag: ''}
-    {name: '2014', tag: '2014'}
-    {name: '2013', tag: '2013'}
-    {name: '2012', tag: '2012'}
-    {name: '2011', tag: '2011'}
-    {name: '2010', tag: '2010'}
+    {name: "Latest", value: ''}
+    {name: '2014', value: '2014'}
+    {name: '2013', value: '2013'}
+    {name: '2012', value: '2012'}
+    {name: '2011', value: '2011'}
+    {name: '2010', value: '2010'}
   ]
 
   $scope.pressItems = []
@@ -271,7 +271,7 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
   }
 
   $scope.highlightYears = [
-    {name: "Latest", tag: ''}
+    {name: "Latest", value: ''}
   ]
 
   MissionsIndex.getIndex().then (data) ->
@@ -280,10 +280,11 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
     $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
 
     $scope.highlightRegions = data.categories
+
     for year in data.years
       addedYear = {
         name: year
-        tag: year
+        value: year
       }
       $scope.highlightYears.push addedYear
 

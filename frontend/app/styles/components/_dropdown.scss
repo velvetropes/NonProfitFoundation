@@ -23,6 +23,9 @@
   &.tablet-down {
     display: none;
   }
+  select {
+    margin-top: 5px;
+  }
   @include breakpoint($tablet-down) {
     &.tablet-down {
       display: block;

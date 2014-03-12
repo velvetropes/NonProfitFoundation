@@ -65,15 +65,21 @@
 
   <ul class="articles-filters">
     <li><strong>Sort</strong> &nbsp;|</li>
-    <li class="dropdown wide">
+    <li class="dropdown widest">
+      <dropdown options="articleCategories" call-filter="articleFilters.blog_item_category"></dropdown>
+    </li>
+    <li class="dropdown wide tablet-down">
       <select ng-model="articleFilters.blog_item_category" class="dropdown-select">
-        <option ng-repeat="cat in articleCategories" value="{{cat.tag}}">{{cat.name}}</option>
+        <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
       </select>
     </li>
     <li>|</li>
     <li class="dropdown narrow">
+      <dropdown options="articleYears" call-filter="articleFilters.year"></dropdown>
+    </li>
+    <li class="dropdown narrow tablet-down">
       <select ng-model="articleFilters.year" class="dropdown-select">
-        <option ng-repeat="year in articleYears" value="{{year.tag}}">{{year.name}}</option>
+        <option ng-repeat="year in articleYears" value="{{year.value}}">{{year.name}}</option>
       </select>
     </li>
   </ul>

@@ -124,7 +124,7 @@ sfDirectives.directive "dropdown", [ ->
   link = (scope, element, attrs) ->
     scope.isActive = false
     scope.currentOption = scope.options[0] or {}
-    console.debug "scope.currentOption", scope.currentOption
+    console.debug "scope.options", scope.options
 
   controller = ($scope) ->
     dropdownOptions = []
@@ -153,7 +153,7 @@ sfDirectives.directive "dropdown", [ ->
         <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
           <span >{{currentOption.name}}</span>
           <ul class="dropdown-list" ng-show="isActive==true">
-            <dropdown-option ng-repeat="option in options" name="{{option.name}}" value="{{option.tag}}"></dropdown-option>
+            <dropdown-option ng-repeat="option in options" name="{{option.name}}" value="{{option.value}}"></dropdown-option>
           </ul>
         </div>
       </div>
@@ -443,10 +443,10 @@ sfDirectives.directive 'homeThumblistNav', [->
 
 ]
 
-sfDirectives.directive("instagramGallery", [
+sfDirectives.directive("insvalueramGallery", [
   "$http"
-  "Instagram"
-  ($http, Instagram) ->
+  "Insvalueram"
+  ($http, Insvalueram) ->
     return {
       restrict: "E"
       scope: {}
@@ -461,7 +461,7 @@ sfDirectives.directive("instagramGallery", [
         """
       link: (scope, element, attr) ->
         scope.pics = []
-        Instagram.fetchLatest( (data) ->
+        Insvalueram.fetchLatest( (data) ->
           scope.pics = data
         )
     }
