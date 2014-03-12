@@ -134,6 +134,14 @@
 
           <world-map markers="markers">
             <div class="map-legend">
+              <!--(bake-start _if="dist")-->
+              <ul>
+              {exp:channel:entries channel="homepage_map_categories" dynamic="no" disable="{global:param_disable_default}"}
+                <li><span class="icon starkey-legend-{url_title}"></span>{title}</li>
+              {/exp:channel:entries}
+              </ul>
+              <!--(bake-end)-->
+              <!--(bake-start _if="server")-->
               <ul>
                 <li><span class="icon starkey-legend-program"></span>Program</li>
                 <li><span class="icon starkey-legend-stories"></span>Stories</li>
@@ -142,6 +150,7 @@
                 <li><span class="icon starkey-legend-gallery"></span>Gallery</li>
                 <li><span class="icon starkey-legend-profile"></span>Profile</li>
               </ul>
+              <!--(bake-end)-->
             </div>
           </world-map>
         </div>

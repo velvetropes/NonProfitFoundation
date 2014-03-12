@@ -1136,12 +1136,17 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
       pattern.appendChild(image);
       undefined
 
-    generateMap = () ->
-      console.log(scope)
+    generateMap = () -> 
+      if scope.markers? 
+       markerList = scope.markers 
+      else
+       markerList = 
+        "coords" : []
+        "icons" : []
 
       $("#world-map-gdp").vectorMap
         map: "world_mill_en"
-        markers: scope.markers.coords
+        markers: markerList.coords
         markersSelectableOne: true
         zoomOnScroll: false
         markerStyle:
@@ -1155,7 +1160,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             "stroke-width": 2
 
         onMarkerClick: (event, index) =>
-          content = scope.markers.meta_data[index]
+          content = markerList.meta_data[index]
           $popup = $('#map-popup')
           $popup.fadeOut "slow", ->
             $popup
@@ -1166,7 +1171,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             $popup.find('.close').click ->
               $popup.fadeOut()
 
-      for icon, i in scope.markers.icons
+      for icon in markerList.icons
         createImagePattern(icon.id, icon.path)
 
       undefined

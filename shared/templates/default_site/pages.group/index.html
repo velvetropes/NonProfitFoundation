@@ -328,13 +328,11 @@
           <world-map markers="markers">
             <div class="map-legend">
               <ul>
-                <li><span class="icon starkey-legend-program"></span>Program</li>
-                <li><span class="icon starkey-legend-stories"></span>Stories</li>
-                <li><span class="icon starkey-legend-where-we-are-now"></span>Where we are now</li>
-                <li><span class="icon starkey-legend-video"></span>Video</li>
-                <li><span class="icon starkey-legend-gallery"></span>Gallery</li>
-                <li><span class="icon starkey-legend-profile"></span>Profile</li>
+              {exp:channel:entries channel="homepage_map_categories" dynamic="no" disable="{global:param_disable_default}"}
+                <li><span class="icon starkey-legend-{url_title}"></span>{title}</li>
+              {/exp:channel:entries}
               </ul>
+
             </div>
           </world-map>
         </div>
@@ -494,11 +492,11 @@
         <p id="subscribeFormAnchor" style="display: block;">&nbsp;</p>
       </div>
     </footer>
-    <script src="/assets/scripts/2817e3bd.vendor.js"></script>
+    <script src="/assets/scripts/4441672b.vendor.js"></script>
     
-    <script src="/assets/scripts/6f38529c.main.js"></script>
+    <script src="/assets/scripts/850e0232.main.js"></script>
     
-    <script src="/assets/scripts/d2ffa881.plugins.js"></script>
+    <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     
 </body>
 </html>
