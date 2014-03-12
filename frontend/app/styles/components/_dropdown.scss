@@ -22,11 +22,13 @@
   vertical-align: top;
   &.tablet-down {
     display: none;
+
   }
   select {
     margin-top: 5px;
   }
-  @include breakpoint($tablet-down) {
+
+  @include media($tablet-down) {
     &.tablet-down {
       display: block;
     }
@@ -46,26 +48,18 @@
   &.narrow {
     width: 100px;
   }
-<<<<<<< HEAD
-  overflow: hidden;
-  padding-right: 20px;
-  @include breakpoint($mobile) {
+
+  @include media($mobile) {
     &.wide {
       width: 65px;
       padding: 0 5px;
     }
   }
-=======
->>>>>>> [#67178312] Dropdown directives to replace select dropdowns in desktop mode. The old selects are only visible from tablet on down.
 }
 
 .dropdown-select {
   position: relative;
   width: 110%;
-  // margin: 0;
-  // padding: 4px 2px 2px 2px;
-  // height: 26px;
-  // line-height: 17px;
   /* "transparent" doesn't work with Opera */
   background: rgba(black, 0) !important;
   border: 0;
@@ -132,7 +126,7 @@
   cursor: pointer;
   outline: none;
   z-index: 1000;
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     display: none;
   }
   &:after {

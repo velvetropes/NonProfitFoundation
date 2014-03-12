@@ -9,12 +9,12 @@
       font-weight: bold;
     }
   }
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     padding: 0 16px;
     margin-top: -35px;
     margin-bottom: 0px;
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     font-size: 13px;
   }
 }

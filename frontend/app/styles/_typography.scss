@@ -232,7 +232,7 @@ hr.separator {
     }
   }
 
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     h1 {
       font-size: 3em;
     }
@@ -247,7 +247,7 @@ hr.separator {
       }
     }
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     margin-top: 40px;
     h1 {
       font-size: 1.75em;
@@ -287,12 +287,12 @@ hr.separator {
       text-decoration: underline;
     }
   }
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     .section-headline {
       font-size: 3em;
     }
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     margin-top: 10px;
     .section-title {
       font-size: 12px;
@@ -367,11 +367,11 @@ blockquote {
   line-height: 171%;
   height: 215px;
   overflow: hidden;
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     font-size: 22px;
     line-height: 1.5;
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     margin: 0 10px;
     padding: 0 10px;
     top: 13px;
@@ -455,7 +455,7 @@ blockquote p {
   p {
     line-height: 1.875em;
   }
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     h1 {
       font-size: 1.75em;
     }
@@ -472,7 +472,7 @@ blockquote p {
       }
     }
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     h1 {
       font-size: 1.5em;
     }

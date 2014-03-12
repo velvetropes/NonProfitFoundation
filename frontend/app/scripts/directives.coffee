@@ -124,7 +124,6 @@ sfDirectives.directive "dropdown", [ ->
   link = (scope, element, attrs) ->
     scope.isActive = false
     scope.currentOption = scope.options[0] or {}
-    console.debug "scope.options", scope.options
 
   controller = ($scope) ->
     dropdownOptions = []
@@ -1181,7 +1180,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
       # Create pattern for markers.
       pattern     = document.createElementNS(svgNS, 'pattern');
       pattern.setAttribute('id', id);
-      
+
       # pattern.setAttribute('patternUnits', 'userSpaceOnUse');
       pattern.setAttribute('width',       '30');
       pattern.setAttribute('height',      '30');
@@ -1199,11 +1198,11 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
       pattern.appendChild(image);
       undefined
 
-    generateMap = () -> 
-      if scope.markers? 
-       markerList = scope.markers 
+    generateMap = () ->
+      if scope.markers?
+       markerList = scope.markers
       else
-       markerList = 
+       markerList =
         "coords" : []
         "icons" : []
 

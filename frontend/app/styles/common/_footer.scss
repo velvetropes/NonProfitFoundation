@@ -7,7 +7,7 @@ footer {
   // }
   .form {
     padding: 50px 150px;
-    @include breakpoint($tablet-down) {
+    @include media($tablet-down) {
       padding: 24px 5px;
     }
   }
@@ -160,7 +160,7 @@ footer {
       }
     }
   }
-  @include breakpoint($desktop) {
+  @include media($desktop) {
     & > ul {
       & > li {
         .thumbs {
@@ -171,7 +171,7 @@ footer {
       }
     }
   }
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     .footer-list-item {
       height: auto;
       margin-top: 0;
@@ -232,7 +232,7 @@ footer {
   height: 11px;
   background: url('images/fb-like-hand.png') no-repeat;
   background-size: 100%;
-  @include breakpoint($retina) {
+  @include media($retina) {
     background: url('images/fb-like-hand-retina.png') no-repeat;
   }
 }
@@ -261,7 +261,7 @@ footer {
       }
     }
   }
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     display: block;
     border: none;
     ul {
@@ -297,7 +297,7 @@ footer {
   padding: 15px 0 14px;
   -webkit-font-smoothing: antialiased;
   display: none;
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     display: block;
   }
 }

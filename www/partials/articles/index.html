@@ -64,16 +64,11 @@
   </div>
 
   <ul class="articles-filters">
-<<<<<<< HEAD
     <li><strong>Sort</strong> &nbsp;|</li>
-    <li class="dropdown wide">
-=======
-    <li>Sort &nbsp;|</li>
     <li class="dropdown widest">
       <dropdown options="articleCategories" call-filter="articleFilters.blog_item_category"></dropdown>
     </li>
     <li class="dropdown wide tablet-down">
->>>>>>> Blog and media mentions dropdowns. Missions dropdowns need a custom directive replacement for the cascading drowdowns.
       <select ng-model="articleFilters.blog_item_category" class="dropdown-select">
         <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
       </select>
