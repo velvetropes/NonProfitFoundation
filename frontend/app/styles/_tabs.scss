@@ -28,8 +28,12 @@ nav {
 .header-nav {
   border-top: $dotted-border;
   margin-top: 80px;
-  @include breakpoint($tablet) {
-    margin-top: 60px;
+  h1, h2, h3, h4 {
+    @extend .alrightsansbold;
+  }
+  h3 {
+    font-size: 0.85em;
+    padding-bottom: 3px;
   }
   @include row(table);
   .tabs-wrap {
@@ -59,13 +63,13 @@ nav {
       @include row(table);
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 14px 0 0 0;
       li {
         @include span-columns(2 of 6);
         border-bottom: 5px solid #3d4144;
         height: 185px;
         border-left: $dotted-border;
-        padding: 20px;
+        padding: 3px 20px;
         &:first-child {
           border-left: none;
         }
@@ -80,7 +84,7 @@ nav {
         }
         h1, h2, h3, h4, h5, h6, p {
           margin: 0;
-          line-height: 1.25em;
+          line-height: 1.2em;
         }
         h1 {
           font-size: 1.8em;
@@ -113,6 +117,7 @@ nav {
     border-bottom: $dotted-border;
   }
   @include breakpoint($mobile) {
+    margin-top: 60px;
     display: none;
   }
 }

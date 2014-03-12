@@ -181,7 +181,7 @@ sfDirectives.directive("facebook", [
           <div class="footer-list-item">
             <h1>{{shares}} <strong>fans</strong></h1>
           </div>
-          <p class="read-more"><a href>Like us →</a></p>
+          <p class="read-more"><a href>Like us <span class="facebook-like-hand"></span></a></p>
         </section>
         """
       link: (scope, element, attr) ->
