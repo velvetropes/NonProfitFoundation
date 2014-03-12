@@ -116,7 +116,7 @@ nav {
     border: none;
     border-bottom: $dotted-border;
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     margin-top: 60px;
     display: none;
   }
@@ -151,7 +151,7 @@ nav {
           }
         }
       }
-      @include breakpoint($tablet-down) {
+      @include media($tablet-down) {
         padding: 0;
         margin: 10px 0 0 0;
         @include reset-display;
@@ -215,7 +215,7 @@ nav {
       .three-tabs {
         li {
           width: 200px;
-          @include breakpoint($tablet) {
+          @include media($tablet) {
             width: 32%;
           }
           a {

@@ -200,7 +200,7 @@
 .mission-highlights-list {
   display: none;
 }
-@include breakpoint($tablet-down) {
+@include media($tablet-down) {
   .mission-highlights-carousel {
     display: none;
   }
@@ -208,7 +208,7 @@
     display: block;
   }
 }
-@include breakpoint($tablet) {
+@include media($tablet) {
   .hearing-missions-statistics {
     ul {
       li {
@@ -258,7 +258,7 @@
     }
   }
 }
-@include breakpoint($mobile) {
+@include media($mobile) {
   .missions-map {
     height: 242px;
     background: url('images/hearing-mission-bg.jpg') no-repeat #41bbe4;
@@ -295,7 +295,7 @@
     margin: 0;
     ul {
       li {
-        height: 66px;
+        height: 70px;
         h1 {
           margin: 10px 0 0;
           font-size: 2em;

@@ -49,13 +49,13 @@
     max-width: 1600px;
     width: 100%;
   }
-  @include breakpoint($tablet) {
+  @include media($tablet) {
     height: 440px;
     .gallery-slide {
       height: 440px;
     }
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     height: 330px;
     .gallery-slide {
       height: 330px;

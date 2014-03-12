@@ -67,11 +67,14 @@ ul.pagination-articles {
     li {
       .block {
         .headline {
+          @extend .alrightsansbold;
           bottom: 42px;
           height: 41px;
           font-size: 1.2em;
           line-height: 1em;
           overflow: hidden;
+          padding-top: 2px;
+          padding-bottom: 2px;
         }
         .date {
           position: absolute;
@@ -153,7 +156,7 @@ pagination {
   display: block;
 }
 
-@include breakpoint($tablet-down) {
+@include media($tablet-down) {
   .pagination {
     display: none;
   }

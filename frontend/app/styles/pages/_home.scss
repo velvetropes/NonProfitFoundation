@@ -7,8 +7,8 @@
     }
     article {
       width: 100%;
-      @include breakpoint($mobile) {
-        height: 235px;
+      @include media($mobile) {
+        height: 210px;
       }
       img {
         display:block;
@@ -61,7 +61,7 @@
     margin: 0.32em 0;
     padding: 0 16px;
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     h1 {
       max-width: 300px;
       width: 100%;
@@ -91,7 +91,7 @@
       border: none;
     }
   }
-  @include breakpoint($tablet-down) {
+  @include media($tablet-down) {
     min-width: 200px;
     .pict {
       width: 100%;
@@ -104,7 +104,7 @@
 
 .bottom-slide-tabs {
   height: 525px;
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     display: none;
   }
   .bottom-slide-tab {
@@ -120,15 +120,6 @@
         display: block;
         background-size: cover;
         background-position: center;
-      }
-      .play-video-link {
-        position: absolute;
-        left: 50%;
-        top: 43%;
-        .icon {
-          font-size: 5em;
-          color: white;
-        }
       }
     }
     .panel-content {
@@ -170,7 +161,7 @@
   margin-top: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     display: block;
   }
   h2 {
