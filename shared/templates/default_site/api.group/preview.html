@@ -35,7 +35,7 @@
               <p class="article-item-category">{blog_category}</p>
             {/if}
             <h1  class="article-title">{title}</h1>
-            <p>{entry_date format='%F %d, %Y'} | {blog_author}</p>
+            <p>{entry_date format='%M %d, %Y'} | {blog_author}</p>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
             link-url="#/articles/{blog_related_items:url_title}"
             headline="{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_related_items:title}{/exp:low_replace}"
             link-style=""
-            date="{blog_related_items:blog_date format='%F %d, %Y'}"
+            date="{blog_related_items:blog_date format='%m %d %Y'}"
           ></slide>
         {/blog_related_items}
       </thumblist-nav>

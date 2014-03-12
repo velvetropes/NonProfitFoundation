@@ -50,7 +50,7 @@
       a {
           background: rgba(255,255,255,0.5);
           &:hover {
-              background: #333;
+              background: #2d2d2d;
           }
       }
 
@@ -121,7 +121,7 @@
       top: 135px;
     }
     @include breakpoint($mobile) {
-      top: 44px;
+      top: 55px;
     }
     a {
       display: block;
@@ -161,21 +161,30 @@
       }
       @include breakpoint($mobile) {
         bottom: 0px;
-        background: #fff;
-        color: #333;
+        background: #FFF;
+        color: #2d2d2d;
         text-align: left;
         padding: 4px 20px 8px;
         h1 {
           font-size: 18px;
+          margin: 10px 10px 4px;
         }
         a {
           float: right;
-          color: #333;
+          color: #2d2d2d;
           font-size: 11px;
+          margin-top: 3px;
         }
         p {
           font-size: 13px;
           line-height: 1.2;
+        }
+        .black-text-background & {
+          background: #2d2d2d;
+          color: #FFF;
+          a {
+            color: #FFF;
+          }
         }
       }
     }
