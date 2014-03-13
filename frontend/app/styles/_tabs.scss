@@ -254,3 +254,23 @@ nav {
     }
   }
 }
+
+// Tab states
+
+.contact-page, .team-page, .about-us-page, .media-mentions-page {
+  .who-we-are {
+    color: $light-blue;
+  }
+}
+
+.hearing-missions-page, .programs-page, .gala-page, .blog-page {
+  .what-we-do {
+    color: $light-blue;
+  }
+}
+
+.take-action-page {
+  .get-involved {
+    color: $light-blue;
+  }
+}

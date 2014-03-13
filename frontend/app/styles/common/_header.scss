@@ -207,13 +207,13 @@ header {
         i {
           @include transform(rotate(90deg));
         }
-        .sub-devider {
+        .sub-divider {
           display: block;
         }
       }
     }
   }
-  .sub-devider {
+  .sub-divider {
     margin-top: 5px;
     border-top: 1px dotted #bebebe;
     display: none;
