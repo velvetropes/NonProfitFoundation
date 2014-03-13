@@ -10,29 +10,21 @@
     /* ie7 support */
     *display: inline;
     zoom: 1;
-    &.links_to_video {
-      a {
-        display: block;
-        height: 100%;
-        width: 100%;
-        background-size: cover;
-        background-position: center;
-        .icon {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          margin-left: -40px;
-          margin-top: -40px;
-          color: white;
-          font-size: 5em;
-        }
-        &:hover {
-          cursor: pointer;
-        }
-      }
+    a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  @include media($mobile) {
+    .play-video-link {
+      margin-top: -25px;
     }
   }
 }
+
 .gallery {
   overflow: auto;
   white-space: nowrap;
