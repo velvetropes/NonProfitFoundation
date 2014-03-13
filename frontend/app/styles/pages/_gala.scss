@@ -88,8 +88,8 @@
       }
       .content {
         float: left;
-        width: 239px;
-        margin-left: 30px;
+        width: 50%;
+        padding: 0 16px 0 30px;
         h3 {
           font-size: 1.625em;
           @extend .alrightsanslight;
@@ -102,7 +102,7 @@
         }
       }
       .highlight-thumbnail {
-        width: 230px;
+        width: 50%;
         height: 174px;
         float: left;
         background-size: cover;
@@ -113,6 +113,19 @@
         text-transform: uppercase;
         font-size: .75em;
         @extend .verlagbold;
+      }
+    }
+  }
+  @media screen and (min-width: 480px) and (max-width: 960px) {
+    ul {
+      li {
+        .content {
+          width: 100%;
+          padding: 16px;
+        }
+        .highlight-thumbnail {
+          width: 100%;
+        }
       }
     }
   }
