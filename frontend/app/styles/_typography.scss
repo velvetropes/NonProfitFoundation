@@ -241,6 +241,7 @@ hr.separator {
   @include media($tablet-down) {
     h1 {
       font-size: 3em;
+      line-height: 0.8;
     }
     p {
       font-size: 15px;
