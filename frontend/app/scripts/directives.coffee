@@ -319,17 +319,9 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
       scope.$watch (->
         element.find(".gallery-slide").length
       ), (length) ->
-        # scope.api.reinitialise()
         setTimeout( ->
           scope.api.reinitialise()
         , 800)
-
-      # $timeout (->
-      #   scope.pane = $(".gallery")
-      #   scope.pane.jScrollPane config
-      #   # scope.api = scope.pane.data("jsp")
-      # ), 1400
-
 
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
@@ -1067,11 +1059,19 @@ sfDirectives.directive "tabbedNav", ["$window", ($window) ->
 sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
   link = (scope, element, attrs) ->
     config = showArrows: false
-    # TODO Use a promise
+
     $timeout (->
       scope.pane = $(".thumblist-nav")
       scope.pane.jScrollPane config
-    ), 1400
+      scope.api = scope.pane.data("jsp")
+    ), 400
+
+    scope.$watch (->
+      element.find(".slide").length
+    ), (length) ->
+      setTimeout( ->
+        scope.api.reinitialise()
+      , 200)
 
     scope.isFullHeight = ->
       scope.full?.length > 0 and scope.full is "true"
