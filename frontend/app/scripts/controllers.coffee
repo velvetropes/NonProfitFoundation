@@ -6,18 +6,29 @@ sfControllers.config ['$sceProvider', ($sceProvider) ->
 
 # Home
 
-sfControllers.controller("globalCtrl", ["$scope", ($scope) ->
+sfControllers.controller("globalCtrl", ["$scope", "$location", "$timeout", ($scope, $location, $timeout) ->
   $scope.showModal = false
   $scope.videoIframe = ""
   $scope.showSubscribeForm = false
 
+  videoUrl = $location.search()['video']
+  console.debug "videoUrl", videoUrl
   $scope.$on 'modal:hide', (event) ->
     $scope.showModal = false
 
   $scope.$on 'modal:show', (event, url) ->
     $scope.showModal = not $scope.showModal
     if $scope.showModal is true
-      $scope.videoIframe = url
+      displayModal(url)
+
+  $timeout(->
+    if videoUrl?
+      $scope.showModal = true
+      displayModal("http://www.youtube.com/watch?v=#{videoUrl}")
+  ,1000)
+
+  displayModal = (url) ->
+    $scope.videoIframe = url
 
   $scope.toggleSubscribeForm = ->
     $scope.showSubscribeForm = not $scope.showSubscribeForm
