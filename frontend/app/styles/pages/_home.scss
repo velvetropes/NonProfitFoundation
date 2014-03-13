@@ -121,6 +121,13 @@
         background-size: cover;
         background-position: center;
       }
+      .play-video-link {
+        position: absolute;
+        left: 50%;
+        top: 43%;
+        font-size: 5em;
+        color: white;
+      }
     }
     .panel-content {
       color: #fff;
