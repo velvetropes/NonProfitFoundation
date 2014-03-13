@@ -116,6 +116,17 @@ nav {
     border: none;
     border-bottom: $dotted-border;
   }
+  @include media($tablet) {
+    .tab-content {
+      ul {
+        li {
+          h2 {
+            font-size: 1.1em;
+          }
+        }
+      }
+    }
+  }
   @include media($mobile) {
     margin-top: 60px;
     display: none;
