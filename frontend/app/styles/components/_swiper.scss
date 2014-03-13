@@ -243,30 +243,23 @@
   top: 50%;
   margin-top: -50px;
   margin-left: -50px;
-  a {
-    width: 100px;
-    height: 100px;
-    background: url('images/carousel/video-play-button-retina.png') no-repeat;
-    display: block;
-  }
+  width: 100px;
+  height: 100px;
+  background: url('images/carousel/video-play-button-retina.png') no-repeat;
+  display: block;
   @include media($mobile) {
-    position: absolute;
     margin-top: -83px;
     margin-left: -25px;
-    a {
-      width: 50px;
-      height: 50px;
-      background: url('images/carousel/video-play-button.png') no-repeat;
-      display: block;
-    }
+    width: 50px;
+    height: 50px;
+    background: url('images/carousel/video-play-button.png') no-repeat;
+    display: block;
   }
 }
 @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .play-video-link {
-    a {
-      background: url('images/carousel/video-play-button-retina.png') no-repeat;
-      background-size: 100%;
-    }
+    background: url('images/carousel/video-play-button-retina.png') no-repeat;
+    background-size: 100%;
   }
 }
 

@@ -2,8 +2,8 @@
   <article ng-style="backgroundImageStyle" class="image-container"></article>
   <blockquote ng-show="hasQuote()">{{quote}}</blockquote>
   <div ng-show="!hasQuote()" class="gradient-background"></div>
-  <div ng-show="hasVideo()" class="play-video-link">
-    <a href ng-click="displayInModalIfVideo()"><span class="play-button"></span></a>
+  <div ng-show="hasVideo()">
+    <a href ng-click="displayInModalIfVideo()"><span class="play-video-link"></span></a>
   </div>
   <aside ng-class="{'side-panel': hasSidePanel()}">
     <h1 ng-show="hasHeadline()" class="headline">{{headline}}</h1>
