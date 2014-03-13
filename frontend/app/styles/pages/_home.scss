@@ -232,8 +232,13 @@
   }
 }
 
-.home-page .thumblist .thumblist-nav .jspPane > div .content {
-  top: 214px;
-  right: 20px;
-  left: 20px;
+.home-page {
+  .carousel.thumblist.bottom {
+    border-bottom: $dotted-border;
+  }
+  .thumblist .thumblist-nav .jspPane > div .content {
+    top: 214px;
+    right: 20px;
+    left: 20px;
+  }
 }
