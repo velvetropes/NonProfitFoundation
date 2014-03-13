@@ -11,7 +11,7 @@ requiredModules = [
 
 # Blog
 blogPagesApp = angular.module("blogPagesApp", requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 blogPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
@@ -32,7 +32,7 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 
 # Gala
 galaPageApp = angular.module("galaPageApp", requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
@@ -45,12 +45,12 @@ galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 ]
 
 legalPagesApp = angular.module("legalPagesApp", requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 # Media Mentions
 mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 mediaMentionsPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
@@ -72,7 +72,7 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
 
 # Hearing Missions
 missionsPageApp = angular.module("missionsPageApp", requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 missionsPageApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
@@ -96,7 +96,7 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
 ]
 
 programsPageApp = angular.module("programsPageApp", requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
@@ -109,7 +109,7 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 ]
 
 takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
@@ -122,7 +122,7 @@ takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 ]
 
 HomePageApp = angular.module('homePageApp', requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 HomePageApp.run ($FB) ->
@@ -130,7 +130,7 @@ HomePageApp.run ($FB) ->
 
 # Preview
 previewPageApp = angular.module("previewPageApp", requiredModules, ($locationProvider) ->
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 )
 
 previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->

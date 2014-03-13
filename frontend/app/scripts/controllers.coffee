@@ -12,11 +12,11 @@ sfControllers.controller("globalCtrl", ["$scope", "$location", "$timeout", ($sco
   $scope.showSubscribeForm = false
 
   videoUrl = $location.search()['video']
-  console.debug "videoUrl", videoUrl
   $scope.$on 'modal:hide', (event) ->
     $scope.showModal = false
 
   $scope.$on 'modal:show', (event, url) ->
+    # ?video=ScjOkoueDYg
     $scope.showModal = not $scope.showModal
     if $scope.showModal is true
       displayModal(url)
