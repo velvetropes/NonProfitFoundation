@@ -192,7 +192,8 @@ pagination {
           font-size: 18px;
           line-height: 1.1;
           height: auto;
-          overflow: visible;
+          overflow: hidden;
+          height: 88px;
         }
         .category {
           position: static;
