@@ -248,9 +248,11 @@ sfDirectives.directive("facebook", [
         """
       link: (scope, element, attr) ->
         scope.shares = 0
-        $http.get("https://api.facebook.com/method/links.getStats?urls=" + scope.url + "&format=json").success((res) ->
-          scope.shares = res[0].share_count
-        ).error ->
+        # endpoint = "https://graph.facebook.com/fql?q=SELECT%20total_count%20FROM%20link_stat%20WHERE%20url=%27http://www.facebook.com/starkeycares%27"
+        endpoint = "https://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url='http://www.facebook.com/starkeycares'"
+        $http.get(endpoint).success((res) ->
+          scope.shares = res.data[0].total_count
+        ).error (res, status) ->
           scope.shares = 0
 
         $timeout ->

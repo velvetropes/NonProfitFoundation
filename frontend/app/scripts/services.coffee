@@ -76,37 +76,6 @@ sfServices.factory "LatestBlog", ["$q", "$http", "urlChooser", ($q, $http, urlCh
   {fetchLatest: fetchLatest}
 ]
 
-sfServices.factory("$FB", [
-  "$window"
-  ($window) ->
-    return init: (fbId) ->
-      if fbId
-        @fbId = fbId
-        $window.fbAsyncInit = ->
-          FB.init
-            appId: fbId
-            channelUrl: "app/channel.html"
-            status: true
-            xfbml: true
-          return
-
-        ((d) ->
-          js = undefined
-          id = "facebook-jssdk"
-          ref = d.getElementsByTagName("script")[0]
-          return  if d.getElementById(id)
-          js = d.createElement("script")
-          js.id = id
-          js.async = true
-          js.src = "//connect.facebook.net/en_US/all.js"
-          ref.parentNode.insertBefore js, ref
-          return
-        ) document
-      else
-        throw ("FB App Id Cannot be blank")
-      return
-])
-
 sfServices.factory "FeaturedArticle", ["$q", "$http", "$resource", "urlChooser", ($q, $http, $resource, urlChooser) ->
 
   getIndex = ->
