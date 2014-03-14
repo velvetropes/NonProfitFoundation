@@ -27,13 +27,16 @@
   select {
     margin-top: 5px;
   }
-
+  &:after {
+    display: none;
+  }
   @include media($tablet-down) {
     &.tablet-down {
       display: block;
     }
     &:after {
       @include drop-arrow;
+      display: block;
     }
   }
   &.wide {
@@ -138,11 +141,11 @@
     right: 0;
     background: white;
     border-radius: 0;
-    -webkit-transition: all 0.5s ease-in;
-    -moz-transition: all 0.5s ease-in;
-    -ms-transition: all 0.5s ease-in;
-    -o-transition: all 0.5s ease-in;
-    transition: all 0.5s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
     list-style: none;
     padding: 10px;
     width: 110%;

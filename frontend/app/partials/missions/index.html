@@ -23,7 +23,9 @@
       </li>
     </ul>
   </div>
-  <ul class="articles-filters">
+  <region-dropdown regions-collection="highlightRegions" years-collection="highlightYears"  filter-object="highlightsFilters"></region-dropdown>
+
+  <ul class="articles-filters tablet-down">
     <li><strong>Sort</strong> &nbsp;|&nbsp;</li>
     <li class="dropdown wide">
       <select ng-model="highlightsFilters.year" class="dropdown-select">

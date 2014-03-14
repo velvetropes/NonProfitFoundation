@@ -741,6 +741,116 @@ sfDirectives.directive "panelTab", [->
   }
 ]
 
+# Region Dropdown
+
+# Dropdown
+sfDirectives.directive "regionDropdown", [ ->
+
+  link = (scope, element, attrs) ->
+    scope.isActive = false
+    scope.countryDropdownIsActive = false
+    scope.yearDropdownIsActive = false
+    scope.currentRegion = {region:""}
+    scope.currentRegionLabel = "REGIONS"
+    scope.currentCountryLabel = "COUNTRIES"
+    scope.currentYearLabel = scope.yearsCollection[0].name
+
+    scope.chooseRegion = (region) ->
+      scope.currentRegion = region
+      scope.filterObject.region = region.region
+      scope.filterObject.country = ''
+      scope.currentRegionLabel = if scope.currentRegion.region.length > 0 then scope.currentRegion.region else "REGIONS"
+      scope.countryDropdownIsActive = false
+      scope.currentCountryLabel = "COUNTRIES"
+
+    scope.chooseCountry = (country) ->
+      scope.filterObject.country = country
+      scope.currentCountryLabel = country
+
+    scope.chooseYear = (year) ->
+      scope.filterObject.year = year.value
+      scope.currentYearLabel = year.name
+
+    scope.hasSelectedRegion = ->
+      scope.currentRegion.region.length >0
+
+  result =
+    restrict: "E"
+    transclude: true
+    replace: true
+    template: """
+      <ul class="articles-filters desktop">
+        <li><strong>Sort</strong> &nbsp;|&nbsp;</li>
+        <li class="dropdown wide">
+          <div class="outer-dropdown-wrapper">
+            <div class="dropdown-wrapper" ng-click="yearDropdownIsActive=!yearDropdownIsActive" ng-class="{active: yearDropdownIsActive==true}">
+              <span>{{currentYearLabel}}</span>
+              <ul class="dropdown-list">
+                <li ng-repeat="year in yearsCollection"><a href ng-click="chooseYear(year)">{{year.name}}</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown widest">
+          <div class="outer-dropdown-wrapper">
+            <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
+              <span>{{currentRegionLabel}}</span>
+              <ul class="dropdown-list">
+                <li><a href ng-click="chooseRegion({region:'',countries:[]})">REGIONS</a></li>
+                <li ng-repeat="region in regionsCollection"><a href ng-click="chooseRegion(region)">{{region.region}}</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li ng-show="hasSelectedRegion()">&nbsp;|&nbsp;</li>
+        <li class="dropdown wider">
+          <div class="outer-dropdown-wrapper" ng-show="hasSelectedRegion()">
+            <div class="dropdown-wrapper" ng-click="countryDropdownIsActive=!countryDropdownIsActive" ng-class="{active: countryDropdownIsActive==true}">
+              <span>{{currentCountryLabel}}</span>
+              <ul class="dropdown-list">
+                <li ng-click="chooseCountry('')">Countries</li>
+                <li ng-repeat="country in currentRegion.countries"><a href ng-click="chooseCountry(country)">{{country}}</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+      """
+    link: link
+    scope:
+      regionsCollection: "="
+      yearsCollection: "="
+      filterObject: "="
+  result
+]
+
+# sfDirectives.directive "dropdownOption", [ ->
+
+#   link = (scope, element, attrs, dropdownController) ->
+#     scope.isSelected = false
+#     dropdownController.addDropdownOption scope
+#     scope.selectOption = ->
+#       scope.isSelected = not scope.isSelected
+#       dropdownController.gotSelected scope
+#       return
+#     return
+
+#   result =
+#     restrict: "E"
+#     replace: true
+#     require: "^?dropdown"
+#     template: """
+#       <li>
+#         <a href ng-click="selectOption()">{{name}}</a>
+#       </li>
+#       """
+#     link: link
+#     scope:
+#       name: "@"
+#       value: "@"
+#   result
+# ]
+
 # <a scroll-to-position="element-id">
 sfDirectives.directive "scrollToPosition", [->
   restrict: "A"
