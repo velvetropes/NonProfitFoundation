@@ -9,8 +9,12 @@ requiredModules = [
   "sfServices"
 ]
 
+FB_ID = "1391926457745223"
+
 # Blog
 blogPagesApp = angular.module("blogPagesApp", requiredModules)
+blogPagesApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 blogPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -30,6 +34,8 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 
 # Gala
 galaPageApp = angular.module("galaPageApp", requiredModules)
+galaPageApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/gala/:tabId",
@@ -41,11 +47,13 @@ galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 ]
 
 legalPagesApp = angular.module("legalPagesApp", requiredModules)
+legalPagesApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 # Media Mentions
-mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", requiredModules)
+mediaMentionsPagesApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 mediaMentionsPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -66,6 +74,8 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
 
 # Hearing Missions
 missionsPageApp = angular.module("missionsPageApp", requiredModules)
+missionsPageApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 missionsPageApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -88,6 +98,8 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
 ]
 
 programsPageApp = angular.module("programsPageApp", requiredModules)
+programsPageApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/programs/:tabId",
@@ -99,6 +111,8 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 ]
 
 takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules)
+takeActionPagesApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/:tabId",
@@ -111,8 +125,13 @@ takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 
 HomePageApp = angular.module('homePageApp', requiredModules)
 
+HomePageApp.run ($FB) ->
+  $FB.init('1391926457745223')
+
 # Preview
 previewPageApp = angular.module("previewPageApp", requiredModules)
+HomePageApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles/:articleId",
