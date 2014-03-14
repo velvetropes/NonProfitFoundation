@@ -320,7 +320,9 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
         element.find(".gallery-slide").length
       ), (length) ->
         setTimeout( ->
-          scope.api.reinitialise()
+          if scope.api? # this was returning undefined?
+            scope.api.reinitialise()
+          return
         , 800)
 
   template = """
@@ -1070,7 +1072,9 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
       element.find(".slide").length
     ), (length) ->
       setTimeout( ->
-        scope.api.reinitialise()
+        if scope.api? #this was returning undefined?
+          scope.api.reinitialise()
+        return
       , 200)
 
     scope.isFullHeight = ->
