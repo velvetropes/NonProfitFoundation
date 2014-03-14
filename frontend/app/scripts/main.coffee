@@ -10,9 +10,7 @@ requiredModules = [
 ]
 
 # Blog
-blogPagesApp = angular.module("blogPagesApp", requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+blogPagesApp = angular.module("blogPagesApp", requiredModules)
 
 blogPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -31,9 +29,7 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
 ]
 
 # Gala
-galaPageApp = angular.module("galaPageApp", requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+galaPageApp = angular.module("galaPageApp", requiredModules)
 
 galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/gala/:tabId",
@@ -44,9 +40,7 @@ galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/gala/overview"
 ]
 
-legalPagesApp = angular.module("legalPagesApp", requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+legalPagesApp = angular.module("legalPagesApp", requiredModules)
 
 # Media Mentions
 mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", requiredModules, ($locationProvider) ->
@@ -71,9 +65,7 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
 ]
 
 # Hearing Missions
-missionsPageApp = angular.module("missionsPageApp", requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+missionsPageApp = angular.module("missionsPageApp", requiredModules)
 
 missionsPageApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -95,9 +87,7 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
   ).otherwise redirectTo: "/missions"
 ]
 
-programsPageApp = angular.module("programsPageApp", requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+programsPageApp = angular.module("programsPageApp", requiredModules)
 
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/programs/:tabId",
@@ -108,9 +98,7 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/programs/0"
 ]
 
-takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules)
 
 takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/:tabId",
@@ -121,17 +109,13 @@ takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/fundraising"
 ]
 
-HomePageApp = angular.module('homePageApp', requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+HomePageApp = angular.module('homePageApp', requiredModules)
 
 HomePageApp.run ($FB) ->
   $FB.init('1391926457745223')
 
 # Preview
-previewPageApp = angular.module("previewPageApp", requiredModules, ($locationProvider) ->
-  # $locationProvider.html5Mode(true)
-)
+previewPageApp = angular.module("previewPageApp", requiredModules)
 
 previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles/:articleId",
