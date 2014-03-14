@@ -47,6 +47,8 @@ nav {
       float: left;
       width: 33.33%;
       padding: 0;
+      // FF Fix
+      list-style: none;
       a {
         display: block;
         width: 100%;
