@@ -52,7 +52,6 @@
 <br/>
 
 <div class="text-container">
-{exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
 </div>
 
 
@@ -63,22 +62,23 @@
     <ul>
       <li><span class="note">Share this post</span></li>
       <li>
-        <a href="#">
+        <a href="http://twitter.com/share?url=http://starkeyhearingfoundation.org/missions#missions/{entry_id}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="http://www.facebook.com/sharer.php?u=http://starkeyhearingfoundation.org/missions#missions/{entry_id}" target="_blank">
           <span class="icon starkey-share-fb"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://starkeyhearingfoundation.org/missions#missions/{entry_id}.">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
     </ul>
   </div>
+  {exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
 
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>

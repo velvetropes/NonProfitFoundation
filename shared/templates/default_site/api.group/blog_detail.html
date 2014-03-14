@@ -52,30 +52,30 @@
 </div>
 <br/>
 <div class="text-container">
-{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
 </div>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>
       <li><span class="note">Share this post</span></li>
       <li>
-        <a href="#">
+        <a href="http://twitter.com/share?url=http://starkeyhearingfoundation.org/blog#articles/{entry_id}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="http://www.facebook.com/sharer.php?u=http://starkeyhearingfoundation.org/blog#articles/{entry_id}" target="_blank">
           <span class="icon starkey-share-fb"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://starkeyhearingfoundation.org/blog#articles/{entry_id}.">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
     </ul>
   </div>
 </div>
+{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
 <br/>
 
 {blog_related_items}
@@ -94,7 +94,7 @@
           link-style=""
           date="{blog_related_items:blog_date format='%F %d, %Y'}"
         ></slide>
-{if blog_related_items:count == blog_related_items:total_results} 
+{if blog_related_items:count == blog_related_items:total_results}
     </thumblist-nav>
   </section>
 </div>

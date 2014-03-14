@@ -243,7 +243,12 @@ sfDirectives.directive("facebook", [
           <div class="footer-list-item">
             <h1>{{shares}} <strong>fans</strong></h1>
           </div>
-          <p class="read-more"><a href>Like us <span class="facebook-like-hand"></span></a></p>
+          <p class="read-more">
+            <a href="http://www.facebook.com/sharer.php?u=http://starkeyhearingfoundation.org" target="_blank">
+              Like us
+              <span class="facebook-like-hand"></span>
+            </a>
+          </p>
         </section>
         """
       link: (scope, element, attr) ->
@@ -254,14 +259,6 @@ sfDirectives.directive("facebook", [
           scope.shares = res.data[0].total_count
         ).error (res, status) ->
           scope.shares = 0
-
-        $timeout ->
-          element.bind "click", ->
-            FB.ui
-              method: "feed"
-              name: "Facebook shares"
-              link: scope.url
-              caption: scope.caption
     }
 ])
 
