@@ -1189,8 +1189,8 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
       image       = document.createElementNS(svgNS, 'image');
       image.setAttribute('x',             '0');
       image.setAttribute('y',             '0');
-      image.setAttribute('width',         '30');
-      image.setAttribute('height',        '30');
+      image.setAttribute('width',         '24');
+      image.setAttribute('height',        '24');
       image.setAttributeNS(svgNSXLink, 'xlink:href', url);
 
       # Put it together
@@ -1215,7 +1215,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           initial:
             "stroke-width": 0
             "stroke-opacity": 0
-            r: 15
+            r: 12
           hover:
             stroke: "#1b74a4"
             "stroke-opacity": 1

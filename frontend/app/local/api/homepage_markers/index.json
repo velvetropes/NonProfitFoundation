@@ -1,16 +1,35 @@
 {
    "icons" : [
-      {
-        "id"          : "jvm-video",
-        "path"        : "/images/shared/icon_video.png"
-      },
-      {
-        "id"          : "jvm-hearing-missions",
-        "path"        : "/images/shared/icon_stories.png"
-      }
+     {
+        "id"      : "jvm-where-we-were-yesterday",
+        "path"    : "/uploads/map/markers/icon_stories.png"
+     }, 
+     {
+        "id"      : "jvm-gallery",
+        "path"    : "/uploads/map/markers/icon_gallery.png"
+     }, 
+     {
+        "id"      : "jvm-video",
+        "path"    : "/uploads/map/markers/icon_video.png"
+     }, 
+     {
+        "id"      : "jvm-stories",
+        "path"    : "/uploads/map/markers/icon_stories.png"
+     }, 
+     {
+        "id"      : "jvm-program",
+        "path"    : "/uploads/map/markers/icon_program.png"
+     }, 
+     {
+        "id"      : "jvm-hearing-missions",
+        "path"    : "/uploads/map/markers/icon_program.png"
+     }, 
+     {
+        "id"      : "jvm-where-we-are-now",
+        "path"    : "/uploads/map/markers/icon_now.png"
+     }
    ],
    "coords" : [
-   
         {
           "latLng" : [-1.292066, 36.821946],
           "style" : {
@@ -63,7 +82,7 @@
         {
           "latLng" : [28.6, 77.2],
           "style" : {
-            "fill" : "url('#jvm-where-we-are-now')"
+            "fill" : "url('#jvm-hearing-missions')"
           }
         }
    ],

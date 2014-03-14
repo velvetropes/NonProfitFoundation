@@ -2,8 +2,8 @@
    "icons" : [
    {exp:channel:entries channel="homepage_map_categories" dynamic="no" disable="{global:param_disable_default}" backspace="2"}
      {
-        "id" : "jvm-{url_title}",
-        "path" : "{homepage_map_category_image}"
+        "id"      : "jvm-{url_title}",
+        "path"    : "{homepage_map_category_image}"
      }, {/exp:channel:entries}
    ], 
 
@@ -12,7 +12,6 @@
     {
       "latLng" : [{homepage_map_item_lat}, {homepage_map_item_lon}],
       "style" : {
-        "r" : "15",
         "fill" : "url('#jvm-{homepage_map_item_category:url_title}')",
         "stroke-width" : 0
       }
