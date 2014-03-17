@@ -1209,7 +1209,6 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
   replace: true
   scope:
     full: "@"
-    slides: "=slides"
 ]
 
 # <button ng-click='toggleModal("http://www.youtube.com/embed/xx2Dx_rRdws")'>Open Modal Dialog</button>

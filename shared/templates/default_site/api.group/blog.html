@@ -27,34 +27,34 @@
 
   "years" : [
     {
-      "name"  : "Latest", 
+      "name"  : "Latest",
       "value" : ""
     },
-    {exp:activerecord 
-      select="FROM_UNIXTIME(field_id_21, '%Y') as year" 
-      distinct="yes" 
+    {exp:activerecord
+      select="FROM_UNIXTIME(field_id_21, '%Y') as year"
+      distinct="yes"
       from="channel_data"
       join="channel_titles"
       on="channel_data.entry_id = channel_titles.entry_id"
       join_type="left"
       where:channel_titles.channel_id="5"
       where:channel_titles.status="open"
-      order_by="field_id_21 desc" 
+      order_by="field_id_21 desc"
       backspace="2"}
     {
-      "name"  : "{year}", 
+      "name"  : "{year}",
       "value" : "{year}"
     }, {/exp:activerecord}
   ],
 
   "cats" : [
-    { 
-      "name" : "All", 
+    {
+      "name" : "All",
       "value" : ""
     },
     {exp:channel:categories channel="blog" category_group="2" style="linear" show_empty="no" backspace="2"}
-    { 
-      "name" : "{category_name}", 
+    {
+      "name" : "{category_name}",
       "value" : "{category_name}"
     }, {/exp:channel:categories}
   ]

@@ -95,7 +95,7 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
   $scope.nonFeaturedArticles = $filter('filter')($scope.articles, $scope.articleFilters)
   $scope.articlesForMobile = $scope.nonFeaturedArticles[0..itemsPerPage-1]
   $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
-  
+
   $scope.$watch "articleFilters.blog_item_category", ->
     $scope.nonFeaturedArticles = $filter('filter')($scope.articles, $scope.articleFilters)
     $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
