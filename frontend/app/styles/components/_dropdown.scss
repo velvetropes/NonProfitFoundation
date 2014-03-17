@@ -20,9 +20,11 @@
   width: 100px;
   margin: 0;
   vertical-align: top;
+  &.desktop {
+    display: inline-block;
+  }
   &.tablet-down {
     display: none;
-
   }
   select {
     margin-top: 5px;
@@ -32,11 +34,16 @@
   }
   @include media($tablet-down) {
     &.tablet-down {
-      display: block;
+      display: inline-block;
+    }
+    &.desktop {
+      display: none;
     }
     &:after {
       @include drop-arrow;
       display: block;
+      top: 8px;
+      right: -4px;
     }
   }
   &.wide {
