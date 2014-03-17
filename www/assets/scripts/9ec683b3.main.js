@@ -999,7 +999,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), void pattern.appendChild(image);
+                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1034,7 +1034,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, void $timeout(generateMap, 1200);
+                }, $timeout(generateMap, 1200), void 0;
             }
         };
     } ]);
@@ -1172,12 +1172,12 @@
         });
     } ]), HomePageApp = angular.module("homePageApp", requiredModules), HomePageApp.run(function($FB) {
         return $FB.init("1391926457745223");
-    }), previewPageApp = angular.module("previewPageApp", requiredModules), HomePageApp.run(function($FB) {
+    }), previewPageApp = angular.module("previewPageApp", requiredModules), previewPageApp.run(function($FB) {
         return $FB.init(FB_ID);
     }), previewPageApp.config([ "$routeProvider", function($routeProvider) {
-        return $routeProvider.when("/articles/:articleId", {
+        return $routeProvider.when("/:articleId", {
             templateUrl: function(params) {
-                return "api/preview/" + params.articleId;
+                return "api/blog_detail/" + params.articleId;
             },
             controller: "PreviewShowCtrl"
         });

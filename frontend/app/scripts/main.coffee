@@ -138,13 +138,13 @@ HomePageApp.run ($FB) ->
 
 # Preview
 previewPageApp = angular.module("previewPageApp", requiredModules)
-HomePageApp.run ($FB) ->
+previewPageApp.run ($FB) ->
   $FB.init(FB_ID)
 
 previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
-  $routeProvider.when("/articles/:articleId",
+  $routeProvider.when("/:articleId",
     templateUrl: (params) ->
-      "api/preview/#{params.articleId}"
+      "api/blog_detail/#{params.articleId}"
       # "local/api/preview"
     controller: "PreviewShowCtrl"
   )
