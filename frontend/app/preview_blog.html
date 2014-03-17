@@ -6,17 +6,15 @@
   <head>
     <!--(bake partials/head.html)-->
   </head>
-  <body class='preview-page blog-page page' ng:app="previewPageApp" ng:controller="globalCtrl">
+  <body class='preview-page blog-page page' ng:controller="globalCtrl">
 
     <!--(bake partials/browser_check.html)-->
 
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-    {if logged_in} {embed="api/blog_detail"} {/if}
-    {if logged_out}
-      <div class="text-container"><p style="text-align:center">You are not authorized to view this page.</p></div>
-    {/if}
+    {if logged_in}  <div ng-controller="BlogShowCtrl"></div> {/if}
+    {if logged_out} <div class="text-container"><p style="text-align:center">You are not authorized to view this page.</p></div> {/if}
     <!-- end main content section -->
 
     <!--(bake partials/footer.html)-->
