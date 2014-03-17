@@ -233,6 +233,12 @@ footer {
     }
   }
 }
+.twitter, .blog {
+  li {
+    width: 100%;
+    word-break: break-word;
+  }
+}
 
 .facebook-like-hand {
   display: inline-block;
