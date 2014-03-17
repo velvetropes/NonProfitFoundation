@@ -226,8 +226,13 @@ nav {
       .three-tabs {
         li {
           width: 200px;
-          @include media($tablet) {
-            width: 32%;
+          @include media($tablet-down) {
+            width: 100%;
+            margin: 0;
+            a {
+              font-size: 12px;
+              font-weight: bold;
+            }
           }
           a {
             padding: 10px 0 8px;
