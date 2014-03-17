@@ -1181,9 +1181,9 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
     scope.$watch (->
       element.find(".slide").length
     ), (length) ->
-      setTimeout( ->
-        if scope.api? #this was returning undefined?
-          scope.api.reinitialise()
+      $timeout( ->
+        if scope.api?
+          scope.api.reinitialise()()
         return
       , 200)
 
