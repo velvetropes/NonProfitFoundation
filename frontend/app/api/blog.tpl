@@ -29,7 +29,7 @@
     {
       "name"  : "Latest",
       "value" : ""
-    },
+    }
     {exp:activerecord
       select="FROM_UNIXTIME(field_id_21, '%Y') as year"
       distinct="yes"
@@ -41,6 +41,7 @@
       where:channel_titles.status="open"
       order_by="field_id_21 desc"
       backspace="2"}
+    {if count == 1}, {/if} 
     {
       "name"  : "{year}",
       "value" : "{year}"
@@ -48,11 +49,13 @@
   ],
 
   "cats" : [
+    {exp:channel:categories channel="blog" category_group="2" style="linear" show_empty="no" backspace="2"} 
+    {if count == 1}
     {
       "name" : "All",
       "value" : ""
     },
-    {exp:channel:categories channel="blog" category_group="2" style="linear" show_empty="no" backspace="2"}
+    {/if} 
     {
       "name" : "{category_name}",
       "value" : "{category_name}"
