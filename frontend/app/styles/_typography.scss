@@ -459,7 +459,7 @@ blockquote p {
 }
 
 // Generic page font styles
-.generic-article-typography, .text-container {
+.generic-article-typography {
   h1 {
     font-size: 2.25em;
     line-height: 1.2em;
@@ -493,6 +493,10 @@ blockquote p {
       font-size: 12px;
     }
   }
+}
+
+.text-container {
+  @extend .generic-article-typography;
 }
 
 .ellipsis {

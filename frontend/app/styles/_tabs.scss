@@ -169,14 +169,12 @@ nav {
         margin: 10px 0 0 0;
         @include reset-display;
         li {
-          display: block;
-          width: 50%;
-          float: left;
+          @include span-columns(12);
           border: none;
-          border-left: 1px dotted #333;
           border-top: 1px dotted #333;
-          &:nth-child(even) {
-            border-right: 1px dotted #333;
+          a {
+            font-size: 12px;
+            font-weight: bold;
           }
           &.active {
             border-bottom: inherit;

@@ -166,7 +166,6 @@
 }
 .hearing-missions-statistics {
   @include reset-display;
-  border-bottom: $dotted-border;
   margin: 0 0 55px;
   ul {
     margin: 0;
@@ -312,17 +311,12 @@
     nav.outer-container {
       .three-tabs {
         li {
-          display: none;
           margin: 0;
           width: 100%;
           border: none;
-          a {
-            font-size: 12px;
-            font-weight: bold;
-            cursor: default;
-          }
-          &:first-child {
-            display: block;
+          border-top: 1px dotted #333;
+          &.active {
+            border-bottom: inherit;
           }
         }
       }
