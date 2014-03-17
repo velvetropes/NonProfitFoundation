@@ -164,23 +164,6 @@ nav {
           }
         }
       }
-      @include media($tablet-down) {
-        padding: 0;
-        margin: 10px 0 0 0;
-        @include reset-display;
-        li {
-          @include span-columns(12);
-          border: none;
-          border-top: 1px dotted #333;
-          a {
-            font-size: 12px;
-            font-weight: bold;
-          }
-          &.active {
-            border-bottom: inherit;
-          }
-        }
-      }
     }
     &.outer-container {
       .two-tabs, .three-tabs, .five-tabs {
@@ -242,8 +225,52 @@ nav {
       .five-tabs {
         li {
           width: 19.5%;
+          margin-left: -3px;
           a {
             padding: 10px 0 8px;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      &.outer-container {
+        .five-tabs {
+          padding: 0;
+          margin: 10px 0 0 0;
+          @include reset-display;
+          li {
+            @include span-columns(12);
+            margin: 0;
+            border: none;
+            border-top: 1px dotted #333;
+            a {
+              font-size: 12px;
+              font-weight: bold;
+            }
+            &.active {
+              border-bottom: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    @include media($tablet-down) {
+      .tabs, {
+        padding: 0;
+        margin: 10px 0 0 0;
+        @include reset-display;
+        li {
+          @include span-columns(12);
+          border: none;
+          border-top: 1px dotted #333;
+          a {
+            font-size: 12px;
+            font-weight: bold;
+          }
+          &.active {
+            border-bottom: inherit;
           }
         }
       }
