@@ -1,0 +1,8 @@
+.about-us-page {
+  .text-container {
+    text-align: center;
+    @include media($tablet-down) {
+      text-align: left;
+    }
+  }
+}
