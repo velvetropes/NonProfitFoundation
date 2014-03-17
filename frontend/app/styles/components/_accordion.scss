@@ -38,9 +38,6 @@
         }
         .accordion-list-item {
           @include span-columns(4);
-          h3 {
-
-          }
           p {
             margin: 0;
           }
@@ -51,6 +48,9 @@
             height: 200px;
             width: 200px;
             margin: 10px auto;
+          }
+          @include media($tablet-down) {
+            @include span-columns(12);
           }
         }
         &:last-child {
