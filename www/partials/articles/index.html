@@ -37,6 +37,7 @@
     </thumblist-nav>
   </section>
 
+<<<<<<< HEAD
   <br/>
   <div class="outer-container">
     <div class="pagination">
@@ -51,6 +52,20 @@
           <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
         </li>
       </ul>
+=======
+<section class='carousel thumblist'>
+  <thumblist-nav full="true" slides="articles">
+    <div ng-repeat="article in articles | filter:{featured:'true'}">
+      <slide
+        thumblist="true"
+        image-url="{{article.thumbnail_image_url}}"
+        blog-category="{{article.blog_item_category}}"
+        video-url=""
+        link-url="#/articles/{{article.id}}"
+        headline="{{article.title}}"
+        link-text=""
+      ></slide>
+>>>>>>> Roll back
     </div>
 
     <ul class="articles-filters">

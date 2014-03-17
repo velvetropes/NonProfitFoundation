@@ -290,7 +290,6 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
     $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
 
     $scope.highlightRegions = data.categories
-    console.debug "$scope.highlightRegions", $scope.highlightRegions
 
     for year in data.years
       addedYear = {
