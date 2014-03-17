@@ -1,7 +1,7 @@
 {exp:http_header content_type="application/json"}
     {
         "highlights" : [
-            {exp:channel:entries channel="hearing_missions" dynamic="no"}
+            {exp:channel:entries channel="hearing_missions" dynamic="no" disable="{global:param_disable_default}"}
               {
                 "id"                    : "{url_title}",
                 "title"                 : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
@@ -48,5 +48,21 @@
       ],
 
       {!-- All the years that have entries --}
-      "years" : [{exp:channel:entries channel="hearing_missions" backspace="1" dynamic="no"}"{mission_date format='%Y'}",{/exp:channel:entries}]
+      "years" : [
+      {exp:activerecord 
+        select="FROM_UNIXTIME(field_id_95, '%Y') as year" 
+        distinct="yes" 
+        from="channel_data"
+        join="channel_titles"
+        on="channel_data.entry_id = channel_titles.entry_id"
+        join_type="left"
+        where:channel_titles.channel_id="16"
+        where:channel_titles.status="open"
+        order_by="field_id_95 desc" 
+        backspace="2"}
+      {
+        "name"  : "{year}", 
+        "value" : "{year}"
+      }, {/exp:activerecord}
+      ]
     }

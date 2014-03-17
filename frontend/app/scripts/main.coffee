@@ -24,6 +24,14 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles",
     templateUrl: "partials/articles/index.html"
     controller: "BlogIndexCtrl"
+    resolve: {
+      api_data : [ "Articles", (Articles) ->
+        Articles.getIndex().then(
+          (data) ->
+            data
+        )
+      ]
+    }
   ).when("/articles/:articleId",
     templateUrl: (params) ->
       "api/blog_detail/#{params.articleId}"

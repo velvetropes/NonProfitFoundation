@@ -6,10 +6,23 @@ sfControllers.config ['$sceProvider', ($sceProvider) ->
 
 # Home
 
-sfControllers.controller("globalCtrl", ["$scope", "$location", "$timeout", ($scope, $location, $timeout) ->
+sfControllers.controller("globalCtrl", ["$scope", "$rootScope", "$location", "$timeout", ($scope, $rootScope, $location, $timeout) ->
   $scope.showModal = false
   $scope.videoIframe = ""
   $scope.showSubscribeForm = false
+
+  # Make location available to get current url
+  $rootScope.location = $location;
+
+  if $location.url() is '/articles'
+    $scope.blogOverview = true
+
+  # Flag if we're loading a new route
+  $scope.loadingRoute = false
+  $scope.$on '$routeChangeStart', () ->
+    $scope.loadingRoute = true
+  $scope.$on '$routeChangeSuccess', () ->
+    $scope.loadingRoute = false
 
   videoUrl = $location.search()['video']
   $scope.$on 'modal:hide', (event) ->
@@ -62,11 +75,8 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 ])
 
 # Blog
-sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", ($scope, $window, Articles, Pagination) ->
+sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", "api_data", "$filter", ($scope, $window, Articles, Pagination, api_data, $filter) ->
   itemsPerPage = 9
-  $scope.articles =[]
-  $scope.nonFeaturedArticles = []
-  $scope.articlesForMobile = []
   $scope.articleFilters = {
     featured:'false'
     blog_item_category: ''
@@ -74,38 +84,23 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
   }
   $scope.windowWidth = $window.innerWidth
 
-  $scope.articleCategories = [
-    {name: "All", value: ''}
-    {name: "News", value: "News"}
-    {name: "Events", value: "Events"}
-    {name: "Hear Now", value: "Hear Now"}
-    {name: "Gala", value: "Gala"}
-    {name: "Films", value: "Films"}
-    {name: "Celebrity", value: "Celebrity"}
-    {name: "Operation Change", value: "Operation Change"}
-    {name: "Hearing Missions", value: "Hearing Missions"}
-    {name: "Listen Carefully", value: "Listen Carefully"}
-  ]
-
-  $scope.articleYears = [
-    {name: "Latest", value: ''}
-    {name: '2014', value: '2014'}
-    {name: '2013', value: '2013'}
-    {name: '2012', value: '2012'}
-    {name: '2011', value: '2011'}
-    {name: '2010', value: '2010'}
-  ]
-
-  Articles.getIndex().then (data) ->
-    if data instanceof Array
-      $scope.articles = data
-    else
-      $scope.articles = [data]
-    $scope.pagination = Pagination.getNew(itemsPerPage)
-    $scope.nonFeaturedArticles = _.filter $scope.articles, (article) ->
-      article.featured is 'false'
-    $scope.articlesForMobile = $scope.nonFeaturedArticles[0..itemsPerPage-1]
+  $scope.articles = api_data.articles
+  $scope.articleCategories = api_data.cats
+  $scope.articleYears = api_data.years
+  $scope.pagination = Pagination.getNew(itemsPerPage)
+  $scope.nonFeaturedArticles = $filter('filter')($scope.articles, $scope.articleFilters)
+  $scope.articlesForMobile = $scope.nonFeaturedArticles[0..itemsPerPage-1]
+  $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
+  
+  $scope.$watch "articleFilters.blog_item_category", ->
+    $scope.nonFeaturedArticles = $filter('filter')($scope.articles, $scope.articleFilters)
     $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
+    return
+
+  $scope.$watch "articleFilters.year", ->
+    $scope.nonFeaturedArticles = $filter('filter')($scope.articles, $scope.articleFilters)
+    $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
+    return
 
   $scope.numberOfPages = ->
     Math.ceil($scope.nonFeaturedArticles.length/$scope.pageSize)
