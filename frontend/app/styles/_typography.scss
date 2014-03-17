@@ -218,6 +218,11 @@ hr.separator {
 .fixed-width {
   margin: 0 auto 15px;
   width: 820px;
+  @include media($tablet-down) {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+  }
 }
 
 .page-leader {
@@ -245,6 +250,7 @@ hr.separator {
     }
     p {
       font-size: 15px;
+      line-height: 1.2em;
       &.fixed-width {
         width: auto;
         padding: 0 16px;
