@@ -49,13 +49,12 @@
   ],
 
   "cats" : [
-    {exp:channel:categories channel="blog" category_group="2" style="linear" show_empty="no" backspace="2"} 
-    {if count == 1}
     {
       "name" : "All",
       "value" : ""
-    },
-    {/if} 
+    }
+    {exp:channel:categories channel="blog" category_group="2" style="linear" show_empty="no" backspace="2"} 
+    {if count == 1}, {/if} 
     {
       "name" : "{category_name}",
       "value" : "{category_name}"
