@@ -23,6 +23,10 @@ sfControllers.controller("globalCtrl", ["$scope", "$rootScope", "$location", "$t
     $scope.loadingRoute = true
   $scope.$on '$routeChangeSuccess', () ->
     $scope.loadingRoute = false
+    if $location.url() is '/articles'
+      $scope.blogOverview = true
+    else
+      $scope.blogOverview = false
 
   videoUrl = $location.search()['video']
   $scope.$on 'modal:hide', (event) ->

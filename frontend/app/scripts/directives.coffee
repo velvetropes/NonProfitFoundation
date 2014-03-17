@@ -342,7 +342,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 #  video-url=""
 # ></gallery-slide>
 
-sfDirectives.directive "gallerySlide", [ ->
+sfDirectives.directive "gallerySlide", ["$location", ($location) ->
 
   link = (scope, element, attrs) ->
     scope.imageUrl ?= ""
@@ -371,6 +371,7 @@ sfDirectives.directive "gallerySlide", [ ->
       if scope.hasVideo()
         # Send videoUrl to overlay
         scope.$emit('modal:show', scope.videoUrl)
+        $location.url($location.url() + '?video=' + scope.youtubeId())
 
     scope.slideType = ->
       if scope.hasVideo()
