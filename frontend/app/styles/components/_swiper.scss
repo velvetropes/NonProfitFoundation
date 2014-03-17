@@ -277,6 +277,11 @@
   .action-link {
     display: none;
   }
+  .swiper-position {
+    position: absolute;
+    bottom: 14px;
+    width: 100%;
+  }
   @include media($mobile) {
     float: none;
     width: 100%;
