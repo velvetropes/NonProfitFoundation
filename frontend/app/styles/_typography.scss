@@ -466,6 +466,12 @@ blockquote p {
   }
   h1, h2, h3, p {
     @extend .alrightsanslight;
+    padding-left: 16px;
+    padding-right: 16px;
+    &.no-container {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
   }
   p {
     line-height: 1.875em;
@@ -477,14 +483,6 @@ blockquote p {
     p {
       font-size: 14px;
       line-height: 1.2em;
-    }
-    h1, h2, h3, p {
-      padding-left: 16px;
-      padding-right: 16px;
-      &.no-container {
-        padding-left: 0px;
-        padding-right: 0px;
-      }
     }
   }
   @include media($mobile) {
