@@ -509,6 +509,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         x: 0.5,
         y: 0.5,
         scale: .5
+      backgroundColor: "#329FD6"
       # onRegionSelected: (e, str) ->
       #   console.debug "Clicked", str
 
