@@ -51,6 +51,12 @@
   </div>
 </div>
 <br/>
+
+<div class="text-container">
+  {exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
+</div>
+
+<br/>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>
@@ -73,11 +79,6 @@
     </ul>
   </div>
 </div>
-
-<div class="text-container">
-  {exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
-</div>
-<br/>
 
 {blog_related_items}
 {if blog_related_items:count == 1}
