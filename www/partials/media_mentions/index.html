@@ -48,7 +48,8 @@
   </div>
 
   <ul class="articles-filters">
-    <li><strong>Sort</strong> &nbsp;|</li>
+    <li><strong>Sort</strong></li>
+    <li class="filters-devider">|</li>
     <li class="dropdown widest">
       <dropdown options="articleCategories" call-filter="articleFilters.type"></dropdown>
     </li>
@@ -57,7 +58,7 @@
         <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
       </select>
     </li>
-    <li>&nbsp;|&nbsp;</li>
+    <li class="filters-devider">|</li>
     <li class="dropdown wide">
       <dropdown options="articleYears" call-filter="articleFilters.year"></dropdown>
     </li>
