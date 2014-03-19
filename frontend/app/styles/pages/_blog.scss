@@ -1,5 +1,5 @@
 .articles-filters {
-  padding: 0;
+  padding: 0 0 0 16px;
   float: left;
   list-style: none;
   text-transform: uppercase;
@@ -75,7 +75,7 @@
     top: 20px;
     right: 20px;
     padding: 0;
-    z-index: 10000;
+    z-index: 99;
     li {
       display: inline-block;
       a {

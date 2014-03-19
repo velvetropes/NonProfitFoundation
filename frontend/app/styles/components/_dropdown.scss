@@ -2,8 +2,8 @@
   content: '';
   position: absolute;
   z-index: 2;
-  top: 9px;
-  right: 10px;
+  top: 7px;
+  right: 3px;
   width: 0;
   height: 0;
   border: 6px dashed;
@@ -17,7 +17,7 @@
   display: inline-block;
   position: relative;
   height: 30px;
-  width: 100px;
+  width: auto;
   margin: 0;
   vertical-align: top;
   &.desktop {
@@ -46,24 +46,28 @@
       right: -4px;
     }
   }
-  &.wide {
-    width: 100px;
-  }
-  &.wider {
-    width: 130px;
-  }
-  &.widest {
-    width: 160px;
-  }
-  &.narrow {
-    width: 100px;
-  }
+  // &.wide {
+  //   width: 100px;
+  // }
+  // &.wider {
+  //   width: 130px;
+  // }
+  // &.widest {
+  //   width: 160px;
+  // }
+  // &.narrow {
+  //   width: 100px;
+  // }
   @include media($mobile) {
     &.wide {
       width: 65px;
       padding: 0 5px;
     }
   }
+}
+
+.filters-devider {
+  padding: 0 10px 0 14px;
 }
 
 .dropdown-select {
@@ -131,7 +135,7 @@
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 28px 0 0;
   cursor: pointer;
   outline: none;
   z-index: 1000;

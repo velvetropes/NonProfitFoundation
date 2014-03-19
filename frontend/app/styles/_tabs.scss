@@ -54,7 +54,7 @@ nav {
         width: 100%;
         padding: 10px;
       }
-      &:hover, &.active {
+      &.active, &:hover {
         border-bottom: 1px solid #fff;
       }
     }
@@ -67,7 +67,7 @@ nav {
       padding: 0;
       margin: 14px 0 0 0;
       li {
-        @include span-columns(2 of 6);
+        @include span-columns(2 of 8);
         border-bottom: 5px solid #3d4144;
         height: 185px;
         border-left: $dotted-border;
@@ -101,10 +101,6 @@ nav {
           line-height: 1.4em;
           margin-top: 10px;
         }
-      }
-    }
-    &.who-we-are, &.what-we-do {
-      li {
       }
     }
     &.get-involved {

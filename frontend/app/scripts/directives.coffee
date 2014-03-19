@@ -509,6 +509,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         x: 0.5,
         y: 0.5,
         scale: .5
+      backgroundColor: "#329FD6"
       # onRegionSelected: (e, str) ->
       #   console.debug "Clicked", str
 
@@ -1334,7 +1335,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             stroke: "#1b74a4"
             "stroke-opacity": 1
             "stroke-width": 2
-
+        backgroundColor: "#329FD6"
         onMarkerClick: (event, index) =>
           content = markerList.meta_data[index]
           $popup = $('#map-popup')

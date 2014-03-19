@@ -536,7 +536,8 @@
                     x: .5,
                     y: .5,
                     scale: .5
-                }
+                },
+                backgroundColor: "#329FD6"
             }, scope.worldMapConfig = _.extend({
                 map: "world_mill_en"
             }, scope.mapConfig), scope.usMapConfig = _.extend({
@@ -1015,6 +1016,7 @@
                                 "stroke-width": 2
                             }
                         },
+                        backgroundColor: "#329FD6",
                         onMarkerClick: function(event, index) {
                             var $popup, content;
                             return content = markerList.meta_data[index], $popup = $("#map-popup"), $popup.fadeOut("slow", function() {

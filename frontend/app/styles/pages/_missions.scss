@@ -1,4 +1,6 @@
 #missions-world-map, #missions-us-map {
+  height: 100%;
+  width: 100%;
   .jvectormap-container {
     @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
   }
@@ -17,6 +19,8 @@
     border: none;
     margin: 0;
     margin-right: 250px;
+    height: 560px;
+    z-index: 1;
     .map {
       border: none;
     }
@@ -26,6 +30,8 @@
       right: 250px;
       bottom: 0;
       left: 0;
+      height: 560px;
+      width: 100%;
     }
     .missions-world-map {
       z-index: 1;
@@ -43,6 +49,7 @@
     right: 0;
     padding: 30px 20px 50px;
     background: url('images/missions/map/transparent_darker_background.png') repeat;
+    z-index: 3;
     h3 {
       text-transform: uppercase;
       color: white;
