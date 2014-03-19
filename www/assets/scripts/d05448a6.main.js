@@ -34,46 +34,39 @@
         }, $scope.modalShown = !1, $scope.toggleModal = function() {
             return $scope.modalShown = !$scope.modalShown;
         };
-    } ]), sfControllers.controller("BlogIndexCtrl", [ "$scope", "$window", "Articles", "Pagination", "api_data", "$filter", function($scope, $window, Articles, Pagination, api_data, $filter) {
-        var currentPageCollection, isMobile, itemsPerPage;
-        return itemsPerPage = 9, $scope.articleFilters = {
+    } ]), sfControllers.controller("BlogIndexCtrl", [ "$scope", "$window", "Articles", "Pagination", "api_data", "$filter", function($scope, $window, Articles, Pagination, api_data) {
+        return $scope.articles = api_data.articles;
+    } ]), sfControllers.controller("BlogShowCtrl", [ "$scope", "$routeParams", "$location", "$sce", "Articles", "Article", "Pagination", function($scope, $routeParams) {
+        return $scope.currentPosition = $routeParams.articleId;
+    } ]), sfControllers.controller("BlogListingCtrl", [ "$scope", "Articles", "Pagination", "$filter", function($scope, Articles, Pagination, $filter) {
+        var itemsPerPage;
+        return itemsPerPage = 9, $scope.isMobile = function() {
+            return $scope.windowWidth < 768;
+        }, $scope.parseDate = function(date) {
+            return Date.parse(date);
+        }, Articles.getIndex().then(function(data) {
+            $scope.articleCategories = data.cats, $scope.articleYears = data.years, $scope.articlesList = data.articles instanceof Array ? data.articles : [ data.articles ], 
+            $scope.articles = $scope.articlesList, $scope.articlesForMobile = $scope.articlesList.slice(0, +(itemsPerPage - 1) + 1 || 9e9);
+        }), $scope.articleFilters = {
             featured: "false",
             blog_item_category: "",
             year: ""
-        }, $scope.windowWidth = $window.innerWidth, $scope.articles = api_data.articles, 
-        $scope.articleCategories = api_data.cats, $scope.articleYears = api_data.years, 
-        $scope.pagination = Pagination.getNew(itemsPerPage), $scope.nonFeaturedArticles = $filter("filter")($scope.articles, $scope.articleFilters), 
-        $scope.articlesForMobile = $scope.nonFeaturedArticles.slice(0, +(itemsPerPage - 1) + 1 || 9e9), 
-        $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length / $scope.pagination.perPage), 
-        $scope.$watch("articleFilters.blog_item_category", function() {
-            $scope.nonFeaturedArticles = $filter("filter")($scope.articles, $scope.articleFilters), 
-            $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length / $scope.pagination.perPage);
-        }), $scope.$watch("articleFilters.year", function() {
-            $scope.nonFeaturedArticles = $filter("filter")($scope.articles, $scope.articleFilters), 
-            $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length / $scope.pagination.perPage);
-        }), $scope.numberOfPages = function() {
-            return Math.ceil($scope.nonFeaturedArticles.length / $scope.pageSize);
-        }, $scope.parseDate = function(date) {
-            return Date.parse(date);
-        }, $scope.loadMore = function() {
-            return $scope.pagination.nextPage(), $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.nonFeaturedArticles.slice(currentPageCollection(), +(currentPageCollection() + $scope.pagination.perPage) + 1 || 9e9));
-        }, isMobile = function() {
-            return $scope.windowWidth < 768;
+        }, $scope.$watch("articleFilters", function() {
+            $scope.articles = $filter("filter")($scope.articlesList, $scope.articleFilters);
+        }, !0), $scope.perPage = itemsPerPage, $scope.pagination = Pagination.getNew(itemsPerPage), 
+        $scope.isAtPaginationEnd = !1, $scope.pagination.numPages = 0, $scope.currentPage = 0, 
+        $scope.$watch("articles", function() {
+            $scope.articlesForMobile = null != $scope.articles ? $scope.articles.slice(0, +(itemsPerPage - 1) + 1 || 9e9) : [], 
+            $scope.pagination.numPages = null != $scope.articles ? Math.ceil($scope.articles.length / $scope.pagination.perPage) : $scope.pagination.numPages;
+        }, !0), $scope.$watch("pagination.page", function() {
+            $scope.currentPage = $scope.pagination.page * $scope.pagination.perPage;
+        }, !0), $scope.loadMore = function() {
+            var end, start;
+            $scope.pagination.nextPage(), start = $scope.currentPage + 1 + $scope.pagination.perPage, 
+            end = $scope.currentPage + 2 * $scope.pagination.perPage, end >= $scope.articles.length - 1 && (end = $scope.articles.length - 1, 
+            $scope.isAtPaginationEnd = !0), $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.articles.slice(start, +end + 1 || 9e9));
         }, $scope.pageStart = function() {
-            return null != $scope.pagination ? isMobile() ? 0 : currentPageCollection() : void 0;
-        }, $scope.pageEnd = function() {
-            return null != $scope.pagination ? isMobile() ? ($scope.pagination.page + 1) * $scope.pagination.perPage : $scope.pagination.perPage : void 0;
-        }, currentPageCollection = function() {
-            return $scope.pagination.page * $scope.pagination.perPage;
-        }, $scope.isAtPaginationEnd = function() {
-            return $scope.articlesForMobile.length >= $scope.nonFeaturedArticles.length;
-        };
-    } ]), sfControllers.controller("BlogShowCtrl", [ "$scope", "$routeParams", "$location", "$sce", "Articles", "Article", "Pagination", function($scope, $routeParams, $location, $sce, Articles, Article, Pagination) {
-        return $scope.currentPosition = $routeParams.articleId, $scope.articles = [], Articles.getIndex().then(function(data) {
-            return $scope.articles = data instanceof Array ? data : [ data ], $scope.pagination = Pagination.getNew(9), 
-            $scope.pagination.numPages = Math.ceil($scope.articles.length / $scope.pagination.perPage);
-        }), $scope.numberOfPages = function() {
-            return Math.ceil($scope.articles.length / $scope.pageSize);
+            return $scope.isMobile() ? 0 : $scope.currentPage;
         };
     } ]), sfControllers.controller("GalaCtrl", [ "$scope", "$routeParams", "GalaItems", "GalaTabs", function($scope, $routeParams, GalaItems, GalaTabs) {
         return GalaItems.getIndex().then(function(data) {
@@ -999,7 +992,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
+                    svgMap.appendChild(pattern), void pattern.appendChild(image);
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1034,7 +1027,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, $timeout(generateMap, 1200), void 0;
+                }, void $timeout(generateMap, 1200);
             }
         };
     } ]);

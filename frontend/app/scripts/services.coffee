@@ -36,7 +36,7 @@ sfServices.factory "Article", ["$q", "$http", "urlChooser", ($q, $http, urlChoos
   getDetail = (id) ->
     deferred = $q.defer()
 
-    $http.get("#{urlChooser.getUrl}/articles/#{id}").success((data) ->
+    $http.get("#{urlChooser.getUrl}/articles/#{id}").success( (data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
@@ -49,7 +49,7 @@ sfServices.factory "Articles", ["$q", "$http", "$resource", "urlChooser", ($q, $
   getIndex = ->
     deferred = $q.defer()
 
-    $http.get("#{urlChooser.getUrl}/blog#{urlChooser.getIndexFormat}").success((data) ->
+    $http.get("#{urlChooser.getUrl}/blog#{urlChooser.getIndexFormat}").success( (data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason

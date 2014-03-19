@@ -80,84 +80,83 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 
 # Blog
 sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", "api_data", "$filter", ($scope, $window, Articles, Pagination, api_data, $filter) ->
+
+  $scope.articles = api_data.articles
+
+])
+
+sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
+  
+  $scope.currentPosition = $routeParams.articleId
+
+])
+
+sfControllers.controller("BlogListingCtrl", ["$scope", "Articles", "Pagination", "$filter", ($scope, Articles, Pagination, $filter) ->
   itemsPerPage = 9
+
+  $scope.isMobile = -> $scope.windowWidth < 768
+
+  $scope.parseDate = (date) ->
+    Date.parse(date)
+
+  # Get Articles
+  Articles.getIndex().then (data) ->
+    $scope.articleCategories = data.cats
+    $scope.articleYears = data.years
+    if data.articles instanceof Array
+      $scope.articlesList = data.articles
+    else
+      $scope.articlesList = [data.articles]
+    $scope.articles = $scope.articlesList
+    $scope.articlesForMobile = $scope.articlesList[0..itemsPerPage-1]
+    return
+
+  # Article Filters
   $scope.articleFilters = {
     featured:'false'
     blog_item_category: ''
     year: ''
   }
-  $scope.windowWidth = $window.innerWidth
+  $scope.$watch "articleFilters", ->
+    $scope.articles = $filter('filter')($scope.articlesList, $scope.articleFilters)
+    return
+  , true
 
-  $scope.articles = api_data.articles
-  $scope.articleCategories = api_data.cats
-  $scope.articleYears = api_data.years
+
+  # Pagination
+  $scope.perPage = itemsPerPage;
   $scope.pagination = Pagination.getNew(itemsPerPage)
-  $scope.nonFeaturedArticles = $filter('filter')($scope.articles, $scope.articleFilters)
-  $scope.articlesForMobile = $scope.nonFeaturedArticles[0..itemsPerPage-1]
-  $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
+  $scope.isAtPaginationEnd = false
+  $scope.pagination.numPages = 0
+  $scope.currentPage = 0
 
-  $scope.$watch "articleFilters.blog_item_category", ->
-    $scope.nonFeaturedArticles = $filter('filter')($scope.articles, $scope.articleFilters)
-    $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
+  $scope.$watch "articles", ->
+    $scope.articlesForMobile = if $scope.articles? then $scope.articles[0..itemsPerPage-1] else []
+    $scope.pagination.numPages = if $scope.articles? then Math.ceil($scope.articles.length/$scope.pagination.perPage) else $scope.pagination.numPages
     return
+  , true
 
-  $scope.$watch "articleFilters.year", ->
-    $scope.nonFeaturedArticles = $filter('filter')($scope.articles, $scope.articleFilters)
-    $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
+  $scope.$watch "pagination.page", ->
+    $scope.currentPage = $scope.pagination.page * $scope.pagination.perPage
     return
-
-  $scope.numberOfPages = ->
-    Math.ceil($scope.nonFeaturedArticles.length/$scope.pageSize)
-
-  $scope.parseDate = (date) ->
-    Date.parse(date)
+  , true
 
   $scope.loadMore = ->
     $scope.pagination.nextPage()
-    $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.nonFeaturedArticles[currentPageCollection()..(currentPageCollection() + $scope.pagination.perPage)])
+    start = ($scope.currentPage + 1) + $scope.pagination.perPage
+    end = $scope.currentPage + ($scope.pagination.perPage * 2)
 
-  isMobile = ->
-    $scope.windowWidth < 768
+    if (end >= ($scope.articles.length - 1))
+      end = ($scope.articles.length - 1)
+      $scope.isAtPaginationEnd = true
 
-  $scope.pageStart = ->
-    if $scope.pagination?
-      if isMobile()
-        0
-      else
-        currentPageCollection()
+    $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.articles[start..end])
+    return
 
-  $scope.pageEnd = ->
-    if $scope.pagination?
-      if isMobile()
-        ($scope.pagination.page+1) * $scope.pagination.perPage
-      else
-        $scope.pagination.perPage
-
-  currentPageCollection = ->
-    $scope.pagination.page * $scope.pagination.perPage
-
-  $scope.isAtPaginationEnd = ->
-    $scope.articlesForMobile.length >= $scope.nonFeaturedArticles.length
+  $scope.pageStart = -> if $scope.isMobile() then 0 else $scope.currentPage
 
 ])
 
-sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
-
-  $scope.currentPosition = $routeParams.articleId
-  $scope.articles =[]
-
-  Articles.getIndex().then (data) ->
-    if data instanceof Array
-      $scope.articles = data
-    else
-      $scope.articles = [data]
-    $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
-
-  $scope.numberOfPages = ->
-    Math.ceil($scope.articles.length/$scope.pageSize)
-
-])
 
 # Gala
 sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", "GalaItems", "GalaTabs" , ($scope, $routeParams, GalaItems, GalaTabs ) ->

@@ -1,0 +1,80 @@
+  <div class="outer-container" ng-controller="BlogListingCtrl">
+    <div class="pagination">
+      <ul>
+        <li class="disabled">
+          <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
+        </li>
+        <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+          <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+        </li>
+        <li class="next-page-trigger disabled">
+          <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="articles-filters"> 
+      <li><strong>Sort</strong> &nbsp;|</li>
+      <li class="dropdown widest desktop" ng-if="articleCategories">
+        <dropdown options="articleCategories" call-filter="articleFilters.blog_item_category"></dropdown>
+      </li>
+      <li class="dropdown wide tablet-down" ng-if="articleCategories">
+        <select ng-model="articleFilters.blog_item_category" class="dropdown-select">
+          <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
+        </select>
+      </li>
+      <li>|</li>
+      <li class="dropdown narrow desktop" ng-if="articleYears">
+        <dropdown options="articleYears" call-filter="articleFilters.year"></dropdown>
+      </li>
+      <li class="dropdown narrow tablet-down" ng-if="articleYears">
+        <select ng-model="articleFilters.year" class="dropdown-select">
+          <option ng-repeat="year in articleYears" value="{{year.value}}">{{year.name}}</option>
+        </select>
+      </li>
+    </ul>
+
+    <section class='articles-list' ng-if="articles">
+      <ul class="pagination-articles desktop blog-items">
+        <li ng-repeat="article in articles | orderBy:'-rawdate' | filter:articleFilters | startFrom: pageStart() | limitTo:perPage" class="reveal">
+          <div class='block'>
+            <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+            <div class="content">
+              <h2 class="headline">{{article.title}}</h2>
+              <p class='date'>{{parseDate(article.date) | date:"MMMM d, yyyy"}}</p>
+              <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="pagination-articles tablet" ng-if="articles">
+        <li ng-repeat="article in articlesForMobile track by article.id" class="reveal">
+          <div class='block'>
+            <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+            <div class="content">
+              <h2 class="headline">{{article.title}}</h2>
+              <p class='date'>{{parseDate(article.date) | date:"MMMM d, yyyy"}}</p>
+              <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+      <div class="load-more" ng-click="loadMore()" ng-hide="isAtPaginationEnd" ng-class="{visible:!isAtPaginationEnd}">LOAD MORE</div>
+    </section>
+
+    <div class="pagination">
+      <ul>
+        <li class="disabled">
+          <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
+        </li>
+        <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+          <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+        </li>
+        <li class="disabled">
+          <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
