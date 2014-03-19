@@ -782,8 +782,9 @@ sfDirectives.directive "regionDropdown", [ ->
     replace: true
     template: """
       <ul class="articles-filters desktop">
-        <li><strong>Sort</strong> &nbsp;|&nbsp;</li>
-        <li class="dropdown wide">
+        <li><strong>Sort</strong></li>
+        <li class="filters-devider">|</li>
+        <li class="dropdown desktop">
           <div class="outer-dropdown-wrapper">
             <div class="dropdown-wrapper" ng-click="yearDropdownIsActive=!yearDropdownIsActive" ng-class="{active: yearDropdownIsActive==true}">
               <span>{{currentYearLabel}}</span>
@@ -793,7 +794,8 @@ sfDirectives.directive "regionDropdown", [ ->
             </div>
           </div>
         </li>
-        <li class="dropdown widest">
+        <li class="filters-devider">|</li>
+        <li class="dropdown desktop">
           <div class="outer-dropdown-wrapper">
             <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
               <span>{{currentRegionLabel}}</span>
@@ -804,8 +806,8 @@ sfDirectives.directive "regionDropdown", [ ->
             </div>
           </div>
         </li>
-        <li ng-show="hasSelectedRegion()">&nbsp;|&nbsp;</li>
-        <li class="dropdown wider">
+        <li ng-show="hasSelectedRegion()" class="filters-devider">|</li>
+        <li class="dropdown desktop">
           <div class="outer-dropdown-wrapper" ng-show="hasSelectedRegion()">
             <div class="dropdown-wrapper" ng-click="countryDropdownIsActive=!countryDropdownIsActive" ng-class="{active: countryDropdownIsActive==true}">
               <span>{{currentCountryLabel}}</span>

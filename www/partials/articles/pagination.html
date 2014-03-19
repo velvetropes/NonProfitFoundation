@@ -13,21 +13,22 @@
       </ul>
     </div>
 
-    <ul class="articles-filters"> 
-      <li><strong>Sort</strong> &nbsp;|</li>
-      <li class="dropdown widest desktop" ng-if="articleCategories">
+    <ul class="articles-filters">
+      <li><strong>Sort</strong></li>
+      <li class="filters-devider">|</li>
+      <li class="dropdown desktop">
         <dropdown options="articleCategories" call-filter="articleFilters.blog_item_category"></dropdown>
       </li>
-      <li class="dropdown wide tablet-down" ng-if="articleCategories">
+      <li class="dropdown tablet-down">
         <select ng-model="articleFilters.blog_item_category" class="dropdown-select">
           <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
         </select>
       </li>
-      <li>|</li>
-      <li class="dropdown narrow desktop" ng-if="articleYears">
+      <li class="filters-devider">|</li>
+      <li class="dropdown desktop">
         <dropdown options="articleYears" call-filter="articleFilters.year"></dropdown>
       </li>
-      <li class="dropdown narrow tablet-down" ng-if="articleYears">
+      <li class="dropdown tablet-down">
         <select ng-model="articleFilters.year" class="dropdown-select">
           <option ng-repeat="year in articleYears" value="{{year.value}}">{{year.name}}</option>
         </select>

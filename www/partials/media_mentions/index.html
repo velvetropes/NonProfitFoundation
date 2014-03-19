@@ -50,19 +50,19 @@
   <ul class="articles-filters">
     <li><strong>Sort</strong></li>
     <li class="filters-devider">|</li>
-    <li class="dropdown widest">
+    <li class="dropdown desktop">
       <dropdown options="articleCategories" call-filter="articleFilters.type"></dropdown>
     </li>
-    <li class="dropdown widest tablet-down">
+    <li class="dropdown tablet-down">
       <select ng-model="articleFilters.type" class="dropdown-select">
         <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
       </select>
     </li>
     <li class="filters-devider">|</li>
-    <li class="dropdown wide">
+    <li class="dropdown desktop">
       <dropdown options="articleYears" call-filter="articleFilters.year"></dropdown>
     </li>
-    <li class="dropdown widest tablet-down">
+    <li class="dropdown tablet-down">
       <select ng-model="articleFilters.year" class="dropdown-select">
         <option ng-repeat="year in articleYears" value="{{year.value}}">{{year.name}}</option>
       </select>
