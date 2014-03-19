@@ -8,7 +8,7 @@
       paginator="true"
       size="short"
       >
-      <div ng-repeat="article in articles | filter:{featured:'true'}">
+      <div ng-repeat="article in blogArticles | filter:{featured:'true'}">
         <slide
           image-url="{{article.thumbnail_image_url}}"
           blog-category="{{article.blog_item_category}}"
@@ -23,7 +23,7 @@
 
   <section class='carousel thumblist'>
     <thumblist-nav full="true">
-      <div ng-repeat="article in articles | filter:{featured:'true'}">
+      <div ng-repeat="article in blogArticles | filter:{featured:'true'}">
         <slide
           thumblist="true"
           image-url="{{article.thumbnail_image_url}}"
@@ -37,4 +37,6 @@
     </thumblist-nav>
   </section>
 
-  <div ng-include="'/partials/articles/pagination.html'"></div>
+  <!-- <div ng-include="'/partials/articles/pagination.html'"></div> -->
+
+  <paginated-article-list per-page="9" articles="blogArticles" filters="blogFilters"></paginated-article-list>

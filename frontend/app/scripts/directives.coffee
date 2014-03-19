@@ -703,6 +703,64 @@ sfDirectives.directive "pageTile", [ ->
 
 ]
 
+# Paginated Article List
+sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filter, Pagination) ->
+
+  _composeFilterObject = (filters) ->
+    labels = _.pluck(filters, 'label')
+    filterObject = {}
+    filterObject[l] = "" for l in labels
+    filterObject
+
+  _composePaginationSettings = (scope) ->
+    pagination = Pagination.getNew(scope.perPage)
+    pagination.numPages = 0
+    pageConfig = _.extend {pagination}, {
+      isAtPaginationEnd: false
+      currentPage: 0
+      pageStart: 0
+    }
+    return pageConfig
+
+  _setupWatchers = (scope) ->
+
+    scope.$watch "articles", ->
+      scope.articlesForMobile = if scope.articles? then scope.articles[0..scope.perPage-1] else []
+      scope.pagination.numPages = if scope.articles? then Math.ceil(scope.articles.length/scope.pagination.perPage) else scope.pagination.numPages
+      return
+    , true
+
+    scope.$watch "pagination", ->
+      scope.pageStart = scope.pagination.page
+      scope.currentPage = scope.pagination.page * scope.pagination.perPage
+      return
+    , true
+
+  link = (scope, element, attrs) ->
+
+    scope.articlesForMobile = scope.articles[0..scope.perPage-1]
+
+    scope = _.extend scope, _composePaginationSettings(scope)
+
+    scope.articlesFilterObject = _composeFilterObject(scope.filters)
+
+    _setupWatchers(scope)
+
+    return
+
+  result =
+    restrict: "E"
+    transclude: true
+    replace: true
+    templateUrl: "templates/paginated_article_list.html"
+    link: link
+    scope:
+      perPage: "@"
+      articles: "="
+      filters: "="
+  result
+]
+
 sfDirectives.factory("Pagination", ->
   pagination = {}
   pagination.getNew = (perPage) ->
@@ -745,7 +803,6 @@ sfDirectives.directive "panelTab", [->
 
 # Region Dropdown
 
-# Dropdown
 sfDirectives.directive "regionDropdown", [ ->
 
   link = (scope, element, attrs) ->
@@ -827,33 +884,6 @@ sfDirectives.directive "regionDropdown", [ ->
       filterObject: "="
   result
 ]
-
-# sfDirectives.directive "dropdownOption", [ ->
-
-#   link = (scope, element, attrs, dropdownController) ->
-#     scope.isSelected = false
-#     dropdownController.addDropdownOption scope
-#     scope.selectOption = ->
-#       scope.isSelected = not scope.isSelected
-#       dropdownController.gotSelected scope
-#       return
-#     return
-
-#   result =
-#     restrict: "E"
-#     replace: true
-#     require: "^?dropdown"
-#     template: """
-#       <li>
-#         <a href ng-click="selectOption()">{{name}}</a>
-#       </li>
-#       """
-#     link: link
-#     scope:
-#       name: "@"
-#       value: "@"
-#   result
-# ]
 
 # <a scroll-to-position="element-id">
 sfDirectives.directive "scrollToPosition", [->

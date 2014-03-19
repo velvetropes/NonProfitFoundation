@@ -35,39 +35,9 @@
             return $scope.modalShown = !$scope.modalShown;
         };
     } ]), sfControllers.controller("BlogIndexCtrl", [ "$scope", "$window", "Articles", "Pagination", "api_data", "$filter", function($scope, $window, Articles, Pagination, api_data) {
-        return $scope.articles = api_data.articles;
+        return $scope.blogArticles = api_data.articles, $scope.blogFilters = api_data.filters;
     } ]), sfControllers.controller("BlogShowCtrl", [ "$scope", "$routeParams", "$location", "$sce", "Articles", "Article", "Pagination", function($scope, $routeParams) {
         return $scope.currentPosition = $routeParams.articleId;
-    } ]), sfControllers.controller("BlogListingCtrl", [ "$scope", "Articles", "Pagination", "$filter", function($scope, Articles, Pagination, $filter) {
-        var itemsPerPage;
-        return itemsPerPage = 9, $scope.isMobile = function() {
-            return $scope.windowWidth < 768;
-        }, $scope.parseDate = function(date) {
-            return Date.parse(date);
-        }, Articles.getIndex().then(function(data) {
-            $scope.articleCategories = data.cats, $scope.articleYears = data.years, $scope.articlesList = data.articles instanceof Array ? data.articles : [ data.articles ], 
-            $scope.articles = $scope.articlesList, $scope.articlesForMobile = $scope.articlesList.slice(0, +(itemsPerPage - 1) + 1 || 9e9);
-        }), $scope.articleFilters = {
-            featured: "false",
-            blog_item_category: "",
-            year: ""
-        }, $scope.$watch("articleFilters", function() {
-            $scope.articles = $filter("filter")($scope.articlesList, $scope.articleFilters);
-        }, !0), $scope.perPage = itemsPerPage, $scope.pagination = Pagination.getNew(itemsPerPage), 
-        $scope.isAtPaginationEnd = !1, $scope.pagination.numPages = 0, $scope.currentPage = 0, 
-        $scope.$watch("articles", function() {
-            $scope.articlesForMobile = null != $scope.articles ? $scope.articles.slice(0, +(itemsPerPage - 1) + 1 || 9e9) : [], 
-            $scope.pagination.numPages = null != $scope.articles ? Math.ceil($scope.articles.length / $scope.pagination.perPage) : $scope.pagination.numPages;
-        }, !0), $scope.$watch("pagination.page", function() {
-            $scope.currentPage = $scope.pagination.page * $scope.pagination.perPage;
-        }, !0), $scope.loadMore = function() {
-            var end, start;
-            $scope.pagination.nextPage(), start = $scope.currentPage + 1 + $scope.pagination.perPage, 
-            end = $scope.currentPage + 2 * $scope.pagination.perPage, end >= $scope.articles.length - 1 && (end = $scope.articles.length - 1, 
-            $scope.isAtPaginationEnd = !0), $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.articles.slice(start, +end + 1 || 9e9));
-        }, $scope.pageStart = function() {
-            return $scope.isMobile() ? 0 : $scope.currentPage;
-        };
     } ]), sfControllers.controller("GalaCtrl", [ "$scope", "$routeParams", "GalaItems", "GalaTabs", function($scope, $routeParams, GalaItems, GalaTabs) {
         return GalaItems.getIndex().then(function(data) {
             return $scope.timelineItems = data;
@@ -283,7 +253,7 @@
     } ]), sfDirectives.directive("dropdown", [ function() {
         var controller, link, result;
         return link = function(scope) {
-            return scope.isActive = !1, scope.currentOption = scope.options[0] || {};
+            return console.debug("scope.options", scope.options), scope.isActive = !1, scope.currentOption = scope.options[0] || {};
         }, controller = function($scope) {
             var dropdownOptions;
             dropdownOptions = [], this.gotSelected = function(selectedDropdownOption) {
@@ -648,6 +618,46 @@
                 type: "@",
                 videoLink: "@",
                 year: "@"
+            }
+        };
+    } ]), sfDirectives.directive("paginatedArticleList", [ "$filter", "Pagination", function($filter, Pagination) {
+        var link, result, _composeFilterObject, _composePaginationSettings, _setupWatchers;
+        return _composeFilterObject = function(filters) {
+            var obj;
+            return obj = {}, _.map(_.keys(filters), function(k) {
+                return obj[k] = "";
+            }), obj;
+        }, _composePaginationSettings = function(scope) {
+            var pageConfig, pagination;
+            return pagination = Pagination.getNew(scope.perPage), pagination.numPages = 0, pageConfig = _.extend({
+                pagination: pagination
+            }, {
+                isAtPaginationEnd: !1,
+                currentPage: 0
+            });
+        }, _setupWatchers = function(scope) {
+            return scope.$watch("articlesFilterObject", function() {
+                scope.articles = $filter("filter")(scope.articles, scope.articlesFilterObject);
+            }, !0), scope.$watch("articles", function() {
+                scope.articlesForMobile = null != scope.articles ? scope.articles.slice(0, +(scope.perPage - 1) + 1 || 9e9) : [], 
+                scope.pagination.numPages = null != scope.articles ? Math.ceil(scope.articles.length / scope.pagination.perPage) : scope.pagination.numPages;
+            }, !0), scope.$watch("pagination.page", function() {
+                scope.currentPage = scope.pagination.page * scope.pagination.perPage;
+            }, !0);
+        }, link = function(scope) {
+            scope.articlesForMobile = scope.articles.slice(0, +(scope.perPage - 1) + 1 || 9e9), 
+            scope = _.extend(scope, _composePaginationSettings(scope)), scope.articlesFilterObject = _composeFilterObject(scope.filters), 
+            _setupWatchers(scope), console.debug("scope", scope);
+        }, result = {
+            restrict: "E",
+            transclude: !0,
+            replace: !0,
+            templateUrl: "templates/paginated_article_list.html",
+            link: link,
+            scope: {
+                perPage: "@",
+                articles: "=",
+                filters: "="
             }
         };
     } ]), sfDirectives.factory("Pagination", function() {

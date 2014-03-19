@@ -1,0 +1,29 @@
+<div class="outer-container">
+  <div class="pagination">
+    <ul>
+      <li class="disabled">
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
+      </li>
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li class="next-page-trigger disabled">
+        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
+      </li>
+    </ul>
+  </div>
+  <section class='articles-list' ng-if="articles">
+    <ul class="pagination-articles desktop blog-items">
+      <li ng-repeat="article in articles | orderBy:'-rawdate' | filter:articlesFilterObject | startFrom: pageStart() | limitTo:perPage" class="reveal">
+        <div class='block'>
+          <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
+          <div class="content">
+            <h2 class="headline">{{article.title}}</h2>
+            <p class='date'>{{parseDate(article.date) | date:"MMMM d, yyyy"}}</p>
+            <p class='read-more'><a href="#/articles/{{article.id}}">Read more &rarr;</a></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>

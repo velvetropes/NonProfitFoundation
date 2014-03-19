@@ -37,6 +37,14 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
       "api/blog_detail/#{params.articleId}"
       # "local/api/blog_detail"
     controller: "BlogShowCtrl"
+    resolve: {
+      api_data : [ "Articles", (Articles) ->
+        Articles.getIndex().then(
+          (data) ->
+            data
+        )
+      ]
+    }
   ).otherwise redirectTo: "/articles"
 ]
 

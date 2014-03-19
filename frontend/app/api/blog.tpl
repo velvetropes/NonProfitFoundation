@@ -7,7 +7,7 @@
         "rawdate": "{blog_date format="%U"}",
         "date": "{blog_date format='%m/%d/%Y'}",
         "year": "{blog_date format='%Y'}",
-        "blog_item_category": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{categories limit="1"}{category_name}{/categories}{/exp:low_replace}",
+        "category": "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{categories limit="1"}{category_name}{/categories}{/exp:low_replace}",
         "related_blog_items": [
           {blog_related_items backspace="2"}
           {
@@ -25,39 +25,45 @@
       }, {/exp:channel:entries}
   ],
 
-  "years" : [
+  "filters": [
     {
-      "name"  : "Latest",
-      "value" : ""
-    }
-    {exp:activerecord
-      select="FROM_UNIXTIME(field_id_21, '%Y') as year"
-      distinct="yes"
-      from="channel_data"
-      join="channel_titles"
-      on="channel_data.entry_id = channel_titles.entry_id"
-      join_type="left"
-      where:channel_titles.channel_id="5"
-      where:channel_titles.status="open"
-      order_by="field_id_21 desc"
-      backspace="2"}
-    {if count == 1}, {/if} 
-    {
-      "name"  : "{year}",
-      "value" : "{year}"
-    }, {/exp:activerecord}
-  ],
+      "label": year",
+      "values": [
+          {
+            "name"  : "Latest",
+            "value" : ""
+          }
+          {exp:activerecord
+            select="FROM_UNIXTIME(field_id_21, '%Y') as year"
+            distinct="yes"
+            from="channel_data"
+            join="channel_titles"
+            on="channel_data.entry_id = channel_titles.entry_id"
+            join_type="left"
+            where:channel_titles.channel_id="5"
+            where:channel_titles.status="open"
+            order_by="field_id_21 desc"
+            backspace="2"}
+          {if count == 1}, {/if}
+          {
+            "name"  : "{year}",
+            "value" : "{year}"
+          }, {/exp:activerecord}
+        ]},
 
-  "cats" : [
     {
-      "name" : "All",
-      "value" : ""
-    }
-    {exp:channel:categories channel="blog" category_group="2" style="linear" show_empty="no" backspace="2"} 
-    {if count == 1}, {/if} 
-    {
-      "name" : "{category_name}",
-      "value" : "{category_name}"
-    }, {/exp:channel:categories}
+      "label": "category",
+      "values": [
+          {
+            "name" : "All",
+            "value" : ""
+          }
+          {exp:channel:categories channel="blog" category_group="2" style="linear" show_empty="no" backspace="2"}
+          {if count == 1}, {/if}
+          {
+            "name" : "{category_name}",
+            "value" : "{category_name}"
+          }, {/exp:channel:categories}
+        ]}
   ]
 }
