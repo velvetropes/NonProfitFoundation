@@ -158,8 +158,8 @@
             $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length / $scope.pagination.perPage), 
             $scope.highlightRegions = data.categories, _ref = data.years, _results = [], _i = 0, 
             _len = _ref.length; _len > _i; _i++) year = _ref[_i], addedYear = {
-                name: year,
-                value: year
+                name: year.name,
+                value: year.value
             }, _results.push($scope.highlightYears.push(addedYear));
             return _results;
         }), $scope.hideCountryDropdown = function() {
@@ -993,7 +993,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), void pattern.appendChild(image);
+                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1029,7 +1029,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, void $timeout(generateMap, 1200);
+                }, $timeout(generateMap, 1200), void 0;
             }
         };
     } ]);

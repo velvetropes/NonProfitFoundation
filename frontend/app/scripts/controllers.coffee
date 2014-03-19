@@ -86,7 +86,7 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
 ])
 
 sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
-  
+
   $scope.currentPosition = $routeParams.articleId
 
 ])
@@ -292,8 +292,8 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
 
     for year in data.years
       addedYear = {
-        name: year
-        value: year
+        name: year.name
+        value: year.value
       }
       $scope.highlightYears.push addedYear
 
