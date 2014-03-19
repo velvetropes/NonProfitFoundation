@@ -1,3 +1,45 @@
+.articles-filters {
+  padding: 0 0 0 16px;
+  float: left;
+  list-style: none;
+  text-transform: uppercase;
+  li {
+    display: inline-block;
+    strong {
+      font-weight: bold;
+    }
+  }
+  &.tablet-down {
+    display: none;
+  }
+  @include media($tablet-down) {
+    padding: 0 16px;
+    margin-top: -35px;
+    margin-bottom: 0px;
+    &.desktop {
+      display: none;
+    }
+    &.tablet-down {
+      display: block;
+    }
+  }
+  @include media($mobile) {
+    font-size: 13px;
+    li, li.dropdown {
+      display: block;
+    }
+    li.desktop {
+      display: none;
+    }
+    .filters-devider {
+      display: none;
+    }
+    .dropdown-select {
+      padding-left: 0;
+    }
+  }
+}
+
 @mixin drop-arrow {
   content: '';
   position: absolute;
@@ -13,6 +55,7 @@
   border-top-style: solid;
   border-bottom: none;
 }
+
 .dropdown {
   display: inline-block;
   position: relative;
@@ -83,38 +126,6 @@
   }
 }
 
-/* Fix for IE 8 putting the arrows behind the select element. */
-.lt-ie9 {
-  .dropdown { z-index: 1; }
-  .dropdown-select { z-index: -1; }
-  .dropdown-select:focus { z-index: 3; }
-}
-
-/* Dirty fix for Firefox adding padding where it shouldn't. */
-@-moz-document url-prefix() { .dropdown-select { padding-left: 6px; } }
-
-
-// ---------------------------------
-.outer-dropdown-wrapper ::selection {
-  background: transparent;
-}
-
-.outer-dropdown-wrapper ::-moz-selection {
-  background: transparent;
-}
-
-.outer-dropdown-wrapper  {
-  *zoom: 1;
-  width: 100%;
-  margin-left: 5px;
-}
-
-.outer-dropdown-wrapper:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
 .dropdown-wrapper {
   position: relative;
   width: 100%;
@@ -167,5 +178,32 @@
   }
   @include media($tablet-down) {
     display: none;
+  }
+}
+
+/* Fix for IE 8 putting the arrows behind the select element. */
+.lt-ie9 {
+  .dropdown { z-index: 1; }
+  .dropdown-select { z-index: -1; }
+  .dropdown-select:focus { z-index: 3; }
+}
+
+/* Dirty fix for Firefox adding padding where it shouldn't. */
+@-moz-document url-prefix() { .dropdown-select { padding-left: 6px; } }
+
+.outer-dropdown-wrapper {
+  *zoom: 1;
+  width: 100%;
+  margin-left: 5px;
+  ::selection {
+    background: transparent;
+  }
+  ::-moz-selection {
+    background: transparent;
+  }
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
   }
 }

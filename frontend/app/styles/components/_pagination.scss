@@ -236,3 +236,13 @@ pagination {
     }
   }
 }
+
+@media screen and (max-width: 340px) {
+  ul.pagination-articles {
+    li {
+      .block {
+        height: 146px;
+      }
+    }
+  }
+}

@@ -205,17 +205,6 @@
 }
 .regions-filters {
   padding-top: 20px;
-  @include media($mobile) {
-    li, li.dropdown {
-      display: block;
-    }
-    .filters-devider {
-      display: none;
-    }
-    .dropdown-select {
-      padding-left: 0;
-    }
-  }
 }
 .mission-highlights-list {
   display: none;
