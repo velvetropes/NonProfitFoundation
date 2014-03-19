@@ -34,10 +34,11 @@
         }, $scope.modalShown = !1, $scope.toggleModal = function() {
             return $scope.modalShown = !$scope.modalShown;
         };
-    } ]), sfControllers.controller("BlogIndexCtrl", [ "$scope", "$window", "Articles", "Pagination", "api_data", "$filter", function($scope, $window, Articles, Pagination, api_data) {
+    } ]), sfControllers.controller("BlogIndexCtrl", [ "$scope", "$window", "Articles", "Pagination", "api_data", function($scope, $window, Articles, Pagination, api_data) {
         return $scope.blogArticles = api_data.articles, $scope.blogFilters = api_data.filters;
-    } ]), sfControllers.controller("BlogShowCtrl", [ "$scope", "$routeParams", "$location", "$sce", "Articles", "Article", "Pagination", function($scope, $routeParams) {
-        return $scope.currentPosition = $routeParams.articleId;
+    } ]), sfControllers.controller("BlogShowCtrl", [ "$scope", "$routeParams", "$location", "$sce", "Articles", "Article", "Pagination", "api_data", function($scope, $routeParams, $location, $sce, Articles, Article, Pagination, api_data) {
+        return $scope.currentPosition = $routeParams.articleId, $scope.blogArticles = api_data.articles || [], 
+        $scope.blogFilters = api_data.filters;
     } ]), sfControllers.controller("GalaCtrl", [ "$scope", "$routeParams", "GalaItems", "GalaTabs", function($scope, $routeParams, GalaItems, GalaTabs) {
         return GalaItems.getIndex().then(function(data) {
             return $scope.timelineItems = data;
@@ -253,7 +254,7 @@
     } ]), sfDirectives.directive("dropdown", [ function() {
         var controller, link, result;
         return link = function(scope) {
-            return console.debug("scope.options", scope.options), scope.isActive = !1, scope.currentOption = scope.options[0] || {};
+            return scope.isActive = !1, scope.currentOption = scope.options[0] || {};
         }, controller = function($scope) {
             var dropdownOptions;
             dropdownOptions = [], this.gotSelected = function(selectedDropdownOption) {
@@ -623,31 +624,30 @@
     } ]), sfDirectives.directive("paginatedArticleList", [ "$filter", "Pagination", function($filter, Pagination) {
         var link, result, _composeFilterObject, _composePaginationSettings, _setupWatchers;
         return _composeFilterObject = function(filters) {
-            var obj;
-            return obj = {}, _.map(_.keys(filters), function(k) {
-                return obj[k] = "";
-            }), obj;
+            var filterObject, l, labels, _i, _len;
+            for (labels = _.pluck(filters, "label"), filterObject = {}, _i = 0, _len = labels.length; _len > _i; _i++) l = labels[_i], 
+            filterObject[l] = "";
+            return filterObject;
         }, _composePaginationSettings = function(scope) {
             var pageConfig, pagination;
             return pagination = Pagination.getNew(scope.perPage), pagination.numPages = 0, pageConfig = _.extend({
                 pagination: pagination
             }, {
                 isAtPaginationEnd: !1,
-                currentPage: 0
+                currentPage: 0,
+                pageStart: 0
             });
         }, _setupWatchers = function(scope) {
-            return scope.$watch("articlesFilterObject", function() {
-                scope.articles = $filter("filter")(scope.articles, scope.articlesFilterObject);
-            }, !0), scope.$watch("articles", function() {
+            return scope.$watch("articles", function() {
                 scope.articlesForMobile = null != scope.articles ? scope.articles.slice(0, +(scope.perPage - 1) + 1 || 9e9) : [], 
                 scope.pagination.numPages = null != scope.articles ? Math.ceil(scope.articles.length / scope.pagination.perPage) : scope.pagination.numPages;
-            }, !0), scope.$watch("pagination.page", function() {
-                scope.currentPage = scope.pagination.page * scope.pagination.perPage;
+            }, !0), scope.$watch("pagination", function() {
+                scope.pageStart = scope.pagination.page, scope.currentPage = scope.pagination.page * scope.pagination.perPage;
             }, !0);
         }, link = function(scope) {
             scope.articlesForMobile = scope.articles.slice(0, +(scope.perPage - 1) + 1 || 9e9), 
             scope = _.extend(scope, _composePaginationSettings(scope)), scope.articlesFilterObject = _composeFilterObject(scope.filters), 
-            _setupWatchers(scope), console.debug("scope", scope);
+            _setupWatchers(scope);
         }, result = {
             restrict: "E",
             transclude: !0,
@@ -1092,7 +1092,14 @@
             templateUrl: function(params) {
                 return "api/blog_detail/" + params.articleId;
             },
-            controller: "BlogShowCtrl"
+            controller: "BlogShowCtrl",
+            resolve: {
+                api_data: [ "Articles", function(Articles) {
+                    return Articles.getIndex().then(function(data) {
+                        return data;
+                    });
+                } ]
+            }
         }).otherwise({
             redirectTo: "/articles"
         });
