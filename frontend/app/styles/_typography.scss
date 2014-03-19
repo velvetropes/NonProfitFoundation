@@ -380,9 +380,10 @@ blockquote {
   color: #FFF;
   font-size: 30px;
   line-height: 171%;
-  height: 215px;
+  height: 318px;
   overflow: hidden;
   @include media($tablet-down) {
+    height: 215px;
     font-size: 22px;
     line-height: 1.5;
   }
