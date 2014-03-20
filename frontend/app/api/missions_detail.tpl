@@ -42,7 +42,7 @@
         <div class="banner">
           <p class="article-item-category">{mission_region}{option_name}{/mission_region}, {mission_country}{option_name}{/mission_country}</p>
           <h1  class="article-title">{title}</h1>
-          <p>{mission_date format="%F %d, %Y"}{if author} | {author}{/if}</p>
+          <p>{mission_date format="%F %Y"}</p>
         </div>
       </div>
     </div>
@@ -52,7 +52,6 @@
 <br/>
 
 <div class="text-container">
-{exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
 </div>
 
 
@@ -63,41 +62,46 @@
     <ul>
       <li><span class="note">Share this post</span></li>
       <li>
-        <a href="#">
+        <a href="http://twitter.com/share?url={{location.absUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="http://www.facebook.com/sharer.php?u={{location.absUrl()}}" target="_blank">
           <span class="icon starkey-share-fb"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{location.absUrl()}}.">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
     </ul>
   </div>
+  {exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
 
-  <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel thumblist'>
-    <thumblist-nav>
-      {mission_rel}
-      <div>
-        <slide
-          thumblist="true"
-          image-url="{mission_rel:mission_thumb_image:url}"
-          video-url=""
-          link-url="#/missions/{mission_rel:url_title}"
-          headline="{mission_rel:title}"
-          link-style=""
-          date="{mission_rel:mission_date format='%F %d, %Y'}"
-        ></slide>
-      </div>
-      {/mission_rel}
-    </thumblist-nav>
-  </section>
+  {mission_rel}
+    {if mission_rel:count == 1}
+    <h3 class="section-title centered">Related posts</h3>
+    <section class='carousel thumblist'>
+      <thumblist-nav>
+    {/if}
+        <div>
+          <slide
+            thumblist="true"
+            image-url="{mission_rel:mission_thumb_image:url}"
+            video-url=""
+            link-url="#/missions/{mission_rel:url_title}"
+            headline="{mission_rel:title}"
+            link-style=""
+            date="{mission_rel:mission_date format='%F %Y'}"
+          ></slide>
+        </div>
+    {if mission_rel:count == mission_rel:total_results}
+      </thumblist-nav>
+    </section>
+    {/if}
+  {/mission_rel}
 </div>
 <br/>
 {/exp:channel:entries}

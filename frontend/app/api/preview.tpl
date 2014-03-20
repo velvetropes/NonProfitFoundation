@@ -35,7 +35,7 @@
               <p class="article-item-category">{blog_category}</p>
             {/if}
             <h1  class="article-title">{title}</h1>
-            <p>{entry_date format='%M %d, %Y'} | {blog_author}</p>
+            <p>{entry_date format='%F %d, %Y'} | {blog_author}</p>
           </div>
         </div>
       </div>
@@ -50,17 +50,17 @@
       <ul>
         <li><span class="note">Share this post</span></li>
         <li>
-          <a href="#">
+          <a href="http://twitter.com/share?url={{location.absUrl()}}&text=Share on Twitter">
             <span class="icon starkey-share-twitter"></span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="http://www.facebook.com/sharer.php?u={{location.absUrl()}}" target="_blank">
             <span class="icon starkey-share-fb"></span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{location.absUrl()}}.">
             <span class="icon starkey-share-email"></span>
           </a>
         </li>
@@ -80,7 +80,7 @@
             link-url="#/articles/{blog_related_items:url_title}"
             headline="{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_related_items:title}{/exp:low_replace}"
             link-style=""
-            date="{blog_related_items:blog_date format='%m %d %Y'}"
+            date="{blog_related_items:blog_date format='%F %d, %Y'}"
           ></slide>
         {/blog_related_items}
       </thumblist-nav>

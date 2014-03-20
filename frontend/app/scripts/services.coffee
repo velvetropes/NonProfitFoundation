@@ -2,10 +2,15 @@
 
 sfServices = angular.module("sfServices", ["ngResource"])
 
-sfServices.factory "urlChooser", [->
-  # env = "development"
-  # env = "staging"
-  env = "production"
+sfServices.factory "urlChooser", ["$location", ($location) ->
+
+  switch $location.host()
+    when "127.0.0.1"
+      env = "development"
+    when "starkey.local"
+      env = "staging"
+    else
+      env = "production"
 
   getUrl = ->
     switch env
@@ -31,7 +36,7 @@ sfServices.factory "Article", ["$q", "$http", "urlChooser", ($q, $http, urlChoos
   getDetail = (id) ->
     deferred = $q.defer()
 
-    $http.get("#{urlChooser.getUrl}/articles/#{id}").success((data) ->
+    $http.get("#{urlChooser.getUrl}/articles/#{id}").success( (data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason
@@ -44,7 +49,7 @@ sfServices.factory "Articles", ["$q", "$http", "$resource", "urlChooser", ($q, $
   getIndex = ->
     deferred = $q.defer()
 
-    $http.get("#{urlChooser.getUrl}/blog#{urlChooser.getIndexFormat}").success((data) ->
+    $http.get("#{urlChooser.getUrl}/blog#{urlChooser.getIndexFormat}").success( (data) ->
       deferred.resolve data
     ).error (reason) ->
       deferred.reject reason

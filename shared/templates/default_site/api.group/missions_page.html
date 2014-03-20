@@ -26,7 +26,7 @@
     {
         "id"        : "{mission_highlights:url_title}",
         "title"     : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{mission_highlights:title}{/exp:mah_eencode}{/exp:low_replace}",
-        "date"      : "{mission_highlights:mission_date format='%m %d %Y'}",
+        "date"      : "{mission_highlights:mission_date format='%F %Y'}",
         "subtitle"  : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_highlights:mission_subtitle}{/exp:low_replace}",
         "excerpt"   : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_highlights:mission_excerpt}{/exp:low_replace}",
         "image"     : "{if mission_highlights:mission_image}{mission_highlights:mission_image}{if:else}{mission_highlights:mission_thumb_image}{/if}",

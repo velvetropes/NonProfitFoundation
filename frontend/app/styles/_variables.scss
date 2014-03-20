@@ -4,7 +4,7 @@ $light-blue: #00b3d2;
 $orange: #f15c22;
 $light-orange: #ffae21;
 
-$dotted-border: 1px dotted #333;
+$dotted-border: 1px dotted #8f8f8f;
 
 // Debugging
 $visual-grid: true;
@@ -16,5 +16,5 @@ $visual-grid: true;
 $mobile:       max-width 479px;
 $tablet-down:  max-width 767px;
 $tablet:       min-width 480px max-width 767px;
-$desktop:      min-width 768px max-width 959px;
-$largedesktop: min-width 960px;
+$desktop:      min-width 768px max-width 1119px;
+$largedesktop: min-width 1120px;

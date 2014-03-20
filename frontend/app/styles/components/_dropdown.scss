@@ -1,52 +1,105 @@
+.articles-filters {
+  padding: 0 0 0 16px;
+  float: left;
+  list-style: none;
+  text-transform: uppercase;
+  li {
+    display: inline-block;
+    strong {
+      font-weight: bold;
+    }
+  }
+  &.tablet-down {
+    display: none;
+  }
+  @include media($tablet-down) {
+    padding: 0 16px;
+    margin-top: -35px;
+    margin-bottom: 0px;
+    &.desktop {
+      display: none;
+    }
+    &.tablet-down {
+      display: block;
+    }
+  }
+  @include media($mobile) {
+    font-size: 13px;
+    li, li.dropdown {
+      display: block;
+    }
+    li.desktop {
+      display: none;
+    }
+    .filters-devider {
+      display: none;
+    }
+    .dropdown-select {
+      padding-left: 0;
+    }
+  }
+}
+
+@mixin drop-arrow {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 7px;
+  right: 3px;
+  width: 0;
+  height: 0;
+  border: 6px dashed;
+  border-color: #888 transparent;
+  pointer-events: none;
+  margin-top: 2px;
+  border-top-style: solid;
+  border-bottom: none;
+}
+
 .dropdown {
   display: inline-block;
   position: relative;
-  overflow: hidden;
   height: 30px;
-  width: 100px;
+  width: auto;
   margin: 0;
   vertical-align: top;
-
+  select {
+    margin-top: 5px;
+  }
+  &.desktop {
+    display: inline-block;
+  }
+  &.tablet-down {
+    display: none;
+  }
   &:after {
-    content: '';
-    position: absolute;
-    z-index: 2;
-    top: 9px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px dashed;
-    border-color: #888 transparent;
-    pointer-events: none;
-    margin-top: 2px;
-    border-top-style: solid;
-    border-bottom: none;
+    display: none;
   }
-  &.wide {
-    width: 100px;
+  @include media($tablet-down) {
+    &.tablet-down {
+      display: inline-block;
+    }
+    &.desktop {
+      display: none;
+      &:after {
+        display: none;
+      }
+    }
+    &:after {
+      @include drop-arrow;
+      display: block;
+    }
   }
-  &.wider {
-    width: 130px;
-  }
-  &.widest {
-    width: 160px;
-  }
-  &.narrow {
-    width: 100px;
-  }
-  overflow: hidden;
-  padding-right: 20px;
+}
+
+.filters-devider {
+  padding: 0 10px 0 14px;
 }
 
 .dropdown-select {
   position: relative;
-  width: 130%;
-  margin: 0;
-  padding: 4px 2px 2px 2px;
-  height: 26px;
-  line-height: 17px;
-  /* Fallback for IE 8 */
-  background: #f2f2f2;
+  width: auto;
+  padding: 0 28px 0 5px;
   /* "transparent" doesn't work with Opera */
   background: rgba(black, 0) !important;
   border: 0;
@@ -58,7 +111,7 @@
   &:focus {
     z-index: 3;
     width: 100%;
-    color: $light-blue;
+    // color: $light-blue;
     outline: none
   }
 
@@ -69,7 +122,64 @@
     background: #f2f2f2;
     cursor: pointer;
     color: $gray-title;
-    font-size: 1em;  }
+    font-size: 1em;
+  }
+}
+
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 28px 0 0;
+  cursor: pointer;
+  outline: none;
+  z-index: 1000;
+  &:after {
+    @include drop-arrow;
+  }
+  .dropdown-list {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: 0;
+    background: white;
+    border-radius: 0;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    list-style: none;
+    padding: 10px;
+    // width: 110%;
+    min-width: 175px;
+    opacity: 0;
+    pointer-events: none;
+    li {
+      width: 100%;
+      a {
+        display: block;
+        text-decoration: none;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+        width: 100%;
+        &:hover {
+          color: $light-blue;
+        }
+      }
+    }
+  }
+  &.active .dropdown-list {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 999;
+  }
+  @include media($tablet-down) {
+    display: none;
+  }
 }
 
 /* Fix for IE 8 putting the arrows behind the select element. */
@@ -81,3 +191,20 @@
 
 /* Dirty fix for Firefox adding padding where it shouldn't. */
 @-moz-document url-prefix() { .dropdown-select { padding-left: 6px; } }
+
+.outer-dropdown-wrapper {
+  *zoom: 1;
+  width: 100%;
+  margin-left: 5px;
+  ::selection {
+    background: transparent;
+  }
+  ::-moz-selection {
+    background: transparent;
+  }
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

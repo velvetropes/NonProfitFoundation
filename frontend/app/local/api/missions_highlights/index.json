@@ -1,131 +1,99 @@
-{
-    "highlights" : [
-
-          {
-            "id"                    : "test-hearing-mission-jh",
-            "title"                 : "Test Hearing Mission JH",
-            "subtitle"              : "Test Hearing Mission JH",
-            "excerpt"               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non justo ac turpis posuere lobortis ut in dui. Aliquam ultricies interdum arcu, eu sodales felis malesuada at. Donec ut varius mauris. Donec bibendum purus neque, eu imperdiet ipsum accumsan a. Phasellus purus mi, tempus a lacinia vitae, auctor vitae ligula. Integer vulputate iaculis magna, in faucibus neque tempor eget. In ornare tempor commodo. Mauris pharetra, leo sit amet cursus sollicitudin, tortor tellus consequat velit, id volutpat urna neque vitae eros. Maecenas quis magna ut augue posuere tincidunt. Fusce leo arcu, laoreet quis ultricies a, viverra a arcu. Aenean vitae tellus dictum, ornare lorem eu, ",
-
-            "video"                 : "",
-            "featured"              : "true",
-
-            "image"                 : "",
-            "thumbnail_image_url"   : "http://starkey.local/uploads/images/billaustin.jpg",
-            "header_image_url"      : "http://starkey.local/uploads/images/BLOG-An_Unstoppable_Spirit_02.jpg",
-
-            "date"                  : "02 24 2014",
-            "year"                  : "2014",
-            "region"                : "Asia",
-            "country"               : "China"
-          },
-          {
-            "id"                    : "hearing-mission-test-entry-3",
-            "title"                 : "Hearing Mission Test Entry 3",
-            "subtitle"              : "Hearing Mission Test Entry 3",
-            "excerpt"               : "",
-
-            "video"                 : "",
-            "featured"              : "false",
-
-            "image"                 : "",
-            "thumbnail_image_url"   : "http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg",
-            "header_image_url"      : "http://starkey.local/uploads/images/Operation-Change-Donna-Karan-Film.jpg",
-
-            "date"                  : "02 23 2014",
-            "year"                  : "2014",
-            "region"                : "South America",
-            "country"               : "Brazil"
-          },
-          {
-            "id"                    : "hearing-mission-test-entry-2",
-            "title"                 : "Hearing Mission Test Entry 2",
-            "subtitle"              : "Hearing Mission Test Entry 2",
-            "excerpt"               : "Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat. Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
-
-            "video"                 : "",
-            "featured"              : "false",
-
-            "image"                 : "",
-            "thumbnail_image_url"   : "",
-            "header_image_url"      : "",
-
-            "date"                  : "02 25 2014",
-            "year"                  : "2014",
-            "region"                : "Europe",
-            "country"               : "Finland"
-          },
-          {
-            "id"                    : "hearing-mission-test-entry",
-            "title"                 : "Hearing Mission Test Entry",
-            "subtitle"              : "Hearing Mission Test Entry",
-            "excerpt"               : "",
-
-            "video"                 : "",
-            "featured"              : "false",
-
-            "image"                 : "",
-            "thumbnail_image_url"   : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
-            "header_image_url"      : "",
-
-            "date"                  : "11 18 2013",
-            "year"                  : "2013",
-            "region"                : "Asia",
-            "country"               : "Bhutan"
-          },
-          {
-            "id"                    : "lorem-ipsum-dolor-sit-amet",
-            "title"                 : "Lorem Ipsum dolor sit amet",
-            "subtitle"              : "Lorem Ipsum dolor sit amet",
-            "excerpt"               : "Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
-
-            "video"                 : "",
-            "featured"              : "true",
-
-            "image"                 : "",
-            "thumbnail_image_url"   : "http://starkey.local/uploads/images/westbank2.jpeg",
-            "header_image_url"      : "http://starkey.local/uploads/images/westbank2.jpeg",
-
-            "date"                  : "02 11 2014",
-            "year"                  : "2014",
-            "region"                : "Africa",
-            "country"               : "Egypt"
-          }
-    ],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  "categories" :  [
-
     {
-        "region" : "Africa",
-        "countries" : ["Egypt"]
-    },
-    {
-        "region" : "Asia",
-        "countries" : ["Bhutan","China"]
-    },
-    {
-        "region" : "Europe",
-        "countries" : ["Finland"]
-    },
-    {
-        "region" : "South America",
-        "countries" : ["Brazil"]
+        "highlights" : [
+
+              {
+                "id"                    : "new-entry-hearing-mission-1394495216",
+                "title"                 : "New Entry Hearing Mission 1394495216",
+                "subtitle"              : "New Entry Hearing Mission 1394495216",
+                "excerpt"               : "Proin eget tortor risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+
+                "video"                 : "https://www.youtube.com/watch?v=W50L7eNGT2U",
+                "featured"              : "true",
+
+                "image"                 : "",
+                "thumbnail_image_url"   : "",
+                "header_image_url"      : "",
+
+                "date"                  : "03/10/2014",
+                "year"                  : "2014",
+                "region"                : "Central America & Caribbean",
+                "country"               : "Panama"
+              },
+              {
+                "id"                    : "hearing-mission-test-entry",
+                "title"                 : "Hearing Mission Test Entry",
+                "subtitle"              : "Hearing Mission Test Entry",
+                "excerpt"               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut lorem at sem dictum ultricies. In massa neque, ullamcorper vel sapien sit amet, cursus sodales nibh. Proin sit amet tellus id sapien pharetra egestas. Sed ac sodales diam. Integer congue velit eu metus egestas vulputate. Praesent pulvinar arcu a arcu auctor cursus. Aenean eleifend quam et odio rhoncus, at convallis mauris feugiat. Maecenas varius in nisi id blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br /> <br /> Nullam non laoreet nisl, non feugiat elit. Donec ultrices in odio in iaculis. Morbi fringilla massa ac justo laoreet, quis bibendum dolor convallis. Duis tincidunt nulla vitae tincidunt feugiat. Morbi mollis commodo velit rhoncus facilisis. Nunc vitae interdum quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquam risus mauris, eget porttitor arcu porta sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<br /> <br /> Cras commodo vestibulum risus, eget pulvinar enim congue at. Nam ullamcorper ac neque sit amet luctus. Curabitur porta dui felis, nec consequat enim pretium sit amet. Sed tortor leo, tristique id ante eu, placerat auctor diam. Morbi ligula lorem, iaculis sit amet quam a, sodales euismod tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed quis erat velit. Ut tortor elit, imperdiet non dapibus at, condimentum et ligula.<br /> <br /> Morbi a mauris neque. Etiam sodales ligula in augue ultrices, in pretium ante laoreet. Aenean in accumsan ipsum, vel elementum nulla. Donec vehicula eget lectus at placerat. Donec enim augue, fringilla sit amet ligula ut, congue tristique ligula. Etiam ac elit vulputate, facilisis quam id, dignissim elit. Sed cursus facilisis viverra. Praesent vestibulum turpis eu nisi laoreet consequat. Nullam lacinia mi vel sem blandit, et dictum nisl vehicula. Donec malesuada at nulla at dignissim.<br /> <br /> Nulla a orci imperdiet, venenatis dolor id, tempus magna. Nulla laoreet, magna sit amet accumsan ullamcorper, metus augue scelerisque risus, id commodo arcu tortor vel neque. Aliquam a blandit mauris, ac luctus erat. Donec et bibendum velit. Aliquam vel accumsan ligula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse posuere malesuada pellentesque. Fusce iaculis orci tortor, a rutrum nisl scelerisque quis. Vivamus sollicitudin accumsan nibh, at pharetra metus molestie non. Duis molestie velit magna, sed varius dolor dictum at. Sed volutpat vulputate imperdiet.",
+
+                "video"                 : "",
+                "featured"              : "true",
+
+                "image"                 : "",
+                "thumbnail_image_url"   : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+                "header_image_url"      : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+
+                "date"                  : "11/18/2013",
+                "year"                  : "2013",
+                "region"                : "Asia",
+                "country"               : "Bhutan"
+              },
+              {
+                "id"                    : "lorem-ipsum-dolor-sit-amet",
+                "title"                 : "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem",
+                "subtitle"              : "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem",
+                "excerpt"               : "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat.",
+
+                "video"                 : "",
+                "featured"              : "true",
+
+                "image"                 : "",
+                "thumbnail_image_url"   : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+                "header_image_url"      : "http://starkey.local/uploads/images/DSC08418cc_edit.jpg",
+
+                "date"                  : "02/11/2014",
+                "year"                  : "2014",
+                "region"                : "Africa",
+                "country"               : "Egypt"
+              }
+        ],
+
+
+
+
+
+
+
+
+
+
+
+
+      "categories" :  [
+
+        {
+            "region" : "Africa",
+            "countries" : ["Egypt"]
+        },
+        {
+            "region" : "Asia",
+            "countries" : ["Bhutan"]
+        },
+        {
+            "region" : "Central America & Caribbean",
+            "countries" : ["Panama"]
+        }
+      ],
+
+
+      "years" : [
+
+      {
+        "name"  : "2014",
+        "value" : "2014"
+      },
+      {
+        "name"  : "2013",
+        "value" : "2013"
+      }
+      ]
     }
-  ],
-
-
-  "years" : ["2014","2014","2014","2013","2014"]
-}

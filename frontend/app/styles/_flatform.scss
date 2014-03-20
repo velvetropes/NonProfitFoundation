@@ -69,13 +69,12 @@
       width: 50% !important;
     }
 
-    // &.leftThird, &.middleThird, &.rightThird {
-    //   width: 30% !important;
-    // }
-
 
     &.leftFourth, &.middleFourthFirst, &.middleFourthSecond, &.rightFourth {
       width: 25% !important;
+      @include media($mobile) {
+        width: 50% !important;
+      }
     }
 
     &.leftFourth, &.rightFourth {

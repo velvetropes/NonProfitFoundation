@@ -1,15 +1,3 @@
-.articles-filters {
-  padding: 0;
-  float: left;
-  list-style: none;
-  text-transform: uppercase;
-  li {
-    display: inline-block;
-  }
-  @include breakpoint($tablet-down) {
-    padding: 0 16px;
-  }
-}
 .article-header-image {
   color: white;
   margin-bottom: 0;
@@ -56,7 +44,7 @@
     top: 20px;
     right: 20px;
     padding: 0;
-    z-index: 10000;
+    z-index: 99;
     li {
       display: inline-block;
       a {
@@ -103,6 +91,11 @@
   }
 }
 
-.blog-page .text-container p {
-  text-align: center;
+.blog-page {
+  .articles-filters {
+    margin-top: 8px;
+  }
+  .text-container p {
+    text-align: center;
+  }
 }

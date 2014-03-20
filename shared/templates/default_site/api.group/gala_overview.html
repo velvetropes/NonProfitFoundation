@@ -1,6 +1,9 @@
  <div class="overview-mode">
   {exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_default}"}
     <article class='gala-overview outer-container'>
+      <div class="mobile-only load-more">
+        Overview
+      </div>
       <div class="carousel half-wit">
         <swiper
           continuous="true"
@@ -36,13 +39,14 @@
         <ul>
           {galla_overview_highlights}
           <li{if galla_overview_highlights:count == 1} class="first"{/if}>
-            <div class="highlight-thumbnail" style="background: url('{galla_overview_highlights:image}');">
+            <div class="highlight-thumbnail" style="background-image: url('{galla_overview_highlights:image}');">
             </div>
             <div class="content">
               <h3>{galla_overview_highlights:title}</h3>
               <p>{galla_overview_highlights:body}</p>
               <p class="action-link"><a href="{galla_overview_highlights:link}">Read more &rarr;</a></p>
             </div>
+            <div class="clearfix"></div>
           </li>
           {/galla_overview_highlights}
         </ul>

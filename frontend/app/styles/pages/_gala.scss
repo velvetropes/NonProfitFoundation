@@ -1,23 +1,44 @@
+.gala-page {
+  @include media($mobile) {
+    .page-leader {
+      h1 {
+        margin-bottom: 12px;
+      }
+    }
+    .load-more {
+      color: $light-blue;
+      cursor: default;
+      padding-top: 0;
+    }
+  }
+}
 .gala-overview {
   .half-wit {
     float: left;
     margin-top: 30px;
     margin-bottom: 10px;
+    @include media($mobile) {
+      width: 100%;
+      float: none;
+      margin-top: 0;
+    }
   }
   .main-story {
     width: 50%;
     float: left;
     margin-top: 50px;
     padding-left: 45px;
-    @include breakpoint($mobile) {
+    padding: 0 16px 0 45px;
+    @include media($mobile) {
       width: 100%;
       float: none;
-      padding-left: 0;
+      margin-top: 0;
     }
   }
 }
 .gala-tab-content {
   @extend .generic-article-typography;
+  width: 100%;
   text-align: center;
   h1, h2, h3, h4 {
     margin: 40px 0 20px;
@@ -27,6 +48,14 @@
   }
   p.no-container {
     margin: 40px 0 0;
+  }
+}
+
+.gala-tabs {
+  @include media($mobile) {
+    .tabbed-content {
+      display: none;
+    }
   }
 }
 
@@ -52,8 +81,8 @@
       }
       .content {
         float: left;
-        width: 239px;
-        margin-left: 30px;
+        width: 50%;
+        padding: 0 16px 0 30px;
         h3 {
           font-size: 1.625em;
           @extend .alrightsanslight;
@@ -66,7 +95,7 @@
         }
       }
       .highlight-thumbnail {
-        width: 230px;
+        width: 50%;
         height: 174px;
         float: left;
         background-size: cover;
@@ -80,7 +109,23 @@
       }
     }
   }
-  @include breakpoint($mobile) {
+  @media screen and (min-width: 480px) and (max-width: 960px) {
+    ul {
+      li {
+        &.first {
+          padding-right: 45px;
+        }
+        .content {
+          width: 100%;
+          padding: 16px;
+        }
+        .highlight-thumbnail {
+          width: 100%;
+        }
+      }
+    }
+  }
+  @include media($mobile) {
     border-bottom: none;
     padding: 0;
     ul {
@@ -90,6 +135,7 @@
         width: 100%;
         padding: 4px;
         border-bottom: $dotted-border;
+        position: relative;
         &.first {
           border-right: none;
           padding-left: 4px;
@@ -111,8 +157,11 @@
             line-height: 1.2;
             font-size: 0.8em;
           }
-          .action {
+          .action-link {
             font-size: 11px;
+            position: absolute;
+            bottom: 3px;
+            right: 16px;
           }
         }
       }
@@ -120,10 +169,9 @@
   }
 }
 .overview-mode {
-
   .gala-upcoming {
     display: none;
-    @include breakpoint($tablet-down) {
+    @include media($tablet-down) {
       display: block;
     }
   }

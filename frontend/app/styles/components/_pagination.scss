@@ -10,6 +10,7 @@
 }
 ul.pagination-articles {
   padding: 0;
+  clear: both;
   @include reset-display;
   li {
     margin-bottom: 42px;
@@ -67,11 +68,14 @@ ul.pagination-articles {
     li {
       .block {
         .headline {
+          @extend .alrightsansbold;
           bottom: 42px;
           height: 41px;
-          font-size: 1.25em;
+          font-size: 1.2em;
           line-height: 1em;
           overflow: hidden;
+          padding-top: 2px;
+          padding-bottom: 2px;
         }
         .date {
           position: absolute;
@@ -89,13 +93,13 @@ ul.pagination-articles {
       .block {
         .headline {
           bottom: 55px;
-          height: 48px;
+          height: 50px;
           line-height: 1em;
           overflow: hidden;
         }
         .date {
           position: absolute;
-          bottom: 6px;
+          bottom: 21px;
           left: 20px;
           text-transform: uppercase;
           font-size: .875em;
@@ -153,7 +157,7 @@ pagination {
   display: block;
 }
 
-@include breakpoint($tablet-down) {
+@include media($tablet-down) {
   .pagination {
     display: none;
   }
@@ -170,16 +174,16 @@ pagination {
       margin-bottom: 3px;
       .block {
         padding: 4px;
-        height: 140px;
+        height: 130px;
         .image {
           position: static;
-          width: 45%;
+          width: 48%;
           height: 100%;
           float: left;
         }
         .content {
           float: left;
-          width: 50%;
+          width: 52%;
         }
         .headline {
           position: static;
@@ -187,8 +191,10 @@ pagination {
           margin: 0;
           font-weight: 400;
           font-size: 18px;
+          line-height: 1.1;
           height: auto;
-          overflow: visible;
+          overflow: hidden;
+          height: 88px;
         }
         .category {
           position: static;
@@ -203,6 +209,7 @@ pagination {
         }
         .read-more {
           font-size: 11px;
+          bottom: -4px;
         }
       }
     }
@@ -227,6 +234,16 @@ pagination {
     }
     &.tablet {
       display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 340px) {
+  ul.pagination-articles {
+    li {
+      .block {
+        height: 146px;
+      }
     }
   }
 }

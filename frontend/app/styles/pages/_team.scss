@@ -20,4 +20,18 @@
       font-size: .66em;
     }
   }
+  @include media($tablet-down) {
+    width: 100%;
+    margin: 0;
+    padding: 0 16px;
+    li {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+  }
+  @include media($mobile) {
+    li {
+      @include span-columns(12);
+    }
+  }
 }

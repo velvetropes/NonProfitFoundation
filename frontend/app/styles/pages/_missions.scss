@@ -1,4 +1,6 @@
 #missions-world-map, #missions-us-map {
+  height: 100%;
+  width: 100%;
   .jvectormap-container {
     @include background-image(radial-gradient(center, ellipse cover, rgb(78,206,238) 0%,rgb(49,158,213) 100%));
   }
@@ -17,6 +19,8 @@
     border: none;
     margin: 0;
     margin-right: 250px;
+    height: 560px;
+    z-index: 1;
     .map {
       border: none;
     }
@@ -26,6 +30,8 @@
       right: 250px;
       bottom: 0;
       left: 0;
+      height: 560px;
+      width: 100%;
     }
     .missions-world-map {
       z-index: 1;
@@ -43,6 +49,7 @@
     right: 0;
     padding: 30px 20px 50px;
     background: url('images/missions/map/transparent_darker_background.png') repeat;
+    z-index: 3;
     h3 {
       text-transform: uppercase;
       color: white;
@@ -103,7 +110,7 @@
       font-size: 3em;
       @extend .alrightsanslight;
       margin: 0 0 10px;
-      line-height: 1.25em;
+      line-height: 1.2em;
       span {
         display: block;
       }
@@ -166,7 +173,6 @@
 }
 .hearing-missions-statistics {
   @include reset-display;
-  border-bottom: $dotted-border;
   margin: 0 0 55px;
   ul {
     margin: 0;
@@ -197,10 +203,13 @@
     }
   }
 }
+.regions-filters {
+  padding-top: 20px;
+}
 .mission-highlights-list {
   display: none;
 }
-@include breakpoint($tablet-down) {
+@include media($tablet-down) {
   .mission-highlights-carousel {
     display: none;
   }
@@ -208,7 +217,7 @@
     display: block;
   }
 }
-@include breakpoint($tablet) {
+@include media($tablet) {
   .hearing-missions-statistics {
     ul {
       li {
@@ -258,11 +267,12 @@
     }
   }
 }
-@include breakpoint($mobile) {
+@include media($mobile) {
   .missions-map {
     height: 242px;
-    background: url('images/hearing-mission-bg.jpg') #41bbe4;
-    background-size: 100%;
+    background: url('images/hearing-mission-bg.jpg') no-repeat #41bbe4;
+    background-size: cover;
+    background-position: center;
     .map-container,
     .missions-map-legend,
     .missions-map-info {
@@ -294,7 +304,7 @@
     margin: 0;
     ul {
       li {
-        height: 66px;
+        height: 70px;
         h1 {
           margin: 10px 0 0;
           font-size: 2em;
@@ -311,17 +321,12 @@
     nav.outer-container {
       .three-tabs {
         li {
-          display: none;
           margin: 0;
           width: 100%;
           border: none;
-          a {
-            font-size: 12px;
-            font-weight: bold;
-            cursor: default;
-          }
-          &:first-child {
-            display: block;
+          border-top: 1px dotted #333;
+          &.active {
+            border-bottom: inherit;
           }
         }
       }

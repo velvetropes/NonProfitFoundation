@@ -20,9 +20,8 @@
       width: 400px;
       height: 313px;
       position: relative;
-      border: 1px dotted #ddd;
-      border-right: none;
-
+      border-top: $dotted-border;
+      border-left: $dotted-border;
       display: inline-block;
 
       /* ie7 support */
@@ -149,16 +148,13 @@
   overflow: hidden;
   position: relative;
   .jspHorizontalBar {
-    background-color:rgba(71, 194, 231, 0.6);
-
-    opacity: .5;
+    background-color: #ebfafd;
+    opacity: 1;
     height: 11px;
-
     .jspTrack {
       position: relative;
-
       .jspDrag {
-        background: #17BFE6;
+        background: #17bfe6;
         opacity: 1;
         &.jspHover {
         }

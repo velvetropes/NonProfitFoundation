@@ -1,11 +1,11 @@
 <div class="article-header-image">
-  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully.jpg');">
+  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg');">
     <ul class="page-nav-links">
             <li>
-        <a href="#/articles/tani-austins-inspiring-words-on-her-journey-through-mexico-and-colombia" ng-disabled="'tani-austins-inspiring-words-on-her-journey-through-mexico-and-colombia'==''">&larr;</a>
+        <a href="#/articles/new-blog-entry-1394495216" ng-disabled="'new-blog-entry-1394495216'==''">&larr;</a>
       </li>
                   <li>
-        <a href="#/articles/impacting-a-life-in-manila" ng-disabled="'impacting-a-life-in-manila'=='impacting-a-life-in-manila'" >&rarr;</a>
+        <a href="#/articles/test-blog-post-3-9" ng-disabled="'test-blog-post-3-9'=='test-blog-post-3-9'" >&rarr;</a>
       </li>
             <li>
         <a href="#">X</a>
@@ -15,51 +15,25 @@
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-                      <p class="article-item-category">Events</p>
-                    <h1  class="article-title">testing blog post</h1>
-          <p>Feb 03, 2014 | </p>
+                      <p class="article-item-category">News</p>
+                    <h1  class="article-title">Test OP 03/10/14</h1>
+          <p>March 10, 2014 </p>
         </div>
       </div>
     </div>
   </div>
 </div>
 <br/>
+
 <div class="text-container">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eu eros quis ultrices. Integer blandit molestie felis. Nunc porttitor leo volutpat nibh elementum sollicitudin. Curabitur molestie velit at orci vulputate, at suscipit lacus mattis. Aenean eu velit lacus. In malesuada adipiscing erat ac vestibulum. Donec ultrices, est ut porta pellentesque, mi arcu gravida lorem, mollis egestas turpis turpis scelerisque felis. Ut risus massa, suscipit id orci interdum, consectetur malesuada felis. Nulla convallis elit diam, eget sollicitudin arcu fermentum et. Cras euismod vel dui sed tempus. Pellentesque egestas leo in lobortis malesuada. Curabitur cursus condimentum aliquet. Quisque non faucibus lacus. Praesent accumsan lacus sit amet urna pulvinar placerat.</p>
-
-<p>Donec id congue arcu. Duis sagittis, erat eget rhoncus volutpat, metus ipsum hendrerit lacus, ac accumsan risus orci accumsan diam. Ut ultrices nisl ante, a ultricies ligula malesuada vulputate. Vivamus aliquet enim at justo pellentesque, et scelerisque elit tincidunt. Nam consectetur, felis sit amet pretium fringilla, tortor est imperdiet augue, id aliquet velit lectus ac dui. Praesent blandit convallis nisl, et laoreet risus egestas nec. Donec aliquet tortor vitae ipsum porttitor fringilla vel non diam. Quisque fermentum egestas arcu non scelerisque. Cras nisi est, congue quis justo eget, laoreet porta nunc.</p>
-
-<p>In in lobortis sem. Nullam et sapien id turpis sodales porta. Sed pellentesque euismod nisl, vitae dictum erat faucibus at. Pellentesque blandit vehicula nisl, vel volutpat lorem fermentum quis. Duis a velit in lorem fermentum mattis. Donec interdum venenatis odio, ac volutpat elit porta vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-<p>Curabitur fringilla, lacus non facilisis tincidunt, est libero viverra tellus, adipiscing eleifend leo mi eget lacus. Phasellus a urna consequat, ultricies neque at, sagittis urna. Nam ac sollicitudin erat. Maecenas vel purus quis tellus faucibus auctor. Duis accumsan justo quis ligula sollicitudin aliquam. Nulla consequat tincidunt cursus. Proin id dui tempus, mollis metus et, venenatis dui. Morbi vestibulum elit massa, eu cursus lorem commodo ut. Duis pellentesque erat justo, vitae porta turpis vulputate sed. Nulla sollicitudin mattis justo, in aliquet risus rutrum nec.</p>
-
-<p>Duis tristique velit sapien, a placerat nunc lacinia at. Fusce metus dui, vulputate molestie ullamcorper quis, eleifend eu sapien. Sed pulvinar sem id massa sagittis condimentum. Nullam fermentum tellus hendrerit nisi suscipit, et scelerisque velit interdum. Nullam nec metus urna. Praesent vestibulum ipsum diam, eu viverra justo consequat vitae. Sed quis congue lectus, quis sodales libero. Maecenas malesuada dictum massa interdum aliquam.</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
+  <p>test test test test test&nbsp;</p>
 
 <p>
 
 
-          <gallery slides="4">              <gallery-slide
-               image-url="http://starkey.ahundredyears.com/uploads/images/billaustin.jpg"
-               video-url=""
-              ></gallery-slide>
-
-                        <gallery-slide
-               image-url="http://starkey.ahundredyears.com/uploads/images/Blog_A_Knight.jpg"
-               video-url=""
-              ></gallery-slide>
-
-                        <gallery-slide
-               image-url="http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Providing_Clean_Water_in_Tanzania.jpg"
-               video-url="http://www.youtube.com/watch?v=OJ4W9zzjgII"
-              ></gallery-slide>
-
-                        <gallery-slide
-               image-url="http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Building_a_Better_Kibera.jpg"
-               video-url=""
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/DemoimageCropped_.jpg"
+               video-url="http://www.youtube.com/watch?v=03KTq85Y3wM"
               ></gallery-slide>
           </gallery>
 
@@ -67,58 +41,102 @@
 
     </p>
 </div>
+
+<br/>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>
       <li><span class="note">Share this post</span></li>
       <li>
-        <a href="#">
+        <a href="http://twitter.com/share?url={{location.absUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="http://www.facebook.com/sharer.php?u={{location.absUrl()}}" target="_blank">
           <span class="icon starkey-share-fb"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{location.absUrl()}}.">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
     </ul>
   </div>
 </div>
-<br/>
-<div class="outer-container">
+
+
+<div class="text-container">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>
     <thumblist-nav>
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
+          video-url=""
+          link-url="#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank"
+          headline="Bringing Peace through Hearing, Starkey Hearing Foundation goes to the West Bank"
+          link-style=""
+          date="March 31, 2011"
+        ></slide>
 
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-THUMBNAIL.jpg"
+          video-url=""
+          link-url="#/articles/building-momentum-for-peace-in-the-west-bank"
+          headline="Building Momentum for Peace in the West Bank"
+          link-style=""
+          date="October 16, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
+          video-url=""
+          link-url="#/articles/dave-fabry-lives-to-listen-carefully"
+          headline="Dave Fabry Lives to Listen Carefully"
+          link-style=""
+          date="October 31, 2013"
+        ></slide>
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
+          video-url=""
+          link-url="#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank"
+          headline="Bringing Peace through Hearing, Starkey Hearing Foundation goes to the West Bank"
+          link-style=""
+          date="March 31, 2011"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-THUMBNAIL.jpg"
+          video-url=""
+          link-url="#/articles/building-momentum-for-peace-in-the-west-bank"
+          headline="Building Momentum for Peace in the West Bank"
+          link-style=""
+          date="October 16, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
+          video-url=""
+          link-url="#/articles/dave-fabry-lives-to-listen-carefully"
+          headline="Dave Fabry Lives to Listen Carefully"
+          link-style=""
+          date="October 31, 2013"
+        ></slide>
     </thumblist-nav>
   </section>
 </div>
+
+
+
+
 <br/>
 <hr class="separator padded"/>
 
-<div class="outer-container">
-  <div class="pagination">
-    <ul>
-      <li ng-class="{disabled: currentPage == 0}">
-        <a href ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Prev</a>
-      </li>
-      <li ng-class="{disabled: currentPage >= articles.length/pageSize - 1}">
-        <a href ng-click="currentPage=currentPage+1">Next</a>
-      </li>
-    </ul>
-  </div>
-  <ul class="pagination-articles">
-    <li ng-repeat="article in articles | startFrom:currentPage*pageSize | limitTo:pageSize">
-      <div class='block'>
-        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <h2 class="headline"></h2>
-        <p class='read-more'><a href="#/articles/">Read more &rarr;</a></p>
-      </div>
-    </li>
-  </ul>
-</div>
+<paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></paginated-article-list>

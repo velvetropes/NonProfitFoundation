@@ -44,44 +44,49 @@
             <p class="article-item-category">{blog_category}</p>
           {/if}
           <h1  class="article-title">{title}</h1>
-          <p>{blog_date format='%M %d, %Y'} {if blog_author}| {blog_author}{/if}</p>
+          <p>{blog_date format='%F %d, %Y'} {if blog_author}| {blog_author}{/if}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 <br/>
+
 <div class="text-container">
-{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
+  {exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
 </div>
+
+<br/>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>
       <li><span class="note">Share this post</span></li>
       <li>
-        <a href="#">
+        <a href="http://twitter.com/share?url={{location.absUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="http://www.facebook.com/sharer.php?u={{location.absUrl()}}" target="_blank">
           <span class="icon starkey-share-fb"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{location.absUrl()}}.">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
     </ul>
   </div>
 </div>
-<br/>
-<div class="outer-container">
+
+{blog_related_items}
+{if blog_related_items:count == 1}
+<div class="text-container">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>
     <thumblist-nav>
-      {blog_related_items}
+{/if}
         <slide
           thumblist="true"
           image-url="{blog_related_items:blog_image}"
@@ -89,34 +94,18 @@
           link-url="#/articles/{blog_related_items:url_title}"
           headline="{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_related_items:title}{/exp:low_replace}"
           link-style=""
-          date="{blog_related_items:blog_date format='%m %d %Y'}"
+          date="{blog_related_items:blog_date format='%F %d, %Y'}"
         ></slide>
-      {/blog_related_items}
+{if blog_related_items:count == blog_related_items:total_results}
     </thumblist-nav>
   </section>
 </div>
+{/if}
+{/blog_related_items}
+
+{/exp:channel:entries}
+
 <br/>
 <hr class="separator padded"/>
 
-<div class="outer-container">
-  <div class="pagination">
-    <ul>
-      <li ng-class="{disabled: currentPage == 0}">
-        <a href ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Prev</a>
-      </li>
-      <li ng-class="{disabled: currentPage >= articles.length/pageSize - 1}">
-        <a href ng-click="currentPage=currentPage+1">Next</a>
-      </li>
-    </ul>
-  </div>
-  <ul class="pagination-articles">
-    <li ng-repeat="article in articles | startFrom:currentPage*pageSize | limitTo:pageSize">
-      <div class='block'>
-        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <h2 class="headline"></h2>
-        <p class='read-more'><a href="#/articles/">Read more &rarr;</a></p>
-      </div>
-    </li>
-  </ul>
-</div>
-{/exp:channel:entries}
+<paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></paginated-article-list>

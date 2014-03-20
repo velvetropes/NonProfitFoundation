@@ -13,5 +13,8 @@
     "ahundredyears-pagination": "git@github.com:bullrico/ahundredyears-pagination.git",
     "bower-jvectormap": "~1.2.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "~1.2.9"
+  }
 }

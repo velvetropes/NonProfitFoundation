@@ -11,7 +11,6 @@
         <a href="#">X</a>
       </li>
     </ul>
-    <div class="gradient-background"></div>
     </div>
   </div>
 </div>
@@ -38,13 +37,13 @@
         </a>
       </li>
       <li><span class="note">Share this post</span></li>
-      <li>
-        <a href="#">
+<li>
+        <a href="http://twitter.com/share?url={{location.absUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="http://www.facebook.com/sharer.php?u={{location.absUrl()}}" target="_blank">
           <span class="icon starkey-share-fb"></span>
         </a>
       </li>
@@ -69,13 +68,13 @@
   <div class="pagination">
     <ul>
       <li class="disabled">
-        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
       <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
       <li class="disabled">
-        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
   </div>
@@ -103,13 +102,13 @@
   <div class="pagination">
     <ul>
       <li class="disabled">
-        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
       <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
       <li class="disabled">
-        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
   </div>

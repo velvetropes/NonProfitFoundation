@@ -1,12 +1,15 @@
 <div class="swiper" ng-class="addSize()">
   <div class="swiper-controls left" ng-show="showPaginator()">
-    <a href ng-click="prev()"><span class="icon starkey-pg-arrow-left"></span></a>
+    <a href ng-click="prev()"><span class="pg-arrow-left"></span></a>
   </div>
   <div class="swiper-controls right" ng-show="showPaginator()">
-    <a href ng-click="next()"><span class="icon starkey-pg-arrow-right"></span></a>
+    <a href ng-click="next()"><span class="pg-arrow-right"></span></a>
   </div>
   <div id='{{identifier}}' class='swipe'>
     <div class='swipe-wrap' ng-transclude>
     </div>
   </div>
+  <ul class="swiper-position" ng-show="showPaginator()">
+    <swipe-paginator ng-repeat="slide in childSlides" position="{{$index}}"></swipe-paginator>
+  </ul>
 </div>

@@ -12,11 +12,8 @@ nav {
         border-left: $dotted-border;
       }
       a {
-        font-family: "Verlag A", "Verlag B";
         font-weight: 700;
-        font-style: normal;
         font-size: 1em;
-        text-decoration: none;
         text-transform: uppercase;
       }
       &:hover, &.active {
@@ -31,8 +28,12 @@ nav {
 .header-nav {
   border-top: $dotted-border;
   margin-top: 80px;
-  @include breakpoint($tablet) {
-    margin-top: 60px;
+  h1, h2, h3, h4 {
+    @extend .alrightsansbold;
+  }
+  h3 {
+    font-size: 0.85em;
+    padding-bottom: 3px;
   }
   @include row(table);
   .tabs-wrap {
@@ -46,12 +47,14 @@ nav {
       float: left;
       width: 33.33%;
       padding: 0;
+      // FF Fix
+      list-style: none;
       a {
         display: block;
         width: 100%;
         padding: 10px;
       }
-      &:hover, &.active {
+      &.active, &:hover {
         border-bottom: 1px solid #fff;
       }
     }
@@ -62,13 +65,13 @@ nav {
       @include row(table);
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 14px 0 0 0;
       li {
-        @include span-columns(2 of 6);
+        @include span-columns(2 of 8);
         border-bottom: 5px solid #3d4144;
         height: 185px;
         border-left: $dotted-border;
-        padding: 20px;
+        padding: 3px 20px;
         &:first-child {
           border-left: none;
         }
@@ -83,7 +86,7 @@ nav {
         }
         h1, h2, h3, h4, h5, h6, p {
           margin: 0;
-          line-height: 1.25em;
+          line-height: 1.2em;
         }
         h1 {
           font-size: 1.8em;
@@ -100,10 +103,6 @@ nav {
         }
       }
     }
-    &.who-we-are, &.what-we-do {
-      li {
-      }
-    }
     &.get-involved {
       li {
         @include span-columns(6 of 12);
@@ -115,7 +114,19 @@ nav {
     border: none;
     border-bottom: $dotted-border;
   }
-  @include breakpoint($mobile) {
+  @include media($tablet) {
+    .tab-content {
+      ul {
+        li {
+          h2 {
+            font-size: 1.1em;
+          }
+        }
+      }
+    }
+  }
+  @include media($mobile) {
+    margin-top: 60px;
     display: none;
   }
 }
@@ -146,25 +157,6 @@ nav {
         &:hover {
           a {
             color: $light-blue;
-          }
-        }
-      }
-      @include breakpoint($tablet-down) {
-        padding: 0;
-        margin: 10px 0 0 0;
-        @include reset-display;
-        li {
-          display: block;
-          width: 50%;
-          float: left;
-          border: none;
-          border-left: 1px dotted #333;
-          border-top: 1px dotted #333;
-          &:nth-child(even) {
-            border-right: 1px dotted #333;
-          }
-          &.active {
-            border-bottom: inherit;
           }
         }
       }
@@ -213,8 +205,13 @@ nav {
       .three-tabs {
         li {
           width: 200px;
-          @include breakpoint($tablet) {
-            width: 32%;
+          @include media($tablet-down) {
+            width: 100%;
+            margin: 0;
+            a {
+              font-size: 12px;
+              font-weight: bold;
+            }
           }
           a {
             padding: 10px 0 8px;
@@ -224,8 +221,52 @@ nav {
       .five-tabs {
         li {
           width: 19.5%;
+          margin-left: -3px;
           a {
             padding: 10px 0 8px;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      &.outer-container {
+        .five-tabs {
+          padding: 0;
+          margin: 10px 0 0 0;
+          @include reset-display;
+          li {
+            @include span-columns(12);
+            margin: 0;
+            border: none;
+            border-top: 1px dotted #333;
+            a {
+              font-size: 12px;
+              font-weight: bold;
+            }
+            &.active {
+              border-bottom: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    @include media($tablet-down) {
+      .tabs, {
+        padding: 0;
+        margin: 10px 0 0 0;
+        @include reset-display;
+        li {
+          @include span-columns(12);
+          border: none;
+          border-top: 1px dotted #333;
+          a {
+            font-size: 12px;
+            font-weight: bold;
+          }
+          &.active {
+            border-bottom: inherit;
           }
         }
       }
@@ -238,11 +279,12 @@ nav {
       float: left;
       width: 50%;
       height: 410px;
-      margin: 0 30px 0 0;
+      padding: 0;
     }
     .content {
       float: right;
-      width: 47%;
+      width: 50%;
+      padding: 0 16px 0 30px;
       h1, h2, h3, p {
         @extend .alrightsanslight;
       }
@@ -250,5 +292,25 @@ nav {
         line-height: 1.2em;
       }
     }
+  }
+}
+
+// Tab states
+
+.contact-page, .team-page, .about-us-page, .media-mentions-page {
+  .who-we-are {
+    color: $light-blue;
+  }
+}
+
+.hearing-missions-page, .programs-page, .gala-page, .blog-page {
+  .what-we-do {
+    color: $light-blue;
+  }
+}
+
+.take-action-page {
+  .get-involved {
+    color: $light-blue;
   }
 }

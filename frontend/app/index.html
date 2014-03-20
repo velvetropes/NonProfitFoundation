@@ -2,7 +2,8 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>   <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
 <!--[if IE 8]>   <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if IE 9]>   <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <!--(bake partials/head.html)-->
   </head>
@@ -12,7 +13,7 @@
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-    <section class="carousel hero add-bottom-border">
+    <section class="carousel hero black-text-background">
 
       <swiper
         continuous="true"
@@ -83,22 +84,6 @@
           </slide>
         <!--(bake-end)-->
       </swiper>
-
-      <!--(bake-start _if="dist")-->
-      <ul data-swiper="swiper_1" class="swiper-position">
-        {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
-          {home_hero limit="5" disable="{global:param_disable_default}"}<li{if home_hero:count == 1} class="on"{/if}></li>{/home_hero}
-        {/exp:channel:entries}
-      </ul>
-      <!--(bake-end)-->
-
-      <!--(bake-start _if="server")-->
-      <ul data-swiper="swiper_1" class="swiper-position">
-        <li class="on"></li>
-        <li></li>
-        <li></li>
-      </ul>
-       <!--(bake-end)-->
     </section>
 
     <section class='mission-statement'>
@@ -150,14 +135,23 @@
 
           <world-map markers="markers">
             <div class="map-legend">
+              <!--(bake-start _if="dist")-->
               <ul>
-                <li><span class="icon starkey-legend-program"></span>Program</li>
-                <li><span class="icon starkey-legend-stories"></span>Stories</li>
-                <li><span class="icon starkey-legend-where-we-are-now"></span>Where we are now</li>
-                <li><span class="icon starkey-legend-video"></span>Video</li>
-                <li><span class="icon starkey-legend-gallery"></span>Gallery</li>
-                <li><span class="icon starkey-legend-profile"></span>Profile</li>
+              {exp:channel:entries channel="homepage_map_categories" dynamic="no" disable="{global:param_disable_default}"}
+                <li><b class="legend"><span style="background-image:url('{home_map_legend}');"></span></b>{title}</li>
+              {/exp:channel:entries}
               </ul>
+              <!--(bake-end)-->
+              <!--(bake-start _if="server")-->
+              <ul>
+                <li><b class="legend"><span style="background-image:url('/uploads/map/legend/legend_program.png');"></span></b>Program</li>
+                <li><b class="legend"><span style="background-image:url('/uploads/map/legend/legend_stories.png');"></span></b>PStories</li>
+                <li><b class="legend"><span style="background-image:url('/uploads/map/legend/legend_where.png');"></span></b>PWhere we are now</li>
+                <li><b class="legend"><span style="background-image:url('/uploads/map/legend/legend_videos.png');"></span></b>PVideo</li>
+                <li><b class="legend"><span style="background-image:url('/uploads/map/legend/legend_gallery.png');"></span></b>PGallery</li>
+                <li><b class="legend"><span style="background-image:url('/uploads/map/legend/legend_program.png');"></span></b>PProfile</li>
+              </ul>
+              <!--(bake-end)-->
             </div>
           </world-map>
         </div>
@@ -253,7 +247,7 @@
     </section>
 
     <section class='mobile-carousel carousel hero'>
-      <h2>STARKEY STORIES</h2>
+      <h2 class="stories-title">STARKEY STORIES</h2>
       <swiper
         continuous="true"
         speed="2000"

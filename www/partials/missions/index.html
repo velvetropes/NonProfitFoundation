@@ -13,31 +13,34 @@
   <div class="pagination">
     <ul>
       <li class="disabled">
-        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
       <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
       <li class="disabled">
-        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
   </div>
-  <ul class="articles-filters">
-    <li>Sort &nbsp;|&nbsp;</li>
-    <li class="dropdown wide">
+  <region-dropdown regions-collection="highlightRegions" years-collection="highlightYears"  filter-object="highlightsFilters"></region-dropdown>
+
+  <ul class="articles-filters tablet-down regions-filters">
+    <li><strong>Sort</strong></li>
+    <li class="filters-devider">|</li>
+    <li class="dropdown tablet-down">
       <select ng-model="highlightsFilters.year" class="dropdown-select">
-        <option ng-repeat="year in highlightYears" value="{{year.tag}}">{{year.name}}</option>
+        <option ng-repeat="year in highlightYears" value="{{year.value}}">{{year.name}}</option>
       </select>
     </li>
-    <li>&nbsp;|&nbsp;</li>
-    <li class="dropdown wide">
+    <li class="filters-devider">|</li>
+    <li class="dropdown tablet-down">
       <select ng-model="currentRegion" class="dropdown-select" ng-options="region.region for region in highlightRegions">
         <option value="">Regions</option>
       </select>
     </li>
-    <li ng-hide="hideCountryDropdown()">&nbsp;|&nbsp;</li>
-    <li class="dropdown wider" ng-hide="hideCountryDropdown()">
+    <li ng-hide="hideCountryDropdown()" class="filters-devider">|</li>
+    <li class="dropdown tablet-down" ng-hide="hideCountryDropdown()">
       <select ng-model="highlightsFilters.country" class="dropdown-select">
         <option value="">Countries</option>
         <option ng-repeat="cat in currentRegion.countries" value="{{cat}}">{{cat}}</option>
@@ -52,6 +55,7 @@
           id="{{highlight.id}}"
           title="{{highlight.title}}"
           date="{{highlight.date}}"
+          date_format="'MMMM yyyy'"
           detail_page="true"
           type="missions_highlight"
           featured="{{highlight.featured}}"
@@ -72,13 +76,13 @@
   <div class="pagination">
     <ul>
       <li class="disabled">
-        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
       <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
       <li class="disabled">
-        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
   </div>

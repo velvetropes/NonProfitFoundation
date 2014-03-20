@@ -1,7 +1,4 @@
 .carousel {
-  &.half-wit {
-    width: 50%;
-  }
   &.hero {
     position: relative;
     width: 100%;
@@ -10,8 +7,8 @@
     }
     article {
       width: 100%;
-      @include breakpoint($mobile) {
-        height: 235px;
+      @include media($mobile) {
+        height: 210px;
       }
       img {
         display:block;
@@ -21,11 +18,11 @@
       }
     }
     .swiper-position {
-      width: 96px;
+      width: 200px;
       position: absolute;
-      bottom: 8px;
+      bottom: 18px;
       left: 50%;
-      margin-left: -48px;
+      margin-left: -100px;
     }
   }
   &.bottom {
@@ -58,17 +55,19 @@
 .mission-statement {
   text-align: center;
   border-bottom: $dotted-border;
-
   h1 {
     font-size: 2.375em;
     line-height: 1.71em;
     margin: 0.32em 0;
     padding: 0 16px;
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     h1 {
-      font-size: 2.1em;
+      max-width: 300px;
+      width: 100%;
+      font-size: 17px;
       line-height: 1.3em;
+      margin: 8px auto;
     }
   }
 }
@@ -92,8 +91,8 @@
       border: none;
     }
   }
-  @include breakpoint($tablet-down) {
-    min-width: 400px;
+  @include media($tablet-down) {
+    min-width: 200px;
     .pict {
       width: 100%;
       float: none;
@@ -105,7 +104,7 @@
 
 .bottom-slide-tabs {
   height: 525px;
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     display: none;
   }
   .bottom-slide-tab {
@@ -126,10 +125,8 @@
         position: absolute;
         left: 50%;
         top: 43%;
-        .icon {
-          font-size: 5em;
-          color: white;
-        }
+        font-size: 5em;
+        color: white;
       }
     }
     .panel-content {
@@ -171,7 +168,7 @@
   margin-top: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     display: block;
   }
   h2 {
@@ -196,7 +193,7 @@
   .entry-image {
     float: left;
     height: 104px;
-    width: 30%;
+    width: 40%;
     overflow: hidden;
     img {
       width: 100%;
@@ -222,6 +219,9 @@
     font-size: 11px;
     line-height: 1.2;
   }
+  span {
+    text-transform: uppercase;
+  }
   a.read-more {
     position: absolute;
     bottom: 5px;
@@ -232,8 +232,13 @@
   }
 }
 
-.home-page .thumblist .thumblist-nav .jspPane > div .content {
-  bottom: 30px;
-  right: 20px;
-  left: 20px;
+.home-page {
+  .carousel.thumblist.bottom {
+    border-bottom: $dotted-border;
+  }
+  .thumblist .thumblist-nav .jspPane > div .content {
+    top: 214px;
+    right: 20px;
+    left: 20px;
+  }
 }

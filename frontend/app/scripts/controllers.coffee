@@ -6,24 +6,56 @@ sfControllers.config ['$sceProvider', ($sceProvider) ->
 
 # Home
 
-sfControllers.controller("globalCtrl", ["$scope", ($scope) ->
+sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$location", "$timeout", ($window, $scope, $rootScope, $location, $timeout) ->
   $scope.showModal = false
   $scope.videoIframe = ""
   $scope.showSubscribeForm = false
 
+  # Make location available to get current url
+  $rootScope.location = $location;
+
+  # We're using to let the blog index text appear before the view is loaded.
+  if $location.url() is '/articles'
+    $scope.blogOverview = true
+
+  # Flag if we're loading a new route
+  $scope.loadingRoute = false
+  $scope.$on '$routeChangeStart', () ->
+    $scope.loadingRoute = true
+  $scope.$on '$routeChangeSuccess', () ->
+    $scope.loadingRoute = false
+    if $location.url() is '/articles'
+      $scope.blogOverview = true
+    else
+      $scope.blogOverview = false
+
+  videoUrl = $location.search()['video']
   $scope.$on 'modal:hide', (event) ->
     $scope.showModal = false
 
   $scope.$on 'modal:show', (event, url) ->
+    # ?video=ScjOkoueDYg
     $scope.showModal = not $scope.showModal
     if $scope.showModal is true
-      $scope.videoIframe = url
+      displayModal(url)
+
+  $timeout(->
+    if videoUrl?
+      $scope.showModal = true
+      displayModal("http://www.youtube.com/watch?v=#{videoUrl}")
+  ,1000)
+
+  displayModal = (url) ->
+    $scope.videoIframe = url
 
   $scope.toggleSubscribeForm = ->
     $scope.showSubscribeForm = not $scope.showSubscribeForm
 
   $scope.openSubscribeForm = ->
     $scope.showSubscribeForm = true
+
+  angular.element($window).bind 'resize', ->
+    $scope.$broadcast("window.resized", {})
 ])
 
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->
@@ -51,103 +83,88 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 ])
 
 # Blog
-sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", ($scope, $window, Articles, Pagination) ->
-  itemsPerPage = 9
-  $scope.articles =[]
-  $scope.nonFeaturedArticles = []
-  $scope.articlesForMobile = []
-  $scope.articleFilters = {
-    featured:'false'
-    blog_item_category: ''
-    year: ''
-  }
-  $scope.windowWidth = $window.innerWidth
-
-  $scope.articleCategories = [
-    {name: "All", tag: ''}
-    {name: "News", tag: "News"}
-    {name: "Events", tag: "Events"}
-    {name: "Hear Now", tag: "Hear Now"}
-    {name: "Gala", tag: "Gala"}
-    {name: "Films", tag: "Films"}
-    {name: "Celebrity", tag: "Celebrity"}
-    {name: "Operation Change", tag: "Operation Change"}
-    {name: "Hearing Missions", tag: "Hearing Missions"}
-    {name: "Listen Carefully", tag: "Listen Carefully"}
-  ]
-
-  $scope.articleYears = [
-    {name: "Latest", tag: ''}
-    {name: '2014', tag: '2014'}
-    {name: '2013', tag: '2013'}
-    {name: '2012', tag: '2012'}
-    {name: '2011', tag: '2011'}
-    {name: '2010', tag: '2010'}
-  ]
-
-  Articles.getIndex().then (data) ->
-    if data instanceof Array
-      $scope.articles = data
-    else
-      $scope.articles = [data]
-    $scope.pagination = Pagination.getNew(itemsPerPage)
-    $scope.nonFeaturedArticles = _.filter $scope.articles, (article) ->
-      article.featured is 'false'
-    $scope.articlesForMobile = $scope.nonFeaturedArticles[0..itemsPerPage-1]
-    $scope.pagination.numPages = Math.ceil($scope.nonFeaturedArticles.length/$scope.pagination.perPage)
-
-  $scope.numberOfPages = ->
-    Math.ceil($scope.nonFeaturedArticles.length/$scope.pageSize)
-
-  $scope.parseDate = (date) ->
-    Date.parse(date)
-
-  $scope.loadMore = ->
-    $scope.pagination.nextPage()
-    $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.nonFeaturedArticles[currentPageCollection()..(currentPageCollection() + $scope.pagination.perPage)])
-
-  isMobile = ->
-    $scope.windowWidth < 768
-
-  $scope.pageStart = ->
-    if $scope.pagination?
-      if isMobile()
-        0
-      else
-        currentPageCollection()
-
-  $scope.pageEnd = ->
-    if $scope.pagination?
-      if isMobile()
-        ($scope.pagination.page+1) * $scope.pagination.perPage
-      else
-        $scope.pagination.perPage
-
-  currentPageCollection = ->
-    $scope.pagination.page * $scope.pagination.perPage
-
-  $scope.isAtPaginationEnd = ->
-    $scope.articlesForMobile.length >= $scope.nonFeaturedArticles.length
-
+sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", "api_data", ($scope, $window, Articles, Pagination, api_data) ->
+  $scope.blogArticles = api_data.articles
+  $scope.blogFilters = api_data.filters
 ])
 
-sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
+sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", "api_data",($scope, $routeParams, $location, $sce, Articles, Article, Pagination, api_data) ->
 
   $scope.currentPosition = $routeParams.articleId
-  $scope.articles =[]
 
-  Articles.getIndex().then (data) ->
-    if data instanceof Array
-      $scope.articles = data
-    else
-      $scope.articles = [data]
-    $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.articles.length/$scope.pagination.perPage)
-
-  $scope.numberOfPages = ->
-    Math.ceil($scope.articles.length/$scope.pageSize)
-
+  $scope.blogArticles = api_data.articles or []
+  $scope.blogFilters = api_data.filters
 ])
+
+# sfControllers.controller("BlogListingCtrl", ["$scope", "Articles", "Pagination", "$filter", ($scope, Articles, Pagination, $filter) ->
+#   itemsPerPage = 9
+
+#   # $scope.articleCategories = []
+#   # $scope.articleYears = []
+
+#   $scope.isMobile = -> $scope.windowWidth < 768
+
+#   $scope.parseDate = (date) ->
+#     Date.parse(date)
+
+#   # Get Articles
+#   Articles.getIndex().then (data) ->
+#     $scope.articleCategories = data.cats
+#     $scope.articleYears = data.years
+#     if data.articles instanceof Array
+#       $scope.articlesList = data.articles
+#     else
+#       $scope.articlesList = [data.articles]
+#     $scope.articles = $scope.articlesList
+#     $scope.articlesForMobile = $scope.articlesList[0..itemsPerPage-1]
+#     return
+
+#   # Article Filters
+#   $scope.articleFilters = {
+#     featured:'false'
+#     blog_item_category: ''
+#     year: ''
+#   }
+#   $scope.$watch "articleFilters", ->
+#     $scope.articles = $filter('filter')($scope.articlesList, $scope.articleFilters)
+#     return
+#   , true
+
+
+#   # Pagination
+#   $scope.perPage = itemsPerPage;
+#   $scope.pagination = Pagination.getNew(itemsPerPage)
+#   $scope.isAtPaginationEnd = false
+#   $scope.pagination.numPages = 0
+#   $scope.currentPage = 0
+
+#   $scope.$watch "articles", ->
+#     $scope.articlesForMobile = if $scope.articles? then $scope.articles[0..itemsPerPage-1] else []
+#     $scope.pagination.numPages = if $scope.articles? then Math.ceil($scope.articles.length/$scope.pagination.perPage) else $scope.pagination.numPages
+#     return
+#   , true
+
+#   $scope.$watch "pagination.page", ->
+#     $scope.currentPage = $scope.pagination.page * $scope.pagination.perPage
+#     return
+#   , true
+
+#   $scope.loadMore = ->
+#     $scope.pagination.nextPage()
+#     start = ($scope.currentPage + 1) + $scope.pagination.perPage
+#     end = $scope.currentPage + ($scope.pagination.perPage * 2)
+
+#     if (end >= ($scope.articles.length - 1))
+#       end = ($scope.articles.length - 1)
+#       $scope.isAtPaginationEnd = true
+
+#     $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.articles[start..end])
+#     return
+
+#   $scope.pageStart = -> if $scope.isMobile() then 0 else $scope.currentPage
+
+# ])
+
 
 # Gala
 sfControllers.controller("GalaCtrl", ["$scope", "$routeParams", "GalaItems", "GalaTabs" , ($scope, $routeParams, GalaItems, GalaTabs ) ->
@@ -176,18 +193,18 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   }
 
   $scope.articleCategories = [
-    {name: "All Articles", tag: ''}
-    {name: "Press Release", tag: "press_release"}
-    {name: "Media Mention", tag: "media_mention"}
+    {name: "All Articles", value: ''}
+    {name: "Press Release", value: "press_release"}
+    {name: "Media Mention", value: "media_mention"}
   ]
 
   $scope.articleYears = [
-    {name: "Latest", tag: ''}
-    {name: '2014', tag: '2014'}
-    {name: '2013', tag: '2013'}
-    {name: '2012', tag: '2012'}
-    {name: '2011', tag: '2011'}
-    {name: '2010', tag: '2010'}
+    {name: "Latest", value: ''}
+    {name: '2014', value: '2014'}
+    {name: '2013', value: '2013'}
+    {name: '2012', value: '2012'}
+    {name: '2011', value: '2011'}
+    {name: '2010', value: '2010'}
   ]
 
   $scope.pressItems = []
@@ -202,9 +219,12 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
   $scope.parseDate = (date) ->
     parsedDate = Date.parse(date)
     parsedDate
+
+  $scope.setTypeFilter = (filterObj)->
+    $scope.articleFilters.type = filterObj.value
+
 ])
 
-# TODO Change to detail page format
 sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "MediaMention", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, MediaMention, MediaMentionOrPressItem, Pagination) ->
 
   $scope.article = {
@@ -267,7 +287,7 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
   }
 
   $scope.highlightYears = [
-    {name: "Latest", tag: ''}
+    {name: "Latest", value: ''}
   ]
 
   MissionsIndex.getIndex().then (data) ->
@@ -276,10 +296,11 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
     $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
 
     $scope.highlightRegions = data.categories
+
     for year in data.years
       addedYear = {
-        name: year
-        tag: year
+        name: year.name
+        value: year.value
       }
       $scope.highlightYears.push addedYear
 
@@ -360,5 +381,4 @@ sfControllers.controller("TakeActionCtrl", ["$scope", "$routeParams", ($scope, $
 sfControllers.controller("PreviewShowCtrl", ["$scope", "$routeParams", "$sce",  "Preview", ($scope, $routeParams, $sce, Preview) ->
   Preview.getDetail($routeParams.articleId).then (data) ->
     $scope.article = data
-
 ])

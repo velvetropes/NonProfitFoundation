@@ -9,8 +9,12 @@ requiredModules = [
   "sfServices"
 ]
 
+FB_ID = "1391926457745223"
+
 # Blog
 blogPagesApp = angular.module("blogPagesApp", requiredModules)
+blogPagesApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 blogPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -20,16 +24,34 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles",
     templateUrl: "partials/articles/index.html"
     controller: "BlogIndexCtrl"
+    resolve: {
+      api_data : [ "Articles", (Articles) ->
+        Articles.getIndex().then(
+          (data) ->
+            data
+        )
+      ]
+    }
   ).when("/articles/:articleId",
     templateUrl: (params) ->
       "api/blog_detail/#{params.articleId}"
       # "local/api/blog_detail"
     controller: "BlogShowCtrl"
+    resolve: {
+      api_data : [ "Articles", (Articles) ->
+        Articles.getIndex().then(
+          (data) ->
+            data
+        )
+      ]
+    }
   ).otherwise redirectTo: "/articles"
 ]
 
 # Gala
-galaPageApp = angular.module("galaPageApp", requiredModules )
+galaPageApp = angular.module("galaPageApp", requiredModules)
+galaPageApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/gala/:tabId",
@@ -40,10 +62,14 @@ galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/gala/overview"
 ]
 
-legalPagesApp = angular.module("legalPagesApp", requiredModules )
+legalPagesApp = angular.module("legalPagesApp", requiredModules)
+legalPagesApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 # Media Mentions
-mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", requiredModules )
+mediaMentionsPagesApp = angular.module("mediaMentionsPagesApp", requiredModules)
+mediaMentionsPagesApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 mediaMentionsPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -63,7 +89,9 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
 ]
 
 # Hearing Missions
-missionsPageApp = angular.module("missionsPageApp", requiredModules )
+missionsPageApp = angular.module("missionsPageApp", requiredModules)
+missionsPageApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 missionsPageApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
   $rootScope.$on "$routeChangeSuccess", (newRoute, oldRoute) ->
@@ -85,7 +113,9 @@ missionsPageApp.config ["$routeProvider", ($routeProvider) ->
   ).otherwise redirectTo: "/missions"
 ]
 
-programsPageApp = angular.module("programsPageApp", requiredModules )
+programsPageApp = angular.module("programsPageApp", requiredModules)
+programsPageApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/programs/:tabId",
@@ -96,7 +126,9 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/programs/0"
 ]
 
-takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules )
+takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules)
+takeActionPagesApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/:tabId",
@@ -107,17 +139,20 @@ takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).otherwise redirectTo: "/fundraising"
 ]
 
-HomePageApp = angular.module('homePageApp', requiredModules )
+HomePageApp = angular.module('homePageApp', requiredModules)
+
 HomePageApp.run ($FB) ->
   $FB.init('1391926457745223')
 
 # Preview
-previewPageApp = angular.module("previewPageApp", requiredModules )
+previewPageApp = angular.module("previewPageApp", requiredModules)
+previewPageApp.run ($FB) ->
+  $FB.init(FB_ID)
 
 previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
-  $routeProvider.when("/articles/:articleId",
+  $routeProvider.when("/:articleId",
     templateUrl: (params) ->
-      "api/preview/#{params.articleId}"
+      "api/blog_detail/#{params.articleId}"
       # "local/api/preview"
     controller: "PreviewShowCtrl"
   )

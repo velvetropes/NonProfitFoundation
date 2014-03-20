@@ -1,5 +1,5 @@
 body {
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     padding-top: 55px;
   }
 }
@@ -19,16 +19,19 @@ body {
 .clearfix {
   clear: both;
 }
+.overflow-hidden {
+  overflow: hidden;
+}
 .mobile-only {
   display: none;
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     display: block;
   }
 }
 
 header {
   margin-top: 1em;
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     margin: 0;
     position: fixed;
     top: 0;
@@ -45,21 +48,21 @@ header {
     width: 25%;
     float: left;
     img {
-      width: 160px;
+      width: 200px;
       height: auto;
       padding: 0 0 0 20px;
     }
-    @include breakpoint($mobile) {
-      margin: 6px 0;
+    @include media($tablet) {
+      width: 27%;
       img {
-        width: 100px;
+        width: 140px;
         padding-top: 2px;
       }
     }
-    @include breakpoint($tablet) {
-      width: 27%;
+    @include media($mobile) {
+      margin: 6px 0;
       img {
-        width: 110px;
+        width: 100px;
         padding-top: 2px;
       }
     }
@@ -69,44 +72,46 @@ header {
     float: left;
     text-align: center;
     line-height: 0;
-    margin-top: 14px;
+    margin-top: 28px;
     h1 {
       font-weight: 400;
     }
-    @include breakpoint($mobile) {
-      display: none;
-    }
-    @include breakpoint($tablet) {
+    @include media($tablet) {
       width: 46%;
-      margin-top: 11px;
+      margin-top: 21px;
       h1 {
         font-size: 20px;
       }
+    }
+    @include media($mobile) {
+      display: none;
     }
   }
   .social-links {
     width: 25%;
     float: right;
-    margin-top: 7px;
+    margin-top: 14px;
     ul {
       float: right;
       padding: 0 20px 0 0;
     }
     li {
       float: left;
+      list-style: none;
       a {
         font-size: 1.7em;
       }
     }
-    @include breakpoint($mobile) {
-      display: none;
-    }
-    @include breakpoint($tablet) {
+    @include media($tablet) {
       width: 27%;
-      margin-top: -16px;
+      margin-top: -6px;
+      margin-bottom: -18px;
       ul {
         width: 75px;
       }
+    }
+    @include media($mobile) {
+      display: none;
     }
   }
 }
@@ -116,13 +121,15 @@ header {
   width: 25%;
   float: right;
   margin-top: 7px;
-  font-size: 38px;
+  font-size: 30px;
+  color: #b2b2b2;
   .icon {
     float: right;
-    margin: 0 20px 0 0;
+    margin: 0 15px 0 0;
     cursor: pointer;
+    padding: 5px;
   }
-  @include breakpoint($mobile) {
+  @include media($mobile) {
     display: block;
   }
 }
@@ -201,13 +208,13 @@ header {
         i {
           @include transform(rotate(90deg));
         }
-        .sub-devider {
+        .sub-divider {
           display: block;
         }
       }
     }
   }
-  .sub-devider {
+  .sub-divider {
     margin-top: 5px;
     border-top: 1px dotted #bebebe;
     display: none;

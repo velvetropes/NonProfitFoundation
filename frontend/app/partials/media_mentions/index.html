@@ -1,8 +1,9 @@
-<div class="outer-container">
-  <div class="masthead">
-    <h3 class="section-headline">Media Mentions</h3>
-  </div>
-</div>
+<section class="page-leader">
+  <h1>
+    Media Mentions
+  </h1>
+  <div class="fixed-width bigger uppercase" ng-bind-html-unsafe="missions.page_lead"></div>
+</section>
 
 <section class="carousel hero short">
   <swiper
@@ -35,28 +36,35 @@
   <div class="pagination">
     <ul>
       <li class="disabled">
-        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
       <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
       <li class="disabled">
-        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
   </div>
 
   <ul class="articles-filters">
-    <li>Sort &nbsp;|</li>
-    <li class="dropdown widest">
+    <li><strong>Sort</strong></li>
+    <li class="filters-devider">|</li>
+    <li class="dropdown desktop">
+      <dropdown options="articleCategories" call-filter="articleFilters.type"></dropdown>
+    </li>
+    <li class="dropdown tablet-down">
       <select ng-model="articleFilters.type" class="dropdown-select">
-        <option ng-repeat="cat in articleCategories" value="{{cat.tag}}">{{cat.name}}</option>
+        <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
       </select>
     </li>
-    <li>&nbsp;|&nbsp;</li>
-    <li class="dropdown wide">
+    <li class="filters-devider">|</li>
+    <li class="dropdown desktop">
+      <dropdown options="articleYears" call-filter="articleFilters.year"></dropdown>
+    </li>
+    <li class="dropdown tablet-down">
       <select ng-model="articleFilters.year" class="dropdown-select">
-        <option ng-repeat="year in articleYears" value="{{year.tag}}">{{year.name}}</option>
+        <option ng-repeat="year in articleYears" value="{{year.value}}">{{year.name}}</option>
       </select>
     </li>
   </ul>
@@ -87,13 +95,13 @@
   <div class="pagination">
     <ul>
       <li class="disabled">
-        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="icon starkey-pg-arrow-left">&nbsp;</span>Prev</a>
+        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
       <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
       </li>
       <li class="disabled">
-        <a href ng-click="pagination.nextPage()">Next <span class="icon starkey-pg-arrow-right">&nbsp;</span></a>
+        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
       </li>
     </ul>
   </div>

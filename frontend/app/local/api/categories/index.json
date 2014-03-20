@@ -1,11 +1,11 @@
 [
-{"name": "News", "tag": "news"}
-{"name": "Events", "tag": "events"}
-{"name": "Hear Now", "tag": "hear_now"}
-{"name": "Gala", "tag": "gala"}
-{"name": "Films", "tag": "films"}
-{"name": "Celebrity", "tag": "celebrity"}
-{"name": "Operation Change", "tag": "operation_change"}
-{"name": "Hearing Missions", "tag": "hearing_missions"}
-{"name": "Listen Carefully", "tag": "listen_carefully"}
+{"name": "News", "value": "news"}
+{"name": "Events", "value": "events"}
+{"name": "Hear Now", "value": "hear_now"}
+{"name": "Gala", "value": "gala"}
+{"name": "Films", "value": "films"}
+{"name": "Celebrity", "value": "celebrity"}
+{"name": "Operation Change", "value": "operation_change"}
+{"name": "Hearing Missions", "value": "hearing_missions"}
+{"name": "Listen Carefully", "value": "listen_carefully"}
 ]
