@@ -10,6 +10,7 @@
 }
 ul.pagination-articles {
   padding: 0;
+  clear: both;
   @include reset-display;
   li {
     margin-bottom: 42px;
