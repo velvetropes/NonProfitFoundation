@@ -275,29 +275,32 @@ hr.separator {
 .masthead {
   text-align: center;
   width: 100%;
-  margin: 50px auto 0;
+  margin: 45px auto 0;
   float: left;
+  padding-left: 16px;
+  padding-right: 16px;
   .section-title {
+    @extend .alrightsansbold;
     color: $light-blue;
     text-transform: uppercase;
     font-size: 1.125em;
-    @extend .alrightsansbold;
+    margin-top: 0;
   }
   .section-headline {
+    @extend .alrightsansbold;
     text-transform: uppercase;
     font-size: 3.75em;
     margin: 30px 0 40px;
-    @extend .alrightsansbold;
   }
   p {
-    margin: 20px 0;
-    padding-left: 16px;
-    padding-right: 16px;
+    font-size: 1.1em;
+    padding: 0 0 8px;
+    margin: 0;
   }
   .call-to-action {
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     a {
       text-decoration: underline;
     }
