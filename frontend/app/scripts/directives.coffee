@@ -795,6 +795,11 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 
     _setupWatchers(scope)
 
+    scope.isInPageRange = (n) ->
+      thisPage = parseInt(n, 10)
+      currentPage = scope.pagination.page
+      upToPage = currentPage + 2
+      if thisPage in [currentPage..upToPage] then true else false
     return
 
   result =
