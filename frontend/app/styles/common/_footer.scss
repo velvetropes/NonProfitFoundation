@@ -279,6 +279,11 @@ footer {
         margin: 0;
         font-size: .625em;
       }
+      a {
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
   @include media($tablet-down) {
