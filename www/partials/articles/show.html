@@ -3,18 +3,17 @@
 <div class="outer-container">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel'>
-    <thumblist-nav>
-      <div ng-repeat="article in articles | filter:{featured:'true'}">
-        <slide
-          thumblist="true"
-          image-url="{{article.thumbnail_image_url}}"
-          video-url=""
-          link-url="#/articles/{{article.id}}"
-          headline="{{article.title}}"
-          link-style=""
-          date="{{article.date}}"
-        ></slide>
-      </div>
+    <thumblist-nav full="true">
+      <slide
+        ng-repeat="article in articles | filter:{featured:'true'}"
+        thumblist="true"
+        image-url="{{article.thumbnail_image_url}}"
+        video-url=""
+        link-url="#/articles/{{article.id}}"
+        headline="{{article.title}}"
+        link-style=""
+        date="{{article.date}}"
+      ></slide>
     </thumblist-nav>
   </section>
 </div>

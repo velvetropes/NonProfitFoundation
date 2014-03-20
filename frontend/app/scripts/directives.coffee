@@ -284,18 +284,6 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
   config = {}
 
   link = (scope, element, attrs) ->
-    $timeout( ->
-      scope.pane = $('.thumblist-nav')
-      scope.pane.jScrollPane(config)
-      scope.api = element.data("jsp")
-    , 1400)
-
-    scope.$on("window.resized", (event, args) ->
-      $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
-      , 400)
-    )
 
   controller = ($scope, $element) ->
     $scope.getItem = (url)->
@@ -354,6 +342,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
             scope.api.reinitialise()
         , 400)
       )
+
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
     """
@@ -793,6 +782,9 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     scope.articlesFilterObject = _composeFilterObject(scope.filters)
 
     scope.mobileStop = scope.pagination.perPage
+
+    scope.parseDate = (date) ->
+      Date.parse(date)
 
     scope.loadMore = ->
       scope.pagination.nextPage() #do we need this?
@@ -1263,7 +1255,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
     config = showArrows: false
 
     $timeout (->
-      scope.pane = $(".thumblist-nav")
+      scope.pane = element
       scope.pane.jScrollPane config
       scope.api = scope.pane.data("jsp")
     ), 400
@@ -1276,6 +1268,13 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
           scope.api.reinitialise()
         return
       , 200)
+
+    scope.$on("window.resized", (event, args) ->
+      $timeout( ->
+        if scope.api?
+          scope.api.reinitialise()
+      , 400)
+    )
 
     scope.isFullHeight = ->
       scope.full?.length > 0 and scope.full is "true"

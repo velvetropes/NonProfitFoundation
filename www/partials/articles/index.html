@@ -23,17 +23,16 @@
 
   <section class='carousel thumblist'>
     <thumblist-nav full="true">
-      <div ng-repeat="article in blogArticles | filter:{featured:'true'}">
-        <slide
-          thumblist="true"
-          image-url="{{article.thumbnail_image_url}}"
-          blog-category="{{article.blog_item_category}}"
-          video-url=""
-          link-url="#/articles/{{article.id}}"
-          headline="{{article.title}}"
-          link-text=""
-        ></slide>
-      </div>
+      <slide
+        ng-repeat="article in blogArticles | filter:{featured:'true'}"
+        thumblist="true"
+        image-url="{{article.thumbnail_image_url}}"
+        blog-category="{{article.category}}"
+        video-url=""
+        link-url="#/articles/{{article.id}}"
+        headline="{{article.title}}"
+        link-text=""
+      ></slide>
     </thumblist-nav>
   </section>
 

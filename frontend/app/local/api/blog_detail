@@ -67,7 +67,7 @@
 </div>
 
 
-<div class="text-container">
+<div class="no-container related-posts">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>
     <thumblist-nav>
