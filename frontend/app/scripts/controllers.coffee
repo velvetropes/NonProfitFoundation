@@ -80,83 +80,87 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 ])
 
 # Blog
-sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", "api_data", "$filter", ($scope, $window, Articles, Pagination, api_data, $filter) ->
-
-  $scope.articles = api_data.articles
-
+sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pagination", "api_data", ($scope, $window, Articles, Pagination, api_data) ->
+  $scope.blogArticles = api_data.articles
+  $scope.blogFilters = api_data.filters
 ])
 
-sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
+sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", "api_data",($scope, $routeParams, $location, $sce, Articles, Article, Pagination, api_data) ->
 
   $scope.currentPosition = $routeParams.articleId
 
+  $scope.blogArticles = api_data.articles or []
+  $scope.blogFilters = api_data.filters
 ])
 
-sfControllers.controller("BlogListingCtrl", ["$scope", "Articles", "Pagination", "$filter", ($scope, Articles, Pagination, $filter) ->
-  itemsPerPage = 9
+# sfControllers.controller("BlogListingCtrl", ["$scope", "Articles", "Pagination", "$filter", ($scope, Articles, Pagination, $filter) ->
+#   itemsPerPage = 9
 
-  $scope.isMobile = -> $scope.windowWidth < 768
+#   # $scope.articleCategories = []
+#   # $scope.articleYears = []
 
-  $scope.parseDate = (date) ->
-    Date.parse(date)
+#   $scope.isMobile = -> $scope.windowWidth < 768
 
-  # Get Articles
-  Articles.getIndex().then (data) ->
-    $scope.articleCategories = data.cats
-    $scope.articleYears = data.years
-    if data.articles instanceof Array
-      $scope.articlesList = data.articles
-    else
-      $scope.articlesList = [data.articles]
-    $scope.articles = $scope.articlesList
-    $scope.articlesForMobile = $scope.articlesList[0..itemsPerPage-1]
-    return
+#   $scope.parseDate = (date) ->
+#     Date.parse(date)
 
-  # Article Filters
-  $scope.articleFilters = {
-    featured:'false'
-    blog_item_category: ''
-    year: ''
-  }
-  $scope.$watch "articleFilters", ->
-    $scope.articles = $filter('filter')($scope.articlesList, $scope.articleFilters)
-    return
-  , true
+#   # Get Articles
+#   Articles.getIndex().then (data) ->
+#     $scope.articleCategories = data.cats
+#     $scope.articleYears = data.years
+#     if data.articles instanceof Array
+#       $scope.articlesList = data.articles
+#     else
+#       $scope.articlesList = [data.articles]
+#     $scope.articles = $scope.articlesList
+#     $scope.articlesForMobile = $scope.articlesList[0..itemsPerPage-1]
+#     return
+
+#   # Article Filters
+#   $scope.articleFilters = {
+#     featured:'false'
+#     blog_item_category: ''
+#     year: ''
+#   }
+#   $scope.$watch "articleFilters", ->
+#     $scope.articles = $filter('filter')($scope.articlesList, $scope.articleFilters)
+#     return
+#   , true
 
 
-  # Pagination
-  $scope.perPage = itemsPerPage;
-  $scope.pagination = Pagination.getNew(itemsPerPage)
-  $scope.isAtPaginationEnd = false
-  $scope.pagination.numPages = 0
-  $scope.currentPage = 0
+#   # Pagination
+#   $scope.perPage = itemsPerPage;
+#   $scope.pagination = Pagination.getNew(itemsPerPage)
+#   $scope.isAtPaginationEnd = false
+#   $scope.pagination.numPages = 0
+#   $scope.currentPage = 0
 
-  $scope.$watch "articles", ->
-    $scope.articlesForMobile = if $scope.articles? then $scope.articles[0..itemsPerPage-1] else []
-    $scope.pagination.numPages = if $scope.articles? then Math.ceil($scope.articles.length/$scope.pagination.perPage) else $scope.pagination.numPages
-    return
-  , true
+#   $scope.$watch "articles", ->
+#     $scope.articlesForMobile = if $scope.articles? then $scope.articles[0..itemsPerPage-1] else []
+#     $scope.pagination.numPages = if $scope.articles? then Math.ceil($scope.articles.length/$scope.pagination.perPage) else $scope.pagination.numPages
+#     return
+#   , true
 
-  $scope.$watch "pagination.page", ->
-    $scope.currentPage = $scope.pagination.page * $scope.pagination.perPage
-    return
-  , true
+#   $scope.$watch "pagination.page", ->
+#     $scope.currentPage = $scope.pagination.page * $scope.pagination.perPage
+#     return
+#   , true
 
-  $scope.loadMore = ->
-    $scope.pagination.nextPage()
-    start = ($scope.currentPage + 1) + $scope.pagination.perPage
-    end = $scope.currentPage + ($scope.pagination.perPage * 2)
+#   $scope.loadMore = ->
+#     $scope.pagination.nextPage()
+#     start = ($scope.currentPage + 1) + $scope.pagination.perPage
+#     end = $scope.currentPage + ($scope.pagination.perPage * 2)
 
-    if (end >= ($scope.articles.length - 1))
-      end = ($scope.articles.length - 1)
-      $scope.isAtPaginationEnd = true
+#     if (end >= ($scope.articles.length - 1))
+#       end = ($scope.articles.length - 1)
+#       $scope.isAtPaginationEnd = true
 
-    $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.articles[start..end])
-    return
+#     $scope.articlesForMobile = $scope.articlesForMobile.concat($scope.articles[start..end])
+#     return
 
-  $scope.pageStart = -> if $scope.isMobile() then 0 else $scope.currentPage
+#   $scope.pageStart = -> if $scope.isMobile() then 0 else $scope.currentPage
 
-])
+# ])
 
 
 # Gala
@@ -218,7 +222,6 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
 
 ])
 
-# TODO Change to detail page format
 sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "MediaMention", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, MediaMention, MediaMentionOrPressItem, Pagination) ->
 
   $scope.article = {

@@ -108,4 +108,4 @@
 <br/>
 <hr class="separator padded"/>
 
-<div ng-include="'/partials/articles/pagination.html'"></div>
+<paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></paginated-article-list>
