@@ -151,7 +151,8 @@
     transition: all 0.2s ease-in;
     list-style: none;
     padding: 10px;
-    width: 110%;
+    // width: 110%;
+    min-width: 175px;
     opacity: 0;
     pointer-events: none;
     li {
