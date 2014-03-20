@@ -638,16 +638,22 @@
                 pageStart: 0
             });
         }, _setupWatchers = function(scope) {
-            return scope.$watch("articles", function() {
-                scope.articlesForMobile = null != scope.articles ? scope.articles.slice(0, +(scope.perPage - 1) + 1 || 9e9) : [], 
+            return scope.$watch("articlesFilterObject", function() {
+                var filteredList;
+                filteredList = $filter("filter")(scope.articles, scope.articlesFilterObject), scope.pagination.numPages = Math.ceil(filteredList.length / scope.pagination.perPage), 
+                scope.isAtPaginationEnd = scope.mobileStop >= filteredList.length;
+            }, !0), scope.$watch("articles", function() {
                 scope.pagination.numPages = null != scope.articles ? Math.ceil(scope.articles.length / scope.pagination.perPage) : scope.pagination.numPages;
             }, !0), scope.$watch("pagination", function() {
                 scope.pageStart = scope.pagination.page, scope.currentPage = scope.pagination.page * scope.pagination.perPage;
             }, !0);
         }, link = function(scope) {
-            scope.articlesForMobile = scope.articles.slice(0, +(scope.perPage - 1) + 1 || 9e9), 
             scope = _.extend(scope, _composePaginationSettings(scope)), scope.articlesFilterObject = _composeFilterObject(scope.filters), 
-            _setupWatchers(scope);
+            scope.mobileStop = scope.pagination.perPage, scope.loadMore = function() {
+                var filteredList;
+                scope.pagination.nextPage(), scope.mobileStop = parseInt(scope.mobileStop, 10) + parseInt(scope.pagination.perPage, 10), 
+                filteredList = $filter("filter")(scope.articles, scope.articlesFilterObject), scope.isAtPaginationEnd = scope.mobileStop >= filteredList.length;
+            }, _setupWatchers(scope);
         }, result = {
             restrict: "E",
             transclude: !0,
@@ -1003,7 +1009,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
+                    svgMap.appendChild(pattern), void pattern.appendChild(image);
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1039,7 +1045,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, $timeout(generateMap, 1200), void 0;
+                }, void $timeout(generateMap, 1200);
             }
         };
     } ]);

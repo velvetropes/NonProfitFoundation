@@ -724,8 +724,14 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 
   _setupWatchers = (scope) ->
 
+    scope.$watch "articlesFilterObject", ->
+      filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.pagination.numPages = Math.ceil(filteredList.length/scope.pagination.perPage)
+      scope.isAtPaginationEnd = (scope.mobileStop >= filteredList.length)
+      return
+    , true
+
     scope.$watch "articles", ->
-      scope.articlesForMobile = if scope.articles? then scope.articles[0..scope.perPage-1] else []
       scope.pagination.numPages = if scope.articles? then Math.ceil(scope.articles.length/scope.pagination.perPage) else scope.pagination.numPages
       return
     , true
@@ -738,11 +744,18 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 
   link = (scope, element, attrs) ->
 
-    scope.articlesForMobile = scope.articles[0..scope.perPage-1]
-
     scope = _.extend scope, _composePaginationSettings(scope)
 
     scope.articlesFilterObject = _composeFilterObject(scope.filters)
+
+    scope.mobileStop = scope.pagination.perPage
+
+    scope.loadMore = ->
+      scope.pagination.nextPage() #do we need this?
+      scope.mobileStop = parseInt(scope.mobileStop, 10) + parseInt(scope.pagination.perPage, 10)
+      filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.isAtPaginationEnd = (scope.mobileStop >= filteredList.length)
+      return
 
     _setupWatchers(scope)
 

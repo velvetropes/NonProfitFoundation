@@ -27,7 +27,7 @@
 
   "filters": [
     {
-      "label": year",
+      "label": "year",
       "values": [
           {
             "name"  : "Latest",

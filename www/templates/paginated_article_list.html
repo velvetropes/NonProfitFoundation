@@ -49,7 +49,7 @@
     </ul>
 
     <ul class="pagination-articles tablet" ng-if="articles">
-      <li ng-repeat="article in articlesForMobile track by article.id" class="reveal">
+      <li ng-repeat="article in articles | filter:articlesFilterObject | startFrom:0 | limitTo:mobileStop" class="reveal">
         <div class='block'>
           <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
           <div class="content">
