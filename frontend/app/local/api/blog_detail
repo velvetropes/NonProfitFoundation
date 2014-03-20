@@ -1,17 +1,11 @@
-
-
-
-
-
-
-
-
-
 <div class="article-header-image">
-  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/DSC03269ccKarlal_India_Day_3_Mar_31_Sun.jpg');">
+  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg');">
     <ul class="page-nav-links">
+            <li>
+        <a href="#/articles/new-blog-entry-1394495216" ng-disabled="'new-blog-entry-1394495216'==''">&larr;</a>
+      </li>
                   <li>
-        <a href="#/articles/test-blog-entry-w-related-blog-posts" ng-disabled="'test-blog-entry-w-related-blog-posts'=='test-blog-entry-w-related-blog-posts'" >&rarr;</a>
+        <a href="#/articles/test-blog-post-3-9" ng-disabled="'test-blog-post-3-9'=='test-blog-post-3-9'" >&rarr;</a>
       </li>
             <li>
         <a href="#">X</a>
@@ -22,13 +16,32 @@
       <div class="relative-container">
         <div class="banner">
                       <p class="article-item-category">News</p>
-                    <h1  class="article-title">Test Blog Post w/ video</h1>
-          <p>March 12, 2014 | Oleg Poncefranco</p>
+                    <h1  class="article-title">Test OP 03/10/14</h1>
+          <p>March 10, 2014 </p>
         </div>
       </div>
     </div>
   </div>
 </div>
+<br/>
+
+<div class="text-container">
+  <p>test test test test test&nbsp;</p>
+
+<p>
+
+
+          <gallery slides="1">              <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/DemoimageCropped_.jpg"
+               video-url="http://www.youtube.com/watch?v=03KTq85Y3wM"
+              ></gallery-slide>
+          </gallery>
+
+
+
+    </p>
+</div>
+
 <br/>
 <div class="outer-container">
   <div class="share-this-post">
@@ -53,62 +66,77 @@
   </div>
 </div>
 
+
 <div class="text-container">
-  <p>
-
-
-          <gallery slides="1">              <gallery-slide
-               image-url=""
-               video-url="https://www.youtube.com/watch?v=W50L7eNGT2U"
-              ></gallery-slide>
-          </gallery>
-
-
-
-    </p>
-</div>
-<br/>
-
-
-<div class="outer-container">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>
     <thumblist-nav>
         <slide
           thumblist="true"
-          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
           video-url=""
-          link-url="#/articles/an-unstoppable-spirit"
-          headline="An Unstoppable Spirit"
+          link-url="#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank"
+          headline="Bringing Peace through Hearing, Starkey Hearing Foundation goes to the West Bank"
           link-style=""
-          date="March 05, 2013"
+          date="March 31, 2011"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-THUMBNAIL.jpg"
+          video-url=""
+          link-url="#/articles/building-momentum-for-peace-in-the-west-bank"
+          headline="Building Momentum for Peace in the West Bank"
+          link-style=""
+          date="October 16, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
+          video-url=""
+          link-url="#/articles/dave-fabry-lives-to-listen-carefully"
+          headline="Dave Fabry Lives to Listen Carefully"
+          link-style=""
+          date="October 31, 2013"
+        ></slide>
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
+          video-url=""
+          link-url="#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank"
+          headline="Bringing Peace through Hearing, Starkey Hearing Foundation goes to the West Bank"
+          link-style=""
+          date="March 31, 2011"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-THUMBNAIL.jpg"
+          video-url=""
+          link-url="#/articles/building-momentum-for-peace-in-the-west-bank"
+          headline="Building Momentum for Peace in the West Bank"
+          link-style=""
+          date="October 16, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
+          video-url=""
+          link-url="#/articles/dave-fabry-lives-to-listen-carefully"
+          headline="Dave Fabry Lives to Listen Carefully"
+          link-style=""
+          date="October 31, 2013"
         ></slide>
     </thumblist-nav>
   </section>
 </div>
 
 
+
+
 <br/>
 <hr class="separator padded"/>
 
-<div class="outer-container">
-  <div class="pagination">
-    <ul>
-      <li ng-class="{disabled: currentPage == 0}">
-        <a href ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Prev</a>
-      </li>
-      <li ng-class="{disabled: currentPage >= articles.length/pageSize - 1}">
-        <a href ng-click="currentPage=currentPage+1">Next</a>
-      </li>
-    </ul>
-  </div>
-  <ul class="pagination-articles">
-    <li ng-repeat="article in articles | startFrom:currentPage*pageSize | limitTo:pageSize">
-      <div class='block'>
-        <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
-        <h2 class="headline"></h2>
-        <p class='read-more'><a href="#/articles/">Read more &rarr;</a></p>
-      </div>
-    </li>
-  </ul>
-</div>
+<paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></paginated-article-list>

@@ -82,7 +82,7 @@
 
 {blog_related_items}
 {if blog_related_items:count == 1}
-<div class="outer-container">
+<div class="text-container">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>
     <thumblist-nav>
