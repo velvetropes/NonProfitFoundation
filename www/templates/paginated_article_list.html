@@ -36,7 +36,7 @@
   </ul>
   <section class='articles-list' ng-if="articles">
     <ul class="pagination-articles desktop blog-items">
-      <li ng-repeat="article in articles | filter:articlesFilterObject | startFrom:pageStart | limitTo:perPage" class="reveal">
+      <li ng-repeat="article in articles | filter:articlesFilterObject | orderBy:'-rawdate' | startFrom:pageStart | limitTo:perPage" class="reveal">
         <div class='block'>
           <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
           <div class="content">
@@ -49,7 +49,7 @@
     </ul>
 
     <ul class="pagination-articles tablet" ng-if="articles">
-      <li ng-repeat="article in articles | filter:articlesFilterObject | startFrom:0 | limitTo:mobileStop" class="reveal">
+      <li ng-repeat="article in articles | filter:articlesFilterObject | orderBy:'-rawdate' | startFrom:0 | limitTo:mobileStop" class="reveal">
         <div class='block'>
           <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
           <div class="content">

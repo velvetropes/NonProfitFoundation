@@ -794,6 +794,9 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 
     scope.mobileStop = scope.pagination.perPage
 
+    scope.parseDate = (date) ->
+      Date.parse(date)
+
     scope.loadMore = ->
       scope.pagination.nextPage() #do we need this?
       scope.mobileStop = parseInt(scope.mobileStop, 10) + parseInt(scope.pagination.perPage, 10)
