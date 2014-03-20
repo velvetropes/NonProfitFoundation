@@ -42,7 +42,7 @@
         <div class="banner">
           <p class="article-item-category">{mission_region}{option_name}{/mission_region}, {mission_country}{option_name}{/mission_country}</p>
           <h1  class="article-title">{title}</h1>
-          <p>{mission_date format="%F %d, %Y"}{if author} | {author}{/if}</p>
+          <p>{mission_date format="%F %Y"}</p>
         </div>
       </div>
     </div>
@@ -80,24 +80,28 @@
   </div>
   {exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
 
-  <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel thumblist'>
-    <thumblist-nav>
-      {mission_rel}
-      <div>
-        <slide
-          thumblist="true"
-          image-url="{mission_rel:mission_thumb_image:url}"
-          video-url=""
-          link-url="#/missions/{mission_rel:url_title}"
-          headline="{mission_rel:title}"
-          link-style=""
-          date="{mission_rel:mission_date format='%F %d, %Y'}"
-        ></slide>
-      </div>
-      {/mission_rel}
-    </thumblist-nav>
-  </section>
+  {mission_rel}
+    {if mission_rel:count == 1}
+    <h3 class="section-title centered">Related posts</h3>
+    <section class='carousel thumblist'>
+      <thumblist-nav>
+    {/if}
+        <div>
+          <slide
+            thumblist="true"
+            image-url="{mission_rel:mission_thumb_image:url}"
+            video-url=""
+            link-url="#/missions/{mission_rel:url_title}"
+            headline="{mission_rel:title}"
+            link-style=""
+            date="{mission_rel:mission_date format='%F %Y'}"
+          ></slide>
+        </div>
+    {if mission_rel:count == mission_rel:total_results}
+      </thumblist-nav>
+    </section>
+    {/if}
+  {/mission_rel}
 </div>
 <br/>
 {/exp:channel:entries}

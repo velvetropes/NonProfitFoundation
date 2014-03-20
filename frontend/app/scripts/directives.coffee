@@ -1,5 +1,22 @@
 sfDirectives = angular.module("sfDirectives", ["ngSanitize", "sfFilters"])
 
+# open external links in new window
+sfDirectives.directive 'href', ["$location", ($location) ->
+  compile: (element) ->
+    if element.prop("tagName") is 'A'
+      url = element.attr('href')
+      
+      # Check if external domain
+      match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
+      if typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
+        element.attr('target', '_blank')
+
+      # Check if file link
+      match = url.match(/\.[0-9a-z]+$/)
+      if typeof match is "string" and match.length > 0 and match.toLowerCase() isnt '.html'
+        element.attr('target', '_blank')
+]
+
 sfDirectives.directive "accordion", [->
   template = """
     <div class="accordion" ng-transclude></div>
@@ -645,6 +662,12 @@ sfDirectives.directive "pageTile", [ ->
     scope.callToActionLink ?= ""
     scope.videoLink ?= ""
 
+    scope.getFormat = ->
+      if typeof scope.dateFormat isnt "undefined" 
+        scope.dateFormat
+      else
+        "MMMM d, yyyy"
+
     scope.hasVideo = ->
       scope.videoLink?.length > 0
 
@@ -689,6 +712,7 @@ sfDirectives.directive "pageTile", [ ->
       callToActionText: "@"
       category: "@"
       date: "@"
+      dateFormat: "="
       detailPage: "@"
       featured: "@"
       feedUrl: "@"

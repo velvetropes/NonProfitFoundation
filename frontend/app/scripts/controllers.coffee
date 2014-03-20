@@ -14,6 +14,7 @@ sfControllers.controller("globalCtrl", ["$scope", "$rootScope", "$location", "$t
   # Make location available to get current url
   $rootScope.location = $location;
 
+  # We're using to let the blog index text appear before the view is loaded.
   if $location.url() is '/articles'
     $scope.blogOverview = true
 

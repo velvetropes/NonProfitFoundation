@@ -3,7 +3,7 @@
   <div class="content">
     <p class="category">{{getCategory()}}</p>
     <h2 class="headline">{{title | characters:70}}</h2>
-    <p class='date'>{{parseDate(date) | date:"MMMM d, yyyy"}}</p>
+    <p class='date'>{{parseDate(date) | date: getFormat() }}</p>
     <p class='read-more' ng-switch="linkByType()">
       <a ng-switch-when="press_release" href="#/press_releases/{{id}}">
         Read more &rarr;
