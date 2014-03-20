@@ -5,7 +5,7 @@ sfDirectives.directive 'href', ["$location", ($location) ->
   compile: (element) ->
     if element.prop("tagName") is 'A'
       url = element.attr('href')
-      
+
       # Check if external domain
       match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
       if typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
@@ -281,14 +281,22 @@ sfDirectives.directive("facebook", [
 
 # <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
 
-sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", ($http, $sce) ->
+sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http, $sce, $timeout) ->
   config = {}
 
   link = (scope, element, attrs) ->
-    setTimeout( ->
+    $timeout( ->
       scope.pane = $('.thumblist-nav')
       scope.pane.jScrollPane(config)
+      scope.api = element.data("jsp")
     , 1400)
+
+    scope.$on("window.resized", (event, args) ->
+      $timeout( ->
+        if scope.api?
+          scope.api.reinitialise()
+      , 400)
+    )
 
   controller = ($scope, $element) ->
     $scope.getItem = (url)->
@@ -335,12 +343,18 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
       scope.$watch (->
         element.find(".gallery-slide").length
       ), (length) ->
-        setTimeout( ->
-          if scope.api? # this was returning undefined?
+        $timeout( ->
+          if scope.api?
             scope.api.reinitialise()
           return
         , 800)
 
+      scope.$on("window.resized", (event, args) ->
+        $timeout( ->
+          if scope.api?
+            scope.api.reinitialise()
+        , 400)
+      )
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
     """
@@ -433,7 +447,7 @@ sfDirectives.directive 'resizer', [->
         "height": "525px"
 ]
 
-sfDirectives.directive 'homeThumblistNav', [->
+sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
 
   link = (scope, element, attrs) ->
     config = { showArrows: false }
@@ -441,7 +455,14 @@ sfDirectives.directive 'homeThumblistNav', [->
     setTimeout( ->
       scope.pane = $('.thumblist-nav')
       scope.pane.jScrollPane(config)
+      scope.api = scope.pane.data("jsp")
     , 1400)
+
+    scope.$on("window.resized", (event, args) ->
+      $timeout( ->
+        scope.api.reinitialise()
+      , 400)
+    )
 
   restrict: "E"
   link: link
@@ -663,7 +684,7 @@ sfDirectives.directive "pageTile", [ ->
     scope.videoLink ?= ""
 
     scope.getFormat = ->
-      if typeof scope.dateFormat isnt "undefined" 
+      if typeof scope.dateFormat isnt "undefined"
         scope.dateFormat
       else
         "MMMM d, yyyy"
@@ -1238,7 +1259,7 @@ sfDirectives.directive "tabbedNav", ["$window", ($window) ->
 
 # <thumblist-nav full="true"></thumblist-nav>
 
-sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
+sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $window) ->
   link = (scope, element, attrs) ->
     config = showArrows: false
 
@@ -1253,7 +1274,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", ($timeout) ->
     ), (length) ->
       $timeout( ->
         if scope.api?
-          scope.api.reinitialise()()
+          scope.api.reinitialise()
         return
       , 200)
 

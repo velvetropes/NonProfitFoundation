@@ -6,7 +6,7 @@ sfControllers.config ['$sceProvider', ($sceProvider) ->
 
 # Home
 
-sfControllers.controller("globalCtrl", ["$scope", "$rootScope", "$location", "$timeout", ($scope, $rootScope, $location, $timeout) ->
+sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$location", "$timeout", ($window, $scope, $rootScope, $location, $timeout) ->
   $scope.showModal = false
   $scope.videoIframe = ""
   $scope.showSubscribeForm = false
@@ -53,6 +53,9 @@ sfControllers.controller("globalCtrl", ["$scope", "$rootScope", "$location", "$t
 
   $scope.openSubscribeForm = ->
     $scope.showSubscribeForm = true
+
+  angular.element($window).bind 'resize', ->
+    $scope.$broadcast("window.resized", {})
 ])
 
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->
