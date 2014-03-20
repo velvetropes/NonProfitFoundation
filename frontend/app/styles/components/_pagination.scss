@@ -32,6 +32,7 @@ ul.pagination-articles {
         top: 0;
       }
       .headline {
+        @extend .alrightsansbold;
         position: absolute;
         bottom: 14px;
         height: 70px;
@@ -68,7 +69,6 @@ ul.pagination-articles {
     li {
       .block {
         .headline {
-          @extend .alrightsansbold;
           bottom: 42px;
           height: 41px;
           font-size: 1.2em;

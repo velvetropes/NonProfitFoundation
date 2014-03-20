@@ -61,8 +61,8 @@
     text-transform: uppercase;
   }
   .article-title {
-    font-size: 3em;
     @extend .alrightsansbold;
+    font-size: 3em;
     margin-top: 10px;
   }
 }
@@ -93,7 +93,7 @@
 
 .blog-page {
   .articles-filters {
-    margin-top: 8px;
+    margin-top: 17px;
   }
   .no-container.related-posts .thumblist-nav .jspPane > div {
     .content {
