@@ -21,6 +21,8 @@
       width: 100%;
       float: none;
       margin-top: 0;
+      height: 210px;
+      overflow: hidden;
     }
   }
   .main-story {
@@ -156,6 +158,8 @@
           p {
             line-height: 1.2;
             font-size: 0.8em;
+            height: 61px;
+            overflow: hidden;
           }
           .action-link {
             font-size: 11px;
