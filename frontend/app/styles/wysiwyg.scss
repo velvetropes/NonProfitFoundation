@@ -1,0 +1,47 @@
+@import "bourbon";
+@import "variables";
+@import "neat";
+
+@import "animations";
+@import "normalize";
+@import "typography";
+@import "grid";
+@import "tabs";
+@import "mixins";
+
+@import "flatform";
+
+@import "common/header";
+@import "common/footer";
+@import "components/accordion";
+@import "components/dialog";
+@import "components/dropdown";
+@import "components/gallery";
+@import "components/pagination";
+@import "components/swiper";
+@import "components/thumblist";
+@import "components/vectormap";
+
+@import "pages/about";
+@import "pages/blog";
+@import "pages/contact";
+@import "pages/gala";
+@import "pages/home";
+@import "pages/legal";
+@import "pages/programs";
+@import "pages/missions";
+@import "pages/take_action";
+@import "pages/team";
+
+body, a {
+  color: #4d4d4d;
+}
+
+html body {
+	background:#fff !important;
+
+	&::before {
+		content:none;
+	}
+}
+/* TODO: bring in bower_component CSS automatically */

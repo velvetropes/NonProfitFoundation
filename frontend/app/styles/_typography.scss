@@ -521,3 +521,15 @@ blockquote p {
   font-weight: bold;
   cursor: pointer;
 }
+
+// Editor styles
+.alignright {
+  float:right;
+}
+.alignleft {
+  float:left;
+}
+.aligncenter {
+  display: block;
+  margin: auto;
+}
