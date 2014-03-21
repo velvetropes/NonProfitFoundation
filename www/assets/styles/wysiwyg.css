@@ -500,12 +500,12 @@ table {
   font-style: normal;
   font-weight: bold; }
 
-.alrightsanslight, .detail-page-body .article-headline, .detail-page-body .article-subheadline, .detail-page-body .article-date, blockquote p, .generic-article-typography h1, .text-container h1, .gala-tab-content h1, .legal-page .article-section h1, .programs-page .program-section h1, .programs-page .programs-additional-section h1, .take-action-page .take-action-section h1, .generic-article-typography h2, .text-container h2, .gala-tab-content h2, .legal-page .article-section h2, .programs-page .program-section h2, .programs-page .programs-additional-section h2, .take-action-page .take-action-section h2, .generic-article-typography h3, .text-container h3, .gala-tab-content h3, .legal-page .article-section h3, .programs-page .program-section h3, .programs-page .programs-additional-section h3, .take-action-page .take-action-section h3, .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p, .tabbed-content nav .tabs li a, .tabbed-content nav.outer-container .two-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li a, .tabbed-content .legal-page nav.article-section .two-tabs li a, .legal-page .tabbed-content nav.article-section .two-tabs li a, .tabbed-content nav.outer-container .three-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li a, .tabbed-content .legal-page nav.article-section .three-tabs li a, .legal-page .tabbed-content nav.article-section .three-tabs li a, .tabbed-content nav.outer-container .five-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li a, .tabbed-content .legal-page nav.article-section .five-tabs li a, .legal-page .tabbed-content nav.article-section .five-tabs li a, .tabbed-content article .content h1, .tabbed-content article .content h2, .tabbed-content article .content h3, .tabbed-content article .content p, .swiper aside:not(.side-panel) p, .article-header-image .page-nav-links li a, .article-header-image .article-item-category, .share-this-post ul li, .highlights ul li .content h3, .missions-map .missions-map-legend h3, .missions-map .missions-map-legend .continents .countries a, .missions-map .missions-map-legend .continents .states a, .missions-map .missions-map-greeting h1, .missions-map .missions-map-info .continent-info h4, .missions-map .missions-map-info .continent-info p, .missions-map .missions-map-info .country-info h4, .missions-map .missions-map-info .country-info p {
+.alrightsanslight, .detail-page-body .article-headline, .detail-page-body .article-subheadline, .detail-page-body .article-date, blockquote p, .generic-article-typography h1, .text-container h1, .gala-tab-content h1, .legal-page .article-section h1, .programs-page .program-section h1, .programs-page .programs-additional-section h1, .take-action-page .take-action-section h1, .generic-article-typography h2, .text-container h2, .gala-tab-content h2, .legal-page .article-section h2, .programs-page .program-section h2, .programs-page .programs-additional-section h2, .take-action-page .take-action-section h2, .generic-article-typography h3, .text-container h3, .gala-tab-content h3, .legal-page .article-section h3, .programs-page .program-section h3, .programs-page .programs-additional-section h3, .take-action-page .take-action-section h3, .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p, .tabbed-content nav .tabs li a, .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .five-tabs li a, .tabbed-content article .content h1, .tabbed-content article .content h2, .tabbed-content article .content h3, .tabbed-content article .content p, .swiper aside:not(.side-panel) p, .article-header-image .page-nav-links li a, .article-header-image .article-item-category, .share-this-post ul li, .highlights ul li .content h3, .missions-map .missions-map-legend h3, .missions-map .missions-map-legend .continents .countries a, .missions-map .missions-map-legend .continents .states a, .missions-map .missions-map-greeting h1, .missions-map .missions-map-info .continent-info h4, .missions-map .missions-map-info .continent-info p, .missions-map .missions-map-info .country-info h4, .missions-map .missions-map-info .country-info p {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: normal; }
 
-.alrightsansregular, .page-leader p, .swiper aside.side-panel .body-copy, #map-popup, #map-popup .text-popup p {
+.alrightsansregular, .page-leader p, .swiper aside.side-panel p, .swiper aside.side-panel .body-copy, #map-popup, #map-popup .text-popup p {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: normal; }
@@ -856,7 +856,6 @@ nav .tabs {
     text-align: center;
     border-top: 1px dotted #8f8f8f;
     border-right: 1px dotted #8f8f8f;
-    background: white;
     border-bottom: 1px dotted #8f8f8f;
     padding: 2.35765%; }
     nav .tabs li:first-child {
@@ -992,53 +991,53 @@ nav .tabs {
           color: #00b3d2; }
       .tabbed-content nav .tabs li:hover a {
         color: #00b3d2; }
-  .tabbed-content nav.outer-container .two-tabs, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs, .tabbed-content .legal-page nav.article-section .two-tabs, .legal-page .tabbed-content nav.article-section .two-tabs, .tabbed-content nav.outer-container .three-tabs, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs, .tabbed-content .legal-page nav.article-section .three-tabs, .legal-page .tabbed-content nav.article-section .three-tabs, .tabbed-content nav.outer-container .five-tabs, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs, .tabbed-content .legal-page nav.article-section .five-tabs, .legal-page .tabbed-content nav.article-section .five-tabs {
+  .tabbed-content nav .two-tabs, .tabbed-content nav .three-tabs, .tabbed-content nav .five-tabs {
     text-align: center;
     padding: 0;
     margin: 0 0 -1px; }
-    .tabbed-content nav.outer-container .two-tabs li, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li, .tabbed-content .legal-page nav.article-section .two-tabs li, .legal-page .tabbed-content nav.article-section .two-tabs li, .tabbed-content nav.outer-container .three-tabs li, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li, .tabbed-content .legal-page nav.article-section .three-tabs li, .legal-page .tabbed-content nav.article-section .three-tabs li, .tabbed-content nav.outer-container .five-tabs li, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li, .tabbed-content .legal-page nav.article-section .five-tabs li, .legal-page .tabbed-content nav.article-section .five-tabs li {
+    .tabbed-content nav .two-tabs li, .tabbed-content nav .three-tabs li, .tabbed-content nav .five-tabs li {
       display: inline-block;
       border-left: 1px dotted #8f8f8f;
       border-top: 1px dotted #8f8f8f;
       margin: 0 0 0 -1px; }
-      .tabbed-content nav.outer-container .two-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li a, .tabbed-content .legal-page nav.article-section .two-tabs li a, .legal-page .tabbed-content nav.article-section .two-tabs li a, .tabbed-content nav.outer-container .three-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li a, .tabbed-content .legal-page nav.article-section .three-tabs li a, .legal-page .tabbed-content nav.article-section .three-tabs li a, .tabbed-content nav.outer-container .five-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li a, .tabbed-content .legal-page nav.article-section .five-tabs li a, .legal-page .tabbed-content nav.article-section .five-tabs li a {
+      .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .five-tabs li a {
         font-size: .875em;
         display: block;
         padding: 2px 10px;
         text-transform: uppercase; }
-        .tabbed-content nav.outer-container .two-tabs li a:hover, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li a:hover, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li a:hover, .tabbed-content .legal-page nav.article-section .two-tabs li a:hover, .legal-page .tabbed-content nav.article-section .two-tabs li a:hover, .tabbed-content nav.outer-container .three-tabs li a:hover, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li a:hover, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li a:hover, .tabbed-content .legal-page nav.article-section .three-tabs li a:hover, .legal-page .tabbed-content nav.article-section .three-tabs li a:hover, .tabbed-content nav.outer-container .five-tabs li a:hover, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li a:hover, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li a:hover, .tabbed-content .legal-page nav.article-section .five-tabs li a:hover, .legal-page .tabbed-content nav.article-section .five-tabs li a:hover {
+        .tabbed-content nav .two-tabs li a:hover, .tabbed-content nav .three-tabs li a:hover, .tabbed-content nav .five-tabs li a:hover {
           cursor: pointer; }
-      .tabbed-content nav.outer-container .two-tabs li.active, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li.active, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li.active, .tabbed-content .legal-page nav.article-section .two-tabs li.active, .legal-page .tabbed-content nav.article-section .two-tabs li.active, .tabbed-content nav.outer-container .three-tabs li.active, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li.active, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li.active, .tabbed-content .legal-page nav.article-section .three-tabs li.active, .legal-page .tabbed-content nav.article-section .three-tabs li.active, .tabbed-content nav.outer-container .five-tabs li.active, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li.active, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li.active, .tabbed-content .legal-page nav.article-section .five-tabs li.active, .legal-page .tabbed-content nav.article-section .five-tabs li.active {
+      .tabbed-content nav .two-tabs li.active, .tabbed-content nav .three-tabs li.active, .tabbed-content nav .five-tabs li.active {
         border-bottom: 1px solid white; }
-        .tabbed-content nav.outer-container .two-tabs li.active a, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li.active a, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li.active a, .tabbed-content .legal-page nav.article-section .two-tabs li.active a, .legal-page .tabbed-content nav.article-section .two-tabs li.active a, .tabbed-content nav.outer-container .three-tabs li.active a, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li.active a, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li.active a, .tabbed-content .legal-page nav.article-section .three-tabs li.active a, .legal-page .tabbed-content nav.article-section .three-tabs li.active a, .tabbed-content nav.outer-container .five-tabs li.active a, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li.active a, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li.active a, .tabbed-content .legal-page nav.article-section .five-tabs li.active a, .legal-page .tabbed-content nav.article-section .five-tabs li.active a {
+        .tabbed-content nav .two-tabs li.active a, .tabbed-content nav .three-tabs li.active a, .tabbed-content nav .five-tabs li.active a {
           color: #00b3d2; }
-      .tabbed-content nav.outer-container .two-tabs li.last, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li.last, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li.last, .tabbed-content .legal-page nav.article-section .two-tabs li.last, .legal-page .tabbed-content nav.article-section .two-tabs li.last, .tabbed-content nav.outer-container .three-tabs li.last, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li.last, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li.last, .tabbed-content .legal-page nav.article-section .three-tabs li.last, .legal-page .tabbed-content nav.article-section .three-tabs li.last, .tabbed-content nav.outer-container .five-tabs li.last, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li.last, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li.last, .tabbed-content .legal-page nav.article-section .five-tabs li.last, .legal-page .tabbed-content nav.article-section .five-tabs li.last {
+      .tabbed-content nav .two-tabs li.last, .tabbed-content nav .three-tabs li.last, .tabbed-content nav .five-tabs li.last {
         border-right: 1px dotted #8f8f8f; }
-      .tabbed-content nav.outer-container .two-tabs li:hover a, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li:hover a, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li:hover a, .tabbed-content .legal-page nav.article-section .two-tabs li:hover a, .legal-page .tabbed-content nav.article-section .two-tabs li:hover a, .tabbed-content nav.outer-container .three-tabs li:hover a, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li:hover a, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li:hover a, .tabbed-content .legal-page nav.article-section .three-tabs li:hover a, .legal-page .tabbed-content nav.article-section .three-tabs li:hover a, .tabbed-content nav.outer-container .five-tabs li:hover a, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li:hover a, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li:hover a, .tabbed-content .legal-page nav.article-section .five-tabs li:hover a, .legal-page .tabbed-content nav.article-section .five-tabs li:hover a {
+      .tabbed-content nav .two-tabs li:hover a, .tabbed-content nav .three-tabs li:hover a, .tabbed-content nav .five-tabs li:hover a {
         color: #00b3d2; }
-  .tabbed-content nav.outer-container .two-tabs li, .tabbed-content .accordion .expander .body nav.accordion-list .two-tabs li, .accordion .expander .body .tabbed-content nav.accordion-list .two-tabs li, .tabbed-content .legal-page nav.article-section .two-tabs li, .legal-page .tabbed-content nav.article-section .two-tabs li {
+  .tabbed-content nav .two-tabs li {
     width: 200px; }
-  .tabbed-content nav.outer-container .three-tabs li, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li, .tabbed-content .legal-page nav.article-section .three-tabs li, .legal-page .tabbed-content nav.article-section .three-tabs li {
+  .tabbed-content nav .three-tabs li {
     width: 200px; }
     @media screen and (max-width: 767px) {
-      .tabbed-content nav.outer-container .three-tabs li, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li, .tabbed-content .legal-page nav.article-section .three-tabs li, .legal-page .tabbed-content nav.article-section .three-tabs li {
+      .tabbed-content nav .three-tabs li {
         width: 100%;
         margin: 0; }
-        .tabbed-content nav.outer-container .three-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li a, .tabbed-content .legal-page nav.article-section .three-tabs li a, .legal-page .tabbed-content nav.article-section .three-tabs li a {
+        .tabbed-content nav .three-tabs li a {
           font-size: 12px;
           font-weight: bold; } }
-    .tabbed-content nav.outer-container .three-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .three-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .three-tabs li a, .tabbed-content .legal-page nav.article-section .three-tabs li a, .legal-page .tabbed-content nav.article-section .three-tabs li a {
+    .tabbed-content nav .three-tabs li a {
       padding: 10px 0 8px; }
-  .tabbed-content nav.outer-container .five-tabs li, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li, .tabbed-content .legal-page nav.article-section .five-tabs li, .legal-page .tabbed-content nav.article-section .five-tabs li {
+  .tabbed-content nav .five-tabs li {
     width: 19.5%;
     margin-left: -3px; }
-    .tabbed-content nav.outer-container .five-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li a, .tabbed-content .legal-page nav.article-section .five-tabs li a, .legal-page .tabbed-content nav.article-section .five-tabs li a {
+    .tabbed-content nav .five-tabs li a {
       padding: 10px 0 8px; }
   @media screen and (max-width: 900px) {
-    .tabbed-content nav.outer-container .five-tabs, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs, .tabbed-content .legal-page nav.article-section .five-tabs, .legal-page .tabbed-content nav.article-section .five-tabs {
+    .tabbed-content nav .five-tabs {
       padding: 0;
       margin: 10px 0 0 0; }
-      .tabbed-content nav.outer-container .five-tabs li, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li, .tabbed-content .legal-page nav.article-section .five-tabs li, .legal-page .tabbed-content nav.article-section .five-tabs li {
+      .tabbed-content nav .five-tabs li {
         float: left;
         display: block;
         margin-right: 2.35765%;
@@ -1046,12 +1045,12 @@ nav .tabs {
         margin: 0;
         border: none;
         border-top: 1px dotted #333; }
-        .tabbed-content nav.outer-container .five-tabs li:last-child, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li:last-child, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li:last-child, .tabbed-content .legal-page nav.article-section .five-tabs li:last-child, .legal-page .tabbed-content nav.article-section .five-tabs li:last-child {
+        .tabbed-content nav .five-tabs li:last-child {
           margin-right: 0; }
-        .tabbed-content nav.outer-container .five-tabs li a, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li a, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li a, .tabbed-content .legal-page nav.article-section .five-tabs li a, .legal-page .tabbed-content nav.article-section .five-tabs li a {
+        .tabbed-content nav .five-tabs li a {
           font-size: 12px;
           font-weight: bold; }
-        .tabbed-content nav.outer-container .five-tabs li.active, .tabbed-content .accordion .expander .body nav.accordion-list .five-tabs li.active, .accordion .expander .body .tabbed-content nav.accordion-list .five-tabs li.active, .tabbed-content .legal-page nav.article-section .five-tabs li.active, .legal-page .tabbed-content nav.article-section .five-tabs li.active {
+        .tabbed-content nav .five-tabs li.active {
           border-bottom: inherit; } }
   @media screen and (max-width: 767px) {
     .tabbed-content nav .tabs {
@@ -1296,9 +1295,10 @@ header {
       overflow: hidden;
       z-index: 9999;
       background: #fff;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.92);
       border-bottom: 1px dotted #8f8f8f; }
     .header-wrapper.affixed .tagline {
+      margin-top: -100px;
       opacity: 0; }
     .header-wrapper.affixed .tabs-wrap {
       margin-bottom: 25px; }
@@ -1308,6 +1308,10 @@ header {
         display: table-cell; }
         .header-wrapper.affixed .tabs > li a {
           padding: 5px 25px; }
+        .header-wrapper.affixed .tabs > li:hover {
+          border-bottom: 1px dotted #8f8f8f; }
+        .header-wrapper.affixed .tabs > li.active {
+          border-bottom: none; }
     .header-wrapper.affixed .header-nav {
       margin-top: -100px; }
       .header-wrapper.affixed .header-nav .top-level-wrap {
@@ -2481,7 +2485,8 @@ pagination {
   height: 324px; }
   .thumblist-nav .jspPane {
     position: absolute;
-    height: 324px; }
+    top: 0;
+    right: 0; }
     .thumblist-nav .jspPane > div {
       width: 400px;
       height: 313px;
@@ -2649,10 +2654,6 @@ pagination {
   background: #eeeef4;
   float: left;
   height: 100%; }
-
-/* Yuk! CSS Hack for IE6 3 pixel bug :( */
-* html .jspCorner {
-  margin: 0 -3px 0 0; }
 
 .map {
   border-top: 1px dotted #8f8f8f;
