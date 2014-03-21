@@ -203,6 +203,9 @@
         line-height: 1em;
         margin: 0 0 15px;
       }
+      p {
+        @extend .alrightsansregular;
+      }
       .subhead {
         color: $light-orange;
         text-transform: uppercase;
