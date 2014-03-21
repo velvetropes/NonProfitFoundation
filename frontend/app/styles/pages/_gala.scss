@@ -1,4 +1,9 @@
 .gala-page {
+  .swiper {
+    .gradient-background {
+      background: none;
+    }
+  }
   @include media($mobile) {
     .page-leader {
       h1 {
