@@ -1,11 +1,9 @@
-<div class="outer-container">
-  <section class='tabbed-content'>
-    <nav class="outer-container">
-      <ul class="{{tabClass}}">
-        <li ng-repeat="tab in tabs" ng-class="{active: currentTab==$index, last: $index==1}">
-          <a ng-click="navigateTo($index)">{{tab.title}}</a>
-        </li>
-      </ul>
-    </nav>
-  </section>
-</div>
+<section class='tabbed-content'>
+  <nav>
+    <ul class="{{tabClass}}">
+      <li ng-repeat="tab in tabs" ng-class="{active: currentTab==$index, last: $index==1}">
+        <a ng-click="navigateTo($index)">{{tab.title}}</a>
+      </li>
+    </ul>
+  </nav>
+</section>

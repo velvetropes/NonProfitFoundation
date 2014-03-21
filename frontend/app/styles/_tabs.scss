@@ -180,92 +180,89 @@ nav {
         }
       }
     }
-    &.outer-container {
-      .two-tabs, .three-tabs, .five-tabs {
-        text-align: center;
-        padding: 0;
-        margin: 0 0 -1px;
-        li {
-          display: inline-block;
-          border-left: $dotted-border;
-          border-top: $dotted-border;
-          margin: 0 0 0 -1px;
-          a {
-            font-size: .875em;
-            @extend .alrightsanslight;
-            display: block;
-            padding: 2px 10px;
-            text-transform: uppercase;
-            &:hover {
-              cursor: pointer;
-            }
-          }
-          &.active {
-            border-bottom: 1px solid white;
-            a {
-              color: $light-blue;
-            }
-          }
-          &.last {
-            border-right: $dotted-border;
-          }
+
+    .two-tabs, .three-tabs, .five-tabs {
+      text-align: center;
+      padding: 0;
+      margin: 0 0 -1px;
+      li {
+        display: inline-block;
+        border-left: $dotted-border;
+        border-top: $dotted-border;
+        margin: 0 0 0 -1px;
+        a {
+          font-size: .875em;
+          @extend .alrightsanslight;
+          display: block;
+          padding: 2px 10px;
+          text-transform: uppercase;
           &:hover {
-            a {
-              color: $light-blue;
-            }
+            cursor: pointer;
           }
         }
-      }
-      .two-tabs {
-        li {
-          width: 200px;
-        }
-      }
-      .three-tabs {
-        li {
-          width: 200px;
-          @include media($tablet-down) {
-            width: 100%;
-            margin: 0;
-            a {
-              font-size: 12px;
-              font-weight: bold;
-            }
-          }
+        &.active {
+          border-bottom: 1px solid white;
           a {
-            padding: 10px 0 8px;
+            color: $light-blue;
+          }
+        }
+        &.last {
+          border-right: $dotted-border;
+        }
+        &:hover {
+          a {
+            color: $light-blue;
           }
         }
       }
-      .five-tabs {
-        li {
-          width: 19.5%;
-          margin-left: -3px;
+    }
+    .two-tabs {
+      li {
+        width: 200px;
+      }
+    }
+    .three-tabs {
+      li {
+        width: 200px;
+        @include media($tablet-down) {
+          width: 100%;
+          margin: 0;
           a {
-            padding: 10px 0 8px;
+            font-size: 12px;
+            font-weight: bold;
           }
+        }
+        a {
+          padding: 10px 0 8px;
+        }
+      }
+    }
+    .five-tabs {
+      li {
+        width: 19.5%;
+        margin-left: -3px;
+        a {
+          padding: 10px 0 8px;
         }
       }
     }
 
     @media screen and (max-width: 900px) {
-      &.outer-container {
-        .five-tabs {
-          padding: 0;
-          margin: 10px 0 0 0;
-          @include reset-display;
-          li {
-            @include span-columns(12);
-            margin: 0;
-            border: none;
-            border-top: 1px dotted #333;
-            a {
-              font-size: 12px;
-              font-weight: bold;
-            }
-            &.active {
-              border-bottom: inherit;
-            }
+      .five-tabs {
+        padding: 0;
+        margin: 10px 0 0 0;
+        @include reset-display;
+        li {
+          @include span-columns(12);
+          margin: 0;
+          border: none;
+          border-top: 1px dotted #333;
+          a {
+            font-size: 12px;
+            font-weight: bold;
+          }
+          &.active {
+            border-bottom: inherit;
           }
         }
       }
