@@ -107,27 +107,28 @@
     overflow: auto;
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin: -214px 0 0 -339px;
+    right: 0;
+    margin: -214px 345px 0 0;
     z-index: 2;
     padding: 130px 20px 50px;
     background: url('images/missions/map/dark_circle.png') no-repeat;
     text-align: center;
     h1 {
+      @extend .alrightsanslight;
       color: white;
       font-size: 3em;
-      @extend .alrightsanslight;
-      margin: 0 0 10px;
       line-height: 1.2em;
+      margin: 0 0 10px;
       span {
         display: block;
       }
     }
     a {
+      @extend .alrightsansbold;
       color: #ffad20;
       text-transform: uppercase;
-      @extend .alrightsansbold;
-      font-size:1.125em;
+      font-size: 1.125em;
+      -webkit-font-smoothing: antialiased;
     }
   }
   .missions-map-info {
@@ -200,13 +201,15 @@
         background: #333333;
       }
       h1 {
+        @extend .alrightsansbold;
         font-size: 3.75em;
         margin: 65px 0 0;
       }
       p {
-        font-size: 1.125em;
+        font-size: 1.1em;
         text-transform: uppercase;
         margin: 25px 50px;
+        -webkit-font-smoothing: antialiased;
       }
     }
   }
@@ -239,11 +242,22 @@
     }
   }
 }
+@media screen and (max-width: 850px) {
+  .missions-map {
+    .missions-map-greeting {
+      right: auto;
+      left: 50%;
+      margin: -214px 0 0 -339px;
+    }
+  }
+}
 @media screen and (max-width: 700px) {
   .missions-map {
     .missions-map-greeting {
       width: 210px;
       height: 210px;
+      right: auto;
+      left: 50%;
       margin: -105px 0 0 -230px;
       background-size: 100%;
       padding: 49px 0 0 0;
