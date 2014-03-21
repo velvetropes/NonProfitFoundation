@@ -88,9 +88,9 @@
   overflow: hidden;
   &.short {
     .swipe-wrap > div {
-      height: 600px;
+      height: 410px;
       @include media($tablet) {
-        height: 440px;
+        height: 380px;
       }
       @include media($mobile) {
         height: 317px;
