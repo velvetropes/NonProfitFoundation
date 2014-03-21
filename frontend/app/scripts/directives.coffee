@@ -784,7 +784,7 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     , true
 
     scope.$watch "pagination", ->
-      scope.pageStart = scope.pagination.page
+      scope.pageStart = scope.pagination.page*scope.perPage
       scope.currentPage = scope.pagination.page * scope.pagination.perPage
       return
     , true
@@ -814,6 +814,7 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
       currentPage = scope.pagination.page
       upToPage = currentPage + 2
       if thisPage in [currentPage..upToPage] then true else false
+
     return
 
   result =
