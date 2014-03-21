@@ -9,7 +9,7 @@
     <div>
       <h1>{{featured.panel_title}}</h1>
       <div>{{featured.body | characters:550}}"</div>
-      <p class='call-to-action' ng-hide="featured.panel_call_to_action_link_url==''">
+      <p class='call-to-action' ng-show="showActionLink()">
         <a href='{{featured.panel_call_to_action_link_url}}'>
           {{featured.panel_call_to_action_text}} &rarr;
         </a>

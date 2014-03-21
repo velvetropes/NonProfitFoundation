@@ -860,6 +860,9 @@ sfDirectives.directive "panelTab", [->
     scope.displayInModalIfVideo = ->
       scope.$emit('modal:show', scope.featured.video_link_url)
 
+    scope.showActionLink = ->
+      scope.featured?.panel_call_to_action_link_url?.length > 0
+
   restrict: "E"
   templateUrl: "templates/panel_tab.html"
   replace: true
