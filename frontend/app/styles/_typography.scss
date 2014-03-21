@@ -480,6 +480,9 @@ blockquote p {
   p {
     line-height: 1.875em;
   }
+  a {
+    color: $light-blue;
+  }
   @include media($tablet-down) {
     h1 {
       font-size: 1.75em;
