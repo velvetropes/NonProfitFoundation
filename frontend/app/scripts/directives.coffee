@@ -331,7 +331,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
     scope.galleryClasses = ->
       if scope.isThumblist()
-        "gallery" #full thumblist thumblist-nav horizontal-only
+        "gallery full thumblist thumblist-nav horizontal-only"
       else
         "single-image-gallery"
 

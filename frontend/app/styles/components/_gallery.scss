@@ -39,6 +39,7 @@
   .gallery-slide {
     max-width: 1600px;
     width: 100%;
+    height: 536px;
   }
   @include media($tablet) {
     height: 440px;
