@@ -10,6 +10,12 @@
     position: relative;
     max-width: 1600px;
     margin: 0 auto;
+    @include media($tablet-down) {
+      height: 375px;
+    }
+    @include media($mobile) {
+      height: 280px;
+    }
     .relative-container {
       position: relative;
       height: 100%;
