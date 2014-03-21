@@ -34,8 +34,8 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
     }
   ).when("/articles/:articleId",
     templateUrl: (params) ->
-      # "api/blog_detail/#{params.articleId}"
-      "local/api/blog_detail"
+      "api/blog_detail/#{params.articleId}"
+      # "local/api/blog_detail"
     controller: "BlogShowCtrl"
     resolve: {
       api_data : [ "Articles", (Articles) ->

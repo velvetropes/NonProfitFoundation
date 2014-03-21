@@ -270,7 +270,7 @@ sfDirectives.directive("facebook", [
         """
       link: (scope, element, attr) ->
         scope.shares = 0
-        endpoint = "https://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url='http://www.facebook.com/starkeycares'"
+        endpoint = "http://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url='http://www.facebook.com/starkeycares'"
         $http.get(endpoint).success((res) ->
           scope.shares = res.data[0].total_count
         ).error (res, status) ->
