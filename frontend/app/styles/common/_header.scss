@@ -29,9 +29,12 @@ body {
   }
 }
 
+.header-wrapper {
+  padding-top:1em;
+}
+
 header {
   max-width: none;
-  margin-top: 1em;
 
   .inner-header {
     max-width: 68em;
@@ -77,12 +80,6 @@ header {
         padding-top: 2px;
       }
     }
-
-    &.affixed {
-      position:fixed;
-      top:25px;
-      z-index: 9999;
-    }
   }
   .tagline {
     width: 50%;
@@ -90,6 +87,11 @@ header {
     text-align: center;
     line-height: 0;
     margin-top: 28px;
+
+    // animation properties
+    position: relative;
+    opacity: 1;
+
     h1 {
       font-weight: 400;
     }
@@ -130,14 +132,78 @@ header {
     @include media($mobile) {
       display: none;
     }
+  }
 
-    &.affixed {
-      position:fixed;
-      top:25px;
+  .header-nav {
+    position: relative;
+  }
+}
+
+
+@media screen and (min-width: 480px) {
+  .header-wrapper.affixed {
+    padding-top:170px;
+
+    .page-header, .tagline, header .logo img, .tabs-wrap, .tabs {
+      @include transition(all 0.5s ease-out);
+    }
+
+
+    header .logo img {
+      padding:10px 20px;
+      width: 155px;
+    }
+
+    .page-header {
+      position: fixed;
+      top:0;
+      padding: 0;
+      margin-top:0;
+      height: auto;
+      overflow: hidden;
       z-index: 9999;
+      background: #fff;
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: $dotted-border;
+    }
+
+    .tagline {
+      opacity: 0;
+    }
+
+    .tabs-wrap {
+      margin-bottom: 25px;
+    }
+
+    .tabs {
+      margin-top:25px;
+      > li {
+        display: table-cell;
+  
+        a {     
+          padding: 5px 25px;
+        }
+      }
+    }
+
+    .header-nav {
+      margin-top: -100px;
+
+      .top-level-wrap {
+        border-bottom: 0;
+      }
     }
   }
 }
+@media screen and (min-width: 480px) and (max-width: 900px) {
+  .header-wrapper.affixed {
+    .header-nav {
+      margin-top: -50px;
+    }
+  }
+}
+
+
 
 .mobile-menu-icon {
   display: none;
@@ -275,16 +341,3 @@ header {
     }
   }
 }
-
-.header-wrapper.affixed {
-  .page-header {
-    position: fixed;
-    top:0;
-    background:#fff;
-
-    .tagline {
-      display: none;
-    }
-  }
-}
-
