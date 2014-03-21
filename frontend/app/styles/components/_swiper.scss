@@ -197,9 +197,9 @@
       text-align: left;
       color: white;
       padding: 55px 80px 50px 33px;
-      @extend .alrightsansbold;
       .headline {
-        font-size: 2.25em;
+        @extend .alrightsansbold;
+        font-size: 2.1em;
         line-height: 1em;
         margin: 0 0 15px;
       }

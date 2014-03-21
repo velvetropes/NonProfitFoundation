@@ -284,6 +284,20 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
   config = {}
 
   link = (scope, element, attrs) ->
+    $timeout( ->
+      scope.pane = $('.thumblist-nav')
+      scope.pane.jScrollPane(config)
+      scope.api = element.data("jsp")
+      return
+    , 1400)
+
+    scope.$on("window.resized", (event, args) ->
+      $timeout( ->
+        if scope.api?
+          scope.api.reinitialise()
+          return
+      , 400)
+    )
 
   controller = ($scope, $element) ->
     $scope.getItem = (url)->
@@ -795,6 +809,11 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 
     _setupWatchers(scope)
 
+    scope.isInPageRange = (n) ->
+      thisPage = parseInt(n, 10)
+      currentPage = scope.pagination.page
+      upToPage = currentPage + 2
+      if thisPage in [currentPage..upToPage] then true else false
     return
 
   result =

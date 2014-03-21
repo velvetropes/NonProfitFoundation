@@ -37,11 +37,11 @@ nav {
   }
   @include row(table);
   .tabs-wrap {
-    max-width: 40em;
+    max-width: 35.9em;
     margin: auto;
   }
   .tabs {
-    margin: -50px 0 0 0;
+    margin: -58px 0 0 0;
     padding: 0;
     li {
       float: left;
@@ -52,7 +52,8 @@ nav {
       a {
         display: block;
         width: 100%;
-        padding: 10px;
+        padding: 14px 25px;
+        @extend .verlagbold;
       }
       &.active, &:hover {
         border-bottom: 1px solid #fff;
@@ -61,17 +62,27 @@ nav {
   }
   .tab-content {
     @include outer-container;
+    max-width: none;
+    border-bottom: 5px solid #3d4144;
+
     ul {
       @include row(table);
+      max-width: 68em;
       list-style: none;
       padding: 0;
-      margin: 14px 0 0 0;
+      margin: 20px auto -5px auto;
       li {
         @include span-columns(2 of 8);
         border-bottom: 5px solid #3d4144;
-        height: 185px;
         border-left: $dotted-border;
-        padding: 3px 20px;
+        padding:0;
+
+        > a {
+          display: block;
+          padding:20px;
+          height: 160px;
+        }
+
         &:first-child {
           border-left: none;
         }

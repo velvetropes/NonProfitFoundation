@@ -11,7 +11,7 @@
       <div ng-repeat="article in blogArticles | filter:{featured:'true'}">
         <slide
           image-url="{{article.thumbnail_image_url}}"
-          blog-category="{{article.blog_item_category}}"
+          blog-category="{{article.category}}"
           video-url=""
           link-url="#/articles/{{article.id}}"
           headline="{{article.title}}"

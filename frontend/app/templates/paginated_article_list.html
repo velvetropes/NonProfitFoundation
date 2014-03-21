@@ -4,8 +4,11 @@
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
-      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}" ng-show="isInPageRange(n)">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li>
+        <strong> / {{pagination.numPages}}</strong>
       </li>
       <li class="next-page-trigger disabled">
         <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
@@ -70,8 +73,11 @@
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
       </li>
-      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
+      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}" ng-show="isInPageRange(n)">
         <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+      </li>
+      <li>
+        <strong> / {{pagination.numPages}}</strong>
       </li>
       <li class="next-page-trigger disabled">
         <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>

@@ -10,6 +10,12 @@
     position: relative;
     max-width: 1600px;
     margin: 0 auto;
+    @include media($tablet-down) {
+      height: 375px;
+    }
+    @include media($mobile) {
+      height: 280px;
+    }
     .relative-container {
       position: relative;
       height: 100%;
@@ -61,8 +67,8 @@
     text-transform: uppercase;
   }
   .article-title {
-    font-size: 3em;
     @extend .alrightsansbold;
+    font-size: 3em;
     margin-top: 10px;
   }
 }
@@ -93,13 +99,7 @@
 
 .blog-page {
   .articles-filters {
-    margin-top: 8px;
-  }
-  .text-container p {
-    text-align: center;
-  }
-  .text-container p {
-    text-align: center;
+    margin-top: 17px;
   }
   .no-container.related-posts .thumblist-nav .jspPane > div {
     .content {
