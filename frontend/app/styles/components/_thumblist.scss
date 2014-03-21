@@ -12,7 +12,8 @@
   height: 324px;
   .jspPane {
     position: absolute;
-    height: 324px;
+    top: 0;
+    right: 0;
     > div {
       width: 400px;
       height: 313px;
@@ -233,8 +234,3 @@
   height: 100%;
 }
 
-/* Yuk! CSS Hack for IE6 3 pixel bug :( */
-* html .jspCorner
-{
-  margin: 0 -3px 0 0;
-}
