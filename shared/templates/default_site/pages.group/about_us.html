@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="/assets/styles/d04672e8.main.css"/>
+    <link rel="stylesheet" href="/assets/styles/ece5298b.main.css"/>
     
   </head>
   <body class='about-us-page page' ng:app="blogPagesApp" ng:controller="globalCtrl">
@@ -125,138 +125,145 @@
       </div>
     </div>
     
-    <header>
-      <div class="logo">
-        <a href="/">
-
-          <img src="/images/starkey/starkey_logo.svg">
-        </a>
-      </div>
+    <div class="header-wrapper" navscrollspy ng-class="{affixed:passed}">
+      <header class="page-header">
     
-      <div class='tagline'>
-        <h1>So the World May Hear.</h1>
-      </div>
+        <div class='mobile-menu-icon'>
+          <div class='icon starkey-menu_mobile'></div>
+        </div>
     
-      <div class='social-links'>
-        <ul>
-          <li>
-            <a href='https://twitter.com/starkeyhearing' class="icon starkey-twitter-link" target="_blank"></a>
-          </li>
-          <li>
-            <a href='https://www.facebook.com/starkeyhearing' class="icon starkey-fb-link" target="_blank"></a>
-          </li>
-          <li>
-            <a href='http://instagram.com/starkeycares' class="icon starkey-insta-link" target="_blank"></a>
-          </li>
-          <li>
-            <a href='http://www.youtube.com/user/StarkeyLabs' class="icon starkey-youtube" target="_blank"></a>
-          </li>
-        </ul>
-      </div>
+        <div class="inner-header">
+          <div class="logo">
+            <a href="/">
+
+              <img src="/images/starkey/starkey_logo.svg">
+            </a>
+          </div>
     
-      <div class='mobile-menu-icon'>
-        <div class='icon starkey-menu_mobile'></div>
-      </div>
-    </header>
+          <div class='tagline'>
+            <h1>So the World May Hear.</h1>
+          </div>
+    
+          <div class='social-links'>
+            <ul>
+              <li>
+                <a href='https://twitter.com/starkeyhearing' class="icon starkey-twitter-link" target="_blank"></a>
+              </li>
+              <li>
+                <a href='https://www.facebook.com/starkeyhearing' class="icon starkey-fb-link" target="_blank"></a>
+              </li>
+              <li>
+                <a href='http://instagram.com/starkeycares' class="icon starkey-insta-link" target="_blank"></a>
+              </li>
+              <li>
+                <a href='http://www.youtube.com/user/StarkeyLabs' class="icon starkey-youtube" target="_blank"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+        <nav class='header-nav'>
+          <div class="top-level-wrap">
+            <div class='tabs-wrap'>
+              <ul class='tabs row-table'>
+                <li border="0">
+                  <a href='#' data-content-class='.who-we-are' class='who-we-are' border="0">Who we are</a>
+                </li>
+                <li border="0">
+                  <a href='#' data-content-class='.what-we-do' class='what-we-do' border="0">What we do</a>
+                </li>
+                <li border="0">
+                  <a href='#' data-content-class='.get-involved' class='get-involved' border="0">Get involved</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <article class='tab-content who-we-are'>
+            <ul>
+              <li>
+
+                <a href="{site_url}/about-us">
+                  <h3 class="highlight">About Us</h3>
+                  <h2>Our Mission</h2>
+                </a>
+              </li>
+              <li>
+
+                <a href="{site_url}/team">
+                  <h3 class="highlight">Team</h3>
+                  <h2>The People Who Make It Possible</h2>
+                </a>
+              </li>
+              <li>
+
+                <a href="{path='media_mentions/index'}">
+                  <h3 class="highlight">Media Mentions</h3>
+                  <h2>In the News</h2>
+                </a>
+              </li>
+              <li>
+
+                <a href="{site_url}/contact">
+                  <h3 class="highlight">Contact</h3>
+                </a>
+              </li>
+            </ul>
+          </article>
+          <article class='tab-content what-we-do'>
+            <ul>
+              <li>
+
+                <a href="{path='missions/index'}">
+                  <h3 class="highlight">Hearing Mission</h3>
+                  <h2>Our Global Impact</h2>
+                </a>
+              </li>
+              <li>
+
+                <a href="{path='programs/index'}">
+                  <h3 class="highlight">Programs</h3>
+                  <h2>Caring in Action</h2>
+                </a>
+              </li>
+              <li>
+
+                <a href="{path='gala/index'}">
+                  <h3 class="highlight">Gala</h3>
+                  <h2>So the World May Hear</h2>
+                </a>
+              </li>
+              <li>
+
+                <a href="{path='blog/index'}">
+                  <h3 class="highlight">Blog</h3>
+                  <h2>News and Events</h2>
+                </a>
+              </li>
+            </ul>
+          </article>
+          <article class='tab-content get-involved'>
+            <ul>
+              <li>
+
+                <a href="{path='take_action/index'}">
+                  <h3 class="highlight">Take Action</h3>
+                  <h2>Learn How You Can Help</h2>
+                </a>
+              </li>
+              <li>
+                <a href="https://action.starkeyhearingfoundation.org/">
+                  <h3 class="highlight">Donate Now</h3>
+                  <h2>Give Today and Change a Life</h2>
+                </a>
+              </li>
+            </ul>
+          </article>
+        </nav>
+      </header>
+    </div>
     
     
-    <nav class='header-nav'>
-      <div class='tabs-wrap'>
-        <ul class='tabs row-table'>
-          <li border="0">
-            <a href='#' data-content-class='.who-we-are' class='who-we-are' border="0">Who we are</a>
-          </li>
-          <li border="0">
-            <a href='#' data-content-class='.what-we-do' class='what-we-do' border="0">What we do</a>
-          </li>
-          <li border="0">
-            <a href='#' data-content-class='.get-involved' class='get-involved' border="0">Get involved</a>
-          </li>
-        </ul>
-      </div>
-      <article class='tab-content who-we-are'>
-        <ul>
-          <li>
-
-            <a href="{site_url}/about-us">
     
-    
-              <h3 class="highlight">About Us</h3>
-              <h2>Our Mission</h2>
-            </a>
-          </li>
-          <li>
-
-            <a href="{site_url}/team">
-              <h3 class="highlight">Team</h3>
-              <h2>The People Who Make It Possible</h2>
-            </a>
-          </li>
-          <li>
-
-            <a href="{path='media_mentions/index'}">
-              <h3 class="highlight">Media Mentions</h3>
-              <h2>In the News</h2>
-            </a>
-          </li>
-          <li>
-
-            <a href="{site_url}/contact">
-              <h3 class="highlight">Contact</h3>
-            </a>
-          </li>
-        </ul>
-      </article>
-      <article class='tab-content what-we-do'>
-        <ul>
-          <li>
-
-            <a href="{path='missions/index'}">
-              <h3 class="highlight">Hearing Mission</h3>
-              <h2>Our Global Impact</h2>
-            </a>
-          </li>
-          <li>
-
-            <a href="{path='programs/index'}">
-              <h3 class="highlight">Programs</h3>
-              <h2>Caring in Action</h2>
-            </a>
-          </li>
-          <li>
-
-            <a href="{path='gala/index'}">
-              <h3 class="highlight">Gala</h3>
-              <h2>So the World May Hear</h2>
-            </a>
-          </li>
-          <li>
-
-            <a href="{path='blog/index'}">
-              <h3 class="highlight">Blog</h3>
-              <h2>News and Events</h2>
-            </a>
-          </li>
-        </ul>
-      </article>
-      <article class='tab-content get-involved'>
-        <ul>
-          <li>
-
-            <a href="{path='take_action/index'}">
-              <h3 class="highlight">Take Action</h3>
-              <h2>Learn How You Can Help</h2>
-            </a>
-          </li>
-          <li>
-            <a href="https://action.starkeyhearingfoundation.org/">
-              <h3 class="highlight">Donate Now</h3>
-              <h2>Give Today and Change a Life</h2>
-            </a>
-          </li>
-        </ul>
-      </article>
-    </nav>
     
     
 
@@ -370,7 +377,7 @@
 
     <script src="/assets/scripts/4441672b.vendor.js"></script>
     
-    <script src="/assets/scripts/4e0a3108.main.js"></script>
+    <script src="/assets/scripts/994d4fa5.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

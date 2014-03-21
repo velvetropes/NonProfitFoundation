@@ -26,8 +26,13 @@ nav {
 }
 
 .header-nav {
-  border-top: $dotted-border;
-  margin-top: 80px;
+  
+  // margin-top: 80px;
+
+  .top-level-wrap {
+    border-bottom: $dotted-border;
+  }
+  
   h1, h2, h3, h4 {
     @extend .alrightsansbold;
   }
@@ -41,8 +46,9 @@ nav {
     margin: auto;
   }
   .tabs {
-    margin: -58px 0 0 0;
+    // margin: -58px 0 0 0;
     padding: 0;
+    margin-bottom: -1px;
     li {
       float: left;
       width: 33.33%;
@@ -50,6 +56,8 @@ nav {
       // FF Fix
       list-style: none;
       a {
+        @include transition(all 0.5s ease-out);
+
         display: block;
         width: 100%;
         padding: 14px 25px;

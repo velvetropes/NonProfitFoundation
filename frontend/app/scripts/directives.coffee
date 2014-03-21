@@ -1463,3 +1463,15 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
     $timeout(generateMap, 1200);
     undefined
 ]
+
+# Scroll detection for persistent nav
+sfDirectives.directive "navscrollspy", ($window) ->
+  (scope, element, attrs) ->
+    angular.element($window).bind "scroll", ->
+      if @pageYOffset >= 120
+        scope.passed = true
+      else
+        scope.passed = false
+      scope.$apply()
+      return
+    return
