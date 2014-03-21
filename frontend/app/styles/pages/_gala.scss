@@ -3,6 +3,17 @@
     .gradient-background {
       background: none;
     }
+    &.short {
+      .swipe-wrap > div {
+        height: 410px;
+        @include media($tablet) {
+          height: 370px;
+        }
+        @include media($mobile) {
+          height: 317px;
+        }
+      }
+    }
   }
   @include media($mobile) {
     .page-leader {
