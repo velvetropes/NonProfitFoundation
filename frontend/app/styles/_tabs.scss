@@ -5,7 +5,6 @@ nav {
       text-align: center;
       border-top: $dotted-border;
       border-right: $dotted-border;
-      background: white;
       border-bottom: $dotted-border;
       @include pad();
       &:first-child {
