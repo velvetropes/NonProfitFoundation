@@ -64,7 +64,10 @@ ul.pagination-articles {
         color: $light-blue;
       }
       .date {
+        @extend .alrightsansbold;
         text-transform: uppercase;
+        font-size: 13px;
+        -webkit-font-smoothing: antialiased;
       }
     }
   }
@@ -84,7 +87,6 @@ ul.pagination-articles {
           position: absolute;
           bottom: 8px;
           left: 20px;
-          font-size: 14px;
           text-align: left;
         }
       }
@@ -101,13 +103,10 @@ ul.pagination-articles {
           line-height: 1.2;
         }
         .date {
-          @extend .alrightsansbold;
           position: absolute;
           bottom: 21px;
           left: 20px;
-          font-size: 13px;
           text-align: left;
-          -webkit-font-smoothing: antialiased;
         }
       }
     }
