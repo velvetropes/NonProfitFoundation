@@ -3738,9 +3738,6 @@ pagination {
       .team-list li:last-child {
         margin-right: 0; } }
 
-body, a {
-  color: #4d4d4d; }
-
 html body {
   background: #fff !important; }
   html body::before {

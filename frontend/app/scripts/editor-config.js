@@ -87,11 +87,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.docType = '<!DOCTYPE html>';
 	config.stylesSet = 'starkey_styles';
 	config.contentsCss = '/assets/styles/wysiwyg.css';
-	config.bodyClass = 'primary';
-	config.justifyClasses = [ 'editor-align left', 
-							  'editor-align center', 
-							  'editor-align right', 
-							  'editor-align justify'];
+	config.bodyClass = 'text-container';
 	config.disableReadonlyStyling = true;
 
 	// Editor dimensions
