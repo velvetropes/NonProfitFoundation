@@ -4,8 +4,8 @@
   margin: 30px auto;
   width: 80%;
   margin-left: 10%;
+  margin-top: 55px;
   li {
-    float: left;
     @include span-columns(3);
     @include omega(4n);
     height: 70px;
@@ -34,4 +34,12 @@
       @include span-columns(12);
     }
   }
+}
+
+.board-directors-title {
+  margin-top: 11px;
+}
+.team-outer-container {
+  clear: both;
+  padding-bottom: 110px;
 }

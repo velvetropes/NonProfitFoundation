@@ -3688,9 +3688,9 @@ pagination {
   padding: 0;
   margin: 30px auto;
   width: 80%;
-  margin-left: 10%; }
+  margin-left: 10%;
+  margin-top: 55px; }
   .team-list li {
-    float: left;
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -3735,6 +3735,13 @@ pagination {
       width: 100%; }
       .team-list li:last-child {
         margin-right: 0; } }
+
+.board-directors-title {
+  margin-top: 11px; }
+
+.team-outer-container {
+  clear: both;
+  padding-bottom: 110px; }
 
 html body {
   background: #fff !important; }
