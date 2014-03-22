@@ -82,11 +82,11 @@ nav {
         @include span-columns(2 of 8);
         border-bottom: 5px solid #3d4144;
         border-left: $dotted-border;
-        padding:0;
+        padding: 0;
 
         > a {
           display: block;
-          padding:20px;
+          padding: 20px;
           height: 160px;
         }
 

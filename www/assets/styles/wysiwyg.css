@@ -2021,6 +2021,9 @@ footer {
       .single-image-gallery .gallery-slide {
         height: 330px; } }
 
+@media screen and (max-width: 767px) {
+  .gallery.thumblist {
+    display: none; } }
 .article-detail {
   display: none; }
   .article-detail.visible {

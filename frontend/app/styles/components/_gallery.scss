@@ -54,3 +54,9 @@
     }
   }
 }
+
+@include media($tablet-down) {
+  .gallery.thumblist {
+    display: none;
+  }
+}
