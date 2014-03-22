@@ -1266,10 +1266,8 @@ header {
     @media screen and (min-width: 480px) and (max-width: 767px) {
       header .social-links {
         width: 27%;
-        margin-top: -6px;
-        margin-bottom: -18px; }
-        header .social-links ul {
-          width: 75px; } }
+        margin-top: 2px;
+        margin-bottom: -18px; } }
     @media screen and (max-width: 479px) {
       header .social-links {
         display: none; } }
