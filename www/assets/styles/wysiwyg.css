@@ -2990,7 +2990,7 @@ pagination {
   float: left;
   margin-top: 30px;
   margin-bottom: 10px; }
-  @media screen and (max-width: 479px) {
+  @media screen and (max-width: 767px) {
     .gala-overview .half-wit {
       width: 100%;
       float: none;
@@ -3003,7 +3003,7 @@ pagination {
   margin-top: 50px;
   padding-left: 45px;
   padding: 0 16px 0 45px; }
-  @media screen and (max-width: 479px) {
+  @media screen and (max-width: 767px) {
     .gala-overview .main-story {
       width: 100%;
       float: none;

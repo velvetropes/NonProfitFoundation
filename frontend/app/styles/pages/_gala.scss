@@ -33,7 +33,7 @@
     float: left;
     margin-top: 30px;
     margin-bottom: 10px;
-    @include media($mobile) {
+    @include media($tablet-down) {
       width: 100%;
       float: none;
       margin-top: 0;
@@ -47,7 +47,7 @@
     margin-top: 50px;
     padding-left: 45px;
     padding: 0 16px 0 45px;
-    @include media($mobile) {
+    @include media($tablet-down) {
       width: 100%;
       float: none;
       margin-top: 0;
