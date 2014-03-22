@@ -352,6 +352,11 @@ class Grid_parser {
 			$grid_tagdata .= $this->_parse_row($channel_row, $field_id, $grid_row, $row, $content_type);
 		}
 
+		if (isset($params['backspace']) && $params['backspace'] > 0)
+		{
+		    $grid_tagdata = substr($grid_tagdata, 0, -$params['backspace']);
+		} 
+
 		return $grid_tagdata;
 	}
 

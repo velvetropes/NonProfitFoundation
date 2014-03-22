@@ -1,7 +1,7 @@
 {exp:http_header content_type="application/json"}
     {
         "highlights" : [
-          {exp:channel:entries channel="hearing_missions" dynamic="no" disable="{global:param_disable_default}"} {
+          {exp:channel:entries channel="hearing_missions" dynamic="no" disable="{global:param_disable_default}" backspace="2"} {
               "id"                    : "{url_title}",
               "title"                 : "{exp:json_encode}{title}{/exp:json_encode}",
               "subtitle"              : "{exp:json_encode}{title}{/exp:json_encode}",
@@ -14,6 +14,7 @@
               "thumbnail_image_url"   : "{mission_thumb_image}",
               "header_image_url"      : "{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}",
 
+              "rawdate"               : "{mission_date format='%U'}",
               "date"                  : "{mission_date format='%m/%d/%Y'}",
               "year"                  : "{mission_date format="%Y"}",
               "region"                : "{mission_region}{option_name}{/mission_region}",
