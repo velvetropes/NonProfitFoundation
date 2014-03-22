@@ -80,7 +80,7 @@
   </div>
 
   <ul class="pagination-articles">
-    <li ng-repeat="article in articles | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+    <li ng-repeat="article in articles | orderBy:'-rawdate' | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <page-tile
         media-type="{{article.type}}"
         id="{{article.id}}"

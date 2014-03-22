@@ -50,7 +50,7 @@
 
   <section class='articles-list'>
     <ul class="pagination-articles press-items">
-      <li ng-repeat="highlight in missionsHighlights | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+      <li ng-repeat="highlight in missionsHighlights | orderBy:'-rawdate' | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
         <page-tile
           id="{{highlight.id}}"
           title="{{highlight.title}}"
