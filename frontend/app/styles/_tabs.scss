@@ -25,13 +25,13 @@ nav {
 }
 
 .header-nav {
-  
+
   // margin-top: 80px;
 
   .top-level-wrap {
     border-bottom: $dotted-border;
   }
-  
+
   h1, h2, h3, h4 {
     @extend .alrightsansbold;
   }

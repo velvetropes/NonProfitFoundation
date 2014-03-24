@@ -58,3 +58,27 @@ $ ->
   new HeaderTabNav
   if $('.programs-page').length
     new ProgramsPageView
+
+  # Remove unwanted link border outlines
+  runOnLoad = new Array()
+  window.onload = ->
+    i = 0
+
+    while i < runOnLoad.length
+      runOnLoad[i]()
+      i++
+    return
+
+  if document.getElementsByTagName
+    for i of a = document.getElementsByTagName("a")
+      a[i].onmousedown = ->
+        @blur() # most browsers
+        @hideFocus = true # internet explorer
+        @style.outline = "none" # mozilla
+        return
+
+      a[i].onmouseout = a[i].onmouseup = ->
+        @blur() # most browsers
+        @hideFocus = false # internet explorer
+        @style.outline = null # mozilla
+        return
