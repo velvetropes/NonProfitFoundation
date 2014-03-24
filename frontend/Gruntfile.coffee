@@ -86,6 +86,7 @@ module.exports = (grunt) ->
           loadPath: require('node-neat').includePaths
         files: [
           '.tmp/styles/app.css' : 'app/styles/app.scss'
+          '<%= app.dist %>/assets/styles/wysiwyg.css' : 'app/styles/wysiwyg.scss'
           ]
 
     app:
@@ -347,6 +348,12 @@ module.exports = (grunt) ->
               cwd: "app/templates/",
               src: ['**'],
               dest: '../www/templates/',
+            },
+            { #TODO: fix and remove
+              expand: true,
+              cwd: "app/scripts/",
+              src: 'editor-config.js',
+              dest: '../www/assets/scripts/'
             }
         ]
 
@@ -382,6 +389,8 @@ module.exports = (grunt) ->
           src: [
             "<%= app.dist %>/assets/scripts/{,*/}*.js",
             "<%= app.dist %>/assets/styles/{,*/}*.css",
+            "!<%= app.dist %>/assets/scripts/editor-config.css",
+            "!<%= app.dist %>/assets/styles/wysiwyg.css",
             "<%= app.dist %>/assets/images/{,*/}*.{gif,jpeg,jpg,png,webp}",
             "<%= app.dist %>/assets/styles/fonts/{,*/}*.*"
           ]

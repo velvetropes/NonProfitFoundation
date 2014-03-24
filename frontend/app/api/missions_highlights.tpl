@@ -1,26 +1,25 @@
 {exp:http_header content_type="application/json"}
     {
         "highlights" : [
-            {exp:channel:entries channel="hearing_missions" dynamic="no" disable="{global:param_disable_default}"}
-              {
-                "id"                    : "{url_title}",
-                "title"                 : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
-                "subtitle"              : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/exp:low_replace}",
-                "excerpt"               : "{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{mission_excerpt}{/exp:low_replace}",
+          {exp:channel:entries channel="hearing_missions" dynamic="no" disable="{global:param_disable_default}" backspace="2"} {
+              "id"                    : "{url_title}",
+              "title"                 : "{exp:json_encode}{title}{/exp:json_encode}",
+              "subtitle"              : "{exp:json_encode}{title}{/exp:json_encode}",
+              "excerpt"               : "{exp:json_encode}{mission_excerpt}{/exp:json_encode}",
 
-                "video"                 : "{mission_video_url}",
-                "featured"              : "{mission_featured}",
+              "video"                 : "{mission_video_url}",
+              "featured"              : "{mission_featured}",
 
-                "image"                 : "{if mission_image}{if:else}{mission_image:url}{/if}",
-                "thumbnail_image_url"   : "{mission_thumb_image}",
-                "header_image_url"      : "{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}",
+              "image"                 : "{mission_image:url}",
+              "thumbnail_image_url"   : "{mission_thumb_image}",
+              "header_image_url"      : "{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}",
 
-                "date"                  : "{mission_date format='%m/%d/%Y'}",
-                "year"                  : "{mission_date format="%Y"}",
-                "region"                : "{mission_region}{option_name}{/mission_region}",
-                "country"               : "{mission_country}{option_name}{/mission_country}"
-              }{if count != total_results},{/if}
-            {/exp:channel:entries}
+              "rawdate"               : "{mission_date format='%U'}",
+              "date"                  : "{mission_date format='%m/%d/%Y'}",
+              "year"                  : "{mission_date format="%Y"}",
+              "region"                : "{mission_region}{option_name}{/mission_region}",
+              "country"               : "{mission_country}{option_name}{/mission_country}"
+            }, {/exp:channel:entries}
         ],
 
       {!-- All the countries, grouped by region --}
@@ -39,12 +38,10 @@
       {/exp:stash:get_list}
 
       "categories" :  [
-        {exp:stash:get_list name="regions"}
-        {
+        {exp:stash:get_list name="regions" backspace="2"} {
             "region" : "{region}",
             "countries" : [{exp:stash:get_list:nested name="countries" context="{region}" backspace="1"}"{name}",{/exp:stash:get_list:nested}]
-        }{if count != total_results},{/if}
-        {/exp:stash:get_list}
+        }, {/exp:stash:get_list}
       ],
 
       {!-- All the years that have entries --}

@@ -1,4 +1,20 @@
 .gala-page {
+  .swiper {
+    .gradient-background {
+      background: none;
+    }
+    &.short {
+      .swipe-wrap > div {
+        height: 410px;
+        @include media($tablet) {
+          height: 370px;
+        }
+        @include media($mobile) {
+          height: 317px;
+        }
+      }
+    }
+  }
   @include media($mobile) {
     .page-leader {
       h1 {
@@ -17,7 +33,7 @@
     float: left;
     margin-top: 30px;
     margin-bottom: 10px;
-    @include media($mobile) {
+    @include media($tablet-down) {
       width: 100%;
       float: none;
       margin-top: 0;
@@ -31,7 +47,7 @@
     margin-top: 50px;
     padding-left: 45px;
     padding: 0 16px 0 45px;
-    @include media($mobile) {
+    @include media($tablet-down) {
       width: 100%;
       float: none;
       margin-top: 0;
@@ -67,7 +83,7 @@
   border-right: none;
   border-left: none;
   margin: 20px 0 0;
-  padding: 20px 0;
+  padding: 20px 16px;
   width: 100%;
   float: left;
   ul {

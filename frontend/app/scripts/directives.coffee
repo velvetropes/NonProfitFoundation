@@ -258,7 +258,7 @@ sfDirectives.directive("facebook", [
       template: """
         <section class="facebook-fans centered">
           <div class="footer-list-item">
-            <h1>{{shares}} <strong>fans</strong></h1>
+            <h1>{{shares | number}} <strong>fans</strong></h1>
           </div>
           <p class="read-more">
             <a href="http://www.facebook.com/sharer.php?u=http://starkeyhearingfoundation.org" target="_blank">
@@ -270,7 +270,7 @@ sfDirectives.directive("facebook", [
         """
       link: (scope, element, attr) ->
         scope.shares = 0
-        endpoint = "https://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url='http://www.facebook.com/starkeycares'"
+        endpoint = "http://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url='http://www.facebook.com/starkeycares'"
         $http.get(endpoint).success((res) ->
           scope.shares = res.data[0].total_count
         ).error (res, status) ->
@@ -331,7 +331,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
     scope.galleryClasses = ->
       if scope.isThumblist()
-        "gallery" #full thumblist thumblist-nav horizontal-only
+        "gallery full thumblist thumblist-nav horizontal-only"
       else
         "single-image-gallery"
 
@@ -769,6 +769,10 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     }
     return pageConfig
 
+  _updatePaginationWindowLimits = (scope) ->
+    scope.paginationUpperWindowLimit = scope.pagination.upperWindowLimit()
+    scope.paginationLowerWindowLimit = scope.pagination.lowerWindowLimit()
+
   _setupWatchers = (scope) ->
 
     scope.$watch "articlesFilterObject", ->
@@ -784,8 +788,9 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     , true
 
     scope.$watch "pagination", ->
-      scope.pageStart = scope.pagination.page
+      scope.pageStart = scope.pagination.page*scope.perPage
       scope.currentPage = scope.pagination.page * scope.pagination.perPage
+      _updatePaginationWindowLimits((scope))
       return
     , true
 
@@ -796,6 +801,9 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     scope.articlesFilterObject = _composeFilterObject(scope.filters)
 
     scope.mobileStop = scope.pagination.perPage
+
+    scope.paginationUpperWindowLimit = 0
+    scope.paginationLowerWindowLimit = 3
 
     scope.parseDate = (date) ->
       Date.parse(date)
@@ -813,7 +821,8 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
       thisPage = parseInt(n, 10)
       currentPage = scope.pagination.page
       upToPage = currentPage + 2
-      if thisPage in [currentPage..upToPage] then true else false
+      if thisPage in [scope.paginationLowerWindowLimit..scope.paginationUpperWindowLimit] then true else false
+
     return
 
   result =
@@ -832,11 +841,12 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 sfDirectives.factory("Pagination", ->
   pagination = {}
   pagination.getNew = (perPage) ->
-    perPage = (if perPage is `undefined` then 5 else perPage)
+    perPage ?= 5
     paginator =
       numPages: 1
       perPage: perPage
       page: 0
+      windowSize: 3
 
     paginator.prevPage = ->
       paginator.page -= 1  if paginator.page > 0
@@ -846,6 +856,20 @@ sfDirectives.factory("Pagination", ->
 
     paginator.toPageId = (id) ->
       paginator.page = id  if id >= 0 and id <= paginator.numPages - 1
+
+    paginator.upperWindowLimit = ->
+      if paginator.page == 0
+        2
+      else
+        paginator.page + 1
+
+    paginator.lowerWindowLimit = ->
+      if paginator.page <= 1
+        0
+      else if paginator.page == paginator.numPages-1
+        paginator.page-(paginator.windowSize-1)
+      else
+        paginator.page - 1
 
     paginator
 
@@ -859,6 +883,9 @@ sfDirectives.directive "panelTab", [->
 
     scope.displayInModalIfVideo = ->
       scope.$emit('modal:show', scope.featured.video_link_url)
+
+    scope.showActionLink = ->
+      scope.featured?.panel_call_to_action_link_url?.length > 0
 
   restrict: "E"
   templateUrl: "templates/panel_tab.html"
@@ -1463,3 +1490,15 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
     $timeout(generateMap, 1200);
     undefined
 ]
+
+# Scroll detection for persistent nav
+sfDirectives.directive "navscrollspy", ($window) ->
+  (scope, element, attrs) ->
+    angular.element($window).bind "scroll", ->
+      if @pageYOffset >= 120
+        scope.passed = true
+      else
+        scope.passed = false
+      scope.$apply()
+      return
+    return

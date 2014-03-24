@@ -53,7 +53,7 @@
   <div class="outer-container">
     <section>
       <div class="reveal outer-container form" ng-show="showSubscribeForm==true">
-        <form action="" accept-charset="utf-8" class="flatform invert" method="post">
+        {exp:freeform:form form_name="newsletter_signup" form:class="flatform invert"}
           <ul>
             <li class="leftHalf">
                 <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="FIRST NAME*"  />
@@ -88,7 +88,7 @@
                 <input type="submit" name="submit" value="SUBMIT"/>
             </li>
           </ul>
-        </form>
+        {/exp:freeform:form}
       </div>
       <span id="subscribeFormAnchor"></span>
     </section>

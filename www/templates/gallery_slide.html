@@ -1,7 +1,7 @@
 <div ng-class="slideType()" ng-switch="slideType()" class="gallery-slide">
-  <a ng-switch-when="links_to_video" ng-click="displayInModalIfVideo()" style="background-image: url('{{imageUrl}}');">
+  <a ng-switch-when="links_to_video" ng-click="displayInModalIfVideo()" ng-style="{'background-image': 'url(' + imageUrl + ')'}">
     <span class="play-video-link"></span>
   </a>
-  <a ng-switch-when="plain_image" style="background-image: url('{{imageUrl}}');">
+  <a ng-switch-when="plain_image" ng-style="{'background-image': 'url(' + imageUrl + ')'}">
   </a>
 </div>

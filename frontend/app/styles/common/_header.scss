@@ -29,8 +29,21 @@ body {
   }
 }
 
+.header-wrapper {
+  padding-top:1em;
+}
+
 header {
-  margin-top: 1em;
+  max-width: none;
+
+  .inner-header {
+    max-width: 68em;
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+
   @include media($mobile) {
     margin: 0;
     position: fixed;
@@ -46,6 +59,7 @@ header {
   }
   .logo {
     width: 25%;
+    min-height: 10px;
     float: left;
     img {
       width: 200px;
@@ -73,6 +87,11 @@ header {
     text-align: center;
     line-height: 0;
     margin-top: 28px;
+
+    // animation properties
+    position: relative;
+    opacity: 1;
+
     h1 {
       font-weight: 400;
     }
@@ -104,17 +123,100 @@ header {
     }
     @include media($tablet) {
       width: 27%;
-      margin-top: -6px;
+      margin-top: 2px;
       margin-bottom: -18px;
-      ul {
-        width: 75px;
-      }
     }
     @include media($mobile) {
       display: none;
     }
   }
+
+  .header-nav {
+    position: relative;
+  }
 }
+
+
+@media screen and (min-width: 480px) {
+  .header-wrapper.affixed {
+    padding-top:170px;
+
+    .page-header, .tagline, header .logo img, .tabs-wrap, .tabs {
+      @include transition(all 0.5s ease-out);
+    }
+
+
+    header {
+      .logo a, .social-links {
+        position: relative;
+        display: block;
+        z-index: 500;
+      }
+
+      .logo a img {
+        padding:10px 20px;
+        width: 155px;
+      }
+    }
+
+    .page-header {
+      position: fixed;
+      top:0;
+      padding: 0;
+      margin-top:0;
+      height: auto;
+      overflow: hidden;
+      z-index: 9999;
+      background: #fff;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: $dotted-border;
+    }
+
+    .tagline {
+      margin-top: -100px;
+      opacity: 0;
+    }
+
+    .tabs-wrap {
+      margin-bottom: 25px;
+    }
+
+    .tabs {
+      margin-top:25px;
+      > li {
+        display: table-cell;
+  
+        a {     
+          padding: 5px 25px;
+        }
+
+        &:hover {
+          border-bottom: $dotted-border;
+        }
+        &.active {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .header-nav {
+      margin-top: -100px;
+
+      .top-level-wrap {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 900px) {
+  .header-wrapper.affixed {
+    .header-nav {
+      margin-top: -50px;
+    }
+  }
+}
+
+
 
 .mobile-menu-icon {
   display: none;

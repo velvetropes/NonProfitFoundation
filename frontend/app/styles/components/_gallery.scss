@@ -35,10 +35,11 @@
 }
 
 .single-image-gallery {
-  height: 525px;
+  height: 536px;
   .gallery-slide {
     max-width: 1600px;
     width: 100%;
+    height: 536px;
   }
   @include media($tablet) {
     height: 440px;
@@ -51,5 +52,11 @@
     .gallery-slide {
       height: 330px;
     }
+  }
+}
+
+@include media($tablet-down) {
+  .gallery.thumblist {
+    display: none;
   }
 }
