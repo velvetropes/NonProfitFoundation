@@ -86,8 +86,11 @@ nav {
 
         > a {
           display: block;
-          padding: 20px;
-          height: 160px;
+          padding: 0 20px;
+          min-height: 140px;
+        }
+        > p {
+          font-size: 12px;
         }
 
         &:first-child {

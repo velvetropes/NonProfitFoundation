@@ -143,6 +143,7 @@ header {
 
     .page-header, .tagline, header .logo img, .tabs-wrap, .tabs {
       @include transition(all 0.5s ease-out);
+      -webkit-transition: all 0.5s ease-out;
     }
 
 
