@@ -769,6 +769,10 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     }
     return pageConfig
 
+  _updatePaginationWindowLimits = (scope) ->
+    scope.paginationUpperWindowLimit = scope.pagination.upperWindowLimit()
+    scope.paginationLowerWindowLimit = scope.pagination.lowerWindowLimit()
+
   _setupWatchers = (scope) ->
 
     scope.$watch "articlesFilterObject", ->
@@ -786,6 +790,7 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     scope.$watch "pagination", ->
       scope.pageStart = scope.pagination.page*scope.perPage
       scope.currentPage = scope.pagination.page * scope.pagination.perPage
+      _updatePaginationWindowLimits((scope))
       return
     , true
 
@@ -796,6 +801,9 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     scope.articlesFilterObject = _composeFilterObject(scope.filters)
 
     scope.mobileStop = scope.pagination.perPage
+
+    scope.paginationUpperWindowLimit = 0
+    scope.paginationLowerWindowLimit = 3
 
     scope.parseDate = (date) ->
       Date.parse(date)
@@ -813,7 +821,7 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
       thisPage = parseInt(n, 10)
       currentPage = scope.pagination.page
       upToPage = currentPage + 2
-      if thisPage in [currentPage..upToPage] then true else false
+      if thisPage in [scope.paginationLowerWindowLimit..scope.paginationUpperWindowLimit] then true else false
 
     return
 
@@ -833,11 +841,12 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 sfDirectives.factory("Pagination", ->
   pagination = {}
   pagination.getNew = (perPage) ->
-    perPage = (if perPage is `undefined` then 5 else perPage)
+    perPage ?= 5
     paginator =
       numPages: 1
       perPage: perPage
       page: 0
+      windowSize: 3
 
     paginator.prevPage = ->
       paginator.page -= 1  if paginator.page > 0
@@ -847,6 +856,20 @@ sfDirectives.factory("Pagination", ->
 
     paginator.toPageId = (id) ->
       paginator.page = id  if id >= 0 and id <= paginator.numPages - 1
+
+    paginator.upperWindowLimit = ->
+      if paginator.page == 0
+        2
+      else
+        paginator.page + 1
+
+    paginator.lowerWindowLimit = ->
+      if paginator.page <= 1
+        0
+      else if paginator.page == paginator.numPages-1
+        paginator.page-(paginator.windowSize-1)
+      else
+        paginator.page - 1
 
     paginator
 
