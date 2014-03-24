@@ -1,11 +1,22 @@
+
+
+
+
+
+
+
+
+
+
+
 <div class="article-header-image">
-  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg');">
+  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/SantoDomingoWidth.jpg');">
     <ul class="page-nav-links">
             <li>
-        <a href="#/articles/new-blog-entry-1394495216" ng-disabled="'new-blog-entry-1394495216'==''">&larr;</a>
+        <a href="#/articles/test-op-03-10-14" ng-disabled="'test-op-03-10-14'==''">&larr;</a>
       </li>
                   <li>
-        <a href="#/articles/test-blog-post-3-9" ng-disabled="'test-blog-post-3-9'=='test-blog-post-3-9'" >&rarr;</a>
+        <a href="#/articles/encouraging-ability-in-ain-air" ng-disabled="'encouraging-ability-in-ain-air'=='encouraging-ability-in-ain-air'" >&rarr;</a>
       </li>
             <li>
         <a href="#">X</a>
@@ -16,8 +27,8 @@
       <div class="relative-container">
         <div class="banner">
                       <p class="article-item-category">News</p>
-                    <h1  class="article-title">Test OP 03/10/14</h1>
-          <p>March 10, 2014 </p>
+                    <h1  class="article-title">Test Blog Post 3/9</h1>
+          <p>March 11, 2014 </p>
         </div>
       </div>
     </div>
@@ -26,35 +37,92 @@
 <br/>
 
 <div class="text-container">
-  <p>test test test test test&nbsp;</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut lorem at sem dictum ultricies. In massa neque, ullamcorper vel sapien sit amet, cursus sodales nibh. Proin sit amet tellus id sapien pharetra egestas. Sed ac sodales diam. Integer congue velit eu metus egestas vulputate. Praesent pulvinar arcu a arcu auctor cursus. Aenean eleifend quam et odio rhoncus, at convallis mauris feugiat. Maecenas varius in nisi id blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+
+<p>Nullam non laoreet nisl, non feugiat elit. Donec ultrices in odio in iaculis. Morbi fringilla massa ac justo laoreet, quis bibendum dolor convallis. Duis tincidunt nulla vitae tincidunt feugiat. Morbi mollis commodo velit rhoncus facilisis. Nunc vitae interdum quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquam risus mauris, eget porttitor arcu porta sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
 
 <p>
 
 
-          <gallery slides="4">
-  <gallery-slide
-   image-url="http://starkey.ahundredyears.com/uploads/images/billaustin.jpg"
-   video-url=""
-  ></gallery-slide>
+          <gallery slides="3">              <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/SantoDomingoWidth.jpg"
+               video-url=""
+              ></gallery-slide>
 
-            <gallery-slide
-   image-url="http://starkey.ahundredyears.com/uploads/images/Blog_A_Knight.jpg"
-   video-url=""
-  ></gallery-slide>
+                        <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/MileyPortrait.jpg"
+               video-url=""
+              ></gallery-slide>
 
-            <gallery-slide
-   image-url="http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Providing_Clean_Water_in_Tanzania.jpg"
-   video-url="http://www.youtube.com/watch?v=OJ4W9zzjgII"
-  ></gallery-slide>
+                        <gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/GalaGuys.jpg"
+               video-url=""
+              ></gallery-slide>
+          </gallery>
 
-            <gallery-slide
-   image-url="http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Building_a_Better_Kibera.jpg"
-   video-url=""
-  ></gallery-slide>
-</gallery>
+
+                                  <section class='mobile-carousel carousel hero'>
+              <swiper
+              continuous="true"
+              speed="2000"
+              identifier="swiper_1_image-gallery-3-9"
+              auto="8000"
+              paginator="true"
+              size="short"
+              >
+                        <slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/SantoDomingoWidth.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </slide>
+
+                                  <slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/MileyPortrait.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </slide>
+
+                                  <slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/GalaGuys.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </slide>
+            </swiper></section>
+
+
 
 
     </p>
+
+<p>Cras commodo vestibulum risus, eget pulvinar enim congue at. Nam ullamcorper ac neque sit amet luctus. Curabitur porta dui felis, nec consequat enim pretium sit amet. Sed tortor leo, tristique id ante eu, placerat auctor diam. Morbi ligula lorem, iaculis sit amet quam a, sodales euismod tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed quis erat velit. Ut tortor elit, imperdiet non dapibus at, condimentum et ligula.</p>
+
+<p>Morbi a mauris neque. Etiam sodales ligula in augue ultrices, in pretium ante laoreet. Aenean in accumsan ipsum, vel elementum nulla. Donec vehicula eget lectus at placerat. Donec enim augue, fringilla sit amet ligula ut, congue tristique ligula. Etiam ac elit vulputate, facilisis quam id, dignissim elit. Sed cursus facilisis viverra. Praesent vestibulum turpis eu nisi laoreet consequat. Nullam lacinia mi vel sem blandit, et dictum nisl vehicula. Donec malesuada at nulla at dignissim.</p>
+
+<p>Nulla a orci imperdiet, venenatis dolor id, tempus magna. Nulla laoreet, magna sit amet accumsan ullamcorper, metus augue scelerisque risus, id commodo arcu tortor vel neque. Aliquam a blandit mauris, ac luctus erat. Donec et bibendum velit. Aliquam vel accumsan ligula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse posuere malesuada pellentesque. Fusce iaculis orci tortor, a rutrum nisl scelerisque quis. Vivamus sollicitudin accumsan nibh, at pharetra metus molestie non. Duis molestie velit magna, sed varius dolor dictum at. Sed volutpat vulputate imperdiet.</p>
 </div>
 
 <br/>
@@ -80,76 +148,6 @@
     </ul>
   </div>
 </div>
-
-
-<div class="no-container related-posts">
-  <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel thumblist'>
-    <thumblist-nav>
-        <slide
-          thumblist="true"
-          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
-          video-url=""
-          link-url="#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank"
-          headline="Bringing Peace through Hearing, Starkey Hearing Foundation goes to the West Bank"
-          link-style=""
-          date="March 31, 2011"
-        ></slide>
-
-        <slide
-          thumblist="true"
-          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-THUMBNAIL.jpg"
-          video-url=""
-          link-url="#/articles/building-momentum-for-peace-in-the-west-bank"
-          headline="Building Momentum for Peace in the West Bank"
-          link-style=""
-          date="October 16, 2013"
-        ></slide>
-
-        <slide
-          thumblist="true"
-          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
-          video-url=""
-          link-url="#/articles/dave-fabry-lives-to-listen-carefully"
-          headline="Dave Fabry Lives to Listen Carefully"
-          link-style=""
-          date="October 31, 2013"
-        ></slide>
-        <slide
-          thumblist="true"
-          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
-          video-url=""
-          link-url="#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank"
-          headline="Bringing Peace through Hearing, Starkey Hearing Foundation goes to the West Bank"
-          link-style=""
-          date="March 31, 2011"
-        ></slide>
-
-        <slide
-          thumblist="true"
-          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-THUMBNAIL.jpg"
-          video-url=""
-          link-url="#/articles/building-momentum-for-peace-in-the-west-bank"
-          headline="Building Momentum for Peace in the West Bank"
-          link-style=""
-          date="October 16, 2013"
-        ></slide>
-
-        <slide
-          thumblist="true"
-          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
-          video-url=""
-          link-url="#/articles/dave-fabry-lives-to-listen-carefully"
-          headline="Dave Fabry Lives to Listen Carefully"
-          link-style=""
-          date="October 31, 2013"
-        ></slide>
-    </thumblist-nav>
-  </section>
-</div>
-
-
-
 
 <br/>
 <hr class="separator padded"/>

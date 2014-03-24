@@ -2004,7 +2004,9 @@ footer {
   overflow: auto;
   white-space: nowrap; }
   .gallery .jspPane {
-    position: absolute; }
+    position: absolute;
+    top: 0;
+    right: 0; }
 
 .single-image-gallery {
   height: 536px; }
@@ -2490,14 +2492,13 @@ pagination {
   height: 324px; }
   .thumblist-nav .jspPane {
     position: absolute;
-    top: 0;
-    right: 0; }
+    top: 0 !important;
+    right: 0;
+    margin-left: 0 !important; }
     .thumblist-nav .jspPane > div {
       width: 400px;
       height: 313px;
       position: relative;
-      border-top: 1px dotted #8f8f8f;
-      border-left: 1px dotted #8f8f8f;
       display: inline-block;
       /* ie7 support */
       *display: inline;
@@ -2559,7 +2560,7 @@ pagination {
     height: 422px; }
     .thumblist-nav.full .jspPane > div {
       width: 680px;
-      height: 410px; }
+      height: 411px; }
       .thumblist-nav.full .jspPane > div .image {
         bottom: 0; }
       .thumblist-nav.full .jspPane > div .content {
