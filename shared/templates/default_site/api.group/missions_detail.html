@@ -52,8 +52,8 @@
 <br/>
 
 <div class="text-container">
+  {exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
 </div>
-
 
 <br/>
 <div class="outer-container">
@@ -80,7 +80,7 @@
   </div>
 </div>
 
-  {exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
+  
 <div class="outer-container">
   {mission_rel}
     {if mission_rel:count == 1}
