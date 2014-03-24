@@ -2,19 +2,19 @@
   "name": "starkey-foundation",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "~1.10.1",
-    "angular": "~1.2.9",
-    "angular-route": "~1.2.9",
-    "angular-resource": "~1.2.9",
-    "angular-sanitize": "~1.2.9",
-    "angular-animate": "~1.2.9",
+    "jquery": "1.10.2",
+    "angular": "1.2.9",
+    "angular-route": "1.2.9",
+    "angular-resource": "1.2.9",
+    "angular-sanitize": "1.2.9",
+    "angular-animate": "1.2.9",
     "ahundredyears-swiper": "git@github.com:bullrico/ahundredyears-swiper.git",
     "ahundredyears-thumblist-nav": "git@github.com:bullrico/ahundredyears-thumblist-nav.git",
     "ahundredyears-pagination": "git@github.com:bullrico/ahundredyears-pagination.git",
-    "bower-jvectormap": "~1.2.2"
+    "bower-jvectormap": "1.2.2"
   },
   "devDependencies": {},
   "resolutions": {
-    "angular": "~1.2.9"
+    "angular": "1.2.9"
   }
 }
