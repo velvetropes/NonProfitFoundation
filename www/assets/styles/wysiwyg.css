@@ -1281,7 +1281,11 @@ header {
       -webkit-transition: all 0.5s ease-out;
       -moz-transition: all 0.5s ease-out;
       transition: all 0.5s ease-out; }
-    .header-wrapper.affixed header .logo img {
+    .header-wrapper.affixed header .logo a, .header-wrapper.affixed header .social-links {
+      position: relative;
+      display: block;
+      z-index: 500; }
+    .header-wrapper.affixed header .logo a img {
       padding: 10px 20px;
       width: 155px; }
     .header-wrapper.affixed .page-header {

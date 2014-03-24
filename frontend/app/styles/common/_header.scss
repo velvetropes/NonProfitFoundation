@@ -146,9 +146,17 @@ header {
     }
 
 
-    header .logo img {
-      padding:10px 20px;
-      width: 155px;
+    header {
+      .logo a, .social-links {
+        position: relative;
+        display: block;
+        z-index: 500;
+      }
+
+      .logo a img {
+        padding:10px 20px;
+        width: 155px;
+      }
     }
 
     .page-header {
