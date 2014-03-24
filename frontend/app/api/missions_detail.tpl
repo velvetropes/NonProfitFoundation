@@ -78,8 +78,10 @@
       </li>
     </ul>
   </div>
-  {exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
+</div>
 
+  {exp:hundies_shortcode}{mission_content}{/exp:hundies_shortcode}
+<div class="outer-container">
   {mission_rel}
     {if mission_rel:count == 1}
     <h3 class="section-title centered">Related posts</h3>
