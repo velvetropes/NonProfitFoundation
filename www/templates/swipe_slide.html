@@ -15,11 +15,11 @@
     <a href="{{linkUrl}}" target="_blank" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText() && !hasDetailPage()">
       {{linkText}}
     </a>
-    <a href class="action-link" ng-show="hasVideo()" ng-click="displayInModalIfVideo()">
+    <a href ng-show="hasVideo()" ng-click="displayInModalIfVideo()" ng-class="actionLinkStyle()">
       Watch video
     </a>
     <a href="{{linkUrl}}" class="action-link" ng-show="hasDetailPage()">
-      {{linktext || "Read More"}} &rarr;
+      {{linkText || "Read More"}} &rarr;
     </a>
   </aside>
 </div>

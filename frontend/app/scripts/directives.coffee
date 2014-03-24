@@ -1097,6 +1097,10 @@ sfDirectives.directive "slide", [ ->
     scope.actionLinkStyle = ->
       if scope.isThumblist()
         "call-to-action #{scope.linkStyle}"
+      else if scope.hasVideo()
+        "action-link video-link #{scope.linkStyle}"
+      else if scope.hasLinkText() && !scope.hasDetailPage()
+        "action-link text-link #{scope.linkStyle}"
       else
         "action-link #{scope.linkStyle}"
 
