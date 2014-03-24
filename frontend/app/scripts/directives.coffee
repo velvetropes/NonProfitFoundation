@@ -258,7 +258,7 @@ sfDirectives.directive("facebook", [
       template: """
         <section class="facebook-fans centered">
           <div class="footer-list-item">
-            <h1>{{shares}} <strong>fans</strong></h1>
+            <h1>{{shares | number}} <strong>fans</strong></h1>
           </div>
           <p class="read-more">
             <a href="http://www.facebook.com/sharer.php?u=http://starkeyhearingfoundation.org" target="_blank">
