@@ -313,7 +313,8 @@ nav {
 }
 
 // Tab states
-.page  nav .tabs li {
+
+.page .header-wrapper:not(.affixed) nav .tabs li {
   border-bottom: none;
 }
 

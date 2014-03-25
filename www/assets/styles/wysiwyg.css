@@ -1064,7 +1064,7 @@ nav .tabs {
     .tabbed-content article .content h1, .tabbed-content article .content h2, .tabbed-content article .content h3 {
       line-height: 1.2em; }
 
-.page nav .tabs li {
+.page .header-wrapper:not(.affixed) nav .tabs li {
   border-bottom: none; }
 
 .contact-page .who-we-are, .team-page .who-we-are, .about-us-page .who-we-are, .media-mentions-page .who-we-are {
