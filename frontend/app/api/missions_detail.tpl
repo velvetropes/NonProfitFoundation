@@ -41,7 +41,7 @@
       <div class="relative-container">
         <div class="banner">
           <p class="article-item-category">{mission_region}{option_name}{/mission_region}, {mission_country}{option_name}{/mission_country}</p>
-          <h1  class="article-title">{title}</h1>
+          <h1  class="article-title">{if mission_display_title}{mission_display_title}{if:else}{title}{/if}</h1>
           <p>{mission_date format="%F %Y"}</p>
         </div>
       </div>
