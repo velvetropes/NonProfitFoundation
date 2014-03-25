@@ -292,10 +292,8 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
     , 1400)
 
     scope.$on("window.resized", (event, args) ->
-      console.debug "galaThumblistNav resized"
       $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
+        scope.api.reinitialise()
       , 400)
     )
 
