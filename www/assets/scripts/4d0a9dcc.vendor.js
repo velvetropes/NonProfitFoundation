@@ -34,12 +34,11 @@ function Swipe(container, options) {
         style.webkitTransform = "translate(" + dist + "px,0)translateZ(0)", style.msTransform = style.MozTransform = style.OTransform = "translateX(" + dist + "px)");
     }
     function animate(from, to, speed) {
-        if (!speed) return element.style.left = to + "px", void 0;
+        if (!speed) return void (element.style.left = to + "px");
         var start = +new Date(), timer = setInterval(function() {
             var timeElap = +new Date() - start;
             return timeElap > speed ? (element.style.left = to + "px", delay && begin(), options.transitionEnd && options.transitionEnd.call(event, index, slides[index]), 
-            clearInterval(timer), void 0) : (element.style.left = (to - from) * (Math.floor(timeElap / speed * 100) / 100) + from + "px", 
-            void 0);
+            void clearInterval(timer)) : void (element.style.left = (to - from) * (Math.floor(timeElap / speed * 100) / 100) + from + "px");
         }, 4);
     }
     function begin() {
@@ -689,8 +688,7 @@ function Swipe(container, options) {
         },
         parseJSON: function(data) {
             return window.JSON && window.JSON.parse ? window.JSON.parse(data) : null === data ? data : "string" == typeof data && (data = jQuery.trim(data), 
-            data && rvalidchars.test(data.replace(rvalidescape, "@").replace(rvalidtokens, "]").replace(rvalidbraces, ""))) ? new Function("return " + data)() : (jQuery.error("Invalid JSON: " + data), 
-            void 0);
+            data && rvalidchars.test(data.replace(rvalidescape, "@").replace(rvalidtokens, "]").replace(rvalidbraces, ""))) ? new Function("return " + data)() : void jQuery.error("Invalid JSON: " + data);
         },
         parseXML: function(data) {
             var xml, tmp;
@@ -1732,9 +1730,9 @@ function Swipe(container, options) {
         },
         toggleClass: function(value, stateVal) {
             var type = typeof value;
-            return "boolean" == typeof stateVal && "string" === type ? stateVal ? this.addClass(value) : this.removeClass(value) : jQuery.isFunction(value) ? this.each(function(i) {
+            return "boolean" == typeof stateVal && "string" === type ? stateVal ? this.addClass(value) : this.removeClass(value) : this.each(jQuery.isFunction(value) ? function(i) {
                 jQuery(this).toggleClass(value.call(this, i, this.className, stateVal), stateVal);
-            }) : this.each(function() {
+            } : function() {
                 if ("string" === type) for (var className, i = 0, self = jQuery(this), classNames = value.match(core_rnotwhite) || []; className = classNames[i++]; ) self.hasClass(className) ? self.removeClass(className) : self.addClass(className); else (type === core_strundefined || "boolean" === type) && (this.className && jQuery._data(this, "__className__", this.className), 
                 this.className = this.className || value === !1 ? "" : jQuery._data(this, "__className__") || "");
             });
@@ -1789,7 +1787,7 @@ function Swipe(container, options) {
             hooks = jQuery.attrHooks[name] || (jQuery.expr.match.bool.test(name) ? boolHook : nodeHook)), 
             value === undefined ? hooks && "get" in hooks && null !== (ret = hooks.get(elem, name)) ? ret : (ret = jQuery.find.attr(elem, name), 
             null == ret ? undefined : ret) : null !== value ? hooks && "set" in hooks && (ret = hooks.set(elem, value, name)) !== undefined ? ret : (elem.setAttribute(name, value + ""), 
-            value) : (jQuery.removeAttr(elem, name), void 0));
+            value) : void jQuery.removeAttr(elem, name));
         },
         removeAttr: function(elem, value) {
             var name, propName, i = 0, attrNames = value && value.match(core_rnotwhite);
@@ -1840,7 +1838,7 @@ function Swipe(container, options) {
         };
     }), getSetInput && getSetAttribute || (jQuery.attrHooks.value = {
         set: function(elem, value, name) {
-            return jQuery.nodeName(elem, "input") ? (elem.defaultValue = value, void 0) : nodeHook && nodeHook.set(elem, value, name);
+            return jQuery.nodeName(elem, "input") ? void (elem.defaultValue = value) : nodeHook && nodeHook.set(elem, value, name);
         }
     }), getSetAttribute || (nodeHook = {
         set: function(elem, value, name) {
@@ -2079,7 +2077,7 @@ function Swipe(container, options) {
         return this instanceof jQuery.Event ? (src && src.type ? (this.originalEvent = src, 
         this.type = src.type, this.isDefaultPrevented = src.defaultPrevented || src.returnValue === !1 || src.getPreventDefault && src.getPreventDefault() ? returnTrue : returnFalse) : this.type = src, 
         props && jQuery.extend(this, props), this.timeStamp = src && src.timeStamp || jQuery.now(), 
-        this[jQuery.expando] = !0, void 0) : new jQuery.Event(src, props);
+        void (this[jQuery.expando] = !0)) : new jQuery.Event(src, props);
     }, jQuery.Event.prototype = {
         isDefaultPrevented: returnFalse,
         isPropagationStopped: returnFalse,
@@ -2111,19 +2109,18 @@ function Swipe(container, options) {
         };
     }), jQuery.support.submitBubbles || (jQuery.event.special.submit = {
         setup: function() {
-            return jQuery.nodeName(this, "form") ? !1 : (jQuery.event.add(this, "click._submit keypress._submit", function(e) {
+            return jQuery.nodeName(this, "form") ? !1 : void jQuery.event.add(this, "click._submit keypress._submit", function(e) {
                 var elem = e.target, form = jQuery.nodeName(elem, "input") || jQuery.nodeName(elem, "button") ? elem.form : undefined;
                 form && !jQuery._data(form, "submitBubbles") && (jQuery.event.add(form, "submit._submit", function(event) {
                     event._submit_bubble = !0;
                 }), jQuery._data(form, "submitBubbles", !0));
-            }), void 0);
+            });
         },
         postDispatch: function(event) {
             event._submit_bubble && (delete event._submit_bubble, this.parentNode && !event.isTrigger && jQuery.event.simulate("submit", this.parentNode, event, !0));
         },
         teardown: function() {
-            return jQuery.nodeName(this, "form") ? !1 : (jQuery.event.remove(this, "._submit"), 
-            void 0);
+            return jQuery.nodeName(this, "form") ? !1 : void jQuery.event.remove(this, "._submit");
         }
     }), jQuery.support.changeBubbles || (jQuery.event.special.change = {
         setup: function() {
@@ -2131,12 +2128,12 @@ function Swipe(container, options) {
                 "checked" === event.originalEvent.propertyName && (this._just_changed = !0);
             }), jQuery.event.add(this, "click._change", function(event) {
                 this._just_changed && !event.isTrigger && (this._just_changed = !1), jQuery.event.simulate("change", this, event, !0);
-            })), !1) : (jQuery.event.add(this, "beforeactivate._change", function(e) {
+            })), !1) : void jQuery.event.add(this, "beforeactivate._change", function(e) {
                 var elem = e.target;
                 rformElems.test(elem.nodeName) && !jQuery._data(elem, "changeBubbles") && (jQuery.event.add(elem, "change._change", function(event) {
                     !this.parentNode || event.isSimulated || event.isTrigger || jQuery.event.simulate("change", this.parentNode, event, !0);
                 }), jQuery._data(elem, "changeBubbles", !0));
-            }), void 0);
+            });
         },
         handle: function(event) {
             var elem = event.target;
@@ -2497,9 +2494,9 @@ function Swipe(container, options) {
             return this;
         },
         wrapInner: function(html) {
-            return jQuery.isFunction(html) ? this.each(function(i) {
+            return this.each(jQuery.isFunction(html) ? function(i) {
                 jQuery(this).wrapInner(html.call(this, i));
-            }) : this.each(function() {
+            } : function() {
                 var self = jQuery(this), contents = self.contents();
                 contents.length ? contents.wrapAll(html) : self.append(html);
             });
@@ -3187,8 +3184,7 @@ function Swipe(container, options) {
         jQuery.fn[method] = function(val) {
             return jQuery.access(this, function(elem, method, val) {
                 var win = getWindow(elem);
-                return val === undefined ? win ? prop in win ? win[prop] : win.document.documentElement[method] : elem[method] : (win ? win.scrollTo(top ? jQuery(win).scrollLeft() : val, top ? val : jQuery(win).scrollTop()) : elem[method] = val, 
-                void 0);
+                return val === undefined ? win ? prop in win ? win[prop] : win.document.documentElement[method] : elem[method] : void (win ? win.scrollTo(top ? jQuery(win).scrollLeft() : val, top ? val : jQuery(win).scrollTop()) : elem[method] = val);
             }, method, val, arguments.length, null);
         };
     }), jQuery.each({
@@ -4050,11 +4046,11 @@ function Swipe(container, options) {
             } ]), injector;
         }, NG_DEFER_BOOTSTRAP = /^NG_DEFER_BOOTSTRAP!/;
         return window && !NG_DEFER_BOOTSTRAP.test(window.name) ? doBootstrap() : (window.name = window.name.replace(NG_DEFER_BOOTSTRAP, ""), 
-        angular.resumeBootstrap = function(extraModules) {
+        void (angular.resumeBootstrap = function(extraModules) {
             forEach(extraModules, function(module) {
                 modules.push(module);
             }), doBootstrap();
-        }, void 0);
+        }));
     }
     function snake_case(name, separator) {
         return separator = separator || "_", name.replace(SNAKE_CASE_REGEXP, function(letter, pos) {
@@ -4302,7 +4298,7 @@ function Swipe(container, options) {
     function jqLiteRemoveData(element, name) {
         var expandoId = element[jqName], expandoStore = jqCache[expandoId];
         if (expandoStore) {
-            if (name) return delete jqCache[expandoId].data[name], void 0;
+            if (name) return void delete jqCache[expandoId].data[name];
             expandoStore.handle && (expandoStore.events.$destroy && expandoStore.handle({}, "$destroy"), 
             jqLiteOff(element)), delete jqCache[expandoId], element[jqName] = undefined;
         }
@@ -4310,7 +4306,7 @@ function Swipe(container, options) {
     function jqLiteExpandoStore(element, key, value) {
         var expandoId = element[jqName], expandoStore = jqCache[expandoId || -1];
         return isDefined(value) ? (expandoStore || (element[jqName] = expandoId = jqNextId(), 
-        expandoStore = jqCache[expandoId] = {}), expandoStore[key] = value, void 0) : expandoStore && expandoStore[key];
+        expandoStore = jqCache[expandoId] = {}), void (expandoStore[key] = value)) : expandoStore && expandoStore[key];
     }
     function jqLiteData(element, key, value) {
         var data = jqLiteExpandoStore(element, "data"), isSetter = isDefined(value), keyDefined = !isSetter && isDefined(key), isSimpleGetter = keyDefined && !isObject(key);
@@ -4404,7 +4400,7 @@ function Swipe(container, options) {
     function createInjector(modulesToLoad) {
         function supportObject(delegate) {
             return function(key, value) {
-                return isObject(key) ? (forEach(key, reverseParams(delegate)), void 0) : delegate(key, value);
+                return isObject(key) ? void forEach(key, reverseParams(delegate)) : delegate(key, value);
             };
         }
         function provider(name, provider_) {
@@ -6866,7 +6862,7 @@ function Swipe(container, options) {
             }), "[" + value.join(", ") + "]";
         },
         eq: function(index) {
-            return index >= 0 ? jqLite(this[index]) : jqLite(this[this.length + index]);
+            return jqLite(index >= 0 ? this[index] : this[this.length + index]);
         },
         length: 0,
         push: push,
@@ -6917,13 +6913,12 @@ function Swipe(container, options) {
             }
         },
         prop: function(element, name, value) {
-            return isDefined(value) ? (element[name] = value, void 0) : element[name];
+            return isDefined(value) ? void (element[name] = value) : element[name];
         },
         text: function() {
             function getText(element, value) {
                 var textProp = NODE_TYPE_TEXT_PROPERTY[element.nodeType];
-                return isUndefined(value) ? textProp ? element[textProp] : "" : (element[textProp] = value, 
-                void 0);
+                return isUndefined(value) ? textProp ? element[textProp] : "" : void (element[textProp] = value);
             }
             var NODE_TYPE_TEXT_PROPERTY = [];
             return 9 > msie ? (NODE_TYPE_TEXT_PROPERTY[1] = "innerText", NODE_TYPE_TEXT_PROPERTY[3] = "nodeValue") : NODE_TYPE_TEXT_PROPERTY[1] = NODE_TYPE_TEXT_PROPERTY[3] = "textContent", 
@@ -7391,7 +7386,7 @@ function Swipe(container, options) {
                     }
                     escape = !1;
                 } else if ("\\" === ch) escape = !0; else {
-                    if (ch === quote) return this.index++, this.tokens.push({
+                    if (ch === quote) return this.index++, void this.tokens.push({
                         index: start,
                         text: rawString,
                         string: string,
@@ -7399,7 +7394,7 @@ function Swipe(container, options) {
                         fn: function() {
                             return string;
                         }
-                    }), void 0;
+                    });
                     string += ch;
                 }
                 this.index++;
@@ -7523,8 +7518,7 @@ function Swipe(container, options) {
         },
         ternary: function() {
             var middle, token, left = this.logicalOR();
-            return (token = this.expect("?")) ? (middle = this.ternary(), (token = this.expect(":")) ? this.ternaryFn(left, middle, this.ternary()) : (this.throwError("expected :", token), 
-            void 0)) : left;
+            return (token = this.expect("?")) ? (middle = this.ternary(), (token = this.expect(":")) ? this.ternaryFn(left, middle, this.ternary()) : void this.throwError("expected :", token)) : left;
         },
         logicalOR: function() {
             for (var token, left = this.logicalAND(); ;) {
@@ -7835,8 +7829,8 @@ function Swipe(container, options) {
                 if (ctrl) {
                     attr.required = !0;
                     var validator = function(value) {
-                        return attr.required && ctrl.$isEmpty(value) ? (ctrl.$setValidity("required", !1), 
-                        void 0) : (ctrl.$setValidity("required", !0), value);
+                        return attr.required && ctrl.$isEmpty(value) ? void ctrl.$setValidity("required", !1) : (ctrl.$setValidity("required", !0), 
+                        value);
                     };
                     ctrl.$formatters.push(validator), ctrl.$parsers.unshift(validator), attr.$observe("required", function() {
                         validator(ctrl.$viewValue);
@@ -8421,7 +8415,7 @@ function(window, angular, undefined) {
             }
             function performAnimation(animationEvent, className, element, parentElement, afterElement, domOperation, doneCallback) {
                 function onBeforeAnimationsComplete(cancelled) {
-                    if (fireDOMOperation(), cancelled === !0) return closeAnimation(), void 0;
+                    if (fireDOMOperation(), cancelled === !0) return void closeAnimation();
                     var data = element.data(NG_ANIMATE_STATE);
                     data && (data.done = closeAnimation, element.data(NG_ANIMATE_STATE, data)), invokeRegisteredAnimationFns(animations, "after", closeAnimation);
                 }
@@ -8438,8 +8432,7 @@ function(window, angular, undefined) {
                         var animationPhaseCompleted = function() {
                             progress(index, phase);
                         };
-                        return "before" != phase || "enter" != animationEvent && "move" != animationEvent ? (animation[phase] ? animation[endFnName] = isClassBased ? animation[phase](element, className, animationPhaseCompleted) : animation[phase](element, animationPhaseCompleted) : animationPhaseCompleted(), 
-                        void 0) : (animationPhaseCompleted(), void 0);
+                        return "before" != phase || "enter" != animationEvent && "move" != animationEvent ? void (animation[phase] ? animation[endFnName] = isClassBased ? animation[phase](element, className, animationPhaseCompleted) : animation[phase](element, animationPhaseCompleted) : animationPhaseCompleted()) : void animationPhaseCompleted();
                     });
                 }
                 function fireDOMCallback(animationPhase) {
@@ -8459,9 +8452,7 @@ function(window, angular, undefined) {
                     });
                 }
                 function fireDoneCallbackAsync() {
-                    async(function() {
-                        fireDOMCallback("close"), doneCallback && doneCallback();
-                    });
+                    doneCallback && async(doneCallback);
                 }
                 function fireDOMOperation() {
                     fireDOMOperation.hasBeenRun || (fireDOMOperation.hasBeenRun = !0, domOperation());
@@ -8478,12 +8469,12 @@ function(window, angular, undefined) {
                 var currentClassName, classes, node = extractElementNode(element);
                 if (node && (currentClassName = node.className, classes = currentClassName + " " + className), 
                 !node || !isAnimatableClassName(classes)) return fireDOMOperation(), fireBeforeCallbackAsync(), 
-                fireAfterCallbackAsync(), closeAnimation(), void 0;
+                fireAfterCallbackAsync(), void closeAnimation();
                 var animationLookup = (" " + classes).replace(/\s+/g, ".");
                 parentElement || (parentElement = afterElement ? afterElement.parent() : element.parent());
                 var matches = lookup(animationLookup), isClassBased = "addClass" == animationEvent || "removeClass" == animationEvent, ngAnimateState = element.data(NG_ANIMATE_STATE) || {};
                 if (animationsDisabled(element, parentElement) || 0 === matches.length) return fireDOMOperation(), 
-                fireBeforeCallbackAsync(), fireAfterCallbackAsync(), closeAnimation(), void 0;
+                fireBeforeCallbackAsync(), fireAfterCallbackAsync(), void closeAnimation();
                 var animations = [], allowAnimations = isClassBased ? !(ngAnimateState.disabled || ngAnimateState.running && ngAnimateState.structural) : !0;
                 if (allowAnimations && forEach(matches, function(animation) {
                     if (!animation.allowCancel || animation.allowCancel(element, animationEvent, className)) {
@@ -8495,7 +8486,7 @@ function(window, angular, undefined) {
                         });
                     }
                 }), 0 === animations.length) return fireDOMOperation(), fireBeforeCallbackAsync(), 
-                fireAfterCallbackAsync(), fireDoneCallbackAsync(), void 0;
+                fireAfterCallbackAsync(), void fireDoneCallbackAsync();
                 var ONE_SPACE = " ", futureClassName = ONE_SPACE + currentClassName + ONE_SPACE;
                 if (ngAnimateState.running) {
                     $timeout.cancel(ngAnimateState.closeAnimationTimeout), cleanup(element), cancelAnimations(ngAnimateState.animations);
@@ -8504,7 +8495,7 @@ function(window, angular, undefined) {
                 }
                 var classNameToken = ONE_SPACE + className + ONE_SPACE;
                 return "addClass" == animationEvent && futureClassName.indexOf(classNameToken) >= 0 || "removeClass" == animationEvent && -1 == futureClassName.indexOf(classNameToken) ? (fireDOMOperation(), 
-                fireBeforeCallbackAsync(), fireAfterCallbackAsync(), fireDoneCallbackAsync(), void 0) : (element.addClass(NG_ANIMATE_CLASS_NAME), 
+                fireBeforeCallbackAsync(), fireAfterCallbackAsync(), void fireDoneCallbackAsync()) : (element.addClass(NG_ANIMATE_CLASS_NAME), 
                 element.data(NG_ANIMATE_STATE, {
                     running: !0,
                     event: animationEvent,
@@ -8512,8 +8503,7 @@ function(window, angular, undefined) {
                     structural: !isClassBased,
                     animations: animations,
                     done: onBeforeAnimationsComplete
-                }), invokeRegisteredAnimationFns(animations, "before", onBeforeAnimationsComplete), 
-                void 0);
+                }), void invokeRegisteredAnimationFns(animations, "before", onBeforeAnimationsComplete));
             }
             function cancelChildAnimations(element) {
                 var node = extractElementNode(element);
@@ -8726,8 +8716,7 @@ function(window, angular, undefined) {
                     Math.max(timeStamp - startTime, 0) >= maxDelayTime && elapsedTime >= maxDuration && activeAnimationComplete();
                 }
                 var elementData = element.data(NG_ANIMATE_CSS_DATA_KEY), node = extractElementNode(element);
-                if (-1 == node.className.indexOf(className) || !elementData) return activeAnimationComplete(), 
-                void 0;
+                if (-1 == node.className.indexOf(className) || !elementData) return void activeAnimationComplete();
                 var timings = elementData.timings, stagger = elementData.stagger, maxDuration = elementData.maxDuration, activeClassName = elementData.activeClassName, maxDelayTime = Math.max(timings.transitionDelay, timings.animationDelay) * ONE_SECOND, startTime = Date.now(), css3AnimationEvents = ANIMATIONEND_EVENT + " " + TRANSITIONEND_EVENT, itemIndex = elementData.itemIndex, style = "", appliedStyles = [];
                 if (timings.transitionDuration > 0) {
                     var propertyStyle = timings.transitionPropertyStyle;
@@ -8766,11 +8755,11 @@ function(window, angular, undefined) {
             }
             function animateAfter(element, className, afterAnimationComplete) {
                 return element.data(NG_ANIMATE_CSS_DATA_KEY) ? animateRun(element, className, afterAnimationComplete) : (animateClose(element, className), 
-                afterAnimationComplete(), void 0);
+                void afterAnimationComplete());
             }
             function animate(element, className, animationComplete) {
                 var preReflowCancellation = animateBefore(element, className);
-                if (!preReflowCancellation) return animationComplete(), void 0;
+                if (!preReflowCancellation) return void animationComplete();
                 var cancel = preReflowCancellation;
                 return afterReflow(element, function() {
                     unblockTransitions(element), unblockKeyframeAnimations(element), cancel = animateAfter(element, className, animationComplete);
@@ -8825,7 +8814,7 @@ function(window, angular, undefined) {
                     });
                     return cancellationMethod ? (afterReflow(element, function() {
                         unblockTransitions(element), unblockKeyframeAnimations(element), animationCompleted();
-                    }), cancellationMethod) : (animationCompleted(), void 0);
+                    }), cancellationMethod) : void animationCompleted();
                 },
                 addClass: function(element, className, animationCompleted) {
                     return animateAfter(element, suffixClasses(className, "-add"), animationCompleted);
@@ -8839,7 +8828,7 @@ function(window, angular, undefined) {
                     });
                     return cancellationMethod ? (afterReflow(element, function() {
                         unblockTransitions(element), unblockKeyframeAnimations(element), animationCompleted();
-                    }), cancellationMethod) : (animationCompleted(), void 0);
+                    }), cancellationMethod) : void animationCompleted();
                 },
                 removeClass: function(element, className, animationCompleted) {
                     return animateAfter(element, suffixClasses(className, "-remove"), animationCompleted);
@@ -8860,7 +8849,7 @@ function(window, angular, undefined) {
                 originalPath: path,
                 regexp: path
             }, keys = ret.keys = [];
-            return path = path.replace(/([().])/g, "\\$1").replace(/(\/)?:(\w+)([\?\*])?/g, function(_, slash, key, option) {
+            return path = path.replace(/([().])/g, "\\$1").replace(/(\/)?:(\w+)([\?|\*])?/g, function(_, slash, key, option) {
                 var optional = "?" === option ? option : null, star = "*" === option ? option : null;
                 return keys.push({
                     name: key,
@@ -9168,7 +9157,7 @@ function(window, angular, undefined) {
                     l && (R = d.innerWidth() + tb, S = d.innerHeight(), T.css({
                         width: R + "px",
                         height: S + "px"
-                    })), !l && ub == U && Q.outerHeight() == V) return d.width(R), void 0;
+                    })), !l && ub == U && Q.outerHeight() == V) return void d.width(R);
                     ub = U, Q.css("width", ""), d.width(R), T.find(">.jspVerticalBar,>.jspHorizontalBar").remove().end();
                 }
                 Q.css("overflow", "auto"), U = b.contentWidth ? b.contentWidth : Q[0].scrollWidth, 
@@ -9273,7 +9262,7 @@ function(window, angular, undefined) {
                         var d, e = a(this), f = e.offset(), g = b.pageY - f.top - ab, h = !0, i = function() {
                             var a = e.offset(), c = b.pageY - a.top - ib / 2, f = S * P.scrollPagePercent, k = _ * f / (V - S);
                             if (0 > g) ab - k > c ? vb.scrollByY(-f) : r(c); else {
-                                if (!(g > 0)) return j(), void 0;
+                                if (!(g > 0)) return void j();
                                 c > ab + k ? vb.scrollByY(f) : r(c);
                             }
                             d = setTimeout(i, h ? P.initialDelay : P.trackClickRepeatFreq), h = !1;
@@ -9287,7 +9276,7 @@ function(window, angular, undefined) {
                         var d, e = a(this), f = e.offset(), g = b.pageX - f.left - db, h = !0, i = function() {
                             var a = e.offset(), c = b.pageX - a.left - ob / 2, f = R * P.scrollPagePercent, k = cb * f / (U - R);
                             if (0 > g) db - k > c ? vb.scrollByX(-f) : t(c); else {
-                                if (!(g > 0)) return j(), void 0;
+                                if (!(g > 0)) return void j();
                                 c > db + k ? vb.scrollByX(f) : t(c);
                             }
                             d = setTimeout(i, h ? P.initialDelay : P.trackClickRepeatFreq), h = !1;
@@ -9991,7 +9980,7 @@ jvm.VMLShapeElement.prototype.applyAttr = function(e, t) {
         t.push(r), n += r;
         for (s = (this.maxValue - this.minValue) / n, i = 0; i < t.length; i++) t[i] *= s;
         for (i = 0, e -= this.minValue; e - t[i] >= 0; ) e -= t[i], i++;
-        return e = i == this.scale.length - 1 ? this.vectorToNum(this.scale[i]) : this.vectorToNum(this.vectorAdd(this.scale[i], this.vectorMult(this.vectorSubtract(this.scale[i + 1], this.scale[i]), e / t[i])));
+        return e = this.vectorToNum(i == this.scale.length - 1 ? this.scale[i] : this.vectorAdd(this.scale[i], this.vectorMult(this.vectorSubtract(this.scale[i + 1], this.scale[i]), e / t[i])));
     },
     vectorToNum: function(e) {
         var n, t = 0;
@@ -10224,7 +10213,7 @@ jvm.VMLShapeElement.prototype.applyAttr = function(e, t) {
         this.container.mousemove(function() {
             t = !0;
         }), this.container.delegate("[class~='jvectormap-element']", "mouseover mouseout", function(t) {
-            var r = jvm.$(this).attr("class").baseVal ? jvm.$(this).attr("class").baseVal : jvm.$(this).attr("class"), i = -1 === r.indexOf("jvectormap-region") ? "marker" : "region", s = "region" == i ? jvm.$(this).attr("data-code") : jvm.$(this).attr("data-index"), o = "region" == i ? e.regions[s].element : e.markers[s].element, u = "region" == i ? e.mapData.paths[s].name : e.markers[s].config.name || "", a = jvm.$.Event(i + "LabelShow.jvectormap"), f = jvm.$.Event(i + "Over.jvectormap");
+            var r = jvm.$(this).attr("class").baseVal ? jvm.$(this).attr("class").baseVal : jvm.$(this).attr("class"), i = -1 === r.indexOf("jvectormap-region") ? "marker" : "region", s = jvm.$(this).attr("region" == i ? "data-code" : "data-index"), o = "region" == i ? e.regions[s].element : e.markers[s].element, u = "region" == i ? e.mapData.paths[s].name : e.markers[s].config.name || "", a = jvm.$.Event(i + "LabelShow.jvectormap"), f = jvm.$.Event(i + "Over.jvectormap");
             "mouseover" == t.type ? (e.container.trigger(f, [ s ]), f.isDefaultPrevented() || o.setHovered(!0), 
             e.label.text(u), e.container.trigger(a, [ e.label, s ]), a.isDefaultPrevented() || (e.label.show(), 
             e.labelWidth = e.label.width(), e.labelHeight = e.label.height())) : (o.setHovered(!1), 
@@ -10232,7 +10221,7 @@ jvm.VMLShapeElement.prototype.applyAttr = function(e, t) {
         }), this.container.delegate("[class~='jvectormap-element']", "mousedown", function() {
             t = !1;
         }), this.container.delegate("[class~='jvectormap-element']", "mouseup", function() {
-            var i = jvm.$(this).attr("class").baseVal ? jvm.$(this).attr("class").baseVal : jvm.$(this).attr("class"), s = -1 === i.indexOf("jvectormap-region") ? "marker" : "region", o = "region" == s ? jvm.$(this).attr("data-code") : jvm.$(this).attr("data-index"), u = jvm.$.Event(s + "Click.jvectormap"), a = "region" == s ? e.regions[o].element : e.markers[o].element;
+            var i = jvm.$(this).attr("class").baseVal ? jvm.$(this).attr("class").baseVal : jvm.$(this).attr("class"), s = -1 === i.indexOf("jvectormap-region") ? "marker" : "region", o = jvm.$(this).attr("region" == s ? "data-code" : "data-index"), u = jvm.$.Event(s + "Click.jvectormap"), a = "region" == s ? e.regions[o].element : e.markers[o].element;
             t || (e.container.trigger(u, [ o ]), ("region" === s && e.params.regionsSelectable || "marker" === s && e.params.markersSelectable) && (u.isDefaultPrevented() || (e.params[s + "sSelectableOne"] && e.clearSelected(s + "s"), 
             a.setSelected(!a.isSelected))));
         });
@@ -11506,12 +11495,12 @@ var twitterFetcher = function() {
             c.innerHTML = e.body, "undefined" == typeof c.getElementsByClassName && (v = !1), 
             e = [];
             var g = [], f = [], a = [], h = [], d = 0;
-            if (v) for (c = c.getElementsByClassName("tweet"); d < c.length; ) 0 < c[d].getElementsByClassName("retweet-credit").length ? a.push(!0) : a.push(!1), 
+            if (v) for (c = c.getElementsByClassName("tweet"); d < c.length; ) a.push(0 < c[d].getElementsByClassName("retweet-credit").length ? !0 : !1), 
             (!a[d] || a[d] && z) && (e.push(c[d].getElementsByClassName("e-entry-title")[0]), 
             h.push(c[d].getAttribute("data-tweet-id")), g.push(c[d].getElementsByClassName("p-author")[0]), 
             f.push(c[d].getElementsByClassName("dt-updated")[0])), d++; else for (c = p(c, "tweet"); d < c.length; ) e.push(p(c[d], "e-entry-title")[0]), 
             h.push(c[d].getAttribute("data-tweet-id")), g.push(p(c[d], "p-author")[0]), f.push(p(c[d], "dt-updated")[0]), 
-            0 < p(c[d], "retweet-credit").length ? a.push(!0) : a.push(!1), d++;
+            a.push(0 < p(c[d], "retweet-credit").length ? !0 : !1), d++;
             for (e.length > l && (e.splice(l, e.length - l), g.splice(l, g.length - l), f.splice(l, f.length - l), 
             a.splice(l, a.length - l)), c = [], d = e.length, a = 0; d > a; ) {
                 if ("string" != typeof u) {
@@ -11543,6 +11532,7 @@ angular.module("ahundredyears.pagination", []), angular.module("ahundredyears.pa
     return {
         restrict: "E",
         template: "<div class='block'> <img src='{{article.thumbnail_url}}'/><h2>{{article.title}}</h2><p class='read-more' href='#' ng-click='lightbox(article)'>Read more &rarr;</p></div>",
+        replace: !0,
         scope: {
             article: "=",
             lightbox: "=",

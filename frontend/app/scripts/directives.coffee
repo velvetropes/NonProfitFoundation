@@ -1175,11 +1175,9 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
         auto: config.auto
         speed: config.speed
         disableScroll: config.disableScroll
-        continuous: false
+        continuous: config.continuous
         callback: (pos) ->
           scope.setAsCurrent(scope.swipeControls[pos])
-        transitionEnd: (index, elem) ->
-          console.log(scope.swipe)
       )
     ), 1000
 
