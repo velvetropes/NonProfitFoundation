@@ -72,7 +72,6 @@ nav {
 
     ul {
       @include row(table);
-      display: block;
       max-width: 68em;
       list-style: none;
       padding: 0;
