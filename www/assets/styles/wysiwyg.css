@@ -3101,6 +3101,9 @@ pagination {
     .overview-mode .gala-upcoming {
       display: block; } }
 
+.gala-timeline {
+  width: 100%; }
+
 .carousel.hero {
   position: relative;
   width: 100%; }
