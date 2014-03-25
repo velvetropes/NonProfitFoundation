@@ -1,21 +1,19 @@
 {exp:channel:entries channel="programs" limit="1" dynamic="no" limit="1" disable="{global:param_disable_default}"}
 <article class='listen-carefully text-container'>
-    <!--(bake-start _if="server")-->
-    <h1>Listen Carefully</h1>
-    <!--(bake-end)-->
-    <!--(bake-start _if="dist")-->
-    {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
-    <!--(bake-end)-->
 
-    <br/>
-    <h2>Additional Resources</h2>
+    {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
+
+    {listen_carefully_additional_reso limit="1"}
+        {if listen_carefully_additional_reso:field_total_rows > 0}
+        <br/>
+        <h2>Additional Resources</h2>
+        {/if}
+    {/listen_carefully_additional_reso}
 </article>
-{/exp:channel:entries}
 
 <section class='carousel thumblist'>
   <thumblist-nav>
-
-  {exp:channel:entries channel="programs" backspace="6"}{listen_carefully_additional_reso}
+    {listen_carefully_additional_reso}
       <slide
         image-url="{listen_carefully_additional_reso:image}"
         video-url=""
@@ -31,7 +29,8 @@
         logo-image-url=""
         link-style="align-right"
       ></slide>
-      {/listen_carefully_additional_reso}
-    {/exp:channel:entries}
+    {/listen_carefully_additional_reso}
 </thumblist-nav>
 </section>
+
+{/exp:channel:entries}
