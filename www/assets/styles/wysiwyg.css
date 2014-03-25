@@ -1686,12 +1686,16 @@ footer {
       display: block;
       padding: 20px;
       text-align: center; }
-      .accordion .expander .title .arrow {
-        display: inline-block;
-        margin-left: 5px; }
+      .accordion .expander .title .inner-title {
+        position: relative; }
+      .accordion .expander .title .starkey-dd-passive {
+        font-size: 1.25em;
+        position: absolute;
+        right: -27px;
+        top: -3px; }
       .accordion .expander .title.active {
         color: #00b3d2; }
-        .accordion .expander .title.active .arrow {
+        .accordion .expander .title.active .starkey-dd-passive {
           -webkit-transform: rotate(90deg);
           -moz-transform: rotate(90deg);
           -o-transform: rotate(90deg);

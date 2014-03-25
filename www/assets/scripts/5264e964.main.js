@@ -312,7 +312,7 @@
         };
     } ]), sfDirectives.directive("expander", [ function() {
         var template;
-        return template = '<div>\n  <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}">{{title}} <span class="arrow">&gt;</span></a>\n  <div class="body reveal" ng-show="showMe" ng-transclude>\n  </div>\n</div>', 
+        return template = '<div>\n  <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}"><span class="inner-title">{{title}} <i class="starkey-dd-passive"></i></span></a>\n  <div class="body reveal" ng-show="showMe" ng-transclude>\n  </div>\n</div>', 
         {
             restrict: "EA",
             replace: !0,
@@ -1071,7 +1071,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), void pattern.appendChild(image);
+                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1107,7 +1107,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, void $timeout(generateMap, 1200);
+                }, $timeout(generateMap, 1200), void 0;
             }
         };
     } ]), sfDirectives.directive("navscrollspy", function($window) {

@@ -211,7 +211,7 @@ sfDirectives.directive "dropdownOption", [ ->
 sfDirectives.directive "expander", [->
   template = """
     <div>
-      <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}">{{title}} <span class="arrow">&gt;</span></a>
+      <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}"><span class="inner-title">{{title}} <i class="starkey-dd-passive"></i></span></a>
       <div class="body reveal" ng-show="showMe" ng-transclude>
       </div>
     </div>
