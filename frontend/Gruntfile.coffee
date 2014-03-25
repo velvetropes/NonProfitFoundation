@@ -158,7 +158,7 @@ module.exports = (grunt) ->
 
     autoprefixer:
       options:
-        browsers: ["last 1 version"]
+        browsers: ["last 4 versions"]
 
       dist:
         files: [
@@ -381,7 +381,7 @@ module.exports = (grunt) ->
     uglify:
       options:
         mangle: false
-        # beautify: true
+        beautify: true
 
     rev:
       dist:

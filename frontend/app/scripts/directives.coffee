@@ -451,16 +451,10 @@ sfDirectives.directive 'resizer', [->
 sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
 
   link = (scope, element, attrs) ->
-    config = { showArrows: false }
-
-    setTimeout( ->
-      scope.pane = $('.thumblist-nav')
-      scope.pane.jScrollPane(config)
-      scope.api = scope.pane.data("jsp")
-    , 1400)
 
     scope.$on("window.resized", (event, args) ->
       $timeout( ->
+        scope.api = angular.element('.thumblist-nav').data("jsp")
         scope.api.reinitialise()
       , 400)
     )
@@ -474,6 +468,17 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
     clickaction: "="
 
 ]
+
+
+sfDirectives.directive 'jscrollpaneList', ["$timeout", ($timeout) ->
+  (scope, element, attrs) ->
+    if scope.$last
+      $timeout( ->
+        angular.element('.thumblist-nav').jScrollPane()
+      , 1400)
+    return
+]
+
 
 sfDirectives.directive("instagramGallery", [
   "$http"
@@ -876,7 +881,7 @@ sfDirectives.factory("Pagination", ->
 )
 
 sfDirectives.directive "panelTab", [->
-  link = (scope,element, attrs) ->
+  link = (scope, element, attrs) ->
     scope.hasVideo = ->
       scope.featured?.video_link_url?
 
@@ -1171,9 +1176,11 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
         auto: config.auto
         speed: config.speed
         disableScroll: config.disableScroll
-        continuous: config.continuous
+        continuous: false
         callback: (pos) ->
           scope.setAsCurrent(scope.swipeControls[pos])
+        transitionEnd: (index, elem) ->
+          console.log(scope.swipe)
       )
     ), 1000
 
