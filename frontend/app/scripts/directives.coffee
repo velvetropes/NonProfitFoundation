@@ -286,7 +286,7 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
   link = (scope, element, attrs) ->
 
     $timeout( ->
-      scope.pane = $('.thumblist-nav')
+      scope.pane = element.find('.thumblist-nav')
       scope.pane.jScrollPane(config)
       scope.api = scope.pane.data("jsp")
     , 1400)
