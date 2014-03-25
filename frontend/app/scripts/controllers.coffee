@@ -12,7 +12,7 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
   $scope.showSubscribeForm = false
 
   # Make location available to get current url
-  $rootScope.location = $location;
+  $rootScope.locationUrl = encodeURIComponent($location.absUrl())
 
   # We're using to let the blog index text appear before the view is loaded.
   if $location.url() is '/articles'
@@ -56,6 +56,7 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
 
   angular.element($window).bind 'resize', ->
     $scope.$broadcast("window.resized", {})
+
 ])
 
 sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "FeaturedArticle",($scope, MapMarker, FeaturedArticle) ->
