@@ -891,7 +891,6 @@ nav .tabs {
       display: table;
       width: 100%;
       table-layout: fixed;
-      display: block;
       max-width: 68em;
       list-style: none;
       padding: 0;
