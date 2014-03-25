@@ -136,16 +136,16 @@ header {
   }
 }
 
+.header-wrapper {
+  .page-header, .tagline, header .logo img, .tabs-wrap, .tabs, .tabs li a {
+    -webkit-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+  }
+}
 
 @media screen and (min-width: 480px) {
   .header-wrapper.affixed {
     padding-top:170px;
-
-    .page-header, .tagline, header .logo img, .tabs-wrap, .tabs {
-      @include transition(all 0.5s ease-out);
-      -webkit-transition: all 0.5s ease-out;
-    }
-
 
     header {
       .logo a, .social-links {
