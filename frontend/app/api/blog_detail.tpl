@@ -62,7 +62,7 @@
     <ul>
       <li><span class="note">Share this post</span></li>
       <li>
-        <a href="https://twitter.com/intent/tweet?url={{locationUrl()}}&text='Share on Twitter'">
+        <a href="https://twitter.com/intent/tweet?url={{locationUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
       </li>
