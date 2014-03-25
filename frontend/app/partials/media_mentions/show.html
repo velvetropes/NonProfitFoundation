@@ -63,7 +63,7 @@
 <hr class="separator padded"/>
 
 <div class="outer-container">
-  <div class="pagination">
+  <div class="pagination" ng-show="pressItems.length > pagination.perPage">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
@@ -96,7 +96,7 @@
     </li>
   </ul>
 
-  <div class="pagination">
+  <div class="pagination" ng-show="pressItems.length > pagination.perPage">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>

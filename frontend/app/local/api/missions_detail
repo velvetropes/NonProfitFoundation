@@ -62,7 +62,7 @@
       </li>
     </ul>
   </div>
-
+</div>
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel'>
     <thumblist-nav>
@@ -81,5 +81,4 @@
 
     </thumblist-nav>
   </section>
-</div>
 <br/>

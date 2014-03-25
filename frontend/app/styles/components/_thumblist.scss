@@ -12,14 +12,13 @@
   height: 324px;
   .jspPane {
     position: absolute;
-    top: 0;
+    top: 0 !important;
     right: 0;
+    margin-left: 0 !important;
     > div {
       width: 400px;
       height: 313px;
       position: relative;
-      border-top: $dotted-border;
-      border-left: $dotted-border;
       display: inline-block;
 
       /* ie7 support */
@@ -96,7 +95,7 @@
     .jspPane {
       > div {
         width: 680px;
-        height: 410px;
+        height: 411px;
         .image {
           bottom: 0;
         }

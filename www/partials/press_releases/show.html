@@ -65,7 +65,7 @@
 <hr class="separator padded"/>
 
 <div class="outer-container">
-  <div class="pagination">
+  <div class="pagination" ng-show="pressItems.length > pagination.perPage">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
@@ -80,7 +80,7 @@
   </div>
 
   <ul class="pagination-articles">
-    <li ng-repeat="article in articles | orderBy:'-rawdate' | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+    <li ng-repeat="article in pressItems | orderBy:'-rawdate' | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
       <page-tile
         media-type="{{article.type}}"
         id="{{article.id}}"
@@ -99,7 +99,7 @@
     </li>
   </ul>
 
-  <div class="pagination">
+  <div class="pagination" ng-show="pressItems.length > pagination.perPage">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
