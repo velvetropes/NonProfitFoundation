@@ -291,20 +291,11 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
       scope.api = scope.pane.data("jsp")
     , 1400)
 
-    scope.$watch (->
-      element.find(".gala-item").length
-    ), (length) ->
-      $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
-        return
-      , 1400)
-
     scope.$on("window.resized", (event, args) ->
       $timeout( ->
         if scope.api?
           scope.api.reinitialise()
-      , 1400)
+      , 400)
     )
 
   controller = ($scope, $element) ->
