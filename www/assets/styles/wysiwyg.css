@@ -2290,14 +2290,6 @@ pagination {
     max-width: 1600px;
     margin: 0 auto;
     background-color: #000; }
-  .swiper .gradient-background {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 50%;
-    background-image: -webkit-linear-gradient(top, rgba(30, 87, 153, 0) 0%, rgba(0, 0, 0, 0.54) 42%, #050203 100%);
-    background-image: linear-gradient(to bottom, rgba(30, 87, 153, 0) 0%, rgba(0, 0, 0, 0.54) 42%, #050203 100%); }
   .swiper aside {
     position: absolute; }
     .swiper aside:not(.side-panel) {
@@ -2380,6 +2372,16 @@ pagination {
   .swiper .action-link.bordered {
     padding: 10px 30px;
     border: 2px solid white; }
+
+.gradient-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 50%;
+  background-image: -webkit-linear-gradient(top, rgba(30, 87, 153, 0) 0%, rgba(0, 0, 0, 0.45) 42%, rgba(5, 2, 3, 0.9) 100%);
+  background-image: linear-gradient(to bottom, rgba(30, 87, 153, 0) 0%, rgba(0, 0, 0, 0.45) 42%, rgba(5, 2, 3, 0.9) 100%);
+  z-index: 1; }
 
 .play-video-link {
   position: absolute;
@@ -2852,14 +2854,7 @@ pagination {
       .article-header-image .image .banner p {
         margin: 0; }
     .article-header-image .image .gradient-background {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: 70%;
-      background-image: -webkit-linear-gradient(top, rgba(30, 87, 153, 0) 0%, rgba(0, 0, 0, 0.54) 42%, #050203 100%);
-      background-image: linear-gradient(to bottom, rgba(30, 87, 153, 0) 0%, rgba(0, 0, 0, 0.54) 42%, #050203 100%);
-      z-index: 1; }
+      top: 70%; }
   .article-header-image .page-nav-links {
     position: absolute;
     top: 20px;

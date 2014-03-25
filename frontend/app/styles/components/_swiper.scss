@@ -121,14 +121,6 @@
     margin: 0 auto;
     background-color: #000;
   }
-  .gradient-background {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 50%;
-    @include background-image(linear-gradient(top,  rgba(30,87,153,0) 0%,rgba(0,0,0,0.54) 42%,rgba(5,2,3,1) 100%));
-  }
   aside {
     position: absolute;
     &:not(.side-panel) {
@@ -238,6 +230,17 @@
     padding: 10px 30px;
     border: 2px solid white;
   }
+}
+
+
+.gradient-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 50%;
+  @include background-image(linear-gradient(top, rgba(30, 87, 153, 0) 0%, rgba(0, 0, 0, 0.45) 42%, rgba(5, 2, 3, 0.9) 100%));
+  z-index: 1;
 }
 
 .play-video-link {
