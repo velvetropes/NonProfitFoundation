@@ -2598,13 +2598,13 @@ pagination {
 .jspContainer {
   overflow: hidden;
   position: relative; }
-  .jspContainer .jspHorizontalBar {
+  .jspContainer .jspHorizontalBar, .jspContainer .jspVerticalBar {
     background-color: #ebfafd;
     opacity: 1;
     height: 11px; }
-    .jspContainer .jspHorizontalBar .jspTrack {
+    .jspContainer .jspHorizontalBar .jspTrack, .jspContainer .jspVerticalBar .jspTrack {
       position: relative; }
-      .jspContainer .jspHorizontalBar .jspTrack .jspDrag {
+      .jspContainer .jspHorizontalBar .jspTrack .jspDrag, .jspContainer .jspVerticalBar .jspTrack .jspDrag {
         background: #17bfe6;
         opacity: 1; }
 
@@ -2657,6 +2657,24 @@ pagination {
 .jspCorner {
   background: #eeeef4;
   float: left;
+  height: 100%; }
+
+.jspCap {
+  display: block;
+  background: #eeeef4; }
+
+.jspVerticalBar .jspCap {
+  height: 20px; }
+
+.jspHorizontalBar .jspCap {
+  width: 50px;
+  height: 100%; }
+
+.jspVerticalBar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
   height: 100%; }
 
 .map {

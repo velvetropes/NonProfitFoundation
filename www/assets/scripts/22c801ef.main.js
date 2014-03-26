@@ -1089,7 +1089,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), void pattern.appendChild(image);
+                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1117,7 +1117,9 @@
                             var $popup, content;
                             return content = markerList.meta_data[index], $popup = $("#map-popup"), $popup.fadeOut("slow", function() {
                                 return $popup.find(".content").empty().html("<span class='close' ng-click='closePopup()'>X</span><img src='" + content.thumbnail_url + "'/><div class='background-popup'><div class='text-popup'><h2>" + content.title + "</h2><span class='location'>" + content.location + "</span></span><p>" + content.text + "</p><p class='centered'><a class='read-more' href='" + content.action_target + "'>LEARN MORE</a></div></div>"), 
-                                $popup.fadeIn("slow").find(".text-popup").jScrollPane(), $popup.find(".close").click(function() {
+                                $popup.fadeIn("slow", function() {
+                                    return $timeout($popup.find(".text-popup").jScrollPane(), 200);
+                                }), $popup.find(".close").click(function() {
                                     return $popup.fadeOut().find(".text-popup").jScrollPane().data().jsp.destroy();
                                 });
                             });
@@ -1125,7 +1127,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, void $timeout(generateMap, 1200);
+                }, $timeout(generateMap, 1200), void 0;
             }
         };
     } ]), sfDirectives.directive("navscrollspy", function($window) {
