@@ -478,14 +478,6 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
 
   link = (scope, element, attrs) ->
     _initScrollPane(scope, element)
-    scope.$watch (->
-      element.find(".slide").length
-    ), (length) ->
-      $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
-        return
-      , 400)
 
     scope.$on("window.resized", (event, args) ->
       $timeout( ->
@@ -504,6 +496,15 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
       featured: "="
       clickaction: "="
   }
+]
+
+sfDirectives.directive 'jscrollpaneList', ["$timeout", ($timeout) ->
+  (scope, element, attrs) ->
+    if scope.$last
+      $timeout( ->
+        angular.element('.thumblist-nav').jScrollPane()
+      , 400)
+    return
 ]
 
 sfDirectives.directive("instagramGallery", [
@@ -1193,10 +1194,9 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     else
       false
     config.speed = parseInt(attrs.speed, 10) or 500
-    config.disableScroll = !!attrs.disableScroll  if attrs.disableScroll
-    config.continuous = !!attrs.continuous  if attrs.continuous
+    config.disableScroll = !!attrs.disableScroll if attrs.disableScroll
+    config.continuous = !!attrs.continuous if attrs.continuous
 
-    # TODO Use a promise
     $timeout (->
       scope.swipe = new Swipe(document.getElementById(scope.identifier),
         auto: config.auto
