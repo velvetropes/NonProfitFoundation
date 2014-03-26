@@ -3,23 +3,28 @@
     sfControllers = angular.module("sfControllers", []), sfControllers.config([ "$sceProvider", function($sceProvider) {
         return $sceProvider.enabled(!1);
     } ]), sfControllers.controller("globalCtrl", [ "$window", "$scope", "$rootScope", "$location", "$timeout", function($window, $scope, $rootScope, $location, $timeout) {
-        var displayModal, videoUrl;
+        var displayModal;
         return $scope.showModal = !1, $scope.videoIframe = "", $scope.showSubscribeForm = !1, 
         $rootScope.locationUrl = function() {
             return encodeURIComponent($location.absUrl());
-        }, "/articles" === $location.url() && ($scope.blogOverview = !0), $scope.loadingRoute = !1, 
-        $scope.$on("$routeChangeStart", function() {
+        }, "/articles" === $location.url() && ($scope.blogOverview = !0), $timeout(function() {
+            var videoUrl;
+            videoUrl = $location.search().video, null != videoUrl && ($scope.showModal = !0, 
+            displayModal("http://www.youtube.com/watch?v=" + videoUrl));
+        }, 500), $scope.loadingRoute = !1, $scope.$on("$routeChangeStart", function() {
             return $scope.loadingRoute = !0;
         }), $scope.$on("$routeChangeSuccess", function() {
             return $scope.loadingRoute = !1, $scope.blogOverview = "/articles" === $location.url() ? !0 : !1;
-        }), videoUrl = $location.search().video, $scope.$on("modal:hide", function() {
-            return $scope.showModal = !1;
+        }), $scope.$on("modal:hide", function() {
+            return $location.$$search.video && (delete $location.$$search.video, $location.$$compose()), 
+            $scope.showModal = !1;
         }), $scope.$on("modal:show", function(event, url) {
             return $scope.showModal = !$scope.showModal, $scope.showModal === !0 ? displayModal(url) : void 0;
-        }), $timeout(function() {
-            return null != videoUrl ? ($scope.showModal = !0, displayModal("http://www.youtube.com/watch?v=" + videoUrl)) : void 0;
-        }, 1e3), displayModal = function(url) {
-            return $scope.videoIframe = url;
+        }), displayModal = function(url) {
+            var youtubePattern;
+            return youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/, 
+            null != url.match(youtubePattern) && $location.search("video", url.match(youtubePattern)[1]), 
+            $scope.videoIframe = url;
         }, $scope.toggleSubscribeForm = function() {
             return $scope.showSubscribeForm = !$scope.showSubscribeForm;
         }, $scope.openSubscribeForm = function() {
@@ -184,9 +189,9 @@
         return {
             compile: function(element) {
                 var match, url;
-                return "A" === element.prop("tagName") && (url = element.attr("href"), match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/), 
+                "A" === element.prop("tagName") && (url = element.attr("href"), match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/), 
                 "string" == typeof match[2] && match[2].length > 0 && match[2].toLowerCase() !== $location.host() && element.attr("target", "_blank"), 
-                match = url.match(/\.[0-9a-z]+$/), "string" == typeof match && match.length > 0 && ".html" !== match.toLowerCase()) ? element.attr("target", "_blank") : void 0;
+                match = url.match(/\.[0-9a-z]+$/), "string" == typeof match && match.length > 0 && ".html" !== match.toLowerCase() && element.attr("target", "_blank"));
             }
         };
     } ]), sfDirectives.directive("accordion", [ function() {
@@ -1084,7 +1089,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
+                    svgMap.appendChild(pattern), void pattern.appendChild(image);
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1120,7 +1125,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, $timeout(generateMap, 1200), void 0;
+                }, void $timeout(generateMap, 1200);
             }
         };
     } ]), sfDirectives.directive("navscrollspy", function($window) {
