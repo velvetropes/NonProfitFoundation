@@ -2311,7 +2311,12 @@ pagination {
         text-transform: uppercase;
         color: #FFF;
         font-weight: bold;
-        font-size: .875em; }
+        font-size: .874em; }
+        .swiper aside:not(.side-panel) a.text-link {
+          display: inline-block;
+          padding: 2px 35px 3px;
+          border: 2px solid #00b3d2;
+          margin: 10px; }
       @media screen and (max-width: 479px) {
         .swiper aside:not(.side-panel) {
           bottom: 0px;
