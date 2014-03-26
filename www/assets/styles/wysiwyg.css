@@ -2982,8 +2982,11 @@ pagination {
       width: 100%;
       float: none;
       margin-top: 0;
-      height: 210px;
+      height: 370px;
       overflow: hidden; } }
+  @media screen and (max-width: 479px) {
+    .gala-overview .half-wit {
+      height: 210px; } }
 .gala-overview .main-story {
   width: 50%;
   float: left;
