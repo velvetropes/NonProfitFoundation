@@ -190,8 +190,8 @@
             compile: function(element) {
                 var match, url;
                 "A" === element.prop("tagName") && (url = element.attr("href"), match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/), 
-                "string" == typeof match[2] && match[2].length > 0 && match[2].toLowerCase() !== $location.host() && element.attr("target", "_blank"), 
-                match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/), "string" == typeof match && match.length > 0 && ".html" !== match.toLowerCase() && element.attr("target", "_blank"));
+                null != match && "string" == typeof match[2] && match[2].length > 0 && match[2].toLowerCase() !== $location.host() && element.attr("target", "_blank"), 
+                match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/), null != match && "string" == typeof match[1] && match[1].length > 0 && ".html" !== match[1].toLowerCase() && element.attr("target", "_blank"));
             }
         };
     } ]), sfDirectives.directive("accordion", [ function() {

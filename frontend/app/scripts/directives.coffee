@@ -5,15 +5,16 @@ sfDirectives.directive 'href', ["$location", ($location) ->
   compile: (element) ->
     if element.prop("tagName") is 'A'
       url = element.attr('href')
+      
 
       # Check if external domain
       match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
-      if typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
+      if match? and typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
         element.attr('target', '_blank')
 
       # Check if file link
       match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/)
-      if typeof match is "string" and match.length > 0 and match.toLowerCase() isnt '.html'
+      if match? and typeof match[1] is "string" and match[1].length > 0 and match[1].toLowerCase() isnt '.html'
         element.attr('target', '_blank')
     return
 ]
