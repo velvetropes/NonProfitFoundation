@@ -19,6 +19,15 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
   if $location.url() is '/articles'
     $scope.blogOverview = true
 
+  $timeout(->
+    videoUrl = ($location.search()).video
+    if videoUrl?
+      $scope.showModal = true
+      displayModal("http://www.youtube.com/watch?v=#{videoUrl}")
+    return
+  , 500)
+
+
   # Flag if we're loading a new route
   $scope.loadingRoute = false
   $scope.$on '$routeChangeStart', () ->
@@ -30,8 +39,11 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
     else
       $scope.blogOverview = false
 
-  videoUrl = $location.search()['video']
+
   $scope.$on 'modal:hide', (event) ->
+    if $location.$$search.video
+      delete $location.$$search.video
+      $location.$$compose()
     $scope.showModal = false
 
   $scope.$on 'modal:show', (event, url) ->
@@ -40,13 +52,12 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
     if $scope.showModal is true
       displayModal(url)
 
-  $timeout(->
-    if videoUrl?
-      $scope.showModal = true
-      displayModal("http://www.youtube.com/watch?v=#{videoUrl}")
-  ,1000)
+
 
   displayModal = (url) ->
+    youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+    if url.match(youtubePattern)?
+      $location.search('video', url.match(youtubePattern)[1])
     $scope.videoIframe = url
 
   $scope.toggleSubscribeForm = ->
