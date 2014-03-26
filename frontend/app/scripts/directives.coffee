@@ -474,7 +474,7 @@ sfDirectives.directive 'jscrollpaneList', ["$timeout", ($timeout) ->
     if scope.$last
       $timeout( ->
         angular.element('.thumblist-nav').jScrollPane()
-      , 1400)
+      , 400)
     return
 ]
 
