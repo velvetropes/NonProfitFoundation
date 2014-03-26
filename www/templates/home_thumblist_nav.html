@@ -13,7 +13,7 @@
         </div>
       </a>
     </div>
-    <div ng-repeat="article in featured.articles" class="slide">
+    <div ng-repeat="article in featured.articles" class="slide" jscrollpane-list>
       <a href ng-click="clickaction($index+1)">
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
         <div class="content">

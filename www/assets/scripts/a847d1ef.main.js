@@ -494,13 +494,7 @@
                 scope.pane = angular.element(".thumblist-nav").jScrollPane(), scope.api = scope.pane.data().jsp;
             }, 400);
         }, link = function(scope, element) {
-            _initScrollPane(scope, element), scope.$watch(function() {
-                return element.find(".slide").length;
-            }, function() {
-                return $timeout(function() {
-                    null != scope.api && scope.api.reinitialise();
-                }, 400);
-            }), scope.$on("window.resized", function() {
+            _initScrollPane(scope, element), scope.$on("window.resized", function() {
                 return $timeout(function() {
                     return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
                 }, 100);
@@ -514,6 +508,12 @@
                 featured: "=",
                 clickaction: "="
             }
+        };
+    } ]), sfDirectives.directive("jscrollpaneList", [ "$timeout", function($timeout) {
+        return function(scope) {
+            scope.$last && $timeout(function() {
+                return angular.element(".thumblist-nav").jScrollPane();
+            }, 400);
         };
     } ]), sfDirectives.directive("instagramGallery", [ "$http", "Instagram", function($http, Instagram) {
         return {
