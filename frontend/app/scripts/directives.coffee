@@ -283,19 +283,32 @@ sfDirectives.directive("facebook", [
 sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http, $sce, $timeout) ->
   config = {}
 
-  link = (scope, element, attrs) ->
-
+  _initScrollPane = (scope, element) ->
     $timeout( ->
-      scope.pane = element.find('.thumblist-nav')
-      scope.pane.jScrollPane(config)
-      scope.api = scope.pane.data("jsp")
-    , 1400)
+      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.api = scope.pane.data().jsp
+      return
+    , 400)
+
+  link = (scope, element, attrs) ->
+    _initScrollPane(scope, element)
+    scope.$watch (->
+      element.find(".gala-item").length
+    ), (length) ->
+      $timeout( ->
+        if scope.api?
+          scope.api.reinitialise()
+        return
+      , 400)
 
     scope.$on("window.resized", (event, args) ->
       $timeout( ->
-        scope.api.reinitialise()
-      , 400)
+        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+        _initScrollPane(scope, element)
+      , 100)
     )
+    return
+
 
   controller = ($scope, $element) ->
     $scope.getItem = (url)->
@@ -315,6 +328,13 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
 # <gallery></gallery>
 
 sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
+
+  _initScrollPane = (scope, element) ->
+    $timeout( ->
+      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.api = scope.pane.data().jsp
+      return
+    , 400)
 
   link = (scope, element, attrs) ->
     scope.slides ?= 1
@@ -337,8 +357,8 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
     element.parent().addClass("no-container") if element.parent()?.is("p")
 
     if scope.isThumblist()
-      element.jScrollPane config
-      scope.api = element.data("jsp")
+
+      _initScrollPane(scope, element)
       scope.$watch (->
         element.find(".gallery-slide").length
       ), (length) ->
@@ -346,14 +366,15 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
           if scope.api?
             scope.api.reinitialise()
           return
-        , 800)
+        , 400)
 
       scope.$on("window.resized", (event, args) ->
         $timeout( ->
-          if scope.api?
-            scope.api.reinitialise()
-        , 400)
+          angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+          _initScrollPane(scope, element)
+        , 100)
       )
+    return
 
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
@@ -448,36 +469,42 @@ sfDirectives.directive 'resizer', [->
 ]
 
 sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
+  _initScrollPane = (scope, element) ->
+    $timeout( ->
+      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.api = scope.pane.data().jsp
+      return
+    , 400)
 
   link = (scope, element, attrs) ->
+    _initScrollPane(scope, element)
+    scope.$watch (->
+      element.find(".slide").length
+    ), (length) ->
+      $timeout( ->
+        if scope.api?
+          scope.api.reinitialise()
+        return
+      , 400)
 
     scope.$on("window.resized", (event, args) ->
       $timeout( ->
-        scope.api = angular.element('.thumblist-nav').data("jsp")
-        scope.api.reinitialise()
-      , 400)
+        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+        _initScrollPane(scope, element)
+      , 100)
     )
-
-  restrict: "E"
-  link: link
-  templateUrl: "templates/home_thumblist_nav.html"
-  replace: true
-  scope:
-    featured: "="
-    clickaction: "="
-
-]
-
-
-sfDirectives.directive 'jscrollpaneList', ["$timeout", ($timeout) ->
-  (scope, element, attrs) ->
-    if scope.$last
-      $timeout( ->
-        angular.element('.thumblist-nav').jScrollPane()
-      , 400)
     return
-]
 
+  return {
+    restrict: "E"
+    link: link
+    templateUrl: "templates/home_thumblist_nav.html"
+    replace: true
+    scope:
+      featured: "="
+      clickaction: "="
+  }
+]
 
 sfDirectives.directive("instagramGallery", [
   "$http"
@@ -1304,29 +1331,31 @@ sfDirectives.directive "tabbedNav", ["$window", ($window) ->
 # <thumblist-nav full="true"></thumblist-nav>
 
 sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $window) ->
-  link = (scope, element, attrs) ->
-    config = showArrows: false
 
-    $timeout (->
-      scope.pane = element
-      scope.pane.jScrollPane config
-      scope.api = scope.pane.data("jsp")
-    ), 400
+  _initScrollPane = (scope, element) ->
+    $timeout( ->
+      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.api = scope.pane.data().jsp
+      return
+    , 400)
+
+  link = (scope, element, attrs) ->
+    scope.config = showArrows: false
+    _initScrollPane(scope, element)
 
     scope.$watch (->
       element.find(".slide").length
     ), (length) ->
       $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
+        scope.api.reinitialise() if scope.api?
         return
-      , 200)
+      , 400)
 
     scope.$on("window.resized", (event, args) ->
       $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
-      , 400)
+        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+        _initScrollPane(scope, element)
+      , 100)
     )
 
     scope.isFullHeight = ->

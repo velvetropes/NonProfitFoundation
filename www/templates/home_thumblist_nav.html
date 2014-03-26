@@ -4,7 +4,7 @@
   </div>
 
   <div class='thumblist-nav horizontal-only' ng-if="featured.articles">
-    <div>
+    <div class="slide">
        <a href ng-click="clickaction(0)">
         <div class="image" ng-style="{'background-image': 'url(' + featured.mission_thumb + ')'}"></div>
         <div class="content">
@@ -13,13 +13,13 @@
         </div>
       </a>
     </div>
-    <div ng-repeat="article in featured.articles" jscrollpane-list>
+    <div ng-repeat="article in featured.articles" class="slide">
       <a href ng-click="clickaction($index+1)">
         <div class="image" ng-style="{'background-image': 'url(' + article.thumbnail_image_url + ')'}"></div>
         <div class="content">
           <h4 ng-bind="article.thumbnail_title"></h4>
           <button ng-click="clickaction($index+1)" >
-            {{article.thumbnail_call_to_action_text}} 
+            {{article.thumbnail_call_to_action_text}}
             <span ng-show="article.thumbnail_call_to_action_text">&rarr;</span>&nbsp;
           </button>
         </div>

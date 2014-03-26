@@ -359,15 +359,22 @@
             }
         };
     } ]), sfDirectives.directive("galaThumblistNav", [ "$http", "$sce", "$timeout", function($http, $sce, $timeout) {
-        var config, controller, link;
-        return config = {}, link = function(scope, element) {
+        var config, controller, link, _initScrollPane;
+        return config = {}, _initScrollPane = function(scope) {
             return $timeout(function() {
-                return scope.pane = element.find(".thumblist-nav"), scope.pane.jScrollPane(config), 
-                scope.api = scope.pane.data("jsp");
-            }, 1400), scope.$on("window.resized", function() {
+                scope.pane = angular.element(".thumblist-nav").jScrollPane(), scope.api = scope.pane.data().jsp;
+            }, 400);
+        }, link = function(scope, element) {
+            _initScrollPane(scope, element), scope.$watch(function() {
+                return element.find(".gala-item").length;
+            }, function() {
                 return $timeout(function() {
-                    return scope.api.reinitialise();
+                    null != scope.api && scope.api.reinitialise();
                 }, 400);
+            }), scope.$on("window.resized", function() {
+                return $timeout(function() {
+                    return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
+                }, 100);
             });
         }, controller = function($scope) {
             return $scope.getItem = function(url) {
@@ -386,10 +393,14 @@
             }
         };
     } ]), sfDirectives.directive("gallery", [ "$timeout", function($timeout) {
-        var link, template;
-        return link = function(scope, element) {
+        var link, template, _initScrollPane;
+        return _initScrollPane = function(scope) {
+            return $timeout(function() {
+                scope.pane = angular.element(".thumblist-nav").jScrollPane(), scope.api = scope.pane.data().jsp;
+            }, 400);
+        }, link = function(scope, element) {
             var config, _ref;
-            return null == scope.slides && (scope.slides = 1), scope.isThumblist = function() {
+            null == scope.slides && (scope.slides = 1), scope.isThumblist = function() {
                 return scope.slides > 1;
             }, config = {
                 showArrows: !0
@@ -399,18 +410,17 @@
             }, scope.galleryClasses = function() {
                 return scope.isThumblist() ? "gallery full thumblist thumblist-nav horizontal-only" : "single-image-gallery";
             }, (null != (_ref = element.parent()) ? _ref.is("p") : void 0) && element.parent().addClass("no-container"), 
-            scope.isThumblist() ? (element.jScrollPane(config), scope.api = element.data("jsp"), 
-            scope.$watch(function() {
+            scope.isThumblist() && (_initScrollPane(scope, element), scope.$watch(function() {
                 return element.find(".gallery-slide").length;
             }, function() {
                 return $timeout(function() {
                     null != scope.api && scope.api.reinitialise();
-                }, 800);
+                }, 400);
             }), scope.$on("window.resized", function() {
                 return $timeout(function() {
-                    return null != scope.api ? scope.api.reinitialise() : void 0;
-                }, 400);
-            })) : void 0;
+                    return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
+                }, 100);
+            }));
         }, template = '<div ng-class="galleryClasses()" ng-transclude></div>', {
             restrict: "E",
             link: link,
@@ -473,12 +483,22 @@
             }
         };
     } ]), sfDirectives.directive("homeThumblistNav", [ "$timeout", function($timeout) {
-        var link;
-        return link = function(scope) {
-            return scope.$on("window.resized", function() {
+        var link, _initScrollPane;
+        return _initScrollPane = function(scope) {
+            return $timeout(function() {
+                scope.pane = angular.element(".thumblist-nav").jScrollPane(), scope.api = scope.pane.data().jsp;
+            }, 400);
+        }, link = function(scope, element) {
+            _initScrollPane(scope, element), scope.$watch(function() {
+                return element.find(".slide").length;
+            }, function() {
                 return $timeout(function() {
-                    return scope.api = angular.element(".thumblist-nav").data("jsp"), scope.api.reinitialise();
+                    null != scope.api && scope.api.reinitialise();
                 }, 400);
+            }), scope.$on("window.resized", function() {
+                return $timeout(function() {
+                    return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
+                }, 100);
             });
         }, {
             restrict: "E",
@@ -489,12 +509,6 @@
                 featured: "=",
                 clickaction: "="
             }
-        };
-    } ]), sfDirectives.directive("jscrollpaneList", [ "$timeout", function($timeout) {
-        return function(scope) {
-            scope.$last && $timeout(function() {
-                return angular.element(".thumblist-nav").jScrollPane();
-            }, 400);
         };
     } ]), sfDirectives.directive("instagramGallery", [ "$http", "Instagram", function($http, Instagram) {
         return {
@@ -994,23 +1008,25 @@
             }
         };
     } ]), sfDirectives.directive("thumblistNav", [ "$timeout", "$window", function($timeout) {
-        var link, template;
-        return link = function(scope, element) {
-            var config, _ref;
-            return config = {
+        var link, template, _initScrollPane;
+        return _initScrollPane = function(scope) {
+            return $timeout(function() {
+                scope.pane = angular.element(".thumblist-nav").jScrollPane(), scope.api = scope.pane.data().jsp;
+            }, 400);
+        }, link = function(scope, element) {
+            var _ref;
+            return scope.config = {
                 showArrows: !1
-            }, $timeout(function() {
-                return scope.pane = element, scope.pane.jScrollPane(config), scope.api = scope.pane.data("jsp");
-            }, 400), scope.$watch(function() {
+            }, _initScrollPane(scope, element), scope.$watch(function() {
                 return element.find(".slide").length;
             }, function() {
                 return $timeout(function() {
                     null != scope.api && scope.api.reinitialise();
-                }, 200);
+                }, 400);
             }), scope.$on("window.resized", function() {
                 return $timeout(function() {
-                    return null != scope.api ? scope.api.reinitialise() : void 0;
-                }, 400);
+                    return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
+                }, 100);
             }), scope.isFullHeight = function() {
                 var _ref;
                 return (null != (_ref = scope.full) ? _ref.length : void 0) > 0 && "true" === scope.full;
@@ -1068,7 +1084,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), void pattern.appendChild(image);
+                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1104,7 +1120,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, void $timeout(generateMap, 1200);
+                }, $timeout(generateMap, 1200), void 0;
             }
         };
     } ]), sfDirectives.directive("navscrollspy", function($window) {
