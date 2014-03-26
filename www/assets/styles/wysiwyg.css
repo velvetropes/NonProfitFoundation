@@ -1301,6 +1301,9 @@ header {
       margin-top: -100px; }
       .header-wrapper.affixed .header-nav .top-level-wrap {
         border-bottom: 0; } }
+@media screen and (min-width: 480px) and (max-width: 514px) {
+  .header-nav {
+    font-size: 14px; } }
 @media screen and (min-width: 480px) and (max-width: 900px) {
   .header-wrapper.affixed .header-nav {
     margin-top: -50px; } }

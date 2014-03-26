@@ -185,8 +185,7 @@ header {
       margin-top:25px;
       > li {
         display: table-cell;
-  
-        a {     
+        a {
           padding: 5px 25px;
         }
 
@@ -206,6 +205,11 @@ header {
         border-bottom: 0;
       }
     }
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 514px) {
+  .header-nav {
+    font-size: 14px;
   }
 }
 @media screen and (min-width: 480px) and (max-width: 900px) {
