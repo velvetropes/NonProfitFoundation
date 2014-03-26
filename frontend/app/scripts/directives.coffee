@@ -12,7 +12,7 @@ sfDirectives.directive 'href', ["$location", ($location) ->
         element.attr('target', '_blank')
 
       # Check if file link
-      match = url.match(/\.[0-9a-z]+$/)
+      match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/)
       if typeof match is "string" and match.length > 0 and match.toLowerCase() isnt '.html'
         element.attr('target', '_blank')
     return
