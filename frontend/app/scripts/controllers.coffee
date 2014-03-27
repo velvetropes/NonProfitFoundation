@@ -283,6 +283,12 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "$filter", "Pagination"
     currentPage = $scope.pagination.page
     upToPage = currentPage + 2
     if thisPage in [$scope.paginationLowerWindowLimit..$scope.paginationUpperWindowLimit] then true else false
+
+  $scope.continentName = (continent) ->
+    if continent.is_us_map is "1"
+      "USA"
+    else
+      continent.name
 ])
 
 sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
