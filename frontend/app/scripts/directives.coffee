@@ -6,16 +6,19 @@ sfDirectives.directive 'href', ["$location", ($location) ->
     if element.prop("tagName") is 'A'
       url = element.attr('href')
 
+      # if not a mailto link and actually has an href value
+      if url.lastIndexOf('mailto:', 0) isnt 0 and url.length > 0
 
-      # Check if external domain
-      match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
-      if match? and typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
-        element.attr('target', '_blank')
+        # Check if external domain
+        match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
+        if match? and typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
+          element.attr('target', '_blank')
 
-      # Check if file link
-      match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/)
-      if match? and typeof match[1] is "string" and match[1].length > 0 and match[1].toLowerCase() isnt '.html'
-        element.attr('target', '_blank')
+        else 
+          # Check if file link
+          match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/)
+          if match? and typeof match[1] is "string" and match[1].length > 0 and match[1].toLowerCase() isnt 'html'
+            element.attr('target', '_blank')
     return
 ]
 
