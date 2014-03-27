@@ -1077,7 +1077,7 @@ nav .tabs {
 
 .flatform ul {
   padding-left: 0; }
-.flatform.invert select, .flatform.invert input[type="text"], .flatform.invert label, .flatform.invert textarea {
+.flatform.invert select, .flatform.invert input[type="text"], .flatform.invert input[type="email"], .flatform.invert label, .flatform.invert textarea {
   border-color: #FFF;
   color: #3d4144; }
 .flatform.invert input[type="submit"] {
@@ -1092,6 +1092,7 @@ nav .tabs {
   height: 180px; }
 .flatform select,
 .flatform input[type="text"],
+.flatform input[type="email"],
 .flatform textarea {
   outline: none;
   font-size: 1em;
@@ -1105,7 +1106,10 @@ nav .tabs {
   -webkit-box-shadow: none;
   box-shadow: none;
   width: 100%;
-  border-radius: 0px; }
+  border-radius: 0px;
+  -webkit-transition: 0.25s all linear;
+  -moz-transition: 0.25s all linear;
+  transition: 0.25s all linear; }
 .flatform label {
   text-transform: uppercase; }
   .flatform label:after {
@@ -1142,6 +1146,11 @@ nav .tabs {
   .flatform li.leftHalf, .flatform li.leftThird {
     clear: left !important;
     float: left; }
+  .flatform li.has-error select,
+  .flatform li.has-error input[type="text"],
+  .flatform li.has-error input[type="email"],
+  .flatform li.has-error textarea {
+    border-color: red; }
 
 @media screen and (max-width: 479px) {
   body {

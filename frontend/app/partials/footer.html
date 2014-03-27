@@ -53,34 +53,42 @@
   <div class="outer-container">
     <section>
       <div class="reveal outer-container form" ng-show="showSubscribeForm==true">
-        {exp:freeform:form form_name="newsletter_signup" form:class="flatform invert"}
+        {exp:freeform:form 
+          form_name="newsletter_signup"
+          form:name="newsletter"
+          form:id="become_a_provider_form" 
+          form:class="flatform invert"
+          form:valid-submit="valid-submit"
+          form:novalidate="novalidate"
+          return="/#thank_you"
+        }
           <ul>
-            <li class="leftHalf">
-                <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="FIRST NAME*"  />
+            <li class="leftHalf" ng-class="{'has-error': newsletter.first_name.$invalid && newsletter.$submitted }">
+                {freeform:field:first_name attr:placeholder="FIRST NAME*" attr:ng-model="firstName" attr:required="required"}
             </li>
 
-            <li class="rightHalf">
-                <input type="text" name="last_name" value="" id="freeform_last_name" maxlength="150" placeholder="LAST NAME*"  />
+            <li class="rightHalf" ng-class="{'has-error': newsletter.last_name.$invalid && newsletter.$submitted }">
+                {freeform:field:last_name attr:placeholder="LAST NAME*" attr:ng-model="lastName" attr:required="required"}
             </li>
 
-            <li class="full">
-                <input type="text" name="email" value="" id="freeform_email" maxlength="150" placeholder="EMAIL*"  />
+            <li class="full" ng-class="{'has-error': newsletter.email.$invalid && newsletter.$submitted }">
+                {freeform:field:email attr:placeholder="EMAIL*" attr:ng-model="email" attr:required="required"}
             </li>
 
-            <li class="leftFourth">
-                <input type="text" name="address" value="" id="freeform_address" maxlength="150" placeholder="ADDRESS*"  />
+            <li class="leftFourth" ng-class="{'has-error': newsletter.address.$invalid && newsletter.$submitted }">
+                {freeform:field:address attr:placeholder="ADDRESS*" attr:ng-model="address" attr:required="required"}
             </li>
 
-            <li class="middleFourthFirst">
-                <input type="text" name="city" value="" id="freeform_city" maxlength="150" placeholder="CITY*"  />
+            <li class="middleFourthFirst" ng-class="{'has-error': newsletter.city.$invalid && newsletter.$submitted }">
+                {freeform:field:city attr:placeholder="CITY*" attr:ng-model="city" attr:required="required"}
             </li>
 
-            <li class="middleFourthSecond">
-                <input type="text" name="state" value="" id="freeform_state" maxlength="150" placeholder="STATE*"  />
+            <li class="middleFourthSecond" ng-class="{'has-error': newsletter.state.$invalid && newsletter.$submitted }">
+                {freeform:field:state attr:placeholder="STATE*" attr:ng-model="state" attr:required="required"}
             </li>
 
-            <li class="rightFourth">
-                <input type="text" name="zip" value="" id="freeform_zip" maxlength="150" placeholder="ZIP*"  />
+            <li class="rightFourth" ng-class="{'has-error': newsletter.zip.$invalid && newsletter.$submitted }">
+                {freeform:field:zip attr:placeholder="ZIP*" attr:ng-model="zip" attr:required="required"}
             </li>
 
             <li class="full centered">

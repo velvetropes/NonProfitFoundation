@@ -32,46 +32,53 @@
     <br/>
     <div class="become-a-provider-container hidden">
       <br/>
-      {exp:freeform:form form_id="2" form:id="become_a_provider_form" form:class="flatform invert" return="/#thank_you"}
+    {exp:freeform:form form_id="2"
+        form:name="provider"
+        form:id="become_a_provider_form" 
+        form:class="flatform invert"
+        form:valid-submit="valid-submit"
+        form:novalidate="novalidate"
+        return="/#thank_you"
+    }
         <ul>
-            <li class="leftHalf">
-                {freeform:field:first_name attr:placeholder="First Name"}
+            <li class="leftHalf" ng-class="{'has-error': provider.first_name.$invalid && provider.$submitted }">
+                {freeform:field:first_name attr:placeholder="First Name" attr:ng-model="firstName" attr:required="required"}
             </li>
 
-            <li class="rightHalf">
-                {freeform:field:last_name attr:placeholder="Last Name"}
+            <li class="rightHalf" ng-class="{'has-error': provider.last_name.$invalid && provider.$submitted }">
+                {freeform:field:last_name attr:placeholder="Last Name" attr:ng-model="lastName" attr:required="required"}
             </li>
 
-            <li class="leftFourth">
-                {freeform:field:practice attr:placeholder="Practice"}
+            <li class="leftFourth" ng-class="{'has-error': provider.practice.$invalid && provider.$submitted }">
+                {freeform:field:practice attr:placeholder="Practice" attr:ng-model="practice" attr:required="required"}
             </li>
 
-            <li class="middleFourthFirst">
-                {freeform:field:phone attr:placeholder="Phone"}
+            <li class="middleFourthFirst" ng-class="{'has-error': provider.phone.$invalid && provider.$submitted }">
+                {freeform:field:phone attr:placeholder="Phone" attr:ng-model="phone" attr:required="required"}
             </li>
 
-            <li class="middleFourthSecond">
-                {freeform:field:fax attr:placeholder="FAX"}
+            <li class="middleFourthSecond" ng-class="{'has-error': provider.fax.$invalid && provider.$submitted }">
+                {freeform:field:fax attr:placeholder="FAX" attr:ng-model="fax" attr:required="required"}
             </li>
 
-            <li class="rightFourth">
-                {freeform:field:email attr:placeholder="Email"}
+            <li class="rightFourth" ng-class="{'has-error': provider.email.$invalid && provider.$submitted }">
+                {freeform:field:email attr:placeholder="Email" attr:ng-model="email" attr:required="required" attr:type="email"}
             </li>
 
-            <li class="leftFourth">
-                {freeform:field:address attr:placeholder="Address"}
+            <li class="leftFourth" ng-class="{'has-error': provider.address.$invalid && provider.$submitted }">
+                {freeform:field:address attr:placeholder="Address" attr:ng-model="address" attr:required="required"}
             </li>
 
-            <li class="middleFourthFirst">
-                {freeform:field:city attr:placeholder="City"}
+            <li class="middleFourthFirst" ng-class="{'has-error': provider.city.$invalid && provider.$submitted }">
+                {freeform:field:city attr:placeholder="City" attr:ng-model="city" attr:required="required"}
             </li>
 
-            <li class="middleFourthSecond">
-                {freeform:field:state attr:placeholder="State"}
+            <li class="middleFourthSecond" ng-class="{'has-error': provider.state.$invalid && provider.$submitted }">
+                {freeform:field:state attr:placeholder="State" attr:ng-model="state" attr:required="required"}
             </li>
 
-            <li class="rightFourth">
-                {freeform:field:zip attr:placeholder="Zip"}
+            <li class="rightFourth" ng-class="{'has-error': provider.zip.$invalid && provider.$submitted }">
+                {freeform:field:zip attr:placeholder="Zip" attr:ng-model="zip" attr:required="required"}
             </li>
 
             <li class="full">

@@ -367,7 +367,7 @@
         var config, controller, link, _initScrollPane;
         return config = {}, _initScrollPane = function(scope) {
             return $timeout(function() {
-                scope.pane = angular.element(".thumblist-nav").jScrollPane(), scope.api = scope.pane.data().jsp;
+                scope.pane = angular.element(".thumblist-nav").jScrollPane(), null !== scope.pane.data() && (scope.api = scope.pane.data().jsp);
             }, 400);
         }, link = function(scope, element) {
             _initScrollPane(scope, element), scope.$watch(function() {
@@ -401,7 +401,7 @@
         var link, template, _initScrollPane;
         return _initScrollPane = function(scope) {
             return $timeout(function() {
-                scope.pane = angular.element(".thumblist-nav").jScrollPane(), scope.api = scope.pane.data().jsp;
+                scope.pane = angular.element(".thumblist-nav").jScrollPane(), null !== scope.pane.data() && (scope.api = scope.pane.data().jsp);
             }, 400);
         }, link = function(scope, element) {
             var config, _ref;
@@ -491,7 +491,7 @@
         var link, _initScrollPane;
         return _initScrollPane = function(scope) {
             return $timeout(function() {
-                scope.pane = angular.element(".thumblist-nav").jScrollPane(), scope.api = scope.pane.data().jsp;
+                scope.pane = angular.element(".thumblist-nav").jScrollPane(), null !== scope.pane.data() && (scope.api = scope.pane.data().jsp);
             }, 400);
         }, link = function(scope, element) {
             _initScrollPane(scope, element), scope.$on("window.resized", function() {
@@ -1089,7 +1089,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
+                    svgMap.appendChild(pattern), void pattern.appendChild(image);
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1129,7 +1129,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, $timeout(generateMap, 1200), void 0;
+                }, void $timeout(generateMap, 1200);
             }
         };
     } ]), sfDirectives.directive("navscrollspy", function($window) {
@@ -1138,7 +1138,18 @@
                 scope.passed = this.pageYOffset >= 120 ? !0 : !1, scope.$apply();
             });
         };
-    });
+    }), sfDirectives.directive("validSubmit", [ "$parse", function() {
+        return {
+            require: "form",
+            link: function(scope, element, attr, form) {
+                form.$submitted = !1, element.on("submit", function(event) {
+                    scope.$apply(function() {
+                        form.$submitted = !0, form.$valid ? form.$submitted = !1 : event.preventDefault();
+                    });
+                });
+            }
+        };
+    } ]);
 }.call(this), function() {
     var sfFilters;
     sfFilters = angular.module("sfFilters", [ "sfServices" ]), sfFilters.filter("startFrom", function() {

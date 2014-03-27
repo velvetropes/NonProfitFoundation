@@ -6,15 +6,19 @@
 <p>If you or someone you know is struggling with hearing loss and unable to afford hearing aids, call 1-800-328-8602 or complete the form below, and a Hear Now representative will be in touch with you.&nbsp;</p>
 
 <p>
-
-
+      
+        
           <gallery slides="1">              <gallery-slide
-               image-url="http://starkey.local/uploads/images/hearnow1.jpg"
+               image-url="http://s3-us-west-2.amazonaws.com/assetsimages/hearnow1.jpg"
                video-url=""
               ></gallery-slide>
-          </gallery>
+          </gallery>        
 
+        
+                  
 
+        
+    
 
     </p>
     <p class="centered"><a href="mailto:programs@starkeyfoundation.org" class="link-with-border">Contact us</a></p>
@@ -25,13 +29,13 @@
       <ul>
         <li><span class="note">Download application</span></li>
         <li>
-          <a href="http://starkey.local/uploads/files/FORM7970-10-EE-XX-Hear-Now-Application-2014.pdf">
+          <a href="http://starkey.local/uploads/files/Screen_Shot_2014-03-25_at_3.39.15_PM.png">
             <span class="icon starkey-pdf"></span>
           </a>
         </li>
         <li><span class="note">Descargar Solicitud</span></li>
         <li>
-          <a href="http://starkey.local/uploads/files/FORM7970-10-EE-XX-Hear-Now-Application-2014_SPANISH.pdf">
+          <a href="http://starkey.local/uploads/files/Screen_Shot_2014-03-24_at_6.27.40_PM.png">
             <span class="icon starkey-pdf"></span>
           </a>
         </li>
@@ -49,49 +53,58 @@
     <br/>
     <div class="become-a-provider-container hidden">
       <br/>
-      <form action="http://starkey.local/?ACT=23" accept-charset="utf-8" id="become_a_provider_form" class="flatform invert" method="post"><div style="display:none">
-<input type="hidden" name="params_id" value="89" />
-<input type="hidden" name="XID" value="992aa6d82a172eb6ce1192ef1a5c94336f49f50d" />
+    <form 
+      action="/programs.html#/programs/2?thanks" 
+      accept-charset="utf-8" 
+      name="provider" 
+      id="become_a_provider_form" 
+      class="flatform invert" 
+      novalidate="novalidate"
+      method="post"
+      valid-submit="valid-submit"
+    ><div style="display:none">
+<input type="hidden" name="params_id" value="524" />
+<input type="hidden" name="XID" value="81f2c77ed37094f7d7d2e54e9787f932b7401659" />
 </div>
         <ul>
-            <li class="leftHalf">
-                <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="First Name"  />
+            <li class="leftHalf" ng-class="{'has-error': provider.first_name.$invalid && provider.$submitted }">
+                <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="First Name" ng-model="firstName" required="required"  />
             </li>
 
-            <li class="rightHalf">
-                <input type="text" name="last_name" value="" id="freeform_last_name" maxlength="150" placeholder="Last Name"  />
+            <li class="rightHalf" ng-class="{'has-error': provider.last_name.$invalid && provider.$submitted }">
+                <input type="text" name="last_name" value="" id="freeform_last_name" maxlength="150" placeholder="Last Name" ng-model="lastName" required="required"  />
             </li>
 
-            <li class="leftFourth">
-                <input type="text" name="practice" value="" id="freeform_practice" maxlength="150" placeholder="Practice"  />
+            <li class="leftFourth" ng-class="{'has-error': provider.practice.$invalid && provider.$submitted }">
+                <input type="text" name="practice" value="" id="freeform_practice" maxlength="150" placeholder="Practice" ng-model="practice" required="required"  />
             </li>
 
-            <li class="middleFourthFirst">
-                <input type="text" name="phone" value="" id="freeform_phone" maxlength="150" placeholder="Phone"  />
+            <li class="middleFourthFirst" ng-class="{'has-error': provider.phone.$invalid && provider.$submitted }">
+                <input type="text" name="phone" value="" id="freeform_phone" maxlength="150" placeholder="Phone" ng-model="phone" required="required"  />
             </li>
 
-            <li class="middleFourthSecond">
-                <input type="text" name="fax" value="" id="freeform_fax" maxlength="150" placeholder="FAX"  />
+            <li class="middleFourthSecond" ng-class="{'has-error': provider.fax.$invalid && provider.$submitted }">
+                <input type="text" name="fax" value="" id="freeform_fax" maxlength="150" placeholder="FAX" ng-model="fax" required="required"  />
             </li>
 
-            <li class="rightFourth">
-                <input type="text" name="email" value="" id="freeform_email" maxlength="150" placeholder="Email"  />
+            <li class="rightFourth" ng-class="{'has-error': provider.email.$invalid && provider.$submitted }">
+                <input type="text" name="email" value="" id="freeform_email" maxlength="150" placeholder="Email" ng-model="email" required="required"  />
             </li>
 
-            <li class="leftFourth">
-                <input type="text" name="address" value="" id="freeform_address" maxlength="150" placeholder="Address"  />
+            <li class="leftFourth" ng-class="{'has-error': provider.address.$invalid && provider.$submitted }">
+                <input type="text" name="address" value="" id="freeform_address" maxlength="150" placeholder="Address" ng-model="address" required="required"  />
             </li>
 
-            <li class="middleFourthFirst">
-                <input type="text" name="city" value="" id="freeform_city" maxlength="150" placeholder="City"  />
+            <li class="middleFourthFirst" ng-class="{'has-error': provider.city.$invalid && provider.$submitted }">
+                <input type="text" name="city" value="" id="freeform_city" maxlength="150" placeholder="City" ng-model="city" required="required"  />
             </li>
 
-            <li class="middleFourthSecond">
-                <input type="text" name="state" value="" id="freeform_state" maxlength="150" placeholder="State"  />
+            <li class="middleFourthSecond" ng-class="{'has-error': provider.state.$invalid && provider.$submitted }">
+                <input type="text" name="state" value="" id="freeform_state" maxlength="150" placeholder="State" ng-model="state" required="required"  />
             </li>
 
-            <li class="rightFourth">
-                <input type="text" name="zip" value="" id="freeform_zip" maxlength="150" placeholder="Zip"  />
+            <li class="rightFourth" ng-class="{'has-error': provider.zip.$invalid && provider.$submitted }">
+                <input type="text" name="zip" value="" id="freeform_zip" maxlength="150" placeholder="Zip" ng-model="zip" required="required"  />
             </li>
 
             <li class="full">

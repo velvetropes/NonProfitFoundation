@@ -288,7 +288,7 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
   _initScrollPane = (scope, element) ->
     $timeout( ->
       scope.pane = angular.element('.thumblist-nav').jScrollPane()
-      scope.api = scope.pane.data().jsp
+      scope.api = scope.pane.data().jsp unless scope.pane.data() is null
       return
     , 400)
 
@@ -334,7 +334,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
   _initScrollPane = (scope, element) ->
     $timeout( ->
       scope.pane = angular.element('.thumblist-nav').jScrollPane()
-      scope.api = scope.pane.data().jsp
+      scope.api = scope.pane.data().jsp unless scope.pane.data() is null
       return
     , 400)
 
@@ -474,7 +474,7 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
   _initScrollPane = (scope, element) ->
     $timeout( ->
       scope.pane = angular.element('.thumblist-nav').jScrollPane()
-      scope.api = scope.pane.data().jsp
+      scope.api = scope.pane.data().jsp unless scope.pane.data() is null
       return
     , 400)
 
@@ -1550,3 +1550,27 @@ sfDirectives.directive "navscrollspy", ($window) ->
       scope.$apply()
       return
     return
+
+
+# directive that prevents submit if there are still form errors
+sfDirectives.directive "validSubmit", ["$parse", ($parse) ->      
+  require: "form"
+
+  link: (scope, element, attr, form) ->
+    form.$submitted = false
+    
+    # register DOM event handler and wire into Angular's lifecycle with scope.$apply
+    element.on "submit", (event) ->
+      scope.$apply ->
+        form.$submitted = true
+        if form.$valid
+          form.$submitted = false
+        else
+          event.preventDefault()
+
+        return
+
+      return
+
+    return
+]

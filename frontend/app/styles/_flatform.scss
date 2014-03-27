@@ -5,7 +5,7 @@
   }
 
   &.invert {
-    select, input[type="text"], label, textarea {
+    select, input[type="text"], input[type="email"], label, textarea {
       border-color: #FFF;
       color: $gray-title;
     }
@@ -25,6 +25,7 @@
 
   select,
   input[type="text"],
+  input[type="email"],
   textarea {
     outline: none;
     font-size: 1em;
@@ -39,6 +40,8 @@
     box-shadow: none;
     width: 100%;
     border-radius: 0px;
+
+    @include transition(0.25s all linear);
   }
 
   label {
@@ -97,5 +100,13 @@
       float: left;
     }
 
+    &.has-error {
+      select,
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        border-color:red;
+      }
+    }
   }
 }
