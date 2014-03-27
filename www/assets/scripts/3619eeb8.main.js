@@ -379,7 +379,7 @@
             }), scope.$on("window.resized", function() {
                 return $timeout(function() {
                     return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
-                }, 100);
+                }, 1100);
             });
         }, controller = function($scope) {
             return $scope.getItem = function(url) {
@@ -1089,7 +1089,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), void pattern.appendChild(image);
+                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
                 }, generateMap = function() {
                     var icon, markerList, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
@@ -1129,7 +1129,7 @@
                     }), _ref = markerList.icons, _i = 0, _len = _ref.length; _len > _i; _i++) icon = _ref[_i], 
                     createImagePattern(icon.id, icon.path);
                     return void 0;
-                }, void $timeout(generateMap, 1200);
+                }, $timeout(generateMap, 1200), void 0;
             }
         };
     } ]), sfDirectives.directive("navscrollspy", function($window) {

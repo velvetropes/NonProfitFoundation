@@ -307,7 +307,7 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
       $timeout( ->
         angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
         _initScrollPane(scope, element)
-      , 100)
+      , 1100)
     )
     return
 
@@ -1553,12 +1553,12 @@ sfDirectives.directive "navscrollspy", ($window) ->
 
 
 # directive that prevents submit if there are still form errors
-sfDirectives.directive "validSubmit", ["$parse", ($parse) ->      
+sfDirectives.directive "validSubmit", ["$parse", ($parse) ->
   require: "form"
 
   link: (scope, element, attr, form) ->
     form.$submitted = false
-    
+
     # register DOM event handler and wire into Angular's lifecycle with scope.$apply
     element.on "submit", (event) ->
       scope.$apply ->
