@@ -52,8 +52,6 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
     if $scope.showModal is true
       displayModal(url)
 
-
-
   displayModal = (url) ->
     youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
     if url.match(youtubePattern)?
@@ -67,7 +65,9 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
     $scope.showSubscribeForm = true
 
   angular.element($window).bind 'resize', ->
-    $scope.$broadcast("window.resized", {})
+    $timeout( ->
+      $scope.$broadcast("window.resized", {})
+    , 1100)
 
 ])
 

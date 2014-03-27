@@ -304,10 +304,8 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
       , 400)
 
     scope.$on("window.resized", (event, args) ->
-      $timeout( ->
-        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
-        _initScrollPane(scope, element)
-      , 1100)
+      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+      _initScrollPane(scope, element)
     )
     return
 
@@ -482,10 +480,8 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
     _initScrollPane(scope, element)
 
     scope.$on("window.resized", (event, args) ->
-      $timeout( ->
-        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
-        _initScrollPane(scope, element)
-      , 100)
+      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+      _initScrollPane(scope, element)
     )
     return
 

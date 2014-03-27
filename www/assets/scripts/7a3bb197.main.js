@@ -30,7 +30,9 @@
         }, $scope.openSubscribeForm = function() {
             return $scope.showSubscribeForm = !0;
         }, angular.element($window).bind("resize", function() {
-            return $scope.$broadcast("window.resized", {});
+            return $timeout(function() {
+                return $scope.$broadcast("window.resized", {});
+            }, 1100);
         });
     } ]), sfControllers.controller("HomeIndexBottomTabsCtrl", [ "$scope", "MapMarker", "FeaturedArticle", function($scope, MapMarker, FeaturedArticle) {
         return FeaturedArticle.getIndex().then(function(data) {
@@ -377,9 +379,7 @@
                     null != scope.api && scope.api.reinitialise();
                 }, 400);
             }), scope.$on("window.resized", function() {
-                return $timeout(function() {
-                    return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
-                }, 1100);
+                return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
             });
         }, controller = function($scope) {
             return $scope.getItem = function(url) {
@@ -495,9 +495,7 @@
             }, 400);
         }, link = function(scope, element) {
             _initScrollPane(scope, element), scope.$on("window.resized", function() {
-                return $timeout(function() {
-                    return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
-                }, 100);
+                return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
             });
         }, {
             restrict: "E",
