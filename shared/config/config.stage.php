@@ -10,7 +10,7 @@
  * @author     Focus Lab, LLC <dev@focuslabllc.com>
  */
 
-$env_db['hostname'] = 'localhost';
+$env_db['hostname'] = '127.0.0.1';
 $env_db['username'] = 'root';
 $env_db['password'] = 'root';
 $env_db['database'] = 'starkey';

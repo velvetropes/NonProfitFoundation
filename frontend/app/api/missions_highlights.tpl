@@ -3,8 +3,8 @@
         "highlights" : [
           {exp:channel:entries channel="hearing_missions" dynamic="no" disable="{global:param_disable_default}" backspace="2"} {
               "id"                    : "{url_title}",
-              "title"                 : "{exp:json_encode}{title}{/exp:json_encode}",
-              "subtitle"              : "{exp:json_encode}{title}{/exp:json_encode}",
+              "title"                 : "{if mission_display_title}{exp:json_encode}{mission_display_title}{/exp:json_encode}{if:else}{exp:json_encode}{title}{/exp:json_encode}{/if}",
+              "subtitle"              : "{if mission_display_title}{exp:json_encode}{mission_display_title}{/exp:json_encode}{if:else}{exp:json_encode}{title}{/exp:json_encode}{/if}",
               "excerpt"               : "{exp:json_encode}{mission_excerpt}{/exp:json_encode}",
 
               "video"                 : "{mission_video_url}",

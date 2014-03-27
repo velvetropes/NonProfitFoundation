@@ -4,14 +4,15 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Starkey Hearing Foundation</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="/assets/styles/e9685323.main.css"/>
+    <link rel="stylesheet" href="/assets/styles/836f935e.main.css"/>
     
+    <script src="/assets/scripts/d64e295e.modernizr.js"></script>
   </head>
   <body class='about-us-page page' ng:app="blogPagesApp" ng:controller="globalCtrl">
 
@@ -109,16 +110,16 @@
       <div class='social-links'>
         <ul>
           <li>
-            <a href='https://twitter.com/starkeyhearing' class="icon starkey-twitter-link" target="_blank"></a>
+            <a href='https://twitter.com/starkeycares' class="icon starkey-twitter-link" target="_blank"></a>
           </li>
           <li>
-            <a href='https://www.facebook.com/starkeyhearing' class="icon starkey-fb-link" target="_blank"></a>
+            <a href='https://www.facebook.com/StarkeyCares' class="icon starkey-fb-link" target="_blank"></a>
           </li>
           <li>
             <a href='http://instagram.com/starkeycares' class="icon starkey-insta-link" target="_blank"></a>
           </li>
           <li>
-            <a href='http://www.youtube.com/user/StarkeyLabs' class="icon starkey-youtube" target="_blank"></a>
+            <a href='https://www.youtube.com/user/StarkeyHearingFndn' class="icon starkey-youtube" target="_blank"></a>
           </li>
         </ul>
         <div class='clearfix'></div>
@@ -147,16 +148,16 @@
           <div class='social-links'>
             <ul>
               <li>
-                <a href='https://twitter.com/starkeyhearing' class="icon starkey-twitter-link" target="_blank"></a>
+                <a href='https://twitter.com/starkeycares' class="icon starkey-twitter-link" target="_blank"></a>
               </li>
               <li>
-                <a href='https://www.facebook.com/starkeyhearing' class="icon starkey-fb-link" target="_blank"></a>
+                <a href='https://www.facebook.com/StarkeyCares' class="icon starkey-fb-link" target="_blank"></a>
               </li>
               <li>
                 <a href='http://instagram.com/starkeycares' class="icon starkey-insta-link" target="_blank"></a>
               </li>
               <li>
-                <a href='http://www.youtube.com/user/StarkeyLabs' class="icon starkey-youtube" target="_blank"></a>
+                <a href='https://www.youtube.com/user/StarkeyHearingFndn' class="icon starkey-youtube" target="_blank"></a>
               </li>
             </ul>
           </div>
@@ -166,14 +167,14 @@
           <div class="top-level-wrap">
             <div class='tabs-wrap'>
               <ul class='tabs row-table'>
-                <li border="0">
-                  <a href='#' data-content-class='.who-we-are' class='who-we-are' border="0">Who we are</a>
+                <li>
+                  <a href='#' data-content-class='.who-we-are' class='who-we-are'>Who we are</a>
                 </li>
-                <li border="0">
-                  <a href='#' data-content-class='.what-we-do' class='what-we-do' border="0">What we do</a>
+                <li>
+                  <a href='#' data-content-class='.what-we-do' class='what-we-do'>What we do</a>
                 </li>
-                <li border="0">
-                  <a href='#' data-content-class='.get-involved' class='get-involved' border="0">Get involved</a>
+                <li>
+                  <a href='#' data-content-class='.get-involved' class='get-involved'>Get involved</a>
                 </li>
               </ul>
             </div>
@@ -337,34 +338,42 @@
       <div class="outer-container">
         <section>
           <div class="reveal outer-container form" ng-show="showSubscribeForm==true">
-            {exp:freeform:form form_name="newsletter_signup" form:class="flatform invert"}
+            {exp:freeform:form 
+              form_name="newsletter_signup"
+              form:name="newsletter"
+              form:id="become_a_provider_form" 
+              form:class="flatform invert"
+              form:valid-submit="valid-submit"
+              form:novalidate="novalidate"
+              return="/#thank_you"
+            }
               <ul>
-                <li class="leftHalf">
-                    <input type="text" name="first_name" value="" id="freeform_first_name" maxlength="150" placeholder="FIRST NAME*"  />
+                <li class="leftHalf" ng-class="{'has-error': newsletter.first_name.$invalid && newsletter.$submitted }">
+                    {freeform:field:first_name attr:placeholder="FIRST NAME*" attr:ng-model="firstName" attr:required="required"}
                 </li>
     
-                <li class="rightHalf">
-                    <input type="text" name="last_name" value="" id="freeform_last_name" maxlength="150" placeholder="LAST NAME*"  />
+                <li class="rightHalf" ng-class="{'has-error': newsletter.last_name.$invalid && newsletter.$submitted }">
+                    {freeform:field:last_name attr:placeholder="LAST NAME*" attr:ng-model="lastName" attr:required="required"}
                 </li>
     
-                <li class="full">
-                    <input type="text" name="email" value="" id="freeform_email" maxlength="150" placeholder="EMAIL*"  />
+                <li class="full" ng-class="{'has-error': newsletter.email.$invalid && newsletter.$submitted }">
+                    {freeform:field:email attr:placeholder="EMAIL*" attr:ng-model="email" attr:required="required"}
                 </li>
     
-                <li class="leftFourth">
-                    <input type="text" name="address" value="" id="freeform_address" maxlength="150" placeholder="ADDRESS*"  />
+                <li class="leftFourth" ng-class="{'has-error': newsletter.address.$invalid && newsletter.$submitted }">
+                    {freeform:field:address attr:placeholder="ADDRESS*" attr:ng-model="address" attr:required="required"}
                 </li>
     
-                <li class="middleFourthFirst">
-                    <input type="text" name="city" value="" id="freeform_city" maxlength="150" placeholder="CITY*"  />
+                <li class="middleFourthFirst" ng-class="{'has-error': newsletter.city.$invalid && newsletter.$submitted }">
+                    {freeform:field:city attr:placeholder="CITY*" attr:ng-model="city" attr:required="required"}
                 </li>
     
-                <li class="middleFourthSecond">
-                    <input type="text" name="state" value="" id="freeform_state" maxlength="150" placeholder="STATE*"  />
+                <li class="middleFourthSecond" ng-class="{'has-error': newsletter.state.$invalid && newsletter.$submitted }">
+                    {freeform:field:state attr:placeholder="STATE*" attr:ng-model="state" attr:required="required"}
                 </li>
     
-                <li class="rightFourth">
-                    <input type="text" name="zip" value="" id="freeform_zip" maxlength="150" placeholder="ZIP*"  />
+                <li class="rightFourth" ng-class="{'has-error': newsletter.zip.$invalid && newsletter.$submitted }">
+                    {freeform:field:zip attr:placeholder="ZIP*" attr:ng-model="zip" attr:required="required"}
                 </li>
     
                 <li class="full centered">
@@ -379,9 +388,9 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/75f89148.vendor.js"></script>
+    <script src="/assets/scripts/e4952d31.vendor.js"></script>
     
-    <script src="/assets/scripts/27724584.main.js"></script>
+    <script src="/assets/scripts/841ca311.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

@@ -6,13 +6,20 @@
       display: block;
       padding: 20px;
       text-align: center;
-      .arrow {
-        display: inline-block;
-        margin-left: 5px;
+      .inner-title {
+        // display: inline-block;
+        // margin-top: 5px;
+        position: relative;
+      }
+      .starkey-dd-passive {
+        font-size: 1.25em;
+        position: absolute;
+        right: -27px;
+        top: -3px;
       }
       &.active {
         color: $light-blue;
-        .arrow {
+        .starkey-dd-passive {
           -webkit-transform: rotate(90deg);
           -moz-transform: rotate(90deg);
           -o-transform: rotate(90deg);

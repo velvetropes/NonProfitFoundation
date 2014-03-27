@@ -6,15 +6,20 @@ sfDirectives.directive 'href', ["$location", ($location) ->
     if element.prop("tagName") is 'A'
       url = element.attr('href')
 
-      # Check if external domain
-      match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
-      if typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
-        element.attr('target', '_blank')
+      # if not a mailto link and actually has an href value
+      if url.lastIndexOf('mailto:', 0) isnt 0 and url.length > 0
 
-      # Check if file link
-      match = url.match(/\.[0-9a-z]+$/)
-      if typeof match is "string" and match.length > 0 and match.toLowerCase() isnt '.html'
-        element.attr('target', '_blank')
+        # Check if external domain
+        match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
+        if match? and typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
+          element.attr('target', '_blank')
+
+        else 
+          # Check if file link
+          match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/)
+          if match? and typeof match[1] is "string" and match[1].length > 0 and match[1].toLowerCase() isnt 'html'
+            element.attr('target', '_blank')
+    return
 ]
 
 sfDirectives.directive "accordion", [->
@@ -211,7 +216,7 @@ sfDirectives.directive "dropdownOption", [ ->
 sfDirectives.directive "expander", [->
   template = """
     <div>
-      <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}">{{title}} <span class="arrow">&gt;</span></a>
+      <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}"><span class="inner-title">{{title}} <i class="starkey-dd-passive"></i></span></a>
       <div class="body reveal" ng-show="showMe" ng-transclude>
       </div>
     </div>
@@ -283,21 +288,30 @@ sfDirectives.directive("facebook", [
 sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http, $sce, $timeout) ->
   config = {}
 
-  link = (scope, element, attrs) ->
+  _initScrollPane = (scope, element) ->
     $timeout( ->
-      scope.pane = $('.thumblist-nav')
-      scope.pane.jScrollPane(config)
-      scope.api = element.data("jsp")
+      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.api = scope.pane.data().jsp unless scope.pane.data() is null
       return
-    , 1400)
+    , 400)
 
-    scope.$on("window.resized", (event, args) ->
+  link = (scope, element, attrs) ->
+    _initScrollPane(scope, element)
+    scope.$watch (->
+      element.find(".gala-item").length
+    ), (length) ->
       $timeout( ->
         if scope.api?
           scope.api.reinitialise()
-          return
+        return
       , 400)
+
+    scope.$on("window.resized", (event, args) ->
+      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+      _initScrollPane(scope, element)
     )
+    return
+
 
   controller = ($scope, $element) ->
     $scope.getItem = (url)->
@@ -317,6 +331,13 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
 # <gallery></gallery>
 
 sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
+
+  _initScrollPane = (scope, element) ->
+    $timeout( ->
+      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.api = scope.pane.data().jsp unless scope.pane.data() is null
+      return
+    , 400)
 
   link = (scope, element, attrs) ->
     scope.slides ?= 1
@@ -339,8 +360,8 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
     element.parent().addClass("no-container") if element.parent()?.is("p")
 
     if scope.isThumblist()
-      element.jScrollPane config
-      scope.api = element.data("jsp")
+
+      _initScrollPane(scope, element)
       scope.$watch (->
         element.find(".gallery-slide").length
       ), (length) ->
@@ -348,14 +369,13 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
           if scope.api?
             scope.api.reinitialise()
           return
-        , 800)
+        , 400)
 
       scope.$on("window.resized", (event, args) ->
-        $timeout( ->
-          if scope.api?
-            scope.api.reinitialise()
-        , 400)
+        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+        _initScrollPane(scope, element)
       )
+    return
 
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
@@ -450,30 +470,40 @@ sfDirectives.directive 'resizer', [->
 ]
 
 sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
+  _initScrollPane = (scope, element) ->
+    $timeout( ->
+      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.api = scope.pane.data().jsp unless scope.pane.data() is null
+      return
+    , 400)
 
   link = (scope, element, attrs) ->
-    config = { showArrows: false }
-
-    setTimeout( ->
-      scope.pane = $('.thumblist-nav')
-      scope.pane.jScrollPane(config)
-      scope.api = scope.pane.data("jsp")
-    , 1400)
+    _initScrollPane(scope, element)
 
     scope.$on("window.resized", (event, args) ->
-      $timeout( ->
-        scope.api.reinitialise()
-      , 400)
+      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+      _initScrollPane(scope, element)
     )
+    return
 
-  restrict: "E"
-  link: link
-  templateUrl: "templates/home_thumblist_nav.html"
-  replace: true
-  scope:
-    featured: "="
-    clickaction: "="
+  return {
+    restrict: "E"
+    link: link
+    templateUrl: "templates/home_thumblist_nav.html"
+    replace: true
+    scope:
+      featured: "="
+      clickaction: "="
+  }
+]
 
+sfDirectives.directive 'jscrollpaneList', ["$timeout", ($timeout) ->
+  (scope, element, attrs) ->
+    if scope.$last
+      $timeout( ->
+        angular.element('.thumblist-nav').jScrollPane()
+      , 400)
+    return
 ]
 
 sfDirectives.directive("instagramGallery", [
@@ -877,7 +907,7 @@ sfDirectives.factory("Pagination", ->
 )
 
 sfDirectives.directive "panelTab", [->
-  link = (scope,element, attrs) ->
+  link = (scope, element, attrs) ->
     scope.hasVideo = ->
       scope.featured?.video_link_url?
 
@@ -1163,10 +1193,9 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     else
       false
     config.speed = parseInt(attrs.speed, 10) or 500
-    config.disableScroll = !!attrs.disableScroll  if attrs.disableScroll
-    config.continuous = !!attrs.continuous  if attrs.continuous
+    config.disableScroll = !!attrs.disableScroll if attrs.disableScroll
+    config.continuous = !!attrs.continuous if attrs.continuous
 
-    # TODO Use a promise
     $timeout (->
       scope.swipe = new Swipe(document.getElementById(scope.identifier),
         auto: config.auto
@@ -1301,29 +1330,29 @@ sfDirectives.directive "tabbedNav", ["$window", ($window) ->
 # <thumblist-nav full="true"></thumblist-nav>
 
 sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $window) ->
-  link = (scope, element, attrs) ->
-    config = showArrows: false
 
-    $timeout (->
-      scope.pane = element
-      scope.pane.jScrollPane config
-      scope.api = scope.pane.data("jsp")
-    ), 400
+  _initScrollPane = (scope, element) ->
+    $timeout( ->
+      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.api = scope.pane.data().jsp
+      return
+    , 400)
+
+  link = (scope, element, attrs) ->
+    scope.config = showArrows: false
+    _initScrollPane(scope, element)
 
     scope.$watch (->
       element.find(".slide").length
     ), (length) ->
       $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
+        scope.api.reinitialise() if scope.api?
         return
-      , 200)
+      , 400)
 
     scope.$on("window.resized", (event, args) ->
-      $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
-      , 400)
+      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+      _initScrollPane(scope, element)
     )
 
     scope.isFullHeight = ->
@@ -1477,14 +1506,24 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
         onMarkerClick: (event, index) =>
           content = markerList.meta_data[index]
           $popup = $('#map-popup')
+
           $popup.fadeOut "slow", ->
             $popup
               .find(".content").empty()
-              .html("<span class='close' ng-click='closePopup()'>X</span><img src='#{content.thumbnail_url}'/><div class='background-popup'><div class='text-popup'><h2>#{content.title}</h2><span class='location'>#{content.location}</span></span><p>#{content.text}</p><p class='centered'><a class='read-more' href='#{content.action_target}'>LEARN MORE</a></div></div>")
+              .html("<span class='close' ng-click='closePopup()'>X</span><img src='#{content.thumbnail_url}'/><div class='background-popup'><div class='text-popup-container'><div class='text-popup'><h2>#{content.title}</h2><span class='location'>#{content.location}</span></span><p>#{content.text}</p><p class='centered'><a class='read-more' href='#{content.action_target}'>LEARN MORE</a></div></div></div>")
             $popup
-              .fadeIn()
+              .fadeIn("slow", ->
+                $timeout( ->
+                  $popup
+                    .find('.text-popup')
+                    .jScrollPane()
+                , 200)
+              )
             $popup.find('.close').click ->
-              $popup.fadeOut()
+              $popup
+                .fadeOut()
+                .find('.text-popup')
+                .jScrollPane().data().jsp.destroy()
 
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)
@@ -1506,3 +1545,27 @@ sfDirectives.directive "navscrollspy", ($window) ->
       scope.$apply()
       return
     return
+
+
+# directive that prevents submit if there are still form errors
+sfDirectives.directive "validSubmit", ["$parse", ($parse) ->
+  require: "form"
+
+  link: (scope, element, attr, form) ->
+    form.$submitted = false
+
+    # register DOM event handler and wire into Angular's lifecycle with scope.$apply
+    element.on "submit", (event) ->
+      scope.$apply ->
+        form.$submitted = true
+        if form.$valid
+          form.$submitted = false
+        else
+          event.preventDefault()
+
+        return
+
+      return
+
+    return
+]

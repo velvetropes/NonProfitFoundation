@@ -1,18 +1,19 @@
 {exp:channel:entries channel="programs" limit="1" dynamic="no" limit="1" disable="{global:param_disable_default}"}
 <article class='operation-change text-container'>
     <h1>Operation change</h1>
-
     {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
-    <br/>
-    <h2>Our Partnerships</h2>
-</article>
 
-{/exp:channel:entries}
+    {operation_change_partnerships limit="1"}
+        {if operation_change_partnerships:field_total_rows > 0}
+        <br/>
+        <h2>Our Partnerships</h2>
+        {/if}
+    {/operation_change_partnerships}
+</article>
 
 <section class='carousel thumblist'>
   <thumblist-nav>
-
-{exp:channel:entries channel="programs" backspace="6"}{operation_change_partnerships}
+    {operation_change_partnerships}
     <slide
       image-url="{operation_change_partnerships:image}"
       video-url=""
@@ -29,8 +30,7 @@
       link-style="align-right"
     ></slide>
     {/operation_change_partnerships}
-{/exp:channel:entries}
-</thumblist-nav>
+  </thumblist-nav>
 </section>
 
 <section class="mobile-carousel carousel hero short">
@@ -42,7 +42,7 @@
     size="short"
     paginator="true"
     >
-    {exp:channel:entries channel="programs"}{operation_change_partnerships}
+      {operation_change_partnerships}
       <slide
         image-url="{operation_change_partnerships:image}"
         background-color=""
@@ -57,6 +57,6 @@
       >
       </slide>
       {/operation_change_partnerships}
-    {/exp:channel:entries}
   </swiper>
 </section>
+{/exp:channel:entries}

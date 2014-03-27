@@ -37,8 +37,11 @@
       width: 100%;
       float: none;
       margin-top: 0;
-      height: 210px;
+      height: 370px;
       overflow: hidden;
+    }
+    @include media($mobile) {
+      height: 210px;
     }
   }
   .main-story {
@@ -198,4 +201,8 @@
       display: block;
     }
   }
+}
+
+.gala-timeline {
+  width: 100%;
 }
