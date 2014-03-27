@@ -1057,7 +1057,7 @@
                 scope.hideModal = function() {
                     return scope.show = !1, scope.$emit("modal:hide");
                 }, scope.$watch("show", function(newVal, oldVal) {
-                    return newVal && !oldVal ? (scope.iframeContent = newVal.replace(/(?:http(?:s?):\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen></iframe>'), 
+                    return newVal && !oldVal ? (scope.iframeContent = newVal.replace(/(?:http(?:s?):\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen></iframe>'), 
                     scope.bodyDiv.style.overflow = "hidden") : (scope.bodyDiv.style.overflow = "", scope.iframeContent = "");
                 });
             },
