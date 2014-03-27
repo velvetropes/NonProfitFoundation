@@ -20,7 +20,7 @@
     "highlights" : [
         {mission_highlights limit="10" backspace="2"} {
             "id"        : "{mission_highlights:url_title}",
-            "title"     : "{exp:json_encode}{mission_highlights:title}{/exp:json_encode}",
+            "title"     : "{if mission_highlights:mission_display_title}{exp:json_encode}{mission_highlights:mission_display_title}{/exp:json_encode}{if:else}{exp:json_encode}{mission_highlights:title}{/exp:json_encode}{/if}",
             "rawdate"   : "{mission_highlights:mission_date format='%U'}",
             "date"      : "{mission_highlights:mission_date format='%F %Y'}",
             "subtitle"  : "{exp:json_encode}{mission_highlights:mission_subtitle}{/exp:json_encode}",
