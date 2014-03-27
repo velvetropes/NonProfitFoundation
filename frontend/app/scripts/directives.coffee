@@ -369,10 +369,8 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
         , 400)
 
       scope.$on("window.resized", (event, args) ->
-        $timeout( ->
-          angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
-          _initScrollPane(scope, element)
-        , 100)
+        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+        _initScrollPane(scope, element)
       )
     return
 
@@ -1350,10 +1348,8 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
       , 400)
 
     scope.$on("window.resized", (event, args) ->
-      $timeout( ->
-        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
-        _initScrollPane(scope, element)
-      , 100)
+      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+      _initScrollPane(scope, element)
     )
 
     scope.isFullHeight = ->

@@ -422,9 +422,7 @@
                     null != scope.api && scope.api.reinitialise();
                 }, 400);
             }), scope.$on("window.resized", function() {
-                return $timeout(function() {
-                    return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
-                }, 100);
+                return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
             }));
         }, template = '<div ng-class="galleryClasses()" ng-transclude></div>', {
             restrict: "E",
@@ -1027,9 +1025,7 @@
                     null != scope.api && scope.api.reinitialise();
                 }, 400);
             }), scope.$on("window.resized", function() {
-                return $timeout(function() {
-                    return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
-                }, 100);
+                return angular.element(".thumblist-nav").jScrollPane().data().jsp.destroy(), _initScrollPane(scope, element);
             }), scope.isFullHeight = function() {
                 var _ref;
                 return (null != (_ref = scope.full) ? _ref.length : void 0) > 0 && "true" === scope.full;
