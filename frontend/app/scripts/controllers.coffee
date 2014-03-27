@@ -217,7 +217,7 @@ sfControllers.controller("MissionsPageCtrl", ["$scope", "MissionsMapMarker", "Mi
     $scope.currentTab = tabId
 ])
 
-sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "MissionsIndex", ($scope, Pagination, MissionsIndex) ->
+sfControllers.controller("MissionsIndexCtrl", ["$scope", "$filter", "Pagination", "MissionsIndex", ($scope, $filter, Pagination, MissionsIndex) ->
 
   $scope.highlightRegions = []
   $scope.currentRegion = {}
@@ -247,6 +247,20 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
       }
       $scope.highlightYears.push addedYear
 
+    $scope.$watch "pagination", ->
+      $scope.pageStart = $scope.pagination.page*$scope.perPage
+      $scope.currentPage = $scope.pagination.page * $scope.pagination.perPage
+      $scope.paginationUpperWindowLimit = $scope.pagination.upperWindowLimit()
+      $scope.paginationLowerWindowLimit = $scope.pagination.lowerWindowLimit()
+      return
+    , true
+
+    $scope.$watch "highlightsFilters", ->
+      filteredList = $filter('filter')($scope.missionsHighlights, $scope.highlightsFilters)
+      $scope.pagination.numPages = Math.ceil(filteredList.length/$scope.pagination.perPage)
+      return
+    , true
+
   $scope.hideCountryDropdown = ->
     $scope.highlightsFilters.region==''
 
@@ -256,12 +270,19 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "Pagination", "Missions
       $scope.highlightsFilters.country = ''
     else
       $scope.highlightsFilters.region = ''
-
   )
 
   $scope.numberOfPages = ->
     Math.ceil($scope.missionsHighlights.length/$scope.pageSize)
 
+  $scope.paginationUpperWindowLimit = 0
+  $scope.paginationLowerWindowLimit = 2
+
+  $scope.isInPageRange = (n) ->
+    thisPage = parseInt(n, 10)
+    currentPage = $scope.pagination.page
+    upToPage = currentPage + 2
+    if thisPage in [$scope.paginationLowerWindowLimit..$scope.paginationUpperWindowLimit] then true else false
 ])
 
 sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
