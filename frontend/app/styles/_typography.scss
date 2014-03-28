@@ -383,7 +383,7 @@ blockquote {
   color: #FFF;
   font-size: 30px;
   line-height: 171%;
-  height: 318px;
+  min-height: 318px;
   overflow: hidden;
   @include media($tablet-down) {
     height: 215px;
@@ -407,6 +407,7 @@ blockquote:before {
   // margin-right: 0.25em;
   vertical-align: -0.4em;
   font-weight: bold;
+  display: inline;
 }
 
 blockquote:after {
@@ -417,6 +418,7 @@ blockquote:after {
   margin-left: 0.1em;
   vertical-align: -0.4em;
   font-weight: bold;
+  display: inline;
 }
 
 blockquote p {

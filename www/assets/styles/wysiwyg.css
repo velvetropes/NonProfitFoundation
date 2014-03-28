@@ -662,7 +662,7 @@ blockquote {
   color: #FFF;
   font-size: 30px;
   line-height: 171%;
-  height: 318px;
+  min-height: 318px;
   overflow: hidden; }
   @media screen and (max-width: 767px) {
     blockquote {
@@ -683,7 +683,8 @@ blockquote:before {
   font-size: 4em;
   line-height: 0.1em;
   vertical-align: -0.4em;
-  font-weight: bold; }
+  font-weight: bold;
+  display: inline; }
 
 blockquote:after {
   color: #fff;
@@ -692,7 +693,8 @@ blockquote:after {
   line-height: 0.1em;
   margin-left: 0.1em;
   vertical-align: -0.4em;
-  font-weight: bold; }
+  font-weight: bold;
+  display: inline; }
 
 blockquote p {
   display: inline;

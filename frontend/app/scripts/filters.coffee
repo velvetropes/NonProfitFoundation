@@ -32,3 +32,8 @@ sfFilters.filter "youtubeImage", [ "$filter", "Youtube", ($filter, Youtube) ->
     return ""  if videoid is null
     "https://img.youtube.com/vi/" + videoid[1] + "/" + quality + ".jpg"
 ]
+
+sfFilters.filter "strip", [ ->
+  (text) ->
+    text.replace(/^\s+|\s+$/g, "")
+]
