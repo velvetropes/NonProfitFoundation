@@ -15,14 +15,17 @@
         font-weight: bold;
         font-size: .75em;
         margin: 0;
+        padding: 0 0 0 50px;
       }
       ul {
         margin: 100px 100px 0;
         padding: 0;
         li {
           @include span-columns(4);
-          width: 270px;
+          width: 333px;
+          margin-right: 0;
           margin-bottom: 40px;
+          padding-left: 50px;
           p {
             margin: 0;
           }
