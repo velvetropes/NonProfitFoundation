@@ -106,7 +106,7 @@
               "rawdate"               : "1289340300",
               "date"                  : "11/09/2010",
               "year"                  : "2010",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "arusha-moshi-dodoma-and-dar-es-saalam",
@@ -160,7 +160,7 @@
               "rawdate"               : "1291067940",
               "date"                  : "11/29/2010",
               "year"                  : "2010",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "santo-domingo-and-santiago",
@@ -196,7 +196,7 @@
               "rawdate"               : "1296683160",
               "date"                  : "02/02/2011",
               "year"                  : "2011",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "toluca-mexico-city",
@@ -358,7 +358,7 @@
               "rawdate"               : "1308424320",
               "date"                  : "06/18/2011",
               "year"                  : "2011",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "boston",
@@ -376,7 +376,7 @@
               "rawdate"               : "1308597000",
               "date"                  : "06/20/2011",
               "year"                  : "2011",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "new-york-city-2011",
@@ -394,7 +394,7 @@
               "rawdate"               : "1309288080",
               "date"                  : "06/28/2011",
               "year"                  : "2011",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "zapopan",
@@ -556,7 +556,7 @@
               "rawdate"               : "1325705160",
               "date"                  : "01/04/2012",
               "year"                  : "2012",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "tampico-matamoros-san-luis-potisi-reynosa-cuautitlan",
@@ -610,7 +610,7 @@
               "rawdate"               : "1328815140",
               "date"                  : "02/09/2012",
               "year"                  : "2012",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "bogota",
@@ -826,7 +826,7 @@
               "rawdate"               : "1349023560",
               "date"                  : "09/30/2012",
               "year"                  : "2012",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "dakar1",
@@ -970,7 +970,7 @@
               "rawdate"               : "1359845640",
               "date"                  : "02/02/2013",
               "year"                  : "2013",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "kilgali-ruhengeri1",
@@ -1132,7 +1132,7 @@
               "rawdate"               : "1366060920",
               "date"                  : "04/15/2013",
               "year"                  : "2013",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "san-pedro-sula-tegucigalpa-la-ceiba",
@@ -1330,7 +1330,7 @@
               "rawdate"               : "1378747980",
               "date"                  : "09/09/2013",
               "year"                  : "2013",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "eden-prairie1",
@@ -1348,7 +1348,7 @@
               "rawdate"               : "1379437740",
               "date"                  : "09/17/2013",
               "year"                  : "2013",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "bhubezi",
@@ -1402,7 +1402,7 @@
               "rawdate"               : "1383090120",
               "date"                  : "10/29/2013",
               "year"                  : "2013",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "kibera-meru-eldoret-mombasa-nairobi-nakuru",
@@ -1510,7 +1510,7 @@
               "rawdate"               : "1390433040",
               "date"                  : "01/22/2014",
               "year"                  : "2014",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "dakar",
@@ -1582,7 +1582,7 @@
               "rawdate"               : "1391291700",
               "date"                  : "02/01/2014",
               "year"                  : "2014",
-              "region"                : "US",
+              "region"                : "USA",
               "country"               : "United States"
             },  {
               "id"                    : "monrovia",
@@ -1657,7 +1657,7 @@
             "region" : "South America",
             "countries" : ["Colombia","El Salvador","Guatemala","Honduras","Mexico"]
         },  {
-            "region" : "US",
+            "region" : "USA",
             "countries" : ["United States"]
         }
       ],
