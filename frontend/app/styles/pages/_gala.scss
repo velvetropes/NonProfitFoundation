@@ -205,4 +205,35 @@
 
 .gala-timeline {
   width: 100%;
+  @include media($tablet-down) {
+    .thumblist-nav {
+      display: none;
+    }
+    .slide {
+      .year-overlay {
+        text-align: center;
+        opacity: .5;
+        font-size: 15em;
+        position: absolute;
+        top: 182px;
+        left: 0;
+        right: 0;
+        color: white;
+      }
+    }
+  }
+  @include media($mobile) {
+    .swipe-wrap {
+      height: 211px;
+    }
+    .swiper-controls {
+      margin-top: -30px;
+    }
+    .slide {
+      .year-overlay {
+        font-size: 7em;
+        top: 91px;
+      }
+    }
+  }
 }

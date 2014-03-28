@@ -7,5 +7,19 @@
       </a>
     </div>
   </div>
+  <section class='mobile-carousel carousel hero'>
+    <swiper
+      continuous="false"
+      speed="2000"
+      identifier="swiper_gala_timeline"
+      paginator="true"
+      size="short"
+      >
+      <div ng-repeat="item in items" class="gala-item slide" ng-click="getItem(item.id)">
+        <div class="year-overlay">{{item.year}}</div>
+        <article ng-style="{'background-image': 'url(' + item.thumbnail_image_url + ')'}" class="image-container"></article>
+    </div>
+    </swiper>
+  </section>
   <div dynamic="rawHtml"> <div>
 </div>

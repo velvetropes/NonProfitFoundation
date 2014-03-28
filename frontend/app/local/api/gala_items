@@ -1,22 +1,24 @@
 [
   {
-    "id": "dummy",
-    "thumbnail_image_url":"uploads/home/feature/philippines_film.jpg",
-    "year": "2014"
-  },
-  {
-    "id": "dummy",
-    "thumbnail_image_url":"uploads/home/feature/tony_hawk_event.jpg",
-    "year": "2013"
-  },
-  {
-    "id": "dummy",
-    "thumbnail_image_url":"uploads/home/feature/vikings_mission.jpg",
-    "year": "2012"
-  },
-  {
-    "id": "dummy",
-    "thumbnail_image_url":"uploads/home/feature/west_bank_mission.jpg",
-    "year": "2011"
+      "id": "gala-2025",
+      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/images/BLOG-December_newsletter_caring_for_our_friends_in_the_Philippines-023.jpg",
+      "year": "2025"
+  },  {
+      "id": "starkey-galla-2014",
+      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/images/home/hero/vikings_mission.jpg",
+      "year": "2014"
+  },  {
+      "id": "so-the-world-may-hear-2014",
+      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/images/CAROUSEL-2013_STWMH_Awards_Gala_Highlights.jpg",
+      "year": "2013"
+  },  {
+      "id": "gala-2012",
+      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/images/home/hero/vikings_mission.jpg",
+      "year": "2012"
+  },  {
+      "id": "gala-2010",
+      "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/images/GalaImage3.jpg",
+      "year": "2010"
   }
+
 ]

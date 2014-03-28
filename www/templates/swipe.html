@@ -7,6 +7,22 @@
   </div>
   <div id='{{identifier}}' class='swipe'>
     <div class='swipe-wrap' ng-transclude>
+      <div ng-show="slides.length > 0">
+      <slide
+        ng-repeat="item in slides"
+        image-url="{{item.thumbnail_image_url}}"
+        background-color=""
+        quote=""
+        video-url=""
+        link-url=""
+        headline="{{item.year}}"
+        body-copy=""
+        logo-image-url=""
+        link-style=""
+        link-text="{{item}}"
+      >
+      </slide>
+      </div>
     </div>
   </div>
   <ul class="swiper-position" ng-show="showPaginator()">

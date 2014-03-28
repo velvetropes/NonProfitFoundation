@@ -1183,6 +1183,7 @@ sfDirectives.directive "slide", [ ->
 #   auto="8000"
 #   size="short" also: "tall narrow"
 #   paginator="true"
+#   slides=""
 # >
 
 sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
