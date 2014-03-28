@@ -262,7 +262,7 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "$filter", "Pagination"
     , true
 
   $scope.hideCountryDropdown = ->
-    $scope.highlightsFilters.region==''
+    $scope.highlightsFilters.region=='' or $scope.highlightsFilters.region=='USA'
 
   $scope.$watch('currentRegion', (newVal, oldVal) ->
     if newVal?.region?.length > 0

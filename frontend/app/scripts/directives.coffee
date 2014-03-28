@@ -960,7 +960,7 @@ sfDirectives.directive "regionDropdown", [ ->
       scope.currentYearLabel = year.name
 
     scope.hasSelectedRegion = ->
-      scope.currentRegion.region.length >0
+      scope.currentRegion.region.length and scope.currentRegion.region != "USA"
 
   result =
     restrict: "E"
