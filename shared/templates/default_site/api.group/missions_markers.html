@@ -1,7 +1,8 @@
 {exp:http_header content_type="application/json"}{
    "continents" : [
       {exp:channel:entries channel="mission_markers" dynamic="no" disable="{global:param_disable_default}" orderby="mm_order" sort="asc" backspace="2"} {
-         "name"                        : "{if is_us_map}US{if:else}{exp:mah_eencode decode="yes"}{title}{/exp:mah_eencode}{/if}",
+         "name"                        : "{exp:json_encode}{title}{/exp:json_encode}",
+         "is_us_map"                   : "{is_us_map}",
          "total_hearing_aids_provided" : "{total_hearing_aids_provided}",
          "countries_visited"           : [
             {countries_visited backspace="2"} {

@@ -14,7 +14,7 @@ sfDirectives.directive 'href', ["$location", ($location) ->
         if match? and typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
           element.attr('target', '_blank')
 
-        else 
+        else
           # Check if file link
           match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/)
           if match? and typeof match[1] is "string" and match[1].length > 0 and match[1].toLowerCase() isnt 'html'
@@ -610,12 +610,11 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     scope.hasCountry = ->
       scope.currentCountry?.name?
 
-    scope.countryClass = (name) ->
-      if name?.length
-        if name is "US"
-          "states"
-        else
-          "countries"
+    scope.countryClass = (continent) ->
+      if continent.is_us_map? and continent.is_us_map is "1"
+        "states"
+      else
+        "countries"
 
     scope.countryOrState = ->
       scope.countryClass(scope.currentContinent.name) if scope.hasContinent()
@@ -650,12 +649,17 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     scope.greetingClicked = ->
       scope.greetingFlag = true
 
+    scope.continentName = (continent) ->
+      if continent.is_us_map? and continent.is_us_map is "1"
+        "USA"
+      else
+        continent.name
     scope.initializeMaps()
 
   controller = ($scope, $element) ->
 
     $scope.showContinent = (continent) ->
-      if continent.name is "US"
+      if continent.is_us_map is "1"
         $scope.bringUSMapToFront(true, continent)
 
       else
@@ -664,7 +668,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     $scope.showCountry = (country, continent) ->
       countryCode = country.abbreviation
       if countryCode?.length > 0 and country.total_hearing_aids_provided?.length > 0
-        if continent.name is "US"
+        if continent.is_us_map is "1"
           $scope.bringUSMapToFront(true, continent)
           $scope.highlightCountryRegion(country, $scope.usMapObject)
         else

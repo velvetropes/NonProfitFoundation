@@ -28,20 +28,20 @@
                 {freeform:field:last_name attr:placeholder="Last Name*" attr:ng-model="lastName" attr:required="required"}
             </li>
 
-            <li class="leftFourth" ng-class="{'has-error': share.address.$invalid && share.$submitted }">
-                {freeform:field:address attr:placeholder="Address*" attr:ng-model="address" attr:required="required"}
+            <li class="leftFourth">
+                {freeform:field:address attr:placeholder="Address"}
             </li>
 
-            <li class="middleFourthFirst" ng-class="{'has-error': share.city.$invalid && share.$submitted }">
-                {freeform:field:city attr:placeholder="City*" attr:ng-model="city" attr:required="required"}
+            <li class="middleFourthFirst">
+                {freeform:field:city attr:placeholder="City"}
             </li>
 
-            <li class="middleFourthSecond" ng-class="{'has-error': share.state.$invalid && share.$submitted }">
-                {freeform:field:state attr:placeholder="State*" attr:ng-model="state" attr:required="required"}
+            <li class="middleFourthSecond">
+                {freeform:field:state attr:placeholder="State"}
             </li>
 
-            <li class="rightFourth" ng-class="{'has-error': share.zip.$invalid && share.$submitted }">
-                {freeform:field:zip attr:placeholder="Zip*" attr:ng-model="zip" attr:required="required"}
+            <li class="rightFourth">
+                {freeform:field:zip attr:placeholder="Zip"}
             </li>
 
             <li class="leftFourth" ng-class="{'has-error': share.email.$invalid && share.$submitted }">

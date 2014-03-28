@@ -24,8 +24,9 @@
 
       {!-- All the countries, grouped by region --}
       {exp:stash:set_list name="regions" parse_tags="yes"}
-        {exp:activerecord select="field_id_97 AS region" from="exp_channel_data" group_by="region" where="field_id_97 != ''"}
+        {exp:activerecord select="field_id_97 AS region" from="exp_channel_data" group_by="region" where="field_id_97 != ''" parse="inward"}
             {stash:region}{region}{/stash:region}
+            {stash:region_label}{exp:hundies_option_label field_id="97" option="{region}"}{/stash:region_label}
         {/exp:activerecord}
       {/exp:stash:set_list}
 
@@ -39,7 +40,7 @@
 
       "categories" :  [
         {exp:stash:get_list name="regions" backspace="2"} {
-            "region" : "{region}",
+            "region" : "{region_label}",
             "countries" : [{exp:stash:get_list:nested name="countries" context="{region}" backspace="1"}"{name}",{/exp:stash:get_list:nested}]
         }, {/exp:stash:get_list}
       ],

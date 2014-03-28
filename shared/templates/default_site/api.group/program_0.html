@@ -3,14 +3,13 @@
     <h1>Operation change</h1>
     {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
 
-    {operation_change_partnerships limit="1"}
-        {if operation_change_partnerships:field_total_rows > 0}
+    {if operation_change_partnerships:total_rows > 0}
         <br/>
         <h2>Our Partnerships</h2>
-        {/if}
-    {/operation_change_partnerships}
+    {/if}
 </article>
 
+{if operation_change_partnerships:total_rows > 0}
 <section class='carousel thumblist'>
   <thumblist-nav>
     {operation_change_partnerships}
@@ -59,4 +58,5 @@
       {/operation_change_partnerships}
   </swiper>
 </section>
+{/if}
 {/exp:channel:entries}

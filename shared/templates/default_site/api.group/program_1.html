@@ -3,14 +3,13 @@
 
     {exp:hundies_shortcode}{listen_carefully_content}{/exp:hundies_shortcode}
 
-    {listen_carefully_additional_reso limit="1"}
-        {if listen_carefully_additional_reso:field_total_rows > 0}
-        <br/>
-        <h2>Additional Resources</h2>
-        {/if}
-    {/listen_carefully_additional_reso}
+    {if listen_carefully_additional_reso:total_rows > 0}
+    <br/>
+    <h2>Additional Resources</h2>
+    {/if}
 </article>
 
+{if listen_carefully_additional_reso:total_rows > 0}
 <section class='carousel thumblist'>
   <thumblist-nav>
     {listen_carefully_additional_reso}
@@ -32,5 +31,6 @@
     {/listen_carefully_additional_reso}
 </thumblist-nav>
 </section>
+{/if}
 
 {/exp:channel:entries}

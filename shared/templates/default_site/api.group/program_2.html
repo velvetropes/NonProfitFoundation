@@ -42,43 +42,43 @@
     }
         <ul>
             <li class="leftHalf" ng-class="{'has-error': provider.first_name.$invalid && provider.$submitted }">
-                {freeform:field:first_name attr:placeholder="First Name" attr:ng-model="firstName" attr:required="required"}
+                {freeform:field:first_name attr:placeholder="First Name*" attr:ng-model="firstName" attr:required="required"}
             </li>
 
             <li class="rightHalf" ng-class="{'has-error': provider.last_name.$invalid && provider.$submitted }">
-                {freeform:field:last_name attr:placeholder="Last Name" attr:ng-model="lastName" attr:required="required"}
+                {freeform:field:last_name attr:placeholder="Last Name*" attr:ng-model="lastName" attr:required="required"}
             </li>
 
             <li class="leftFourth" ng-class="{'has-error': provider.practice.$invalid && provider.$submitted }">
-                {freeform:field:practice attr:placeholder="Practice" attr:ng-model="practice" attr:required="required"}
+                {freeform:field:practice attr:placeholder="Practice*" attr:ng-model="practice" attr:required="required"}
             </li>
 
             <li class="middleFourthFirst" ng-class="{'has-error': provider.phone.$invalid && provider.$submitted }">
-                {freeform:field:phone attr:placeholder="Phone" attr:ng-model="phone" attr:required="required"}
+                {freeform:field:phone attr:placeholder="Phone*" attr:ng-model="phone" attr:required="required"}
             </li>
 
-            <li class="middleFourthSecond" ng-class="{'has-error': provider.fax.$invalid && provider.$submitted }">
-                {freeform:field:fax attr:placeholder="FAX" attr:ng-model="fax" attr:required="required"}
+            <li class="middleFourthSecond">
+                {freeform:field:fax attr:placeholder="Fax"}
             </li>
 
             <li class="rightFourth" ng-class="{'has-error': provider.email.$invalid && provider.$submitted }">
-                {freeform:field:email attr:placeholder="Email" attr:ng-model="email" attr:required="required" attr:type="email"}
+                {freeform:field:email attr:placeholder="Email*" attr:ng-model="email" attr:required="required" attr:type="email"}
             </li>
 
             <li class="leftFourth" ng-class="{'has-error': provider.address.$invalid && provider.$submitted }">
-                {freeform:field:address attr:placeholder="Address" attr:ng-model="address" attr:required="required"}
+                {freeform:field:address attr:placeholder="Address*" attr:ng-model="address" attr:required="required"}
             </li>
 
             <li class="middleFourthFirst" ng-class="{'has-error': provider.city.$invalid && provider.$submitted }">
-                {freeform:field:city attr:placeholder="City" attr:ng-model="city" attr:required="required"}
+                {freeform:field:city attr:placeholder="City*" attr:ng-model="city" attr:required="required"}
             </li>
 
             <li class="middleFourthSecond" ng-class="{'has-error': provider.state.$invalid && provider.$submitted }">
-                {freeform:field:state attr:placeholder="State" attr:ng-model="state" attr:required="required"}
+                {freeform:field:state attr:placeholder="State*" attr:ng-model="state" attr:required="required"}
             </li>
 
             <li class="rightFourth" ng-class="{'has-error': provider.zip.$invalid && provider.$submitted }">
-                {freeform:field:zip attr:placeholder="Zip" attr:ng-model="zip" attr:required="required"}
+                {freeform:field:zip attr:placeholder="Zip*" attr:ng-model="zip" attr:required="required"}
             </li>
 
             <li class="full">
