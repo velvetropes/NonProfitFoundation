@@ -338,10 +338,15 @@ sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "Pr
 
 # Programs
 
-sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "Articles", "ProgramPartnership", "ProgramResource", ($scope, $routeParams, Articles, ProgramPartnership, ProgramResource) ->
-
-  $scope.currentTab = $routeParams
+sfControllers.controller("ProgramsCtrl", ["$scope", "$location", ($scope, $location) ->
+  $scope.currentTab = $location.path()
   $scope.showForm = false
+
+  $scope.$on('$routeChangeStart', ->
+    $scope.currentTab = $location.path()
+    return
+  )
+
 ])
 
 # Take Action
