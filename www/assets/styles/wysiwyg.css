@@ -3409,6 +3409,20 @@ pagination {
     .programs-page .program-section p.no-container, .programs-page .programs-additional-section p.no-container {
       padding-left: 0;
       padding-right: 0; }
+.programs-page .become-a-provider {
+  position: relative; }
+  .programs-page .become-a-provider i {
+    font-size: 1.25em;
+    position: absolute;
+    right: -27px;
+    top: -3px; }
+  .programs-page .become-a-provider.active i {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: #3d4144; }
 .programs-page .become-a-provider-container {
   zoom: 1;
   max-width: 75em;

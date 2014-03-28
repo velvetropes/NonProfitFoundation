@@ -6,19 +6,19 @@
 <p>If you or someone you know is struggling with hearing loss and unable to afford hearing aids, call 1-800-328-8602 or complete the form below, and a Hear Now representative will be in touch with you.&nbsp;</p>
 
 <p>
-      
-        
+
+
           <gallery slides="1">              <gallery-slide
                image-url="http://s3-us-west-2.amazonaws.com/assetsimages/hearnow1.jpg"
                video-url=""
               ></gallery-slide>
-          </gallery>        
+          </gallery>
 
-        
-                  
 
-        
-    
+
+
+
+
 
     </p>
     <p class="centered"><a href="mailto:programs@starkeyfoundation.org" class="link-with-border">Contact us</a></p>
@@ -49,16 +49,16 @@
 <p>Help us give the gift of hearing into the lives of people in need. If you are a hearing professional, we need your help! Become a Hear Now volunteer and volunteer to fit and follow up with our Hear Now recipients. Your crucial support will help change lives forever and have a lasting impact on your community.</p>
     <br/>
     <hr class="separator padded"/>
-    <h3><a href="#programs/2" class="become-a-provider highlight">Become a Provider</a></h3>
+    <h3><a href class="highlight become-a-provider" ng-click="showForm = !showForm" ng-class="{active: showForm==true}">Become a Provider <i class="starkey-dd-passive"></i></a></h3>
     <br/>
-    <div class="become-a-provider-container hidden">
+    <div class="become-a-provider-container reveal" ng-show="showForm">
       <br/>
-    <form 
-      action="/programs.html#/programs/2?thanks" 
-      accept-charset="utf-8" 
-      name="provider" 
-      id="become_a_provider_form" 
-      class="flatform invert" 
+    <form
+      action="/programs.html#/programs/2?thanks"
+      accept-charset="utf-8"
+      name="provider"
+      id="become_a_provider_form"
+      class="flatform invert"
       novalidate="novalidate"
       method="post"
       valid-submit="valid-submit"

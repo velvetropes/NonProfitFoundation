@@ -28,13 +28,13 @@
     {hear_now_provider_text}
     <br/>
     <hr class="separator padded"/>
-    <h3><a href="#programs/2" class="become-a-provider highlight">Become a Provider</a></h3>
+    <h3><a href class="highlight become-a-provider" ng-click="showForm = !showForm" ng-class="{active: showForm==true}">Become a Provider <i class="starkey-dd-passive"></i></a></h3>
     <br/>
-    <div class="become-a-provider-container hidden">
+    <div class="become-a-provider-container reveal" ng-show="showForm">
       <br/>
     {exp:freeform:form form_id="2"
         form:name="provider"
-        form:id="become_a_provider_form" 
+        form:id="become_a_provider_form"
         form:class="flatform invert"
         form:valid-submit="valid-submit"
         form:novalidate="novalidate"

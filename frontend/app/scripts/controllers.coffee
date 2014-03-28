@@ -333,7 +333,7 @@ sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "Pr
 sfControllers.controller("ProgramsCtrl", ["$scope", "$routeParams", "Articles", "ProgramPartnership", "ProgramResource", ($scope, $routeParams, Articles, ProgramPartnership, ProgramResource) ->
 
   $scope.currentTab = $routeParams
-
+  $scope.showForm = false
 ])
 
 # Take Action

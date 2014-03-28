@@ -18,6 +18,25 @@
       }
     }
   }
+  .become-a-provider {
+    position: relative;
+    i {
+      font-size: 1.25em;
+      position: absolute;
+      right: -27px;
+      top: -3px;
+    }
+    &.active {
+      i {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: $gray-title;
+      }
+    }
+  }
   .become-a-provider-container {
     @include outer-container;
     &.hidden {
