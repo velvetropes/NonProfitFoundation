@@ -1,5 +1,5 @@
 <div class="outer-container">
-  <div class="pagination" ng-show="articles.length > pagination.perPage">
+  <div class="pagination" ng-show="showPaginator">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
@@ -68,7 +68,7 @@
 
   </section>
 
-  <div class="pagination"  ng-show="articles.length > pagination.perPage">
+  <div class="pagination" ng-show="showPaginator">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>

@@ -810,9 +810,13 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
   _setupWatchers = (scope) ->
 
     scope.$watch "articlesFilterObject", ->
-      filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
-      scope.pagination.numPages = Math.ceil(filteredList.length/scope.pagination.perPage)
-      scope.isAtPaginationEnd = (scope.mobileStop >= filteredList.length)
+      scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.pagination.numPages = Math.ceil(scope.filteredList.length/scope.pagination.perPage)
+      scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
+      scope.showPaginator = if scope.filteredList.length == 0
+        false
+      else
+        scope.articles.length > scope.pagination.perPage
       return
     , true
 
@@ -838,6 +842,7 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 
     scope.paginationUpperWindowLimit = 0
     scope.paginationLowerWindowLimit = 3
+    scope.filteredList = []
 
     scope.parseDate = (date) ->
       Date.parse(date)
@@ -845,8 +850,8 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     scope.loadMore = ->
       scope.pagination.nextPage() #do we need this?
       scope.mobileStop = parseInt(scope.mobileStop, 10) + parseInt(scope.pagination.perPage, 10)
-      filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
-      scope.isAtPaginationEnd = (scope.mobileStop >= filteredList.length)
+      scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
       return
 
     _setupWatchers(scope)

@@ -127,8 +127,9 @@ sfControllers.controller("LegalPagesCtrl", ["$scope", "$routeParams", ($scope, $
 ])
 
 # Media Mentions
-sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPressItem", "Pagination", ($scope, MediaMentionOrPressItem, Pagination) ->
+sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "$filter", "MediaMentionOrPressItem", "Pagination", ($scope, $filter, MediaMentionOrPressItem, Pagination) ->
 
+  $scope.showPaginator = true
   $scope.articleFilters = {
     featured: ''
     year: ''
@@ -156,6 +157,12 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
     $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
 
+    $scope.$watch "articleFilters", ->
+      filteredList = $filter('filter')($scope.pressItems, $scope.articleFilters)
+      $scope.showPaginator = filteredList.length > 0
+      return
+    , true
+
   $scope.numberOfPages = ->
     Math.ceil($scope.pressItems.length/$scope.pageSize)
 
@@ -165,7 +172,6 @@ sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "MediaMentionOrPre
 
   $scope.setTypeFilter = (filterObj)->
     $scope.articleFilters.type = filterObj.value
-
 ])
 
 sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "MediaMention", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, MediaMention, MediaMentionOrPressItem, Pagination) ->
@@ -235,6 +241,7 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "$filter", "Pagination"
 
   MissionsIndex.getIndex().then (data) ->
     $scope.missionsHighlights = data.highlights
+    $scope.showPaginator = true
     $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
 
@@ -258,6 +265,7 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "$filter", "Pagination"
     $scope.$watch "highlightsFilters", ->
       filteredList = $filter('filter')($scope.missionsHighlights, $scope.highlightsFilters)
       $scope.pagination.numPages = Math.ceil(filteredList.length/$scope.pagination.perPage)
+      $scope.showPaginator = filteredList.length > 0
       return
     , true
 
