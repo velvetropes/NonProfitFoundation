@@ -13,7 +13,7 @@
             "video_link_url"                    : "{home_bot:carousel_video_url}",
             "panel_call_to_action_text"         : "{home_bot:carousel_panel_cta}",
             "panel_call_to_action_link_url"     : "{home_bot:carousel_panel_link}",
-            "body"                              : "{exp:json_encode}{exp:tagstripper:tagsToStrip tags='img'}{exp:eehive_hacksaw words="100"}{home_bot:carousel_body}{/exp:eehive_hacksaw}{/exp:tagstripper:tagsToStrip}{/exp:json_encode}"
+            "body"                              : "{exp:json_encode}{exp:tagstripper:tagsToStrip tags='img'}{exp:eehive_hacksaw words="90"}{home_bot:carousel_body}{/exp:eehive_hacksaw}{/exp:tagstripper:tagsToStrip}{/exp:json_encode}"
           }, {/home_bot}
     ]
 {/exp:channel:entries}
