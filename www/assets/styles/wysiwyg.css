@@ -2761,7 +2761,8 @@ pagination {
   #map-popup .text-popup {
     overflow: auto;
     width: 286px;
-    height: 305px; }
+    height: 305px;
+    padding: 0 20px 0 0; }
     #map-popup .text-popup h2 {
       margin-bottom: 0;
       margin-top: 0; }
