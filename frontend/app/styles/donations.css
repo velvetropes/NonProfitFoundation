@@ -149,10 +149,9 @@ h1 {
 .footerMenuWrap ul.menu li a {
   color: #3D4144;
 }
-.footerMenuWrap ul.menu li::before {
-  color: #3D4144;
+.footerMenuWrap ul.menu li.first::before {
+  content: "";
 }
-
 .footerContactWrap p {
   color: #3D4144;
 }
