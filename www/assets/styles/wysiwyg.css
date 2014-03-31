@@ -1264,7 +1264,7 @@ header {
   header .header-nav {
     position: relative; }
 
-.header-wrapper .page-header, .header-wrapper .tagline, .header-wrapper header .logo img, .header-wrapper .tabs-wrap, .header-wrapper .tabs, .header-wrapper .tabs li a {
+.header-wrapper .page-header, .header-wrapper header .logo img, .header-wrapper .tabs-wrap, .header-wrapper .tabs, .header-wrapper .tabs li a {
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
