@@ -55,7 +55,10 @@
       height: 100%;
       width: 100%;
       display: block;
-      background-size: cover;
+      text-align: center;
+      img {
+        height: 536px;
+      }
     }
   }
   @include media($tablet) {

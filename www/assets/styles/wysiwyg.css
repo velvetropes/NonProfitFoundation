@@ -2019,7 +2019,9 @@ footer {
       height: 100%;
       width: 100%;
       display: block;
-      background-size: cover; }
+      text-align: center; }
+      .single-image-gallery .gallery-slide a img {
+        height: 536px; }
   @media screen and (min-width: 480px) and (max-width: 767px) {
     .single-image-gallery {
       height: 440px; }
