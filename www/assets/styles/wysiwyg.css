@@ -2755,14 +2755,14 @@ pagination {
       background-color: rgba(40, 70, 76, 0.8); }
     #map-popup .text-popup-container .jspContainer .jspCap {
       display: none; }
-    #map-popup .text-popup-container .jspPane {
+    #map-popup .text-popup-container .jspContainer .jspPane {
       position: relative; }
-      #map-popup .text-popup-container .jspPane .centered {
+      #map-popup .text-popup-container .jspContainer .jspPane .centered {
         padding-bottom: 20px; }
   #map-popup .text-popup {
     overflow: auto;
-    width: 286px;
-    height: 305px;
+    width: 277px;
+    height: 290px;
     padding: 0 20px 0 0; }
     #map-popup .text-popup h2 {
       margin-bottom: 0;
@@ -2777,7 +2777,8 @@ pagination {
       margin-bottom: 25px; }
     #map-popup .text-popup p {
       font-size: 14px;
-      line-height: 1.4; }
+      line-height: 1.4;
+      width: 263px; }
     #map-popup .text-popup .centered {
       padding-top: 8px; }
     #map-popup .text-popup .read-more {

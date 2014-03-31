@@ -78,20 +78,19 @@
       .jspCap {
         display: none;
       }
-    }
-    .jspPane {
-      position: relative;
-      .centered {
-        padding-bottom: 20px;
+      .jspPane {
+        position: relative;
+        .centered {
+          padding-bottom: 20px;
+        }
       }
     }
   }
   .text-popup {
     overflow: auto;
-    width: 286px;
-    height: 305px;
+    width: 277px;
+    height: 290px;
     padding: 0 20px 0 0;
-
     h2 {
       @extend .alrightsansbold;
       margin-bottom: 0;
@@ -111,6 +110,7 @@
       @extend .alrightsansregular;
       font-size: 14px;
       line-height: 1.4;
+      width: 263px;
     }
     .centered {
       padding-top: 8px;
