@@ -532,12 +532,8 @@ hr.separator {
 
 .fixed-width {
   margin: 0 auto 15px;
-  width: 820px; }
-  @media screen and (max-width: 767px) {
-    .fixed-width {
-      padding-left: 16px;
-      padding-right: 16px;
-      width: 100%; } }
+  width: 100%;
+  max-width: 820px; }
 
 .page-leader {
   max-width: 68em;
@@ -618,6 +614,7 @@ hr.separator {
         margin: 0; }
       .masthead p {
         font-size: 12px;
+        line-height: 1.4;
         margin: 6px 0 0; }
       .masthead .call-to-action {
         margin: 1px 0 22px;
