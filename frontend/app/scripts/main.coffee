@@ -118,20 +118,12 @@ programsPageApp.run ($FB) ->
   $FB.init(FB_ID)
 
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
-  $routeProvider
-  .when("/operationchange",
-    templateUrl: "api/program_0"
+  $routeProvider.when("/programs/:tabId",
+    templateUrl: (params) ->
+      "api/program_#{params.tabId}"
+      # "local/api/program_#{params.tabId}"
     controller: "ProgramsCtrl"
-  ).when("/listencarefully",
-    templateUrl: "api/program_1"
-    controller: "ProgramsCtrl"
-  ).when("/hearnow",
-    templateUrl: "api/program_2"
-    controller: "ProgramsCtrl"
-  ).when("/hearingaidrecycling",
-    templateUrl: "api/program_3"
-    controller: "ProgramsCtrl"
-  ).otherwise redirectTo: "/operationchange"
+  ).otherwise redirectTo: "/programs/0"
 ]
 
 takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules)
