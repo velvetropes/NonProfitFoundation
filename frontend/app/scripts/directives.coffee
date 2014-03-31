@@ -1,10 +1,10 @@
 sfDirectives = angular.module("sfDirectives", ["ngSanitize", "sfFilters"])
 
 # open external links in new window
-sfDirectives.directive 'href', ["$location", ($location) ->
-  compile: (element) ->
+sfDirectives.directive 'href', ["$location", "$parse", ($location, $parse) ->
+  link = (scope, element, attrs) ->
     if element.prop("tagName") is 'A'
-      url = element.attr('href')
+      url = attrs.href
 
       # if not a mailto link and actually has an href value
       if url.lastIndexOf('mailto:', 0) isnt 0 and url.length > 0
