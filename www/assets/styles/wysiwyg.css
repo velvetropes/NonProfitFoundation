@@ -2674,7 +2674,7 @@ pagination {
   background: #eeeef4; }
 
 .jspVerticalBar .jspCap {
-  height: 20px; }
+  height: 0px; }
 
 .jspHorizontalBar .jspCap {
   width: 50px;
@@ -2749,11 +2749,21 @@ pagination {
     padding: 0; }
   #map-popup .text-popup-container {
     padding: 35px 0 0 23px; }
+    #map-popup .text-popup-container .jspContainer .jspVerticalBar {
+      width: 9px;
+      height: 100%;
+      background-color: rgba(40, 70, 76, 0.8); }
+    #map-popup .text-popup-container .jspContainer .jspCap {
+      display: none; }
+    #map-popup .text-popup-container .jspPane {
+      position: relative; }
+      #map-popup .text-popup-container .jspPane .centered {
+        padding-bottom: 20px; }
   #map-popup .text-popup {
     overflow: auto;
-    width: 260px;
-    height: 270px;
-    padding: 0; }
+    width: 286px;
+    height: 305px;
+    padding: 0 20px 0 0; }
     #map-popup .text-popup h2 {
       margin-bottom: 0;
       margin-top: 0; }
