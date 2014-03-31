@@ -61,9 +61,9 @@
 .gala-tab-content {
   @extend .generic-article-typography;
   width: 100%;
-  text-align: center;
   h1, h2, h3, h4 {
     margin: 40px 0 20px;
+    text-align: center;
   }
   p {
     margin: 0;
