@@ -120,6 +120,7 @@
         display: block;
         background-size: cover;
         background-position: center;
+        -ms-behavior: url('/images/shared/backgroundsize.min.htc');
       }
       .play-video-link {
         position: absolute;
@@ -141,6 +142,7 @@
         bottom: 0;
         left: 0;
         right: 0;
+        background: black;
         background: rgba(black, .8);
         top: 0;
       }

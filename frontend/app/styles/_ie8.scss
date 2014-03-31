@@ -1,0 +1,44 @@
+.lt-ie9 { 
+
+  #map-popup {
+    .background-popup, {
+      background: rgb(41, 41, 41);
+    }
+  }
+
+  .map-legend {
+    background: rgb(16,97,146);
+  }
+
+  .not-side-panel {
+    z-index: 90;
+    color: #FFF;
+    width: 100%;
+    bottom: 43px;
+    h1 {
+      @extend .alrightsansbold;
+      margin: 3px 10px;
+      font-size: 2.875em;
+      line-height: 1.08em;
+    }
+    p {
+      @extend .alrightsanslight;
+      font-size: 1.2em;
+      font-weight: 400;
+      margin: 0.15em 10px 0.1em;
+    }
+    a {
+      @extend .verlag;
+      text-transform: uppercase;
+      color: #FFF;
+      font-weight: bold;
+      font-size: .874em;
+      &.text-link {
+        display: inline-block;
+        padding: 2px 35px 3px;
+        border: 2px solid $light-blue;
+        margin: 10px;
+      }
+    }
+  }
+}

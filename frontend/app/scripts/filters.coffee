@@ -35,5 +35,6 @@ sfFilters.filter "youtubeImage", [ "$filter", "Youtube", ($filter, Youtube) ->
 
 sfFilters.filter "strip", [ ->
   (text) ->
-    text.replace(/^\s+|\s+$/g, "")
+    if text?
+      text.replace(/^\s+|\s+$/g, "")
 ]

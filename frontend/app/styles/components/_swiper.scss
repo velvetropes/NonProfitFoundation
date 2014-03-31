@@ -123,7 +123,7 @@
   }
   aside {
     position: absolute;
-    &:not(.side-panel) {
+    &:not(.side-panel), &.not-side-panel {
       z-index: 90;
       color: #FFF;
       width: 100%;

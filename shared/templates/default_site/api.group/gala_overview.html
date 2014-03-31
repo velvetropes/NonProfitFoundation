@@ -28,7 +28,6 @@
             >
           </slide>
           {/galla_overview_carousel}
-          </slide>
         </swiper>
       </div>
 

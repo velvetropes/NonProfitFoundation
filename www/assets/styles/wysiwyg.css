@@ -475,12 +475,12 @@ table {
 .starkey-zoom-out:before {
   content: "\e601"; }
 
-.alrightsansbold, .page-leader h1, .masthead .section-title, .masthead .section-headline, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, ul.pagination-articles li .block .headline, ul.pagination-articles li .block .date, .swiper aside:not(.side-panel) h1, .swiper aside.side-panel .headline, .thumblist-nav .jspPane h4, #map-popup .text-popup h2, #map-popup .text-popup .location, #map-popup .text-popup .read-more, .article-header-image .article-title, .contact_main h2, .contact_secondary h2, .missions-map .missions-map-greeting a, .missions-map .missions-map-info .continent-info h1, .missions-map .missions-map-info .country-info h1, .hearing-missions-statistics ul li, .hearing-missions-statistics ul li h1 {
+.alrightsansbold, .page-leader h1, .masthead .section-title, .masthead .section-headline, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, ul.pagination-articles li .block .headline, ul.pagination-articles li .block .date, .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1, .swiper aside.side-panel .headline, .thumblist-nav .jspPane h4, #map-popup .text-popup h2, #map-popup .text-popup .location, #map-popup .text-popup .read-more, .article-header-image .article-title, .contact_main h2, .contact_secondary h2, .missions-map .missions-map-greeting a, .missions-map .missions-map-info .continent-info h1, .missions-map .missions-map-info .country-info h1, .hearing-missions-statistics ul li, .hearing-missions-statistics ul li h1 {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: bold; }
 
-.alrightsanslight, .detail-page-body .article-headline, .detail-page-body .article-subheadline, .detail-page-body .article-date, blockquote p, .generic-article-typography h1, .text-container h1, .gala-tab-content h1, .legal-page .article-section h1, .programs-page .program-section h1, .programs-page .programs-additional-section h1, .take-action-page .take-action-section h1, .generic-article-typography h2, .text-container h2, .gala-tab-content h2, .legal-page .article-section h2, .programs-page .program-section h2, .programs-page .programs-additional-section h2, .take-action-page .take-action-section h2, .generic-article-typography h3, .text-container h3, .gala-tab-content h3, .legal-page .article-section h3, .programs-page .program-section h3, .programs-page .programs-additional-section h3, .take-action-page .take-action-section h3, .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p, .tabbed-content nav .tabs li a, .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .five-tabs li a, .tabbed-content article .content h1, .tabbed-content article .content h2, .tabbed-content article .content h3, .tabbed-content article .content p, .swiper aside:not(.side-panel) p, .article-header-image .page-nav-links li a, .article-header-image .article-item-category, .share-this-post ul li, .highlights ul li .content h3, .missions-map .missions-map-legend h3, .missions-map .missions-map-legend .continents .countries a, .missions-map .missions-map-legend .continents .states a, .missions-map .missions-map-greeting h1, .missions-map .missions-map-info .continent-info h4, .missions-map .missions-map-info .continent-info p, .missions-map .missions-map-info .country-info h4, .missions-map .missions-map-info .country-info p {
+.alrightsanslight, .detail-page-body .article-headline, .detail-page-body .article-subheadline, .detail-page-body .article-date, blockquote p, .generic-article-typography h1, .text-container h1, .gala-tab-content h1, .legal-page .article-section h1, .programs-page .program-section h1, .programs-page .programs-additional-section h1, .take-action-page .take-action-section h1, .generic-article-typography h2, .text-container h2, .gala-tab-content h2, .legal-page .article-section h2, .programs-page .program-section h2, .programs-page .programs-additional-section h2, .take-action-page .take-action-section h2, .generic-article-typography h3, .text-container h3, .gala-tab-content h3, .legal-page .article-section h3, .programs-page .program-section h3, .programs-page .programs-additional-section h3, .take-action-page .take-action-section h3, .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p, .tabbed-content nav .tabs li a, .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .five-tabs li a, .tabbed-content article .content h1, .tabbed-content article .content h2, .tabbed-content article .content h3, .tabbed-content article .content p, .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p, .article-header-image .page-nav-links li a, .article-header-image .article-item-category, .share-this-post ul li, .highlights ul li .content h3, .missions-map .missions-map-legend h3, .missions-map .missions-map-legend .continents .countries a, .missions-map .missions-map-legend .continents .states a, .missions-map .missions-map-greeting h1, .missions-map .missions-map-info .continent-info h4, .missions-map .missions-map-info .continent-info p, .missions-map .missions-map-info .country-info h4, .missions-map .missions-map-info .country-info p {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: normal; }
@@ -490,7 +490,7 @@ table {
   font-style: normal;
   font-weight: normal; }
 
-.verlag, .verlagbold, .header-nav .tabs li a, .footer-links ul li, .swiper aside.side-panel a.action-link, .highlights ul li .action-link, .swiper aside:not(.side-panel) a {
+.verlag, .verlagbold, .header-nav .tabs li a, .footer-links ul li, .swiper aside.side-panel a.action-link, .highlights ul li .action-link, .swiper aside:not(.side-panel) a, .swiper aside.not-side-panel a {
   font-family: "Verlag A", "Verlag B"; }
 
 .verlagbold, .header-nav .tabs li a, .footer-links ul li, .swiper aside.side-panel a.action-link, .highlights ul li .action-link {
@@ -2304,33 +2304,33 @@ pagination {
     background-color: #000; }
   .swiper aside {
     position: absolute; }
-    .swiper aside:not(.side-panel) {
+    .swiper aside:not(.side-panel), .swiper aside.not-side-panel {
       z-index: 90;
       color: #FFF;
       width: 100%;
       bottom: 43px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
-      .swiper aside:not(.side-panel) h1 {
+      .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1 {
         margin: 3px 10px;
         font-size: 2.875em;
         line-height: 1.08em; }
-      .swiper aside:not(.side-panel) p {
+      .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p {
         font-size: 1.2em;
         font-weight: 400;
         margin: 0.15em 10px 0.1em; }
-      .swiper aside:not(.side-panel) a {
+      .swiper aside:not(.side-panel) a, .swiper aside.not-side-panel a {
         text-transform: uppercase;
         color: #FFF;
         font-weight: bold;
         font-size: .874em; }
-        .swiper aside:not(.side-panel) a.text-link {
+        .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
           display: inline-block;
           padding: 2px 35px 3px;
           border: 2px solid #00b3d2;
           margin: 10px; }
       @media screen and (max-width: 479px) {
-        .swiper aside:not(.side-panel) {
+        .swiper aside:not(.side-panel), .swiper aside.not-side-panel {
           bottom: 0px;
           background: #FFF;
           color: #2d2d2d;
@@ -2338,21 +2338,21 @@ pagination {
           padding: 4px 20px 8px;
           height: 107px;
           overflow: hidden; }
-          .swiper aside:not(.side-panel) h1 {
+          .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1 {
             font-size: 18px;
             margin: 10px 10px 4px; }
-          .swiper aside:not(.side-panel) a {
+          .swiper aside:not(.side-panel) a, .swiper aside.not-side-panel a {
             float: right;
             color: #2d2d2d;
             font-size: 11px;
             margin-top: 3px; }
-          .swiper aside:not(.side-panel) p {
+          .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p {
             font-size: 13px;
             line-height: 1.2; }
-          .black-text-background .swiper aside:not(.side-panel) {
+          .black-text-background .swiper aside:not(.side-panel), .black-text-background .swiper aside.not-side-panel {
             background: #2d2d2d;
             color: #FFF; }
-            .black-text-background .swiper aside:not(.side-panel) a {
+            .black-text-background .swiper aside:not(.side-panel) a, .black-text-background .swiper aside.not-side-panel a {
               color: #FFF; } }
     .swiper aside.side-panel {
       width: 540px;
@@ -2521,7 +2521,8 @@ pagination {
         bottom: 101px;
         right: 0;
         left: 0;
-        top: 0; }
+        top: 0;
+        -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       .thumblist-nav .jspPane > div .content {
         position: absolute;
         bottom: -6px;
@@ -3268,7 +3269,8 @@ pagination {
       height: 100%;
       display: block;
       background-size: cover;
-      background-position: center; }
+      background-position: center;
+      -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
     .bottom-slide-tabs .bottom-slide-tab .panel-image .play-video-link {
       position: absolute;
       left: 50%;
@@ -3287,6 +3289,7 @@ pagination {
       bottom: 0;
       left: 0;
       right: 0;
+      background: black;
       background: rgba(0, 0, 0, 0.8);
       top: 0; }
     .bottom-slide-tabs .bottom-slide-tab .panel-content > div {
