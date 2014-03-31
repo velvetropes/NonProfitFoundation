@@ -334,7 +334,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
   _initScrollPane = (scope, element) ->
     $timeout( ->
-      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.pane = angular.element('.gallery').jScrollPane()
       scope.api = scope.pane.data().jsp unless scope.pane.data() is null
       return
     , 400)
@@ -352,7 +352,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
     scope.galleryClasses = ->
       if scope.isThumblist()
-        "gallery full thumblist thumblist-nav horizontal-only"
+        "gallery"
       else
         "single-image-gallery"
 
@@ -372,7 +372,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
         , 400)
 
       scope.$on("window.resized", (event, args) ->
-        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+        angular.element('.gallery').jScrollPane().data().jsp.destroy()
         _initScrollPane(scope, element)
       )
     return
