@@ -1,3 +1,6 @@
+.gallery-slide {
+  position: relative;
+}
 .gallery, .single-image-gallery {
   height: 536px;
   background-color: #000;
@@ -9,7 +12,6 @@
       height: 525px;
       // width: 100%;
       margin: 0 auto;
-      position: relative;
       border: none;
       display: inline-block;
       /* ie7 support */

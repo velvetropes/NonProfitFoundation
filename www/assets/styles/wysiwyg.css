@@ -1975,6 +1975,9 @@ footer {
     content: "";
     display: table; }
 
+.gallery-slide {
+  position: relative; }
+
 .gallery, .single-image-gallery {
   height: 536px;
   background-color: #000; }
@@ -1983,7 +1986,6 @@ footer {
   .gallery .jspPane .gallery-slide, .single-image-gallery .jspPane .gallery-slide {
     height: 525px;
     margin: 0 auto;
-    position: relative;
     border: none;
     display: inline-block;
     /* ie7 support */
