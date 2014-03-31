@@ -1063,7 +1063,13 @@ nav .tabs {
       line-height: 1.2em; }
 
 .page .header-wrapper:not(.affixed) nav .tabs li {
-  border-bottom: none; }
+  border: none;
+  border-top: 1px dotted #8f8f8f;
+  border-right: 1px dotted #8f8f8f; }
+  .page .header-wrapper:not(.affixed) nav .tabs li:first-child {
+    border-left: 1px dotted #8f8f8f; }
+  .page .header-wrapper:not(.affixed) nav .tabs li.active {
+    border-bottom: 1px solid #fff; }
 
 .contact-page .who-we-are, .team-page .who-we-are, .about-us-page .who-we-are, .media-mentions-page .who-we-are {
   color: #00b3d2; }
