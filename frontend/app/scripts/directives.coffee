@@ -406,8 +406,6 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
       if (scope.single)
         {
           'background-image': 'url(' + scope.getImage() + ')'
-          'background-size': 'cover'
-          'background-position': '50% 50%'
         }
 
     scope.imageStyle =

@@ -2030,7 +2030,11 @@ footer {
       height: 100%;
       width: 100%;
       display: block;
-      text-align: center; }
+      text-align: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
       .single-image-gallery .gallery-slide a img {
         height: 536px; }
   @media screen and (min-width: 480px) and (max-width: 768px) {
