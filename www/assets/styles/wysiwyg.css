@@ -3417,12 +3417,18 @@ pagination {
       margin: 100px 100px 0;
       padding: 0; }
       .legal-page .article-section.documents-list ul li {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%;
+        float: none;
         display: inline-block;
-        width: 330px;
         margin-right: 0;
         margin-bottom: 40px;
         padding-left: 50px;
         vertical-align: top; }
+        .legal-page .article-section.documents-list ul li:last-child {
+          margin-right: 0; }
         .legal-page .article-section.documents-list ul li p {
           margin: 0; }
 
