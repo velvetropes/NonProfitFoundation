@@ -553,7 +553,7 @@ hr.separator {
     line-height: 1.5; }
     .page-leader p.bigger {
       font-size: 1.2em; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .page-leader h1 {
       font-size: 3em;
       line-height: 0.8; }
@@ -599,7 +599,7 @@ hr.separator {
     margin-bottom: 24px; }
     .masthead .call-to-action a {
       text-decoration: underline; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .masthead .section-headline {
       font-size: 3em; } }
   @media screen and (max-width: 479px) {
@@ -661,7 +661,7 @@ blockquote {
   line-height: 171%;
   min-height: 318px;
   overflow: hidden; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     blockquote {
       height: 215px;
       font-size: 22px;
@@ -742,7 +742,7 @@ blockquote p {
   line-height: 1.875em; }
 .generic-article-typography a, .text-container a, .gala-tab-content a, .legal-page .article-section a, .programs-page .program-section a, .programs-page .programs-additional-section a, .take-action-page .take-action-section a {
   color: #00b3d2; }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .generic-article-typography h1, .text-container h1, .gala-tab-content h1, .legal-page .article-section h1, .programs-page .program-section h1, .programs-page .programs-additional-section h1, .take-action-page .take-action-section h1 {
     font-size: 1.75em; }
   .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p {
@@ -940,7 +940,7 @@ nav .tabs {
     margin: -1px 0 0;
     border: none;
     border-bottom: 1px dotted #8f8f8f; }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  @media screen and (min-width: 480px) and (max-width: 768px) {
     .header-nav .tab-content ul li h2 {
       font-size: 1.1em; } }
   @media screen and (max-width: 479px) {
@@ -997,7 +997,7 @@ nav .tabs {
     width: 200px; }
   .tabbed-content nav .three-tabs li {
     width: 200px; }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       .tabbed-content nav .three-tabs li {
         width: 100%;
         margin: 0; }
@@ -1030,7 +1030,7 @@ nav .tabs {
           font-weight: bold; }
         .tabbed-content nav .five-tabs li.active {
           border-bottom: inherit; } }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .tabbed-content nav .tabs {
       padding: 0;
       margin: 10px 0 0 0; }
@@ -1216,7 +1216,7 @@ header {
       width: 200px;
       height: auto;
       padding: 0 0 0 20px; }
-    @media screen and (min-width: 480px) and (max-width: 767px) {
+    @media screen and (min-width: 480px) and (max-width: 768px) {
       header .logo {
         width: 27%; }
         header .logo img {
@@ -1238,7 +1238,7 @@ header {
     opacity: 1; }
     header .tagline h1 {
       font-weight: 400; }
-    @media screen and (min-width: 480px) and (max-width: 767px) {
+    @media screen and (min-width: 480px) and (max-width: 768px) {
       header .tagline {
         width: 46%;
         margin-top: 21px; }
@@ -1259,7 +1259,7 @@ header {
       list-style: none; }
       header .social-links li a {
         font-size: 1.7em; }
-    @media screen and (min-width: 480px) and (max-width: 767px) {
+    @media screen and (min-width: 480px) and (max-width: 768px) {
       header .social-links {
         width: 27%;
         margin-top: 2px;
@@ -1449,7 +1449,7 @@ footer {
   max-width: 100%; }
   footer .form {
     padding: 50px 150px; }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       footer .form {
         padding: 24px 5px; } }
 
@@ -1577,12 +1577,12 @@ footer {
       .social-info > ul > li.blog .read-more {
         margin-top: 21px;
         margin-bottom: 3px; }
-  @media screen and (min-width: 768px) and (max-width: 1119px) {
+  @media screen and (min-width: 769px) and (max-width: 1119px) {
     .social-info > ul > li .thumbs {
       float: none;
       margin: auto;
       width: 104px; } }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .social-info .footer-list-item {
       height: auto;
       margin-top: 0; }
@@ -1661,7 +1661,7 @@ footer {
         font-size: .625em; }
       .footer-links ul li a:hover {
         cursor: pointer; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .footer-links {
       display: block;
       border: none; }
@@ -1691,7 +1691,7 @@ footer {
   padding: 15px 0 14px;
   -webkit-font-smoothing: antialiased;
   display: none; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .mobile-footer-subscribe {
       display: block; } }
 
@@ -1745,7 +1745,7 @@ footer {
           height: 200px;
           width: 200px;
           margin: 10px auto; }
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 768px) {
           .accordion .expander .body .accordion-list .accordion-list-item {
             float: left;
             display: block;
@@ -1808,7 +1808,7 @@ footer {
       font-weight: bold; }
   .articles-filters.tablet-down {
     display: none; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .articles-filters {
       padding: 0 16px;
       margin-top: -35px;
@@ -1844,7 +1844,7 @@ footer {
     display: none; }
   .dropdown:after {
     display: none; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .dropdown.tablet-down {
       display: inline-block; }
     .dropdown.desktop {
@@ -1951,7 +1951,7 @@ footer {
     opacity: 1;
     pointer-events: auto;
     z-index: 999; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .dropdown-wrapper {
       display: none; } }
 
@@ -2029,7 +2029,7 @@ footer {
       text-align: center; }
       .single-image-gallery .gallery-slide a img {
         height: 536px; }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  @media screen and (min-width: 480px) and (max-width: 768px) {
     .single-image-gallery {
       height: 440px; }
       .single-image-gallery .gallery-slide {
@@ -2040,7 +2040,7 @@ footer {
       .single-image-gallery .gallery-slide {
         height: 330px; } }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .gallery {
     display: none; } }
 .article-detail {
@@ -2169,7 +2169,7 @@ ul.pagination-articles {
 pagination {
   display: block; }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .pagination {
     display: none; }
 
@@ -2293,7 +2293,7 @@ pagination {
   overflow: hidden; }
   .swiper.short .swipe-wrap > div {
     height: 600px; }
-    @media screen and (min-width: 480px) and (max-width: 767px) {
+    @media screen and (min-width: 480px) and (max-width: 768px) {
       .swiper.short .swipe-wrap > div {
         height: 440px; } }
     @media screen and (max-width: 479px) {
@@ -2302,7 +2302,7 @@ pagination {
   .swiper .swipe-wrap > div {
     width: 100%;
     height: 800px; }
-    @media screen and (min-width: 480px) and (max-width: 767px) {
+    @media screen and (min-width: 480px) and (max-width: 768px) {
       .swiper .swipe-wrap > div {
         height: 440px; } }
     @media screen and (max-width: 479px) {
@@ -2479,14 +2479,14 @@ pagination {
     .swiper-position li.on {
       background: #f15c22; }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .carousel.thumblist {
     display: none; } }
 
 .mobile-carousel {
   display: none;
   background: #fff; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .mobile-carousel {
       display: block; } }
   .mobile-carousel h2 {
@@ -2849,7 +2849,7 @@ pagination {
 
 .about-us-page .text-container {
   text-align: center; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .about-us-page .text-container {
       text-align: left; } }
 
@@ -2865,7 +2865,7 @@ pagination {
     position: relative;
     max-width: 1600px;
     margin: 0 auto; }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       .article-header-image .image {
         height: 375px; } }
     @media screen and (max-width: 479px) {
@@ -2884,7 +2884,7 @@ pagination {
       .article-header-image .image .banner h1 {
         line-height: 1.1em;
         margin-bottom: 0; }
-        @media screen and (min-width: 480px) and (max-width: 767px) {
+        @media screen and (min-width: 480px) and (max-width: 768px) {
           .article-header-image .image .banner h1 {
             font-size: 2.6em; } }
         @media screen and (max-width: 479px) {
@@ -2941,7 +2941,7 @@ pagination {
 .contact-wrap {
   width: 100%;
   padding: 0 36px 30px; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .contact-wrap {
       padding: 0 16px 16px; } }
 
@@ -2970,7 +2970,7 @@ pagination {
     font-size: .875em;
     margin: 0 0 15px;
     line-height: 1.5em; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .contact_main, .contact_secondary {
       float: left;
       display: block;
@@ -2987,7 +2987,7 @@ pagination {
     margin-left: -50px;
     margin-top: 10px;
     margin-bottom: 30px; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .contact_secondary {
       padding-left: 0;
       border: none; }
@@ -2998,7 +2998,7 @@ pagination {
   background: none; }
 .gala-page .swiper.short .swipe-wrap > div {
   height: 410px; }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  @media screen and (min-width: 480px) and (max-width: 768px) {
     .gala-page .swiper.short .swipe-wrap > div {
       height: 370px; } }
   @media screen and (max-width: 479px) {
@@ -3016,7 +3016,7 @@ pagination {
   float: left;
   margin-top: 30px;
   margin-bottom: 10px; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .gala-overview .half-wit {
       width: 100%;
       float: none;
@@ -3032,7 +3032,7 @@ pagination {
   margin-top: 50px;
   padding-left: 45px;
   padding: 0 16px 0 45px; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .gala-overview .main-story {
       width: 100%;
       float: none;
@@ -3141,13 +3141,13 @@ pagination {
 
 .overview-mode .gala-upcoming {
   display: none; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .overview-mode .gala-upcoming {
       display: block; } }
 
 .gala-timeline {
   width: 100%; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .gala-timeline .thumblist-nav {
       display: none; }
     .gala-timeline .slide .year-overlay {
@@ -3249,7 +3249,7 @@ pagination {
         opacity: 1; }
     .pictograms .pict:last-child {
       border: none; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .pictograms {
       min-width: 200px; }
       .pictograms .pict {
@@ -3448,7 +3448,7 @@ pagination {
     display: none; }
 .programs-page .carousel.hero {
   display: none; }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .programs-page .carousel.hero {
     display: block; }
   .programs-page .carousel.thumblist {
@@ -3638,13 +3638,13 @@ pagination {
 .mission-highlights-list {
   display: none; }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .mission-highlights-carousel {
     display: none; }
 
   .mission-highlights-list {
     display: block; } }
-@media screen and (min-width: 480px) and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 768px) {
   .hearing-missions-statistics ul li h1 {
     font-size: 3em; }
   .hearing-missions-statistics ul li p {
@@ -3782,7 +3782,7 @@ pagination {
       display: block;
       line-height: 1.2em;
       font-size: .66em; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .team-list {
       width: 100%;
       margin: 0;
