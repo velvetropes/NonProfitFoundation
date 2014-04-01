@@ -20,7 +20,6 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
     $scope.blogOverview = true
 
   if $location.url() is '/thank_you'
-    console.log("thanks guys.")
     $scope.thankYouBox = true
 
   $timeout(->
