@@ -169,16 +169,7 @@ sfDirectives.directive "dropdown", [ ->
     transclude: true
     replace: true
     controller: controller
-    template: """
-      <div class="outer-dropdown-wrapper">
-        <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
-          <span >{{currentOption.name}}</span>
-          <ul class="dropdown-list" ng-show="isActive==true">
-            <dropdown-option ng-repeat="option in options" name="{{option.name}}" value="{{option.value}}"></dropdown-option>
-          </ul>
-        </div>
-      </div>
-      """
+    templateUrl: "templates/dropdown.html"
     link: link
     scope:
       options: "="
@@ -214,13 +205,7 @@ sfDirectives.directive "dropdownOption", [ ->
 ]
 
 sfDirectives.directive "expander", [->
-  template = """
-    <div>
-      <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}"><span class="inner-title">{{title}} <i class="starkey-dd-passive"></i></span></a>
-      <div class="body reveal" ng-show="showMe" ng-transclude>
-      </div>
-    </div>
-    """
+  templateUrl: "templates/expander.html"
   restrict: "EA"
   replace: true
   transclude: true
@@ -260,19 +245,7 @@ sfDirectives.directive("facebook", [
         url: "@"
         caption: "@"
       replace: true
-      template: """
-        <section class="facebook-fans centered">
-          <div class="footer-list-item">
-            <h1>{{shares | number}} <strong>fans</strong></h1>
-          </div>
-          <p class="read-more">
-            <a href="http://www.facebook.com/sharer.php?u=http://starkeyhearingfoundation.org" target="_blank">
-              Like us
-              <span class="facebook-like-hand"></span>
-            </a>
-          </p>
-        </section>
-        """
+      templateUrl: "templates/facebook.html"
       link: (scope, element, attr) ->
         scope.shares = 0
         endpoint = "http://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url='http://www.facebook.com/starkeycares'"
@@ -514,14 +487,7 @@ sfDirectives.directive("instagramGallery", [
       restrict: "E"
       scope: {}
       replace: true
-      template: """
-        <ul class='thumbs'>
-          <li ng-repeat="p in pics">
-            <a href="{{p.link}}" target="_blank" ng-style="{'background-image': 'url(' + p.images.thumbnail.url + ')'}">&nbsp;</a>
-          </li>
-        </ul>
-
-        """
+      templateUrl: "templates/instagram_gallery.html"
       link: (scope, element, attr) ->
         scope.pics = []
         Instagram.fetchLatest( (data) ->
@@ -538,16 +504,7 @@ sfDirectives.directive("latestBlogPost", [
       restrict: "E"
       scope: {}
       replace: true
-      template: """
-        <section>
-          <div class="footer-list-item">
-            <h4>From our blog</h4>
-            <p>{{article.title}}</p>
-            <p class="align-right">{{article.date}}</p>
-          </div>
-          <p class="read-more"><a href="/blog#articles/{{article.id}}">Check out our blog &rarr;</a></p>
-        </section>
-        """
+      templateUrl: "templates/latest_blog_post.html"
       link: (scope, element, attr) ->
         scope.article = {}
         LatestBlog.fetchLatest().then (data) ->
@@ -683,6 +640,18 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   scope:
     data: "="
 ]
+
+# Scroll detection for persistent nav
+sfDirectives.directive "navscrollspy", ($window) ->
+  (scope, element, attrs) ->
+    angular.element($window).bind "scroll", ->
+      if @pageYOffset >= 120
+        scope.passed = true
+      else
+        scope.passed = false
+      scope.$apply()
+      return
+    return
 
 # Page tile format:
 # < page-tile
@@ -971,46 +940,7 @@ sfDirectives.directive "regionDropdown", [ ->
     restrict: "E"
     transclude: true
     replace: true
-    template: """
-      <ul class="articles-filters desktop">
-        <li><strong>Sort</strong></li>
-        <li class="filters-devider">|</li>
-        <li class="dropdown desktop">
-          <div class="outer-dropdown-wrapper">
-            <div class="dropdown-wrapper" ng-click="yearDropdownIsActive=!yearDropdownIsActive" ng-class="{active: yearDropdownIsActive==true}">
-              <span>{{currentYearLabel}}</span>
-              <ul class="dropdown-list">
-                <li ng-repeat="year in yearsCollection"><a href ng-click="chooseYear(year)">{{year.name}}</a></li>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="filters-devider">|</li>
-        <li class="dropdown desktop">
-          <div class="outer-dropdown-wrapper">
-            <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
-              <span>{{currentRegionLabel}}</span>
-              <ul class="dropdown-list">
-                <li><a href ng-click="chooseRegion({region:'',countries:[]})">REGIONS</a></li>
-                <li ng-repeat="region in regionsCollection"><a href ng-click="chooseRegion(region)">{{region.region}}</a></li>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li ng-show="hasSelectedRegion()" class="filters-devider">|</li>
-        <li class="dropdown desktop">
-          <div class="outer-dropdown-wrapper" ng-show="hasSelectedRegion()">
-            <div class="dropdown-wrapper" ng-click="countryDropdownIsActive=!countryDropdownIsActive" ng-class="{active: countryDropdownIsActive==true}">
-              <span>{{currentCountryLabel}}</span>
-              <ul class="dropdown-list">
-                <li ng-click="chooseCountry('')">Countries</li>
-                <li ng-repeat="country in currentRegion.countries"><a href ng-click="chooseCountry(country)">{{country}}</a></li>
-              </ul>
-            </div>
-          </div>
-        </li>
-      </ul>
-      """
+    templateUrl: "templates/region_dropdown.html"
     link: link
     scope:
       regionsCollection: "="
@@ -1437,17 +1367,7 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
         scope.iframeContent = ""
     )
 
-  template: """
-    <div class='ng-modal' ng-show='show'>
-      <div class='ng-modal-overlay' ng-click='hideModal()'></div>
-      <div class='ng-modal-dialog' ng-style='dialogStyle'>
-        <div class='ng-modal-close' ng-click='hideModal()'>X</div>
-        <div class='ng-modal-dialog-content'>
-          <div class="player" ng-bind-html="iframeContent"></div>
-        </div>
-      </div>
-    </div>
-    """
+  templateUrl: "templates/video_player_modal.html"
 ]
 
 sfDirectives.directive 'formThankYou', ["$window", ($window) ->
@@ -1470,25 +1390,12 @@ sfDirectives.directive 'formThankYou', ["$window", ($window) ->
       scope.show = false
       scope.$emit('modal:hide')
 
-  template: "
-    <div class='ng-modal' ng-show='show'>
-      <div class='ng-modal-overlay' ng-click='hideModal()'></div>
-      <div class='ng-modal-dialog' ng-style='dialogStyle'>
-        <div class='ng-modal-close' ng-click='hideModal()'>X</div>
-        <div class='ng-modal-dialog-content'>
-          <div class='player text-container' style='text-align:center'>
-            <h1>Thank You!</h1>
-            <p>We have recieved your form submission.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  "
+  templateUrl: "templates/form_thank_you.html"
 ]
 
 sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
   restrict: "E"
-  template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
+  templateUrl: "templates/world_map.html"
   transclude: true
   replace: true
   scope:
@@ -1597,27 +1504,15 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
     undefined
 ]
 
-# Scroll detection for persistent nav
-sfDirectives.directive "navscrollspy", ($window) ->
-  (scope, element, attrs) ->
-    angular.element($window).bind "scroll", ->
-      if @pageYOffset >= 120
-        scope.passed = true
-      else
-        scope.passed = false
-      scope.$apply()
-      return
-    return
-
-
-# directive that prevents submit if there are still form errors
+# Directive that prevents submit if there are still form errors
 sfDirectives.directive "validSubmit", ["$parse", ($parse) ->
   require: "form"
 
   link: (scope, element, attr, form) ->
     form.$submitted = false
 
-    # register DOM event handler and wire into Angular's lifecycle with scope.$apply
+    # Register DOM event handler and wire into Angular's lifecycle
+    # with scope.$apply
     element.on "submit", (event) ->
       scope.$apply ->
         form.$submitted = true
