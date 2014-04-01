@@ -918,7 +918,7 @@ sfDirectives.factory("Pagination", ->
 sfDirectives.directive "panelTab", [->
   link = (scope, element, attrs) ->
     scope.hasVideo = ->
-      scope.featured?.video_link_url?
+      scope.featured?.video_link_url?.length > 0
 
     scope.displayInModalIfVideo = ->
       scope.$emit('modal:show', scope.featured.video_link_url)
