@@ -170,6 +170,10 @@
           color: #2d2d2d;
           font-size: 11px;
           margin-top: 3px;
+          &.text-link {
+            padding: 0;
+            border: none;
+          }
         }
         p {
           font-size: 13px;

@@ -2373,6 +2373,9 @@ pagination {
             color: #2d2d2d;
             font-size: 11px;
             margin-top: 3px; }
+            .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
+              padding: 0;
+              border: none; }
           .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p {
             font-size: 13px;
             line-height: 1.2; }
