@@ -19,6 +19,10 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
   if $location.url() is '/articles'
     $scope.blogOverview = true
 
+  if $location.url() is '/thank_you'
+    console.log("thanks guys.")
+    $scope.thankYouBox = true
+
   $timeout(->
     videoUrl = ($location.search()).video
     if videoUrl?

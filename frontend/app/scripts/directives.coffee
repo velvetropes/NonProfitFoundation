@@ -1450,6 +1450,42 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
     """
 ]
 
+sfDirectives.directive 'formThankYou', ["$window", ($window) ->
+  restrict: "A"
+  replace: true
+  transclude: true
+  scope: {
+    show: "="
+  }
+  link: (scope, element, attrs) ->
+    scope.dialogStyle = {
+      width   : (if attrs.width? then attrs.width else "90%")
+      height  : (if attrs.height? then attrs.height else "40%")
+    }
+
+    scope.playerDiv = angular.element(element.find("div")[3])
+    scope.bodyDiv = document.getElementsByTagName("body")[0]
+
+    scope.hideModal = ->
+      scope.show = false
+      scope.$emit('modal:hide')
+
+  template: "
+    <div class='ng-modal' ng-show='show'>
+      <div class='ng-modal-overlay' ng-click='hideModal()'></div>
+      <div class='ng-modal-dialog' ng-style='dialogStyle'>
+        <div class='ng-modal-close' ng-click='hideModal()'>X</div>
+        <div class='ng-modal-dialog-content'>
+          <div class='player text-container' style='text-align:center'>
+            <h1>Thank You!</h1>
+            <p>We have recieved your form submission.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  "
+]
+
 sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
   restrict: "E"
   template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
