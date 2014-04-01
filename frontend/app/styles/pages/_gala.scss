@@ -122,6 +122,7 @@
         float: left;
         background-size: cover;
         background-position: center;
+        -ms-behavior: url('/assets/styles/images/backgroundsize.min.htc');
       }
       .action-link {
         text-align: right;

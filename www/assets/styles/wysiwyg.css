@@ -1542,7 +1542,8 @@ footer {
             height: 40px;
             display: block;
             background-size: cover;
-            background-position: center; }
+            background-position: center;
+            -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       .social-info > ul > li p {
         margin: 0 0 2px;
         clear: both; }
@@ -2083,7 +2084,8 @@ ul.pagination-articles {
         bottom: 115px;
         right: 0;
         left: 0;
-        top: 0; }
+        top: 0;
+        -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       ul.pagination-articles li .block .headline {
         position: absolute;
         bottom: 14px;
@@ -2451,7 +2453,8 @@ pagination {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  display: block; }
+  display: block;
+  -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
 
 .half-wit {
   width: 50%; }
@@ -2870,7 +2873,8 @@ pagination {
     width: 100%;
     position: relative;
     max-width: 1600px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
     @media screen and (max-width: 768px) {
       .article-header-image .image {
         height: 375px; } }
@@ -3097,7 +3101,8 @@ pagination {
         height: 174px;
         float: left;
         background-size: cover;
-        background-position: center; }
+        background-position: center;
+        -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       .highlights ul li .action-link {
         text-align: right;
         text-transform: uppercase;
@@ -3699,7 +3704,8 @@ pagination {
     height: 242px;
     background: url("images/hearing-mission-bg.jpg") no-repeat #41bbe4;
     background-size: cover;
-    background-position: center; }
+    background-position: center;
+    -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
     .missions-map .map-container,
     .missions-map .missions-map-legend,
     .missions-map .missions-map-info {

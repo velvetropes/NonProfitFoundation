@@ -112,6 +112,7 @@ footer {
             display: block;
             background-size: cover;
             background-position: center;
+            -ms-behavior: url('/assets/styles/images/backgroundsize.min.htc');
           }
         }
       }

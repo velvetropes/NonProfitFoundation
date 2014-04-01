@@ -10,6 +10,7 @@
     position: relative;
     max-width: 1600px;
     margin: 0 auto;
+    -ms-behavior: url('/assets/styles/images/backgroundsize.min.htc');
     @include media($tablet-down) {
       height: 375px;
     }
