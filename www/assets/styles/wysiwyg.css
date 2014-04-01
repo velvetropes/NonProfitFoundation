@@ -2728,6 +2728,11 @@ pagination {
   top: 10%;
   left: 25%;
   z-index: 2; }
+  #map-popup .play-video-link {
+    left: 35%;
+    display: none; }
+    #map-popup .play-video-link.video {
+      display: block; }
   #map-popup .close {
     position: absolute;
     display: block;

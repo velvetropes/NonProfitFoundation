@@ -406,6 +406,8 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
       if (scope.single)
         {
           'background-image': 'url(' + scope.getImage() + ')'
+          'background-size': 'cover'
+          'background-position': '50% 50%'
         }
 
     scope.imageStyle =
@@ -1458,11 +1460,14 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           content = markerList.meta_data[index]
           $popup = $('#map-popup')
 
+          bodyDiv = document.getElementsByTagName("body")[0]
+
           # Define HTML templates.
           ctaTpl = if content.action_text then "<p class='centered'><a class='read-more' href='#{content.action_target}'>#{content.action_text}</a></p>" else ""
           popupTpl = "
             <span class='close' ng-click='closePopup()'>X</span>
             <img src='#{content.thumbnail_url}' />
+            <span class='play-video-link #{content.marker_type}'></span>
             <div class='background-popup'>
               <div class='text-popup-container'>
                 <div class='text-popup'>
@@ -1487,11 +1492,17 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
                     .jScrollPane()
                 , 200)
               )
+            $("html, body").animate
+              scrollTop: $("#world-map-gdp").offset().top - 88
+            , "slow"
+            bodyDiv.style.overflow = "hidden"
+
             $popup.find('.close').click ->
               $popup
                 .fadeOut()
                 .find('.text-popup')
                 .jScrollPane().data().jsp.destroy()
+              bodyDiv.style.overflow = ""
 
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)
