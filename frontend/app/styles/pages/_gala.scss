@@ -198,6 +198,10 @@
     display: none;
     @include media($mobile) {
       display: block;
+      .load-more {
+        padding-top: 30px;
+        padding-bottom: 0;
+      }
     }
   }
 }

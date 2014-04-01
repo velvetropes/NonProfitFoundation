@@ -3168,7 +3168,10 @@ pagination {
   display: none; }
   @media screen and (max-width: 479px) {
     .overview-mode .gala-upcoming {
-      display: block; } }
+      display: block; }
+      .overview-mode .gala-upcoming .load-more {
+        padding-top: 30px;
+        padding-bottom: 0; } }
 
 .gala-timeline {
   width: 100%; }
