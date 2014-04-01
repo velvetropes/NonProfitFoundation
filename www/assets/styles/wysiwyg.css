@@ -2396,7 +2396,8 @@ pagination {
         color: white;
         position: absolute;
         bottom: 20px;
-        right: 70px; }
+        right: 70px;
+        z-index: 1; }
   .swiper .logo {
     margin-bottom: 20px; }
     .swiper .logo img {
