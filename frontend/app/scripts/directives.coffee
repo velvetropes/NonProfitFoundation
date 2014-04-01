@@ -369,6 +369,7 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
   link = (scope, element, attrs) ->
     scope.imageUrl ?= ""
     scope.videoUrl ?= ""
+    scope.single ?= false
 
     scope.youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
 
@@ -401,11 +402,13 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
       else
         "plain_image"
 
-    scope.backgroundImageStyle =
-      {
-        'background-image': 'url(' + scope.getImage() + ')'
-        'background-size': 'cover'
-      }
+    scope.backgroundImageStyle = ->
+      if (scope.single)
+        {
+          'background-image': 'url(' + scope.getImage() + ')'
+          'background-size': 'cover'
+          'background-position': '50% 50%'
+        }
 
     scope.imageStyle =
       {
@@ -421,6 +424,7 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
     scope:
       imageUrl: "@"
       videoUrl: "@"
+      single: "@"
   result
 
 ]

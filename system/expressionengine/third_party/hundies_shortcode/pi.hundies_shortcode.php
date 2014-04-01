@@ -81,6 +81,7 @@ class hundies_shortcode {
               <gallery-slide
                image-url="{item:image}"
                video-url="{item:video}"
+               single="{if item:total_rows == 1}true{/if}"
               ></gallery-slide>
           {if item:count == item:total_rows}</gallery>{/if}
         {/item}
