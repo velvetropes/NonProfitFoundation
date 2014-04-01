@@ -406,6 +406,8 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
       if (scope.single)
         {
           'background-image': 'url(' + scope.getImage() + ')'
+          'background-size': 'cover'
+          'background-position': '50% 50%'
         }
 
     scope.imageStyle =
@@ -1489,6 +1491,9 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
                     .jScrollPane()
                 , 200)
               )
+            $("html, body").animate
+              scrollTop: $("#world-map-gdp").offset().top - 88
+            , "slow"
             bodyDiv.style.overflow = "hidden"
 
             $popup.find('.close').click ->
