@@ -1467,6 +1467,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           popupTpl = "
             <span class='close' ng-click='closePopup()'>X</span>
             <img src='#{content.thumbnail_url}' />
+            <span class='play-video-link #{content.marker_type}'></span>
             <div class='background-popup'>
               <div class='text-popup-container'>
                 <div class='text-popup'>
