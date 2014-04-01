@@ -1,21 +1,4 @@
-@font-face {
- font-family: "Alright Sans";
- src: url("http://wac.6a25.edgecastcdn.net/006A25/webtype/ff/3/f2d44ac3-c698-4b93-837a-21393bf8b421") format("woff");
- font-style: normal;
- font-weight: normal;
-}
-@font-face {
- font-family: "Alright Sans";
- src: url("http://wac.6a25.edgecastcdn.net/006A25/webtype/ff/3/e2b2e6a0-531d-40f3-99af-5fb26c7951b4") format("woff");
- font-style: normal;
- font-weight: normal;
-}
-@font-face {
- font-family: "Alright Sans";
- src: url("http://wac.6a25.edgecastcdn.net/006A25/webtype/ff/3/53a5dd52-92f6-4907-93ed-cff076de3aef") format("woff");
- font-style: normal;
- font-weight: bold;
-}
+@import url("//cloud.webtype.com/css/8d17d6c8-e83f-46fe-a722-38375da99cb0.css");
 
 #BodyId {background: #ffffff;}
 #wrapTagline {right: 38%;}
@@ -149,9 +132,10 @@ h1 {
 .footerMenuWrap ul.menu li a {
   color: #3D4144;
 }
-.footerMenuWrap ul.menu li.first::before {
-  content: "";
+.footerMenuWrap ul.menu li::before {
+  color: #3D4144;
 }
+
 .footerContactWrap p {
   color: #3D4144;
 }
