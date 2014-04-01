@@ -118,9 +118,7 @@ sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compi
   result =
     restrict: "E"
     replace: true
-    templateUrl: ->
-      # TODO - template chooser
-      "templates/blog_detail_page.html"
+    templateUrl: "templates/blog_detail_page.html"
     link: link
     # priority: 1
     scope:
@@ -210,8 +208,6 @@ sfDirectives.directive "expander", [->
   replace: true
   transclude: true
   require: "^?accordion"
-  # link: link
-  template: template
   link: (scope, element, attrs, accordionController) ->
     scope.showMe = false
     accordionController.addExpander scope
