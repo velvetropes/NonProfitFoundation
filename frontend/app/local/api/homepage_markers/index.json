@@ -94,6 +94,7 @@
           "text":"<p>Shining Hope for Communities guided us through the narrow streets of Kibera, the largest urban slum in Africa, we found enormous inspiration in the ability of the human spirit to triumph over adversity. The Clinton Global Initiative has inspired us to make a new commitment to use the power of our network and resources to mobilize partnerships and create a sustainable impact in Kibera.</p>",
           "thumbnail_url":"http://starkey.local/uploads/images/MAP-Building_a_Better_Kibera.jpg",
           "action_target":"http://www.youtube.com/watch?v=qIAXkz08aiI",
+          "action_text" : "Link Text",
           "marker_type" : "video"
        },
     
@@ -103,6 +104,7 @@
           "text":"<p>Starkey Hearing Foundation&nbsp;is excited to be heading back to the West Bank soon for an upcoming hearing mission. Our work in the region has shown us how hearing brings people together and serves as a vehicle for peace and understanding.</p>",
           "thumbnail_url":"",
           "action_target":"http://www.youtube.com/watch?v=UakFpSGn_AA&feature=c4-overview-vl&list=PLc9R442DNsrtj12vqxhT5kbVDBSDNLpqm",
+          "action_text" : "Link Text",
           "marker_type" : "video"
        },
     
@@ -112,6 +114,7 @@
           "text":"<p>Our Founder Bill Austin says, \"Alone we can&#39;t do much. Together we can change the world.\" We believe that by working together and building strong partnerships, we can make an even greater impact. In October 2013, we once again partnered with Sir Richard Branson and our friends at Virgin Unite to change lives at their Bhubezi Health Care Clinic in South Africa.</p>",
           "thumbnail_url":"http://starkey.local/uploads/images/MAP-Changing_Lives_with_Sir_Richard_Branson_and_Virgin_Unite.jpg",
           "action_target":"http://www.youtube.com/watch?v=VJqzdck05iA",
+          "action_text" : "Link Text",
           "marker_type" : "video"
        },
     
