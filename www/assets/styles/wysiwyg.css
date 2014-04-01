@@ -565,7 +565,7 @@ hr.separator {
         padding: 0 16px; }
       .page-leader p.bigger {
         font-size: 1em; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .page-leader {
       margin-top: 40px; }
       .page-leader h1 {
@@ -602,7 +602,7 @@ hr.separator {
   @media screen and (max-width: 768px) {
     .masthead .section-headline {
       font-size: 3em; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .masthead {
       margin-top: 10px; }
       .masthead .section-title {
@@ -666,7 +666,7 @@ blockquote {
       height: 215px;
       font-size: 22px;
       line-height: 1.5; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     blockquote {
       margin: 0 10px;
       padding: 0 10px;
@@ -748,7 +748,7 @@ blockquote p {
   .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p {
     font-size: 14px;
     line-height: 1.2em; } }
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 569px) {
   .generic-article-typography h1, .text-container h1, .gala-tab-content h1, .legal-page .article-section h1, .programs-page .program-section h1, .programs-page .programs-additional-section h1, .take-action-page .take-action-section h1 {
     font-size: 1.5em; }
   .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p {
@@ -940,10 +940,10 @@ nav .tabs {
     margin: -1px 0 0;
     border: none;
     border-bottom: 1px dotted #8f8f8f; }
-  @media screen and (min-width: 482px) and (max-width: 768px) {
+  @media screen and (min-width: 570px) and (max-width: 768px) {
     .header-nav .tab-content ul li h2 {
       font-size: 1.1em; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .header-nav {
       margin-top: 60px;
       display: none; } }
@@ -1136,7 +1136,7 @@ nav .tabs {
     width: 50% !important; }
   .flatform li.leftFourth, .flatform li.middleFourthFirst, .flatform li.middleFourthSecond, .flatform li.rightFourth {
     width: 25% !important; }
-    @media screen and (max-width: 481px) {
+    @media screen and (max-width: 569px) {
       .flatform li.leftFourth, .flatform li.middleFourthFirst, .flatform li.middleFourthSecond, .flatform li.rightFourth {
         width: 50% !important; } }
   .flatform li.leftFourth, .flatform li.rightFourth {
@@ -1157,7 +1157,7 @@ nav .tabs {
   .flatform li.has-error textarea {
     border-color: red; }
 
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 569px) {
   body {
     padding-top: 55px; } }
 
@@ -1181,7 +1181,7 @@ nav .tabs {
 
 .mobile-only {
   display: none; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .mobile-only {
       display: block; } }
 
@@ -1196,7 +1196,7 @@ header {
     display: block;
     overflow: hidden;
     margin-bottom: 25px; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     header {
       margin: 0;
       position: fixed;
@@ -1216,13 +1216,13 @@ header {
       width: 200px;
       height: auto;
       padding: 0 0 0 20px; }
-    @media screen and (min-width: 482px) and (max-width: 768px) {
+    @media screen and (min-width: 570px) and (max-width: 768px) {
       header .logo {
         width: 27%; }
         header .logo img {
           width: 140px;
           padding-top: 2px; } }
-    @media screen and (max-width: 481px) {
+    @media screen and (max-width: 569px) {
       header .logo {
         margin: 6px 0; }
         header .logo img {
@@ -1238,13 +1238,13 @@ header {
     opacity: 1; }
     header .tagline h1 {
       font-weight: 400; }
-    @media screen and (min-width: 482px) and (max-width: 768px) {
+    @media screen and (min-width: 570px) and (max-width: 768px) {
       header .tagline {
         width: 46%;
         margin-top: 21px; }
         header .tagline h1 {
           font-size: 20px; } }
-    @media screen and (max-width: 481px) {
+    @media screen and (max-width: 569px) {
       header .tagline {
         display: none; } }
   header .social-links {
@@ -1259,12 +1259,12 @@ header {
       list-style: none; }
       header .social-links li a {
         font-size: 1.7em; }
-    @media screen and (min-width: 482px) and (max-width: 768px) {
+    @media screen and (min-width: 570px) and (max-width: 768px) {
       header .social-links {
         width: 27%;
         margin-top: 2px;
         margin-bottom: -18px; } }
-    @media screen and (max-width: 481px) {
+    @media screen and (max-width: 569px) {
       header .social-links {
         display: none; } }
   header .header-nav {
@@ -1333,7 +1333,7 @@ header {
     margin: 0 15px 0 0;
     cursor: pointer;
     padding: 5px; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .mobile-menu-icon {
       display: block; } }
 
@@ -1821,7 +1821,7 @@ footer {
         display: none; }
       .articles-filters.tablet-down {
         display: block; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .articles-filters {
       font-size: 13px; }
       .articles-filters li, .articles-filters li.dropdown {
@@ -2007,7 +2007,7 @@ footer {
       .gallery .jspPane .gallery-slide a img, .single-image-gallery .jspPane .gallery-slide a img {
         height: 525px;
         display: block; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .gallery .play-video-link, .single-image-gallery .play-video-link {
       margin-top: -25px; } }
 
@@ -2037,14 +2037,14 @@ footer {
       -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
       .single-image-gallery .gallery-slide a img {
         height: 536px; }
-  @media screen and (min-width: 482px) and (max-width: 768px) {
+  @media screen and (min-width: 570px) and (max-width: 768px) {
     .single-image-gallery {
       height: 440px; }
       .single-image-gallery .gallery-slide {
         height: 440px; }
         .single-image-gallery .gallery-slide a img {
           height: 440px; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .single-image-gallery {
       height: 330px; }
       .single-image-gallery .gallery-slide {
@@ -2261,7 +2261,7 @@ pagination {
     right: 0px; }
     .swiper-controls.right a {
       background: url("images/carousel/arrow-right-retina.png") no-repeat; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .swiper-controls {
       margin-top: -86px; }
       .swiper-controls a {
@@ -2307,19 +2307,19 @@ pagination {
   overflow: hidden; }
   .swiper.short .swipe-wrap > div {
     height: 600px; }
-    @media screen and (min-width: 482px) and (max-width: 768px) {
+    @media screen and (min-width: 570px) and (max-width: 768px) {
       .swiper.short .swipe-wrap > div {
         height: 440px; } }
-    @media screen and (max-width: 481px) {
+    @media screen and (max-width: 569px) {
       .swiper.short .swipe-wrap > div {
         height: 317px; } }
   .swiper .swipe-wrap > div {
     width: 100%;
     height: 800px; }
-    @media screen and (min-width: 482px) and (max-width: 768px) {
+    @media screen and (min-width: 570px) and (max-width: 768px) {
       .swiper .swipe-wrap > div {
         height: 440px; } }
-    @media screen and (max-width: 481px) {
+    @media screen and (max-width: 569px) {
       .swiper .swipe-wrap > div {
         height: 300px; } }
   .swiper article {
@@ -2360,7 +2360,7 @@ pagination {
           padding: 2px 35px 3px;
           border: 2px solid #00b3d2;
           margin: 10px; }
-      @media screen and (max-width: 481px) {
+      @media screen and (max-width: 569px) {
         .swiper aside:not(.side-panel), .swiper aside.not-side-panel {
           bottom: 0px;
           background: #FFF;
@@ -2446,7 +2446,7 @@ pagination {
   height: 100px;
   background: url("images/carousel/video-play-button-retina.png") no-repeat;
   display: block; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .play-video-link {
       margin-top: -83px;
       margin-left: -25px;
@@ -2476,7 +2476,7 @@ pagination {
     position: absolute;
     bottom: 14px;
     width: 100%; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .half-wit {
       float: none;
       width: 100%; } }
@@ -2486,7 +2486,7 @@ pagination {
   list-style: none;
   margin: 0;
   padding: 0; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .swiper-position {
       display: none; } }
   .swiper-position li {
@@ -2519,7 +2519,7 @@ pagination {
     .mobile-carousel h2.stories-title {
       background: #2d2d2d; }
 
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 569px) {
   .add-bottom-border {
     border-bottom: 1px dotted #8f8f8f;
     padding-bottom: 8px; } }
@@ -2892,7 +2892,7 @@ pagination {
     @media screen and (max-width: 768px) {
       .article-header-image .image {
         height: 375px; } }
-    @media screen and (max-width: 481px) {
+    @media screen and (max-width: 569px) {
       .article-header-image .image {
         height: 280px; } }
     .article-header-image .image .relative-container {
@@ -2908,10 +2908,10 @@ pagination {
       .article-header-image .image .banner h1 {
         line-height: 1.1em;
         margin-bottom: 0; }
-        @media screen and (min-width: 482px) and (max-width: 768px) {
+        @media screen and (min-width: 570px) and (max-width: 768px) {
           .article-header-image .image .banner h1 {
             font-size: 2.6em; } }
-        @media screen and (max-width: 481px) {
+        @media screen and (max-width: 569px) {
           .article-header-image .image .banner h1 {
             font-size: 22px; } }
       .article-header-image .image .banner p {
@@ -3025,13 +3025,13 @@ pagination {
   background: none; }
 .gala-page .swiper.short .swipe-wrap > div {
   height: 410px; }
-  @media screen and (min-width: 482px) and (max-width: 768px) {
+  @media screen and (min-width: 570px) and (max-width: 768px) {
     .gala-page .swiper.short .swipe-wrap > div {
       height: 370px; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .gala-page .swiper.short .swipe-wrap > div {
       height: 317px; } }
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 569px) {
   .gala-page .page-leader h1 {
     margin-bottom: 12px; }
   .gala-page .load-more {
@@ -3050,7 +3050,7 @@ pagination {
       margin-top: 0;
       height: 370px;
       overflow: hidden; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .gala-overview .half-wit {
       height: 210px; } }
 .gala-overview .main-story {
@@ -3076,7 +3076,7 @@ pagination {
   .gala-tab-content p.no-container {
     margin: 40px 0 0; }
 
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 569px) {
   .gala-tabs .tabbed-content {
     display: none; } }
 
@@ -3130,7 +3130,7 @@ pagination {
       padding: 16px; }
     .highlights ul li .highlight-thumbnail {
       width: 100%; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .highlights {
       border-bottom: none;
       padding: 0; }
@@ -3170,7 +3170,7 @@ pagination {
 
 .overview-mode .gala-upcoming {
   display: none; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .overview-mode .gala-upcoming {
       display: block; }
       .overview-mode .gala-upcoming .load-more {
@@ -3191,7 +3191,7 @@ pagination {
       left: 0;
       right: 0;
       color: white; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .gala-timeline .swipe-wrap {
       height: 211px; }
     .gala-timeline .swiper-controls {
@@ -3207,7 +3207,7 @@ pagination {
     text-align: center; }
   .carousel.hero article {
     width: 100%; }
-    @media screen and (max-width: 481px) {
+    @media screen and (max-width: 569px) {
       .carousel.hero article {
         height: 210px; } }
     .carousel.hero article img {
@@ -3248,7 +3248,7 @@ pagination {
     line-height: 1.71em;
     margin: 0.32em 0;
     padding: 0 16px; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .mission-statement h1 {
       max-width: 300px;
       width: 100%;
@@ -3292,7 +3292,7 @@ pagination {
 
 .bottom-slide-tabs {
   height: 525px; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .bottom-slide-tabs {
       display: none; } }
   .bottom-slide-tabs .bottom-slide-tab .panel-image {
@@ -3348,7 +3348,7 @@ pagination {
   margin-top: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .map-as-feed {
       display: block; } }
   .map-as-feed h2 {
@@ -3679,7 +3679,7 @@ pagination {
 
   .mission-highlights-list {
     display: block; } }
-@media screen and (min-width: 482px) and (max-width: 768px) {
+@media screen and (min-width: 570px) and (max-width: 768px) {
   .hearing-missions-statistics ul li h1 {
     font-size: 3em; }
   .hearing-missions-statistics ul li p {
@@ -3720,7 +3720,7 @@ pagination {
         border-top: 1px solid #fff; }
       .hearing-missions-statistics ul li h1 {
         margin: 44px 0 0; } }
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 569px) {
   .missions-map {
     height: 242px;
     background: url("images/hearing-mission-bg.jpg") no-repeat #41bbe4;
@@ -3835,7 +3835,7 @@ pagination {
           margin-right: 0; }
         .team-list li:nth-child(2n+1) {
           clear: left; } }
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 569px) {
     .team-list li {
       float: left;
       display: block;
