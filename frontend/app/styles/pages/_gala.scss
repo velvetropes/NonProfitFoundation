@@ -196,7 +196,7 @@
 .overview-mode {
   .gala-upcoming {
     display: none;
-    @include media($tablet-down) {
+    @include media($mobile) {
       display: block;
     }
   }

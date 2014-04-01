@@ -3166,7 +3166,7 @@ pagination {
 
 .overview-mode .gala-upcoming {
   display: none; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 479px) {
     .overview-mode .gala-upcoming {
       display: block; } }
 
