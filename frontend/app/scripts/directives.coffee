@@ -1557,7 +1557,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           ctaTpl = if content.action_text then "<p class='centered'><a class='read-more' href='#{content.action_target}'>#{content.action_text}</a></p>" else ""
           popupTpl = "
             <span class='close' ng-click='closePopup()'>X</span>
-            <img src='content.thumbnail_url'/>
+            <img src='#{content.thumbnail_url}' />
             <div class='background-popup'>
               <div class='text-popup-container'>
                 <div class='text-popup'>
