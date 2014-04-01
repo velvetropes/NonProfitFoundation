@@ -1278,7 +1278,7 @@ header {
 @media screen and (min-width: 480px) {
   .header-wrapper.affixed {
     padding-top: 170px; }
-    .header-wrapper.affixed header .logo a, .header-wrapper.affixed header .social-links {
+    .header-wrapper.affixed header .logo a {
       position: relative;
       display: block;
       z-index: 500; }
