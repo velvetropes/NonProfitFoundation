@@ -146,12 +146,6 @@
         color: #FFF;
         font-weight: bold;
         font-size: .874em;
-        &.text-link {
-          display: inline-block;
-          padding: 2px 35px 3px;
-          border: 2px solid $light-blue;
-          margin: 10px;
-        }
       }
       @include media($mobile) {
         bottom: 0px;

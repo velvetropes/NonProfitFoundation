@@ -241,4 +241,14 @@
     right: 20px;
     left: 20px;
   }
+  .swiper {
+    aside:not(.side-panel), aside.not-side-panel {
+      a.text-link {
+        display: inline-block;
+        padding: 2px 35px 3px;
+        border: 2px solid $light-blue;
+        margin: 10px;
+      }
+    }
+  }
 }
