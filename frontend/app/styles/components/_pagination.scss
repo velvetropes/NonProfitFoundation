@@ -23,14 +23,12 @@ ul.pagination-articles {
       overflow: hidden;
       position: relative;
       .image {
-        background-size: cover;
-        background-position: center;
         position: absolute;
         bottom: 115px;
         right: 0;
         left: 0;
         top: 0;
-        -ms-behavior: url('/assets/styles/images/backgroundsize.min.htc');
+        @include background-cover;
       }
       .headline {
         @extend .alrightsansbold;

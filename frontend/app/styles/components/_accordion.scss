@@ -50,11 +50,10 @@
           }
           .image {
             text-align: center;
-            background-size: cover;
-            background-position: center;
             height: 200px;
             width: 200px;
             margin: 10px auto;
+            @include background-cover;
           }
           @include media($tablet-down) {
             @include span-columns(12);

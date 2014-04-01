@@ -293,9 +293,7 @@
   .missions-map {
     height: 242px;
     background: url('images/hearing-mission-bg.jpg') no-repeat #41bbe4;
-    background-size: cover;
-    background-position: center;
-    -ms-behavior: url('/assets/styles/images/backgroundsize.min.htc');
+    @include background-cover;
     .map-container,
     .missions-map-legend,
     .missions-map-info {

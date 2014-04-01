@@ -118,9 +118,7 @@
         width: 100%;
         height: 100%;
         display: block;
-        background-size: cover;
-        background-position: center;
-        -ms-behavior: url('/images/shared/backgroundsize.min.htc');
+        @include background-cover;
       }
       .play-video-link {
         position: absolute;
