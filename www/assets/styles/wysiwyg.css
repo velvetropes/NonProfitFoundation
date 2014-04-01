@@ -2939,6 +2939,9 @@ pagination {
   .blog-page .no-container.related-posts .thumblist-nav .jspPane > div .content h4 {
     height: 40px; }
 
+.contact-page .outer-container, .contact-page .accordion .expander .body .accordion-list, .accordion .expander .body .contact-page .accordion-list, .contact-page .legal-page .article-section, .legal-page .contact-page .article-section {
+  max-width: 53em; }
+
 .contact-wrap {
   width: 100%;
   padding: 0 36px 30px; }
