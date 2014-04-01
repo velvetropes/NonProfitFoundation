@@ -66,12 +66,22 @@
     height: 440px;
     .gallery-slide {
       height: 440px;
+      a {
+        img {
+          height: 440px;
+        }
+      }
     }
   }
   @include media($mobile) {
     height: 330px;
     .gallery-slide {
       height: 330px;
+      a {
+        img {
+          height: 330px;
+        }
+      }
     }
   }
 }

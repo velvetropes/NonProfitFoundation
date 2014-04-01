@@ -2033,12 +2033,16 @@ footer {
     .single-image-gallery {
       height: 440px; }
       .single-image-gallery .gallery-slide {
-        height: 440px; } }
+        height: 440px; }
+        .single-image-gallery .gallery-slide a img {
+          height: 440px; } }
   @media screen and (max-width: 479px) {
     .single-image-gallery {
       height: 330px; }
       .single-image-gallery .gallery-slide {
-        height: 330px; } }
+        height: 330px; }
+        .single-image-gallery .gallery-slide a img {
+          height: 330px; } }
 
 @media screen and (max-width: 768px) {
   .gallery {
@@ -2314,6 +2318,7 @@ pagination {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     max-width: 1600px;
     margin: 0 auto;
     background-color: #000; }
