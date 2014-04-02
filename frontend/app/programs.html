@@ -7,7 +7,7 @@
   <head>
   <!--(bake partials/head.html)-->
   </head>
-  <body class='programs-page page' ng:app="programsPageApp" ng:controller="globalCtrl">
+  <body class='programs-page page' ng:app="programsPageApp" ng:controller="globalCtrl" id="ng-app">
 
     <!--(bake partials/browser_check.html)-->
 
@@ -42,17 +42,17 @@
       <section class='tabbed-content'>
         <nav class='overflow-hidden'>
             <ul class='tabs row-table'>
-              <li ng-class="{active: currentTab.tabId==0}">
-                <a href='#/programs/0'>Operation Change</a>
+              <li ng-class="{active: currentTab == '/operationchange'}">
+                <a href='#/operationchange'>Operation Change</a>
               </li>
-              <li ng-class="{active: currentTab.tabId==1}">
-                <a href='#/programs/1'>Listen Carefully</a>
+              <li ng-class="{active: currentTab == '/listencarefully'}">
+                <a href='#/listencarefully'>Listen Carefully</a>
               </li>
-              <li ng-class="{active: currentTab.tabId==2}">
-                <a href='#/programs/2'>Hear Now</a>
+              <li ng-class="{active: currentTab == '/hearnow'}">
+                <a href='#/hearnow'>Hear Now</a>
               </li>
-              <li ng-class="{active: currentTab.tabId==3}">
-                <a href='#/programs/3'>Hearing Aid Recycling</a>
+              <li ng-class="{active: currentTab == '/hearingaidrecycling'}">
+                <a href='#/hearingaidrecycling'>Hearing Aid Recycling</a>
               </li>
             </ul>
         </nav>

@@ -232,9 +232,6 @@ nav {
             font-weight: bold;
           }
         }
-        a {
-          padding: 10px 0 8px;
-        }
       }
     }
     .five-tabs {
@@ -314,7 +311,15 @@ nav {
 // Tab states
 
 .page .header-wrapper:not(.affixed) nav .tabs li {
-  border-bottom: none;
+  border: none;
+  border-top: $dotted-border;
+  border-right: $dotted-border;
+  &:first-child {
+    border-left: $dotted-border;
+  }
+  &.active {
+    border-bottom: 1px solid #fff;
+  }
 }
 
 .contact-page, .team-page, .about-us-page, .media-mentions-page {

@@ -1,0 +1,8 @@
+<div class="outer-dropdown-wrapper">
+  <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
+    <span >{{currentOption.name}}</span>
+    <ul class="dropdown-list" ng-show="isActive==true">
+      <dropdown-option ng-repeat="option in options" name="{{option.name}}" value="{{option.value}}"></dropdown-option>
+    </ul>
+  </div>
+</div>

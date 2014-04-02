@@ -1,10 +1,10 @@
 sfDirectives = angular.module("sfDirectives", ["ngSanitize", "sfFilters"])
 
 # open external links in new window
-sfDirectives.directive 'href', ["$location", ($location) ->
-  compile: (element) ->
+sfDirectives.directive 'href', ["$location", "$parse", ($location, $parse) ->
+  link = (scope, element, attrs) ->
     if element.prop("tagName") is 'A'
-      url = element.attr('href')
+      url = attrs.href
 
       # if not a mailto link and actually has an href value
       if url.lastIndexOf('mailto:', 0) isnt 0 and url.length > 0
@@ -118,9 +118,7 @@ sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compi
   result =
     restrict: "E"
     replace: true
-    templateUrl: ->
-      # TODO - template chooser
-      "templates/blog_detail_page.html"
+    templateUrl: "templates/blog_detail_page.html"
     link: link
     # priority: 1
     scope:
@@ -169,16 +167,7 @@ sfDirectives.directive "dropdown", [ ->
     transclude: true
     replace: true
     controller: controller
-    template: """
-      <div class="outer-dropdown-wrapper">
-        <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
-          <span >{{currentOption.name}}</span>
-          <ul class="dropdown-list" ng-show="isActive==true">
-            <dropdown-option ng-repeat="option in options" name="{{option.name}}" value="{{option.value}}"></dropdown-option>
-          </ul>
-        </div>
-      </div>
-      """
+    templateUrl: "templates/dropdown.html"
     link: link
     scope:
       options: "="
@@ -214,19 +203,11 @@ sfDirectives.directive "dropdownOption", [ ->
 ]
 
 sfDirectives.directive "expander", [->
-  template = """
-    <div>
-      <a class="title" href ng-click="toggle()" ng-class="{active: showMe==true}"><span class="inner-title">{{title}} <i class="starkey-dd-passive"></i></span></a>
-      <div class="body reveal" ng-show="showMe" ng-transclude>
-      </div>
-    </div>
-    """
+  templateUrl: "templates/expander.html"
   restrict: "EA"
   replace: true
   transclude: true
   require: "^?accordion"
-  # link: link
-  template: template
   link: (scope, element, attrs, accordionController) ->
     scope.showMe = false
     accordionController.addExpander scope
@@ -260,19 +241,7 @@ sfDirectives.directive("facebook", [
         url: "@"
         caption: "@"
       replace: true
-      template: """
-        <section class="facebook-fans centered">
-          <div class="footer-list-item">
-            <h1>{{shares | number}} <strong>fans</strong></h1>
-          </div>
-          <p class="read-more">
-            <a href="http://www.facebook.com/sharer.php?u=http://starkeyhearingfoundation.org" target="_blank">
-              Like us
-              <span class="facebook-like-hand"></span>
-            </a>
-          </p>
-        </section>
-        """
+      templateUrl: "templates/facebook.html"
       link: (scope, element, attr) ->
         scope.shares = 0
         endpoint = "http://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url='http://www.facebook.com/starkeycares'"
@@ -334,7 +303,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
   _initScrollPane = (scope, element) ->
     $timeout( ->
-      scope.pane = angular.element('.thumblist-nav').jScrollPane()
+      scope.pane = angular.element('.gallery').jScrollPane()
       scope.api = scope.pane.data().jsp unless scope.pane.data() is null
       return
     , 400)
@@ -352,7 +321,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
 
     scope.galleryClasses = ->
       if scope.isThumblist()
-        "gallery full thumblist thumblist-nav horizontal-only"
+        "gallery"
       else
         "single-image-gallery"
 
@@ -372,7 +341,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
         , 400)
 
       scope.$on("window.resized", (event, args) ->
-        angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
+        angular.element('.gallery').jScrollPane().data().jsp.destroy()
         _initScrollPane(scope, element)
       )
     return
@@ -400,6 +369,7 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
   link = (scope, element, attrs) ->
     scope.imageUrl ?= ""
     scope.videoUrl ?= ""
+    scope.single ?= false
 
     scope.youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
 
@@ -432,11 +402,13 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
       else
         "plain_image"
 
-    scope.backgroundImageStyle =
-      {
-        'background-image': 'url(' + scope.getImage() + ')'
-        'background-size': 'cover'
-      }
+    scope.backgroundImageStyle = ->
+      if (scope.single)
+        {
+          'background-image': 'url(' + scope.getImage() + ')'
+          'background-size': 'cover'
+          'background-position': '50% 50%'
+        }
 
     scope.imageStyle =
       {
@@ -452,6 +424,7 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
     scope:
       imageUrl: "@"
       videoUrl: "@"
+      single: "@"
   result
 
 ]
@@ -514,14 +487,7 @@ sfDirectives.directive("instagramGallery", [
       restrict: "E"
       scope: {}
       replace: true
-      template: """
-        <ul class='thumbs'>
-          <li ng-repeat="p in pics">
-            <a href="{{p.link}}" target="_blank" ng-style="{'background-image': 'url(' + p.images.thumbnail.url + ')'}">&nbsp;</a>
-          </li>
-        </ul>
-
-        """
+      templateUrl: "templates/instagram_gallery.html"
       link: (scope, element, attr) ->
         scope.pics = []
         Instagram.fetchLatest( (data) ->
@@ -538,16 +504,7 @@ sfDirectives.directive("latestBlogPost", [
       restrict: "E"
       scope: {}
       replace: true
-      template: """
-        <section>
-          <div class="footer-list-item">
-            <h4>From our blog</h4>
-            <p>{{article.title}}</p>
-            <p class="align-right">{{article.date}}</p>
-          </div>
-          <p class="read-more"><a href="/blog#articles/{{article.id}}">Check out our blog &rarr;</a></p>
-        </section>
-        """
+      templateUrl: "templates/latest_blog_post.html"
       link: (scope, element, attr) ->
         scope.article = {}
         LatestBlog.fetchLatest().then (data) ->
@@ -580,10 +537,11 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         y: 0.5,
         scale: .5
       backgroundColor: "#329FD6"
+
       # onRegionSelected: (e, str) ->
       #   console.debug "Clicked", str
 
-    scope.worldMapConfig = _.extend({map: "world_mill_en"}, scope.mapConfig)
+    scope.worldMapConfig = _.extend({map: "world_mill_en2"}, scope.mapConfig)
     scope.usMapConfig = _.extend({map: "us_aea_en"}, scope.mapConfig)
 
     scope.selectTopLevelList = (continent) ->
@@ -592,14 +550,20 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
 
     scope.initializeMaps = ->
       $timeout( ->
-        $("#missions-world-map").vectorMap(scope.worldMapConfig)
+        angular.element("#missions-world-map").vectorMap(scope.worldMapConfig)
+        scope.worldMapObject = angular.element("#missions-world-map").vectorMap("get", "mapObject")
 
-        scope.worldMapObject = $("#missions-world-map").vectorMap("get", "mapObject")
+        angular.element("#missions-us-map").vectorMap(scope.usMapConfig)
+        scope.usMapObject = angular.element("#missions-us-map").vectorMap("get", "mapObject")
+        return
+      , 500)
+      
+      $timeout( ->
+        scope.worldMapObject.setFocus(1.15, 0.82, 0.47)
+        return
+      , 600)
 
-        $("#missions-us-map").vectorMap(scope.usMapConfig)
-
-        scope.usMapObject = $("#missions-us-map").vectorMap("get", "mapObject")
-      , 1800)
+      return
 
     scope.hasContinentAndCountry = ->
       scope.hasContinent() or scope.hasCountry()
@@ -624,10 +588,12 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       scope.currentCountry = {}
       countryCodes = []
       countryCodes.push country.abbreviation for country in continent.countries_visited
+      console.debug "Country Codes", countryCodes
       if countryCodes.length > 0
         mapObj.clearSelectedRegions()
-        mapObj.setFocus countryCodes, .2
-        mapObj.setSelectedRegions countryCodes
+        mapObj.setFocus(countryCodes, .2)
+        mapObj.setSelectedRegions(countryCodes)
+      return
 
     scope.highlightCountryRegion = (country, mapObj) ->
       scope.currentCountry = country
@@ -661,9 +627,9 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     $scope.showContinent = (continent) ->
       if continent.is_us_map is "1"
         $scope.bringUSMapToFront(true, continent)
-
       else
         $scope.bringUSMapToFront(false, continent)
+      return
 
     $scope.showCountry = (country, continent) ->
       countryCode = country.abbreviation
@@ -674,6 +640,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         else
           $scope.bringUSMapToFront(false, continent)
           $scope.highlightCountryRegion(country, $scope.worldMapObject)
+      return
 
   restrict: "E"
   link: link
@@ -683,6 +650,18 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   scope:
     data: "="
 ]
+
+# Scroll detection for persistent nav
+sfDirectives.directive "navscrollspy", ($window) ->
+  (scope, element, attrs) ->
+    angular.element($window).bind "scroll", ->
+      if @pageYOffset >= 120
+        scope.passed = true
+      else
+        scope.passed = false
+      scope.$apply()
+      return
+    return
 
 # Page tile format:
 # < page-tile
@@ -810,9 +789,13 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
   _setupWatchers = (scope) ->
 
     scope.$watch "articlesFilterObject", ->
-      filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
-      scope.pagination.numPages = Math.ceil(filteredList.length/scope.pagination.perPage)
-      scope.isAtPaginationEnd = (scope.mobileStop >= filteredList.length)
+      scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.pagination.numPages = Math.ceil(scope.filteredList.length/scope.pagination.perPage)
+      scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
+      scope.showPaginator = if scope.filteredList.length == 0
+        false
+      else
+        scope.articles.length > scope.pagination.perPage
       return
     , true
 
@@ -838,6 +821,7 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
 
     scope.paginationUpperWindowLimit = 0
     scope.paginationLowerWindowLimit = 3
+    scope.filteredList = []
 
     scope.parseDate = (date) ->
       Date.parse(date)
@@ -845,8 +829,8 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     scope.loadMore = ->
       scope.pagination.nextPage() #do we need this?
       scope.mobileStop = parseInt(scope.mobileStop, 10) + parseInt(scope.pagination.perPage, 10)
-      filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
-      scope.isAtPaginationEnd = (scope.mobileStop >= filteredList.length)
+      scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
       return
 
     _setupWatchers(scope)
@@ -913,7 +897,7 @@ sfDirectives.factory("Pagination", ->
 sfDirectives.directive "panelTab", [->
   link = (scope, element, attrs) ->
     scope.hasVideo = ->
-      scope.featured?.video_link_url?
+      scope.featured?.video_link_url?.length > 0
 
     scope.displayInModalIfVideo = ->
       scope.$emit('modal:show', scope.featured.video_link_url)
@@ -960,52 +944,13 @@ sfDirectives.directive "regionDropdown", [ ->
       scope.currentYearLabel = year.name
 
     scope.hasSelectedRegion = ->
-      scope.currentRegion.region.length >0
+      scope.currentRegion.region.length and scope.currentRegion.region != "USA"
 
   result =
     restrict: "E"
     transclude: true
     replace: true
-    template: """
-      <ul class="articles-filters desktop">
-        <li><strong>Sort</strong></li>
-        <li class="filters-devider">|</li>
-        <li class="dropdown desktop">
-          <div class="outer-dropdown-wrapper">
-            <div class="dropdown-wrapper" ng-click="yearDropdownIsActive=!yearDropdownIsActive" ng-class="{active: yearDropdownIsActive==true}">
-              <span>{{currentYearLabel}}</span>
-              <ul class="dropdown-list">
-                <li ng-repeat="year in yearsCollection"><a href ng-click="chooseYear(year)">{{year.name}}</a></li>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="filters-devider">|</li>
-        <li class="dropdown desktop">
-          <div class="outer-dropdown-wrapper">
-            <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
-              <span>{{currentRegionLabel}}</span>
-              <ul class="dropdown-list">
-                <li><a href ng-click="chooseRegion({region:'',countries:[]})">REGIONS</a></li>
-                <li ng-repeat="region in regionsCollection"><a href ng-click="chooseRegion(region)">{{region.region}}</a></li>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li ng-show="hasSelectedRegion()" class="filters-devider">|</li>
-        <li class="dropdown desktop">
-          <div class="outer-dropdown-wrapper" ng-show="hasSelectedRegion()">
-            <div class="dropdown-wrapper" ng-click="countryDropdownIsActive=!countryDropdownIsActive" ng-class="{active: countryDropdownIsActive==true}">
-              <span>{{currentCountryLabel}}</span>
-              <ul class="dropdown-list">
-                <li ng-click="chooseCountry('')">Countries</li>
-                <li ng-repeat="country in currentRegion.countries"><a href ng-click="chooseCountry(country)">{{country}}</a></li>
-              </ul>
-            </div>
-          </div>
-        </li>
-      </ul>
-      """
+    templateUrl: "templates/region_dropdown.html"
     link: link
     scope:
       regionsCollection: "="
@@ -1183,6 +1128,7 @@ sfDirectives.directive "slide", [ ->
 #   auto="8000"
 #   size="short" also: "tall narrow"
 #   paginator="true"
+#   slides=""
 # >
 
 sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
@@ -1431,22 +1377,35 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
         scope.iframeContent = ""
     )
 
-  template: """
-    <div class='ng-modal' ng-show='show'>
-      <div class='ng-modal-overlay' ng-click='hideModal()'></div>
-      <div class='ng-modal-dialog' ng-style='dialogStyle'>
-        <div class='ng-modal-close' ng-click='hideModal()'>X</div>
-        <div class='ng-modal-dialog-content'>
-          <div class="player" ng-bind-html="iframeContent"></div>
-        </div>
-      </div>
-    </div>
-    """
+  templateUrl: "templates/video_player_modal.html"
+]
+
+sfDirectives.directive 'formThankYou', ["$window", ($window) ->
+  restrict: "A"
+  replace: true
+  transclude: true
+  scope: {
+    show: "="
+  }
+  link: (scope, element, attrs) ->
+    scope.dialogStyle = {
+      width   : (if attrs.width? then attrs.width else "90%")
+      height  : (if attrs.height? then attrs.height else "40%")
+    }
+
+    scope.playerDiv = angular.element(element.find("div")[3])
+    scope.bodyDiv = document.getElementsByTagName("body")[0]
+
+    scope.hideModal = ->
+      scope.show = false
+      scope.$emit('modal:hide')
+
+  templateUrl: "templates/form_thank_you.html"
 ]
 
 sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
   restrict: "E"
-  template: "<section class='map'><div id='map-popup'><div class='content'></div></div><div ng-transclude></div><div id='world-map-gdp'></div></section>"
+  templateUrl: "templates/world_map.html"
   transclude: true
   replace: true
   scope:
@@ -1455,7 +1414,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
 
     createImagePattern = (id, url) ->
       # Set namespace for SVG elements.
-      svgMap      = $('.jvectormap-container > svg').get(0);
+      svgMap      = angular.element('.jvectormap-container > svg').get(0);
       svgNS       = 'http://www.w3.org/2000/svg';
       svgNSXLink  = 'http://www.w3.org/1999/xlink';
 
@@ -1492,7 +1451,8 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
         "coords" : []
         "icons" : []
 
-      $("#world-map-gdp").vectorMap
+      wolrd_map = angular.element("#world-map-gdp")
+      wolrd_map.vectorMap
         map: "world_mill_en"
         markers: markerList.coords
         markersSelectableOne: true
@@ -1511,54 +1471,75 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           content = markerList.meta_data[index]
           $popup = $('#map-popup')
 
+          bodyDiv = document.getElementsByTagName("body")[0]
+
+          # Define HTML templates.
+          ctaTpl = if content.action_text then "<p class='centered'><a class='read-more' href='#{content.action_target}'>#{content.action_text}</a></p>" else ""
+          popupTpl = "
+            <span class='close' ng-click='closePopup()'>X</span>
+            <img src='#{content.thumbnail_url}' />
+            <span class='play-video-link #{content.marker_type}'></span>
+            <div class='background-popup'>
+              <div class='text-popup-container'>
+                <div class='text-popup'>
+                  <h2>#{content.title}</h2>
+                  <span class='location'>#{content.location}</span>
+                  <p>#{content.text}</p>
+                  #{ctaTpl}
+                </div>
+              </div>
+            </div>
+          "
           $popup.fadeOut "slow", ->
             $popup
+              .removeClass('visible')
               .find(".content").empty()
-              .html("<span class='close' ng-click='closePopup()'>X</span><img src='#{content.thumbnail_url}'/><div class='background-popup'><div class='text-popup-container'><div class='text-popup'><h2>#{content.title}</h2><span class='location'>#{content.location}</span></span><p>#{content.text}</p><p class='centered'><a class='read-more' href='#{content.action_target}'>LEARN MORE</a></div></div></div>")
+              .html(popupTpl)
             $popup
               .fadeIn("slow", ->
                 $timeout( ->
                   $popup
+                    .addClass('visible')
                     .find('.text-popup')
                     .jScrollPane()
                 , 200)
               )
+            $("html, body").animate
+              scrollTop: $("#world-map-gdp").offset().top - 88
+            , "slow"
+            # bodyDiv.style.overflow = "hidden"
+
             $popup.find('.close').click ->
               $popup
                 .fadeOut()
                 .find('.text-popup')
                 .jScrollPane().data().jsp.destroy()
+              bodyDiv.style.overflow = ""
 
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)
 
-      undefined
+      return
 
     $timeout(generateMap, 1200);
-    undefined
+    return
 ]
 
-# Scroll detection for persistent nav
-sfDirectives.directive "navscrollspy", ($window) ->
-  (scope, element, attrs) ->
-    angular.element($window).bind "scroll", ->
-      if @pageYOffset >= 120
-        scope.passed = true
-      else
-        scope.passed = false
-      scope.$apply()
-      return
-    return
+$ ->
+  $(document).on 'mouseenter', '#map-popup .text-popup-container', ->
+    $('body').css('overflow', 'hidden')
+  $(document).on 'mouseleave', '#map-popup .text-popup-container', ->
+    $('body').css('overflow', 'auto')
 
-
-# directive that prevents submit if there are still form errors
+# Directive that prevents submit if there are still form errors
 sfDirectives.directive "validSubmit", ["$parse", ($parse) ->
   require: "form"
 
   link: (scope, element, attr, form) ->
     form.$submitted = false
 
-    # register DOM event handler and wire into Angular's lifecycle with scope.$apply
+    # Register DOM event handler and wire into Angular's lifecycle
+    # with scope.$apply
     element.on "submit", (event) ->
       scope.$apply ->
         form.$submitted = true

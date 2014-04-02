@@ -1,0 +1,38 @@
+<ul class="articles-filters desktop">
+  <li><strong>Sort</strong></li>
+  <li class="filters-devider">|</li>
+  <li class="dropdown desktop">
+    <div class="outer-dropdown-wrapper">
+      <div class="dropdown-wrapper" ng-click="yearDropdownIsActive=!yearDropdownIsActive" ng-class="{active: yearDropdownIsActive==true}">
+        <span>{{currentYearLabel}}</span>
+        <ul class="dropdown-list">
+          <li ng-repeat="year in yearsCollection"><a href ng-click="chooseYear(year)">{{year.name}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="filters-devider">|</li>
+  <li class="dropdown desktop">
+    <div class="outer-dropdown-wrapper">
+      <div class="dropdown-wrapper" ng-click="isActive=!isActive" ng-class="{active: isActive==true}">
+        <span>{{currentRegionLabel}}</span>
+        <ul class="dropdown-list">
+          <li><a href ng-click="chooseRegion({region:'',countries:[]})">REGIONS</a></li>
+          <li ng-repeat="region in regionsCollection"><a href ng-click="chooseRegion(region)">{{region.region}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li ng-show="hasSelectedRegion()" class="filters-devider">|</li>
+  <li class="dropdown desktop">
+    <div class="outer-dropdown-wrapper" ng-show="hasSelectedRegion()">
+      <div class="dropdown-wrapper" ng-click="countryDropdownIsActive=!countryDropdownIsActive" ng-class="{active: countryDropdownIsActive==true}">
+        <span>{{currentCountryLabel}}</span>
+        <ul class="dropdown-list">
+          <li ng-click="chooseCountry('')">Countries</li>
+          <li ng-repeat="country in currentRegion.countries"><a href ng-click="chooseCountry(country)">{{country}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul>

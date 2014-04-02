@@ -114,16 +114,14 @@
     // position: absolute;
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     max-width: 1600px;
     margin: 0 auto;
     background-color: #000;
+    @include background-cover;
   }
   aside {
     position: absolute;
-    &:not(.side-panel) {
+    &:not(.side-panel), &.not-side-panel {
       z-index: 90;
       color: #FFF;
       width: 100%;
@@ -148,12 +146,6 @@
         color: #FFF;
         font-weight: bold;
         font-size: .874em;
-        &.text-link {
-          display: inline-block;
-          padding: 2px 35px 3px;
-          border: 2px solid $light-blue;
-          margin: 10px;
-        }
       }
       @include media($mobile) {
         bottom: 0px;
@@ -172,6 +164,10 @@
           color: #2d2d2d;
           font-size: 11px;
           margin-top: 3px;
+          &.text-link {
+            padding: 0;
+            border: none;
+          }
         }
         p {
           font-size: 13px;
@@ -223,11 +219,12 @@
         position: absolute;
         bottom: 20px;
         right: 70px;
+        z-index: 1;
       }
     }
   }
   .logo {
-    margin-bottom: 20px;
+    margin-bottom: 17px;
     img {
       width: 50px;
     }
@@ -238,6 +235,16 @@
   }
 }
 
+@include media($mobile) {
+  .media-mentions-page {
+    .swiper {
+      .logo.ng-hide {
+        height: 44px;
+        display: block !important;
+      }
+    }
+  }
+}
 
 .gradient-background {
   position: absolute;
@@ -279,10 +286,8 @@
 .slide-standalone {
   width: 100%;
   height: 500px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   display: block;
+  @include background-cover;
 }
 
 .half-wit {

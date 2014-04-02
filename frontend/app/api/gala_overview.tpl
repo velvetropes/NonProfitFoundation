@@ -28,7 +28,6 @@
             >
           </slide>
           {/galla_overview_carousel}
-          </slide>
         </swiper>
       </div>
 
@@ -60,7 +59,10 @@
 
 {exp:stash:parse process="end"}
   {exp:channel:entries channel="galla" dynamic="no" limit="1" disable="{global:param_disable_default}" entry_id="{exp:stash:upcoming_id}" parse="inward"}
-  <article class='gala-upcoming'>
+    <article class='gala-upcoming'>
+      <div class="mobile-only load-more">
+        Upcoming
+      </div>
       <div class="gala-tab-content text-container">
         <h1>{galla_intro_title}</h1>
         <div>

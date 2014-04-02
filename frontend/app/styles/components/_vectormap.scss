@@ -18,43 +18,50 @@
 }
 
 #map-popup {
+  @extend .alrightsansregular;
   display: none;
   position: absolute;
   color: white;
-  @extend .alrightsansregular;
   padding: 10px;
-  width: 720px;
+  width: 679px;
   height: 360px;
-  top: 10%;
-  left: 25%;
-  z-index: 1;
-
+  top: 50%;
+  left: 50%;
+  margin-top: -155px;
+  margin-left: -340px;
+  z-index: 2;
+  .play-video-link {
+    left: 35%;
+    display: none;
+    &.video {
+      display: block;
+    }
+  }
   .close {
-    $size:16px;
+    $size: 16px;
     position: absolute;
     display: block;
-    width:$size;
-    height:$size;
+    width: $size;
+    height: $size;
     text-indent: -9999em;
-    right: 20px;
+    right: 15px;
     top: 15px;
     cursor: pointer;
     @include transform(rotate(45deg));
     z-index: 50;
-
     &::after, &::before {
         content: "";
         position: absolute;
         background: #fff;
     }
     &::before {
-      top:0;
+      top: 0;
       left: floor($size / 2);
       width: 1px;
       height: 100%;
     }
     &::after {
-      left:0;
+      left: 0;
       top: floor($size / 2);
       height: 1px;
       width: 100%;
@@ -69,13 +76,28 @@
   }
   .text-popup-container {
     padding: 35px 0 0 23px;
+    .jspContainer {
+      .jspVerticalBar {
+        width: 9px;
+        height: 100%;
+        background-color: rgba(40, 70, 76, 0.8);
+      }
+      .jspCap {
+        display: none;
+      }
+      .jspPane {
+        position: relative;
+        .centered {
+          padding-bottom: 20px;
+        }
+      }
+    }
   }
   .text-popup {
     overflow: auto;
-    width: 260px;
-    height: 270px;
-    padding: 0;
-
+    width: 277px;
+    height: 290px;
+    padding: 0 20px 0 0;
     h2 {
       @extend .alrightsansbold;
       margin-bottom: 0;
@@ -95,6 +117,7 @@
       @extend .alrightsansregular;
       font-size: 14px;
       line-height: 1.4;
+      width: 263px;
     }
     .centered {
       padding-top: 8px;
@@ -112,10 +135,16 @@
     position: absolute;
     right: 300px;
     height: 340px;
+    max-width: 369px;
     width: auto;
   }
   a {
     color: #fff;
+  }
+  @include media($tablet) {
+    width: 570px;
+    margin-left: -280px;
+    overflow: hidden;
   }
 }
 
@@ -177,12 +206,10 @@
   line-height: 20px;
   text-align: center;
 }
-
 .jvectormap-zoomin {
-    top: 10px;
-    right: 42px;
+  top: 10px;
+  right: 42px;
 }
-
 .jvectormap-zoomout {
-    top: 10px;
+  top: 10px;
 }

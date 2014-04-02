@@ -1,11 +1,11 @@
 <div class="slide">
   <article ng-style="backgroundImageStyle" class="image-container"></article>
-  <blockquote ng-show="hasQuote()">{{quote}}</blockquote>
+  <blockquote ng-show="hasQuote()">{{quote | strip}}</blockquote>
   <div ng-show="!hasQuote()" class="gradient-background"></div>
   <div ng-show="hasVideo()">
     <a href ng-click="displayInModalIfVideo()"><span class="play-video-link"></span></a>
   </div>
-  <aside ng-class="{'side-panel': hasSidePanel()}">
+  <aside ng-class="{ 'side-panel': hasSidePanel(), 'not-side-panel': !hasSidePanel() }">
     <h1 ng-show="hasHeadline()" class="headline">{{headline}}</h1>
     <p ng-show="hasSubhead()" class="subhead">{{subhead}}</p>
     <p ng-show="hasBodyCopy()" class="body-copy">{{bodyCopy}}</p>

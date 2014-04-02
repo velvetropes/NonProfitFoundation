@@ -3,13 +3,12 @@
   margin-bottom: 0;
   background-color: #000;
   .image {
-    background-size: cover;
-    background-position: center;
     height: 500px;
     width: 100%;
     position: relative;
     max-width: 1600px;
     margin: 0 auto;
+    @include background-cover;
     @include media($tablet-down) {
       height: 375px;
     }

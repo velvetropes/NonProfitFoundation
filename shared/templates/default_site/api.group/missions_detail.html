@@ -80,8 +80,8 @@
   </div>
 </div>
 
-  
-<div class="outer-container">
+
+<div class="no-container">
   {mission_rel}
     {if mission_rel:count == 1}
     <h3 class="section-title centered">Related posts</h3>

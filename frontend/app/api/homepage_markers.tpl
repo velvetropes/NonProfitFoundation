@@ -21,6 +21,7 @@
       "title"             : "{exp:json_encode}{title}{/exp:json_encode}",
       "location"          : "{exp:json_encode}{homepage_map_item_location}{/exp:json_encode}",
       "text"              : "{exp:json_encode}{homepage_map_item_content}{/exp:json_encode}",
+      "action_text"       : "{exp:json_encode}{homepage_map_item_cta_text}{/exp:json_encode}",
       "thumbnail_url"     : "{homepage_map_item_image}",
       "action_target"     : "{homepage_map_item_cta_link}",
       "marker_type"       : "{homepage_map_item_category:url_title}"

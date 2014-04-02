@@ -10,19 +10,47 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="/assets/styles/836f935e.main.css"/>
+    <link rel="stylesheet" href="/assets/styles/b4a261a3.main.css"/>
     
     <script src="/assets/scripts/d64e295e.modernizr.js"></script>
+    
+    <!--[if lte IE 8]>
+    <script>
+      document.createElement('swiper');
+      document.createElement('slide');
+      document.createElement('world-map');
+      document.createElement('home-thumblist-nav');
+      document.createElement('gala-thumblist-nav');
+      document.createElement('thumblist-nav');
+      document.createElement('tabbed-nav');
+      document.createElement('expander');
+      document.createElement('accordion');
+      document.createElement('accordion-list');
+      document.createElement('accordion-list-item');
+      document.createElement('detail-page');
+      document.createElement('dropdown');
+      document.createElement('dropdown-option');
+      document.createElement('gallery');
+      document.createElement('gallery-slide');
+      document.createElement('instagram-gallery');
+      document.createElement('page-tile');
+      document.createElement('paginated-article-list');
+      document.createElement('panel-tab');
+      document.createElement('swipe-paginator');
+      document.createElement('tabbed-nav');
+      document.createElement('thumblist-nav');
+      document.createElement('video-player-modal');
+    </script>
+    <![endif]-->
   </head>
-  <body class='about-us-page page' ng:app="blogPagesApp" ng:controller="globalCtrl">
+  <body class='about-us-page page' ng:app="blogPagesApp" ng:controller="globalCtrl" id="ng-app">
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <video-player-modal show='videoIframe' width='90%' height='90%'></video-player-modal>
-    
-    <div class="CENTERPIN"></div>
+    <div id="thankyou-box" form-thank-you show='thankYouBox'></div>
     
     <div class='mobile-menu-mask'></div>
     <div class='mobile-menu'>
@@ -388,9 +416,9 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/e4952d31.vendor.js"></script>
+    <script src="/assets/scripts/744049f5.vendor.js"></script>
     
-    <script src="/assets/scripts/400700a0.main.js"></script>
+    <script src="/assets/scripts/4436e302.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

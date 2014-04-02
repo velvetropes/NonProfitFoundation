@@ -30,13 +30,12 @@
         height: 100%;
       }
       .image {
-        background-size: cover;
-        background-position: center;
         position: absolute;
         bottom: 101px;
         right: 0;
         left: 0;
         top: 0;
+        @include background-cover;
       }
       .content {
         position: absolute;
@@ -201,7 +200,6 @@
   height: 100%;
 }
 
-//
 .jspArrow
 {
   background: #50506d;
@@ -217,38 +215,6 @@
   cursor: default;
   background: #80808d;
 }
-
-.jspHorizontalBar .jspArrow
-{
-  width: 16px;
-  float: left;
-  height: 100%;
-}
-
-.jspCorner
-{
-  background: #eeeef4;
-  float: left;
-  height: 100%;
-}
-
-.jspCap
-{
-  display: block;
-  background: #eeeef4;
-}
-
-.jspVerticalBar .jspCap
-{
-  height: 20px;
-}
-
-.jspHorizontalBar .jspCap
-{
-  width: 50px;
-  height: 100%;
-}
-
 
 .jspVerticalBar
 {

@@ -110,8 +110,7 @@ footer {
             width: 40px;
             height: 40px;
             display: block;
-            background-size: cover;
-            background-position: center;
+            @include background-cover;
           }
         }
       }

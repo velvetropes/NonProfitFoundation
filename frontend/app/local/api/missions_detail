@@ -1,11 +1,22 @@
+
+
+
+
+
+
+
+
+
+
+
 <div class="article-header-image">
-  <div class="image" style="background-image:url('');">
+  <div class="image" style="background-image:url('http://starkey.ahundredyears.com/uploads/images/home/feature/listen_carefully.jpg');">
     <ul class="page-nav-links">
             <li>
-        <a href="#/missions/hearing-mission-test-entry-2" ng-disabled="'hearing-mission-test-entry-2'==''">&larr;</a>
+        <a href="#/missions/hearing-mission-test-entry-3-27-mar-14" ng-disabled="'hearing-mission-test-entry-3-27-mar-14'==''">&larr;</a>
       </li>
                   <li>
-        <a href="#/missions/lorem-ipsum-dolor-sit-amet" ng-disabled="'lorem-ipsum-dolor-sit-amet'=='lorem-ipsum-dolor-sit-amet'" >&rarr;</a>
+        <a href="#/missions/hearing-mission-test-entry-27-mar-14" ng-disabled="'hearing-mission-test-entry-27-mar-14'=='hearing-mission-test-entry-27-mar-14'" >&rarr;</a>
       </li>
             <li>
         <a href="#">X</a>
@@ -15,9 +26,9 @@
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-          <p class="article-item-category">Asia, Bhutan</p>
-          <h1  class="article-title">Hearing Mission Test Entry</h1>
-          <p>November 18, 2013 | Julie</p>
+          <p class="article-item-category">Asia, East Timor</p>
+          <h1  class="article-title">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</h1>
+          <p>March 2014</p>
         </div>
       </div>
     </div>
@@ -27,17 +38,8 @@
 <br/>
 
 <div class="text-container">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat porttitor sem sed facilisis. Pellentesque scelerisque ante sed risus vestibulum interdum. Proin tincidunt, ante eget tincidunt adipiscing, dui nisl accumsan neque, eu feugiat enim nibh ac libero. Duis erat lorem, accumsan in hendrerit vel, dignissim at urna. Morbi imperdiet sapien quis eros ultrices varius. Aliquam vel dolor quis mauris faucibus dapibus. Curabitur ultricies scelerisque aliquam. In dignissim at dui ac aliquam. Pellentesque vulputate malesuada facilisis. Aliquam mattis lorem non accumsan interdum. Curabitur vitae nibh sed orci egestas aliquam ut a eros. Nullam tempor justo nec nibh bibendum hendrerit. Sed adipiscing arcu ligula, eget gravida tellus sodales ut. Morbi auctor erat sit amet aliquam ullamcorper. Ut vel fermentum neque. Fusce nibh tortor, ultricies et purus quis, auctor facilisis lorem.</p>
-
-<p>Pellentesque porttitor diam a sagittis lacinia. Mauris at felis lobortis, malesuada ante eget, dictum augue. Integer consequat at tellus ut lobortis. Aliquam rhoncus vitae justo et luctus. Nullam non sem non lorem cursus feugiat ut non nunc. Cras lobortis luctus augue, sit amet porttitor mi posuere non. In ornare nibh ac fermentum aliquam. Duis ut tempor arcu.</p>
-
-<p>Nunc vehicula id tellus vel eleifend. Suspendisse in mauris ac nibh aliquam placerat sed et turpis. Aenean vel massa ornare, condimentum arcu vitae, commodo dolor. Fusce eleifend accumsan leo eget malesuada. Etiam augue dui, accumsan quis eros vel, pulvinar fringilla lacus. Nunc eu porttitor est, at pulvinar nisi. Mauris consectetur, nunc et facilisis porta, neque erat placerat velit, blandit lobortis velit lorem quis leo. Nullam pulvinar a nibh ut pulvinar. Nam suscipit tellus id porta imperdiet. Phasellus ultricies ante et est consectetur tincidunt. Phasellus tempus nec nisi sit amet egestas. In quam felis, bibendum sed laoreet non, aliquam ac metus. Donec hendrerit, turpis nec tincidunt sodales, leo mauris hendrerit purus, nec eleifend metus arcu non metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-
-<p>Suspendisse potenti. Ut diam ipsum, scelerisque ac nisi sed, pellentesque vulputate turpis. Praesent nec velit feugiat, dignissim est a, adipiscing lectus. Donec in nisi non metus lobortis dictum eget eget turpis. Mauris ornare, justo dictum cursus varius, elit tellus rhoncus arcu, eu pulvinar massa tellus vitae elit. Sed dictum sapien at facilisis tempus. Suspendisse consectetur consectetur diam, vitae faucibus lectus consectetur vel. Donec ante sem, posuere ac nunc lobortis, consectetur gravida felis. Integer pulvinar eleifend augue in dapibus. Morbi eget hendrerit arcu, vel volutpat felis. Nulla dapibus nibh ut lectus gravida, congue venenatis dui vehicula. Nulla facilisi. Praesent egestas libero ut justo tempor, nec tempor est porttitor. Nam semper mollis rhoncus. Nulla facilisis pulvinar urna, consequat egestas tellus semper hendrerit. Pellentesque molestie pulvinar lacus in scelerisque.</p>
-
-<p>Integer sollicitudin id est ut sagittis. Ut interdum porttitor massa, sit amet hendrerit lectus lacinia feugiat. Nunc ut tincidunt justo. Maecenas varius mauris eget quam hendrerit, nec ultrices justo tincidunt. Pellentesque luctus tempus ipsum in consectetur. Nulla sodales fermentum ante id porta. Maecenas facilisis faucibus cursus. Nulla eleifend magna sed eleifend molestie. Nulla quis risus tempor, pellentesque augue quis, dictum sem. Donec porttitor cursus nisl eget accumsan. Etiam accumsan vestibulum ligula at iaculis. Fusce luctus mauris non augue egestas, non faucibus sem blandit. Nunc ac risus at nulla hendrerit volutpat. Pellentesque quis leo sed urna dignissim tempus eu nec velit.</p>
+  <p>Donec sollicitudin molestie malesuada. Sed porttitor lectus nibh. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus.</p>
 </div>
-
 
 <br/>
 <div class="outer-container">
@@ -46,39 +48,79 @@
     <ul>
       <li><span class="note">Share this post</span></li>
       <li>
-        <a href="#">
+        <a href="http://twitter.com/share?url={{location.absUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="http://www.facebook.com/sharer.php?u={{location.absUrl()}}" target="_blank">
           <span class="icon starkey-share-fb"></span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{location.absUrl()}}.">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
     </ul>
   </div>
 </div>
-  <h3 class="section-title centered">Related posts</h3>
-  <section class='carousel'>
-    <thumblist-nav>
 
-      <div>
-        <slide
-          thumblist="true"
-          image-url="http://starkey.local/uploads/images/westbank2.jpeg"
-          video-url=""
-          link-url="#/missions/lorem-ipsum-dolor-sit-amet"
-          headline="Lorem Ipsum dolor sit amet"
-          link-style=""
-          date="February 11, 2014"
-        ></slide>
-      </div>
 
-    </thumblist-nav>
-  </section>
+<div class="no-container">
+
+        <h3 class="section-title centered">Related posts</h3>
+    <section class='carousel thumblist'>
+      <thumblist-nav>
+            <div>
+          <slide
+            thumblist="true"
+            image-url="http://starkey.ahundredyears.com/uploads/files/animal.jpg"
+            video-url=""
+            link-url="#/missions/hearing-mission-test-entry-27-mar-14"
+            headline="Hearing Mission Test Entry 27/Mar/14"
+            link-style=""
+            date="March 2014"
+          ></slide>
+        </div>
+
+            <div>
+          <slide
+            thumblist="true"
+            image-url="http://starkey.ahundredyears.com/uploads/files/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-01.jpg"
+            video-url=""
+            link-url="#/missions/new-entry-hearing-mission-1394495216"
+            headline="New Entry Hearing Mission 1394495216"
+            link-style=""
+            date="March 2014"
+          ></slide>
+        </div>
+
+            <div>
+          <slide
+            thumblist="true"
+            image-url="http://starkey.ahundredyears.com/uploads/images/DSC08418cc_edit.jpg"
+            video-url=""
+            link-url="#/missions/hearing-mission-test-entry"
+            headline="Hearing Mission Test Entry"
+            link-style=""
+            date="November 2013"
+          ></slide>
+        </div>
+
+            <div>
+          <slide
+            thumblist="true"
+            image-url="http://starkey.ahundredyears.com/uploads/images/DSC08418cc_edit.jpg"
+            video-url=""
+            link-url="#/missions/lorem-ipsum-dolor-sit-amet"
+            headline="Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem"
+            link-style=""
+            date="February 2014"
+          ></slide>
+        </div>
+          </thumblist-nav>
+    </section>
+
+</div>
 <br/>

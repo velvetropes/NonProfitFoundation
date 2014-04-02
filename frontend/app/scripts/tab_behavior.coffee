@@ -44,20 +44,8 @@ class HeaderTabNav extends TabBehavior
         @setActiveLink(e.currentTarget)
         @makeActive($(e.currentTarget))
 
-class ProgramsPageView
-
-  constructor: ->
-    @setupListeners()
-
-  setupListeners: ->
-    $(document).on "click", ".become-a-provider", (e) ->
-      e.preventDefault()
-      $('.programs-page .become-a-provider-container').toggleClass("hidden")
-
 $ ->
   new HeaderTabNav
-  if $('.programs-page').length
-    new ProgramsPageView
 
   # Remove unwanted link border outlines
   runOnLoad = new Array()

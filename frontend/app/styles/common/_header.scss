@@ -4,18 +4,6 @@ body {
   }
 }
 
-.CENTERPIN {
-  width: 2px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  margin-left: -1px;
-  background: red;
-  z-index: 999999999999;
-  opacity: 0.5;
-  display: none;
-}
 .clearfix {
   clear: both;
 }
@@ -137,33 +125,33 @@ header {
 }
 
 .header-wrapper {
-  .page-header, .tagline, header .logo img, .tabs-wrap, .tabs, .tabs li a {
+  .page-header, header .logo img, .tabs-wrap, .tabs, .tabs li a {
     @include transition(all 0.5s ease-out);
   }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 570px) {
   .header-wrapper.affixed {
-    padding-top:170px;
+    padding-top: 170px;
 
     header {
-      .logo a, .social-links {
+      .logo a {
         position: relative;
         display: block;
         z-index: 500;
       }
 
       .logo a img {
-        padding:10px 20px;
+        padding: 10px 20px;
         width: 155px;
       }
     }
 
     .page-header {
       position: fixed;
-      top:0;
+      top: 0;
       padding: 0;
-      margin-top:0;
+      margin-top: 0;
       height: auto;
       overflow: hidden;
       z-index: 9999;
@@ -182,7 +170,7 @@ header {
     }
 
     .tabs {
-      margin-top:25px;
+      margin-top: 25px;
       > li {
         display: table-cell;
         a {
@@ -207,12 +195,7 @@ header {
     }
   }
 }
-@media screen and (min-width: 480px) and (max-width: 514px) {
-  .header-nav {
-    font-size: 14px;
-  }
-}
-@media screen and (min-width: 480px) and (max-width: 900px) {
+@media screen and (min-width: 570px) and (max-width: 900px) {
   .header-wrapper.affixed {
     .header-nav {
       margin-top: -50px;

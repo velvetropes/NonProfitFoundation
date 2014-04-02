@@ -62,3 +62,10 @@ $(window).load ->
 
   #   loadMore.click ->
   #     $('.next-page-trigger').first().click()
+
+
+$ ->
+  $(document).mouseup (e) ->
+    container = $('#map-popup')
+    if !container.is(e.target) && container.has(e.target).length == 0
+      container.hide() if container.hasClass('visible')

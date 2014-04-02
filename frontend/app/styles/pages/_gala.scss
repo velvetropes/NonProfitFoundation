@@ -61,9 +61,9 @@
 .gala-tab-content {
   @extend .generic-article-typography;
   width: 100%;
-  text-align: center;
   h1, h2, h3, h4 {
     margin: 40px 0 20px;
+    text-align: center;
   }
   p {
     margin: 0;
@@ -120,8 +120,7 @@
         width: 50%;
         height: 174px;
         float: left;
-        background-size: cover;
-        background-position: center;
+        @include background-cover;
       }
       .action-link {
         text-align: right;
@@ -197,12 +196,62 @@
 .overview-mode {
   .gala-upcoming {
     display: none;
-    @include media($tablet-down) {
+    @include media($mobile) {
       display: block;
+      .load-more {
+        padding-top: 30px;
+        padding-bottom: 0;
+      }
     }
   }
 }
 
 .gala-timeline {
   width: 100%;
+  @include media($tablet-down) {
+    .thumblist-nav {
+      display: none;
+    }
+    .slide {
+      .year-overlay {
+        text-align: center;
+        opacity: .5;
+        font-size: 15em;
+        position: absolute;
+        top: 182px;
+        left: 0;
+        right: 0;
+        color: white;
+      }
+    }
+  }
+  @include media($mobile) {
+    .swipe-wrap {
+      height: 211px;
+    }
+    .swiper-controls {
+      margin-top: -30px;
+    }
+    .slide {
+      .year-overlay {
+        font-size: 7em;
+        top: 91px;
+      }
+    }
+  }
+}
+.gala-upcoming-content {
+  @include media($mobile) {
+    .carousel.hero {
+      article {
+        height: 317px;
+      }
+      aside {
+        display: none;
+      }
+      .swiper-controls {
+        margin-top: -30px;
+      }
+    }
+  }
 }

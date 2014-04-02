@@ -217,12 +217,8 @@ hr.separator {
 
 .fixed-width {
   margin: 0 auto 15px;
-  width: 820px;
-  @include media($tablet-down) {
-    padding-left: 16px;
-    padding-right: 16px;
-    width: 100%;
-  }
+  width: 100%;
+  max-width: 820px;
 }
 
 .page-leader {
@@ -323,6 +319,7 @@ hr.separator {
     }
     p {
       font-size: 12px;
+      line-height: 1.4;
       margin: 6px 0 0;
     }
     .call-to-action {
@@ -383,7 +380,7 @@ blockquote {
   color: #FFF;
   font-size: 30px;
   line-height: 171%;
-  height: 318px;
+  min-height: 318px;
   overflow: hidden;
   @include media($tablet-down) {
     height: 215px;
@@ -407,6 +404,7 @@ blockquote:before {
   // margin-right: 0.25em;
   vertical-align: -0.4em;
   font-weight: bold;
+  display: inline;
 }
 
 blockquote:after {
@@ -417,6 +415,7 @@ blockquote:after {
   margin-left: 0.1em;
   vertical-align: -0.4em;
   font-weight: bold;
+  display: inline;
 }
 
 blockquote p {

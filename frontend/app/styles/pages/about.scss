@@ -5,4 +5,12 @@
       text-align: left;
     }
   }
+  @include media($mobile) {
+    .masthead {
+      margin-bottom: 18px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+  }
 }

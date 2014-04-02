@@ -33,7 +33,7 @@
 <br/>
 
 <div class="outer-container">
-  <div class="pagination" ng-show="pressItems.length > pagination.perPage">
+  <div class="pagination" ng-show="showPaginator">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
@@ -92,7 +92,7 @@
     <div class="load-more">LOAD MORE</div>
   </section>
 
-  <div class="pagination" ng-show="pressItems.length > pagination.perPage">
+  <div class="pagination" ng-show="showPaginator">
     <ul>
       <li class="disabled">
         <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
