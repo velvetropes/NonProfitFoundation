@@ -688,7 +688,7 @@ blockquote {
         font-size: 3.5em; } }
   @media screen and (max-width: 569px) {
     blockquote {
-      font-size: 16px; } }
+      font-size: 11px; } }
 
 .bordered {
   border: 2px solid #00b3d2;
