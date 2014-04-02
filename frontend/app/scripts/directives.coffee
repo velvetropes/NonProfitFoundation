@@ -537,6 +537,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         y: 0.5,
         scale: .5
       backgroundColor: "#329FD6"
+
       # onRegionSelected: (e, str) ->
       #   console.debug "Clicked", str
 
@@ -549,14 +550,20 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
 
     scope.initializeMaps = ->
       $timeout( ->
-        $("#missions-world-map").vectorMap(scope.worldMapConfig)
+        angular.element("#missions-world-map").vectorMap(scope.worldMapConfig)
+        scope.worldMapObject = angular.element("#missions-world-map").vectorMap("get", "mapObject")
 
-        scope.worldMapObject = $("#missions-world-map").vectorMap("get", "mapObject")
+        angular.element("#missions-us-map").vectorMap(scope.usMapConfig)
+        scope.usMapObject = angular.element("#missions-us-map").vectorMap("get", "mapObject")
+        return
+      , 500)
+      
+      $timeout( ->
+        scope.worldMapObject.setFocus(1.15, 0.82, 0.47)
+        return
+      , 600)
 
-        $("#missions-us-map").vectorMap(scope.usMapConfig)
-
-        scope.usMapObject = $("#missions-us-map").vectorMap("get", "mapObject")
-      , 1800)
+      return
 
     scope.hasContinentAndCountry = ->
       scope.hasContinent() or scope.hasCountry()

@@ -747,9 +747,5 @@ $.fn.vectorMap('addMap', 'world_mill_en2', {
 		}
 	},
     "height": 550,
-    "width": 950,
-    "projection": {
-        "type": "mill",
-        "centralMeridian": 11.5
-    }
+    "width": 1150
 });
