@@ -374,25 +374,21 @@ blockquote {
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
   position: absolute;
-  right: 10%;
-  left: 10%;
+  right: 9%;
+  left: 9%;
   top: 52px;
   color: #FFF;
-  font-size: 30px;
+  font-size: 29px;
   line-height: 171%;
   min-height: 318px;
-  overflow: hidden;
   @include media($tablet-down) {
-    height: 215px;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.5;
+    margin-top: 0;
+    top: 24px;
   }
   @include media($mobile) {
-    margin: 0 10px;
-    padding: 0 10px;
-    top: 13px;
     font-size: 16px;
-    height: 150px;
   }
 }
 
