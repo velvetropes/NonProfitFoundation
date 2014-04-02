@@ -1821,6 +1821,8 @@ footer {
       font-size: 13px; }
       .articles-filters li, .articles-filters li.dropdown {
         display: block; }
+        .articles-filters li select, .articles-filters li.dropdown select {
+          width: 100%; }
       .articles-filters li.desktop {
         display: none; }
       .articles-filters .filters-devider {

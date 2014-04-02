@@ -27,6 +27,9 @@
     font-size: 13px;
     li, li.dropdown {
       display: block;
+      select {
+        width: 100%;
+      }
     }
     li.desktop {
       display: none;
