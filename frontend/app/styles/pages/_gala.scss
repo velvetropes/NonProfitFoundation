@@ -240,3 +240,18 @@
     }
   }
 }
+.gala-upcoming-content {
+  @include media($mobile) {
+    .carousel.hero {
+      article {
+        height: 317px;
+      }
+      aside {
+        display: none;
+      }
+      .swiper-controls {
+        margin-top: -30px;
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 {exp:stash:parse process="end"}
   {exp:channel:entries channel="galla" dynamic="no" limit="1" disable="{global:param_disable_default}" entry_id="{exp:stash:upcoming_id}" parse="inward"}
-  <div class="gala-tab-content text-container">
+  <div class="gala-tab-content text-container gala-upcoming-content">
     <h1>{galla_intro_title}</h1>
     <div>
       <p>{galla_intro_text}</p>
