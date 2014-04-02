@@ -1,4 +1,4 @@
-$.fn.vectorMap('addMap', 'world_mill_en', {
+$.fn.vectorMap('addMap', 'world_mill_en2', {
     "insets": [{
 	    "height": 550,
 	    "width": 950,

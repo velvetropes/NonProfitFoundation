@@ -540,7 +540,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       # onRegionSelected: (e, str) ->
       #   console.debug "Clicked", str
 
-    scope.worldMapConfig = _.extend({map: "world_mill_en"}, scope.mapConfig)
+    scope.worldMapConfig = _.extend({map: "world_mill_en2"}, scope.mapConfig)
     scope.usMapConfig = _.extend({map: "us_aea_en"}, scope.mapConfig)
 
     scope.selectTopLevelList = (continent) ->

@@ -59,7 +59,6 @@ class Hundies_region_select_ft extends EE_Fieldtype {
 				Grid.bind("hundies_region_select", "display", function(cell)
 				{
 				   init_chosen();
-				   console.log($(".chosen-select"));
 				});
 			');
 
@@ -248,7 +247,7 @@ class Hundies_region_select_ft extends EE_Fieldtype {
 	function _get_field_options($data)
 	{
 		$us = json_decode(file_get_contents(PATH_THIRD.'hundies_region_select/lib/map_codes/us.json'), true);
-		$world = json_decode(file_get_contents(PATH_THIRD.'hundies_region_select/lib/map_codes/regions.json'), true);
+		$world = json_decode(file_get_contents(PATH_THIRD.'hundies_region_select/lib/map_codes/regions-new.json'), true);
 
 		$field_options = array(
 			"" => "Select a Region Map",
