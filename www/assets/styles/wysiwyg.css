@@ -1749,7 +1749,8 @@ footer {
             float: left;
             display: block;
             margin-right: 2.35765%;
-            width: 100%; }
+            width: 100%;
+            padding-bottom: 14px; }
             .accordion .expander .body .accordion-list .accordion-list-item:last-child {
               margin-right: 0; } }
       .accordion .expander .body .accordion-list:last-child ul {

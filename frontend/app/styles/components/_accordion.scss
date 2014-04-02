@@ -57,6 +57,7 @@
           }
           @include media($tablet-down) {
             @include span-columns(12);
+            padding-bottom: 14px;
           }
         }
         &:last-child {
