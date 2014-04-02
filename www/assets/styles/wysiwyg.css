@@ -2719,10 +2719,12 @@ pagination {
   position: absolute;
   color: white;
   padding: 10px;
-  width: 720px;
+  width: 679px;
   height: 360px;
-  top: 10%;
-  left: 25%;
+  top: 50%;
+  left: 50%;
+  margin-top: -155px;
+  margin-left: -340px;
   z-index: 2; }
   #map-popup .play-video-link {
     left: 35%;
@@ -2735,7 +2737,7 @@ pagination {
     width: 16px;
     height: 16px;
     text-indent: -9999em;
-    right: 20px;
+    right: 15px;
     top: 15px;
     cursor: pointer;
     -webkit-transform: rotate(45deg);
@@ -2808,9 +2810,15 @@ pagination {
     position: absolute;
     right: 300px;
     height: 340px;
+    max-width: 369px;
     width: auto; }
   #map-popup a {
     color: #fff; }
+  @media screen and (min-width: 570px) and (max-width: 768px) {
+    #map-popup {
+      width: 570px;
+      margin-left: -280px;
+      overflow: hidden; } }
 
 .map-legend {
   position: absolute;
