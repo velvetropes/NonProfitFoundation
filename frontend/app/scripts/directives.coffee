@@ -1485,12 +1485,14 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           "
           $popup.fadeOut "slow", ->
             $popup
+              .removeClass('visible')
               .find(".content").empty()
               .html(popupTpl)
             $popup
               .fadeIn("slow", ->
                 $timeout( ->
                   $popup
+                    .addClass('visible')
                     .find('.text-popup')
                     .jScrollPane()
                 , 200)
