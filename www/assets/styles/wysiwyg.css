@@ -480,7 +480,7 @@ table {
   font-style: normal;
   font-weight: bold; }
 
-.alrightsanslight, .detail-page-body .article-headline, .detail-page-body .article-subheadline, .detail-page-body .article-date, blockquote p, .generic-article-typography h1, .text-container h1, .gala-tab-content h1, .legal-page .article-section h1, .programs-page .program-section h1, .programs-page .programs-additional-section h1, .take-action-page .take-action-section h1, .generic-article-typography h2, .text-container h2, .gala-tab-content h2, .legal-page .article-section h2, .programs-page .program-section h2, .programs-page .programs-additional-section h2, .take-action-page .take-action-section h2, .generic-article-typography h3, .text-container h3, .gala-tab-content h3, .legal-page .article-section h3, .programs-page .program-section h3, .programs-page .programs-additional-section h3, .take-action-page .take-action-section h3, .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p, .tabbed-content nav .tabs li a, .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .five-tabs li a, .tabbed-content article .content h1, .tabbed-content article .content h2, .tabbed-content article .content h3, .tabbed-content article .content p, .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p, .article-header-image .page-nav-links li a, .article-header-image .article-item-category, .share-this-post ul li, .highlights ul li .content h3, .missions-map .missions-map-legend h3, .missions-map .missions-map-legend .continents .countries a, .missions-map .missions-map-legend .continents .states a, .missions-map .missions-map-greeting h1, .missions-map .missions-map-info .continent-info h4, .missions-map .missions-map-info .continent-info p, .missions-map .missions-map-info .country-info h4, .missions-map .missions-map-info .country-info p {
+.alrightsanslight, .detail-page-body .article-headline, .detail-page-body .article-subheadline, .detail-page-body .article-date, .generic-article-typography h1, .text-container h1, .gala-tab-content h1, .legal-page .article-section h1, .programs-page .program-section h1, .programs-page .programs-additional-section h1, .take-action-page .take-action-section h1, .generic-article-typography h2, .text-container h2, .gala-tab-content h2, .legal-page .article-section h2, .programs-page .program-section h2, .programs-page .programs-additional-section h2, .take-action-page .take-action-section h2, .generic-article-typography h3, .text-container h3, .gala-tab-content h3, .legal-page .article-section h3, .programs-page .program-section h3, .programs-page .programs-additional-section h3, .take-action-page .take-action-section h3, .generic-article-typography p, .text-container p, .gala-tab-content p, .legal-page .article-section p, .programs-page .program-section p, .programs-page .programs-additional-section p, .take-action-page .take-action-section p, .tabbed-content nav .tabs li a, .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .five-tabs li a, .tabbed-content article .content h1, .tabbed-content article .content h2, .tabbed-content article .content h3, .tabbed-content article .content p, .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p, .article-header-image .page-nav-links li a, .article-header-image .article-item-category, .share-this-post ul li, .highlights ul li .content h3, .missions-map .missions-map-legend h3, .missions-map .missions-map-legend .continents .countries a, .missions-map .missions-map-legend .continents .states a, .missions-map .missions-map-greeting h1, .missions-map .missions-map-info .continent-info h4, .missions-map .missions-map-info .continent-info p, .missions-map .missions-map-info .country-info h4, .missions-map .missions-map-info .country-info p {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: normal; }
@@ -648,18 +648,30 @@ hr.separator {
   margin: 0;
   font-size: .875em; }
 
-blockquote {
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C" "\201D" "\2018" "\2019";
+.blockquote-table {
+  display: table;
   position: absolute;
-  right: 9%;
-  left: 9%;
   top: 32px;
+  height: 410px;
+  padding: 0 77px; }
+  @media screen and (max-width: 768px) {
+    .blockquote-table {
+      height: 245px; } }
+  @media screen and (max-width: 569px) {
+    .blockquote-table {
+      top: 17px;
+      height: 176px;
+      padding: 0 52px; } }
+
+blockquote {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  quotes: "\201C" "\201D" "\2018" "\2019";
   color: #FFF;
   font-size: 29px;
-  line-height: 1.6;
-  min-height: 318px; }
+  line-height: 1.6; }
   blockquote:before, blockquote:after {
     color: #fff;
     font-size: 4em;
@@ -672,20 +684,18 @@ blockquote {
   blockquote:after {
     content: close-quote;
     margin-left: 0.1em; }
-  blockquote p {
-    display: inline;
-    font-size: 2em; }
   @media screen and (min-width: 769px) and (max-width: 1119px) {
     blockquote {
       font-size: 27px; } }
   @media screen and (max-width: 768px) {
     blockquote {
       font-size: 19px;
-      line-height: 1.5;
-      margin-top: 0;
-      top: 24px; }
+      line-height: 1.5; }
       blockquote:before, blockquote:after {
         font-size: 3.5em; } }
+  @media screen and (max-width: 640px) {
+    blockquote {
+      font-size: 17px; } }
   @media screen and (max-width: 569px) {
     blockquote {
       font-size: 11px; } }

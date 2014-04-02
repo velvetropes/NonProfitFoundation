@@ -369,18 +369,30 @@ hr.separator {
   }
 }
 
-blockquote {
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+.blockquote-table {
+  display: table;
   position: absolute;
-  right: 9%;
-  left: 9%;
   top: 32px;
+  height: 410px;
+  padding: 0 77px;
+  @include media($tablet-down) {
+    height: 245px;
+  }
+  @include media($mobile) {
+    top: 17px;
+    height: 176px;
+    padding: 0 52px;
+  }
+}
+blockquote {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  quotes: "\201C""\201D""\2018""\2019";
   color: #FFF;
   font-size: 29px;
   line-height: 1.6;
-  min-height: 318px;
   &:before, &:after {
     color: #fff;
     font-size: 4em;
@@ -396,22 +408,18 @@ blockquote {
     content: close-quote;
     margin-left: 0.1em;
   }
-  p {
-    display: inline;
-    font-size: 2em;
-    @extend .alrightsanslight;
-  }
   @include media($desktop) {
     font-size: 27px;
   }
   @include media($tablet-down) {
     font-size: 19px;
     line-height: 1.5;
-    margin-top: 0;
-    top: 24px;
     &:before, &:after {
       font-size: 3.5em;
     }
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 17px;
   }
   @include media($mobile) {
     font-size: 11px;
