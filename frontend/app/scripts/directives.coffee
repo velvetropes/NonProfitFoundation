@@ -1519,9 +1519,9 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
 ]
 
 $ ->
-  $(document).on 'mouseenter', '#map-popup .jspScrollable', ->
+  $(document).on 'mouseenter', '#map-popup .text-popup-container', ->
     $('body').css('overflow', 'hidden')
-  $(document).on 'mouseleave', '#map-popup .jspScrollable', ->
+  $(document).on 'mouseleave', '#map-popup .text-popup-container', ->
     $('body').css('overflow', 'auto')
 
 # Directive that prevents submit if there are still form errors
