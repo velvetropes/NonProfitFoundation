@@ -376,48 +376,46 @@ blockquote {
   position: absolute;
   right: 9%;
   left: 9%;
-  top: 52px;
+  top: 32px;
   color: #FFF;
   font-size: 29px;
-  line-height: 171%;
+  line-height: 1.6;
   min-height: 318px;
+  &:before, &:after {
+    color: #fff;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+    font-weight: bold;
+    display: inline;
+  }
+  &:before {
+    content: open-quote;
+  }
+  &:after {
+    content: close-quote;
+    margin-left: 0.1em;
+  }
+  p {
+    display: inline;
+    font-size: 2em;
+    @extend .alrightsanslight;
+  }
+  @include media($desktop) {
+    font-size: 27px;
+  }
   @include media($tablet-down) {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.5;
     margin-top: 0;
     top: 24px;
+    &:before, &:after {
+      font-size: 3.5em;
+    }
   }
   @include media($mobile) {
     font-size: 16px;
   }
-}
-
-blockquote:before {
-  color: #fff;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  // margin-right: 0.25em;
-  vertical-align: -0.4em;
-  font-weight: bold;
-  display: inline;
-}
-
-blockquote:after {
-  color: #fff;
-  content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-left: 0.1em;
-  vertical-align: -0.4em;
-  font-weight: bold;
-  display: inline;
-}
-
-blockquote p {
-  display: inline;
-  font-size: 2em;
-  @extend .alrightsanslight;
 }
 
 .bordered {
