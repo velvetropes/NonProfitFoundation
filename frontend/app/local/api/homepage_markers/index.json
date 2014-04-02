@@ -1,166 +1,150 @@
 {
-   "icons" : [
-     {
-        "id"      : "jvm-where-we-were-yesterday",
-        "path"    : "/uploads/map/markers/icon_stories.png"
-     }, 
+  "icons" : [
      {
         "id"      : "jvm-gallery",
-        "path"    : "/uploads/map/markers/icon_gallery.png"
-     }, 
-     {
+        "path"    : "http://s3-us-west-2.amazonaws.com/assetsimages/icon_gallery.png"
+    },  {
         "id"      : "jvm-video",
-        "path"    : "/uploads/map/markers/icon_video.png"
-     }, 
-     {
+        "path"    : "http://s3-us-west-2.amazonaws.com/assetsimages/icon_video.png"
+    },  {
         "id"      : "jvm-stories",
-        "path"    : "/uploads/map/markers/icon_stories.png"
-     }, 
-     {
+        "path"    : "http://s3-us-west-2.amazonaws.com/assetsimages/icon_stories.png"
+    },  {
         "id"      : "jvm-program",
-        "path"    : "/uploads/map/markers/icon_program.png"
-     }, 
-     {
+        "path"    : "http://s3-us-west-2.amazonaws.com/assetsimages/icon_program.png"
+    },  {
         "id"      : "jvm-hearing-missions",
-        "path"    : "/uploads/map/markers/icon_program.png"
-     }, 
-     {
+        "path"    : "http://s3-us-west-2.amazonaws.com/assetsimages/home/map/icon_program.png"
+    },  {
         "id"      : "jvm-where-we-are-now",
-        "path"    : "/uploads/map/markers/icon_now.png"
-     }
+        "path"    : "http://s3-us-west-2.amazonaws.com/assetsimages/icon_now.png"
+    }
+  ], 
+
+  "coords":[
+    
+    {
+      "latLng"  : [-1.292066, 36.821946],
+      "style"   : {
+        "fill"  : "url('#jvm-video')",
+        "stroke-width" : 0
+      }
+    }, 
+    {
+      "latLng"  : [31.952162, 35.233154],
+      "style"   : {
+        "fill"  : "url('#jvm-video')",
+        "stroke-width" : 0
+      }
+    }, 
+    {
+      "latLng"  : [-26.333806, 28.390688],
+      "style"   : {
+        "fill"  : "url('#jvm-video')",
+        "stroke-width" : 0
+      }
+    }, 
+    {
+      "latLng"  : [-5.185310, -80.649003],
+      "style"   : {
+        "fill"  : "url('#jvm-hearing-missions')",
+        "stroke-width" : 0
+      }
+    }, 
+    {
+      "latLng"  : [44.881702, -93.400947],
+      "style"   : {
+        "fill"  : "url('#jvm-hearing-missions')",
+        "stroke-width" : 0
+      }
+    }, 
+    {
+      "latLng"  : [-3.867910, 36.431122],
+      "style"   : {
+        "fill"  : "url('#jvm-video')",
+        "stroke-width" : 0
+      }
+    }, 
+    {
+      "latLng"  : [34.052234, -118.243685],
+      "style"   : {
+        "fill"  : "url('#jvm-hearing-missions')",
+        "stroke-width" : 0
+      }
+    }, 
+    {
+      "latLng"  : [28.6, 77.2],
+      "style"   : {
+        "fill"  : "url('#jvm-where-we-are-now')",
+        "stroke-width" : 0
+      }
+    }
    ],
-   "coords" : [
-        {
-          "latLng" : [-1.292066, 36.821946],
-          "style" : {
-            "fill" : "url('#jvm-video')"
-          }
-        },
-   
-        {
-          "latLng" : [31.952162, 35.233154],
-          "style" : {
-            "fill" : "url('#jvm-video')"
-          }
-        },
-   
-        {
-          "latLng" : [-26.333806, 28.390688],
-          "style" : {
-            "fill" : "url('#jvm-video')"
-          }
-        },
-   
-        {
-          "latLng" : [-5.185310, -80.649003],
-          "style" : {
-            "fill" : "url('#jvm-hearing-missions')"
-          }
-        },
-   
-        {
-          "latLng" : [44.881702, -93.400947],
-          "style" : {
-            "fill" : "url('#jvm-hearing-missions')"
-          }
-        },
-   
-        {
-          "latLng" : [-3.867910, 36.431122],
-          "style" : {
-            "fill" : "url('#jvm-video')"
-          }
-        },
-   
-        {
-          "latLng" : [34.052234, -118.243685],
-          "style" : {
-            "fill" : "url('#jvm-hearing-missions')"
-          }
-        },
-   
-        {
-          "latLng" : [28.6, 77.2],
-          "style" : {
-            "fill" : "url('#jvm-hearing-missions')"
-          }
-        }
-   ],
-   "meta_data":[
-   
-       {
-          "title":"Building a Better Kibera",
-          "location":"Nairobi, Kenya",
-          "text":"<p>Shining Hope for Communities guided us through the narrow streets of Kibera, the largest urban slum in Africa, we found enormous inspiration in the ability of the human spirit to triumph over adversity. The Clinton Global Initiative has inspired us to make a new commitment to use the power of our network and resources to mobilize partnerships and create a sustainable impact in Kibera.</p>",
-          "thumbnail_url":"http://starkey.local/uploads/images/MAP-Building_a_Better_Kibera.jpg",
-          "action_target":"http://www.youtube.com/watch?v=qIAXkz08aiI",
-          "action_text" : "Link Text",
-          "marker_type" : "video"
-       },
-    
-       {
-          "title":"Building Momentum for Peace in the West Bank",
-          "location":"West Bank",
-          "text":"<p>Starkey Hearing Foundation&nbsp;is excited to be heading back to the West Bank soon for an upcoming hearing mission. Our work in the region has shown us how hearing brings people together and serves as a vehicle for peace and understanding.</p>",
-          "thumbnail_url":"",
-          "action_target":"http://www.youtube.com/watch?v=UakFpSGn_AA&feature=c4-overview-vl&list=PLc9R442DNsrtj12vqxhT5kbVDBSDNLpqm",
-          "action_text" : "Link Text",
-          "marker_type" : "video"
-       },
-    
-       {
-          "title":"Changing Lives with Sir Richard Branson and Virgin Unite",
-          "location":"Bhubezi, South Africa",
-          "text":"<p>Our Founder Bill Austin says, \"Alone we can&#39;t do much. Together we can change the world.\" We believe that by working together and building strong partnerships, we can make an even greater impact. In October 2013, we once again partnered with Sir Richard Branson and our friends at Virgin Unite to change lives at their Bhubezi Health Care Clinic in South Africa.</p>",
-          "thumbnail_url":"http://starkey.local/uploads/images/MAP-Changing_Lives_with_Sir_Richard_Branson_and_Virgin_Unite.jpg",
-          "action_target":"http://www.youtube.com/watch?v=VJqzdck05iA",
-          "action_text" : "Link Text",
-          "marker_type" : "video"
-       },
-    
-       {
-          "title":"Gift of Hearing in Peru",
-          "location":"Peru",
-          "text":"<p>Organizing a five city, nearly 20,000 hearing aid mission in Peru is no small feat! With the help of more than 70 Rotary clubs from across Peru and Minnesota, the mission team led the charge for this unprecedented 21-day mission to change thousands of lives.</p>",
-          "thumbnail_url":"http://starkey.local/uploads/images/MAP-Peru_Mission-02-DSC07062.jpg",
-          "action_target":"",
-          "marker_type" : "hearing-missions"
-       },
-    
-       {
-          "title":"Vikings Partner to Give the Gift of Hearing in Minnesota",
-          "location":"Eden Prairie, MN",
-          "text":"<p>Traveling from nearby Metro Deaf School and Faribault School for the Deaf and from as far away as California, Missouri and Indiana, more than 50 patients arrived at Starkey Hearing Foundation headquarters for a joint hearing mission with the Minnesota Vikings.&nbsp;Overjoyed to meet their heroes, the children taught Vikings superstars, including&nbsp;Adrian Peterson and&nbsp;Greg Jennings, some sign language.</p>",
-          "thumbnail_url":"http://starkey.local/uploads/images/MAP-Vikings_Mission-IMG_6064.JPG",
-          "action_target":"",
-          "marker_type" : "hearing-missions"
-       },
-    
-       {
-          "title":"Partnering to Reach the World",
-          "location":"Loiborsoit, Tanzania ",
-          "text":"<p>Whether it&#39;s&nbsp;projects in housing, education, clean water, HIV/AIDS research or agriculture, hearing is our vehicle to do so much more. It brings us to a region to help affect greater change, but in order to do that we need strong partners.&nbsp;</p>",
-          "thumbnail_url":"http://starkey.local/uploads/images/MAP-Providing_Clean_Water_in_Tanzania.jpg",
-          "action_target":"http://www.youtube.com/watch?v=OJ4W9zzjgII",
-          "marker_type" : "video"
-       },
-    
-       {
-          "title":"Stand Up for Skateparks Learns to Listen Carefully",
-          "location":"Los Angeles, CA",
-          "text":"<p><span style=\"line-height:1.6em\">Chris and Kyle Massey joined our team as we spread the word about the importance of protecting your hearing at Tony Hawk&rsquo;s 2013 Stand Up for Skateparks. W</span><span style=\"line-height:1.6em\">e were encouraged to see the message stick as </span><span style=\"line-height:1.6em\">the audience wore the hearing protection we distributed during a headlining performance by Modest Mouse.</span></p>",
-          "thumbnail_url":"http://starkey.local/uploads/images/MAP-Los-Angeles-Listen-Carefully.jpg",
-          "action_target":"http://www.starkeyhearingfoundation.org/programs/listen-carefully/ ",
-          "marker_type" : "hearing-missions"
-       },
-    
-       {
-          "title":"Where we are now: India",
-          "location":"India ",
-          "text":"<p>The mission team is excited to be back in India working with our Starkey India team to give the gift of hearing across four cities.</p>",
-          "thumbnail_url":"http://starkey.local/uploads/images/MAP-Where_We_Are_Now-India-DSC03269cc.jpg",
-          "action_target":"",
-          "marker_type" : "where-we-are-now"
-       }
+  "meta_data":[
+     {
+      "title"             : "Building a Better Kibera",
+      "location"          : "Nairobi, Kenya",
+      "text"              : "<p>Shining Hope for Communities guided us through the narrow streets of Kibera, the largest urban slum in Africa, we found enormous inspiration in the ability of the human spirit to triumph over adversity. The Clinton Global Initiative has inspired us to make a new commitment to use the power of our network and resources to mobilize partnerships and create a sustainable impact in Kibera.<\/p>",
+      "action_text"       : "Watch Now",
+      "thumbnail_url"     : "http://s3-us-west-2.amazonaws.com/assetsimages/MAP-Building_a_Better_Kibera.jpg",
+      "action_target"     : "http://www.youtube.com/watch?v=qIAXkz08aiI",
+      "marker_type"       : "video"
+    },  {
+      "title"             : "Building Momentum for Peace in the West Bank",
+      "location"          : "West Bank",
+      "text"              : "<p>Starkey Hearing Foundation\u00a0is excited to be heading back to the West Bank soon for an upcoming hearing mission. Our work in the region has shown us how hearing brings people together and serves as a vehicle for peace and understanding.<\/p>",
+      "action_text"       : "Watch Now",
+      "thumbnail_url"     : "",
+      "action_target"     : "http://www.youtube.com/watch?v=UakFpSGn_AA&feature=c4-overview-vl&list=PLc9R442DNsrtj12vqxhT5kbVDBSDNLpqm",
+      "marker_type"       : "video"
+    },  {
+      "title"             : "Changing Lives with Sir Richard Branson and Virgin Unite",
+      "location"          : "Bhubezi, South Africa",
+      "text"              : "<p>Our Founder Bill Austin says, \"Alone we can't do much. Together we can change the world.\" We believe that by working together and building strong partnerships, we can make an even greater impact. In October 2013, we once again partnered with Sir Richard Branson and our friends at Virgin Unite to change lives at their Bhubezi Health Care Clinic in South Africa.<\/p>",
+      "action_text"       : "Watch Now",
+      "thumbnail_url"     : "http://s3-us-west-2.amazonaws.com/assetsimages/MAP-Changing_Lives_with_Sir_Richard_Branson_and_Virgin_Unite.jpg",
+      "action_target"     : "http://www.youtube.com/watch?v=VJqzdck05iA",
+      "marker_type"       : "video"
+    },  {
+      "title"             : "Gift of Hearing in Peru",
+      "location"          : "Peru",
+      "text"              : "<p>Organizing a five city, nearly 20,000 hearing aid mission in Peru is no small feat! With the help of more than 70 Rotary clubs from across Peru and Minnesota, the mission team led the charge for this unprecedented 21-day mission to change thousands of lives.<\/p>",
+      "action_text"       : "Learn More ",
+      "thumbnail_url"     : "http://s3-us-west-2.amazonaws.com/assetsimages/MAP-Peru_Mission-02-DSC07062.jpg",
+      "action_target"     : "",
+      "marker_type"       : "hearing-missions"
+    },  {
+      "title"             : "Vikings Partner to Give the Gift of Hearing in Minnesota",
+      "location"          : "Eden Prairie, MN",
+      "text"              : "<p>Traveling from nearby Metro Deaf School and Faribault School for the Deaf and from as far away as California, Missouri and Indiana, more than 50 patients arrived at Starkey Hearing Foundation headquarters for a joint hearing mission with the Minnesota Vikings.\u00a0Overjoyed to meet their heroes, the children taught Vikings superstars, including\u00a0Adrian Peterson and\u00a0Greg Jennings, some sign language.<\/p>",
+      "action_text"       : "Learn More ",
+      "thumbnail_url"     : "http://s3-us-west-2.amazonaws.com/assetsimages/MAP-Vikings_Mission-IMG_6064.JPG",
+      "action_target"     : "",
+      "marker_type"       : "hearing-missions"
+    },  {
+      "title"             : "Partnering to Reach the World",
+      "location"          : "Loiborsoit, Tanzania ",
+      "text"              : "<p>Whether it's\u00a0projects in housing, education, clean water, HIV\/AIDS research or agriculture, hearing is our vehicle to do so much more. It brings us to a region to help affect greater change, but in order to do that we need strong partners.\u00a0<\/p>",
+      "action_text"       : "Watch Now",
+      "thumbnail_url"     : "http://s3-us-west-2.amazonaws.com/assetsimages/MAP-Providing_Clean_Water_in_Tanzania.jpg",
+      "action_target"     : "http://www.youtube.com/watch?v=OJ4W9zzjgII",
+      "marker_type"       : "video"
+    },  {
+      "title"             : "Stand Up for Skateparks Learns to Listen Carefully",
+      "location"          : "Los Angeles, CA",
+      "text"              : "<p>Chris and Kyle Massey joined our team as we spread the word about the importance of protecting your hearing at Tony Hawk\u2019s 2013 Stand Up for Skateparks. We were encouraged to see the message stick as the audience wore the hearing protection we distributed during a headlining performance by Modest Mouse.<\/p>",
+      "action_text"       : "Learn More ",
+      "thumbnail_url"     : "http://s3-us-west-2.amazonaws.com/assetsimages/MAP-Los-Angeles-Listen-Carefully.jpg",
+      "action_target"     : "http://www.starkeyhearingfoundation.org/programs/listen-carefully/ ",
+      "marker_type"       : "hearing-missions"
+    },  {
+      "title"             : "Where we are now: India",
+      "location"          : "India ",
+      "text"              : "<p>The mission team is excited to be back in India working with our Starkey India team to give the gift of hearing across four cities.<\/p>",
+      "action_text"       : "",
+      "thumbnail_url"     : "http://s3-us-west-2.amazonaws.com/assetsimages/MAP-Where_We_Are_Now-India-DSC03269cc.jpg",
+      "action_target"     : "",
+      "marker_type"       : "where-we-are-now"
+    }
    ]
 }

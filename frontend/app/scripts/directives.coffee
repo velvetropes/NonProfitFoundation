@@ -581,10 +581,12 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       scope.currentCountry = {}
       countryCodes = []
       countryCodes.push country.abbreviation for country in continent.countries_visited
+      console.debug "Country Codes", countryCodes
       if countryCodes.length > 0
         mapObj.clearSelectedRegions()
-        mapObj.setFocus countryCodes, .2
-        mapObj.setSelectedRegions countryCodes
+        mapObj.setFocus(countryCodes, .2)
+        mapObj.setSelectedRegions(countryCodes)
+      return
 
     scope.highlightCountryRegion = (country, mapObj) ->
       scope.currentCountry = country
@@ -618,9 +620,9 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
     $scope.showContinent = (continent) ->
       if continent.is_us_map is "1"
         $scope.bringUSMapToFront(true, continent)
-
       else
         $scope.bringUSMapToFront(false, continent)
+      return
 
     $scope.showCountry = (country, continent) ->
       countryCode = country.abbreviation
@@ -631,6 +633,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         else
           $scope.bringUSMapToFront(false, continent)
           $scope.highlightCountryRegion(country, $scope.worldMapObject)
+      return
 
   restrict: "E"
   link: link
@@ -1404,7 +1407,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
 
     createImagePattern = (id, url) ->
       # Set namespace for SVG elements.
-      svgMap      = $('.jvectormap-container > svg').get(0);
+      svgMap      = angular.element('.jvectormap-container > svg').get(0);
       svgNS       = 'http://www.w3.org/2000/svg';
       svgNSXLink  = 'http://www.w3.org/1999/xlink';
 
@@ -1441,7 +1444,8 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
         "coords" : []
         "icons" : []
 
-      $("#world-map-gdp").vectorMap
+      wolrd_map = angular.element("#world-map-gdp")
+      wolrd_map.vectorMap
         map: "world_mill_en"
         markers: markerList.coords
         markersSelectableOne: true
@@ -1479,7 +1483,6 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
               </div>
             </div>
           "
-
           $popup.fadeOut "slow", ->
             $popup
               .find(".content").empty()
@@ -1507,10 +1510,10 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)
 
-      undefined
+      return
 
     $timeout(generateMap, 1200);
-    undefined
+    return
 ]
 
 # Directive that prevents submit if there are still form errors
