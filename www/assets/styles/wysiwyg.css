@@ -3382,10 +3382,10 @@ pagination {
     float: left;
     height: 104px;
     width: 40%;
-    overflow: hidden; }
-    .map-as-feed .entry-image img {
-      width: 100%;
-      height: auto; }
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
   .map-as-feed .entry-content {
     float: left;
     width: 60%;

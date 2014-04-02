@@ -194,11 +194,11 @@
     float: left;
     height: 104px;
     width: 40%;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: auto;
-    }
+    @include background-cover;
+    // img {
+    //   width: 100%;
+    //   height: auto;
+    // }
   }
   .entry-content {
     float: left;
