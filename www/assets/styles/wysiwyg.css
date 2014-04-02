@@ -2413,6 +2413,10 @@ pagination {
     margin-bottom: 20px; }
     .swiper .logo img {
       width: 50px; }
+    @media screen and (max-width: 569px) {
+      .swiper .logo.ng-hide {
+        height: 44px;
+        display: block !important; } }
   .swiper .action-link.bordered {
     padding: 10px 30px;
     border: 2px solid white; }
@@ -3420,6 +3424,10 @@ pagination {
   padding: 2px 35px 3px;
   border: 2px solid #00b3d2;
   margin: 10px; }
+  @media screen and (max-width: 569px) {
+    .home-page .swiper aside:not(.side-panel) a.text-link, .home-page .swiper aside.not-side-panel a.text-link {
+      padding: 0;
+      border: none; } }
 
 .legal-page .article-section {
   text-align: center;

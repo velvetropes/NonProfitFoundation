@@ -248,6 +248,10 @@
         padding: 2px 35px 3px;
         border: 2px solid $light-blue;
         margin: 10px;
+        @include media($mobile) {
+          padding: 0;
+          border: none;
+        }
       }
     }
   }

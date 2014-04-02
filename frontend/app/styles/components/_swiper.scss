@@ -228,6 +228,12 @@
     img {
       width: 50px;
     }
+    @include media($mobile) {
+      &.ng-hide {
+        height: 44px;
+        display: block !important;
+      }
+    }
   }
   .action-link.bordered {
     padding: 10px 30px;
