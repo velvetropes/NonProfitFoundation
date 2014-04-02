@@ -1500,7 +1500,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             $("html, body").animate
               scrollTop: $("#world-map-gdp").offset().top - 88
             , "slow"
-            bodyDiv.style.overflow = "hidden"
+            # bodyDiv.style.overflow = "hidden"
 
             $popup.find('.close').click ->
               $popup
@@ -1517,6 +1517,12 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
     $timeout(generateMap, 1200);
     return
 ]
+
+$ ->
+  $(document).on 'mouseenter', '#map-popup .jspScrollable', ->
+    $('body').css('overflow', 'hidden')
+  $(document).on 'mouseleave', '#map-popup .jspScrollable', ->
+    $('body').css('overflow', 'auto')
 
 # Directive that prevents submit if there are still form errors
 sfDirectives.directive "validSubmit", ["$parse", ($parse) ->
