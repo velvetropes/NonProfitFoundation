@@ -24,7 +24,7 @@ ul.pagination-articles {
       position: relative;
       .image {
         position: absolute;
-        bottom: 115px;
+        bottom: 130px;
         right: 0;
         left: 0;
         top: 0;
@@ -44,7 +44,7 @@ ul.pagination-articles {
       }
       .read-more {
         position: absolute;
-        bottom: 2px;
+        bottom: 0;
         right: 10px;
         text-transform: uppercase;
         font-weight: bold;
@@ -55,7 +55,7 @@ ul.pagination-articles {
       }
       .category {
         position: absolute;
-        bottom: 72px;
+        bottom: 88px;
         left: 20px;
         text-transform: uppercase;
         font-weight: bold;

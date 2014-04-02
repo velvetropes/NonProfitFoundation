@@ -2072,7 +2072,7 @@ ul.pagination-articles {
       position: relative; }
       ul.pagination-articles li .block .image {
         position: absolute;
-        bottom: 115px;
+        bottom: 130px;
         right: 0;
         left: 0;
         top: 0;
@@ -2091,7 +2091,7 @@ ul.pagination-articles {
         line-height: 1.2em; }
       ul.pagination-articles li .block .read-more {
         position: absolute;
-        bottom: 2px;
+        bottom: 0;
         right: 10px;
         text-transform: uppercase;
         font-weight: bold;
@@ -2100,7 +2100,7 @@ ul.pagination-articles {
           cursor: pointer; }
       ul.pagination-articles li .block .category {
         position: absolute;
-        bottom: 72px;
+        bottom: 88px;
         left: 20px;
         text-transform: uppercase;
         font-weight: bold;
