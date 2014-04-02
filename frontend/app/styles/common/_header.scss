@@ -4,18 +4,6 @@ body {
   }
 }
 
-.CENTERPIN {
-  width: 2px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  margin-left: -1px;
-  background: red;
-  z-index: 999999999999;
-  opacity: 0.5;
-  display: none;
-}
 .clearfix {
   clear: both;
 }
