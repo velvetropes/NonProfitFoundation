@@ -224,15 +224,9 @@
     }
   }
   .logo {
-    margin-bottom: 20px;
+    margin-bottom: 17px;
     img {
       width: 50px;
-    }
-    @include media($mobile) {
-      &.ng-hide {
-        height: 44px;
-        display: block !important;
-      }
     }
   }
   .action-link.bordered {
@@ -241,6 +235,16 @@
   }
 }
 
+@include media($mobile) {
+  .media-mentions-page {
+    .swiper {
+      .logo.ng-hide {
+        height: 44px;
+        display: block !important;
+      }
+    }
+  }
+}
 
 .gradient-background {
   position: absolute;

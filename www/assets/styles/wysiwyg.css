@@ -2399,17 +2399,17 @@ pagination {
         right: 70px;
         z-index: 1; }
   .swiper .logo {
-    margin-bottom: 20px; }
+    margin-bottom: 17px; }
     .swiper .logo img {
       width: 50px; }
-    @media screen and (max-width: 569px) {
-      .swiper .logo.ng-hide {
-        height: 44px;
-        display: block !important; } }
   .swiper .action-link.bordered {
     padding: 10px 30px;
     border: 2px solid white; }
 
+@media screen and (max-width: 569px) {
+  .media-mentions-page .swiper .logo.ng-hide {
+    height: 44px;
+    display: block !important; } }
 .gradient-background {
   position: absolute;
   bottom: 0;
