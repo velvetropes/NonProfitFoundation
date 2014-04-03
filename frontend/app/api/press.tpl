@@ -9,7 +9,7 @@
 
 
     {if channel_name == "press_releases"}
-        "type"                  : "press_release",
+        "category"                  : "press_release",
         "rawdate"               : "{entry_date format='%U'}",
         "date"                  : "{entry_date format='%m/%d/%Y'}",
         "year"      : "{entry_date format='%Y'}",
@@ -23,7 +23,7 @@
         "video_link":""
 
     {if:else}
-        "type"                  : "media_mention",
+        "category"                  : "media_mention",
         "rawdate"               : "{media_mention_date format='%U'}",
         "date"                  : "{media_mention_date format='%m/%d/%Y'}",
         "year"                  : "{media_mention_date format='%Y'}",
