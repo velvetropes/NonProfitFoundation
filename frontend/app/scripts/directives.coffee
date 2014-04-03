@@ -1069,11 +1069,12 @@ sfDirectives.directive "slide", [ ->
 
     scope.backgroundImageStyle = if scope.hasQuote()
       {
-        'background': scope.backgroundColor
+        "background": scope.backgroundColor
       }
     else
       {
-        'background-image': 'url(' + scope.getImage() + ')'
+        "background": "url('#{scope.getImage()}') no-repeat"
+        "background-size": "cover"
       }
 
     scope.actionLinkStyle = ->
