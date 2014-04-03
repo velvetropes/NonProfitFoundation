@@ -2817,7 +2817,7 @@ pagination {
   padding: 0;
   width: 210px;
   bottom: 20px;
-  left: 0;
+  right: 0;
   z-index: 1;
   background: rgba(16, 97, 146, 0.75); }
   .map-legend ul {
