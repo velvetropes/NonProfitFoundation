@@ -591,7 +591,6 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       scope.currentCountry = {}
       countryCodes = []
       countryCodes.push country.abbreviation for country in continent.countries_visited
-      console.debug "Country Codes", countryCodes
       if countryCodes.length > 0
         mapObj.clearSelectedRegions()
         mapObj.setFocus(countryCodes, .2)
