@@ -1,11 +1,13 @@
 {exp:http_header content_type="application/json"}
-{if segment_3 == "index" OR segment_3 == ""} [
+{if segment_3 == "index" OR segment_3 == ""}
+{
+    "articles": [
     {exp:channel:entries channel="press_releases|media_mentions" dynamic="no" orderby="entry_date" sort="asc" backspace="2"} {
         "id"        : "{url_title}",
         "feed_url"  : "/api/{channel_name}/{url_title}",
         "title"     : "{exp:json_encode}{title}{/exp:json_encode}",
-        
-    
+
+
     {if channel_name == "press_releases"}
         "type"                  : "press_release",
         "rawdate"               : "{entry_date format='%U'}",
@@ -19,7 +21,7 @@
         "call_to_action_text"   : "{exp:json_encode}{title}{/exp:json_encode}",
         "call_to_action_link"   : "Read More",
         "video_link":""
-    
+
     {if:else}
         "type"                  : "media_mention",
         "rawdate"               : "{media_mention_date format='%U'}",
@@ -35,7 +37,56 @@
         "video_link"            : "{media_mention_video_url}"
     {/if}
     }, {/exp:channel:entries}
-]
-{if:else} 
-{ }
+],
+"filters":[
+      {
+         "label":"year",
+         "values":[
+            {
+               "name":"Latest",
+               "value":""
+            },
+            {
+               "name":"2014",
+               "value":"2014"
+            },
+            {
+               "name":"2013",
+               "value":"2013"
+            },
+            {
+               "name":"2012",
+               "value":"2012"
+            },
+            {
+               "name":"2011",
+               "value":"2011"
+            },
+            {
+               "name":"2010",
+               "value":"2010"
+            }
+         ]
+      },
+      {
+         "label":"category",
+         "values":[
+            {
+               "name":"All",
+               "value":""
+            },
+            {
+               "name":"Press Release",
+               "value":"press_release"
+            },
+            {
+               "name":"Media Mention",
+               "value":"media_mention"
+            }
+         ]
+      }
+   ]
+}
+{if:else}
+
 {/if}

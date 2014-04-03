@@ -858,6 +858,99 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
   result
 ]
 
+# Paginated Press List
+sfDirectives.directive "paginatedPressList", ["$filter", "Pagination", ($filter, Pagination) ->
+
+  _composeFilterObject = (filters) ->
+    labels = _.pluck(filters, 'label')
+    filterObject = {}
+    filterObject[l] = "" for l in labels
+    filterObject
+
+  _composePaginationSettings = (scope) ->
+    pagination = Pagination.getNew(scope.perPage)
+    pagination.numPages = 0
+    pageConfig = _.extend {pagination}, {
+      isAtPaginationEnd: false
+      currentPage: 0
+      pageStart: 0
+    }
+    return pageConfig
+
+  _updatePaginationWindowLimits = (scope) ->
+    scope.paginationUpperWindowLimit = scope.pagination.upperWindowLimit()
+    scope.paginationLowerWindowLimit = scope.pagination.lowerWindowLimit()
+
+  _setupWatchers = (scope) ->
+
+    scope.$watch "articlesFilterObject", ->
+      scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.pagination.numPages = Math.ceil(scope.filteredList.length/scope.pagination.perPage)
+      scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
+      scope.showPaginator = if scope.filteredList.length == 0
+        false
+      else
+        scope.articles.length > scope.pagination.perPage
+      return
+    , true
+
+    scope.$watch "articles", ->
+      scope.pagination.numPages = if scope.articles? then Math.ceil(scope.articles.length/scope.pagination.perPage) else scope.pagination.numPages
+      return
+    , true
+
+    scope.$watch "pagination", ->
+      scope.pageStart = scope.pagination.page*scope.perPage
+      scope.currentPage = scope.pagination.page * scope.pagination.perPage
+      _updatePaginationWindowLimits((scope))
+      return
+    , true
+
+  link = (scope, element, attrs) ->
+
+    scope = _.extend scope, _composePaginationSettings(scope)
+
+    scope.articlesFilterObject = _composeFilterObject(scope.filters)
+
+    scope.mobileStop = scope.pagination.perPage
+
+    scope.paginationUpperWindowLimit = 0
+    scope.paginationLowerWindowLimit = 3
+    scope.filteredList = []
+
+    scope.parseDate = (date) ->
+      Date.parse(date)
+
+    scope.loadMore = ->
+      scope.pagination.nextPage() #do we need this?
+      scope.mobileStop = parseInt(scope.mobileStop, 10) + parseInt(scope.pagination.perPage, 10)
+      scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
+      return
+
+    _setupWatchers(scope)
+
+    scope.isInPageRange = (n) ->
+      thisPage = parseInt(n, 10)
+      currentPage = scope.pagination.page
+      upToPage = currentPage + 2
+      if thisPage in [scope.paginationLowerWindowLimit..scope.paginationUpperWindowLimit] then true else false
+
+    return
+
+  result =
+    restrict: "EA"
+    transclude: true
+    replace: true
+    templateUrl: "templates/paginated_press_list.html"
+    link: link
+    scope:
+      perPage: "@"
+      articles: "="
+      filters: "="
+  result
+]
+
 sfDirectives.factory("Pagination", ->
   pagination = {}
   pagination.getNew = (perPage) ->

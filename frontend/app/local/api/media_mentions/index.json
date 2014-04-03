@@ -1,17 +1,320 @@
- [
-  {
-    "id":"55",
-    "title": "CNN to Spotlight SHF",
-    "date":"02 07 2014",
-    "year": "2014",
-    "type":"Media Mention",
-    "featured":"false",
-    "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/CAROUSEL-William_F._Austin_Legacy_Film.jpg",
-    "logo_image_url":"http://starkey.ahundredyears.com/uploads/cnnlogo.png",
-    "quote":"",
-    "call_to_action_text":"",
-    "call_to_action_link":"",
-    "video_link":"http://www.youtube.com/watch?v=CvYDRtPh46Q",
-    "body":""
-  }
-]
+{
+   "articles": [
+     {
+        "id"        : "testing-press-releases",
+        "feed_url"  : "/api/press_releases/testing-press-releases",
+        "title"     : "testing press releases",
+
+
+            "type"                  : "press_release",
+        "rawdate"               : "1346861880",
+        "date"                  : "09/05/2012",
+        "year"      : "2012",
+        "detail_page"           : "true",
+        "featured"              : "false",
+        "header_image_url"      : "",
+        "logo_image_url"        : "",
+        "quote"                 : "",
+        "call_to_action_text"   : "testing press releases",
+        "call_to_action_link"   : "Read More",
+        "video_link":""
+
+        },  {
+        "id"        : "twins-blog-the-first-starkey-mission",
+        "feed_url"  : "/api/media_mentions/twins-blog-the-first-starkey-mission",
+        "title"     : "Twins Blog: The First Starkey Mission",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1390869960",
+        "date"                  : "01/27/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "false",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/MEDIA-01.27.14_CBS_MNLocal_TwinsBlog.png",
+        "logo_image_url"        : "",
+        "quote"                 : "",
+        "call_to_action_text"   : "READ MORE",
+        "call_to_action_link"   : "http://minnesota.cbslocal.com/2014/01/27/twins-blog-the-first-starkey-mission/",
+        "video_link"            : ""
+        },  {
+        "id"        : "starkey-press-release-test",
+        "feed_url"  : "/api/press_releases/starkey-press-release-test",
+        "title"     : "Starkey Press Release Test",
+
+
+            "type"                  : "press_release",
+        "rawdate"               : "1391807640",
+        "date"                  : "02/07/2014",
+        "year"      : "2014",
+        "detail_page"           : "true",
+        "featured"              : "false",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/Blog_A_Knight.jpg",
+        "logo_image_url"        : "",
+        "quote"                 : "",
+        "call_to_action_text"   : "Starkey Press Release Test",
+        "call_to_action_link"   : "Read More",
+        "video_link":""
+
+        },  {
+        "id"        : "starkey_executive_director-speaks_on_the_miracle",
+        "feed_url"  : "/api/media_mentions/starkey_executive_director-speaks_on_the_miracle",
+        "title"     : "Starkey Executive Director Speaks on the \u2018Miracle\u2019 of Watching Patients Hear for the Very First Time",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1391388900",
+        "date"                  : "02/02/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "true",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/MEDIA-08.02_.14_CGI_Blog_.png",
+        "logo_image_url"        : "",
+        "quote"                 : "Executive Director Steven Sawalich discusses the critical need for increasing access to hearing aid technology in sub-Saharan Africa, his sustainable approach to restoring children's sense of hearing, and the one patient he will never forget. ",
+        "call_to_action_text"   : "Read More ",
+        "call_to_action_link"   : "http://www.clintonfoundation.org/blog/2013/08/02/starkey-executive-director-speaks-miracle-watching-patients-hear-very-first-time",
+        "video_link"            : ""
+        },  {
+        "id"        : "a-record-setting-year-for-the-starkey-hearing-foundation",
+        "feed_url"  : "/api/press_releases/a-record-setting-year-for-the-starkey-hearing-foundation",
+        "title"     : "A Record-Setting Year for the Starkey Hearing Foundation",
+
+
+            "type"                  : "press_release",
+        "rawdate"               : "1392152340",
+        "date"                  : "02/11/2014",
+        "year"      : "2014",
+        "detail_page"           : "true",
+        "featured"              : "false",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/CAROUSEL-2013_STWMH_Awards_Gala_Highlights.jpg",
+        "logo_image_url"        : "",
+        "quote"                 : "",
+        "call_to_action_text"   : "A Record-Setting Year for the Starkey Hearing Foundation",
+        "call_to_action_link"   : "Read More",
+        "video_link":""
+
+        },  {
+        "id"        : "starkey-hearing-foundation-offers-assistance-in-boston",
+        "feed_url"  : "/api/press_releases/starkey-hearing-foundation-offers-assistance-in-boston",
+        "title"     : "Starkey Hearing Foundation Offers Assistance in Boston",
+
+
+            "type"                  : "press_release",
+        "rawdate"               : "1392158220",
+        "date"                  : "02/11/2014",
+        "year"      : "2014",
+        "detail_page"           : "true",
+        "featured"              : "false",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/PRESS_RELEASE-SHF_Logo.png",
+        "logo_image_url"        : "",
+        "quote"                 : "",
+        "call_to_action_text"   : "Starkey Hearing Foundation Offers Assistance in Boston",
+        "call_to_action_link"   : "Read More",
+        "video_link":""
+
+        },  {
+        "id"        : "couple-brings-gifts-of-hearing-to-impaired-across-the-globe",
+        "feed_url"  : "/api/media_mentions/couple-brings-gifts-of-hearing-to-impaired-across-the-globe",
+        "title"     : "Couple Brings Gift of Hearing to Impaired Across the Globe",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1390609800",
+        "date"                  : "01/24/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "true",
+        "header_image_url"      : "",
+        "logo_image_url"        : "",
+        "quote"                 : "Hearing is very emotional, Tani Austin said. It\u2019s the road to the heart.\n",
+        "call_to_action_text"   : "READ MORE",
+        "call_to_action_link"   : "http://abcnews.go.com/blogs/health/2014/01/21/couple-brings-gift-of-hearing-to-impaired-across-the-globeusand/",
+        "video_link"            : ""
+        },  {
+        "id"        : "test-media-mentio",
+        "feed_url"  : "/api/media_mentions/test-media-mentio",
+        "title"     : "TEST Media Mention 24\/Mar\/14",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1370460780",
+        "date"                  : "06/05/2013",
+        "year"                  : "2013",
+        "detail_page"           : "false",
+        "featured"              : "false",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/billaustin.jpg",
+        "logo_image_url"        : "http://starkey.ahundredyears.com/uploads/images/apple_logo_1.jpg",
+        "quote"                 : "test test test",
+        "call_to_action_text"   : "CTA Text test test test",
+        "call_to_action_link"   : "http://www.clintonfoundation.org/blog/2013/08/02/starkey-executive-director-speaks-miracle-watching-patients-hear-very-first-time",
+        "video_link"            : "http://youtu.be/rDqXwUS402I"
+        },  {
+        "id"        : "new-entry-media-mentions-1394495216",
+        "feed_url"  : "/api/media_mentions/new-entry-media-mentions-1394495216",
+        "title"     : "Media Mentions 1394495216",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1394495760",
+        "date"                  : "03/10/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "true",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/BLOG_Giving_Back_the-World_in_Trujillo-LEAD.jpg",
+        "logo_image_url"        : "",
+        "quote"                 : "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec rutrum congue leo eget malesuada. Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.",
+        "call_to_action_text"   : "",
+        "call_to_action_link"   : "",
+        "video_link"            : ""
+        },  {
+        "id"        : "new-media-mentions-entry-28-mar-14",
+        "feed_url"  : "/api/media_mentions/new-media-mentions-entry-28-mar-14",
+        "title"     : "New Media Mentions Entry 28\/Mar\/14",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1396037640",
+        "date"                  : "03/28/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "true",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/BLOG-Encouraging_ablity_in_Ain_Arab-FILM.png",
+        "logo_image_url"        : "",
+        "quote"                 : "Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac diam sit amet quam vehicul",
+        "call_to_action_text"   : "",
+        "call_to_action_link"   : "",
+        "video_link"            : ""
+        },  {
+        "id"        : "476-charactes",
+        "feed_url"  : "/api/media_mentions/476-charactes",
+        "title"     : "350 Characters",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1396374780",
+        "date"                  : "04/01/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "true",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Building_a_Better_Kibera.jpg",
+        "logo_image_url"        : "",
+        "quote"                 : "350 CHARACTERS: Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur non nulla sit amet ",
+        "call_to_action_text"   : "",
+        "call_to_action_link"   : "/blog#/articles/new-blog-entry-1394495216",
+        "video_link"            : ""
+        },  {
+        "id"        : "475-characters-cta-text",
+        "feed_url"  : "/api/media_mentions/475-characters-cta-text",
+        "title"     : "350 Characters + CTA Text + Logo",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1396462140",
+        "date"                  : "04/02/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "true",
+        "header_image_url"      : "",
+        "logo_image_url"        : "http://starkey.ahundredyears.com/uploads/images/apple_logo_1.jpg",
+        "quote"                 : "350 CHARACTERS + CTA Text: Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur non null",
+        "call_to_action_text"   : "CTA Link",
+        "call_to_action_link"   : "/blog#/articles/",
+        "video_link"            : ""
+        },  {
+        "id"        : "test-press",
+        "feed_url"  : "/api/press_releases/test-press",
+        "title"     : "Test Press",
+
+
+            "type"                  : "press_release",
+        "rawdate"               : "1396388100",
+        "date"                  : "04/01/2014",
+        "year"      : "2014",
+        "detail_page"           : "true",
+        "featured"              : "false",
+        "header_image_url"      : "http://starkey.ahundredyears.com/uploads/images/GalaGuys.jpg",
+        "logo_image_url"        : "",
+        "quote"                 : "",
+        "call_to_action_text"   : "Test Press",
+        "call_to_action_link"   : "Read More",
+        "video_link":""
+
+        },  {
+        "id"        : "100-characters",
+        "feed_url"  : "/api/media_mentions/100-characters",
+        "title"     : "100 Characters",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1396481520",
+        "date"                  : "04/02/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "true",
+        "header_image_url"      : "",
+        "logo_image_url"        : "",
+        "quote"                 : "100 CHARACTERS: Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis et al",
+        "call_to_action_text"   : "READ MORE",
+        "call_to_action_link"   : "https://news.google.com/",
+        "video_link"            : ""
+        },  {
+        "id"        : "50-characters",
+        "feed_url"  : "/api/media_mentions/50-characters",
+        "title"     : "50 Characters",
+
+
+            "type"                  : "media_mention",
+        "rawdate"               : "1396568100",
+        "date"                  : "04/03/2014",
+        "year"                  : "2014",
+        "detail_page"           : "false",
+        "featured"              : "true",
+        "header_image_url"      : "",
+        "logo_image_url"        : "",
+        "quote"                 : "50 CHARACTERS: Cras ultricies ligula sed magna il.",
+        "call_to_action_text"   : "READ MORE",
+        "call_to_action_link"   : "https://news.ycombinator.com/",
+        "video_link"            : ""
+        }
+    ],
+   "filters":[
+      {
+         "label":"year",
+         "values":[
+            {
+               "name":"Latest",
+               "value":""
+            },
+            {
+               "name":"2014",
+               "value":"2014"
+            },
+            {
+               "name":"2013",
+               "value":"2013"
+            },
+            {
+               "name":"2011",
+               "value":"2011"
+            }
+         ]
+      },
+      {
+         "label":"category",
+         "values":[
+            {
+               "name":"All",
+               "value":""
+            },
+            {
+               "name":"Press Release",
+               "value":"press_release"
+            },
+            {
+               "name":"Media Mention",
+               "value":"media_mention"
+            }
+         ]
+      }
+   ]
+}
