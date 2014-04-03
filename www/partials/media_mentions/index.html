@@ -15,7 +15,7 @@
     paginator="true"
     >
     <div slide
-      ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'media_mention'}"
+      ng-repeat="media_mention in pressItems | filter:{featured:'true',category:'media_mention'}"
       image-url="{{media_mention.header_image_url}}"
       background-color="#5CA5D6"
       quote="{{media_mention.quote}}"
