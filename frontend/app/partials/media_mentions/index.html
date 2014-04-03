@@ -6,7 +6,7 @@
 </section>
 
 <section class="carousel hero short">
-  <swiper
+  <div swiper
     continuous="true"
     speed="2000"
     identifier="swiper_1"
@@ -14,7 +14,7 @@
     size="short"
     paginator="true"
     >
-    <slide
+    <div slide
       ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'media_mention'}"
       image-url="{{media_mention.header_image_url}}"
       background-color="#5CA5D6"
@@ -26,8 +26,8 @@
       link-style="bordered"
       link-text="{{media_mention.call_to_action_text}}"
     >
-    </slide>
-  </swiper>
+    </div>
+  </div>
 </section>
 
 <br/>

@@ -1,6 +1,6 @@
 <div>
   <section class='mobile-carousel carousel hero add-bottom-border'>
-    <swiper
+    <div swiper
       continuous="true"
       speed="2000"
       identifier="swiper_1"
@@ -9,21 +9,21 @@
       size="short"
       >
       <div ng-repeat="article in blogArticles | filter:{featured:'true'}">
-        <slide
+        <div slide
           image-url="{{article.thumbnail_image_url}}"
           blog-category="{{article.category}}"
           video-url=""
           link-url="#/articles/{{article.id}}"
           headline="{{article.title}}"
           link-text="Read More →"
-        ></slide>
+        ></div>
       </div>
-    </swiper>
+    </div>
   </section>
 
   <section class='carousel thumblist'>
-    <thumblist-nav full="true">
-      <slide
+    <div thumblist-nav full="true">
+      <div slide
         ng-repeat="article in blogArticles | filter:{featured:'true'}"
         thumblist="true"
         image-url="{{article.thumbnail_image_url}}"
@@ -32,8 +32,8 @@
         link-url="#/articles/{{article.id}}"
         headline="{{article.title}}"
         link-text=""
-      ></slide>
-    </thumblist-nav>
+      ></div>
+    </div>
   </section>
 
   <paginated-article-list per-page="9" articles="blogArticles" filters="blogFilters"></paginated-article-list>

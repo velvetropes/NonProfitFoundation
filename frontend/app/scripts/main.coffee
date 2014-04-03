@@ -6,7 +6,8 @@ requiredModules = [
   "sfControllers",
   "sfDirectives",
   "sfFilters",
-  "sfServices"
+  "sfServices",
+  "ng.shims.placeholder"
 ]
 
 FB_ID = "1391926457745223"

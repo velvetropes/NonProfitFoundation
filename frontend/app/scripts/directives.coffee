@@ -53,7 +53,7 @@ sfDirectives.directive "accordionList", [->
       <ul ng-transclude></ul>
     </div>
     """
-  restrict: "E"
+  restrict: "EA"
   replace: true
   transclude: true
   template: template
@@ -72,7 +72,7 @@ sfDirectives.directive "accordionListItem", [->
       <div ng-transclude></div>
     </li>
     """
-  restrict: "E"
+  restrict: "EA"
   replace: true
   transclude: true
   template: template
@@ -163,7 +163,7 @@ sfDirectives.directive "dropdown", [ ->
     return
 
   result =
-    restrict: "E"
+    restrict: "EA"
     transclude: true
     replace: true
     controller: controller
@@ -349,7 +349,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
     """
-  restrict: "E"
+  restrict: "EA"
   link: link
   template: template
   transclude: true
@@ -397,10 +397,13 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
         $location.url($location.url() + '?video=' + scope.youtubeId())
 
     scope.slideType = ->
-      if scope.hasVideo()
-        "links_to_video"
-      else
-        "plain_image"
+      if scope.hasVideo() then "links_to_video" else "plain_image"
+
+    scope.slideClasses = ->
+      classes = scope.hasVideo()
+      if scope.single
+        classes += ' single' 
+      classes
 
     scope.backgroundImageStyle = ->
       if (scope.single)
@@ -416,7 +419,7 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
       }
 
   result =
-    restrict: "E"
+    restrict: "EA"
     replace: true
     templateUrl:
       "templates/gallery_slide.html"
@@ -460,7 +463,7 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
     return
 
   return {
-    restrict: "E"
+    restrict: "EA"
     link: link
     templateUrl: "templates/home_thumblist_nav.html"
     replace: true
@@ -484,7 +487,7 @@ sfDirectives.directive("instagramGallery", [
   "Instagram"
   ($http, Instagram) ->
     return {
-      restrict: "E"
+      restrict: "EA"
       scope: {}
       replace: true
       templateUrl: "templates/instagram_gallery.html"
@@ -501,7 +504,7 @@ sfDirectives.directive("latestBlogPost", [
   "LatestBlog"
   ($http, LatestBlog) ->
     return {
-      restrict: "E"
+      restrict: "EA"
       scope: {}
       replace: true
       templateUrl: "templates/latest_blog_post.html"
@@ -844,7 +847,7 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     return
 
   result =
-    restrict: "E"
+    restrict: "EA"
     transclude: true
     replace: true
     templateUrl: "templates/paginated_article_list.html"
@@ -905,7 +908,7 @@ sfDirectives.directive "panelTab", [->
     scope.showActionLink = ->
       scope.featured?.panel_call_to_action_link_url?.length > 0
 
-  restrict: "E"
+  restrict: "EA"
   templateUrl: "templates/panel_tab.html"
   replace: true
   link: link
@@ -947,7 +950,7 @@ sfDirectives.directive "regionDropdown", [ ->
       scope.currentRegion.region.length and scope.currentRegion.region != "USA"
 
   result =
-    restrict: "E"
+    restrict: "EA"
     transclude: true
     replace: true
     templateUrl: "templates/region_dropdown.html"
@@ -1089,7 +1092,7 @@ sfDirectives.directive "slide", [ ->
 
   controller = ($scope, $element) ->
   result =
-    restrict: "E"
+    restrict: "EA"
     controller: controller
     replace: true
     templateUrl: (elem, attr) ->
@@ -1241,7 +1244,7 @@ sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
         @$apply fn
       return
 
-  restrict: "E"
+  restrict: "EA"
   template: """
     <li ng-click="toggle(position)" ng-class="{on:isCurrent==true}"></li>
     """
@@ -1267,7 +1270,7 @@ sfDirectives.directive "tabbedNav", ["$window", ($window) ->
       scope.currentTab = tabIndex
       $window.location.href = scope.tabs[tabIndex].link
 
-  restrict: "E"
+  restrict: "EA"
   link: link
   templateUrl: "templates/tabbed_nav.html"
   transclude: true
@@ -1320,7 +1323,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
   template = """
     <div ng-class="thumbClasses()" ng-transclude></div>
     """
-  restrict: "E"
+  restrict: "EA"
   link: link
   template: template
   transclude: true
@@ -1349,7 +1352,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
 # ]
 
 sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
-  restrict: "E"
+  restrict: "EA"
   scope: {
     show: "="
   }
@@ -1404,7 +1407,7 @@ sfDirectives.directive 'formThankYou', ["$window", ($window) ->
 ]
 
 sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
-  restrict: "E"
+  restrict: "EA"
   templateUrl: "templates/world_map.html"
   transclude: true
   replace: true

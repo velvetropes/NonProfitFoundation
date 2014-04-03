@@ -5,7 +5,7 @@
         Overview
       </div>
       <div class="carousel half-wit">
-        <swiper
+        <div swiper
           continuous="true"
           speed="2000"
           identifier="swiper_1"
@@ -14,7 +14,7 @@
           size="short narrow"
           >
           {galla_overview_carousel}
-          <slide
+          <div slide
               image-url='{galla_overview_carousel:image}'
               background-color=""
               quote=""
@@ -26,9 +26,9 @@
               link-style=""
               link-text=""
             >
-          </slide>
+          </div>
           {/galla_overview_carousel}
-        </swiper>
+        </div>
       </div>
 
       <div class="main-story generic-article-typography">
