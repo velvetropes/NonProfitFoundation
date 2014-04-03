@@ -250,6 +250,7 @@
         margin: 10px;
         @include media($mobile) {
           padding: 0;
+          margin: 0;
           border: none;
         }
       }

@@ -2357,10 +2357,12 @@ pagination {
             font-size: 18px;
             margin: 10px 10px 4px; }
           .swiper aside:not(.side-panel) a, .swiper aside.not-side-panel a {
-            float: right;
             color: #2d2d2d;
             font-size: 11px;
-            margin-top: 3px; }
+            position: absolute;
+            bottom: 6px;
+            right: 10px;
+            margin: 0; }
             .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
               padding: 0;
               border: none; }
@@ -3427,6 +3429,7 @@ pagination {
   @media screen and (max-width: 569px) {
     .home-page .swiper aside:not(.side-panel) a.text-link, .home-page .swiper aside.not-side-panel a.text-link {
       padding: 0;
+      margin: 0;
       border: none; } }
 
 .legal-page .article-section {
