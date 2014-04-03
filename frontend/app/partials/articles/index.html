@@ -1,39 +1,38 @@
-<div>
-  <section class='mobile-carousel carousel hero add-bottom-border'>
-    <div swiper
-      continuous="true"
-      speed="2000"
-      identifier="swiper_1"
-      auto="8000"
-      paginator="true"
-      size="short"
-      >
-      <div ng-repeat="article in blogArticles | filter:{featured:'true'}">
-        <div slide
-          image-url="{{article.thumbnail_image_url}}"
-          blog-category="{{article.category}}"
-          video-url=""
-          link-url="#/articles/{{article.id}}"
-          headline="{{article.title}}"
-          link-text="Read More →"
-        ></div>
-      </div>
-    </div>
-  </section>
-
-  <section class='carousel thumblist'>
-    <div thumblist-nav full="true">
+<section class='mobile-carousel carousel hero add-bottom-border'>
+  <div swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_1"
+    auto="8000"
+    paginator="true"
+    size="short"
+    >
+    <div ng-repeat="article in blogArticles | filter:{featured:'true'}">
       <div slide
-        ng-repeat="article in blogArticles | filter:{featured:'true'}"
-        thumblist="true"
         image-url="{{article.thumbnail_image_url}}"
         blog-category="{{article.category}}"
         video-url=""
         link-url="#/articles/{{article.id}}"
         headline="{{article.title}}"
-        link-text=""
+        link-text="Read More →"
       ></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <paginated-article-list per-page="9" articles="blogArticles" filters="blogFilters"></paginated-article-list>
+<section class='carousel thumblist'>
+  <div thumblist-nav full="true">
+    <div slide
+      ng-repeat="article in blogArticles | filter:{featured:'true'}"
+      thumblist="true"
+      image-url="{{article.thumbnail_image_url}}"
+      blog-category="{{article.category}}"
+      video-url=""
+      link-url="#/articles/{{article.id}}"
+      headline="{{article.title}}"
+      link-text=""
+    ></div>
+  </div>
+</section>
+
+<paginated-article-list per-page="9" articles="blogArticles" filters="blogFilters"></paginated-article-list>
