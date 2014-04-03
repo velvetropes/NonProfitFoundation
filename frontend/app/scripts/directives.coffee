@@ -402,7 +402,7 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
     scope.slideClasses = ->
       classes = scope.hasVideo()
       if scope.single
-        classes += ' single' 
+        classes += ' single'
       classes
 
     scope.backgroundImageStyle = ->
@@ -560,7 +560,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         scope.usMapObject = angular.element("#missions-us-map").vectorMap("get", "mapObject")
         return
       , 500)
-      
+
       $timeout( ->
         scope.worldMapObject.setFocus(1.15, 0.82, 0.47)
         return
@@ -1473,7 +1473,8 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
         onMarkerClick: (event, index) =>
           content = markerList.meta_data[index]
           $popup = $('#map-popup')
-
+          $popup.css
+            left: "#{window.innerWidth/2}px"
           bodyDiv = document.getElementsByTagName("body")[0]
 
           # Define HTML templates.
@@ -1531,8 +1532,10 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
 $ ->
   $(document).on 'mouseenter', '#map-popup .text-popup-container', ->
     $('body').css('overflow', 'hidden')
+
   $(document).on 'mouseleave', '#map-popup .text-popup-container', ->
     $('body').css('overflow', 'auto')
+
 
 # Directive that prevents submit if there are still form errors
 sfDirectives.directive "validSubmit", ["$parse", ($parse) ->
