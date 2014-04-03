@@ -8,7 +8,7 @@
   <div id='{{identifier}}' class='swipe'>
     <div class='swipe-wrap' ng-transclude>
       <div ng-if="slides.length > 0">
-      <slide
+      <div slide
         ng-repeat="item in slides"
         image-url="{{item.thumbnail_image_url}}"
         background-color=""
@@ -21,7 +21,7 @@
         link-style=""
         link-text="{{item}}"
       >
-      </slide>
+      </div>
       </div>
     </div>
   </div>

@@ -1530,7 +1530,7 @@ footer {
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+            -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       .social-info > ul > li p {
         margin: 0 0 2px;
         clear: both; }
@@ -1734,7 +1734,7 @@ footer {
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
-          -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+          -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
         @media screen and (max-width: 768px) {
           .accordion .expander .body .accordion-list .accordion-list-item {
             float: left;
@@ -2023,7 +2023,7 @@ footer {
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+      -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       .single-image-gallery .gallery-slide a img {
         height: 536px; }
   @media screen and (min-width: 570px) and (max-width: 768px) {
@@ -2082,7 +2082,7 @@ ul.pagination-articles {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+        -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       ul.pagination-articles li .block .headline {
         position: absolute;
         bottom: 14px;
@@ -2321,7 +2321,7 @@ pagination {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+    -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
   .swiper aside {
     position: absolute; }
     .swiper aside:not(.side-panel), .swiper aside.not-side-panel {
@@ -2454,7 +2454,7 @@ pagination {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+  -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
 
 .half-wit {
   width: 50%; }
@@ -2547,7 +2547,7 @@ pagination {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+        -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       .thumblist-nav .jspPane > div .content {
         position: absolute;
         bottom: -6px;
@@ -2894,7 +2894,7 @@ pagination {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+    -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
     @media screen and (max-width: 768px) {
       .article-header-image .image {
         height: 375px; } }
@@ -3123,7 +3123,7 @@ pagination {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+        -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
       .highlights ul li .action-link {
         text-align: right;
         text-transform: uppercase;
@@ -3322,7 +3322,7 @@ pagination {
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+      -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
     .bottom-slide-tabs .bottom-slide-tab .panel-image .play-video-link {
       position: absolute;
       left: 50%;
@@ -3388,7 +3388,7 @@ pagination {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+    -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
   .map-as-feed .entry-content {
     float: left;
     width: 60%;
@@ -3750,7 +3750,7 @@ pagination {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    -ms-behavior: url("/images/shared/backgroundsize.min.htc"); }
+    -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
     .missions-map .map-container,
     .missions-map .missions-map-legend,
     .missions-map .missions-map-info {

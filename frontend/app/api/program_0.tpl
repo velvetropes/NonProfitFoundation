@@ -11,9 +11,9 @@
 
 {if operation_change_partnerships:total_rows > 0}
 <section class='carousel thumblist'>
-  <thumblist-nav>
+  <div thumblist-nav>
     {operation_change_partnerships}
-    <slide
+    <div slide
       image-url="{operation_change_partnerships:image}"
       video-url=""
       link-url="{operation_change_partnerships:link}"
@@ -27,13 +27,13 @@
       background-color=""
       logo-image-url=""
       link-style="align-right"
-    ></slide>
+    ></div>
     {/operation_change_partnerships}
-  </thumblist-nav>
+  </div>
 </section>
 
 <section class="mobile-carousel carousel hero short">
-  <swiper
+  <div swiper
     continuous="true"
     speed="2000"
     identifier="swiper_1"
@@ -42,7 +42,7 @@
     paginator="true"
     >
       {operation_change_partnerships}
-      <slide
+      <div slide
         image-url="{operation_change_partnerships:image}"
         background-color=""
         quote=""
@@ -54,9 +54,9 @@
         link-style=""
         link-text="Read More →"
       >
-      </slide>
+      </div>
       {/operation_change_partnerships}
-  </swiper>
+  </div>
 </section>
 {/if}
 {/exp:channel:entries}
