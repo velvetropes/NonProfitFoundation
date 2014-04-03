@@ -256,7 +256,6 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "$filter", "Pagination"
 sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$location", "Articles", "HearingMissionArticle", "Pagination", ($scope, $routeParams, $location, Articles, HearingMissionArticle, Pagination) ->
 ])
 
-# TODO Change to detail page
 sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "PressRelease", "MediaMentionOrPressItem", "api_data", ($scope, $routeParams, PressRelease, MediaMentionOrPressItem, api_data) ->
 
   $scope.article = {

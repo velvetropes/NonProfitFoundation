@@ -922,7 +922,7 @@ sfDirectives.directive "paginatedPressList", ["$filter", "Pagination", ($filter,
       Date.parse(date)
 
     scope.loadMore = ->
-      scope.pagination.nextPage() #do we need this?
+      scope.pagination.nextPage()
       scope.mobileStop = parseInt(scope.mobileStop, 10) + parseInt(scope.pagination.perPage, 10)
       scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
       scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
