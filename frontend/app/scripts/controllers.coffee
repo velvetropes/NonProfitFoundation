@@ -130,54 +130,14 @@ sfControllers.controller("LegalPagesCtrl", ["$scope", "$routeParams", ($scope, $
 ])
 
 # Media Mentions
-sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "$filter", "MediaMentionOrPressItem", "Pagination", ($scope, $filter, MediaMentionOrPressItem, Pagination) ->
+sfControllers.controller("MediaMentionsIndexCtrl", ["$scope", "$filter", "MediaMentionOrPressItem", "api_data", ($scope, $filter, MediaMentionOrPressItem, api_data) ->
 
-  $scope.showPaginator = true
-  $scope.articleFilters = {
-    featured: ''
-    year: ''
-    type: ''
-  }
+  $scope.pressItems = api_data.articles
+  $scope.pressFilters = api_data.filters
 
-  $scope.articleCategories = [
-    {name: "All Articles", value: ''}
-    {name: "Press Release", value: "press_release"}
-    {name: "Media Mention", value: "media_mention"}
-  ]
-
-  $scope.articleYears = [
-    {name: "Latest", value: ''}
-    {name: '2014', value: '2014'}
-    {name: '2013', value: '2013'}
-    {name: '2012', value: '2012'}
-    {name: '2011', value: '2011'}
-    {name: '2010', value: '2010'}
-  ]
-
-  $scope.pressItems = []
-  MediaMentionOrPressItem.getIndex().then (data) ->
-    $scope.pressItems = data
-    $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
-
-    $scope.$watch "articleFilters", ->
-      filteredList = $filter('filter')($scope.pressItems, $scope.articleFilters)
-      $scope.showPaginator = filteredList.length > 0
-      return
-    , true
-
-  $scope.numberOfPages = ->
-    Math.ceil($scope.pressItems.length/$scope.pageSize)
-
-  $scope.parseDate = (date) ->
-    parsedDate = Date.parse(date)
-    parsedDate
-
-  $scope.setTypeFilter = (filterObj)->
-    $scope.articleFilters.type = filterObj.value
 ])
 
-sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "MediaMention", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, MediaMention, MediaMentionOrPressItem, Pagination) ->
+sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "MediaMention", "MediaMentionOrPressItem", "api_data", ($scope, $routeParams, MediaMention, MediaMentionOrPressItem, api_data) ->
 
   $scope.article = {
     prev_item: ""
@@ -197,17 +157,8 @@ sfControllers.controller("MediaMentionsShowCtrl", ["$scope", "$routeParams", "Me
       $scope.article = pressItem
   )
 
-  MediaMentionOrPressItem.getIndex().then (data) ->
-    $scope.pressItems = data
-    $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
-
-  $scope.numberOfPages = ->
-    Math.ceil($scope.pressItems.length/$scope.pageSize)
-
-  $scope.parseDate = (date) ->
-    parsedDate = Date.parse(date)
-    parsedDate
+  $scope.pressItems = api_data.articles
+  $scope.pressFilters = api_data.filters
 ])
 
 # Missions
@@ -306,7 +257,7 @@ sfControllers.controller("MissionsShowCtrl", ["$scope", "$routeParams", "$locati
 ])
 
 # TODO Change to detail page
-sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "PressRelease", "MediaMentionOrPressItem", "Pagination", ($scope, $routeParams, PressRelease, MediaMentionOrPressItem, Pagination) ->
+sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "PressRelease", "MediaMentionOrPressItem", "api_data", ($scope, $routeParams, PressRelease, MediaMentionOrPressItem, api_data) ->
 
   $scope.article = {
     prev_item: ""
@@ -326,17 +277,8 @@ sfControllers.controller("PressReleasesShowCtrl", ["$scope", "$routeParams", "Pr
       $scope.article = pressItem
   )
 
-  MediaMentionOrPressItem.getIndex().then (data) ->
-    $scope.pressItems = data
-    $scope.pagination = Pagination.getNew(9)
-    $scope.pagination.numPages = Math.ceil($scope.pressItems.length/$scope.pagination.perPage)
-
-  $scope.numberOfPages = ->
-    Math.ceil($scope.pressItems.length/$scope.pageSize)
-
-  $scope.parseDate = (date) ->
-    parsedDate = Date.parse(date)
-    parsedDate
+  $scope.pressItems = api_data.articles
+  $scope.pressFilters = api_data.filters
 ])
 
 # Programs

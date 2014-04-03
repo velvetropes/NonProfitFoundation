@@ -80,12 +80,36 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/media_mentions",
     templateUrl: "partials/media_mentions/index.html"
     controller: "MediaMentionsIndexCtrl"
+    resolve: {
+      api_data : [ "MediaMentionOrPressItem", (MediaMentionOrPressItem) ->
+        MediaMentionOrPressItem.getIndex().then(
+          (data) ->
+            data
+        )
+      ]
+    }
   ).when("/press_releases/:pressReleaseId",
     templateUrl: "partials/press_releases/show.html"
     controller: "PressReleasesShowCtrl"
+    resolve: {
+      api_data : [ "MediaMentionOrPressItem", (MediaMentionOrPressItem) ->
+        MediaMentionOrPressItem.getIndex().then(
+          (data) ->
+            data
+        )
+      ]
+    }
   ).when("/media_mentions/:mediaMentionId",
     templateUrl: "partials/media_mentions/show.html"
     controller: "MediaMentionsShowCtrl"
+    resolve: {
+      api_data : [ "MediaMentionOrPressItem", (MediaMentionOrPressItem) ->
+        MediaMentionOrPressItem.getIndex().then(
+          (data) ->
+            data
+        )
+      ]
+    }
   ).otherwise redirectTo: "/media_mentions"
 ]
 
