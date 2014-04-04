@@ -15,19 +15,23 @@
         font-weight: bold;
         font-size: .75em;
         margin: 0;
-        padding: 0 0 0 50px;
+        padding: 0;
       }
       ul {
-        margin: 100px 100px 0;
-        padding: 0;
+        @include outer-container;
+        max-width: 920px;
+        width: 100%;
+        padding: 0 16px;
+        margin: auto;
         li {
           @include span-columns(4);
-          float: none;
-          display: inline-block;
-          margin-right: 0;
+          @include omega(3n);
           margin-bottom: 40px;
-          padding-left: 50px;
           vertical-align: top;
+          padding-right: 25px;
+          @include media($mobile) {
+            @include span-columns(12);
+          }
           p {
             margin: 0;
           }
