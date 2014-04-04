@@ -359,18 +359,17 @@
   .swiper-position {
     display: none;
   }
-}
-
- @include media($mobile) {
-  .add-bottom-border {
-    border-bottom: $dotted-border;
-    padding-bottom: 8px;
+  @include media($tablet-down) {
+    article {
+      background-size: contain;
+      background-position: top center;
+    }
   }
 }
 
-
-@include media($tablet-down) {
-  .mobile-carousel .swiper article {
-    background-size: contain;
+@include media($mobile) {
+  .add-bottom-border {
+    border-bottom: $dotted-border;
+    padding-bottom: 8px;
   }
 }

@@ -2519,14 +2519,15 @@ pagination {
       background: #2d2d2d; }
   .mobile-carousel .swiper-position {
     display: none; }
+  @media screen and (max-width: 768px) {
+    .mobile-carousel article {
+      background-size: contain;
+      background-position: top center; } }
 
 @media screen and (max-width: 569px) {
   .add-bottom-border {
     border-bottom: 1px dotted #8f8f8f;
     padding-bottom: 8px; } }
-@media screen and (max-width: 768px) {
-  .mobile-carousel .swiper article {
-    background-size: contain; } }
 /* Thumblist nav */
 .horizontal-only {
   height: auto;
