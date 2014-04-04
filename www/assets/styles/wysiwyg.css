@@ -1749,7 +1749,7 @@ footer {
 
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   top: 0;
   left: 0;

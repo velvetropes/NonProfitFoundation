@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="/assets/styles/982cdff2.main.css"/>
+    <link rel="stylesheet" href="/assets/styles/57842823.main.css"/>
     
     <script src="/assets/scripts/d64e295e.modernizr.js"></script>
     
@@ -50,7 +50,18 @@
     <![endif]-->
 
     <video-player-modal show='videoIframe' width='90%' height='90%'></video-player-modal>
-    <div id="thankyou-box" form-thank-you show='thankYouBox'></div>
+    <div class='ng-modal' ng-show='showThanks'>
+      <div class='ng-modal-overlay' ng-click='showThanks=false'></div>
+      <div class='ng-modal-dialog' style="width:90%;height:40%;">
+        <div class='ng-modal-close' ng-click='showThanks=false'>X</div>
+        <div class='ng-modal-dialog-content'>
+          <div class='player text-container' style='text-align:center'>
+            <h1>Thank You!</h1>
+            <p>We have recieved your form submission.</p>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <div class='mobile-menu-mask'></div>
     <div class='mobile-menu'>
@@ -366,7 +377,6 @@
               form:class="flatform invert"
               form:valid-submit="valid-submit"
               form:novalidate="novalidate"
-              return="/#thank_you"
             }
               <ul>
                 <li class="leftHalf" ng-class="{'has-error': newsletter.first_name.$invalid && newsletter.$submitted }">
@@ -409,9 +419,9 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/c43fb45a.vendor.js"></script>
+    <script src="/assets/scripts/0bd9448d.vendor.js"></script>
     
-    <script src="/assets/scripts/49a0f4a3.main.js"></script>
+    <script src="/assets/scripts/89b59b9e.main.js"></script>
     
     <script src="/assets/scripts/f7bcce96.plugins.js"></script>
     

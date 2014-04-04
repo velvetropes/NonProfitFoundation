@@ -38,7 +38,6 @@
         form:class="flatform invert"
         form:valid-submit="valid-submit"
         form:novalidate="novalidate"
-        return="/#thank_you"
     }
         <ul>
             <li class="leftHalf" ng-class="{'has-error': provider.first_name.$invalid && provider.$submitted }">

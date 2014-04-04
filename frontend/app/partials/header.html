@@ -1,5 +1,16 @@
 <video-player-modal show='videoIframe' width='90%' height='90%'></video-player-modal>
-<div id="thankyou-box" form-thank-you show='thankYouBox'></div>
+<div class='ng-modal' ng-show='showThanks'>
+  <div class='ng-modal-overlay' ng-click='showThanks=false'></div>
+  <div class='ng-modal-dialog' style="width:90%;height:40%;">
+    <div class='ng-modal-close' ng-click='showThanks=false'>X</div>
+    <div class='ng-modal-dialog-content'>
+      <div class='player text-container' style='text-align:center'>
+        <h1>Thank You!</h1>
+        <p>We have recieved your form submission.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class='mobile-menu-mask'></div>
 <div class='mobile-menu'>
