@@ -2322,6 +2322,9 @@ pagination {
     background-size: cover;
     background-position: center;
     -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
+    @media screen and (max-width: 768px) {
+      .swiper article {
+        background-size: contain; } }
   .swiper aside {
     position: absolute; }
     .swiper aside:not(.side-panel), .swiper aside.not-side-panel {

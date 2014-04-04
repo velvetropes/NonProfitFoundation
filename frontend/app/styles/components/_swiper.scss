@@ -118,6 +118,10 @@
     margin: 0 auto;
     background-color: #000;
     @include background-cover;
+
+    @include media($tablet-down) {
+      background-size: contain;
+    }
   }
   aside {
     position: absolute;
