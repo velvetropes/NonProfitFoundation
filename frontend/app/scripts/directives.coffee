@@ -578,7 +578,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       scope.currentCountry?.name?
 
     scope.continentIsVisible = (continent) ->
-      (continent.countries_visited.length > 0) and (continent.total_hearing_aids_provided.length > 0) and (parseInt(continent.total_hearing_aids_provided, 10) > 0)
+      continent.countries_visited.length > 0 and !!continent.total_hearing_aids_provided
 
     scope.countryClass = (continent) ->
       if continent.is_us_map? and continent.is_us_map is "1"
@@ -1555,7 +1555,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           popupTpl = "
             <span class='close' ng-click='closePopup()'>X</span>
             <img src='#{content.thumbnail_url}' />
-            <span class='play-video-link #{content.marker_type}'></span>
+            <a href='#{content.action_target}' class='play-video-link #{content.marker_type}'>&nbsp;</a>
             <div class='background-popup'>
               <div class='text-popup-container'>
                 <div class='text-popup'>
@@ -1581,10 +1581,10 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
                     .jScrollPane()
                 , 200)
               )
+
             $("html, body").animate
               scrollTop: $("#world-map-gdp").offset().top - 88
             , "slow"
-            # bodyDiv.style.overflow = "hidden"
 
             $popup.find('.close').click ->
               $popup

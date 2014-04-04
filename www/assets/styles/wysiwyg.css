@@ -2721,7 +2721,7 @@ pagination {
   margin-left: -340px;
   z-index: 2; }
   #map-popup .play-video-link {
-    left: 35%;
+    left: 30%;
     display: none; }
     #map-popup .play-video-link.video {
       display: block; }
