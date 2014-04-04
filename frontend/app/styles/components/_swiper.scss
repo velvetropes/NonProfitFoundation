@@ -118,10 +118,6 @@
     margin: 0 auto;
     background-color: #000;
     @include background-cover;
-
-    @include media($tablet-down) {
-      background-size: contain;
-    }
   }
   aside {
     position: absolute;
@@ -360,11 +356,21 @@
       background: #2d2d2d;
     }
   }
+  .swiper-position {
+    display: none;
+  }
 }
 
  @include media($mobile) {
   .add-bottom-border {
     border-bottom: $dotted-border;
     padding-bottom: 8px;
+  }
+}
+
+
+@include media($tablet-down) {
+  .mobile-carousel .swiper article {
+    background-size: contain;
   }
 }

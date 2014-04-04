@@ -2322,9 +2322,6 @@ pagination {
     background-size: cover;
     background-position: center;
     -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
-    @media screen and (max-width: 768px) {
-      .swiper article {
-        background-size: contain; } }
   .swiper aside {
     position: absolute; }
     .swiper aside:not(.side-panel), .swiper aside.not-side-panel {
@@ -2515,11 +2512,16 @@ pagination {
     color: #bebebe; }
     .mobile-carousel h2.stories-title {
       background: #2d2d2d; }
+  .mobile-carousel .swiper-position {
+    display: none; }
 
 @media screen and (max-width: 569px) {
   .add-bottom-border {
     border-bottom: 1px dotted #8f8f8f;
     padding-bottom: 8px; } }
+@media screen and (max-width: 768px) {
+  .mobile-carousel .swiper article {
+    background-size: contain; } }
 /* Thumblist nav */
 .horizontal-only {
   height: auto;
