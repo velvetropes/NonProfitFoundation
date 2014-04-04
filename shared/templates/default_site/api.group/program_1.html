@@ -13,7 +13,7 @@
 <section class='carousel thumblist'>
   <thumblist-nav>
     {listen_carefully_additional_reso}
-      <slide
+      <div slide
         image-url="{listen_carefully_additional_reso:image}"
         video-url=""
         link-url="{listen_carefully_additional_reso:link}"
@@ -27,7 +27,7 @@
         background-color=""
         logo-image-url=""
         link-style="align-right"
-      ></slide>
+      ></div>
     {/listen_carefully_additional_reso}
 </thumblist-nav>
 </section>

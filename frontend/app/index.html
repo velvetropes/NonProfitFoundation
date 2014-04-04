@@ -15,7 +15,7 @@
     <!-- Main content section -->
     <section class="carousel hero black-text-background">
 
-      <swiper
+      <div swiper
         continuous="true"
         speed="2000"
         identifier="swiper_1"
@@ -26,7 +26,8 @@
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="carousels" dynamic="no" limit="1" disable="{global:param_disable_default}"}
             {home_hero limit="5" disable="{global:param_disable_default}"}
-            <slide
+            <div
+              slide
               image-url="{home_hero:homepage_feature_splash_image}"
               background-color=""
               quote=""
@@ -38,12 +39,13 @@
               link-style=""
               link-text="{home_hero:homepage_feature_cta}"
             >
-            </slide>
+            </div>
             {/home_hero}
           {/exp:channel:entries}
         <!--(bake-end)-->
         <!--(bake-start _if="server")-->
-          <slide
+          <div
+            slide
             image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Vikings_Mission-IMG_6312.jpg"
             background-color=""
             quote=""
@@ -55,8 +57,9 @@
             link-style=""
             link-text="Learn More"
             >
-          </slide>
-          <slide
+          </div>
+          <div
+            slide
             image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg"
             background-color=""
             quote=""
@@ -68,8 +71,9 @@
             link-style=""
             link-text="Watch Video"
             >
-          </slide>
-          <slide
+          </div>
+          <div
+            slide
             image-url="http://starkey.ahundredyears.com/uploads/images/HERO-Building_Sustainable_Systems_of_Hearing_Care-02.2.jpg"
             background-color=""
             quote=""
@@ -81,9 +85,9 @@
             link-style=""
             link-text="Watch Video"
             >
-          </slide>
+          </div>
         <!--(bake-end)-->
-      </swiper>
+      </div>
     </section>
 
     <section class='mission-statement'>
@@ -173,13 +177,13 @@
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="homepage_map_items"}
             <div class="entry">
-              <div class="entry-image">
-                <a href="{homepage_map_item_cta_link}"><img src="{homepage_map_item_image}"></a>
-              </div>
+              <a href="{homepage_map_item_cta_link}">
+                <div class="entry-image" style="background-image: url('{homepage_map_item_image}')"></div>
+              </a>
               <div class="entry-content">
                 <h3><a href="{homepage_map_item_cta_link}">{title}</a></h3>
                 <span>{homepage_map_item_location}</span>
-                <a class="read-more" href="{homepage_map_item_cta_link}">Read More →</a>
+                <a class="read-more" href="{homepage_map_item_cta_link}">{homepage_map_item_cta_text}</a>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -187,9 +191,9 @@
         <!--(bake-end)-->
         <!--(bake-start _if="server")-->
           <div class="entry">
-            <div class="entry-image">
-              <a href="http://127.0.0.1:9000/more"><img src="http://starkey.local/uploads/images/MAP-Vikings_Mission-IMG_6064.JPG"></a>
-            </div>
+            <a href="http://127.0.0.1:9000/more">
+              <div class="entry-image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg')"></div>
+            </a>
             <div class="entry-content">
               <h3><a href="http://127.0.0.1:9000/more">Building Momentum for Peace in the West Bank</a></h3>
               <span>West Bank / Europe & Middle East</span>
@@ -198,9 +202,9 @@
             <div class="clearfix"></div>
           </div>
           <div class="entry">
-            <div class="entry-image">
-              <a href="http://127.0.0.1:9000/more"><img src="http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg"></a>
-            </div>
+            <a href="http://127.0.0.1:9000/more">
+              <div class="entry-image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg')"></div>
+            </a>
             <div class="entry-content">
               <h3><a href="http://127.0.0.1:9000/more">Building Momentum for Peace in the West Bank</a></h3>
               <span>West Bank / Europe & Middle East</span>
@@ -209,31 +213,9 @@
             <div class="clearfix"></div>
           </div>
           <div class="entry">
-            <div class="entry-image">
-              <a href="http://127.0.0.1:9000/more"><img src="http://starkey.local/uploads/images/MAP-Vikings_Mission-IMG_6064.JPG"></a>
-            </div>
-            <div class="entry-content">
-              <h3><a href="http://127.0.0.1:9000/more">Building Momentum for Peace in the West Bank</a></h3>
-              <span>West Bank / Europe & Middle East</span>
-              <a class="read-more" href="http://127.0.0.1:9000/more">Read More →</a>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="entry">
-            <div class="entry-image">
-              <a href="http://127.0.0.1:9000/more"><img src="http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg"></a>
-            </div>
-            <div class="entry-content">
-              <h3><a href="http://127.0.0.1:9000/more">Building Momentum for Peace in the West Bank</a></h3>
-              <span>West Bank / Europe & Middle East</span>
-              <a class="read-more" href="http://127.0.0.1:9000/more">Read More →</a>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="entry">
-            <div class="entry-image">
-              <a href="http://127.0.0.1:9000/more"><img src="http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg"></a>
-            </div>
+            <a href="http://127.0.0.1:9000/more">
+              <div class="entry-image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg')"></div>
+            </a>
             <div class="entry-content">
               <h3><a href="http://127.0.0.1:9000/more">Building Momentum for Peace in the West Bank</a></h3>
               <span>West Bank / Europe & Middle East</span>

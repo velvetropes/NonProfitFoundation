@@ -1,4 +1,4 @@
-<div ng-class="slideType()" ng-switch="slideType()" class="gallery-slide">
+<div ng-class="slideClasses()" ng-switch="slideType()" class="gallery-slide">
   <a ng-switch-when="links_to_video" ng-click="displayInModalIfVideo()" ng-style="backgroundImageStyle()" >
     <img ng-if="!single" ng-src="{{imageUrl}}"/>
     <span class="play-video-link"></span>

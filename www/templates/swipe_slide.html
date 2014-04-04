@@ -1,6 +1,8 @@
 <div class="slide">
   <article ng-style="backgroundImageStyle" class="image-container"></article>
-  <blockquote ng-show="hasQuote()">{{quote | strip}}</blockquote>
+  <div ng-show="hasQuote()" class="blockquote-table">
+    <blockquote ng-show="hasQuote()">{{quote | strip}}</blockquote>
+  </div>
   <div ng-show="!hasQuote()" class="gradient-background"></div>
   <div ng-show="hasVideo()">
     <a href ng-click="displayInModalIfVideo()"><span class="play-video-link"></span></a>

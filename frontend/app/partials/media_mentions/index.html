@@ -6,7 +6,7 @@
 </section>
 
 <section class="carousel hero short">
-  <swiper
+  <div swiper
     continuous="true"
     speed="2000"
     identifier="swiper_1"
@@ -14,8 +14,8 @@
     size="short"
     paginator="true"
     >
-    <slide
-      ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'media_mention'}"
+    <div slide
+      ng-repeat="media_mention in pressItems | filter:{featured:'true',category:'media_mention'}"
       image-url="{{media_mention.header_image_url}}"
       background-color="#5CA5D6"
       quote="{{media_mention.quote}}"
@@ -26,83 +26,10 @@
       link-style="bordered"
       link-text="{{media_mention.call_to_action_text}}"
     >
-    </slide>
-  </swiper>
+    </div>
+  </div>
 </section>
 
 <br/>
 
-<div class="outer-container">
-  <div class="pagination" ng-show="showPaginator">
-    <ul>
-      <li class="disabled">
-        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
-      </li>
-      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
-        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
-      </li>
-      <li class="disabled">
-        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
-      </li>
-    </ul>
-  </div>
-
-  <ul class="articles-filters">
-    <li><strong>Sort</strong></li>
-    <li class="filters-devider">|</li>
-    <li class="dropdown desktop">
-      <dropdown options="articleCategories" call-filter="articleFilters.type"></dropdown>
-    </li>
-    <li class="dropdown tablet-down">
-      <select ng-model="articleFilters.type" class="dropdown-select">
-        <option ng-repeat="cat in articleCategories" value="{{cat.value}}">{{cat.name}}</option>
-      </select>
-    </li>
-    <li class="filters-devider">|</li>
-    <li class="dropdown desktop">
-      <dropdown options="articleYears" call-filter="articleFilters.year"></dropdown>
-    </li>
-    <li class="dropdown tablet-down">
-      <select ng-model="articleFilters.year" class="dropdown-select">
-        <option ng-repeat="year in articleYears" value="{{year.value}}">{{year.name}}</option>
-      </select>
-    </li>
-  </ul>
-
-  <section class='articles-list'>
-    <ul class="pagination-articles press-items">
-      <li ng-repeat="article in pressItems | orderBy:'-rawdate' | filter:articleFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-        <page-tile
-          id="{{article.id}}"
-          title="{{article.title}}"
-          date="{{article.date}}"
-          detail_page="{{article.detail_page}}"
-          type="{{article.type}}"
-          featured="{{article.featured}}"
-          header_image_url="{{article.header_image_url}}"
-          logo_image_url="{{article.logo_image_url}}"
-          quote="{{article.quote}}"
-          call_to_action_text="{{article.call_to_action_text}}"
-          call_to_action_link="{{article.call_to_action_link}}"
-          video_link="{{article.video_link}}"
-        ></page-tile>
-      </li>
-    </ul>
-    <div class="clearfix"></div>
-    <div class="load-more">LOAD MORE</div>
-  </section>
-
-  <div class="pagination" ng-show="showPaginator">
-    <ul>
-      <li class="disabled">
-        <a href ng-disabled="pagination.page == 0" ng-click="pagination.prevPage()"><span class="pg-arrow-left">&nbsp;</span>Prev</a>
-      </li>
-      <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: $index==pagination.page}">
-        <a href ng-click="pagination.toPageId(n)">{{n + 1}}</a>
-      </li>
-      <li class="disabled">
-        <a href ng-click="pagination.nextPage()">Next <span class="pg-arrow-right">&nbsp;</span></a>
-      </li>
-    </ul>
-  </div>
-</div>
+<paginated-press-list per-page="9" articles="pressItems" filters="pressFilters"></paginated-press-list>

@@ -77,20 +77,20 @@ class hundies_shortcode {
 
       {exp:channel:entries channel="gallery" dynamic="no" url_title="<?=$id?>" limit="1"}
         {item}
-          {if item:count == 1}<gallery slides="{item:total_rows}">{/if}
-              <gallery-slide
+          {if item:count == 1}<div gallery slides="{item:total_rows}">{/if}
+              <div gallery-slide
                image-url="{item:image}"
                video-url="{item:video}"
-               single="{if item:total_rows == 1}true{/if}"
-              ></gallery-slide>
-          {if item:count == item:total_rows}</gallery>{/if}
+               single="{if item:total_rows == 1}true{/if}">
+             </div>
+          {if item:count == item:total_rows}</div>{/if}
         {/item}
 
         {item}
           {if item:total_rows > 1}
             {if item:count == 1}
             <section class='mobile-carousel carousel hero'>
-              <swiper
+              <div swiper
               continuous="true"
               speed="2000"
               identifier="swiper_1_{url_title}"
@@ -99,7 +99,7 @@ class hundies_shortcode {
               size="short"
               >
             {/if}
-            <slide
+            <div slide
               image-url="{item:image}"
               background-color=""
               quote=""
@@ -111,8 +111,8 @@ class hundies_shortcode {
               link-style=""
               link-text=""
             >
-            </slide>
-            {if item:count == item:total_rows}</swiper></section>{/if}
+            </div>
+            {if item:count == item:total_rows}</div> </section>{/if}
           {/if}
         {/item}
 

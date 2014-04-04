@@ -5,7 +5,9 @@
       <div class="slide" ng-repeat="media_mention in pressItems | filter:{featured:'true',type:'media_mention'}">
         <article ng-style="backgroundStyle(media_mention);">
         </article>
-        <blockquote ng-hide="!isQuote(media_mention)">{{media_mention.quote}}</blockquote>
+        <div ng-hide="!isQuote(media_mention)" class="blockquote-table">
+          <blockquote ng-hide="!isQuote(media_mention)">{{media_mention.quote}}</blockquote>
+        </div>
         <div class="gradient-background" ng-hide="isQuote(media_mention)"></div>
         <aside>
           <div class="logo"><img ng-src="{{media_mention.logo_image_url}}"/></div>

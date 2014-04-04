@@ -45,8 +45,7 @@
   </section>
 
   <section class="carousel hero mission-highlights-carousel">
-
-    <swiper
+    <div swiper
       continuous="true"
       speed="2000"
       identifier="swiper_1"
@@ -54,7 +53,7 @@
       paginator="true"
       size="short"
       >
-        <slide
+        <div slide
           ng-repeat="highlight in highlights"
           image-url="{{highlight.image}}"
           background-color=""
@@ -69,8 +68,8 @@
           layout="side-panel"
           detail-page="true"
           >
-        </slide>
-    </swiper>
+        </div>
+    </div>
   </section>
 
   <section class='articles-list mission-highlights-list'>

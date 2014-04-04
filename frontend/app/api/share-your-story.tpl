@@ -13,7 +13,6 @@
         form:class="flatform invert"
         form:valid-submit="valid-submit"
         form:novalidate="novalidate"
-        return="/#thank_you"
       }
         <ul>
             <li class="full" ng-class="{'has-error': share.user_message.$invalid && share.$submitted }">

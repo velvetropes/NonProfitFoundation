@@ -1,5 +1,8 @@
 .lt-ie9 { 
 
+  .logo .svg {display: none;}
+  .logo .png {display: block !important;}
+
   #map-popup {
     .background-popup, {
       background: rgb(41, 41, 41);

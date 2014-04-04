@@ -1,5 +1,16 @@
 <video-player-modal show='videoIframe' width='90%' height='90%'></video-player-modal>
-<div id="thankyou-box" form-thank-you show='thankYouBox'></div>
+<div class='ng-modal' ng-cloak ng-show='showThanks'>
+  <div class='ng-modal-overlay' ng-click='showThanks=false'></div>
+  <div class='ng-modal-dialog' style="width:90%;height:40%;">
+    <div class='ng-modal-close' ng-click='showThanks=false'>X</div>
+    <div class='ng-modal-dialog-content'>
+      <div class='player text-container' style='text-align:center'>
+        <h1>Thank You!</h1>
+        <p>We have received your form submission.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class='mobile-menu-mask'></div>
 <div class='mobile-menu'>
@@ -150,10 +161,11 @@
       <div class="logo">
         <a href="/">
         <!--(bake-start _if="server")-->
-          <img src="/images/shared/starkey_logo.svg">
+          <img class="svg" src="/images/shared/starkey_logo.svg">
         <!--(bake-end)-->
         <!--(bake-start _if="dist")-->
-          <img src="/images/starkey/starkey_logo.svg">
+          <img class="svg" src="/images/starkey/starkey_logo.svg">
+          <img class="png" style="display:none;" src="/images/starkey/starkey_logo.png">
         <!--(bake-end)-->
         </a>
       </div>

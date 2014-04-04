@@ -33,7 +33,7 @@
   <div class="missions-map-legend">
     <h3>Hearing Mission Regions</h3>
     <ul class="continents">
-      <li ng-repeat="continent in data.continents" ng-click="selectTopLevelList(continent)" ng-class="{active: continent == selectedList}" ng-show="continent.countries_visited.length>0">
+      <li ng-repeat="continent in data.continents" ng-click="selectTopLevelList(continent)" ng-class="{active: continent == selectedList}" ng-show="continent.countries_visited.length>0 || continent.total_hearing_aids_provided.length>0">
         <a href ng-click="showContinent(continent)">{{continentName(continent)}}</a>
         <ul ng-class="countryClass(continent)">
           <li ng-repeat="country in continent.countries_visited">

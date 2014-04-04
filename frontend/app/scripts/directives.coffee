@@ -2,23 +2,23 @@ sfDirectives = angular.module("sfDirectives", ["ngSanitize", "sfFilters"])
 
 # open external links in new window
 sfDirectives.directive 'href', ["$location", "$parse", ($location, $parse) ->
+  require: "a"
   link = (scope, element, attrs) ->
-    if element.prop("tagName") is 'A'
-      url = attrs.href
+    url = attrs.href
 
-      # if not a mailto link and actually has an href value
-      if url.lastIndexOf('mailto:', 0) isnt 0 and url.length > 0
+    # if not a mailto link and actually has an href value
+    if url.lastIndexOf('mailto:', 0) isnt 0 and url.length > 0
 
-        # Check if external domain
-        match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
-        if match? and typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
+      # Check if external domain
+      match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/)
+      if match? and typeof match[2] is "string" and match[2].length > 0 and match[2].toLowerCase() isnt $location.host()
+        element.attr('target', '_blank')
+
+      else
+        # Check if file link
+        match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/)
+        if match? and typeof match[1] is "string" and match[1].length > 0 and match[1].toLowerCase() isnt 'html'
           element.attr('target', '_blank')
-
-        else
-          # Check if file link
-          match = url.match(/\.([0-9a-z]+)(?:[\?#]|$)/)
-          if match? and typeof match[1] is "string" and match[1].length > 0 and match[1].toLowerCase() isnt 'html'
-            element.attr('target', '_blank')
     return
 ]
 
@@ -53,7 +53,7 @@ sfDirectives.directive "accordionList", [->
       <ul ng-transclude></ul>
     </div>
     """
-  restrict: "E"
+  restrict: "EA"
   replace: true
   transclude: true
   template: template
@@ -72,7 +72,7 @@ sfDirectives.directive "accordionListItem", [->
       <div ng-transclude></div>
     </li>
     """
-  restrict: "E"
+  restrict: "EA"
   replace: true
   transclude: true
   template: template
@@ -163,7 +163,7 @@ sfDirectives.directive "dropdown", [ ->
     return
 
   result =
-    restrict: "E"
+    restrict: "EA"
     transclude: true
     replace: true
     controller: controller
@@ -349,7 +349,7 @@ sfDirectives.directive "gallery", [ "$timeout", ($timeout) ->
   template = """
     <div ng-class="galleryClasses()" ng-transclude></div>
     """
-  restrict: "E"
+  restrict: "EA"
   link: link
   template: template
   transclude: true
@@ -397,10 +397,13 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
         $location.url($location.url() + '?video=' + scope.youtubeId())
 
     scope.slideType = ->
-      if scope.hasVideo()
-        "links_to_video"
-      else
-        "plain_image"
+      if scope.hasVideo() then "links_to_video" else "plain_image"
+
+    scope.slideClasses = ->
+      classes = scope.hasVideo()
+      if scope.single
+        classes += ' single'
+      classes
 
     scope.backgroundImageStyle = ->
       if (scope.single)
@@ -416,7 +419,7 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
       }
 
   result =
-    restrict: "E"
+    restrict: "EA"
     replace: true
     templateUrl:
       "templates/gallery_slide.html"
@@ -460,7 +463,7 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
     return
 
   return {
-    restrict: "E"
+    restrict: "EA"
     link: link
     templateUrl: "templates/home_thumblist_nav.html"
     replace: true
@@ -484,7 +487,7 @@ sfDirectives.directive("instagramGallery", [
   "Instagram"
   ($http, Instagram) ->
     return {
-      restrict: "E"
+      restrict: "EA"
       scope: {}
       replace: true
       templateUrl: "templates/instagram_gallery.html"
@@ -501,7 +504,7 @@ sfDirectives.directive("latestBlogPost", [
   "LatestBlog"
   ($http, LatestBlog) ->
     return {
-      restrict: "E"
+      restrict: "EA"
       scope: {}
       replace: true
       templateUrl: "templates/latest_blog_post.html"
@@ -557,7 +560,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
         scope.usMapObject = angular.element("#missions-us-map").vectorMap("get", "mapObject")
         return
       , 500)
-      
+
       $timeout( ->
         scope.worldMapObject.setFocus(1.15, 0.82, 0.47)
         return
@@ -588,7 +591,6 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       scope.currentCountry = {}
       countryCodes = []
       countryCodes.push country.abbreviation for country in continent.countries_visited
-      console.debug "Country Codes", countryCodes
       if countryCodes.length > 0
         mapObj.clearSelectedRegions()
         mapObj.setFocus(countryCodes, .2)
@@ -844,10 +846,103 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     return
 
   result =
-    restrict: "E"
+    restrict: "EA"
     transclude: true
     replace: true
     templateUrl: "templates/paginated_article_list.html"
+    link: link
+    scope:
+      perPage: "@"
+      articles: "="
+      filters: "="
+  result
+]
+
+# Paginated Press List
+sfDirectives.directive "paginatedPressList", ["$filter", "Pagination", ($filter, Pagination) ->
+
+  _composeFilterObject = (filters) ->
+    labels = _.pluck(filters, 'label')
+    filterObject = {}
+    filterObject[l] = "" for l in labels
+    filterObject
+
+  _composePaginationSettings = (scope) ->
+    pagination = Pagination.getNew(scope.perPage)
+    pagination.numPages = 0
+    pageConfig = _.extend {pagination}, {
+      isAtPaginationEnd: false
+      currentPage: 0
+      pageStart: 0
+    }
+    return pageConfig
+
+  _updatePaginationWindowLimits = (scope) ->
+    scope.paginationUpperWindowLimit = scope.pagination.upperWindowLimit()
+    scope.paginationLowerWindowLimit = scope.pagination.lowerWindowLimit()
+
+  _setupWatchers = (scope) ->
+
+    scope.$watch "articlesFilterObject", ->
+      scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.pagination.numPages = Math.ceil(scope.filteredList.length/scope.pagination.perPage)
+      scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
+      scope.showPaginator = if scope.filteredList.length == 0
+        false
+      else
+        scope.articles.length > scope.pagination.perPage
+      return
+    , true
+
+    scope.$watch "articles", ->
+      scope.pagination.numPages = if scope.articles? then Math.ceil(scope.articles.length/scope.pagination.perPage) else scope.pagination.numPages
+      return
+    , true
+
+    scope.$watch "pagination", ->
+      scope.pageStart = scope.pagination.page*scope.perPage
+      scope.currentPage = scope.pagination.page * scope.pagination.perPage
+      _updatePaginationWindowLimits((scope))
+      return
+    , true
+
+  link = (scope, element, attrs) ->
+
+    scope = _.extend scope, _composePaginationSettings(scope)
+
+    scope.articlesFilterObject = _composeFilterObject(scope.filters)
+
+    scope.mobileStop = scope.pagination.perPage
+
+    scope.paginationUpperWindowLimit = 0
+    scope.paginationLowerWindowLimit = 3
+    scope.filteredList = []
+
+    scope.parseDate = (date) ->
+      Date.parse(date)
+
+    scope.loadMore = ->
+      scope.pagination.nextPage() #do we need this?
+      scope.mobileStop = parseInt(scope.mobileStop, 10) + parseInt(scope.pagination.perPage, 10)
+      scope.filteredList = $filter('filter')(scope.articles, scope.articlesFilterObject)
+      scope.isAtPaginationEnd = (scope.mobileStop >= scope.filteredList.length)
+      return
+
+    _setupWatchers(scope)
+
+    scope.isInPageRange = (n) ->
+      thisPage = parseInt(n, 10)
+      currentPage = scope.pagination.page
+      upToPage = currentPage + 2
+      if thisPage in [scope.paginationLowerWindowLimit..scope.paginationUpperWindowLimit] then true else false
+
+    return
+
+  result =
+    restrict: "EA"
+    transclude: true
+    replace: true
+    templateUrl: "templates/paginated_press_list.html"
     link: link
     scope:
       perPage: "@"
@@ -905,7 +1000,7 @@ sfDirectives.directive "panelTab", [->
     scope.showActionLink = ->
       scope.featured?.panel_call_to_action_link_url?.length > 0
 
-  restrict: "E"
+  restrict: "EA"
   templateUrl: "templates/panel_tab.html"
   replace: true
   link: link
@@ -947,7 +1042,7 @@ sfDirectives.directive "regionDropdown", [ ->
       scope.currentRegion.region.length and scope.currentRegion.region != "USA"
 
   result =
-    restrict: "E"
+    restrict: "EA"
     transclude: true
     replace: true
     templateUrl: "templates/region_dropdown.html"
@@ -1089,7 +1184,7 @@ sfDirectives.directive "slide", [ ->
 
   controller = ($scope, $element) ->
   result =
-    restrict: "E"
+    restrict: "EA"
     controller: controller
     replace: true
     templateUrl: (elem, attr) ->
@@ -1241,7 +1336,7 @@ sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
         @$apply fn
       return
 
-  restrict: "E"
+  restrict: "EA"
   template: """
     <li ng-click="toggle(position)" ng-class="{on:isCurrent==true}"></li>
     """
@@ -1267,7 +1362,7 @@ sfDirectives.directive "tabbedNav", ["$window", ($window) ->
       scope.currentTab = tabIndex
       $window.location.href = scope.tabs[tabIndex].link
 
-  restrict: "E"
+  restrict: "EA"
   link: link
   templateUrl: "templates/tabbed_nav.html"
   transclude: true
@@ -1320,7 +1415,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
   template = """
     <div ng-class="thumbClasses()" ng-transclude></div>
     """
-  restrict: "E"
+  restrict: "EA"
   link: link
   template: template
   transclude: true
@@ -1349,7 +1444,7 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
 # ]
 
 sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
-  restrict: "E"
+  restrict: "EA"
   scope: {
     show: "="
   }
@@ -1380,38 +1475,16 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
   templateUrl: "templates/video_player_modal.html"
 ]
 
-sfDirectives.directive 'formThankYou', ["$window", ($window) ->
-  restrict: "A"
-  replace: true
-  transclude: true
-  scope: {
-    show: "="
-  }
-  link: (scope, element, attrs) ->
-    scope.dialogStyle = {
-      width   : (if attrs.width? then attrs.width else "90%")
-      height  : (if attrs.height? then attrs.height else "40%")
-    }
-
-    scope.playerDiv = angular.element(element.find("div")[3])
-    scope.bodyDiv = document.getElementsByTagName("body")[0]
-
-    scope.hideModal = ->
-      scope.show = false
-      scope.$emit('modal:hide')
-
-  templateUrl: "templates/form_thank_you.html"
-]
-
 sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
-  restrict: "E"
+  restrict: "EA"
   templateUrl: "templates/world_map.html"
   transclude: true
   replace: true
   scope:
     markers: "="
   link: (scope, element, attrs) ->
-
+    $('.map-legend').css
+      left: "#{window.innerWidth-210}px"
     createImagePattern = (id, url) ->
       # Set namespace for SVG elements.
       svgMap      = angular.element('.jvectormap-container > svg').get(0);
@@ -1470,7 +1543,8 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
         onMarkerClick: (event, index) =>
           content = markerList.meta_data[index]
           $popup = $('#map-popup')
-
+          $popup.css
+            left: "#{window.innerWidth/2}px"
           bodyDiv = document.getElementsByTagName("body")[0]
 
           # Define HTML templates.
@@ -1528,11 +1602,13 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
 $ ->
   $(document).on 'mouseenter', '#map-popup .text-popup-container', ->
     $('body').css('overflow', 'hidden')
+
   $(document).on 'mouseleave', '#map-popup .text-popup-container', ->
     $('body').css('overflow', 'auto')
 
+
 # Directive that prevents submit if there are still form errors
-sfDirectives.directive "validSubmit", ["$parse", ($parse) ->
+sfDirectives.directive "validSubmit", ["$parse", "$http", "$rootScope", ($parse, $http, $rootScope) ->
   require: "form"
 
   link: (scope, element, attr, form) ->
@@ -1544,10 +1620,24 @@ sfDirectives.directive "validSubmit", ["$parse", ($parse) ->
       scope.$apply ->
         form.$submitted = true
         if form.$valid
-          form.$submitted = false
-        else
-          event.preventDefault()
+          $http
+            method: 'POST'
+            url: attr.action
+            data: element.serialize()
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+              'X_REQUESTED_WITH' : 'XMLHttpRequest'
+            }
+          .success (data, status, headers, config) ->
+            angular.element("input[name=xid]").val(headers('X-EEXID'))
+            $rootScope.showThanks = true
+            scope.showSubscribeForm = false
+            scope.showForm = false
+            return
 
+          form.$submitted = false
+
+        event.preventDefault()
         return
 
       return

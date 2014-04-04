@@ -369,59 +369,61 @@ hr.separator {
   }
 }
 
-blockquote {
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+.blockquote-table {
+  display: table;
   position: absolute;
-  right: 10%;
-  left: 10%;
-  top: 52px;
-  color: #FFF;
-  font-size: 30px;
-  line-height: 171%;
-  min-height: 318px;
-  overflow: hidden;
+  top: 32px;
+  height: 410px;
+  padding: 0 77px;
   @include media($tablet-down) {
-    height: 215px;
-    font-size: 22px;
-    line-height: 1.5;
+    height: 245px;
   }
   @include media($mobile) {
-    margin: 0 10px;
-    padding: 0 10px;
-    top: 13px;
-    font-size: 16px;
-    height: 150px;
+    top: 17px;
+    height: 176px;
+    padding: 0 52px;
   }
 }
-
-blockquote:before {
-  color: #fff;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  // margin-right: 0.25em;
-  vertical-align: -0.4em;
-  font-weight: bold;
-  display: inline;
-}
-
-blockquote:after {
-  color: #fff;
-  content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-left: 0.1em;
-  vertical-align: -0.4em;
-  font-weight: bold;
-  display: inline;
-}
-
-blockquote p {
-  display: inline;
-  font-size: 2em;
-  @extend .alrightsanslight;
+blockquote {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  quotes: "\201C""\201D""\2018""\2019";
+  color: #FFF;
+  font-size: 29px;
+  line-height: 1.6;
+  &:before, &:after {
+    color: #fff;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+    font-weight: bold;
+    display: inline;
+  }
+  &:before {
+    content: open-quote;
+  }
+  &:after {
+    content: close-quote;
+    margin-left: 0.1em;
+  }
+  @include media($desktop) {
+    font-size: 27px;
+  }
+  @include media($tablet-down) {
+    font-size: 19px;
+    line-height: 1.5;
+    &:before, &:after {
+      font-size: 3.5em;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 17px;
+  }
+  @include media($mobile) {
+    font-size: 11px;
+  }
 }
 
 .bordered {

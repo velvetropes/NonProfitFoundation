@@ -25,7 +25,7 @@
           <div id="twitter" class="footer-list-item">
           </div>
           <p class="read-more">
-            <a href="http://twitter.com/share?url=http://starkeyhearingfoundation.org" target="_blank">
+            <a href="http://twitter.com/starkeycares" target="_blank">
               Follow us &rarr;
             </a>
           </p>
@@ -53,14 +53,13 @@
   <div class="outer-container">
     <section>
       <div class="reveal outer-container form" ng-show="showSubscribeForm==true">
-        {exp:freeform:form 
+        {exp:freeform:form
           form_name="newsletter_signup"
           form:name="newsletter"
-          form:id="become_a_provider_form" 
+          form:id="become_a_provider_form"
           form:class="flatform invert"
           form:valid-submit="valid-submit"
           form:novalidate="novalidate"
-          return="/#thank_you"
         }
           <ul>
             <li class="leftHalf" ng-class="{'has-error': newsletter.first_name.$invalid && newsletter.$submitted }">
