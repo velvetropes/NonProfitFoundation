@@ -2415,10 +2415,13 @@ pagination {
     padding: 10px 30px;
     border: 2px solid white; }
 
+.media-mentions-page .swiper {
+  background: #5ca5d6; }
 @media screen and (max-width: 569px) {
   .media-mentions-page .swiper .logo.ng-hide {
     height: 44px;
     display: block !important; } }
+
 .gradient-background {
   position: absolute;
   bottom: 0;

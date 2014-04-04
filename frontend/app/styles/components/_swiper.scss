@@ -242,8 +242,11 @@
   }
 }
 
-@include media($mobile) {
-  .media-mentions-page {
+.media-mentions-page {
+  .swiper {
+    background: rgb(92, 165, 214);
+  }
+  @include media($mobile) {
     .swiper {
       .logo.ng-hide {
         height: 44px;
