@@ -1429,6 +1429,10 @@ header {
         padding: 3px 0;
         text-align: center;
         font-size: 36px; }
+  @media screen and (max-height: 400px) {
+    .mobile-menu {
+      height: 100%;
+      overflow: scroll; } }
 
 footer {
   background: #F8F6F0;
