@@ -1696,12 +1696,13 @@ footer {
       padding: 20px;
       text-align: center; }
       .accordion .expander .title .inner-title {
+        display: inline-block;
         position: relative; }
       .accordion .expander .title .starkey-dd-passive {
         font-size: 1.25em;
         position: absolute;
         right: -27px;
-        top: -3px; }
+        top: 2px; }
       .accordion .expander .title.active {
         color: #00b3d2; }
         .accordion .expander .title.active .starkey-dd-passive {
