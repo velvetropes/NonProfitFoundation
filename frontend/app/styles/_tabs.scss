@@ -152,8 +152,6 @@ nav {
 
 // Tabbed content
 .tabbed-content {
-  text-align: center;
-
   nav {
     border-bottom: $dotted-border;
     .tabs {
@@ -181,15 +179,9 @@ nav {
           }
         }
       }
-
-      &.row-table {
-        display: inline-block;
-        width: auto;
-        margin-left: 0;
-      }
     }
 
-    .two-tabs, .three-tabs, .five-tabs {
+    .two-tabs, .three-tabs, .four-tabs, .five-tabs {
       text-align: center;
       padding: 0;
       margin: 0 0 -1px;
@@ -229,7 +221,7 @@ nav {
         width: 200px;
       }
     }
-    .three-tabs {
+    .three-tabs, .four-tabs {
       li {
         width: 200px;
         @include media($tablet-down) {
@@ -274,15 +266,10 @@ nav {
     }
 
     @include media($tablet-down) {
-      .tabs {
+      .tabs, {
         padding: 0;
         margin: 10px 0 0 0;
         @include reset-display;
-
-        &.row-table {
-          display: block;
-        }
-
         li {
           @include span-columns(12);
           border: none;

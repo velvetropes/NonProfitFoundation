@@ -156,7 +156,7 @@ programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   ).when("/hearingaidrecycling",
     templateUrl: "api/program_3"
     controller: "ProgramsCtrl"
-  ).otherwise redirectTo: "/operationchange"
+  ).otherwise redirectTo: "/listencarefully"
 ]
 
 takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules)

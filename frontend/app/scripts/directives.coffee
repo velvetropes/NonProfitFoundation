@@ -1356,14 +1356,12 @@ sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
 #   tab-class="two-tabs"
 #   tabs="{{galaTabs}}"
 # ></tabbed-nav>
-sfDirectives.directive "tabbedNav", ["$window", ($window) ->
+sfDirectives.directive "tabbedNav", ["$location", ($location) ->
 
   link = (scope, element, attrs) ->
-    scope.currentTab = 0
+    console.log(scope)
 
-    scope.navigateTo = (tabIndex) ->
-      scope.currentTab = tabIndex
-      $window.location.href = scope.tabs[tabIndex].link
+    scope.location = $location
 
   restrict: "EA"
   link: link

@@ -1,8 +1,8 @@
 <section class='tabbed-content'>
   <nav>
     <ul class="{{tabClass}}">
-      <li ng-repeat="tab in tabs" ng-class="{active: currentTab==$index, last: $index==1}">
-        <a ng-click="navigateTo($index)">{{tab.title}}</a>
+      <li ng-repeat="tab in tabs" ng-class="{active: tab.link == '#' + location.path(), last: $last}">
+        <a href="{{ tab.link }}">{{tab.title}}</a>
       </li>
     </ul>
   </nav>
