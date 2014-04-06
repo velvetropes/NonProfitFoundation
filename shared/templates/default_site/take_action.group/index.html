@@ -11,9 +11,9 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="stylesheet" href="/assets/styles/57842823.main.css"/>
+  <link rel="stylesheet" href="/assets/styles/d6c799ed.main.css"/>
   
-  <script src="/assets/scripts/d64e295e.modernizr.js"></script>
+  <script src="/assets/scripts/f227bd02.modernizr.js"></script>
   
   <!--[if lte IE 8]>
   <script>
@@ -328,13 +328,10 @@
 
     <div ng:controller="TakeActionCtrl">
       <section class='tabbed-content'>
-        <nav class="outer-container">
-            <ul class='five-tabs'>
+        <nav class='overflow-hidden'>
+            <ul class='tabs four-tabs row-table'>
               <li ng-class="{active: currentTab.tabId=='fundraising'}">
                 <a href='#/fundraising'>Fundraising</a>
-              </li>
-              <li ng-class="{active: currentTab.tabId=='operation-change'}">
-                <a href='#/operation-change'>Operation Change</a>
               </li>
               <li ng-class="{active: currentTab.tabId=='volunteer'}">
                 <a href='#/volunteer'>Volunteer</a>
@@ -454,12 +451,20 @@
       </div>
     </footer>
 
-    <script src="/assets/scripts/c43fb45a.vendor.js"></script>
+    <script src="/assets/scripts/ea52435e.vendor.js"></script>
     
-    <script src="/assets/scripts/26de1976.main.js"></script>
+    <script src="/assets/scripts/1be31130.main.js"></script>
     
-    <script src="/assets/scripts/f7bcce96.plugins.js"></script>
+    <script src="/assets/scripts/d2ffa881.plugins.js"></script>
     
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-38669505-1', 'starkeyhearingfoundation.org');
+      ga('send', 'pageview');
+    </script>
 
 </body>
 </html>

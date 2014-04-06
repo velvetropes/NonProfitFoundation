@@ -52,7 +52,7 @@
         body-copy="{operation_change_partnerships:date format='%F %d%S %Y'}"
         logo-image-url=""
         link-style=""
-        link-text="Read More →"
+        link-text="{operation_change_partnerships:cta}"
       >
       </div>
       {/operation_change_partnerships}

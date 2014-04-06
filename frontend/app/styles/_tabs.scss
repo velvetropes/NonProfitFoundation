@@ -181,7 +181,7 @@ nav {
       }
     }
 
-    .two-tabs, .three-tabs, .five-tabs {
+    .two-tabs, .three-tabs, .four-tabs, .five-tabs {
       text-align: center;
       padding: 0;
       margin: 0 0 -1px;
@@ -221,7 +221,7 @@ nav {
         width: 200px;
       }
     }
-    .three-tabs {
+    .three-tabs, .four-tabs {
       li {
         width: 200px;
         @include media($tablet-down) {

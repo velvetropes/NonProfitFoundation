@@ -7,15 +7,14 @@
       padding: 20px;
       text-align: center;
       .inner-title {
-        // display: inline-block;
-        // margin-top: 5px;
+        display: inline-block;
         position: relative;
       }
       .starkey-dd-passive {
         font-size: 1.25em;
         position: absolute;
         right: -27px;
-        top: -3px;
+        top: 2px;
       }
       &.active {
         color: $light-blue;

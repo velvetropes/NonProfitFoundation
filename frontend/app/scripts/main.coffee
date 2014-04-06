@@ -23,7 +23,7 @@ blogPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
 
 blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/articles",
-    templateUrl: "partials/articles/index.html"
+    templateUrl: "/partials/articles/index.html"
     controller: "BlogIndexCtrl"
     resolve: {
       api_data : [ "Articles", (Articles) ->
@@ -35,7 +35,7 @@ blogPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
     }
   ).when("/articles/:articleId",
     templateUrl: (params) ->
-      "api/blog_detail/#{params.articleId}"
+      "/api/blog_detail/#{params.articleId}"
       # "local/api/blog_detail"
     controller: "BlogShowCtrl"
     resolve: {
@@ -57,7 +57,7 @@ galaPageApp.run ($FB) ->
 galaPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/gala/:tabId",
     templateUrl: (params) ->
-      "api/gala_#{params.tabId}"
+      "/api/gala_#{params.tabId}"
       # "local/api/gala_#{params.tabId}"
     controller: "GalaCtrl"
   ).otherwise redirectTo: "/gala/overview"
@@ -78,7 +78,7 @@ mediaMentionsPagesApp.run ($rootScope, $location, $anchorScroll, $routeParams) -
 
 mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/media_mentions",
-    templateUrl: "partials/media_mentions/index.html"
+    templateUrl: "/partials/media_mentions/index.html"
     controller: "MediaMentionsIndexCtrl"
     resolve: {
       api_data : [ "MediaMentionOrPressItem", (MediaMentionOrPressItem) ->
@@ -89,7 +89,7 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
       ]
     }
   ).when("/press_releases/:pressReleaseId",
-    templateUrl: "partials/press_releases/show.html"
+    templateUrl: "/partials/press_releases/show.html"
     controller: "PressReleasesShowCtrl"
     resolve: {
       api_data : [ "MediaMentionOrPressItem", (MediaMentionOrPressItem) ->
@@ -100,7 +100,7 @@ mediaMentionsPagesApp.config ["$routeProvider", ($routeProvider) ->
       ]
     }
   ).when("/media_mentions/:mediaMentionId",
-    templateUrl: "partials/media_mentions/show.html"
+    templateUrl: "/partials/media_mentions/show.html"
     controller: "MediaMentionsShowCtrl"
     resolve: {
       api_data : [ "MediaMentionOrPressItem", (MediaMentionOrPressItem) ->
@@ -124,19 +124,20 @@ missionsPageApp.run ($rootScope, $location, $anchorScroll, $routeParams) ->
 
 missionsPageApp.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/missions",
-    templateUrl: "partials/missions/landing.html"
+    templateUrl: "/partials/missions/landing.html"
     controller: "MissionsPageCtrl"
   ).when("/highlights",
     templateUrl: ->
-      "partials/missions/index.html"
+      "/partials/missions/index.html"
     controller: "MissionsIndexCtrl"
   ).when("/missions/:articleId",
     templateUrl: (params) ->
-      "api/missions_detail/#{params.articleId}"
+      "/api/missions_detail/#{params.articleId}"
       # "local/api/missions_detail"
     controller: "MissionsShowCtrl"
   ).otherwise redirectTo: "/missions"
 ]
+
 
 programsPageApp = angular.module("programsPageApp", requiredModules)
 programsPageApp.run ($FB) ->
@@ -145,18 +146,18 @@ programsPageApp.run ($FB) ->
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider
   .when("/operationchange",
-    templateUrl: "api/program_0"
+    templateUrl: "/api/program_0"
     controller: "ProgramsCtrl"
   ).when("/listencarefully",
-    templateUrl: "api/program_1"
+    templateUrl: "/api/program_1"
     controller: "ProgramsCtrl"
   ).when("/hearnow",
-    templateUrl: "api/program_2"
+    templateUrl: "/api/program_2"
     controller: "ProgramsCtrl"
   ).when("/hearingaidrecycling",
-    templateUrl: "api/program_3"
+    templateUrl: "/api/program_3"
     controller: "ProgramsCtrl"
-  ).otherwise redirectTo: "/operationchange"
+  ).otherwise redirectTo: "/listencarefully"
 ]
 
 takeActionPagesApp = angular.module("takeActionPagesApp", requiredModules)
@@ -166,7 +167,7 @@ takeActionPagesApp.run ($FB) ->
 takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/:tabId",
     templateUrl: (params) ->
-      "api/#{params.tabId}"
+      "/api/#{params.tabId}"
       # "local/api/#{params.tabId}.html"
     controller: "TakeActionCtrl"
   ).otherwise redirectTo: "/fundraising"
@@ -185,7 +186,7 @@ previewPageApp.run ($FB) ->
 previewPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider.when("/:articleId",
     templateUrl: (params) ->
-      "api/blog_detail/#{params.articleId}"
+      "/api/blog_detail/#{params.articleId}"
       # "local/api/preview"
     controller: "PreviewShowCtrl"
   )

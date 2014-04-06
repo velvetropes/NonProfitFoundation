@@ -381,7 +381,7 @@ module.exports = (grunt) ->
     uglify:
       options:
         mangle: false
-        # beautify: true
+        beautify: true
 
     rev:
       dist:

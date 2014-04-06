@@ -338,4 +338,8 @@ header {
       }
     }
   }
+  @media screen and (max-height: 400px) {
+    height: 100%;
+    overflow: scroll;
+  }
 }

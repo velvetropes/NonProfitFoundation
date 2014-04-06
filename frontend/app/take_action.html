@@ -36,13 +36,10 @@
 
     <div ng:controller="TakeActionCtrl">
       <section class='tabbed-content'>
-        <nav class="outer-container">
-            <ul class='five-tabs'>
+        <nav class='overflow-hidden'>
+            <ul class='tabs four-tabs row-table'>
               <li ng-class="{active: currentTab.tabId=='fundraising'}">
                 <a href='#/fundraising'>Fundraising</a>
-              </li>
-              <li ng-class="{active: currentTab.tabId=='operation-change'}">
-                <a href='#/operation-change'>Operation Change</a>
               </li>
               <li ng-class="{active: currentTab.tabId=='volunteer'}">
                 <a href='#/volunteer'>Volunteer</a>

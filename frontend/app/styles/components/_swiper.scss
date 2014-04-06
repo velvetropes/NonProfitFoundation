@@ -147,6 +147,7 @@
         font-weight: bold;
         font-size: .874em;
       }
+
       @include media($mobile) {
         bottom: 0px;
         background: #FFF;
@@ -158,6 +159,7 @@
         h1 {
           font-size: 18px;
           margin: 10px 10px 4px;
+          padding: 0;
         }
         a {
           color: #2d2d2d;
@@ -237,8 +239,11 @@
   }
 }
 
-@include media($mobile) {
-  .media-mentions-page {
+.media-mentions-page {
+  .swiper {
+    background: rgb(92, 165, 214);
+  }
+  @include media($mobile) {
     .swiper {
       .logo.ng-hide {
         height: 44px;
@@ -352,9 +357,28 @@
       background: #2d2d2d;
     }
   }
+  .swiper-position {
+    display: none;
+  }
+  @include media($tablet-down) {
+    article {
+      background-size: contain;
+      background-position: top center;
+    }
+
+    .slide {
+      .headline {
+        text-align: center;
+      }
+      .action-link {
+        float:right;
+        padding-right:10px;
+      }
+    }
+  }
 }
 
- @include media($mobile) {
+@include media($mobile) {
   .add-bottom-border {
     border-bottom: $dotted-border;
     padding-bottom: 8px;

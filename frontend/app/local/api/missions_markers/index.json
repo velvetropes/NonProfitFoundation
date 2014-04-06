@@ -1,22 +1,21 @@
 {
    "continents" : [
        {
-         "name"                        : "US",
+         "name"                        : "Middle East",
+         "is_us_map"                   : "0",
+         "total_hearing_aids_provided" : "0",
+         "countries_visited"           : [
+
+         ]
+      },  {
+         "name"                        : "USA",
          "is_us_map"                   : "1",
          "total_hearing_aids_provided" : "10000",
          "countries_visited"           : [
              {
                "name": "California",
                "abbreviation": "US-CA",
-               "total_hearing_aids_provided": "300"
-            },  {
-               "name": "Massachusetts",
-               "abbreviation": "US-MA",
-               "total_hearing_aids_provided": "3000"
-            },  {
-               "name": "New Jersey",
-               "abbreviation": "US-NJ",
-               "total_hearing_aids_provided": "5000"
+               "total_hearing_aids_provided": ""
             }
          ]
       },  {
@@ -29,8 +28,8 @@
                "abbreviation": "PA",
                "total_hearing_aids_provided": "34434"
             },  {
-               "name": "Mexico ",
-               "abbreviation": "MX",
+               "name": "Bolivia",
+               "abbreviation": "BO",
                "total_hearing_aids_provided": "500"
             },  {
                "name": "Costa Rica ",
@@ -71,11 +70,15 @@
                "name": "Morocco ",
                "abbreviation": "MA",
                "total_hearing_aids_provided": ""
+            },  {
+               "name": "Mauritius",
+               "abbreviation": "MU",
+               "total_hearing_aids_provided": ""
             }
          ]
       },  {
          "name"                        : "Asia",
-         "is_us_map"                   : "0",
+         "is_us_map"                   : "",
          "total_hearing_aids_provided" : "2433",
          "countries_visited"           : [
              {
@@ -90,7 +93,7 @@
          ]
       },  {
          "name"                        : "South America",
-         "is_us_map"                   : "0",
+         "is_us_map"                   : "",
          "total_hearing_aids_provided" : "34534",
          "countries_visited"           : [
              {
