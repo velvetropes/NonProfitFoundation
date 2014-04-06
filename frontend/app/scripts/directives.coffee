@@ -82,62 +82,6 @@ sfDirectives.directive "accordionListItem", [->
     subhead: "@"
 ]
 
-# Detail page directive format
-# <detail-page
-#   detail-page-type="blog"
-#   date="{entry_date format='%M %d, %Y'}"
-#   author="{blog_author}"
-#   category="{blog_category}"
-#   title="{title}"
-#   subhead=""
-#   body="{exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}"
-#   header-image-url="{blog_image}"
-#   thumbnail-image-url=""
-#   previous-page-id=""
-#   next-page-id=""
-#   share-this="false"
-#   has-related-posts="false">
-# </detail-page>
-sfDirectives.directive "detailPage", [ "$timeout", "$compile", ($timeout, $compile)->
-
-  link = (scope, element, attrs) ->
-    scope.author ?= ""
-    scope.body ?= ""
-    scope.category ?= ""
-    scope.date ?= ""
-    scope.detailPageType ?= ""
-    scope.hasRelatedPosts ?= ""
-    scope.headerImageUrl ?= ""
-    scope.previousPageId ?= ""
-    scope.nextPageId ?= ""
-    scope.shareThis ?= ""
-    scope.subhead ?= ""
-    scope.thumbnailImageUrl ?= ""
-    scope.title ?= ""
-
-  result =
-    restrict: "E"
-    replace: true
-    templateUrl: "templates/blog_detail_page.html"
-    link: link
-    # priority: 1
-    scope:
-      author: "@"
-      body: "@"
-      category: "@"
-      date: "@"
-      detailPageType: "@"
-      hasRelatedPosts: "@"
-      headerImageUrl: "@"
-      previousPageId: "@"
-      nextPageId: "@"
-      shareThis: "@"
-      subhead: "@"
-      thumbnailImageUrl: "@"
-      title: "@"
-  result
-]
-
 # Dropdown
 sfDirectives.directive "dropdown", [ ->
 
@@ -167,7 +111,7 @@ sfDirectives.directive "dropdown", [ ->
     transclude: true
     replace: true
     controller: controller
-    templateUrl: "templates/dropdown.html"
+    templateUrl: "/templates/dropdown.html"
     link: link
     scope:
       options: "="
@@ -203,7 +147,7 @@ sfDirectives.directive "dropdownOption", [ ->
 ]
 
 sfDirectives.directive "expander", [->
-  templateUrl: "templates/expander.html"
+  templateUrl: "/templates/expander.html"
   restrict: "EA"
   replace: true
   transclude: true
@@ -241,7 +185,7 @@ sfDirectives.directive("facebook", [
         url: "@"
         caption: "@"
       replace: true
-      templateUrl: "templates/facebook.html"
+      templateUrl: "/templates/facebook.html"
       link: (scope, element, attr) ->
         scope.shares = 0
         endpoint = "http://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url='http://www.facebook.com/starkeycares'"
@@ -291,7 +235,7 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
   controller: controller
   restrict: "E"
   link: link
-  templateUrl: "templates/gala_thumblist_nav.html"
+  templateUrl: "/templates/gala_thumblist_nav.html"
   replace: true
   scope:
     items: "="
@@ -422,7 +366,7 @@ sfDirectives.directive "gallerySlide", ["$location", ($location) ->
     restrict: "EA"
     replace: true
     templateUrl:
-      "templates/gallery_slide.html"
+      "/templates/gallery_slide.html"
     link: link
     scope:
       imageUrl: "@"
@@ -465,7 +409,7 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
   return {
     restrict: "EA"
     link: link
-    templateUrl: "templates/home_thumblist_nav.html"
+    templateUrl: "/templates/home_thumblist_nav.html"
     replace: true
     scope:
       featured: "="
@@ -490,7 +434,7 @@ sfDirectives.directive("instagramGallery", [
       restrict: "EA"
       scope: {}
       replace: true
-      templateUrl: "templates/instagram_gallery.html"
+      templateUrl: "/templates/instagram_gallery.html"
       link: (scope, element, attr) ->
         scope.pics = []
         Instagram.fetchLatest( (data) ->
@@ -507,7 +451,7 @@ sfDirectives.directive("latestBlogPost", [
       restrict: "EA"
       scope: {}
       replace: true
-      templateUrl: "templates/latest_blog_post.html"
+      templateUrl: "/templates/latest_blog_post.html"
       link: (scope, element, attr) ->
         scope.article = {}
         LatestBlog.fetchLatest().then (data) ->
@@ -650,7 +594,7 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
   restrict: "E"
   link: link
   controller: controller
-  templateUrl: "templates/missions_map.html"
+  templateUrl: "/templates/missions_map.html"
   replace: true
   scope:
     data: "="
@@ -745,7 +689,7 @@ sfDirectives.directive "pageTile", [ ->
   result =
     restrict: "E"
     replace: true
-    templateUrl: "templates/page_tile.html"
+    templateUrl: "/templates/page_tile.html"
     link: link
     scope:
       id: "@"
@@ -852,7 +796,7 @@ sfDirectives.directive "paginatedArticleList", ["$filter", "Pagination", ($filte
     restrict: "EA"
     transclude: true
     replace: true
-    templateUrl: "templates/paginated_article_list.html"
+    templateUrl: "/templates/paginated_article_list.html"
     link: link
     scope:
       perPage: "@"
@@ -945,7 +889,7 @@ sfDirectives.directive "paginatedPressList", ["$filter", "Pagination", ($filter,
     restrict: "EA"
     transclude: true
     replace: true
-    templateUrl: "templates/paginated_press_list.html"
+    templateUrl: "/templates/paginated_press_list.html"
     link: link
     scope:
       perPage: "@"
@@ -1004,7 +948,7 @@ sfDirectives.directive "panelTab", [->
       scope.featured?.panel_call_to_action_link_url?.length > 0
 
   restrict: "EA"
-  templateUrl: "templates/panel_tab.html"
+  templateUrl: "/templates/panel_tab.html"
   replace: true
   link: link
   scope: {
@@ -1048,7 +992,7 @@ sfDirectives.directive "regionDropdown", [ ->
     restrict: "EA"
     transclude: true
     replace: true
-    templateUrl: "templates/region_dropdown.html"
+    templateUrl: "/templates/region_dropdown.html"
     link: link
     scope:
       regionsCollection: "="
@@ -1192,9 +1136,9 @@ sfDirectives.directive "slide", [ ->
     replace: true
     templateUrl: (elem, attr) ->
       if attr.thumblist? and attr.thumblist is "true"
-        "templates/thumb_slide.html"
+        "/templates/thumb_slide.html"
       else
-        "templates/swipe_slide.html"
+        "/templates/swipe_slide.html"
     link: link
     scope:
       backgroundColor: "@"
@@ -1310,7 +1254,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
   restrict: "EA"
   controller: controller
   link: link
-  templateUrl: "templates/swipe.html"
+  templateUrl: "/templates/swipe.html"
   transclude: true
   replace: true
   scope:
@@ -1365,7 +1309,7 @@ sfDirectives.directive "tabbedNav", ["$location", ($location) ->
 
   restrict: "EA"
   link: link
-  templateUrl: "templates/tabbed_nav.html"
+  templateUrl: "/templates/tabbed_nav.html"
   transclude: true
   replace: true
   scope:
@@ -1473,12 +1417,12 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
         scope.iframeContent = ""
     )
 
-  templateUrl: "templates/video_player_modal.html"
+  templateUrl: "/templates/video_player_modal.html"
 ]
 
 sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
   restrict: "EA"
-  templateUrl: "templates/world_map.html"
+  templateUrl: "/templates/world_map.html"
   transclude: true
   replace: true
   scope:

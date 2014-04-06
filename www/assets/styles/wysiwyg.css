@@ -2522,7 +2522,12 @@ pagination {
   @media screen and (max-width: 768px) {
     .mobile-carousel article {
       background-size: contain;
-      background-position: top center; } }
+      background-position: top center; }
+    .mobile-carousel .slide .headline {
+      text-align: center; }
+    .mobile-carousel .slide .action-link {
+      float: right;
+      padding-right: 10px; } }
 
 @media screen and (max-width: 569px) {
   .add-bottom-border {

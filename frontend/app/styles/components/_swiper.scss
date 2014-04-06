@@ -147,6 +147,7 @@
         font-weight: bold;
         font-size: .874em;
       }
+
       @include media($mobile) {
         bottom: 0px;
         background: #FFF;
@@ -363,6 +364,16 @@
     article {
       background-size: contain;
       background-position: top center;
+    }
+
+    .slide {
+      .headline {
+        text-align: center;
+      }
+      .action-link {
+        float:right;
+        padding-right:10px;
+      }
     }
   }
 }

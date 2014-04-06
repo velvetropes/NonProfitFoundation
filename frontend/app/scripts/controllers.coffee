@@ -11,6 +11,8 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
   $scope.videoIframe = ""
   $scope.showSubscribeForm = false
 
+  $scope.location = $location
+
   # Make location available to get current url
   $rootScope.locationUrl = ->
     encodeURIComponent($location.absUrl())
@@ -111,6 +113,20 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 
   $scope.blogArticles = api_data.articles or []
   $scope.blogFilters = api_data.filters
+])
+
+sfControllers.controller("BlogPreviewCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", ($scope, $routeParams, $location, $sce, Articles, Article, Pagination) ->
+
+  $scope.currentPosition = $routeParams.articleId
+
+  $scope.blogArticles = []
+  $scope.blogFilters = []
+
+  Articles.getIndex().then((data) ->
+    $scope.blogArticles = data.articles or []
+    $scope.blogFilters = data.filters
+  )
+
 ])
 
 # Gala
