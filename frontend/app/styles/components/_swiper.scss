@@ -94,6 +94,9 @@
       }
       @include media($mobile) {
         height: 317px;
+        .media-mentions & {
+          height: 290px;
+        }
       }
     }
   }
@@ -181,6 +184,14 @@
         .black-text-background & {
           background: #2d2d2d;
           color: #FFF;
+          a {
+            color: #FFF;
+          }
+        }
+        .media-mentions & {
+          background: none;
+          padding: 0 20px;
+          height: auto;
           a {
             color: #FFF;
           }
