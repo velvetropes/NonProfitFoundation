@@ -2743,6 +2743,7 @@ pagination {
   z-index: 2; }
   #map-popup .play-video-link {
     left: 30%;
+    top: 59%;
     display: none; }
     #map-popup .play-video-link.video {
       display: block; }
@@ -3351,7 +3352,8 @@ pagination {
       -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
     .bottom-slide-tabs .bottom-slide-tab .panel-image .play-video-link {
       font-size: 5em;
-      color: white; }
+      color: white;
+      top: 57%; }
   .bottom-slide-tabs .bottom-slide-tab .panel-content {
     color: #fff;
     position: relative;
