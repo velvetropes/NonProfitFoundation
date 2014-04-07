@@ -216,14 +216,8 @@ nav {
         }
       }
     }
-    .two-tabs {
-      li {
-        width: 200px;
-      }
-    }
     .three-tabs, .four-tabs {
       li {
-        width: 200px;
         @include media($tablet-down) {
           width: 100%;
           margin: 0;

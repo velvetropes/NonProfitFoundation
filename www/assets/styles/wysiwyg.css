@@ -996,17 +996,13 @@ nav .tabs {
         border-right: 1px dotted #8f8f8f; }
       .tabbed-content nav .two-tabs li:hover a, .tabbed-content nav .three-tabs li:hover a, .tabbed-content nav .four-tabs li:hover a, .tabbed-content nav .five-tabs li:hover a {
         color: #00b3d2; }
-  .tabbed-content nav .two-tabs li {
-    width: 200px; }
-  .tabbed-content nav .three-tabs li, .tabbed-content nav .four-tabs li {
-    width: 200px; }
-    @media screen and (max-width: 768px) {
-      .tabbed-content nav .three-tabs li, .tabbed-content nav .four-tabs li {
-        width: 100%;
-        margin: 0; }
-        .tabbed-content nav .three-tabs li a, .tabbed-content nav .four-tabs li a {
-          font-size: 12px;
-          font-weight: bold; } }
+  @media screen and (max-width: 768px) {
+    .tabbed-content nav .three-tabs li, .tabbed-content nav .four-tabs li {
+      width: 100%;
+      margin: 0; }
+      .tabbed-content nav .three-tabs li a, .tabbed-content nav .four-tabs li a {
+        font-size: 12px;
+        font-weight: bold; } }
   .tabbed-content nav .five-tabs li {
     width: 19.5%;
     margin-left: -3px; }
