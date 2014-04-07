@@ -10,8 +10,7 @@
         return $scope.showModal = !1, $scope.videoIframe = "", $scope.showSubscribeForm = !1, 
         $scope.location = $location, $rootScope.locationUrl = function() {
             return encodeURIComponent($location.absUrl());
-        }, "/articles" === $location.url() && ($scope.blogOverview = !0), "/thank_you" === $location.url() ? ($scope.showThanks = !0, 
-        void 0) : ($timeout(function() {
+        }, "/articles" === $location.url() && ($scope.blogOverview = !0), "/thank_you" === $location.url() ? void ($scope.showThanks = !0) : ($timeout(function() {
             var videoUrl;
             videoUrl = $location.search().video, null != videoUrl && ($scope.showModal = !0, 
             displayModal("http://www.youtube.com/watch?v=" + videoUrl));
@@ -1099,7 +1098,7 @@
                     pattern.setAttribute("width", "30"), pattern.setAttribute("height", "30"), image = document.createElementNS(svgNS, "image"), 
                     image.setAttribute("x", "0"), image.setAttribute("y", "0"), image.setAttribute("width", "24"), 
                     image.setAttribute("height", "24"), image.setAttributeNS(svgNSXLink, "xlink:href", url), 
-                    svgMap.appendChild(pattern), pattern.appendChild(image), void 0;
+                    svgMap.appendChild(pattern), void pattern.appendChild(image);
                 }, generateMap = function() {
                     var icon, markerList, wolrd_map, _i, _len, _ref;
                     for (markerList = null != scope.markers ? scope.markers : {
