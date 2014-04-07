@@ -3918,7 +3918,7 @@ pagination {
 .board-directors-title {
   margin-top: 11px; }
 
-.team-outer-container {
+.team-outer-container, .contact-outer-container {
   clear: both;
   padding-bottom: 110px; }
 
