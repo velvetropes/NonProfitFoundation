@@ -2991,6 +2991,8 @@ pagination {
   height: 100px; }
   .blog-page .no-container.related-posts .thumblist-nav .jspPane > div .content h4 {
     height: 40px; }
+.blog-page .text-container p img {
+  padding: 16px; }
 
 .contact-page .outer-container, .contact-page .accordion .expander .body .accordion-list, .accordion .expander .body .contact-page .accordion-list, .contact-page .legal-page .article-section, .legal-page .contact-page .article-section {
   max-width: 53em; }
