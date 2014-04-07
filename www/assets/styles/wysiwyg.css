@@ -3336,7 +3336,7 @@ pagination {
       display: none; } }
   .bottom-slide-tabs .bottom-slide-tab .panel-image {
     float: left;
-    width: 100%;
+    width: 70%;
     overflow: hidden;
     height: 525px;
     position: relative; }
@@ -3349,9 +3349,6 @@ pagination {
       background-position: center;
       -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
     .bottom-slide-tabs .bottom-slide-tab .panel-image .play-video-link {
-      position: absolute;
-      left: 50%;
-      top: 43%;
       font-size: 5em;
       color: white; }
   .bottom-slide-tabs .bottom-slide-tab .panel-content {
