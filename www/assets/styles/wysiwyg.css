@@ -631,7 +631,7 @@ hr.separator {
   color: #00b3d2; }
 
 .detail-page-body .page-leader {
-  margin: 0; }
+  margin: 0 auto; }
   .detail-page-body .page-leader h1 {
     margin: 0 0 60px; }
   .detail-page-body .page-leader h3 {
