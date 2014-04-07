@@ -1428,8 +1428,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
   scope:
     markers: "="
   link: (scope, element, attrs) ->
-    $('.map-legend').css
-      left: "#{window.innerWidth-210}px"
+
     createImagePattern = (id, url) ->
       # Set namespace for SVG elements.
       svgMap      = angular.element('.jvectormap-container > svg').get(0);

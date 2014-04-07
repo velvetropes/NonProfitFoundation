@@ -1090,9 +1090,7 @@
             },
             link: function(scope) {
                 var createImagePattern, generateMap;
-                $(".map-legend").css({
-                    left: "" + (window.innerWidth - 210) + "px"
-                }), createImagePattern = function(id, url) {
+                createImagePattern = function(id, url) {
                     var image, pattern, svgMap, svgNS, svgNSXLink;
                     return svgMap = angular.element(".jvectormap-container > svg").get(0), svgNS = "http://www.w3.org/2000/svg", 
                     svgNSXLink = "http://www.w3.org/1999/xlink", svgMap.setAttribute("xmlns", svgNS), 
