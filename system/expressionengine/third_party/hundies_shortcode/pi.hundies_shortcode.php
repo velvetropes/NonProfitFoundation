@@ -89,7 +89,7 @@ class hundies_shortcode {
         {item}
           {if item:total_rows > 1}
             {if item:count == 1}
-            <section class='mobile-carousel carousel hero'>
+            <section class='mobile-carousel carousel hero image-contain'>
               <div swiper
               continuous="true"
               speed="2000"

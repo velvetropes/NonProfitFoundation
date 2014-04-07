@@ -362,11 +362,6 @@
     display: none;
   }
   @include media($tablet-down) {
-    article {
-      background-size: contain;
-      background-position: top center;
-    }
-
     .slide {
       .headline {
         text-align: center;
@@ -376,6 +371,13 @@
         padding-right:10px;
       }
     }
+  }
+}
+
+@include media($tablet-down) {
+  .image-contain article {
+    background-size: contain;
+    background-position: top center;
   }
 }
 

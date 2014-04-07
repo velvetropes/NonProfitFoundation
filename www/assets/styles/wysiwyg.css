@@ -2517,15 +2517,16 @@ pagination {
   .mobile-carousel .swiper-position {
     display: none; }
   @media screen and (max-width: 768px) {
-    .mobile-carousel article {
-      background-size: contain;
-      background-position: top center; }
     .mobile-carousel .slide .headline {
       text-align: center; }
     .mobile-carousel .slide .action-link {
       float: right;
       padding-right: 10px; } }
 
+@media screen and (max-width: 768px) {
+  .image-contain article {
+    background-size: contain;
+    background-position: top center; } }
 @media screen and (max-width: 569px) {
   .add-bottom-border {
     border-bottom: 1px dotted #8f8f8f;
