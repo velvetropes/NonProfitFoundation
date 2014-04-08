@@ -176,7 +176,7 @@ pagination {
       margin-bottom: 3px;
       .block {
         padding: 4px;
-        height: 130px;
+        height: 190px;
         .image {
           position: static;
           width: 48%;
@@ -242,6 +242,16 @@ pagination {
     }
     &.tablet {
       display: block;
+    }
+  }
+}
+
+@include media($mobile) {
+  ul.pagination-articles {
+    li {
+      .block {
+        height: 130px;
+      }
     }
   }
 }

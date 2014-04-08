@@ -2189,7 +2189,7 @@ pagination {
       margin-bottom: 3px; }
       ul.pagination-articles li .block {
         padding: 4px;
-        height: 130px; }
+        height: 190px; }
         ul.pagination-articles li .block .image {
           position: static;
           width: 48%;
@@ -2232,6 +2232,9 @@ pagination {
       display: none; }
     ul.pagination-articles.tablet {
       display: block; } }
+@media screen and (max-width: 569px) {
+  ul.pagination-articles li .block {
+    height: 130px; } }
 @media screen and (max-width: 340px) {
   ul.pagination-articles li .block {
     height: 146px; } }
@@ -2428,7 +2431,9 @@ pagination {
 @media screen and (max-width: 569px) {
   .media-mentions-page .swiper .logo.ng-hide {
     height: 44px;
-    display: block !important; } }
+    display: block !important; }
+  .media-mentions-page .media-mentions {
+    margin-bottom: 16px; } }
 
 .gradient-background {
   position: absolute;
