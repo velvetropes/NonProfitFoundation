@@ -3016,7 +3016,7 @@ pagination {
 .blog-page .text-container p img {
   padding: 16px; }
 
-.contact-page .outer-container, .contact-page .accordion .expander .body .accordion-list, .accordion .expander .body .contact-page .accordion-list, .contact-page .legal-page .article-section, .legal-page .contact-page .article-section {
+.contact-outer-container {
   max-width: 53em; }
 
 .contact-wrap {
