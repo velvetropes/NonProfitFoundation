@@ -5,14 +5,14 @@
     {exp:channel:entries channel="press_releases|media_mentions" dynamic="no" orderby="entry_date" sort="asc" backspace="2"} {
         "id"        : "{url_title}",
         "feed_url"  : "/api/{channel_name}/{url_title}",
-        "title"     : "{exp:json_encode}{title}{/exp:json_encode}",
+        "title"     : "{exp:json_encode}{exp:eehive_hacksaw chars="50"}{title}{/exp:eehive_hacksaw}{/exp:json_encode}",
 
 
     {if channel_name == "press_releases"}
-        "category"                  : "press_release",
+        "category"              : "press_release",
         "rawdate"               : "{entry_date format='%U'}",
         "date"                  : "{entry_date format='%m/%d/%Y'}",
-        "year"      : "{entry_date format='%Y'}",
+        "year"                  : "{entry_date format='%Y'}",
         "detail_page"           : "true",
         "featured"              : "false",
         "header_image_url"      : "{press_release_image}",
@@ -23,7 +23,7 @@
         "video_link":""
 
     {if:else}
-        "category"                  : "media_mention",
+        "category"              : "media_mention",
         "rawdate"               : "{media_mention_date format='%U'}",
         "date"                  : "{media_mention_date format='%m/%d/%Y'}",
         "year"                  : "{media_mention_date format='%Y'}",
