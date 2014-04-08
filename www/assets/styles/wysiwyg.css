@@ -2387,10 +2387,12 @@ pagination {
               color: #FFF; }
           .media-mentions .swiper aside:not(.side-panel), .media-mentions .swiper aside.not-side-panel {
             background: none;
-            padding: 0 20px;
-            height: auto; }
+            padding: 0 20px 15px;
+            height: auto;
+            text-align: center; }
             .media-mentions .swiper aside:not(.side-panel) a, .media-mentions .swiper aside.not-side-panel a {
-              color: #FFF; } }
+              color: #FFF;
+              position: static; } }
     .swiper aside.side-panel {
       width: 540px;
       right: 0;
@@ -2435,7 +2437,9 @@ pagination {
     height: 44px;
     display: block !important; }
   .media-mentions-page .media-mentions {
-    margin-bottom: 16px; } }
+    margin-bottom: 16px; }
+    .media-mentions-page .media-mentions .play-video-link {
+      display: none; } }
 
 .gradient-background {
   position: absolute;

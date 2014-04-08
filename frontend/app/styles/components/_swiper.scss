@@ -190,10 +190,12 @@
         }
         .media-mentions & {
           background: none;
-          padding: 0 20px;
+          padding: 0 20px 15px;
           height: auto;
+          text-align: center;
           a {
             color: #FFF;
+            position: static;
           }
         }
       }
@@ -264,6 +266,9 @@
     }
     .media-mentions {
       margin-bottom: 16px;
+      .play-video-link {
+        display: none;
+      }
     }
   }
 }
