@@ -2438,6 +2438,8 @@ pagination {
     display: block !important; }
   .media-mentions-page .media-mentions {
     margin-bottom: 16px; }
+    .media-mentions-page .media-mentions article {
+      height: 100%; }
     .media-mentions-page .media-mentions .play-video-link {
       display: none; } }
 

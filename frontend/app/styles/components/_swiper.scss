@@ -266,6 +266,9 @@
     }
     .media-mentions {
       margin-bottom: 16px;
+      article {
+        height: 100%;
+      }
       .play-video-link {
         display: none;
       }
