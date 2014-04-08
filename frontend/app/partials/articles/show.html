@@ -16,6 +16,32 @@
       ></slide>
     </thumblist-nav>
   </section>
+
+  <section class="mobile-carousel carousel hero short">
+    <div swiper
+      continuous="true"
+      speed="2000"
+      identifier="swiper_3"
+      auto="8000"
+      size="short"
+      paginator="true"
+      >
+      <div slide
+        ng-repeat="article in articles | filter:{featured:'true'}"
+        image-url="{{article.thumbnail_image_url}}"
+        background-color=""
+        quote=""
+        video-url=""
+        link-url="#/articles/{{article.id}}"
+        headline="{{article.title}}"
+        body-copy=""
+        logo-image-url=""
+        link-style=""
+        link-text="Read More"
+      >
+      </div>
+    </div>
+  </section>
 </div>
 <br/>
 <hr class="separator padded"/>
