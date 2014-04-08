@@ -1,25 +1,50 @@
 {exp:http_header content_type="application/json"}
     {
+        {exp:stash:set_list name="missions" parse_tags="yes" parse_conditionals="yes" parse_depth="3" trim="yes"}
+          {exp:channel:entries channel="hearing_missions" dynamic="no" disable="{global:param_disable_default}"}
+            {stash:mission_title}{if mission_display_title}{mission_display_title}{if:else}{title}{/if}{/stash:mission_title}
+
+            {stash:id}{url_title}{/stash:id}
+            {stash:excerpt}{mission_excerpt}{/stash:excerpt}
+            
+            {stash:video}{mission_video_url}{/stash:video}
+            {stash:featured}{mission_featured}{/stash:featured}
+            
+            {stash:image}{mission_image:url}{/stash:image}
+            {stash:thumb}{mission_thumb_image}{/stash:thumb}
+            {stash:header}{if mission_image} {mission_image} {if:else} {mission_thumb_image} {/if}{/stash:header}
+
+            {stash:rawdate}{mission_date format='%U'}{/stash:rawdate}
+            {stash:date}{mission_date format='%m/%d/%Y'}{/stash:date}
+            {stash:year}{mission_date format="%Y"}{/stash:year}
+            
+            {stash:region}{mission_region}{option_name}{/mission_region}{/stash:region}
+            {stash:country}{mission_country}{option_name}{/mission_country}{/stash:country}
+
+          {/exp:channel:entries}
+        {/exp:stash:set_list}
+
+
         "highlights" : [
-          {exp:channel:entries channel="hearing_missions" dynamic="no" disable="{global:param_disable_default}" backspace="2"} {
-              "id"                    : "{url_title}",
-              "title"                 : "{if mission_display_title}{exp:json_encode}{mission_display_title}{/exp:json_encode}{if:else}{exp:json_encode}{title}{/exp:json_encode}{/if}",
-              "subtitle"              : "{if mission_display_title}{exp:json_encode}{mission_display_title}{/exp:json_encode}{if:else}{exp:json_encode}{title}{/exp:json_encode}{/if}",
-              "excerpt"               : "{exp:json_encode}{mission_excerpt}{/exp:json_encode}",
+          {exp:stash:get_list name="missions" backspace="2"} {
+              "id"                    : "{id}",
+              "title"                 : "{exp:json_encode}{exp:eehive_hacksaw chars="50"}{mission_title}{/exp:eehive_hacksaw}{/exp:json_encode}",
+              "subtitle"              : "{exp:json_encode}{exp:eehive_hacksaw chars="50"}{mission_title}{/exp:eehive_hacksaw}{/exp:json_encode}",
+              "excerpt"               : "{exp:json_encode}{excerpt}{/exp:json_encode}",
 
-              "video"                 : "{mission_video_url}",
-              "featured"              : "{mission_featured}",
+              "video"                 : "{video}",
+              "featured"              : "{featured}",
 
-              "image"                 : "{mission_image:url}",
-              "thumbnail_image_url"   : "{mission_thumb_image}",
-              "header_image_url"      : "{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}",
+              "image"                 : "{image}",
+              "thumbnail_image_url"   : "{thumb}",
+              "header_image_url"      : "{header}",
 
-              "rawdate"               : "{mission_date format='%U'}",
-              "date"                  : "{mission_date format='%m/%d/%Y'}",
-              "year"                  : "{mission_date format="%Y"}",
-              "region"                : "{mission_region}{option_name}{/mission_region}",
-              "country"               : "{mission_country}{option_name}{/mission_country}"
-            }, {/exp:channel:entries}
+              "rawdate"               : "{rawdate}",
+              "date"                  : "{date}",
+              "year"                  : "{year}",
+              "region"                : "{region}",
+              "country"               : "{country}"
+            }, {/exp:stash:get_list}
         ],
 
       {!-- All the countries, grouped by region --}

@@ -170,6 +170,11 @@ pagination {
   }
   ul.pagination-articles {
     margin-bottom: 0;
+
+    &.press-items li .block .headline {
+      font-size: 17px;
+    }
+
     li {
       margin-right: 0;
       width: 100%;
@@ -192,7 +197,7 @@ pagination {
           padding: 10px 10px 5px;
           margin: 0;
           font-weight: 400;
-          font-size: 18px;
+          font-size: 17px;
           line-height: 1.1;
           height: auto;
           overflow: hidden;

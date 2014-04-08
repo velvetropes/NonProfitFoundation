@@ -17,7 +17,7 @@
     "prev_item"             : "{exp:stash:next_entry}",
     "next_item"             : "{exp:stash:prev_entry}",
     "id"                    : "{url_title}",
-    "title"                 : "{exp:json_encode}{title}{/exp:json_encode}",
+    "title"                 : "{exp:json_encode}{exp:eehive_hacksaw chars="50"}{title}{/exp:eehive_hacksaw}{/exp:json_encode}",
     "date"                  : "{media_mention_date format='%m/%d/%Y'}",
     "year"                  : "{media_mention_date format='%Y'}",
     "rawdate"               : "{media_mention_date format='%U'}",
