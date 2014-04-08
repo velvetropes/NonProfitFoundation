@@ -176,7 +176,7 @@ pagination {
       margin-bottom: 3px;
       .block {
         padding: 4px;
-        height: 130px;
+        height: 190px;
         .image {
           position: static;
           width: 48%;
@@ -196,7 +196,7 @@ pagination {
           line-height: 1.1;
           height: auto;
           overflow: hidden;
-          height: 85px;
+          height: 144px;
         }
         .category {
           position: static;
@@ -242,6 +242,19 @@ pagination {
     }
     &.tablet {
       display: block;
+    }
+  }
+}
+
+@include media($mobile) {
+  ul.pagination-articles {
+    li {
+      .block {
+        height: 130px;
+      }
+      .headline {
+        height: 85px;
+      }
     }
   }
 }

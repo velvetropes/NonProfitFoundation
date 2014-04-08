@@ -344,7 +344,7 @@ hr.separator {
 
 .detail-page-body {
   .page-leader {
-    margin: 0;
+    margin: 0 auto;
     h1 {
       margin: 0 0 60px;
     }
@@ -375,6 +375,7 @@ hr.separator {
   top: 32px;
   height: 410px;
   padding: 0 77px;
+  width: 100%;
   @include media($tablet-down) {
     height: 245px;
   }

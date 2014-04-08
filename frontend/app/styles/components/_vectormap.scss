@@ -32,6 +32,7 @@
   z-index: 2;
   .play-video-link {
     left: 30%;
+    top: 59%;
     display: none;
     &.video {
       display: block;
@@ -151,7 +152,7 @@
 .map-legend {
   position: absolute;
   padding: 0;
-  width: 210px;
+  width: 200px;
   bottom: 20px;
   right: 0;
   z-index: 1;

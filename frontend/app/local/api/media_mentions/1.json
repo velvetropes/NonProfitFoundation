@@ -1,17 +1,18 @@
 {
-
-    "id":"55",
-    "title": "CNN to Spotlight SHF",
-    "date":"02 07 2014",
-    "year": "2014",
-    "type":"Media Mention",
-    "featured":"false",
-    "thumbnail_image_url":"http://starkey.ahundredyears.com/uploads/CAROUSEL-William_F._Austin_Legacy_Film.jpg",
-    "logo_image_url":"http://starkey.ahundredyears.com/uploads/cnnlogo.png",
-    "quote":"",
-    "call_to_action_text":"",
-    "call_to_action_link":"",
-    "video_link":"http://www.youtube.com/watch?v=CvYDRtPh46Q",
-    "body":""
-
+  "type"                  : "media_mention",
+  "prev_item"             : "closer-magazine-garth-brooks-work-with-the-foundation-featured",
+  "next_item"             : "see-these-childrens-reaction-when-they-hear-sound-for-the-first-time-in-the",
+  "id"                    : "a-helping-hand",
+  "title"                 : "People Magazine: A Helping Hand",
+  "date"                  : "04/01/2014",
+  "year"                  : "2014",
+  "rawdate"               : "1396380660",
+  "featured"              : "false",
+  "header_image_url"      : "http://s3-us-west-2.amazonaws.com/assetsimages/MEDIA-People-APR_2014-HEADER.jpg",
+  "logo_image_url"        : "http://production.starkey.ahundredyears.com/uploads/images/People_Logo.jpg",
+  "quote"                 : "",
+  "call_to_action_text"   : "",
+  "call_to_action_link"   : "",
+  "video_link"            : "",
+  "body"                  : "<p>\n\t<img alt=\"\" src=\"http:\/\/production.starkey.ahundredyears.com\/uploads\/images\/People_APR_2014.jpg\" style=\"width: 1200px; height: 776px; \"><\/p>"
 }

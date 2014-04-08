@@ -1072,7 +1072,7 @@
                 scope.hideModal = function() {
                     return scope.show = !1, scope.$emit("modal:hide");
                 }, scope.$watch("show", function(newVal, oldVal) {
-                    return newVal && !oldVal ? (scope.iframeContent = newVal.replace(/(?:http(?:s?):\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen></iframe>'), 
+                    return newVal && !oldVal ? (scope.iframeContent = newVal.replace(/(?:http(?:s?):\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="1280" height="720" style="max-width:100%;max-height:100%;" src="http://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen></iframe>'), 
                     scope.bodyDiv.style.overflow = "hidden") : (scope.bodyDiv.style.overflow = "", scope.iframeContent = "");
                 });
             },
@@ -1089,9 +1089,7 @@
             },
             link: function(scope) {
                 var createImagePattern, generateMap;
-                $(".map-legend").css({
-                    left: "" + (window.innerWidth - 210) + "px"
-                }), createImagePattern = function(id, url) {
+                createImagePattern = function(id, url) {
                     var image, pattern, svgMap, svgNS, svgNSXLink;
                     return svgMap = angular.element(".jvectormap-container > svg").get(0), svgNS = "http://www.w3.org/2000/svg", 
                     svgNSXLink = "http://www.w3.org/1999/xlink", svgMap.setAttribute("xmlns", svgNS), 

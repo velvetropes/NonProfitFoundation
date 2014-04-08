@@ -110,7 +110,7 @@
   .bottom-slide-tab {
     .panel-image {
       float: left;
-      width: 100%;
+      width: 70%;
       overflow: hidden;
       height: 525px;
       position: relative;
@@ -121,11 +121,9 @@
         @include background-cover;
       }
       .play-video-link {
-        position: absolute;
-        left: 50%;
-        top: 43%;
         font-size: 5em;
         color: white;
+        top: 57%;
       }
     }
     .panel-content {

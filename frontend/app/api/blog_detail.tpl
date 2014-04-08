@@ -103,6 +103,32 @@
 {/if}
 {/blog_related_items}
 
+<section class="mobile-carousel carousel hero">
+  <div swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_3"
+    size="short"
+    paginator="true"
+    >
+    {blog_related_items}
+    <div slide
+      image-url="{blog_related_items:blog_image}"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/{blog_related_items:url_title}"
+      headline="{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_related_items:title}{/exp:low_replace}"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+    {/blog_related_items}
+    </div>
+  </div>
+</section>
+
 {/exp:channel:entries}
 
 <br/>
