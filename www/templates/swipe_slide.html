@@ -14,7 +14,7 @@
     <div class="logo" ng-show="hasLogoImageUrl()">
       <img ng-src="{{logoImageUrl}}"/>
     </div>
-    <a href="{{linkUrl}}" target="_blank" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText() && !hasDetailPage()">
+    <a href="{{linkUrl}}" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText() && !hasDetailPage()">
       {{linkText}}
     </a>
     <a href ng-show="hasVideo()" ng-click="displayInModalIfVideo()" ng-class="actionLinkStyle()">
