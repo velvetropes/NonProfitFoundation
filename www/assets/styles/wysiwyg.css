@@ -653,7 +653,8 @@ hr.separator {
   position: absolute;
   top: 32px;
   height: 410px;
-  padding: 0 77px; }
+  padding: 0 77px;
+  width: 100%; }
   @media screen and (max-width: 768px) {
     .blockquote-table {
       height: 245px; } }

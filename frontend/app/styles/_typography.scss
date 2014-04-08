@@ -375,6 +375,7 @@ hr.separator {
   top: 32px;
   height: 410px;
   padding: 0 77px;
+  width: 100%;
   @include media($tablet-down) {
     height: 245px;
   }
