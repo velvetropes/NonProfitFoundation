@@ -2207,7 +2207,7 @@ pagination {
           line-height: 1.1;
           height: auto;
           overflow: hidden;
-          height: 85px; }
+          height: 144px; }
         ul.pagination-articles li .block .category {
           position: static;
           padding: 0 10px;
@@ -2234,7 +2234,9 @@ pagination {
       display: block; } }
 @media screen and (max-width: 569px) {
   ul.pagination-articles li .block {
-    height: 130px; } }
+    height: 130px; }
+  ul.pagination-articles li .headline {
+    height: 85px; } }
 @media screen and (max-width: 340px) {
   ul.pagination-articles li .block {
     height: 146px; } }

@@ -196,7 +196,7 @@ pagination {
           line-height: 1.1;
           height: auto;
           overflow: hidden;
-          height: 85px;
+          height: 144px;
         }
         .category {
           position: static;
@@ -251,6 +251,9 @@ pagination {
     li {
       .block {
         height: 130px;
+      }
+      .headline {
+        height: 85px;
       }
     }
   }
