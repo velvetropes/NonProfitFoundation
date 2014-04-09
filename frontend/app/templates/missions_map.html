@@ -25,8 +25,14 @@
       <h4>{{currentContinent.name}}</h4>
       <h1>{{currentContinent.total_hearing_aids_provided}}</h1>
       <p>hearing aids provided since 2010</p>
-      <h1>{{currentContinent.countries_visited.length}}</h1>
-      <p>{{countryOrState()}} visited</p>
+      <div ng-if="currentContinent.countries_visited.length > 0"> 
+        <h1>{{currentContinent.countries_visited.length}}</h1>
+        <p>
+          <span ng-if="currentContinent.is_us_map == 1">states</span> 
+          <span ng-if="currentContinent.is_us_map != 1">countries</span>
+          visited
+        </p>
+      </div>
     </div>
 
   </div>

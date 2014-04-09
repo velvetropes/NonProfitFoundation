@@ -522,10 +522,10 @@ sfDirectives.directive "missionsMap", ["$timeout", ($timeout)->
       scope.currentCountry?.name?
 
     scope.continentIsVisible = (continent) ->
-      continent.countries_visited.length > 0 and !!continent.total_hearing_aids_provided
+      parseInt(continent.total_hearing_aids_provided, 10) > 0
 
     scope.countryClass = (continent) ->
-      if continent.is_us_map? and continent.is_us_map is "1"
+      if continent.is_us_map? and continent.is_us_map is 1
         "states"
       else
         "countries"
