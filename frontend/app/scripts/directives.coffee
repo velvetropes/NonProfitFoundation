@@ -1367,8 +1367,6 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
     full: "@"
 ]
 
-# <button ng-click='toggleModal("http://www.youtube.com/embed/xx2Dx_rRdws")'>Open Modal Dialog</button>
-
 # <video-player-modal show='modalVideo' width='90%' height='90%'>
 #   <p>Modal Content Goes here<p>
 #   <iframe
@@ -1380,16 +1378,10 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
 #   </iframe>
 # </video-player-modal>
 
-# sfDirectives.directive 'videoTrigger', [->
-#   restrict: "A"
-#   link: (scope, element, attr) ->
-#     console.debug "attr", attr
-# ]
-
-sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
+sfDirectives.directive 'videoPlayerModal', [ ->
   restrict: "EA"
   scope: {
-    show: "="
+    videoIframe: "="
   }
   replace: true
   transclude: true
@@ -1403,10 +1395,10 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
     scope.iframeContent = ""
 
     scope.hideModal = ->
-      scope.show = false
+      scope.videoIframe = false
       scope.$emit('modal:hide')
 
-    scope.$watch('show', (newVal, oldVal) ->
+    scope.$watch('videoIframe', (newVal, oldVal) ->
       if newVal && !oldVal
         scope.iframeContent = newVal.replace(/(?:http(?:s?):\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="1280" height="720" style="max-width:100%;max-height:100%;" src="http://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen></iframe>')
         scope.bodyDiv.style.overflow = "hidden";

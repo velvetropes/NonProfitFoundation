@@ -54,9 +54,9 @@
     @include transform(rotate(45deg));
     z-index: 50;
     &::after, &::before {
-        content: "";
-        position: absolute;
-        background: #fff;
+      content: "";
+      position: absolute;
+      background: #fff;
     }
     &::before {
       top: 0;
