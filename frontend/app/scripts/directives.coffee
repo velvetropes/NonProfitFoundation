@@ -1485,11 +1485,15 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           bodyDiv = document.getElementsByTagName("body")[0]
 
           # Define HTML templates.
-          ctaTpl = if content.action_text then "<p class='centered'><a class='read-more' href='#{content.action_target}'>#{content.action_text}</a></p>" else ""
+          ctaTpl = if content.action_text
+            if content.marker_type is "video" then "<p class='centered'><a class='view-more'>#{content.action_text}</a></p>"
+            else "<p class='centered'><a class='read-more' href='#{content.action_target}' target='_blank'>#{content.action_text}</a></p>"
+          else ""
+
           popupTpl = "
             <span class='close-popup'>X</span>
             <img src='#{content.thumbnail_url}' />
-            <a href='#{content.action_target}' class='play-video-link #{content.marker_type}'>&nbsp;</a>
+            <a class='play-video-link #{content.marker_type}'>&nbsp;</a>
             <div class='background-popup'>
               <div class='text-popup-container'>
                 <div class='text-popup'>
@@ -1501,35 +1505,32 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
               </div>
             </div>
           "
-          $popup.fadeOut "slow", ->
+          $popup
+            .removeClass('visible')
+            .empty()
+            .fadeIn("slow", ->
+              $timeout( ->
+                $popup
+                  .html(popupTpl)
+                  .addClass('visible')
+                  .find('.text-popup')
+                  .jScrollPane()
+              , 200)
+            )
+
+          $("html, body").animate
+            scrollTop: $("#world-map-gdp").offset().top - 88
+          , "slow"
+
+          $popup.on 'click', '.close-popup', ->
             $popup
-              .removeClass('visible')
-              .find(".content").empty()
-              .empty()
-            $popup
-              .fadeIn("slow", ->
-                $timeout( ->
-                  $popup
-                    .html(popupTpl)
-                    .addClass('visible')
-                    .find('.text-popup')
-                    .jScrollPane()
-                , 200)
-              )
+              .fadeOut()
+              .find('.text-popup')
+              .jScrollPane().data().jsp.destroy()
+            bodyDiv.style.overflow = ""
 
-            $("html, body").animate
-              scrollTop: $("#world-map-gdp").offset().top - 88
-            , "slow"
-
-            $popup.on 'click', '.close-popup', ->
-              $popup
-                .fadeOut()
-                .find('.text-popup')
-                .jScrollPane().data().jsp.destroy()
-              bodyDiv.style.overflow = ""
-
-            $popup.on 'click', '.play-video-link, .view-more',  ->
-              rootScope.directModalTrigger(content.action_target)
+          $popup.on 'click', '.play-video-link, .view-more',  ->
+            rootScope.directModalTrigger(content.action_target)
 
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)
