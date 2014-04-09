@@ -19,59 +19,59 @@
         "id"      : "jvm-where-we-are-now",
         "path"    : "http://s3-us-west-2.amazonaws.com/assetsimages/icon_now.png"
     }
-  ], 
+  ],
 
   "coords":[
-    
+
     {
       "latLng"  : [-1.292066, 36.821946],
       "style"   : {
         "fill"  : "url('#jvm-video')",
         "stroke-width" : 0
       }
-    }, 
+    },
     {
       "latLng"  : [31.952162, 35.233154],
       "style"   : {
         "fill"  : "url('#jvm-video')",
         "stroke-width" : 0
       }
-    }, 
+    },
     {
       "latLng"  : [-26.333806, 28.390688],
       "style"   : {
         "fill"  : "url('#jvm-video')",
         "stroke-width" : 0
       }
-    }, 
+    },
     {
       "latLng"  : [-5.185310, -80.649003],
       "style"   : {
         "fill"  : "url('#jvm-hearing-missions')",
         "stroke-width" : 0
       }
-    }, 
+    },
     {
       "latLng"  : [44.881702, -93.400947],
       "style"   : {
         "fill"  : "url('#jvm-hearing-missions')",
         "stroke-width" : 0
       }
-    }, 
+    },
     {
       "latLng"  : [-3.867910, 36.431122],
       "style"   : {
         "fill"  : "url('#jvm-video')",
         "stroke-width" : 0
       }
-    }, 
+    },
     {
       "latLng"  : [34.052234, -118.243685],
       "style"   : {
         "fill"  : "url('#jvm-hearing-missions')",
         "stroke-width" : 0
       }
-    }, 
+    },
     {
       "latLng"  : [28.6, 77.2],
       "style"   : {

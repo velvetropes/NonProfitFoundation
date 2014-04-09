@@ -1498,7 +1498,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           else ""
 
           popupTpl = "
-            <span class='close'>X</span>
+            <span class='close-popup'>X</span>
             <img src='#{content.thumbnail_url}' />
             <a class='play-video-link #{content.marker_type}'>&nbsp;</a>
             <div class='background-popup'>
@@ -1531,7 +1531,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
               scrollTop: $("#world-map-gdp").offset().top - 88
             , "slow"
 
-            $popup.on 'click', '.close', ->
+            $popup.on 'click', '.close-popup', ->
               $popup
                 .fadeOut()
                 .find('.text-popup')
