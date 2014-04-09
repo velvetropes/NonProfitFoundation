@@ -1494,7 +1494,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           # Define HTML templates.
           ctaTpl = if content.action_text then "<p class='centered'><a class='read-more' href='#{content.action_target}'>#{content.action_text}</a></p>" else ""
           popupTpl = "
-            <span class='close' ng-click='closePopup()'>X</span>
+            <span class='close-popup'>X</span>
             <img src='#{content.thumbnail_url}' />
             <a href='#{content.action_target}' class='play-video-link #{content.marker_type}'>&nbsp;</a>
             <div class='background-popup'>
@@ -1527,7 +1527,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
               scrollTop: $("#world-map-gdp").offset().top - 88
             , "slow"
 
-            $popup.find('.close').click ->
+            $popup.on 'click', '.close-popup', ->
               $popup
                 .fadeOut()
                 .find('.text-popup')

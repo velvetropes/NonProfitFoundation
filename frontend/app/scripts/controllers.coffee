@@ -7,6 +7,9 @@ sfControllers.config ['$sceProvider', ($sceProvider) ->
 # Home
 
 sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$location", "$timeout", ($window, $scope, $rootScope, $location, $timeout) ->
+
+  YOUTUBEPATTERN = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
+
   $scope.showModal = false
   $scope.videoIframe = ""
   $scope.showSubscribeForm = false
@@ -59,10 +62,14 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
       displayModal(url)
 
   displayModal = (url) ->
-    youtubePattern = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/
-    if url.match(youtubePattern)?
-      $location.search('video', url.match(youtubePattern)[1])
+    if url.match(YOUTUBEPATTERN)?
+      $location.search('video', url.match(YOUTUBEPATTERN)[1])
     $scope.videoIframe = url
+
+  $scope.directModalTrigger = (url) ->
+    if url?
+      $scope.showModal = true
+      $scope.videoIframe = "http://www.youtube.com/watch?v=#{url.match(YOUTUBEPATTERN)[1]}"
 
   $scope.toggleSubscribeForm = ->
     $scope.showSubscribeForm = not $scope.showSubscribeForm
