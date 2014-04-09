@@ -178,14 +178,32 @@
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="homepage_map_items"}
             <div class="entry">
-              <a href="{homepage_map_item_cta_link}">
+              {if homepage_map_type != 'Video'}
+                <a href="{homepage_map_item_cta_link}">
                 <div class="entry-image" style="background-image: url('{homepage_map_item_image}')"></div>
               </a>
               <div class="entry-content">
-                <h3><a href="{homepage_map_item_cta_link}">{title}</a></h3>
+                <h3>
+                  <a href="{homepage_map_item_cta_link}">{title}</a>
+                </h3>
                 <span>{homepage_map_item_location}</span>
                 <a class="read-more" href="{homepage_map_item_cta_link}">{homepage_map_item_cta_text}</a>
               </div>
+              {homepage_map_item_cta_text}</a>
+              {/if}
+              {if homepage_map_type == 'Video'}
+                <a href ng-click="directModalTrigger(homepage_map_item_cta_link)">
+                  <div class="entry-image" style="background-image: url('{homepage_map_item_image}')"></div>
+                </a>
+                <div class="entry-content">
+                  <h3>
+                    <a href ng-click="directModalTrigger(homepage_map_item_cta_link)">{title}</a>
+                  </h3>
+                  <span>{homepage_map_item_location}</span>
+                  <a class="read-more" href ng-click="directModalTrigger(homepage_map_item_cta_link)">{homepage_map_item_cta_text}</a>
+                </div>
+              {/if}
+
               <div class="clearfix"></div>
             </div>
           {/exp:channel:entries}
@@ -196,9 +214,9 @@
               <div class="entry-image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/HERO-Commitment_to_Action_Film.jpg')"></div>
             </a>
             <div class="entry-content">
-              <h3><a href="http://127.0.0.1:9000/more">Building Momentum for Peace in the West Bank</a></h3>
+              <h3><a href="http://127.0.0.1:9000/more">VIDEO</a></h3>
               <span>West Bank / Europe & Middle East</span>
-              <a class="read-more" href="http://127.0.0.1:9000/more">Read More →</a>
+              <a class="read-more" href ng-click="directModalTrigger('http://www.youtube.com/watch?v=qIAXkz08aiI')">Read More →</a>
             </div>
             <div class="clearfix"></div>
           </div>
