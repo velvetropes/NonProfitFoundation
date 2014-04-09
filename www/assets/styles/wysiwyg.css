@@ -2768,7 +2768,7 @@ pagination {
     display: none; }
     #map-popup .play-video-link.video {
       display: block; }
-  #map-popup .close {
+  #map-popup .close-popup {
     position: absolute;
     display: block;
     width: 16px;
@@ -2783,16 +2783,16 @@ pagination {
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
     z-index: 50; }
-    #map-popup .close::after, #map-popup .close::before {
+    #map-popup .close-popup::after, #map-popup .close-popup::before {
       content: "";
       position: absolute;
       background: #fff; }
-    #map-popup .close::before {
+    #map-popup .close-popup::before {
       top: 0;
       left: 8px;
       width: 1px;
       height: 100%; }
-    #map-popup .close::after {
+    #map-popup .close-popup::after {
       left: 0;
       top: 8px;
       height: 1px;
