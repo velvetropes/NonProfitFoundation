@@ -65,7 +65,7 @@ $(window).load ->
 
 
 $ ->
-  $(document).mouseup (e) ->
+  $(document).on "mouseup", ".map", (e) ->
     container = $('#map-popup')
     if !container.is(e.target) && container.has(e.target).length == 0
       container.hide() if container.hasClass('visible')
