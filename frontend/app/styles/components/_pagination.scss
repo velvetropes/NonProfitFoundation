@@ -170,6 +170,7 @@ pagination {
   }
   ul.pagination-articles {
     margin-bottom: 0;
+
     li {
       margin-right: 0;
       width: 100%;
@@ -251,9 +252,12 @@ pagination {
     li {
       .block {
         height: 130px;
-      }
-      .headline {
-        height: 85px;
+      
+        .headline {
+          font-size: 16px;
+          height: auto;
+          max-height: 77px;
+        }
       }
     }
   }

@@ -31,13 +31,14 @@
               image-url="{home_hero:homepage_feature_splash_image}"
               background-color=""
               quote=""
-              video-url="{home_hero:homepage_feature_video}"
-              link-url="{home_hero:homepage_feature_link}"
+              video-url="{if '{home_hero:homepage_cta_type}' == 'Video'}{home_hero:homepage_feature_video}{/if}"
+              link-url="{if '{home_hero:homepage_cta_type}' == 'Link'}{home_hero:homepage_feature_link}{/if}"
               headline="{home_hero:title}"
               body-copy="{home_hero:homepage_feature_subtitle}"
               logo-image-url=""
               link-style=""
               link-text="{home_hero:homepage_feature_cta}"
+              slide-type="{home_hero:homepage_cta_type}"
             >
             </div>
             {/home_hero}
