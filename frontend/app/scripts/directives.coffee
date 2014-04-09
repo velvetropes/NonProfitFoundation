@@ -1477,6 +1477,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             "stroke-width": 2
         backgroundColor: "#329FD6"
         onMarkerClick: (event, index) =>
+          rootScope = angular.element('body').scope()
           content = markerList.meta_data[index]
           $popup = $('#map-popup')
           $popup.css
@@ -1504,11 +1505,12 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             $popup
               .removeClass('visible')
               .find(".content").empty()
-              .html(popupTpl)
+              .empty()
             $popup
               .fadeIn("slow", ->
                 $timeout( ->
                   $popup
+                    .html(popupTpl)
                     .addClass('visible')
                     .find('.text-popup')
                     .jScrollPane()
@@ -1525,6 +1527,9 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
                 .find('.text-popup')
                 .jScrollPane().data().jsp.destroy()
               bodyDiv.style.overflow = ""
+
+            $popup.on 'click', '.play-video-link, .view-more',  ->
+              rootScope.directModalTrigger(content.action_target)
 
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)
