@@ -36,9 +36,6 @@
     display: none;
     &.video {
       display: block;
-      &:hover {
-        cursor: pointer;
-      }
     }
   }
   .close {
@@ -126,16 +123,13 @@
     .centered {
       padding-top: 8px;
     }
-    .read-more, .view-more {
+    .read-more {
       @extend .alrightsansbold;
       -webkit-font-smoothing: antialiased;
       margin-top: 5px;
       padding: 10px 14px 7px;
       border: 2px solid $light-blue;
       font-size: 15px;
-      &:hover {
-        cursor: pointer;
-      }
     }
   }
   img {

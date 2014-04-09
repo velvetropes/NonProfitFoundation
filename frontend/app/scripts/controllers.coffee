@@ -53,6 +53,7 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
     $scope.showModal = false
 
   $scope.$on 'modal:show', (event, url) ->
+    # ?video=ScjOkoueDYg
     $scope.showModal = not $scope.showModal
     if $scope.showModal is true
       displayModal(url)
@@ -62,11 +63,6 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
     if url.match(youtubePattern)?
       $location.search('video', url.match(youtubePattern)[1])
     $scope.videoIframe = url
-
-  $scope.directModalTrigger = (url) ->
-    if url?
-      $scope.showModal = true
-      displayModal(url)
 
   $scope.toggleSubscribeForm = ->
     $scope.showSubscribeForm = not $scope.showSubscribeForm
