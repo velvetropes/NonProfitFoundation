@@ -1303,8 +1303,6 @@ sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
 sfDirectives.directive "tabbedNav", ["$location", ($location) ->
 
   link = (scope, element, attrs) ->
-    console.log(scope)
-
     scope.location = $location
 
   restrict: "EA"
@@ -1485,18 +1483,24 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             "stroke-width": 2
         backgroundColor: "#329FD6"
         onMarkerClick: (event, index) =>
+          rootScope = angular.element('body').scope()
           content = markerList.meta_data[index]
+
           $popup = $('#map-popup')
           $popup.css
             left: "#{window.innerWidth/2}px"
           bodyDiv = document.getElementsByTagName("body")[0]
 
           # Define HTML templates.
-          ctaTpl = if content.action_text then "<p class='centered'><a class='read-more' href='#{content.action_target}'>#{content.action_text}</a></p>" else ""
+          ctaTpl = if content.action_text
+            if content.marker_type is "video" then "<p class='centered'><a class='view-more'>#{content.action_text}</a></p>"
+            else "<p class='centered'><a class='read-more' href='#{content.action_target}' target='_blank'>#{content.action_text}</a></p>"
+          else ""
+
           popupTpl = "
-            <span class='close' ng-click='closePopup()'>X</span>
+            <span class='close'>X</span>
             <img src='#{content.thumbnail_url}' />
-            <a href='#{content.action_target}' class='play-video-link #{content.marker_type}'>&nbsp;</a>
+            <a class='play-video-link #{content.marker_type}'>&nbsp;</a>
             <div class='background-popup'>
               <div class='text-popup-container'>
                 <div class='text-popup'>
@@ -1511,12 +1515,12 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           $popup.fadeOut "slow", ->
             $popup
               .removeClass('visible')
-              .find(".content").empty()
-              .html(popupTpl)
+              .empty()
             $popup
               .fadeIn("slow", ->
                 $timeout( ->
                   $popup
+                    .html(popupTpl)
                     .addClass('visible')
                     .find('.text-popup')
                     .jScrollPane()
@@ -1527,12 +1531,16 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
               scrollTop: $("#world-map-gdp").offset().top - 88
             , "slow"
 
-            $popup.find('.close').click ->
+            $popup.on 'click', '.close', ->
               $popup
                 .fadeOut()
                 .find('.text-popup')
                 .jScrollPane().data().jsp.destroy()
               bodyDiv.style.overflow = ""
+              content = {}
+
+            $popup.on 'click', '.play-video-link, .view-more',  ->
+              rootScope.directModalTrigger(content.action_target)
 
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)

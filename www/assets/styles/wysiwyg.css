@@ -475,7 +475,7 @@ table {
 .starkey-zoom-out:before {
   content: "\e601"; }
 
-.alrightsansbold, .page-leader h1, .masthead .section-title, .masthead .section-headline, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, ul.pagination-articles li .block .headline, ul.pagination-articles li .block .date, .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1, .swiper aside.side-panel .headline, .thumblist-nav .jspPane h4, #map-popup .text-popup h2, #map-popup .text-popup .location, #map-popup .text-popup .read-more, .article-header-image .article-title, .contact_main h2, .contact_secondary h2, .missions-map .missions-map-greeting a, .missions-map .missions-map-info .continent-info h1, .missions-map .missions-map-info .country-info h1, .hearing-missions-statistics ul li, .hearing-missions-statistics ul li h1 {
+.alrightsansbold, .page-leader h1, .masthead .section-title, .masthead .section-headline, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, ul.pagination-articles li .block .headline, ul.pagination-articles li .block .date, .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1, .swiper aside.side-panel .headline, .thumblist-nav .jspPane h4, #map-popup .text-popup h2, #map-popup .text-popup .location, #map-popup .text-popup .read-more, #map-popup .text-popup .view-more, .article-header-image .article-title, .contact_main h2, .contact_secondary h2, .missions-map .missions-map-greeting a, .missions-map .missions-map-info .continent-info h1, .missions-map .missions-map-info .country-info h1, .hearing-missions-statistics ul li, .hearing-missions-statistics ul li h1 {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: bold; }
@@ -2768,6 +2768,8 @@ pagination {
     display: none; }
     #map-popup .play-video-link.video {
       display: block; }
+      #map-popup .play-video-link.video:hover {
+        cursor: pointer; }
   #map-popup .close {
     position: absolute;
     display: block;
@@ -2837,12 +2839,14 @@ pagination {
       width: 263px; }
     #map-popup .text-popup .centered {
       padding-top: 8px; }
-    #map-popup .text-popup .read-more {
+    #map-popup .text-popup .read-more, #map-popup .text-popup .view-more {
       -webkit-font-smoothing: antialiased;
       margin-top: 5px;
       padding: 10px 14px 7px;
       border: 2px solid #00b3d2;
       font-size: 15px; }
+      #map-popup .text-popup .read-more:hover, #map-popup .text-popup .view-more:hover {
+        cursor: pointer; }
   #map-popup img {
     position: absolute;
     right: 300px;
