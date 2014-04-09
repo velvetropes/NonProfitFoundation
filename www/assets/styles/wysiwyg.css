@@ -3583,6 +3583,60 @@ pagination {
 
 .hearing-missions-page .swiper .gradient-background {
   background: none; }
+.hearing-missions-page .page-leader {
+  margin-top: 90px;
+  margin-bottom: 0; }
+  .hearing-missions-page .page-leader h1 {
+    margin-bottom: 30px;
+    line-height: 1.2em; }
+  @media screen and (max-width: 569px) {
+    .hearing-missions-page .page-leader {
+      margin-top: 40px; } }
+.hearing-missions-page .all-missions {
+  margin: 42px 0 75px 0; }
+  .hearing-missions-page .all-missions > a {
+    font-size: 17px;
+    line-height: 19px;
+    padding: 6px 21px; }
+.hearing-missions-page .mission-highlights-carousel .swiper.short .swipe-wrap > div {
+  height: 525px; }
+
+#hearing-landing-content.outer-container, .accordion .expander .body #hearing-landing-content.accordion-list, .legal-page #hearing-landing-content.article-section {
+  max-width: 1485px;
+  padding: 0 60px; }
+  #hearing-landing-content.outer-container .tabbed-content nav, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav, .legal-page #hearing-landing-content.article-section .tabbed-content nav {
+    max-width: none;
+    margin: 0 -60px; }
+    #hearing-landing-content.outer-container .tabbed-content nav li a, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav li a, .legal-page #hearing-landing-content.article-section .tabbed-content nav li a {
+      padding: 11px 34px;
+      letter-spacing: 2px;
+      line-height: 1em; }
+  #hearing-landing-content.outer-container .content, .accordion .expander .body #hearing-landing-content.accordion-list .content, .legal-page #hearing-landing-content.article-section .content {
+    float: left;
+    padding: 0;
+    padding-left: 55px;
+    max-width: 575px;
+    color: #333; }
+    #hearing-landing-content.outer-container .content h1, .accordion .expander .body #hearing-landing-content.accordion-list .content h1, .legal-page #hearing-landing-content.article-section .content h1 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 34px;
+      line-height: 43px; }
+    #hearing-landing-content.outer-container .content p, .accordion .expander .body #hearing-landing-content.accordion-list .content p, .legal-page #hearing-landing-content.article-section .content p {
+      line-height: 1.9em; }
+  @media screen and (max-width: 569px) {
+    #hearing-landing-content.outer-container, .accordion .expander .body #hearing-landing-content.accordion-list, .legal-page #hearing-landing-content.article-section {
+      padding: 0; }
+      #hearing-landing-content.outer-container .tabbed-content nav, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav, .legal-page #hearing-landing-content.article-section .tabbed-content nav {
+        margin: 0; }
+      #hearing-landing-content.outer-container .content, .accordion .expander .body #hearing-landing-content.accordion-list .content, .legal-page #hearing-landing-content.article-section .content {
+        padding: 16px;
+        font-size: 12px;
+        line-height: 1.7; }
+        #hearing-landing-content.outer-container .content h1, .accordion .expander .body #hearing-landing-content.accordion-list .content h1, .legal-page #hearing-landing-content.article-section .content h1 {
+          font-size: 2em;
+          line-height: 1.2em;
+          margin: 16px 0; } }
 
 #missions-world-map, #missions-us-map {
   height: 100%;
@@ -3722,7 +3776,7 @@ pagination {
       padding-top: 80px; }
 
 .hearing-missions-statistics {
-  margin: 0 0 55px; }
+  margin: 0 0 75px; }
   .hearing-missions-statistics ul {
     margin: 0;
     padding: 0;

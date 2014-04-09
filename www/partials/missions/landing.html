@@ -18,7 +18,7 @@
       </li>
     </ul>
   </section>
-  <div class="outer-container">
+  <div class="outer-container" id="hearing-landing-content">
     <section class='tabbed-content'>
       <nav class="outer-container">
           <ul class='three-tabs'>
@@ -32,7 +32,7 @@
         </div>
         <div class="content">
           <h1>{{content_tab.content_title}}</h1>
-          {{content_tab.content}}"
+          <p ng-bind-html="content_tab.content"></p>
         </div>
       </article>
     </section>
@@ -89,4 +89,4 @@
     <div class="load-more" ng-click="loadMore()" ng-hide="isAtPaginationEnd()">LOAD MORE</div>
   </section>
 
-  <p class="centered"><a href="#/highlights" class="link-with-border">See all Hearing Missions</a></p>
+  <p class="centered all-missions"><a href="#/highlights" class="link-with-border">See all Hearing Missions</a></p>
