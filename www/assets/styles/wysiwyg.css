@@ -2183,8 +2183,6 @@ pagination {
 
   ul.pagination-articles {
     margin-bottom: 0; }
-    ul.pagination-articles.press-items li .block .headline {
-      font-size: 17px; }
     ul.pagination-articles li {
       margin-right: 0;
       width: 100%;
@@ -2205,7 +2203,7 @@ pagination {
           padding: 10px 10px 5px;
           margin: 0;
           font-weight: 400;
-          font-size: 17px;
+          font-size: 18px;
           line-height: 1.1;
           height: auto;
           overflow: hidden;
@@ -2237,8 +2235,10 @@ pagination {
 @media screen and (max-width: 569px) {
   ul.pagination-articles li .block {
     height: 130px; }
-  ul.pagination-articles li .headline {
-    height: 85px; } }
+    ul.pagination-articles li .block .headline {
+      font-size: 16px;
+      height: auto;
+      max-height: 77px; } }
 @media screen and (max-width: 340px) {
   ul.pagination-articles li .block {
     height: 146px; } }
