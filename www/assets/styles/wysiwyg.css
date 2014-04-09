@@ -3598,8 +3598,6 @@ pagination {
     font-size: 17px;
     line-height: 19px;
     padding: 6px 21px; }
-.hearing-missions-page .mission-highlights-carousel .swiper.short .swipe-wrap > div {
-  height: 525px; }
 
 #hearing-landing-content.outer-container, .accordion .expander .body #hearing-landing-content.accordion-list, .legal-page #hearing-landing-content.article-section {
   max-width: 1485px;
