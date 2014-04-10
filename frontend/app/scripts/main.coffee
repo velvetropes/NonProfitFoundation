@@ -143,10 +143,7 @@ programsPageApp.run ($FB) ->
 
 programsPageApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
   $routeProvider
-  .when("/operationchange",
-    templateUrl: "/api/program_0"
-    controller: "ProgramsCtrl"
-  ).when("/listencarefully",
+  .when("/listencarefully",
     templateUrl: "/api/program_1"
     controller: "ProgramsCtrl"
   ).when("/hearnow",
@@ -163,7 +160,10 @@ takeActionPagesApp.run ($FB) ->
   $FB.init(FB_ID)
 
 takeActionPagesApp.config ["$routeProvider", ($routeProvider, $routeParams) ->
-  $routeProvider.when("/:tabId",
+  $routeProvider
+  .when("/operation-change",
+    redirectTo: "/fundraising"
+  ).when("/:tabId",
     templateUrl: (params) ->
       "/api/#{params.tabId}"
       # "local/api/#{params.tabId}.html"
