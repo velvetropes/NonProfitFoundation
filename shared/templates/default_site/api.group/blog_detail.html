@@ -40,9 +40,9 @@
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-          {if blog_category}
-            <p class="article-item-category">{blog_category}</p>
-          {/if}
+          {categories limit="1"}
+            <p class="article-item-category">{category_name}</p>
+          {/categories}
           <h1  class="article-title">{title}</h1>
           <p>{blog_date format='%F %d, %Y'} {if blog_author}| {blog_author}{/if}</p>
         </div>
