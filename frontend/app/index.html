@@ -178,6 +178,7 @@
         <!--(bake-start _if="dist")-->
           {exp:channel:entries channel="homepage_map_items"}
             <div class="entry">
+              homepage_map_item_category:url_title: {homepage_map_item_category:url_title}
               {if homepage_map_item_category:url_title != 'video'}
                 <a href="{homepage_map_item_cta_link}">
                 <div class="entry-image" style="background-image: url('{homepage_map_item_image}')"></div>
