@@ -2771,6 +2771,13 @@ pagination {
     left: 30%;
     top: 59%;
     display: none; }
+    @media screen and (max-width: 768px) {
+      #map-popup .play-video-link {
+        left: 196px;
+        top: 219px; } }
+    @media screen and (max-width: 569px) {
+      #map-popup .play-video-link {
+        left: 136px; } }
     #map-popup .play-video-link.video {
       display: block; }
       #map-popup .play-video-link.video:hover {
