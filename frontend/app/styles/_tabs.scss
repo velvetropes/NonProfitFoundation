@@ -157,6 +157,9 @@ nav {
 
       &.two-tabs {
         width: 40%;
+        @include media($tablet-down) {
+          width: 100%;
+        }
       }
 
       li {
@@ -299,6 +302,9 @@ nav {
       width: 50%;
       height: 410px;
       padding: 0;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     .content {
       float: right;

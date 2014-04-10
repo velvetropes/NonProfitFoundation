@@ -389,8 +389,15 @@
         text-align: center;
       }
       .action-link {
-        float:right;
-        padding-right:10px;
+        float: right;
+        padding-right: 10px;
+      }
+    }
+  }
+  @include media($mobile) {
+    .slide {
+      .headline {
+        text-align: left;
       }
     }
   }
