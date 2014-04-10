@@ -21,7 +21,7 @@
   <div class="outer-container" id="hearing-landing-content">
     <section class='tabbed-content'>
       <nav class="outer-container">
-          <ul class='three-tabs'>
+          <ul class='tabs three-tabs row-table'>
             <li ng-repeat="content_tab in content_tabs" ng-class="{active: currentTab==$index,last:$index==2}" ng-click="changeTab($index)">
               <a href>{{content_tab.tab_title}}</a>
             </li>

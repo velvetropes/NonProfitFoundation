@@ -4,8 +4,8 @@ nav {
     li {
       text-align: center;
       border-top: $dotted-border;
-      border-right: $dotted-border;
       border-bottom: $dotted-border;
+      border-right: $dotted-border;
       @include pad();
       &:first-child {
         border-left: $dotted-border;
@@ -25,13 +25,11 @@ nav {
 }
 
 .header-nav {
-
-  // margin-top: 80px;
+  @include row(table);
 
   .top-level-wrap {
     border-bottom: $dotted-border;
   }
-
   h1, h2, h3, h4 {
     @extend .alrightsansbold;
   }
@@ -39,13 +37,11 @@ nav {
     font-size: 0.85em;
     padding-bottom: 3px;
   }
-  @include row(table);
   .tabs-wrap {
     max-width: 35.9em;
     margin: auto;
   }
   .tabs {
-    // margin: -58px 0 0 0;
     padding: 0;
     margin-bottom: -1px;
     li {
@@ -155,11 +151,16 @@ nav {
   nav {
     border-bottom: $dotted-border;
     .tabs {
+      width: 80%;
+      margin: 0 auto -1px auto;
       text-align: center;
-      margin-bottom: -1px;
-      @include shift(1);
+
+      &.two-tabs {
+        width: 40%;
+      }
+
       li {
-        @include span-columns(1 of 4);
+        @include span-columns(1 of 3);
         padding: 5px;
         vertical-align: middle;
         a {
@@ -179,17 +180,15 @@ nav {
           }
         }
       }
+
+      @include media($tablet-down) {
+        width: 100%;
+      }
     }
 
     .two-tabs, .three-tabs, .four-tabs, .five-tabs {
-      text-align: center;
       padding: 0;
-      margin: 0 0 -1px;
       li {
-        display: inline-block;
-        border-left: $dotted-border;
-        border-top: $dotted-border;
-        margin: 0 0 0 -1px;
         a {
           font-size: .875em;
           @extend .alrightsanslight;
@@ -206,9 +205,6 @@ nav {
             color: $light-blue;
           }
         }
-        &.last {
-          border-right: $dotted-border;
-        }
         &:hover {
           a {
             color: $light-blue;
@@ -216,24 +212,40 @@ nav {
         }
       }
     }
-    .three-tabs, .four-tabs {
+    .two-tabs {
       li {
-        @include media($tablet-down) {
+        width: 50%;
+      }
+    }
+    .three-tabs {
+      li {
+        width: 33.3333%;
+      }
+    }
+    .four-tabs {
+      li {
+        width: 25%;
+      }
+    }
+    .five-tabs {
+      li {
+        width: 20%;
+        margin-left: -3px;
+        a {
+          padding: 10px 0 8px;
+        }
+      }
+    }
+    .three-tabs, .four-tabs, .five-tabs {
+      @include media($tablet-down) {
+        width: 100%;
+        li {
           width: 100%;
           margin: 0;
           a {
             font-size: 12px;
             font-weight: bold;
           }
-        }
-      }
-    }
-    .five-tabs {
-      li {
-        width: 19.5%;
-        margin-left: -3px;
-        a {
-          padding: 10px 0 8px;
         }
       }
     }
@@ -260,7 +272,7 @@ nav {
     }
 
     @include media($tablet-down) {
-      .tabs, {
+      .tabs {
         padding: 0;
         margin: 10px 0 0 0;
         @include reset-display;

@@ -475,7 +475,7 @@ table {
 .starkey-zoom-out:before {
   content: "\e601"; }
 
-.alrightsansbold, .page-leader h1, .masthead .section-title, .masthead .section-headline, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, ul.pagination-articles li .block .headline, ul.pagination-articles li .block .date, .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1, .swiper aside.side-panel .headline, .thumblist-nav .jspPane h4, #map-popup .text-popup h2, #map-popup .text-popup .location, #map-popup .text-popup .read-more, .article-header-image .article-title, .contact_main h2, .contact_secondary h2, .missions-map .missions-map-greeting a, .missions-map .missions-map-info .continent-info h1, .missions-map .missions-map-info .country-info h1, .hearing-missions-statistics ul li, .hearing-missions-statistics ul li h1 {
+.alrightsansbold, .page-leader h1, .masthead .section-title, .masthead .section-headline, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, ul.pagination-articles li .block .headline, ul.pagination-articles li .block .date, .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1, .swiper aside.side-panel .headline, .thumblist-nav .jspPane h4, #map-popup .text-popup h2, #map-popup .text-popup .location, #map-popup .text-popup .read-more, #map-popup .text-popup .view-more, .map-legend ul li, .article-header-image .article-title, .contact_main h2, .contact_secondary h2, .missions-map .missions-map-greeting a, .missions-map .missions-map-info .continent-info h1, .missions-map .missions-map-info .country-info h1, .hearing-missions-statistics ul li, .hearing-missions-statistics ul li h1 {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: bold; }
@@ -485,7 +485,7 @@ table {
   font-style: normal;
   font-weight: normal; }
 
-.alrightsansregular, .page-leader p, .swiper aside.side-panel p, .swiper aside.side-panel .body-copy, #map-popup, #map-popup .text-popup p {
+.alrightsansregular, .page-leader p, .pagination ul li a, .swiper aside.side-panel p, .swiper aside.side-panel .body-copy, #map-popup, #map-popup .text-popup p, .contact_main h1, .contact_secondary h1 {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: normal; }
@@ -838,8 +838,8 @@ nav .tabs {
   nav .tabs li {
     text-align: center;
     border-top: 1px dotted #8f8f8f;
-    border-right: 1px dotted #8f8f8f;
     border-bottom: 1px dotted #8f8f8f;
+    border-right: 1px dotted #8f8f8f;
     padding: 2.35765%; }
     nav .tabs li:first-child {
       border-left: 1px dotted #8f8f8f; }
@@ -854,15 +854,15 @@ nav .tabs {
   display: table;
   width: 100%;
   table-layout: fixed; }
+  .header-nav:after {
+    content: "";
+    display: table;
+    clear: both; }
   .header-nav .top-level-wrap {
     border-bottom: 1px dotted #8f8f8f; }
   .header-nav h3 {
     font-size: 0.85em;
     padding-bottom: 3px; }
-  .header-nav:after {
-    content: "";
-    display: table;
-    clear: both; }
   .header-nav .tabs-wrap {
     max-width: 35.9em;
     margin: auto; }
@@ -955,13 +955,15 @@ nav .tabs {
 .tabbed-content nav {
   border-bottom: 1px dotted #8f8f8f; }
   .tabbed-content nav .tabs {
-    text-align: center;
-    margin-bottom: -1px;
-    margin-left: 8.5298%; }
+    width: 80%;
+    margin: 0 auto -1px auto;
+    text-align: center; }
+    .tabbed-content nav .tabs.two-tabs {
+      width: 40%; }
     .tabbed-content nav .tabs li {
       display: table-cell;
       padding-right: 0%;
-      width: 19.43277%;
+      width: 26.56773%;
       padding: 5px;
       vertical-align: middle; }
       .tabbed-content nav .tabs li a {
@@ -973,42 +975,44 @@ nav .tabs {
           color: #00b3d2; }
       .tabbed-content nav .tabs li:hover a {
         color: #00b3d2; }
+    @media screen and (max-width: 768px) {
+      .tabbed-content nav .tabs {
+        width: 100%; } }
   .tabbed-content nav .two-tabs, .tabbed-content nav .three-tabs, .tabbed-content nav .four-tabs, .tabbed-content nav .five-tabs {
-    text-align: center;
-    padding: 0;
-    margin: 0 0 -1px; }
-    .tabbed-content nav .two-tabs li, .tabbed-content nav .three-tabs li, .tabbed-content nav .four-tabs li, .tabbed-content nav .five-tabs li {
-      display: inline-block;
-      border-left: 1px dotted #8f8f8f;
-      border-top: 1px dotted #8f8f8f;
-      margin: 0 0 0 -1px; }
-      .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .four-tabs li a, .tabbed-content nav .five-tabs li a {
-        font-size: .875em;
-        display: block;
-        padding: 2px 10px;
-        text-transform: uppercase; }
-        .tabbed-content nav .two-tabs li a:hover, .tabbed-content nav .three-tabs li a:hover, .tabbed-content nav .four-tabs li a:hover, .tabbed-content nav .five-tabs li a:hover {
-          cursor: pointer; }
-      .tabbed-content nav .two-tabs li.active, .tabbed-content nav .three-tabs li.active, .tabbed-content nav .four-tabs li.active, .tabbed-content nav .five-tabs li.active {
-        border-bottom: 1px solid white; }
-        .tabbed-content nav .two-tabs li.active a, .tabbed-content nav .three-tabs li.active a, .tabbed-content nav .four-tabs li.active a, .tabbed-content nav .five-tabs li.active a {
-          color: #00b3d2; }
-      .tabbed-content nav .two-tabs li.last, .tabbed-content nav .three-tabs li.last, .tabbed-content nav .four-tabs li.last, .tabbed-content nav .five-tabs li.last {
-        border-right: 1px dotted #8f8f8f; }
-      .tabbed-content nav .two-tabs li:hover a, .tabbed-content nav .three-tabs li:hover a, .tabbed-content nav .four-tabs li:hover a, .tabbed-content nav .five-tabs li:hover a {
+    padding: 0; }
+    .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .four-tabs li a, .tabbed-content nav .five-tabs li a {
+      font-size: .875em;
+      display: block;
+      padding: 2px 10px;
+      text-transform: uppercase; }
+      .tabbed-content nav .two-tabs li a:hover, .tabbed-content nav .three-tabs li a:hover, .tabbed-content nav .four-tabs li a:hover, .tabbed-content nav .five-tabs li a:hover {
+        cursor: pointer; }
+    .tabbed-content nav .two-tabs li.active, .tabbed-content nav .three-tabs li.active, .tabbed-content nav .four-tabs li.active, .tabbed-content nav .five-tabs li.active {
+      border-bottom: 1px solid white; }
+      .tabbed-content nav .two-tabs li.active a, .tabbed-content nav .three-tabs li.active a, .tabbed-content nav .four-tabs li.active a, .tabbed-content nav .five-tabs li.active a {
         color: #00b3d2; }
-  @media screen and (max-width: 768px) {
-    .tabbed-content nav .three-tabs li, .tabbed-content nav .four-tabs li {
-      width: 100%;
-      margin: 0; }
-      .tabbed-content nav .three-tabs li a, .tabbed-content nav .four-tabs li a {
-        font-size: 12px;
-        font-weight: bold; } }
+    .tabbed-content nav .two-tabs li:hover a, .tabbed-content nav .three-tabs li:hover a, .tabbed-content nav .four-tabs li:hover a, .tabbed-content nav .five-tabs li:hover a {
+      color: #00b3d2; }
+  .tabbed-content nav .two-tabs li {
+    width: 50%; }
+  .tabbed-content nav .three-tabs li {
+    width: 33.3333%; }
+  .tabbed-content nav .four-tabs li {
+    width: 25%; }
   .tabbed-content nav .five-tabs li {
-    width: 19.5%;
+    width: 20%;
     margin-left: -3px; }
     .tabbed-content nav .five-tabs li a {
       padding: 10px 0 8px; }
+  @media screen and (max-width: 768px) {
+    .tabbed-content nav .three-tabs, .tabbed-content nav .four-tabs, .tabbed-content nav .five-tabs {
+      width: 100%; }
+      .tabbed-content nav .three-tabs li, .tabbed-content nav .four-tabs li, .tabbed-content nav .five-tabs li {
+        width: 100%;
+        margin: 0; }
+        .tabbed-content nav .three-tabs li a, .tabbed-content nav .four-tabs li a, .tabbed-content nav .five-tabs li a {
+          font-size: 12px;
+          font-weight: bold; } }
   @media screen and (max-width: 900px) {
     .tabbed-content nav .five-tabs {
       padding: 0;
@@ -1777,7 +1781,8 @@ footer {
 
 .player {
   width: 100%;
-  height: 90%; }
+  height: 90%;
+  text-align: center; }
 
 .ng-modal-close {
   position: absolute;
@@ -2768,7 +2773,9 @@ pagination {
     display: none; }
     #map-popup .play-video-link.video {
       display: block; }
-  #map-popup .close {
+      #map-popup .play-video-link.video:hover {
+        cursor: pointer; }
+  #map-popup .close-popup {
     position: absolute;
     display: block;
     width: 16px;
@@ -2783,16 +2790,16 @@ pagination {
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
     z-index: 50; }
-    #map-popup .close::after, #map-popup .close::before {
+    #map-popup .close-popup::after, #map-popup .close-popup::before {
       content: "";
       position: absolute;
       background: #fff; }
-    #map-popup .close::before {
+    #map-popup .close-popup::before {
       top: 0;
       left: 8px;
       width: 1px;
       height: 100%; }
-    #map-popup .close::after {
+    #map-popup .close-popup::after {
       left: 0;
       top: 8px;
       height: 1px;
@@ -2837,12 +2844,14 @@ pagination {
       width: 263px; }
     #map-popup .text-popup .centered {
       padding-top: 8px; }
-    #map-popup .text-popup .read-more {
+    #map-popup .text-popup .read-more, #map-popup .text-popup .view-more {
       -webkit-font-smoothing: antialiased;
       margin-top: 5px;
       padding: 10px 14px 7px;
       border: 2px solid #00b3d2;
       font-size: 15px; }
+      #map-popup .text-popup .read-more:hover, #map-popup .text-popup .view-more:hover {
+        cursor: pointer; }
   #map-popup img {
     position: absolute;
     right: 300px;
@@ -3129,6 +3138,9 @@ pagination {
     margin: 0; }
   .gala-tab-content p.no-container {
     margin: 40px 0 0; }
+
+.gala-panel a {
+  color: #00b3d2; }
 
 @media screen and (max-width: 569px) {
   .gala-tabs .tabbed-content {
@@ -3605,6 +3617,8 @@ pagination {
   #hearing-landing-content.outer-container .tabbed-content nav, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav, .legal-page #hearing-landing-content.article-section .tabbed-content nav {
     max-width: none;
     margin: 0 -60px; }
+    #hearing-landing-content.outer-container .tabbed-content nav .tabs, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav .tabs, .legal-page #hearing-landing-content.article-section .tabbed-content nav .tabs {
+      width: 60%; }
     #hearing-landing-content.outer-container .tabbed-content nav li a, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav li a, .legal-page #hearing-landing-content.article-section .tabbed-content nav li a {
       padding: 11px 34px;
       letter-spacing: 2px;
@@ -3622,11 +3636,15 @@ pagination {
       line-height: 43px; }
     #hearing-landing-content.outer-container .content p, .accordion .expander .body #hearing-landing-content.accordion-list .content p, .legal-page #hearing-landing-content.article-section .content p {
       line-height: 1.9em; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     #hearing-landing-content.outer-container, .accordion .expander .body #hearing-landing-content.accordion-list, .legal-page #hearing-landing-content.article-section {
       padding: 0; }
       #hearing-landing-content.outer-container .tabbed-content nav, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav, .legal-page #hearing-landing-content.article-section .tabbed-content nav {
         margin: 0; }
+        #hearing-landing-content.outer-container .tabbed-content nav .tabs, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav .tabs, .legal-page #hearing-landing-content.article-section .tabbed-content nav .tabs {
+          width: 100%; }
+          #hearing-landing-content.outer-container .tabbed-content nav .tabs li, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav .tabs li, .legal-page #hearing-landing-content.article-section .tabbed-content nav .tabs li {
+            float: none; }
       #hearing-landing-content.outer-container .content, .accordion .expander .body #hearing-landing-content.accordion-list .content, .legal-page #hearing-landing-content.article-section .content {
         padding: 16px;
         font-size: 12px;
@@ -3805,6 +3823,9 @@ pagination {
       .hearing-missions-statistics ul li h1 {
         font-size: 3.75em;
         margin: 65px 0 0; }
+        @media (max-width: 940px) and (min-width: 769px) {
+          .hearing-missions-statistics ul li h1 {
+            font-size: 3.25em; } }
       .hearing-missions-statistics ul li p {
         font-size: 1.1em;
         text-transform: uppercase;
@@ -3825,7 +3846,7 @@ pagination {
     display: block; } }
 @media screen and (min-width: 570px) and (max-width: 768px) {
   .hearing-missions-statistics ul li h1 {
-    font-size: 3em; }
+    font-size: 2.75em; }
   .hearing-missions-statistics ul li p {
     font-size: 1em; } }
 @media screen and (max-width: 850px) {

@@ -73,6 +73,12 @@
   }
 }
 
+.gala-panel {
+  a {
+    color: $light-blue;
+  }
+}
+
 .gala-tabs {
   @include media($mobile) {
     .tabbed-content {

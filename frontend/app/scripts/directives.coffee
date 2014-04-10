@@ -1369,8 +1369,6 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
     full: "@"
 ]
 
-# <button ng-click='toggleModal("http://www.youtube.com/embed/xx2Dx_rRdws")'>Open Modal Dialog</button>
-
 # <video-player-modal show='modalVideo' width='90%' height='90%'>
 #   <p>Modal Content Goes here<p>
 #   <iframe
@@ -1382,16 +1380,10 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
 #   </iframe>
 # </video-player-modal>
 
-# sfDirectives.directive 'videoTrigger', [->
-#   restrict: "A"
-#   link: (scope, element, attr) ->
-#     console.debug "attr", attr
-# ]
-
-sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
+sfDirectives.directive 'videoPlayerModal', [ ->
   restrict: "EA"
   scope: {
-    show: "="
+    videoIframe: "="
   }
   replace: true
   transclude: true
@@ -1405,10 +1397,10 @@ sfDirectives.directive 'videoPlayerModal', ["$window", ($window) ->
     scope.iframeContent = ""
 
     scope.hideModal = ->
-      scope.show = false
+      scope.videoIframe = false
       scope.$emit('modal:hide')
 
-    scope.$watch('show', (newVal, oldVal) ->
+    scope.$watch('videoIframe', (newVal, oldVal) ->
       if newVal && !oldVal
         scope.iframeContent = newVal.replace(/(?:http(?:s?):\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="1280" height="720" style="max-width:100%;max-height:100%;" src="http://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen></iframe>')
         scope.bodyDiv.style.overflow = "hidden";
@@ -1485,6 +1477,7 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             "stroke-width": 2
         backgroundColor: "#329FD6"
         onMarkerClick: (event, index) =>
+          rootScope = angular.element('body').scope()
           content = markerList.meta_data[index]
           $popup = $('#map-popup')
           $popup.css
@@ -1492,11 +1485,15 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
           bodyDiv = document.getElementsByTagName("body")[0]
 
           # Define HTML templates.
-          ctaTpl = if content.action_text then "<p class='centered'><a class='read-more' href='#{content.action_target}'>#{content.action_text}</a></p>" else ""
+          ctaTpl = if content.action_text
+            if content.marker_type is "video" then "<p class='centered'><a class='view-more'>#{content.action_text}</a></p>"
+            else "<p class='centered'><a class='read-more' href='#{content.action_target}' target='_blank'>#{content.action_text}</a></p>"
+          else ""
+
           popupTpl = "
-            <span class='close' ng-click='closePopup()'>X</span>
+            <span class='close-popup'>X</span>
             <img src='#{content.thumbnail_url}' />
-            <a href='#{content.action_target}' class='play-video-link #{content.marker_type}'>&nbsp;</a>
+            <a class='play-video-link #{content.marker_type}'>&nbsp;</a>
             <div class='background-popup'>
               <div class='text-popup-container'>
                 <div class='text-popup'>
@@ -1508,31 +1505,32 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
               </div>
             </div>
           "
-          $popup.fadeOut "slow", ->
-            $popup
-              .removeClass('visible')
-              .find(".content").empty()
-              .html(popupTpl)
-            $popup
-              .fadeIn("slow", ->
-                $timeout( ->
-                  $popup
-                    .addClass('visible')
-                    .find('.text-popup')
-                    .jScrollPane()
-                , 200)
-              )
+          $popup
+            .removeClass('visible')
+            .empty()
+            .fadeIn("slow", ->
+              $timeout( ->
+                $popup
+                  .html(popupTpl)
+                  .addClass('visible')
+                  .find('.text-popup')
+                  .jScrollPane()
+              , 200)
+            )
 
-            $("html, body").animate
-              scrollTop: $("#world-map-gdp").offset().top - 88
-            , "slow"
+          $("html, body").animate
+            scrollTop: $("#world-map-gdp").offset().top - 88
+          , "slow"
 
-            $popup.find('.close').click ->
-              $popup
-                .fadeOut()
-                .find('.text-popup')
-                .jScrollPane().data().jsp.destroy()
-              bodyDiv.style.overflow = ""
+          $popup.on 'click', '.close-popup', ->
+            $popup
+              .fadeOut()
+              .find('.text-popup')
+              .jScrollPane().data().jsp.destroy()
+            bodyDiv.style.overflow = ""
+
+          $popup.on 'click', '.play-video-link, .view-more',  ->
+            rootScope.directModalTrigger(content.action_target)
 
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)

@@ -36,9 +36,12 @@
     display: none;
     &.video {
       display: block;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
-  .close {
+  .close-popup {
     $size: 16px;
     position: absolute;
     display: block;
@@ -51,9 +54,9 @@
     @include transform(rotate(45deg));
     z-index: 50;
     &::after, &::before {
-        content: "";
-        position: absolute;
-        background: #fff;
+      content: "";
+      position: absolute;
+      background: #fff;
     }
     &::before {
       top: 0;
@@ -123,13 +126,16 @@
     .centered {
       padding-top: 8px;
     }
-    .read-more {
+    .read-more, .view-more {
       @extend .alrightsansbold;
       -webkit-font-smoothing: antialiased;
       margin-top: 5px;
       padding: 10px 14px 7px;
       border: 2px solid $light-blue;
       font-size: 15px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   img {
@@ -164,7 +170,7 @@
     text-transform: uppercase;
     li {
       position: relative;
-      @extend .alrightsanbold;
+      @extend .alrightsansbold;
       padding-left: 30px;
       font-size: .75em;
       line-height: 16px;
