@@ -2348,13 +2348,14 @@ pagination {
       z-index: 90;
       color: #FFF;
       width: 100%;
-      bottom: 43px;
+      bottom: 10px;
       padding: 0 40px;
+      text-align: center;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
       .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1 {
         margin: 3px 10px;
-        font-size: 2.875em;
+        font-size: 2.25em;
         line-height: 1.08em; }
       .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p {
         font-size: 1.2em;
@@ -2553,11 +2554,13 @@ pagination {
     .mobile-carousel .slide .headline {
       text-align: center; }
     .mobile-carousel .slide .action-link {
-      float: right;
-      padding-right: 10px; } }
+      text-align: center; } }
   @media screen and (max-width: 569px) {
     .mobile-carousel .slide .headline {
-      text-align: left; } }
+      text-align: left; }
+    .mobile-carousel .slide .action-link {
+      float: right;
+      padding-right: 10px; } }
 
 @media screen and (max-width: 768px) {
   .image-contain article {
@@ -3485,22 +3488,27 @@ pagination {
   .map-as-feed .load-more {
     color: #006b8a; }
 
-.home-page .carousel.thumblist.bottom {
-  border-bottom: 1px dotted #8f8f8f; }
 .home-page .thumblist .thumblist-nav .jspPane > div .content {
   top: 214px;
   right: 20px;
   left: 20px; }
-.home-page .swiper aside:not(.side-panel) a.text-link, .home-page .swiper aside.not-side-panel a.text-link {
-  display: inline-block;
-  padding: 2px 35px 3px;
-  border: 2px solid #00b3d2;
-  margin: 10px; }
-  @media screen and (max-width: 569px) {
-    .home-page .swiper aside:not(.side-panel) a.text-link, .home-page .swiper aside.not-side-panel a.text-link {
-      padding: 0;
-      margin: 0;
-      border: none; } }
+.home-page .main-home-carousel .swiper aside:not(.side-panel), .home-page .main-home-carousel .swiper aside.not-side-panel {
+  bottom: 43px; }
+  .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+    font-size: 2.875em; }
+    @media screen and (max-width: 569px) {
+      .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+        font-size: 18px; } }
+  .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
+    display: inline-block;
+    padding: 2px 35px 3px;
+    border: 2px solid #00b3d2;
+    margin: 10px; }
+    @media screen and (max-width: 569px) {
+      .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
+        padding: 0;
+        margin: 0;
+        border: none; } }
 
 .legal-page .article-section {
   text-align: center;

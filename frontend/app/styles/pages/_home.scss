@@ -229,27 +229,32 @@
     color: #006b8a;
   }
 }
-
 .home-page {
-  .carousel.thumblist.bottom {
-    border-bottom: $dotted-border;
-  }
   .thumblist .thumblist-nav .jspPane > div .content {
     top: 214px;
     right: 20px;
     left: 20px;
   }
-  .swiper {
-    aside:not(.side-panel), aside.not-side-panel {
-      a.text-link {
-        display: inline-block;
-        padding: 2px 35px 3px;
-        border: 2px solid $light-blue;
-        margin: 10px;
-        @include media($mobile) {
-          padding: 0;
-          margin: 0;
-          border: none;
+  .main-home-carousel {
+    .swiper {
+      aside:not(.side-panel), aside.not-side-panel {
+        bottom: 43px;
+        h1 {
+          font-size: 2.875em;
+          @include media($mobile) {
+            font-size: 18px;
+          }
+        }
+        a.text-link {
+          display: inline-block;
+          padding: 2px 35px 3px;
+          border: 2px solid $light-blue;
+          margin: 10px;
+          @include media($mobile) {
+            padding: 0;
+            margin: 0;
+            border: none;
+          }
         }
       }
     }
