@@ -2268,7 +2268,7 @@ pagination {
     right: 0px; }
     .swiper-controls.right a {
       background: url("images/carousel/arrow-right-retina.png") no-repeat; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .swiper-controls {
       margin-top: -86px; }
       .swiper-controls a {
@@ -2366,7 +2366,7 @@ pagination {
         color: #FFF;
         font-weight: bold;
         font-size: .874em; }
-      @media screen and (max-width: 569px) {
+      @media screen and (max-width: 768px) {
         .swiper aside:not(.side-panel), .swiper aside.not-side-panel {
           bottom: 0px;
           background: #FFF;
@@ -2444,7 +2444,7 @@ pagination {
 
 .media-mentions-page .swiper {
   background: #5ca5d6; }
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 768px) {
   .media-mentions-page .swiper .logo.ng-hide {
     height: 44px;
     display: block !important; }
@@ -2476,7 +2476,7 @@ pagination {
   height: 100px;
   background: url("images/carousel/video-play-button-retina.png") no-repeat;
   display: block; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .play-video-link {
       margin-top: -83px;
       margin-left: -25px;
@@ -2506,7 +2506,7 @@ pagination {
     position: absolute;
     bottom: 14px;
     width: 100%; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .half-wit {
       float: none;
       width: 100%; } }
@@ -2516,7 +2516,7 @@ pagination {
   list-style: none;
   margin: 0;
   padding: 0; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .swiper-position {
       display: none; } }
   .swiper-position li {
@@ -2552,11 +2552,6 @@ pagination {
     display: none; }
   @media screen and (max-width: 768px) {
     .mobile-carousel .slide .headline {
-      text-align: center; }
-    .mobile-carousel .slide .action-link {
-      text-align: center; } }
-  @media screen and (max-width: 569px) {
-    .mobile-carousel .slide .headline {
       text-align: left; }
     .mobile-carousel .slide .action-link {
       float: right;
@@ -2566,7 +2561,7 @@ pagination {
   .image-contain article {
     background-size: contain;
     background-position: top center; } }
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 768px) {
   .add-bottom-border {
     border-bottom: 1px dotted #8f8f8f;
     padding-bottom: 8px; } }
@@ -3492,23 +3487,21 @@ pagination {
   top: 214px;
   right: 20px;
   left: 20px; }
-.home-page .main-home-carousel .swiper aside:not(.side-panel), .home-page .main-home-carousel .swiper aside.not-side-panel {
-  bottom: 43px; }
-  .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
-    font-size: 2.875em; }
-    @media screen and (max-width: 569px) {
-      .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
-        font-size: 18px; } }
-  .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
-    display: inline-block;
-    padding: 2px 35px 3px;
-    border: 2px solid #00b3d2;
-    margin: 10px; }
-    @media screen and (max-width: 569px) {
-      .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
-        padding: 0;
-        margin: 0;
-        border: none; } }
+.home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+  font-size: 2.875em; }
+  @media screen and (max-width: 768px) {
+    .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+      font-size: 18px; } }
+.home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
+  display: inline-block;
+  padding: 2px 35px 3px;
+  border: 2px solid #00b3d2;
+  margin: 10px; }
+  @media screen and (max-width: 768px) {
+    .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
+      padding: 0;
+      margin: 0;
+      border: none; } }
 
 .legal-page .article-section {
   text-align: center;

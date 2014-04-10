@@ -20,7 +20,7 @@
       background: url('images/carousel/arrow-right-retina.png') no-repeat;
     }
   }
-  @include media($mobile) {
+  @include media($tablet-down) {
     margin-top: -86px;
     a {
       width: 25px;
@@ -153,7 +153,7 @@
         font-size: .874em;
       }
 
-      @include media($mobile) {
+      @include media($tablet-down) {
         bottom: 0px;
         background: #FFF;
         color: #2d2d2d;
@@ -258,7 +258,7 @@
   .swiper {
     background: rgb(92, 165, 214);
   }
-  @include media($mobile) {
+  @include media($tablet-down) {
     .swiper {
       .logo.ng-hide {
         height: 44px;
@@ -298,7 +298,7 @@
   height: 100px;
   background: url('images/carousel/video-play-button-retina.png') no-repeat;
   display: block;
-  @include media($mobile) {
+  @include media($tablet-down) {
     margin-top: -83px;
     margin-left: -25px;
     width: 50px;
@@ -331,7 +331,7 @@
     bottom: 14px;
     width: 100%;
   }
-  @include media($mobile) {
+  @include media($tablet-down) {
     float: none;
     width: 100%;
   }
@@ -342,7 +342,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  @include media($mobile) {
+  @include media($tablet-down) {
     display: none;
   }
   li {
@@ -387,16 +387,6 @@
   @include media($tablet-down) {
     .slide {
       .headline {
-        text-align: center;
-      }
-      .action-link {
-        text-align: center;
-      }
-    }
-  }
-  @include media($mobile) {
-    .slide {
-      .headline {
         text-align: left;
       }
       .action-link {
@@ -414,7 +404,7 @@
   }
 }
 
-@include media($mobile) {
+@include media($tablet-down) {
   .add-bottom-border {
     border-bottom: $dotted-border;
     padding-bottom: 8px;
