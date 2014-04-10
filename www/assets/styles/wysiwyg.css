@@ -366,6 +366,7 @@ table {
   src: url("fonts/starkey-icons.eot?#iefix") format("embedded-opentype"), url("fonts/starkey-icons.woff") format("woff"), url("fonts/starkey-icons.ttf") format("truetype"), url("fonts/starkey-icons.svg#starkey-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 [class^="starkey-"], [class*=" starkey-"] {
   font-family: 'starkey-icons';
   speak: none;
@@ -957,6 +958,8 @@ nav .tabs {
     width: 80%;
     margin: 0 auto -1px auto;
     text-align: center; }
+    .tabbed-content nav .tabs.two-tabs {
+      width: 40%; }
     .tabbed-content nav .tabs li {
       display: table-cell;
       padding-right: 0%;
@@ -972,6 +975,9 @@ nav .tabs {
           color: #00b3d2; }
       .tabbed-content nav .tabs li:hover a {
         color: #00b3d2; }
+    @media screen and (max-width: 768px) {
+      .tabbed-content nav .tabs {
+        width: 100%; } }
   .tabbed-content nav .two-tabs, .tabbed-content nav .three-tabs, .tabbed-content nav .four-tabs, .tabbed-content nav .five-tabs {
     padding: 0; }
     .tabbed-content nav .two-tabs li a, .tabbed-content nav .three-tabs li a, .tabbed-content nav .four-tabs li a, .tabbed-content nav .five-tabs li a {
@@ -1869,7 +1875,7 @@ footer {
   width: auto;
   padding: 0 28px 0 5px;
   /* "transparent" doesn't work with Opera */
-  background: transparent !important;
+  background: rgba(0, 0, 0, 0) !important;
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
@@ -1961,6 +1967,7 @@ footer {
 @-moz-document url-prefix() {
   .dropdown-select {
     padding-left: 6px; } }
+
 .outer-dropdown-wrapper {
   *zoom: 1;
   width: 100%;
@@ -3607,6 +3614,8 @@ pagination {
   #hearing-landing-content.outer-container .tabbed-content nav, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav, .legal-page #hearing-landing-content.article-section .tabbed-content nav {
     max-width: none;
     margin: 0 -60px; }
+    #hearing-landing-content.outer-container .tabbed-content nav .tabs, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav .tabs, .legal-page #hearing-landing-content.article-section .tabbed-content nav .tabs {
+      width: 60%; }
     #hearing-landing-content.outer-container .tabbed-content nav li a, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav li a, .legal-page #hearing-landing-content.article-section .tabbed-content nav li a {
       padding: 11px 34px;
       letter-spacing: 2px;
@@ -3624,11 +3633,15 @@ pagination {
       line-height: 43px; }
     #hearing-landing-content.outer-container .content p, .accordion .expander .body #hearing-landing-content.accordion-list .content p, .legal-page #hearing-landing-content.article-section .content p {
       line-height: 1.9em; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     #hearing-landing-content.outer-container, .accordion .expander .body #hearing-landing-content.accordion-list, .legal-page #hearing-landing-content.article-section {
       padding: 0; }
       #hearing-landing-content.outer-container .tabbed-content nav, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav, .legal-page #hearing-landing-content.article-section .tabbed-content nav {
         margin: 0; }
+        #hearing-landing-content.outer-container .tabbed-content nav .tabs, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav .tabs, .legal-page #hearing-landing-content.article-section .tabbed-content nav .tabs {
+          width: 100%; }
+          #hearing-landing-content.outer-container .tabbed-content nav .tabs li, .accordion .expander .body #hearing-landing-content.accordion-list .tabbed-content nav .tabs li, .legal-page #hearing-landing-content.article-section .tabbed-content nav .tabs li {
+            float: none; }
       #hearing-landing-content.outer-container .content, .accordion .expander .body #hearing-landing-content.accordion-list .content, .legal-page #hearing-landing-content.article-section .content {
         padding: 16px;
         font-size: 12px;
@@ -3807,6 +3820,9 @@ pagination {
       .hearing-missions-statistics ul li h1 {
         font-size: 3.75em;
         margin: 65px 0 0; }
+        @media (max-width: 940px) and (min-width: 769px) {
+          .hearing-missions-statistics ul li h1 {
+            font-size: 3.25em; } }
       .hearing-missions-statistics ul li p {
         font-size: 1.1em;
         text-transform: uppercase;
@@ -3827,7 +3843,7 @@ pagination {
     display: block; } }
 @media screen and (min-width: 570px) and (max-width: 768px) {
   .hearing-missions-statistics ul li h1 {
-    font-size: 3em; }
+    font-size: 2.75em; }
   .hearing-missions-statistics ul li p {
     font-size: 1em; } }
 @media screen and (max-width: 850px) {

@@ -38,6 +38,10 @@
     max-width: none;
     margin:0 -60px;
 
+    .tabs {
+      width: 60%;
+    }
+
     li a {
       padding: 11px 34px;
       letter-spacing: 2px;
@@ -63,12 +67,21 @@
     }
   }
 
-  @include media($mobile) {
+  @include media($tablet-down) {
     padding:0;
 
     .tabbed-content nav {
       margin:0;
+
+      .tabs {
+        width: 100%;
+
+        li {
+          float:none;
+        }
+      }
     }
+
     .content {
       padding:16px;
       font-size: 12px;
@@ -282,6 +295,9 @@
         @extend .alrightsansbold;
         font-size: 3.75em;
         margin: 65px 0 0;
+        @media (max-width: 940px) and (min-width: 769px) {
+          font-size:3.25em;
+        }
       }
       p {
         font-size: 1.1em;
@@ -314,7 +330,7 @@
     ul {
       li {
         h1 {
-          font-size: 3em;
+          font-size: 2.75em;
         }
         p {
           font-size: 1em;

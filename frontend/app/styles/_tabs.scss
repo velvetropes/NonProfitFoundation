@@ -154,6 +154,11 @@ nav {
       width: 80%;
       margin: 0 auto -1px auto;
       text-align: center;
+
+      &.two-tabs {
+        width: 40%;
+      }
+
       li {
         @include span-columns(1 of 3);
         padding: 5px;
@@ -174,6 +179,10 @@ nav {
             color: $light-blue;
           }
         }
+      }
+
+      @include media($tablet-down) {
+        width: 100%;
       }
     }
 
