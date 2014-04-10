@@ -2316,7 +2316,7 @@ pagination {
     height: 600px; }
     @media screen and (min-width: 570px) and (max-width: 768px) {
       .swiper.short .swipe-wrap > div {
-        height: 440px; } }
+        height: 480px; } }
     @media screen and (max-width: 569px) {
       .swiper.short .swipe-wrap > div {
         height: 317px; }
@@ -2327,7 +2327,7 @@ pagination {
     height: 800px; }
     @media screen and (min-width: 570px) and (max-width: 768px) {
       .swiper .swipe-wrap > div {
-        height: 440px; } }
+        height: 480px; } }
     @media screen and (max-width: 569px) {
       .swiper .swipe-wrap > div {
         height: 300px; } }
