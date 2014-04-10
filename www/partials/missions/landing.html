@@ -28,7 +28,7 @@
           </ul>
       </nav>
       <article ng-repeat="content_tab in content_tabs" ng-show="currentTab==$index">
-        <div class="image" ng-style="{'background-image': 'url(' + content_tab.thumbnail_image_url + ')', 'background-size': 'cover'}">
+        <div class="image" ng-style="{'background-image': 'url(' + content_tab.thumbnail_image_url + ')'}">
         </div>
         <div class="content">
           <h1>{{content_tab.content_title}}</h1>

@@ -1058,7 +1058,10 @@ nav .tabs {
     float: left;
     width: 50%;
     height: 410px;
-    padding: 0; }
+    padding: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; }
   .tabbed-content article .content {
     float: right;
     width: 50%;
