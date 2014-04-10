@@ -90,7 +90,7 @@
 
                   {!-- If this is just a single text block --}
                   {case value="single"}
-                    <div class="outer-container gala-tab-content">
+                    <div class="outer-container gala-content">
                       {content_block}
                     </div>
                   {/case}
@@ -100,7 +100,7 @@
                   {case value="text_3col"}
                       {col3_text}
                       <accordion-list title="{col3_text:row_title}" {if col3_text:count == 1}ng-class="{active: showMe==tr}"{/if}>
-                        <div class="outer-container gala-tab-content">
+                        <div class="outer-container gala-panel">
                           <accordion-list-item>{col3_text:col1}</accordion-list-item>
                           <accordion-list-item>{col3_text:col2}</accordion-list-item>
                           <accordion-list-item>{col3_text:col3}</accordion-list-item>

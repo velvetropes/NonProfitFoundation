@@ -39,7 +39,7 @@ the tag {col3_img:col1} will just return the image url.
 
               {!-- If this is just a single text block --}
               {case value="single"}
-                <div class="outer-container gala-tab-content">
+                <div class="outer-container gala-panel">
                   {content_block}
                 </div>
               {/case}
@@ -49,7 +49,7 @@ the tag {col3_img:col1} will just return the image url.
               {case value="text_3col"}
                   {col3_text}
                   <div accordion-list title="{col3_text:row_title}" {if col3_text:count == 1}ng-class="{active: showMe==tr}"{/if}>
-                    <div class="outer-container gala-tab-content">
+                    <div class="outer-container gala-panel">
                       <div accordion-list-item>{col3_text:col1}</div>
                       <div accordion-list-item>{col3_text:col2}</div>
                       <div accordion-list-item>{col3_text:col3}</div>
@@ -62,7 +62,7 @@ the tag {col3_img:col1} will just return the image url.
               {case value="images_3col"}
                   {col3_img}
                   <div accordion-list title="{col3_img:row_title}" {if col3_img:count == 1}ng-class="{active: showMe==tr}"{/if}>
-                    <div class="outer-container gala-tab-content">
+                    <div class="outer-container gala-panel">
                       <div accordion-list-item>
                         <div class="image" ng-style="{'background-image': 'url({col3_img:col1})'}">
                         </div>

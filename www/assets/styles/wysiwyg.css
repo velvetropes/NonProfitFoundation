@@ -3139,6 +3139,9 @@ pagination {
   .gala-tab-content p.no-container {
     margin: 40px 0 0; }
 
+.gala-panel a {
+  color: #00b3d2; }
+
 @media screen and (max-width: 569px) {
   .gala-tabs .tabbed-content {
     display: none; } }
