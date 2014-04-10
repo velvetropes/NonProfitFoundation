@@ -117,7 +117,10 @@
             </li>
             <li>
 
-              <a href="{path='gala/index'}">
+              {exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+                {if '{gala_first_tab}' != 'upcoming'}<a href="/gala#/gala/overview">{/if}
+                {if '{gala_first_tab}' == 'upcoming'}<a href="/gala#/gala/upcoming">{/if}
+              {/exp:channel:entries}
                 Gala
               </a>
             </li>
@@ -272,7 +275,10 @@
               </li>
               <li>
 
-                <a href="{path='gala/index'}">
+                {exp:channel:entries channel="galla_overview" dynamic="no" limit="1" disable="{global:param_disable_default}"}
+                  {if '{gala_first_tab}' != 'upcoming'}<a href="/gala#/gala/overview">{/if}
+                  {if '{gala_first_tab}' == 'upcoming'}<a href="/gala#/gala/upcoming">{/if}
+                {/exp:channel:entries}
                   <h3 class="highlight">Gala</h3>
                   <h2>So the World May Hear</h2>
                 </a>
