@@ -2552,6 +2552,9 @@ pagination {
     .mobile-carousel .slide .action-link {
       float: right;
       padding-right: 10px; } }
+  @media screen and (max-width: 569px) {
+    .mobile-carousel .slide .headline {
+      text-align: left; } }
 
 @media screen and (max-width: 768px) {
   .image-contain article {
