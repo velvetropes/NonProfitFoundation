@@ -366,7 +366,6 @@ table {
   src: url("fonts/starkey-icons.eot?#iefix") format("embedded-opentype"), url("fonts/starkey-icons.woff") format("woff"), url("fonts/starkey-icons.ttf") format("truetype"), url("fonts/starkey-icons.svg#starkey-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 [class^="starkey-"], [class*=" starkey-"] {
   font-family: 'starkey-icons';
   speak: none;
@@ -475,7 +474,7 @@ table {
 .starkey-zoom-out:before {
   content: "\e601"; }
 
-.alrightsansbold, .page-leader h1, .masthead .section-title, .masthead .section-headline, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, ul.pagination-articles li .block .headline, ul.pagination-articles li .block .date, .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1, .swiper aside.side-panel .headline, .thumblist-nav .jspPane h4, #map-popup .text-popup h2, #map-popup .text-popup .location, #map-popup .text-popup .read-more, #map-popup .text-popup .view-more, .article-header-image .article-title, .contact_main h2, .contact_secondary h2, .missions-map .missions-map-greeting a, .missions-map .missions-map-info .continent-info h1, .missions-map .missions-map-info .country-info h1, .hearing-missions-statistics ul li, .hearing-missions-statistics ul li h1 {
+.alrightsansbold, .page-leader h1, .masthead .section-title, .masthead .section-headline, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, ul.pagination-articles li .block .headline, ul.pagination-articles li .block .date, .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1, .swiper aside.side-panel .headline, .thumblist-nav .jspPane h4, #map-popup .text-popup h2, #map-popup .text-popup .location, #map-popup .text-popup .read-more, #map-popup .text-popup .view-more, .map-legend ul li, .article-header-image .article-title, .contact_main h2, .contact_secondary h2, .missions-map .missions-map-greeting a, .missions-map .missions-map-info .continent-info h1, .missions-map .missions-map-info .country-info h1, .hearing-missions-statistics ul li, .hearing-missions-statistics ul li h1 {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: bold; }
@@ -485,7 +484,7 @@ table {
   font-style: normal;
   font-weight: normal; }
 
-.alrightsansregular, .page-leader p, .swiper aside.side-panel p, .swiper aside.side-panel .body-copy, #map-popup, #map-popup .text-popup p {
+.alrightsansregular, .page-leader p, .pagination ul li a, .swiper aside.side-panel p, .swiper aside.side-panel .body-copy, #map-popup, #map-popup .text-popup p, .contact_main h1, .contact_secondary h1 {
   font-family: "Alright Sans";
   font-style: normal;
   font-weight: normal; }
@@ -1871,7 +1870,7 @@ footer {
   width: auto;
   padding: 0 28px 0 5px;
   /* "transparent" doesn't work with Opera */
-  background: rgba(0, 0, 0, 0) !important;
+  background: transparent !important;
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
@@ -1963,7 +1962,6 @@ footer {
 @-moz-document url-prefix() {
   .dropdown-select {
     padding-left: 6px; } }
-
 .outer-dropdown-wrapper {
   *zoom: 1;
   width: 100%;
