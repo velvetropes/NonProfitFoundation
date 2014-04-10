@@ -2316,7 +2316,7 @@ pagination {
     height: 600px; }
     @media screen and (min-width: 570px) and (max-width: 768px) {
       .swiper.short .swipe-wrap > div {
-        height: 480px; } }
+        height: 500px; } }
     @media screen and (max-width: 569px) {
       .swiper.short .swipe-wrap > div {
         height: 317px; }
@@ -2327,7 +2327,7 @@ pagination {
     height: 800px; }
     @media screen and (min-width: 570px) and (max-width: 768px) {
       .swiper .swipe-wrap > div {
-        height: 480px; } }
+        height: 500px; } }
     @media screen and (max-width: 569px) {
       .swiper .swipe-wrap > div {
         height: 300px; } }
@@ -3496,7 +3496,16 @@ pagination {
     font-size: 2.875em; }
     @media screen and (max-width: 768px) {
       .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+        font-size: 25px; } }
+    @media screen and (max-width: 569px) {
+      .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
         font-size: 18px; } }
+  @media screen and (max-width: 768px) {
+    .home-page .main-home-carousel .swiper aside:not(.side-panel) p, .home-page .main-home-carousel .swiper aside.not-side-panel p {
+      font-size: 16px; } }
+  @media screen and (max-width: 569px) {
+    .home-page .main-home-carousel .swiper aside:not(.side-panel) p, .home-page .main-home-carousel .swiper aside.not-side-panel p {
+      font-size: 13px; } }
   .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
     display: inline-block;
     padding: 2px 35px 3px;
