@@ -366,7 +366,6 @@ table {
   src: url("fonts/starkey-icons.eot?#iefix") format("embedded-opentype"), url("fonts/starkey-icons.woff") format("woff"), url("fonts/starkey-icons.ttf") format("truetype"), url("fonts/starkey-icons.svg#starkey-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 [class^="starkey-"], [class*=" starkey-"] {
   font-family: 'starkey-icons';
   speak: none;
@@ -960,6 +959,9 @@ nav .tabs {
     text-align: center; }
     .tabbed-content nav .tabs.two-tabs {
       width: 40%; }
+      @media screen and (max-width: 768px) {
+        .tabbed-content nav .tabs.two-tabs {
+          width: 100%; } }
     .tabbed-content nav .tabs li {
       display: table-cell;
       padding-right: 0%;
@@ -1875,7 +1877,7 @@ footer {
   width: auto;
   padding: 0 28px 0 5px;
   /* "transparent" doesn't work with Opera */
-  background: rgba(0, 0, 0, 0) !important;
+  background: transparent !important;
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
@@ -1967,7 +1969,6 @@ footer {
 @-moz-document url-prefix() {
   .dropdown-select {
     padding-left: 6px; } }
-
 .outer-dropdown-wrapper {
   *zoom: 1;
   width: 100%;

@@ -157,6 +157,9 @@ nav {
 
       &.two-tabs {
         width: 40%;
+        @include media($tablet-down) {
+          width: 100%;
+        }
       }
 
       li {
