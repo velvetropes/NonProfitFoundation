@@ -403,7 +403,7 @@
       <div class='map-as-feed-wrap'>
           {exp:channel:entries channel="homepage_map_items"}
             <div class="entry">
-              {if homepage_map_type != 'Video'}
+              {if homepage_map_item_category:url_title != 'video'}
                 <a href="{homepage_map_item_cta_link}">
                 <div class="entry-image" style="background-image: url('{homepage_map_item_image}')"></div>
               </a>
@@ -416,7 +416,7 @@
               </div>
               {homepage_map_item_cta_text}</a>
               {/if}
-              {if homepage_map_type == 'Video'}
+              {if homepage_map_item_category:url_title == 'video'}
                 <a href ng-click="directModalTrigger(homepage_map_item_cta_link)">
                   <div class="entry-image" style="background-image: url('{homepage_map_item_image}')"></div>
                 </a>
