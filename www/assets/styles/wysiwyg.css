@@ -366,7 +366,6 @@ table {
   src: url("fonts/starkey-icons.eot?#iefix") format("embedded-opentype"), url("fonts/starkey-icons.woff") format("woff"), url("fonts/starkey-icons.ttf") format("truetype"), url("fonts/starkey-icons.svg#starkey-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 [class^="starkey-"], [class*=" starkey-"] {
   font-family: 'starkey-icons';
   speak: none;
@@ -1881,7 +1880,7 @@ footer {
   width: auto;
   padding: 0 28px 0 5px;
   /* "transparent" doesn't work with Opera */
-  background: rgba(0, 0, 0, 0) !important;
+  background: transparent !important;
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
@@ -1973,7 +1972,6 @@ footer {
 @-moz-document url-prefix() {
   .dropdown-select {
     padding-left: 6px; } }
-
 .outer-dropdown-wrapper {
   *zoom: 1;
   width: 100%;
@@ -3489,21 +3487,26 @@ pagination {
   top: 214px;
   right: 20px;
   left: 20px; }
-.home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
-  font-size: 2.875em; }
+.home-page .main-home-carousel .swiper aside:not(.side-panel), .home-page .main-home-carousel .swiper aside.not-side-panel {
+  bottom: 43px; }
   @media screen and (max-width: 768px) {
-    .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
-      font-size: 18px; } }
-.home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
-  display: inline-block;
-  padding: 2px 35px 3px;
-  border: 2px solid #00b3d2;
-  margin: 10px; }
-  @media screen and (max-width: 768px) {
-    .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
-      padding: 0;
-      margin: 0;
-      border: none; } }
+    .home-page .main-home-carousel .swiper aside:not(.side-panel), .home-page .main-home-carousel .swiper aside.not-side-panel {
+      bottom: 0; } }
+  .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+    font-size: 2.875em; }
+    @media screen and (max-width: 768px) {
+      .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+        font-size: 18px; } }
+  .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
+    display: inline-block;
+    padding: 2px 35px 3px;
+    border: 2px solid #00b3d2;
+    margin: 10px; }
+    @media screen and (max-width: 768px) {
+      .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
+        padding: 0;
+        margin: 0;
+        border: none; } }
 
 .legal-page .article-section {
   text-align: center;

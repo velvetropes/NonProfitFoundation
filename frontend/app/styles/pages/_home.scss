@@ -238,6 +238,10 @@
   .main-home-carousel {
     .swiper {
       aside:not(.side-panel), aside.not-side-panel {
+        bottom: 43px;
+        @include media($tablet-down) {
+          bottom: 0;
+        }
         h1 {
           font-size: 2.875em;
           @include media($tablet-down) {
