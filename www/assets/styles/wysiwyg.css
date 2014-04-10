@@ -906,6 +906,7 @@ nav .tabs {
         padding-right: 1.78933%;
         width: 24.10533%;
         border-bottom: 5px solid #3d4144;
+        border-left: 1px dotted #8f8f8f;
         padding: 0; }
         .header-nav .tab-content ul li > a {
           display: block;

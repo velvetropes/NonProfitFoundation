@@ -75,6 +75,7 @@ nav {
       li {
         @include span-columns(2 of 8);
         border-bottom: 5px solid #3d4144;
+        border-left: $dotted-border;
         padding: 0;
 
         > a {
