@@ -3,7 +3,7 @@
 <div class="outer-container">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel'>
-    <thumblist-nav full="true">
+    <div thumblist-nav full="true">
       <slide
         ng-repeat="article in articles | filter:{featured:'true'}"
         thumblist="true"
@@ -14,10 +14,10 @@
         link-style=""
         date="{{article.date}}"
       ></slide>
-    </thumblist-nav>
+    </div>
   </section>
 </div>
 <br/>
 <hr class="separator padded"/>
 
-<paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></paginated-article-list>
+<div paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></div>
