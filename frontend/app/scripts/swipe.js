@@ -104,10 +104,10 @@ function Swipe(container, options) {
 
     // handle negative index
     if (index < 0) {
-      while (index < 0) {
-        index += slides.length;
-      }
+      index = (index * -1) - slides.length;
+      index = (index < 0) ? (index * -1) : index;
     }
+
     // a simple positive modulo using slides.length
     return index % slides.length;
 
