@@ -3879,21 +3879,19 @@ pagination {
   .hearing-missions-statistics ul li p {
     font-size: 1em; }
 
-  .tabbed-content article {
-    margin-top: 0; }
-    .tabbed-content article .image {
-      width: 100%;
-      height: 400px;
-      margin: 0;
-      float: none; }
-    .tabbed-content article .content {
-      width: 100%;
-      float: none;
-      padding: 0 16px;
-      font-size: 12px;
-      line-height: 1.7; }
-      .tabbed-content article .content h1 {
-        font-size: 2em; } }
+  .tabbed-content article .image {
+    width: 100%;
+    height: 400px;
+    margin: 0;
+    float: none; }
+  .tabbed-content article .content {
+    width: 100%;
+    float: none;
+    padding: 0 16px;
+    font-size: 12px;
+    line-height: 1.7; }
+    .tabbed-content article .content h1 {
+      font-size: 2em; } }
 @media screen and (max-width: 850px) {
   .missions-map .missions-map-greeting {
     right: auto;
