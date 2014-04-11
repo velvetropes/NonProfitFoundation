@@ -134,4 +134,4 @@
 <br/>
 <hr class="separator padded"/>
 
-<paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></paginated-article-list>
+<div paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></div>
