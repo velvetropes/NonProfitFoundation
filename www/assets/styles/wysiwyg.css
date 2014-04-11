@@ -3872,12 +3872,7 @@ pagination {
     display: none; }
 
   .mission-highlights-list {
-    display: block; } }
-@media screen and (min-width: 570px) and (max-width: 768px) {
-  .hearing-missions-statistics ul li h1 {
-    font-size: 2.75em; }
-  .hearing-missions-statistics ul li p {
-    font-size: 1em; }
+    display: block; }
 
   .tabbed-content article .image {
     width: 100%;
@@ -3892,6 +3887,11 @@ pagination {
     line-height: 1.7; }
     .tabbed-content article .content h1 {
       font-size: 2em; } }
+@media screen and (min-width: 570px) and (max-width: 768px) {
+  .hearing-missions-statistics ul li h1 {
+    font-size: 2.75em; }
+  .hearing-missions-statistics ul li p {
+    font-size: 1em; } }
 @media screen and (max-width: 850px) {
   .missions-map .missions-map-greeting {
     right: auto;

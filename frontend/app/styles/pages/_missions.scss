@@ -324,20 +324,6 @@
   .mission-highlights-list {
     display: block;
   }
-}
-@include media($tablet) {
-  .hearing-missions-statistics {
-    ul {
-      li {
-        h1 {
-          font-size: 2.75em;
-        }
-        p {
-          font-size: 1em;
-        }
-      }
-    }
-  }
   .tabbed-content {
     article {
       .image {
@@ -354,6 +340,20 @@
         line-height: 1.7;
         h1 {
           font-size: 2em;
+        }
+      }
+    }
+  }
+}
+@include media($tablet) {
+  .hearing-missions-statistics {
+    ul {
+      li {
+        h1 {
+          font-size: 2.75em;
+        }
+        p {
+          font-size: 1em;
         }
       }
     }
