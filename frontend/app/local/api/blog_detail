@@ -10,13 +10,13 @@
 
 
 <div class="article-header-image">
-  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/SantoDomingoWidth.jpg');">
+  <div class="image" style="background-image: url('http://starkey.ahundredyears.com/uploads/images/BLOG-Tani_Austins_Inspiring_Words-_Mexico-Colombia-_THUMBNAIL.png');">
     <ul class="page-nav-links">
             <li>
-        <a href="#/articles/test-op-03-10-14" ng-disabled="'test-op-03-10-14'==''">&larr;</a>
+        <a href="#/articles/blog-new-entry-web-apr-2-2014" ng-disabled="'blog-new-entry-web-apr-2-2014'==''">&larr;</a>
       </li>
                   <li>
-        <a href="#/articles/encouraging-ability-in-ain-air" ng-disabled="'encouraging-ability-in-ain-air'=='encouraging-ability-in-ain-air'" >&rarr;</a>
+        <a href="#/articles/new-blog-entry-28-mar-14" ng-disabled="'new-blog-entry-28-mar-14'=='new-blog-entry-28-mar-14'" >&rarr;</a>
       </li>
             <li>
         <a href="#">X</a>
@@ -26,9 +26,9 @@
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-                      <p class="article-item-category">News</p>
-                    <h1  class="article-title">Test Blog Post 3/9</h1>
-          <p>March 11, 2014 </p>
+
+          <h1  class="article-title">Test alignment 28/Mar/14</h1>
+          <p>March 28, 2014 | Oleg Poncefranco</p>
         </div>
       </div>
     </div>
@@ -37,36 +37,117 @@
 <br/>
 
 <div class="text-container">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut lorem at sem dictum ultricies. In massa neque, ullamcorper vel sapien sit amet, cursus sodales nibh. Proin sit amet tellus id sapien pharetra egestas. Sed ac sodales diam. Integer congue velit eu metus egestas vulputate. Praesent pulvinar arcu a arcu auctor cursus. Aenean eleifend quam et odio rhoncus, at convallis mauris feugiat. Maecenas varius in nisi id blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-
-<p>Nullam non laoreet nisl, non feugiat elit. Donec ultrices in odio in iaculis. Morbi fringilla massa ac justo laoreet, quis bibendum dolor convallis. Duis tincidunt nulla vitae tincidunt feugiat. Morbi mollis commodo velit rhoncus facilisis. Nunc vitae interdum quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquam risus mauris, eget porttitor arcu porta sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+  <p>(LEFT ALIGNED) Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Donec rutrum congue leo eget malesuada.</p>
 
 <p>
 
 
-          <gallery slides="1">              <gallery-slide
-               image-url="http://starkey.ahundredyears.com/uploads/images/SantoDomingoWidth.jpg"
-               video-url="http://youtube.com"
-              ></gallery-slide>
+          <div gallery slides="15">              <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BillandTani.jpg"
+               video-url="https://www.youtube.com/watch?v=W50L7eNGT2U"
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-August_Newsletter_President_Bill_Clinton_Continues_Support_for_Global_Fight_Against_Hearing_Loss-LEAD.jpg"
+               video-url="https://www.youtube.com/watch?v=M3u5I6x9eYM"
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Encouraging_ablity_in_Ain_Arab-FILM.png"
+               video-url="https://www.youtube.com/watch?v=jXsTp9q_blE"
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-December_newsletter_caring_for_our_friends_in_the_Philippines-022.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-July_Newsletter_President_George_W_Bush_Joins_Us_in_Tanzania-THUMBNAIL.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/building_a_better_kibera.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Tani_Austins_Inspiring_Words-_Mexico-Colombia-_THUMBNAIL.png"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG_Giving_Back_the-World_in_Trujillo-LEAD.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Philippines_Film.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/building_a_better_kibera.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/billaustin.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-December_newsletter_caring_for_our_friends_in_the_Philippines-03.jpg"
+               video-url=""
+               single="">
+             </div>
+
+                        <div gallery-slide
+               image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-SHF_in_Haiti-Bill_Rancic-01.jpg"
+               video-url=""
+               single="">
+             </div>
+          </div>
 
 
-          </gallery>
-
-
-                                  <section class='mobile-carousel carousel hero'>
-              <swiper
+                                  <section class='mobile-carousel carousel hero image-contain'>
+              <div swiper
               continuous="true"
               speed="2000"
-              identifier="swiper_1_image-gallery-3-9"
+              identifier="swiper_1_gallery-entry-10-items"
               auto="8000"
               paginator="true"
               size="short"
               >
-                        <slide
-              image-url="http://starkey.ahundredyears.com/uploads/images/SantoDomingoWidth.jpg"
+                        <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BillandTani.jpg"
               background-color=""
               quote=""
-              video-url=""
+              video-url="https://www.youtube.com/watch?v=W50L7eNGT2U"
               link-url=""
               headline=""
               body-copy=""
@@ -74,13 +155,13 @@
               link-style=""
               link-text=""
             >
-            </slide>
+            </div>
 
-                                  <slide
-              image-url="http://starkey.ahundredyears.com/uploads/images/MileyPortrait.jpg"
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-August_Newsletter_President_Bill_Clinton_Continues_Support_for_Global_Fight_Against_Hearing_Loss-LEAD.jpg"
               background-color=""
               quote=""
-              video-url=""
+              video-url="https://www.youtube.com/watch?v=M3u5I6x9eYM"
               link-url=""
               headline=""
               body-copy=""
@@ -88,10 +169,24 @@
               link-style=""
               link-text=""
             >
-            </slide>
+            </div>
 
-                                  <slide
-              image-url="http://starkey.ahundredyears.com/uploads/images/GalaGuys.jpg"
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Encouraging_ablity_in_Ain_Arab-FILM.png"
+              background-color=""
+              quote=""
+              video-url="https://www.youtube.com/watch?v=jXsTp9q_blE"
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
               background-color=""
               quote=""
               video-url=""
@@ -102,19 +197,179 @@
               link-style=""
               link-text=""
             >
-            </slide>
-            </swiper></section>
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-December_newsletter_caring_for_our_friends_in_the_Philippines-022.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-July_Newsletter_President_George_W_Bush_Joins_Us_in_Tanzania-THUMBNAIL.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/building_a_better_kibera.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Tani_Austins_Inspiring_Words-_Mexico-Colombia-_THUMBNAIL.png"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG_Giving_Back_the-World_in_Trujillo-LEAD.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/CAROUSEL-Philippines_Film.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/building_a_better_kibera.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/billaustin.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-December_newsletter_caring_for_our_friends_in_the_Philippines-03.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+
+                                  <div slide
+              image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-SHF_in_Haiti-Bill_Rancic-01.jpg"
+              background-color=""
+              quote=""
+              video-url=""
+              link-url=""
+              headline=""
+              body-copy=""
+              logo-image-url=""
+              link-style=""
+              link-text=""
+            >
+            </div>
+            </div> </section>
 
 
 
 
     </p>
 
-<p>Cras commodo vestibulum risus, eget pulvinar enim congue at. Nam ullamcorper ac neque sit amet luctus. Curabitur porta dui felis, nec consequat enim pretium sit amet. Sed tortor leo, tristique id ante eu, placerat auctor diam. Morbi ligula lorem, iaculis sit amet quam a, sodales euismod tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed quis erat velit. Ut tortor elit, imperdiet non dapibus at, condimentum et ligula.</p>
+<p style="text-align: center;">(CENTER ALIGNED) Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit &#8203;amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh.</p>
 
-<p>Morbi a mauris neque. Etiam sodales ligula in augue ultrices, in pretium ante laoreet. Aenean in accumsan ipsum, vel elementum nulla. Donec vehicula eget lectus at placerat. Donec enim augue, fringilla sit amet ligula ut, congue tristique ligula. Etiam ac elit vulputate, facilisis quam id, dignissim elit. Sed cursus facilisis viverra. Praesent vestibulum turpis eu nisi laoreet consequat. Nullam lacinia mi vel sem blandit, et dictum nisl vehicula. Donec malesuada at nulla at dignissim.</p>
+<p><strong>(BOLD TEXT)&nbsp;Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.</strong></p>
 
-<p>Nulla a orci imperdiet, venenatis dolor id, tempus magna. Nulla laoreet, magna sit amet accumsan ullamcorper, metus augue scelerisque risus, id commodo arcu tortor vel neque. Aliquam a blandit mauris, ac luctus erat. Donec et bibendum velit. Aliquam vel accumsan ligula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse posuere malesuada pellentesque. Fusce iaculis orci tortor, a rutrum nisl scelerisque quis. Vivamus sollicitudin accumsan nibh, at pharetra metus molestie non. Duis molestie velit magna, sed varius dolor dictum at. Sed volutpat vulputate imperdiet.</p>
+<p>Curabitur aliquet quam id dui posuere blandit. Vivamus suscipit tortor eget felis porttitor volutpat. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere blandit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada.</p>
+
+<p>&nbsp;</p>
+
+<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
+
+<p>Nulla quis lorem ut libero malesuada feugiat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
 </div>
 
 <br/>
@@ -140,6 +395,260 @@
     </ul>
   </div>
 </div>
+
+
+<div class="no-container related-posts">
+  <h3 class="section-title centered">Related posts</h3>
+  <section class='carousel thumblist'>
+    <thumblist-nav>
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/Blog_Philippines_.jpg"
+          video-url=""
+          link-url="#/articles/december-newsletter-caring-for-our-friends-in-the-philippines"
+          headline="December Newsletter: Caring for Our Friends in the Philippines"
+          link-style=""
+          date="December 19, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Encouraging_ablity_in_Ain_Arab-FILM.png"
+          video-url=""
+          link-url="#/articles/encouraging-ability-in-ain-air"
+          headline="Encouraging Ability in Ain Air"
+          link-style=""
+          date="June 19, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG_Giving_Back_the-World_in_Trujillo-LEAD.jpg"
+          video-url=""
+          link-url="#/articles/giving-back-the-world-in-trujillo"
+          headline="Giving Back the World in Trujillo"
+          link-style=""
+          date="August 29, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Impacting_a_life_in_Manila-LEAD.png"
+          video-url=""
+          link-url="#/articles/impacting-a-life-in-manila"
+          headline="Impacting a Life in Manila"
+          link-style=""
+          date="August 23, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Join_us_for_a_Hearing_Protection_Twitter_Chat-THUMBNAIL.png"
+          video-url=""
+          link-url="#/articles/join-us-for-a-hearing-protection-twitter-chat"
+          headline="Join Us for a Hearing Protection Twitter Chat"
+          link-style=""
+          date="September 30, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
+          video-url=""
+          link-url="#/articles/dave-fabry-lives-to-listen-carefully"
+          headline="Dave Fabry Lives to Listen Carefully"
+          link-style=""
+          date="October 31, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-THUMBNAIL.jpg"
+          video-url=""
+          link-url="#/articles/building-momentum-for-peace-in-the-west-bank"
+          headline="Building Momentum for Peace in the West Bank"
+          link-style=""
+          date="October 16, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg"
+          video-url=""
+          link-url="#/articles/an-unstoppable-spirit"
+          headline="An Unstoppable Spirit"
+          link-style=""
+          date="March 05, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-August_Newsletter_President_Bill_Clinton_Continues_Support_for_Global_Fight_Against_Hearing_Loss-THUMBNAIL.jpg"
+          video-url=""
+          link-url="#/articles/august-newsletter-president-bill-clinton-continues-support-for-global-fight"
+          headline="August Newsletter: President Bill Clinton Continues Support for Global Fight Against Hearing Loss"
+          link-style=""
+          date="August 30, 2013"
+        ></slide>
+
+        <slide
+          thumblist="true"
+          image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
+          video-url=""
+          link-url="#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank"
+          headline="Bringing Peace through Hearing, Starkey Hearing Foundation goes to the West Bank"
+          link-style=""
+          date="March 31, 2011"
+        ></slide>
+    </thumblist-nav>
+  </section>
+</div>
+
+
+<section class="mobile-carousel carousel hero">
+  <div swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_3"
+    size="short"
+    paginator="true"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/Blog_Philippines_.jpg"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/december-newsletter-caring-for-our-friends-in-the-philippines"
+      headline="December Newsletter: Caring for Our Friends in the Philippines"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Encouraging_ablity_in_Ain_Arab-FILM.png"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/encouraging-ability-in-ain-air"
+      headline="Encouraging Ability in Ain Air"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG_Giving_Back_the-World_in_Trujillo-LEAD.jpg"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/giving-back-the-world-in-trujillo"
+      headline="Giving Back the World in Trujillo"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Impacting_a_life_in_Manila-LEAD.png"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/impacting-a-life-in-manila"
+      headline="Impacting a Life in Manila"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Join_us_for_a_Hearing_Protection_Twitter_Chat-THUMBNAIL.png"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/join-us-for-a-hearing-protection-twitter-chat"
+      headline="Join Us for a Hearing Protection Twitter Chat"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Dave_Fabry_Lives_to_Listen_Carefully-LEAD.jpg"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/dave-fabry-lives-to-listen-carefully"
+      headline="Dave Fabry Lives to Listen Carefully"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-THUMBNAIL.jpg"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/building-momentum-for-peace-in-the-west-bank"
+      headline="Building Momentum for Peace in the West Bank"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Unstoppable_Spirit_LEAD.jpg"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/an-unstoppable-spirit"
+      headline="An Unstoppable Spirit"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-August_Newsletter_President_Bill_Clinton_Continues_Support_for_Global_Fight_Against_Hearing_Loss-THUMBNAIL.jpg"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/august-newsletter-president-bill-clinton-continues-support-for-global-fight"
+      headline="August Newsletter: President Bill Clinton Continues Support for Global Fight Against Hearing Loss"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    <div slide
+      image-url="http://starkey.ahundredyears.com/uploads/images/BLOG-Bringing_Peace_Through_Hearing-West_Bank-THUMBNAIL.png"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/articles/bringing-peace-through-hearing-shf-goes-to-the-west-bank"
+      headline="Bringing Peace through Hearing, Starkey Hearing Foundation goes to the West Bank"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+
+    </div>
+  </div>
+</section>
+
+
 
 <br/>
 <hr class="separator padded"/>

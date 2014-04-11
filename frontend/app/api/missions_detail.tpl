@@ -86,21 +86,19 @@
     {if mission_rel:count == 1}
     <h3 class="section-title centered">Related posts</h3>
     <section class='carousel thumblist'>
-      <thumblist-nav>
+      <div thumblist-nav>
     {/if}
-        <div>
-          <slide
-            thumblist="true"
-            image-url="{mission_rel:mission_thumb_image:url}"
-            video-url=""
-            link-url="#/missions/{mission_rel:url_title}"
-            headline="{mission_rel:title}"
-            link-style=""
-            date="{mission_rel:mission_date format='%F %Y'}"
-          ></slide>
-        </div>
+      <div slide
+        thumblist="true"
+        image-url="{mission_rel:mission_thumb_image:url}"
+        video-url=""
+        link-url="#/missions/{mission_rel:url_title}"
+        headline="{mission_rel:title}"
+        link-style=""
+        date="{mission_rel:mission_date format='%F %Y'}"
+      ></div>
     {if mission_rel:count == mission_rel:total_results}
-      </thumblist-nav>
+      </div>
     </section>
     {/if}
   {/mission_rel}

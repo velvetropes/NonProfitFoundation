@@ -71,9 +71,8 @@
 
         <h3 class="section-title centered">Related posts</h3>
     <section class='carousel thumblist'>
-      <thumblist-nav>
-            <div>
-          <slide
+      <div thumblist-nav>
+          <div slide
             thumblist="true"
             image-url="http://starkey.ahundredyears.com/uploads/files/animal.jpg"
             video-url=""
@@ -81,11 +80,8 @@
             headline="Hearing Mission Test Entry 27/Mar/14"
             link-style=""
             date="March 2014"
-          ></slide>
-        </div>
-
-            <div>
-          <slide
+          ></div>
+          <div slide
             thumblist="true"
             image-url="http://starkey.ahundredyears.com/uploads/files/BLOG-Building_Momentum_for_Peace_in_the_West_Bank-01.jpg"
             video-url=""
@@ -93,11 +89,8 @@
             headline="New Entry Hearing Mission 1394495216"
             link-style=""
             date="March 2014"
-          ></slide>
-        </div>
-
-            <div>
-          <slide
+          ></div>
+          <div slide
             thumblist="true"
             image-url="http://starkey.ahundredyears.com/uploads/images/DSC08418cc_edit.jpg"
             video-url=""
@@ -105,11 +98,9 @@
             headline="Hearing Mission Test Entry"
             link-style=""
             date="November 2013"
-          ></slide>
-        </div>
+          ></div>
 
-            <div>
-          <slide
+          <div slide
             thumblist="true"
             image-url="http://starkey.ahundredyears.com/uploads/images/DSC08418cc_edit.jpg"
             video-url=""
@@ -117,9 +108,8 @@
             headline="Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem"
             link-style=""
             date="February 2014"
-          ></slide>
-        </div>
-          </thumblist-nav>
+          ></div>
+          </div>
     </section>
 
 </div>

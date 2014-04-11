@@ -85,9 +85,9 @@
 <div class="no-container related-posts">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>
-    <thumblist-nav>
+    <div thumblist-nav>
 {/if}
-        <slide
+        <div slide
           thumblist="true"
           image-url="{blog_related_items:blog_image}"
           video-url=""
@@ -95,9 +95,9 @@
           headline="{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_related_items:title}{/exp:low_replace}"
           link-style=""
           date="{blog_related_items:blog_date format='%F %d, %Y'}"
-        ></slide>
+        ></div>
 {if blog_related_items:count == blog_related_items:total_results}
-    </thumblist-nav>
+    </div>
   </section>
 </div>
 {/if}
