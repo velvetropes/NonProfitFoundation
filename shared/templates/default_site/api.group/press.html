@@ -23,7 +23,7 @@
         "video_link":""
 
     {if:else}
-        "category"                  : "media_mention",
+        "category"              : "media_mention",
         "rawdate"               : "{media_mention_date format='%U'}",
         "date"                  : "{media_mention_date format='%m/%d/%Y'}",
         "year"                  : "{media_mention_date format='%Y'}",
@@ -31,7 +31,7 @@
         "featured"              : "{media_mention_feature_carousel}",
         "header_image_url"      : "{media_mention_image}",
         "logo_image_url"        : "{media_mention_logo}",
-        "quote"                 : "{exp:json_encode}{exp:eehive_hacksaw chars="320"}{media_mention_quote}{/exp:eehive_hacksaw}{/exp:json_encode}",
+        "quote"                 : "{if '{media_mention_video_url}' == ''}{exp:json_encode}{exp:eehive_hacksaw chars="320"}{media_mention_quote}{/exp:eehive_hacksaw}{/exp:json_encode}{/if}",
         "call_to_action_text"   : "{exp:json_encode}{media_mention_cta_text}{/exp:json_encode}",
         "call_to_action_link"   : "{media_mention_cta_link}",
         "video_link"            : "{media_mention_video_url}"
