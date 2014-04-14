@@ -111,6 +111,9 @@ header {
         font-size: 1.7em;
       }
     }
+    @include media($desktop) {
+      right: 40px;
+    }
     @include media($tablet) {
       float: right;
       width: 27%;

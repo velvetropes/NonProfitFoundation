@@ -1256,6 +1256,9 @@ header {
       list-style: none; }
       header .social-links li a {
         font-size: 1.7em; }
+    @media screen and (min-width: 769px) and (max-width: 1119px) {
+      header .social-links {
+        right: 40px; } }
     @media screen and (min-width: 570px) and (max-width: 768px) {
       header .social-links {
         float: right;
