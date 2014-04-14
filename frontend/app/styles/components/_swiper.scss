@@ -173,10 +173,6 @@
           bottom: 6px;
           right: 10px;
           margin: 0;
-          &.text-link {
-            padding: 0;
-            border: none;
-          }
         }
         p {
           font-size: 13px;
@@ -198,6 +194,12 @@
             color: #FFF;
             position: static;
           }
+        }
+      }
+      @include media(max-width 479px) {
+        a.text-link {
+          border: none;
+          padding: 0;
         }
       }
     }
@@ -402,9 +404,6 @@
     background-size: contain;
     background-position: top center;
   }
-}
-
-@include media($tablet-down) {
   .add-bottom-border {
     border-bottom: $dotted-border;
     padding-bottom: 8px;

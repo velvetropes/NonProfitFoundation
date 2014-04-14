@@ -2393,9 +2393,6 @@ pagination {
             bottom: 6px;
             right: 10px;
             margin: 0; }
-            .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
-              padding: 0;
-              border: none; }
           .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p {
             font-size: 13px;
             line-height: 1.2; }
@@ -2412,6 +2409,10 @@ pagination {
             .media-mentions .swiper aside:not(.side-panel) a, .media-mentions .swiper aside.not-side-panel a {
               color: #FFF;
               position: static; } }
+      @media screen and (max-width: 479px) {
+        .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
+          border: none;
+          padding: 0; } }
     .swiper aside.side-panel {
       width: 540px;
       right: 0;
@@ -2567,8 +2568,8 @@ pagination {
 @media screen and (max-width: 768px) {
   .image-contain article {
     background-size: contain;
-    background-position: top center; } }
-@media screen and (max-width: 768px) {
+    background-position: top center; }
+
   .add-bottom-border {
     border-bottom: 1px dotted #8f8f8f;
     padding-bottom: 8px; } }
