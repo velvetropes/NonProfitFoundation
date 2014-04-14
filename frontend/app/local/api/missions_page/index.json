@@ -1,51 +1,61 @@
 {
-   "page_title":"Hearing Missions",
-   "page_lead":"Through 2010, we provided more than 1 million hearing aids to people in need worldwide. We commit to providing 1 million more this decade.",
-   "hearing_mission_statistics":[
-      {
-         "name":"1,000,000",
-         "tagline":"OUR HEARING AID COMMITMENT THIS DECADE"
-      },
-      {
-         "name":"400,000",
-         "tagline":"DELIVERED TOWARD OUR COMMITMENT"
-      },
-      {
-         "name":"5,000",
-         "tagline":"DELIVERED IN 2014"
-      }
-   ],
-   "content_tabs":[
-      {
-         "tab_title":"About Mission",
-         "content_title":"More than 360 million people worldwide have a disabling hearing loss.",
-         "content":"Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.",
-         "thumbnail_image_url":""
-      },
-      {
-         "tab_title":"Community Based",
-         "content_title":"Article 2",
-         "content":"Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.",
-         "thumbnail_image_url":""
-      },
-      {
-         "tab_title":"Three Phases",
-         "content_title":"Article 3",
-         "content":"Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.",
-         "thumbnail_image_url":""
-      }
-   ],
-   "highlights":[
-      {
-         "id":"lorem-ipsum-dolor-sit-amet",
-         "title":"Lorem Ipsum dolor sit amet",
-         "date":"02 11 2014",
-         "subtitle":"consectetur adipis",
-         "excerpt":"Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
-         "image":"",
-         "video":"",
-         "region":"Africa",
-         "country":"Egypt"
-      }
-   ]
+
+    "page_title"    : "Hearing Missions",
+    "page_lead"     : "<p>Through 2010, we provided more than <strong>1 million hearing aids<\/strong> to people in need worldwide. We <a href=\"#sample-link\">commit<\/a> to providing 1 million more this decade.<\/p>",
+    "hearing_mission_statistics" : [
+         {
+            "name"      : "1,000,000",
+            "tagline"   : "OUR HEARING AID COMMITMENT THIS DECADE"
+        },  {
+            "name"      : "400,000",
+            "tagline"   : "DELIVERED TOWARD OUR COMMITMENT"
+        },  {
+            "name"      : "5,000",
+            "tagline"   : "DELIVERED IN 2014"
+        }
+    ],
+    "content_tabs" : [
+         {
+            "tab_title"             : "About Mission",
+            "content_title"         : "More than 360 million people worldwide have a disabling hearing loss.",
+            "content"               : "Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.",
+            "thumbnail_image_url"   : "http://starkey.ahundredyears.com/uploads/files/animal.jpg"
+        },  {
+            "tab_title"             : "Community Based",
+            "content_title"         : "Article 2",
+            "content"               : "Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.",
+            "thumbnail_image_url"   : "http://starkey.ahundredyears.com/uploads/images/Missions_/ABC_tani_austin_sr_140121_16x9_608.jpg"
+        },  {
+            "tab_title"             : "Three Phases",
+            "content_title"         : "Article 3",
+            "content"               : "Yet many do not have access to the hearing care that can help them. We address this problem by developing sustainable systems of care globally. Each year, we fit more than 100,000 hearing aids to people in need. We have worked in more than 100 countries and are committed to providing 1 million hearing aids this decade.",
+            "thumbnail_image_url"   : "http://starkey.ahundredyears.com/uploads/images/Missions_/COVER_pianoboy_cc.jpg"
+        }
+    ],
+    "highlights" : [
+         {
+            "id"        : "lorem-ipsum-dolor-sit-amet",
+            "title"     : "50 Characters: Curabitur aliquet quam dui posuered",
+            "rawdate"   : "1392187740",
+            "date"      : "February 2014",
+            "subtitle"  : "consectetur adipis",
+            "excerpt"   : "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat.",
+            "image"     : "http://starkey.ahundredyears.com/uploads/images/DSC08418cc_edit.jpg",
+            "video"     : "",
+            "region"    : "Central America & Caribbean",
+            "country"   : "Haiti"
+        },  {
+            "id"        : "hearing-mission-test-entry",
+            "title"     : "150 Characters Title: auris blandit aliquet elit, eget tincidunt nibh pulvinar apu Curabitur non nulla sit amet nisl tempus convallis quise ace lectus",
+            "rawdate"   : "1384837680",
+            "date"      : "November 2013",
+            "subtitle"  : "Subtitle ",
+            "excerpt"   : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut lorem at sem dictum ultricies. In massa neque, ullamcorper vel sapien sit amet, cursus sodales nibh. Proin sit amet tellus id sapien pharetra egestas. Sed ac sodales diam. Integer congue velit eu metus egestas vulputate. Praesent pulvinar arcu a arcu auctor cursus. Aenean eleifend quam et odio rhoncus, at convallis mauris feugiat. Maecenas varius in nisi id blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br \/>\n<br \/>\nNullam non laoreet nisl, non feugiat elit. Donec ultrices in odio in iaculis. Morbi fringilla massa ac justo laoreet, quis bibendum dolor convallis. Duis tincidunt nulla vitae tincidunt feugiat. Morbi mollis commodo velit rhoncus facilisis. Nunc vitae interdum quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquam risus mauris, eget porttitor arcu porta sit amet. Class aptent sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image"     : "http://starkey.ahundredyears.com/uploads/images/home/feature/building_a_better_kibera.jpg",
+            "video"     : "",
+            "region"    : "Asia",
+            "country"   : "Bhutan"
+        }
+    ]
+
 }
