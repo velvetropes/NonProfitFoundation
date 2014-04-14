@@ -1196,10 +1196,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     ), 1000
 
     scope.showPaginator = ->
-      if scope.childSlides.length < 2
-        false
-      else
-        scope.paginator? and scope.paginator is "true"
+      scope.paginator? and scope.paginator is "true"
 
     scope.hasSize = ->
       scope.size? and scope.size.length > 0
