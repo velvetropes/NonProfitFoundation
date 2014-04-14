@@ -3681,7 +3681,8 @@ pagination {
       #hearing-landing-content.outer-container .content, .accordion .expander .body #hearing-landing-content.accordion-list .content, .legal-page #hearing-landing-content.article-section .content {
         padding: 16px;
         font-size: 12px;
-        line-height: 1.7; }
+        line-height: 1.7;
+        max-width: 100%; }
         #hearing-landing-content.outer-container .content h1, .accordion .expander .body #hearing-landing-content.accordion-list .content h1, .legal-page #hearing-landing-content.article-section .content h1 {
           font-size: 2em;
           line-height: 1.2em;
