@@ -1216,7 +1216,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
         return
       return
 
-    element.parent().addClass("no-container") if element.parent()?.is("p").length
+    element.parent().addClass("no-container") if element.parent()?.is("p")
 
     return
 
