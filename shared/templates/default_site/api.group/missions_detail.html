@@ -103,5 +103,30 @@
     {/if}
   {/mission_rel}
 </div>
-<br/>
+<section class="mobile-carousel carousel hero">
+  <div swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_3"
+    size="short"
+    paginator="true"
+    >
+    {mission_rel}
+    <div slide
+      image-url="{mission_rel:mission_thumb_image:url}"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/missions/{mission_rel:url_title}"
+      headline="{mission_rel:title}"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    >
+    {/mission_rel}
+    </div>
+  </div>
+</section>
+
 {/exp:channel:entries}
