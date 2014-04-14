@@ -123,9 +123,8 @@
       logo-image-url=""
       link-style=""
       link-text="Read More"
-    >
+    ></div>
     {/mission_rel}
-    </div>
   </div>
 </section>
 

@@ -1196,7 +1196,10 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     ), 1000
 
     scope.showPaginator = ->
-      scope.paginator? and scope.paginator is "true"
+      if scope.childSlides.length < 2
+        false
+      else
+        scope.paginator? and scope.paginator is "true"
 
     scope.hasSize = ->
       scope.size? and scope.size.length > 0
@@ -1213,7 +1216,8 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
         return
       return
 
-    element.parent().addClass("no-container") if element.parent()?.is("p")
+    element.parent().addClass("no-container") if element.parent()?.is("p").length
+
     return
 
   controller = ($scope, $element) ->
