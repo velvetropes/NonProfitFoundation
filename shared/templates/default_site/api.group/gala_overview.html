@@ -4,7 +4,7 @@
       <div class="mobile-only load-more">
         Overview
       </div>
-      <div class="carousel half-wit">
+      <div class="carousel half-height">
         <div swiper
           continuous="true"
           speed="2000"

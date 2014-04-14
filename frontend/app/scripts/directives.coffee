@@ -1303,8 +1303,6 @@ sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
 sfDirectives.directive "tabbedNav", ["$location", ($location) ->
 
   link = (scope, element, attrs) ->
-    console.log(scope)
-
     scope.location = $location
 
   restrict: "EA"

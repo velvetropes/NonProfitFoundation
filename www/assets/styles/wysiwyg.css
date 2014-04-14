@@ -2505,16 +2505,16 @@ pagination {
   background-position: center;
   -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
 
-.half-wit {
+.half-height {
   width: 50%; }
-  .half-wit .action-link {
+  .half-height .action-link {
     display: none; }
-  .half-wit .swiper-position {
+  .half-height .swiper-position {
     position: absolute;
     bottom: 14px;
     width: 100%; }
   @media screen and (max-width: 768px) {
-    .half-wit {
+    .half-height {
       float: none;
       width: 100%; } }
 
@@ -3121,19 +3121,19 @@ pagination {
     cursor: default;
     padding-top: 0; } }
 
-.gala-overview .half-wit {
+.gala-overview .half-height {
   float: left;
   margin-top: 30px;
   margin-bottom: 10px; }
   @media screen and (max-width: 768px) {
-    .gala-overview .half-wit {
+    .gala-overview .half-height {
       width: 100%;
       float: none;
       margin-top: 0;
-      height: 370px;
+      height: 260px;
       overflow: hidden; } }
   @media screen and (max-width: 569px) {
-    .gala-overview .half-wit {
+    .gala-overview .half-height {
       height: 210px; } }
 .gala-overview .main-story {
   width: 50%;

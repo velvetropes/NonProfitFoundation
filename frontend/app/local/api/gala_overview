@@ -1,6 +1,6 @@
 <div class="overview-mode">
   <article class='gala-overview outer-container'>
-    <div class="carousel half-wit">
+    <div class="carousel half-height">
       <swiper
         continuous="true"
         speed="2000"
