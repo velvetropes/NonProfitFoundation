@@ -366,6 +366,7 @@ table {
   src: url("fonts/starkey-icons.eot?#iefix") format("embedded-opentype"), url("fonts/starkey-icons.woff") format("woff"), url("fonts/starkey-icons.ttf") format("truetype"), url("fonts/starkey-icons.svg#starkey-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 [class^="starkey-"], [class*=" starkey-"] {
   font-family: 'starkey-icons';
   speak: none;
@@ -1887,7 +1888,7 @@ footer {
   width: auto;
   padding: 0 28px 0 5px;
   /* "transparent" doesn't work with Opera */
-  background: transparent !important;
+  background: rgba(0, 0, 0, 0) !important;
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
@@ -1979,6 +1980,7 @@ footer {
 @-moz-document url-prefix() {
   .dropdown-select {
     padding-left: 6px; } }
+
 .outer-dropdown-wrapper {
   *zoom: 1;
   width: 100%;
@@ -2786,7 +2788,7 @@ pagination {
     display: none; }
     @media screen and (max-width: 768px) {
       #map-popup .play-video-link {
-        left: 196px;
+        left: 24%;
         top: 219px; } }
     @media screen and (max-width: 569px) {
       #map-popup .play-video-link {
