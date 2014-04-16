@@ -106,7 +106,7 @@ class Assets_gc_source extends Assets_base_source
 	{
 		$bucket_data = $this->get_source_settings();
 
-		return $this->GC->putObject('', $bucket_data->bucket, $this->_get_path_prefix().rtrim($server_path, '/') . '/', Assets_GC::ACL_PUBLIC_READ);
+		return $this->_put_object('', $bucket_data->bucket, $this->_get_path_prefix().rtrim($server_path, '/') . '/', Assets_GC::ACL_PUBLIC_READ);
 	}
 
 	/**
@@ -241,7 +241,7 @@ class Assets_gc_source extends Assets_base_source
 
 		$this->_gc_set_creds($bucket_data->access_key_id, $bucket_data->secret_access_key);
 
-		if ($this->GC->putObject(array('file' => $temp_file_path), $bucket_data->bucket, $this->_get_path_prefix().$file_path, Assets_GC::ACL_PUBLIC_READ))
+		if ($this->_put_object($temp_file_path, $bucket_data->bucket, $this->_get_path_prefix().$file_path, Assets_GC::ACL_PUBLIC_READ))
 		{
 			return array('success' => TRUE, 'path' => $file_path);
 		}
@@ -773,5 +773,33 @@ class Assets_gc_source extends Assets_base_source
 	private function _gc_set_creds($accessKey, $secretKey)
 	{
 		Assets_GC::setAuth($accessKey, $secretKey);
+	}
+
+	/**
+	 * Put an object on the cloud.
+	 *
+	 * @param $file_path
+	 * @param $bucket
+	 * @param $uriPath
+	 * @param $permissions
+	 * @return bool
+	 */
+	protected function _put_object($file_path, $bucket, $uriPath, $permissions)
+	{
+		$object = empty($file_path) ? '' : array('file' => $file_path);
+		$headers = array();
+
+		$expires = !empty($this->_source_settings->cache_amount) && !empty($this->_source_settings->cache_period);
+		$expires = $expires && is_numeric($this->_source_settings->cache_amount) && preg_match('/seconds|minutes|hours|days/', $this->_source_settings->cache_period);
+		if ($expires)
+		{
+			$expire_time = new DateTime();
+			$now = new DateTime();
+			$expire_time->modify('+' . $this->_source_settings->cache_amount . $this->_source_settings->cache_period);
+			$diff = $expire_time->format('U') - $now->format('U');
+			$headers['Cache-Control'] = 'max-age=' . $diff . ', must-revalidate';
+		}
+
+		return $this->GC->putObject($object, $bucket, $uriPath, $permissions, array(), $headers);
 	}
 }

@@ -31,7 +31,7 @@ $env_db['database'] = 'starkey';
 
 
 // Local testing email address
-$env_config['webmaster_email'] = 'juan@100yea.rs';
+$env_config['webmaster_email'] = 'kara@100yea.rs';
 
 /* End of file config.local.php */
 /* Location: ./config/config.local.php */

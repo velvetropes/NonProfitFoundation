@@ -108,13 +108,13 @@ class Assets_s3_source extends Assets_base_source
 
 		$this->s3->setEndpoint($this->get_endpoint_by_location($bucket_data->location));
 
-		return $this->s3->putObject('', $bucket_data->bucket, $this->_get_path_prefix().rtrim($server_path, '/') . '/', Assets_S3::ACL_PUBLIC_READ);
+		return $this->_put_object('', $bucket_data->bucket, $this->_get_path_prefix().rtrim($server_path, '/') . '/', Assets_S3::ACL_PUBLIC_READ);
 	}
 
 	/**
 	 * Rename a folder
 	 *
-	 * @param $old_path
+	 * @param $old_folder_path
 	 * @param $new_path
 	 * @return mixed
 	 */
@@ -151,7 +151,7 @@ class Assets_s3_source extends Assets_base_source
 	protected function _delete_source_folder($server_path)
 	{
 		$bucket_data = $this->get_source_settings();
-		$this->s3->setendpoint($this->get_endpoint_by_location($bucket_data->location));
+		$this->s3->setEndpoint($this->get_endpoint_by_location($bucket_data->location));
 		return $this->s3->deleteObject($bucket_data->bucket, $this->_get_path_prefix().$server_path);
 	}
 
@@ -246,7 +246,7 @@ class Assets_s3_source extends Assets_base_source
 		$this->_s3_set_creds($bucket_data->access_key_id, $bucket_data->secret_access_key);
 		$this->s3->setEndpoint($this->get_endpoint_by_location($bucket_data->location));
 
-		if ($this->s3->putObject(array('file' => $temp_file_path), $bucket_data->bucket, $this->_get_path_prefix().$file_path, Assets_S3::ACL_PUBLIC_READ))
+		if ($this->_put_object($temp_file_path, $bucket_data->bucket, $this->_get_path_prefix().$file_path, Assets_S3::ACL_PUBLIC_READ))
 		{
 			return array('success' => TRUE, 'path' => $file_path);
 		}
@@ -783,5 +783,49 @@ class Assets_s3_source extends Assets_base_source
 	private function _s3_set_creds($accessKey, $secretKey)
 	{
 		Assets_S3::setAuth($accessKey, $secretKey);
+	}
+
+	/**
+	 * Purge cached source file from cloudfront distribution.
+	 *
+	 * @param $server_path
+	 * @return bool|void
+	 */
+	protected function _purge_cached_source_file($server_path)
+	{
+		$settings = $this->get_source_settings();
+		if (!empty($settings->cf_distribution))
+		{
+			$this->_s3_set_creds($settings->access_key_id, $settings->secret_access_key);
+			Assets_S3::invalidateDistribution($settings->cf_distribution, array($server_path));
+		}
+	}
+
+	/**
+	 * Put an object on the cloud.
+	 *
+	 * @param $file_path
+	 * @param $bucket
+	 * @param $uriPath
+	 * @param $permissions
+	 * @return bool
+	 */
+	protected function _put_object($file_path, $bucket, $uriPath, $permissions)
+	{
+		$object = empty($file_path) ? '' : array('file' => $file_path);
+		$headers = array();
+
+		$expires = !empty($this->_source_settings->cache_amount) && !empty($this->_source_settings->cache_period);
+		$expires = $expires && is_numeric($this->_source_settings->cache_amount) && preg_match('/seconds|minutes|hours|days/', $this->_source_settings->cache_period);
+		if ($expires)
+		{
+			$expire_time = new DateTime();
+			$now = new DateTime();
+			$expire_time->modify('+' . $this->_source_settings->cache_amount . $this->_source_settings->cache_period);
+			$diff = $expire_time->format('U') - $now->format('U');
+			$headers['Cache-Control'] = 'max-age=' . $diff . ', must-revalidate';
+		}
+
+		return $this->s3->putObject($object, $bucket, $uriPath, $permissions, array(), $headers);
 	}
 }
