@@ -300,11 +300,22 @@ nav {
     .image {
       float: left;
       width: 50%;
-      height: 410px;
+      height: auto;
       padding: 0;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin:0 auto;
+        // reset to content box or the resizing can be off.
+        -webkit-box-sizing: content-box; 
+           -moz-box-sizing: content-box; 
+                box-sizing: content-box;
+      }
     }
     .content {
       float: right;

@@ -1058,11 +1058,19 @@ nav .tabs {
   .tabbed-content article .image {
     float: left;
     width: 50%;
-    height: 410px;
+    height: auto;
     padding: 0;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; }
+    .tabbed-content article .image img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box; }
   .tabbed-content article .content {
     float: right;
     width: 50%;
@@ -2411,7 +2419,7 @@ pagination {
             .media-mentions .swiper aside:not(.side-panel) a, .media-mentions .swiper aside.not-side-panel a {
               color: #FFF;
               position: static; } }
-      @media screen and (max-width: 479px) {
+      @media screen and (max-width: 480px) {
         .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
           border: none;
           padding: 0; } }
@@ -3887,7 +3895,6 @@ pagination {
 
   .tabbed-content article .image {
     width: 100%;
-    height: 400px;
     margin: 0;
     float: none; }
   .tabbed-content article .content {
@@ -3991,7 +3998,6 @@ pagination {
     margin-top: 0; }
     .tabbed-content article .image {
       width: 100%;
-      height: 270px;
       background-position: top; } }
 .take-action-page .take-action-section {
   text-align: center;
