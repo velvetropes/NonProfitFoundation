@@ -17,7 +17,7 @@ $env_db['database'] = '';
 
 
 $env_config['webmaster_email'] = 'dev@domain.com';
-
+$env_global['global:google_analytics'] = 'UA-XXXXXXX-XX';
 
 /* End of file config.dev.php */
 /* Location: ./config/config.dev.php */

@@ -15,6 +15,7 @@ $env_db['username'] = 'root';
 $env_db['password'] = 'root';
 $env_db['database'] = 'starkey';
 
+$env_global['global:google_analytics'] = 'UA-XXXXXXX-XX';
 
 /* End of file config.stage.php */
 /* Location: ./config/config.stage.php */

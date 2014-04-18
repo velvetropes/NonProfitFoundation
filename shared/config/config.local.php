@@ -31,7 +31,8 @@ $env_db['database'] = 'starkey';
 
 
 // Local testing email address
-$env_config['webmaster_email'] = 'kara@100yea.rs';
+$env_config['webmaster_email'] = 'dev@100yea.rs';
+$env_global['global:google_analytics'] = 'UA-XXXXXXX-XX';
 
 /* End of file config.local.php */
 /* Location: ./config/config.local.php */

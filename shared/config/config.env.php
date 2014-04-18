@@ -23,8 +23,8 @@ if ( ! defined('ENV'))
 		case "starkeyhearingfoundation.org":
 		case "www.starkeyhearingfoundation.org":
 		case "production.starkey.ahundredyears.com":
-			define('ENV', 'stage');
-			define('ENV_FULL', 'Staging');
+			define('ENV', 'prod');
+			define('ENV_FULL', 'Production');
 			define('ENV_DEBUG', FALSE);
 		break;
 
