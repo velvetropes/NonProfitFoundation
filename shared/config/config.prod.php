@@ -10,14 +10,14 @@
  * @author     Focus Lab, LLC <dev@focuslabllc.com>
  */
 
-$env_db['hostname'] = 'localhost';
-$env_db['username'] = '';
-$env_db['password'] = '';
-$env_db['database'] = '';
+$env_db['hostname'] = '127.0.0.1';
+$env_db['username'] = 'root';
+$env_db['password'] = 'root';
+$env_db['database'] = 'starkey';
 
 // Sample global variable for Production only
 // Can be used in templates like "{global:google_analytics}"
-$env_global['global:google_analytics'] = 'UA-XXXXXXX-XX';
+$env_global['global:google_analytics'] = 'UA-38669505-1';
 
 /* End of file config.prod.php */
 /* Location: ./config/config.prod.php */
