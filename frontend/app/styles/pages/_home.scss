@@ -7,6 +7,9 @@
     }
     article {
       width: 100%;
+      @include media($tablet) {
+        height: 395px;
+      }
       @include media($mobile) {
         height: 210px;
       }
@@ -46,12 +49,8 @@
       }
     }
   }
-  &.short {
-    .slide {
-      height: 525px;
-    }
-  }
 }
+
 .mission-statement {
   text-align: center;
   border-bottom: $dotted-border;

@@ -63,7 +63,14 @@
       float:none;
     }
     > a {
-      display: block;
+      position: relative;
+      top: 7px;
     }
+  }
+}
+
+@include media(max-width 240px) {
+  .share-this-post .application li > a {
+    display: block;
   }
 }
