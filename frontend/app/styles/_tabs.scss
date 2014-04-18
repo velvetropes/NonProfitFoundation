@@ -279,8 +279,13 @@ nav {
         padding: 0;
         margin: 10px 0 0 0;
         @include reset-display;
+        display: block;
         li {
-          @include span-columns(12);
+          clear: both;
+          display: block;
+          float:none;
+          width: 100%;
+          margin:0;
           border: none;
           border-top: 1px dotted #333;
           a {

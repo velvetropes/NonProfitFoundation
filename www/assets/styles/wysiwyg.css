@@ -1038,16 +1038,16 @@ nav .tabs {
   @media screen and (max-width: 768px) {
     .tabbed-content nav .tabs {
       padding: 0;
-      margin: 10px 0 0 0; }
+      margin: 10px 0 0 0;
+      display: block; }
       .tabbed-content nav .tabs li {
-        float: left;
+        clear: both;
         display: block;
-        margin-right: 2.35765%;
+        float: none;
         width: 100%;
+        margin: 0;
         border: none;
         border-top: 1px dotted #333; }
-        .tabbed-content nav .tabs li:last-child {
-          margin-right: 0; }
         .tabbed-content nav .tabs li a {
           font-size: 12px;
           font-weight: bold; }
