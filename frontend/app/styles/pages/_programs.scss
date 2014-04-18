@@ -55,3 +55,15 @@
     }
   }
 }
+
+@include media(max-width 320px) {
+  .share-this-post .application li {
+    .note {
+      margin:0;
+      float:none;
+    }
+    > a {
+      display: block;
+    }
+  }
+}

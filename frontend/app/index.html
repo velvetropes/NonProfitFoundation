@@ -13,7 +13,7 @@
     <!--(bake partials/header.html)-->
 
     <!-- Main content section -->
-    <section class="carousel hero black-text-background">
+    <section class="carousel hero main-home-carousel black-text-background">
 
       <div swiper
         continuous="true"
@@ -189,7 +189,6 @@
                 <span>{homepage_map_item_location}</span>
                 <a class="read-more" href="{homepage_map_item_cta_link}">{homepage_map_item_cta_text}</a>
               </div>
-              {homepage_map_item_cta_text}</a>
               {/if}
               {if '{homepage_map_item_category:url_title}' == 'video'}
                 <a href ng-click="directModalTrigger('{homepage_map_item_cta_link}')">

@@ -640,17 +640,23 @@ class Assets_ft extends EE_Fieldtype
 				case 'matrix':
 				case 'grid':
 					$sql .= " ae.col_id = '{$this->col_id}'
-					          AND ae.row_id = '{$this->row_id}'
-					          AND";
-					$entry_id = $this->EE->security->xss_clean($this->EE->input->get('entry_id'));
-					if (!$entry_id)
+								  AND ae.row_id = '{$this->row_id}'
+								  AND";
+					if (!empty($this->var_id))
 					{
-						$entry_id = $this->settings['entry_id'];
+						$sql .= " ae.var_id = " . $this->var_id;
 					}
+					else
+					{
+						$entry_id = $this->EE->security->xss_clean($this->EE->input->get('entry_id'));
+						if (!$entry_id)
+						{
+							$entry_id = $this->settings['entry_id'];
+						}
 
-					$sql .= " ae.entry_id ". ($entry_id ? "= '{$entry_id}'" : 'IS NULL')
-						. " AND ae.field_id ". ($this->field_id ? "= '{$this->field_id}'" : 'IS NULL');
-
+						$sql .= " ae.entry_id ". ($entry_id ? "= '{$entry_id}'" : 'IS NULL')
+							. " AND ae.field_id ". ($this->field_id ? "= '{$this->field_id}'" : 'IS NULL');
+					}
 					break;
 				case 'channel':
 					$entry_id = $this->EE->security->xss_clean($this->EE->input->get('entry_id'));

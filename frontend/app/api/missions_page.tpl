@@ -14,7 +14,7 @@
             "tab_title"             : "{exp:json_encode}{content_tabs:tab_title}{/exp:json_encode}",
             "content_title"         : "{exp:json_encode}{content_tabs:tab_content_title}{/exp:json_encode}",
             "content"               : "{exp:json_encode}{content_tabs:tab_content}{/exp:json_encode}",
-            "thumbnail_image_url"   : "{content_tabs:tab_image}{url}{/content_tabs:tab_image}"
+            "thumbnail_image_url"   : "{content_tabs:tab_image:url}"
         }, {/content_tabs}
     ],
     "highlights" : [

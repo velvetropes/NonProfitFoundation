@@ -427,7 +427,7 @@ class Assets_helper
 	{
 		if ($timestamp)
 		{
-			return date('M j, Y g:i A', $timestamp);
+			return version_compare(APP_VER, '2.6', '<') ? self::_get_EE()->localize->set_human_time($timestamp) : self::_get_EE()->localize->format_date("%M %j, %Y %g:%i %A", $timestamp);
 		}
 	}
 

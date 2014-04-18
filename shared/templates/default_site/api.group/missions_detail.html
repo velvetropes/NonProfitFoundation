@@ -86,24 +86,46 @@
     {if mission_rel:count == 1}
     <h3 class="section-title centered">Related posts</h3>
     <section class='carousel thumblist'>
-      <thumblist-nav>
+      <div thumblist-nav>
     {/if}
-        <div>
-          <slide
-            thumblist="true"
-            image-url="{mission_rel:mission_thumb_image:url}"
-            video-url=""
-            link-url="#/missions/{mission_rel:url_title}"
-            headline="{mission_rel:title}"
-            link-style=""
-            date="{mission_rel:mission_date format='%F %Y'}"
-          ></slide>
-        </div>
+      <div slide
+        thumblist="true"
+        image-url="{mission_rel:mission_thumb_image:url}"
+        video-url=""
+        link-url="#/missions/{mission_rel:url_title}"
+        headline="{mission_rel:title}"
+        link-style=""
+        date="{mission_rel:mission_date format='%F %Y'}"
+      ></div>
     {if mission_rel:count == mission_rel:total_results}
-      </thumblist-nav>
+      </div>
     </section>
     {/if}
   {/mission_rel}
 </div>
-<br/>
+<section class="mobile-carousel carousel hero">
+  <div swiper
+    continuous="true"
+    speed="2000"
+    identifier="swiper_3"
+    size="short"
+    paginator="true"
+    >
+    {mission_rel}
+    <div slide
+      image-url="{mission_rel:mission_thumb_image:url}"
+      background-color=""
+      quote=""
+      video-url=""
+      link-url="#/missions/{mission_rel:url_title}"
+      headline="{mission_rel:title}"
+      body-copy=""
+      logo-image-url=""
+      link-style=""
+      link-text="Read More"
+    ></div>
+    {/mission_rel}
+  </div>
+</section>
+
 {/exp:channel:entries}

@@ -85,9 +85,9 @@
 <div class="no-container related-posts">
   <h3 class="section-title centered">Related posts</h3>
   <section class='carousel thumblist'>
-    <thumblist-nav>
+    <div thumblist-nav>
 {/if}
-        <slide
+        <div slide
           thumblist="true"
           image-url="{blog_related_items:blog_image}"
           video-url=""
@@ -95,15 +95,15 @@
           headline="{exp:low_replace find="QUOTE|NEWLINE" replace="\QUOTE|SPACE" multiple="yes"}{blog_related_items:title}{/exp:low_replace}"
           link-style=""
           date="{blog_related_items:blog_date format='%F %d, %Y'}"
-        ></slide>
+        ></div>
 {if blog_related_items:count == blog_related_items:total_results}
-    </thumblist-nav>
+    </div>
   </section>
 </div>
 {/if}
 {/blog_related_items}
 
-<section class="mobile-carousel carousel hero">
+<section class="mobile-carousel carousel hero count{blog_related_items:total_results}">
   <div swiper
     continuous="true"
     speed="2000"
@@ -123,9 +123,8 @@
       logo-image-url=""
       link-style=""
       link-text="Read More"
-    >
+    > </div>
     {/blog_related_items}
-    </div>
   </div>
 </section>
 
@@ -134,4 +133,4 @@
 <br/>
 <hr class="separator padded"/>
 
-<paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></paginated-article-list>
+<div paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></div>

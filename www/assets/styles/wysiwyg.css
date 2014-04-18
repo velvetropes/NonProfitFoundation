@@ -366,6 +366,7 @@ table {
   src: url("fonts/starkey-icons.eot?#iefix") format("embedded-opentype"), url("fonts/starkey-icons.woff") format("woff"), url("fonts/starkey-icons.ttf") format("truetype"), url("fonts/starkey-icons.svg#starkey-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 [class^="starkey-"], [class*=" starkey-"] {
   font-family: 'starkey-icons';
   speak: none;
@@ -772,10 +773,14 @@ blockquote {
   cursor: pointer; }
 
 .alignright {
-  float: right; }
+  float: right;
+  padding-right: 0 !important;
+  margin-right: 0 !important; }
 
 .alignleft {
-  float: left; }
+  float: left;
+  padding-left: 0 !important;
+  margin-left: 0 !important; }
 
 .aligncenter {
   display: block;
@@ -1037,16 +1042,16 @@ nav .tabs {
   @media screen and (max-width: 768px) {
     .tabbed-content nav .tabs {
       padding: 0;
-      margin: 10px 0 0 0; }
+      margin: 10px 0 0 0;
+      display: block; }
       .tabbed-content nav .tabs li {
-        float: left;
+        clear: both;
         display: block;
-        margin-right: 2.35765%;
+        float: none;
         width: 100%;
+        margin: 0;
         border: none;
         border-top: 1px dotted #333; }
-        .tabbed-content nav .tabs li:last-child {
-          margin-right: 0; }
         .tabbed-content nav .tabs li a {
           font-size: 12px;
           font-weight: bold; }
@@ -1057,11 +1062,19 @@ nav .tabs {
   .tabbed-content article .image {
     float: left;
     width: 50%;
-    height: 410px;
+    height: auto;
     padding: 0;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; }
+    .tabbed-content article .image img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box; }
   .tabbed-content article .content {
     float: right;
     width: 50%;
@@ -1244,8 +1257,10 @@ header {
         display: none; } }
   header .social-links {
     width: 25%;
-    float: right;
-    margin-top: 14px; }
+    position: absolute;
+    right: 130px;
+    top: 14px;
+    z-index: 1; }
     header .social-links ul {
       float: right;
       padding: 0 20px 0 0; }
@@ -1254,11 +1269,16 @@ header {
       list-style: none; }
       header .social-links li a {
         font-size: 1.7em; }
+    @media screen and (min-width: 769px) and (max-width: 1119px) {
+      header .social-links {
+        right: 40px; } }
     @media screen and (min-width: 570px) and (max-width: 768px) {
       header .social-links {
+        float: right;
         width: 27%;
         margin-top: 2px;
-        margin-bottom: -18px; } }
+        margin-bottom: -18px;
+        position: inherit; } }
     @media screen and (max-width: 569px) {
       header .social-links {
         display: none; } }
@@ -1880,7 +1900,7 @@ footer {
   width: auto;
   padding: 0 28px 0 5px;
   /* "transparent" doesn't work with Opera */
-  background: transparent !important;
+  background: rgba(0, 0, 0, 0) !important;
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
@@ -1972,6 +1992,7 @@ footer {
 @-moz-document url-prefix() {
   .dropdown-select {
     padding-left: 6px; } }
+
 .outer-dropdown-wrapper {
   *zoom: 1;
   width: 100%;
@@ -2268,7 +2289,7 @@ pagination {
     right: 0px; }
     .swiper-controls.right a {
       background: url("images/carousel/arrow-right-retina.png") no-repeat; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .swiper-controls {
       margin-top: -86px; }
       .swiper-controls a {
@@ -2279,6 +2300,9 @@ pagination {
         background: url("images/carousel/arrow-left.png") no-repeat; }
       .swiper-controls.right a {
         background: url("images/carousel/arrow-right.png") no-repeat; } }
+
+.count1 .swiper-controls a {
+  display: none; }
 
 @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .swiper-controls.left a {
@@ -2316,7 +2340,7 @@ pagination {
     height: 600px; }
     @media screen and (min-width: 570px) and (max-width: 768px) {
       .swiper.short .swipe-wrap > div {
-        height: 440px; } }
+        height: 500px; } }
     @media screen and (max-width: 569px) {
       .swiper.short .swipe-wrap > div {
         height: 317px; }
@@ -2327,7 +2351,7 @@ pagination {
     height: 800px; }
     @media screen and (min-width: 570px) and (max-width: 768px) {
       .swiper .swipe-wrap > div {
-        height: 440px; } }
+        height: 500px; } }
     @media screen and (max-width: 569px) {
       .swiper .swipe-wrap > div {
         height: 300px; } }
@@ -2348,13 +2372,14 @@ pagination {
       z-index: 90;
       color: #FFF;
       width: 100%;
-      bottom: 43px;
+      bottom: 10px;
       padding: 0 40px;
+      text-align: center;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
       .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1 {
         margin: 3px 10px;
-        font-size: 2.875em;
+        font-size: 2.25em;
         line-height: 1.08em; }
       .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p {
         font-size: 1.2em;
@@ -2365,7 +2390,7 @@ pagination {
         color: #FFF;
         font-weight: bold;
         font-size: .874em; }
-      @media screen and (max-width: 569px) {
+      @media screen and (max-width: 768px) {
         .swiper aside:not(.side-panel), .swiper aside.not-side-panel {
           bottom: 0px;
           background: #FFF;
@@ -2385,9 +2410,6 @@ pagination {
             bottom: 6px;
             right: 10px;
             margin: 0; }
-            .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
-              padding: 0;
-              border: none; }
           .swiper aside:not(.side-panel) p, .swiper aside.not-side-panel p {
             font-size: 13px;
             line-height: 1.2; }
@@ -2404,6 +2426,10 @@ pagination {
             .media-mentions .swiper aside:not(.side-panel) a, .media-mentions .swiper aside.not-side-panel a {
               color: #FFF;
               position: static; } }
+      @media screen and (max-width: 480px) {
+        .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
+          border: none;
+          padding: 0; } }
     .swiper aside.side-panel {
       width: 540px;
       right: 0;
@@ -2443,7 +2469,7 @@ pagination {
 
 .media-mentions-page .swiper {
   background: #5ca5d6; }
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 768px) {
   .media-mentions-page .swiper .logo.ng-hide {
     height: 44px;
     display: block !important; }
@@ -2475,7 +2501,7 @@ pagination {
   height: 100px;
   background: url("images/carousel/video-play-button-retina.png") no-repeat;
   display: block; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .play-video-link {
       margin-top: -83px;
       margin-left: -25px;
@@ -2497,16 +2523,16 @@ pagination {
   background-position: center;
   -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
 
-.half-wit {
+.half-height {
   width: 50%; }
-  .half-wit .action-link {
+  .half-height .action-link {
     display: none; }
-  .half-wit .swiper-position {
+  .half-height .swiper-position {
     position: absolute;
     bottom: 14px;
     width: 100%; }
-  @media screen and (max-width: 569px) {
-    .half-wit {
+  @media screen and (max-width: 768px) {
+    .half-height {
       float: none;
       width: 100%; } }
 
@@ -2515,7 +2541,7 @@ pagination {
   list-style: none;
   margin: 0;
   padding: 0; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .swiper-position {
       display: none; } }
   .swiper-position li {
@@ -2551,19 +2577,16 @@ pagination {
     display: none; }
   @media screen and (max-width: 768px) {
     .mobile-carousel .slide .headline {
-      text-align: center; }
+      text-align: left; }
     .mobile-carousel .slide .action-link {
       float: right;
       padding-right: 10px; } }
-  @media screen and (max-width: 569px) {
-    .mobile-carousel .slide .headline {
-      text-align: left; } }
 
 @media screen and (max-width: 768px) {
   .image-contain article {
     background-size: contain;
-    background-position: top center; } }
-@media screen and (max-width: 569px) {
+    background-position: top center; }
+
   .add-bottom-border {
     border-bottom: 1px dotted #8f8f8f;
     padding-bottom: 8px; } }
@@ -2780,7 +2803,7 @@ pagination {
     display: none; }
     @media screen and (max-width: 768px) {
       #map-popup .play-video-link {
-        left: 196px;
+        left: 24%;
         top: 219px; } }
     @media screen and (max-width: 569px) {
       #map-popup .play-video-link {
@@ -3116,19 +3139,19 @@ pagination {
     cursor: default;
     padding-top: 0; } }
 
-.gala-overview .half-wit {
+.gala-overview .half-height {
   float: left;
   margin-top: 30px;
   margin-bottom: 10px; }
   @media screen and (max-width: 768px) {
-    .gala-overview .half-wit {
+    .gala-overview .half-height {
       width: 100%;
       float: none;
       margin-top: 0;
-      height: 370px;
+      height: 260px;
       overflow: hidden; } }
   @media screen and (max-width: 569px) {
-    .gala-overview .half-wit {
+    .gala-overview .half-height {
       height: 210px; } }
 .gala-overview .main-story {
   width: 50%;
@@ -3485,22 +3508,39 @@ pagination {
   .map-as-feed .load-more {
     color: #006b8a; }
 
-.home-page .carousel.thumblist.bottom {
-  border-bottom: 1px dotted #8f8f8f; }
 .home-page .thumblist .thumblist-nav .jspPane > div .content {
   top: 214px;
   right: 20px;
   left: 20px; }
-.home-page .swiper aside:not(.side-panel) a.text-link, .home-page .swiper aside.not-side-panel a.text-link {
-  display: inline-block;
-  padding: 2px 35px 3px;
-  border: 2px solid #00b3d2;
-  margin: 10px; }
+.home-page .main-home-carousel .swiper aside:not(.side-panel), .home-page .main-home-carousel .swiper aside.not-side-panel {
+  bottom: 43px; }
+  @media screen and (max-width: 768px) {
+    .home-page .main-home-carousel .swiper aside:not(.side-panel), .home-page .main-home-carousel .swiper aside.not-side-panel {
+      bottom: 0; } }
+  .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+    font-size: 2.875em; }
+    @media screen and (max-width: 768px) {
+      .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+        font-size: 25px; } }
+    @media screen and (max-width: 569px) {
+      .home-page .main-home-carousel .swiper aside:not(.side-panel) h1, .home-page .main-home-carousel .swiper aside.not-side-panel h1 {
+        font-size: 18px; } }
+  @media screen and (max-width: 768px) {
+    .home-page .main-home-carousel .swiper aside:not(.side-panel) p, .home-page .main-home-carousel .swiper aside.not-side-panel p {
+      font-size: 16px; } }
   @media screen and (max-width: 569px) {
-    .home-page .swiper aside:not(.side-panel) a.text-link, .home-page .swiper aside.not-side-panel a.text-link {
-      padding: 0;
-      margin: 0;
-      border: none; } }
+    .home-page .main-home-carousel .swiper aside:not(.side-panel) p, .home-page .main-home-carousel .swiper aside.not-side-panel p {
+      font-size: 13px; } }
+  .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
+    display: inline-block;
+    padding: 2px 35px 3px;
+    border: 2px solid #00b3d2;
+    margin: 10px; }
+    @media screen and (max-width: 768px) {
+      .home-page .main-home-carousel .swiper aside:not(.side-panel) a.text-link, .home-page .main-home-carousel .swiper aside.not-side-panel a.text-link {
+        padding: 0;
+        margin: 0;
+        border: none; } }
 
 .legal-page .article-section {
   text-align: center;
@@ -3607,6 +3647,12 @@ pagination {
   .programs-page .carousel.thumblist {
     display: none; } }
 
+@media screen and (max-width: 320px) {
+  .share-this-post .application li .note {
+    margin: 0;
+    float: none; }
+  .share-this-post .application li > a {
+    display: block; } }
 .hearing-missions-page .swiper .gradient-background {
   background: none; }
 .hearing-missions-page .page-leader {
@@ -3662,7 +3708,8 @@ pagination {
       #hearing-landing-content.outer-container .content, .accordion .expander .body #hearing-landing-content.accordion-list .content, .legal-page #hearing-landing-content.article-section .content {
         padding: 16px;
         font-size: 12px;
-        line-height: 1.7; }
+        line-height: 1.7;
+        max-width: 100%; }
         #hearing-landing-content.outer-container .content h1, .accordion .expander .body #hearing-landing-content.accordion-list .content h1, .legal-page #hearing-landing-content.article-section .content h1 {
           font-size: 2em;
           line-height: 1.2em;
@@ -3857,7 +3904,20 @@ pagination {
     display: none; }
 
   .mission-highlights-list {
-    display: block; } }
+    display: block; }
+
+  .tabbed-content article .image {
+    width: 100%;
+    margin: 0;
+    float: none; }
+  .tabbed-content article .content {
+    width: 100%;
+    float: none;
+    padding: 0 16px;
+    font-size: 12px;
+    line-height: 1.7; }
+    .tabbed-content article .content h1 {
+      font-size: 2em; } }
 @media screen and (min-width: 570px) and (max-width: 768px) {
   .hearing-missions-statistics ul li h1 {
     font-size: 2.75em; }
@@ -3951,18 +4011,7 @@ pagination {
     margin-top: 0; }
     .tabbed-content article .image {
       width: 100%;
-      height: 200px;
-      margin: 0;
-      background: #efefef;
-      float: none; }
-    .tabbed-content article .content {
-      width: 100%;
-      float: none;
-      padding: 0 16px;
-      font-size: 12px;
-      line-height: 1.7; }
-      .tabbed-content article .content h1 {
-        font-size: 2em; } }
+      background-position: top; } }
 .take-action-page .take-action-section {
   text-align: center;
   margin-top: 60px;

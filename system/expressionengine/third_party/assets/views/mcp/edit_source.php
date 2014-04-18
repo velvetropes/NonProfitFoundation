@@ -86,71 +86,107 @@ echo $this->table->generate();
 		)),
 	));
 
+	$this->table->add_row(array(
+		lang('cf_distribution', 'cf_distribution').'<br />'.lang('cf_distribution_instructions'),
+		form_input(array(
+			'id'    => 'cf_distribution',
+			'name'  => 'cf_distribution',
+			'value' => (!empty($source_settings->cf_distribution) ? $source_settings->cf_distribution : ''),
+			'data-type' => 's3'
+		)),
+	));
+
+
+	$this->table->add_row(array(
+		lang('cache_duration', 'cache_duration').'<br />'.lang('cache_duration_instructions'),
+		form_input(array(
+			'id'    => 's3_cache_duration',
+			'name'  => 's3_cache_amount',
+			'value' => (!empty($source_settings->cache_amount) ? $source_settings->cache_amount : ''),
+			'data-type' => 's3',
+			'style' => 'width: 50px;'
+		)) . ' ' .
+		form_dropdown('s3_cache_period', array('' => '', 'seconds' => lang('seconds'), 'minutes' => lang('minutes'), 'hours' => lang('hours'), 'days' => lang('days')), (!empty($source_settings->cache_period) ? $source_settings->cache_period : ''), 'data-type="s3"')
+	));
+
 	echo $this->table->generate();
 	echo '</div>';
 
 // Google Cloud specific
 
-echo '<div class="asset-source-settings assets-hidden" data-type="gc">';
+	echo '<div class="asset-source-settings assets-hidden" data-type="gc">';
 
-$this->table->set_heading(array(
-	array('colspan' => '2', 'data' => lang('gc_settings'))
-));
+	$this->table->set_heading(array(
+		array('colspan' => '2', 'data' => lang('gc_settings'))
+	));
 
-foreach ($setting_fields['gc'] as $field)
-{
-	switch ($field)
+	foreach ($setting_fields['gc'] as $field)
 	{
-		case 'subfolder':
+		switch ($field)
 		{
-			break;
-		}
-
-		default:
+			case 'subfolder':
 			{
-			$this->table->add_row(
-				array('style' => 'width: 50%', 'data' => lang($field, $field)),
-				form_input('gc_' . $field, ($is_new OR !isset($source_settings->{$field})) ? '' : $source_settings->{$field}, 'id="gc_' . $field . '" data-type="gc" class="setting_field" style="width: 98%"')
-			);
+				break;
 			}
+
+			default:
+				{
+				$this->table->add_row(
+					array('style' => 'width: 50%', 'data' => lang($field, $field)),
+					form_input('gc_' . $field, ($is_new OR !isset($source_settings->{$field})) ? '' : $source_settings->{$field}, 'id="gc_' . $field . '" data-type="gc" class="setting_field" style="width: 98%"')
+				);
+				}
+		}
 	}
-}
 
-$bucket_html = '<span id="gc_buckets">';
+	$bucket_html = '<span id="gc_buckets">';
 
-if (!empty($source_settings) && isset($source_settings->bucket))
-{
-	$bucket_html .= '<select disabled="disabled" data-type="gc">' .
-		'<option>'.$source_settings->bucket.'</option>' .
-		'</select>' .
-		form_hidden('gc_bucket', $source_settings->bucket);
-}
+	if (!empty($source_settings) && isset($source_settings->bucket))
+	{
+		$bucket_html .= '<select disabled="disabled" data-type="gc">' .
+			'<option>'.$source_settings->bucket.'</option>' .
+			'</select>' .
+			form_hidden('gc_bucket', $source_settings->bucket);
+	}
 
-$bucket_html .= '</span>' .
-	' <a href="" class="refresh_gc_buckets">'.lang('refresh').'</a>';
+	$bucket_html .= '</span>' .
+		' <a href="" class="refresh_gc_buckets">'.lang('refresh').'</a>';
 
-$this->table->add_row(array(
-	array('data' => lang('bucket', 'bucket'), 'style' => 'width: 50%;'),
-	$bucket_html
-));
+	$this->table->add_row(array(
+		array('data' => lang('bucket', 'bucket'), 'style' => 'width: 50%;'),
+		$bucket_html
+	));
 
-$this->table->add_row(
-	array('style' => 'width: 50%', 'data' => lang('source_subfolder', 'source_subfolder').'<br />'.lang('gc_source_subfolder_instructions')),
-	form_input('gc_subfolder', ($is_new OR !isset($source_settings->subfolder)) ? '' : $source_settings->subfolder, 'id="gc_subfolder" data-type="gc" class="setting_field" style="width: 98%"')
-);
+	$this->table->add_row(
+		array('style' => 'width: 50%', 'data' => lang('source_subfolder', 'source_subfolder').'<br />'.lang('gc_source_subfolder_instructions')),
+		form_input('gc_subfolder', ($is_new OR !isset($source_settings->subfolder)) ? '' : $source_settings->subfolder, 'id="gc_subfolder" data-type="gc" class="setting_field" style="width: 98%"')
+	);
 
-$this->table->add_row(array(
-	lang('url_prefix', 'bucket_url_prefix').'<br />'.lang('url_gc_prefix_instructions'),
-	form_input(array(
-		'id'    => 'gc_bucket_url_prefix',
-		'name'  => 'gc_bucket_url_prefix',
-		'value' => (!empty($source_settings) ? $source_settings->url_prefix : ''),
-		'data-type' => 'gc'
-	)),
-));
+	$this->table->add_row(array(
+		lang('url_prefix', 'bucket_url_prefix').'<br />'.lang('url_gc_prefix_instructions'),
+		form_input(array(
+			'id'    => 'gc_bucket_url_prefix',
+			'name'  => 'gc_bucket_url_prefix',
+			'value' => (!empty($source_settings) ? $source_settings->url_prefix : ''),
+			'data-type' => 'gc'
+		)),
+	));
 
-echo $this->table->generate();
-echo '</div>';
+	$this->table->add_row(array(
+		lang('cache_duration', 'cache_duration').'<br />'.lang('cache_duration_instructions'),
+		form_input(array(
+			'id'    => 'gc_cache_duration',
+			'name'  => 'gc_cache_amount',
+			'value' => (!empty($source_settings->cache_amount) ? $source_settings->cache_amount : ''),
+			'data-type' => 's3',
+			'style' => 'width: 50px;'
+		)) . ' ' .
+		form_dropdown('gc_cache_period', array('' => '', 'seconds' => lang('seconds'), 'minutes' => lang('minutes'), 'hours' => lang('hours'), 'days' => lang('days')), (!empty($source_settings->cache_period) ? $source_settings->cache_period : ''), 'data-type="s3"')
+	));
+
+
+	echo $this->table->generate();
+	echo '</div>';
 
 
 // Rackspace specific
@@ -164,15 +200,8 @@ echo '</div>';
 	{
 		switch ($field)
 		{
-			case 'location':
-			{
-				$this->table->add_row(
-					array('style' => 'width: 50%', 'data' => lang($field, $field)),
-					form_dropdown('rs_' . $field, array('us' => 'US', 'uk' => 'UK'), ($is_new OR !isset($source_settings->{$field})) ? '' : $source_settings->{$field}, 'id="rs_' . $field . '" data-type="rs" class="setting_field" style="width: 98%"')
-				);
-				break;
-			}
-
+			// Falling through
+			case 'region':
 			case 'subfolder':
 			{
 				break;
@@ -188,6 +217,24 @@ echo '</div>';
 			}
 		}
 	}
+
+	$region_html = '<span id="rs_regions">';
+
+	if (!empty($source_settings) && isset($source_settings->region))
+	{
+		$region_html .= '<select disabled="disabled" data-type="rs">' .
+			'<option>'.$source_settings->region.'</option>' .
+			'</select>' .
+			form_hidden('rs_region', $source_settings->region);
+	}
+
+	$region_html .= '</span>' .
+		' <a href="" class="refresh_regions">'.lang('refresh').'</a>';
+
+	$this->table->add_row(array(
+		array('data' => lang('rs_region', 'rs_region'), 'style' => 'width: 50%;'),
+		$region_html
+	));
 
 	$container_html = '<span id="rs_containers">';
 

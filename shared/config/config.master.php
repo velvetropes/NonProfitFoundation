@@ -123,16 +123,13 @@ if (isset($config))
 	$env_config['prv_msg_upload_path'] = $images_path . '/pm_attachments/';
 	// $env_config['third_party_path']    = $base_path . '/../third_party/';
 
-	/*
-	// Not sure what this was being used for?
-	$config['assets_source_settings'] = array(
-		1 => array (
-		  'access_key_id' => '',
-		  'secret_access_key' => '',
-		  'bucket' => ''
-		)
-	);
-	*/
+
+	// Session settings
+	$env_config['user_session_ttl'] = '702000';
+	$env_config['cp_session_ttl'] = '702000';
+	$env_config['cookie_prefix'] = 'starkeyf_'.ENV;
+	$env_config['require_ip_for_login']     = 'n';
+	$env_config['require_ip_for_posting']   = 'n';
 
 	/**
 	 * Custom upload directory paths
@@ -213,6 +210,16 @@ if (isset($config))
 	 * 3rd Party Add-on config items as needed
 	 */
 
+	// Add s3 bucket to assets.
+	$env_config['assets_site_url'] = $base_url . '/index.php';
+	$env_config['assets_source_settings'] = array(
+		1 => array (
+		  'access_key_id' => 'AKIAIPD7M4ISFEPMWUPA',
+		  'secret_access_key' => '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',
+		  'bucket' => 'assetsimages'
+		)
+	);
+	$env_config['assets_use_uncompressed_js'] = true;
 
 
 

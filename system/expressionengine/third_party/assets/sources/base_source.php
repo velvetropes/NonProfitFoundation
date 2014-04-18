@@ -207,7 +207,10 @@ abstract class Assets_base_source
 	 * Return setting fields for this source
 	 * @return array
 	 */
-	abstract public static function get_settings_field_list();
+	public static function get_settings_field_list()
+	{
+		return array();
+	}
 
 	/**
 	 * Get folder name for a path

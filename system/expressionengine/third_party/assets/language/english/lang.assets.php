@@ -65,9 +65,16 @@ $lang = array(
 'container' => 'Container',
 'source_subfolder' => 'Subfolder',
 's3_source_subfolder_instructions' => 'If you want to set the source to a subfolder of your bucket, specify it here.',
+'cf_distribution' => 'CloudFront distribution ID',
+'cf_distribution_instructions' => 'Set the CloudFront distribution ID if you are using CloudFront and want to purge the files from it upon deleting from Assets.',
+'cache_duration' => 'Cache Duration',
+'cache_duration_instructions' => 'Set up the browser cache duration for assets stored in this source (optional).',
 'rs_source_subfolder_instructions' => 'If you want to set the source to a subfolder of your container, specify it here.',
 'gc_source_subfolder_instructions' => 'If you want to set the source to a subfolder of your bucket, specify it here.',
 'gc_settings' => 'Google Cloud Storage Settings',
+'rs_region' => 'Container region',
+'rs_select_region' => 'Select a region first!',
+'update_rs_settings' => "Please update your Rackspace source settings, including the container's region information for this source to work.",
 
 // Indexing
 'index_header' => 'Source indexing',

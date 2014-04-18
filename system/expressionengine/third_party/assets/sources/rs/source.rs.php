@@ -15,8 +15,7 @@ class Assets_rs_source extends Assets_base_source
 	// images of this size will be saved to be used as sources for thumbnail generation
 	const IMAGE_SOURCE_SIZE = '400x400';
 
-	const RACKSPACE_US_AUTH_HOST = 'https://identity.api.rackspacecloud.com/v1.0';
-	const RACKSPACE_UK_AUTH_HOST = 'https://lon.identity.api.rackspacecloud.com/v1.0';
+	const RACKSPACE_AUTH_HOST = 'https://identity.api.rackspacecloud.com/v2.0/tokens';
 
 	const RACKSPACE_STORAGE_OPERATION = 'storage';
 	const RACKSPACE_CDN_OPERATION = 'cdn';
@@ -728,9 +727,26 @@ class Assets_rs_source extends Assets_base_source
 	public static function get_settings_field_list()
 	{
 		return array(
-			'username', 'api_key', 'location', 'subfolder'
+			'username', 'api_key', 'region', 'subfolder'
 		);
 
+	}
+
+	/**
+	 * Return a list of regions.
+	 *
+	 * @return array
+	 */
+	public function get_region_list()
+	{
+		$this->_refresh_connection_information();
+		$regions = array();
+		foreach (self::$_access_store as $key => $information)
+		{
+			$parts = explode('#', $key);
+			$regions[] = end($parts);
+		}
+		return $regions;
 	}
 
 	/**
@@ -804,52 +820,85 @@ class Assets_rs_source extends Assets_base_source
 		$settings = $this->_source_settings;
 		$username = $settings->username;
 		$api_key = $settings->api_key;
-		$location = $settings->location;
 
 		$headers = array(
-			'X-Auth-User: '.$username,
-			'X-Auth-Key: '.$api_key
+			'Content-Type: application/json',
+			'Accept: application/json',
+
 		);
 
-		$target_url = self::_make_authorization_request_url($location);
-		$response = self::_do_request($target_url, 'GET', $headers);
+		$payload = Assets_helper::get_json(array(
+			'auth' => array(
+				'RAX-KSKEY:apiKeyCredentials' => array(
+					'username' => $username,
+					'apiKey' => $api_key
+				)
+			)
+		));
 
-		// Extract the values
-		$token = self::_extract_header($response, 'X-Auth-Token');
-		$storage_url = rtrim(self::_extract_header($response, 'X-Storage-Url'), '/').'/';
-		$cdn_url = rtrim(self::_extract_header($response, 'X-CDN-Management-Url'), '/').'/';
-
-		if (!($token && $storage_url && $cdn_url))
+		$target_url = self::_make_authorization_request_url();
+		$response = self::_do_request($target_url, 'POST', $headers, array(), $payload);
+		$body = json_decode(substr($response, strpos($response, '{')));
+		if (!$body)
 		{
 			throw new Exception(lang('wrong_credentials'));
 		}
 
-		$connection_key = $username.$api_key;
+		$token = $body->access->token->id;
+		$services = $body->access->serviceCatalog;
 
-		$data = array('token' => $token, 'storage_url' => $storage_url, 'cdn_url' => $cdn_url);
+		if (!$token || !$services)
+		{
+			throw new Exception(lang('wrong_credentials'));
+		}
 
-		// Store this in the access store
-		self::$_access_store[$connection_key] = $data;
+		$regions = array();
 
-		// And update DB information.
-		$this->_update_access_data($connection_key, $data);
+		// Fetch region information
+		foreach ($services as $service)
+		{
+			if ($service->name == 'cloudFilesCDN' || $service->name == 'cloudFiles')
+			{
+				foreach ($service->endpoints as $endpoint)
+				{
+					if (empty($regions[$endpoint->region]))
+					{
+						$regions[$endpoint->region] = array();
+					}
+					if ($service->name == 'cloudFilesCDN')
+					{
+						$regions[$endpoint->region]['cdn_url'] = $endpoint->publicURL;
+					}
+					else
+					{
+						$regions[$endpoint->region]['storage_url'] = $endpoint->publicURL;
+					}
+				}
+			}
+		}
+
+		// Each region gets separate connection information
+		foreach ($regions as $region => $data)
+		{
+			$connection_key = $this->_get_connection_key($username, $api_key, $region);
+			$data = array('token' => $token, 'storage_url' => $data['storage_url'], 'cdn_url' => $data['cdn_url']);
+
+			// Store this in the access store
+			self::$_access_store[$connection_key] = $data;
+			$this->_update_access_data($connection_key, $data);
+
+		}
 	}
 
 
 	/**
-	 * Create the authorization request URL by location
+	 * Create the authorization request URL
 	 *
-	 * @param string $location
 	 * @return string
 	 */
-	private static function _make_authorization_request_url($location = '')
+	private static function _make_authorization_request_url()
 	{
-		if ($location == 'uk')
-		{
-			return self::RACKSPACE_UK_AUTH_HOST;
-		}
-
-		return self::RACKSPACE_US_AUTH_HOST;
+		return self::RACKSPACE_AUTH_HOST;
 	}
 
 	/**
@@ -859,9 +908,10 @@ class Assets_rs_source extends Assets_base_source
 	 * @param $method
 	 * @param $headers
 	 * @param $curl_options
+	 * @param $content
 	 * @return string
 	 */
-	private static function _do_request($url, $method = 'GET', $headers = array(), $curl_options = array())
+	private static function _do_request($url, $method = 'GET', $headers = array(), $curl_options = array(), $content = "")
 	{
 		$ch = curl_init($url);
 		if ($method == 'HEAD')
@@ -879,6 +929,11 @@ class Assets_rs_source extends Assets_base_source
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		if ($method == "POST")
+		{
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
+		}
 
 		foreach ($curl_options as $option => $value)
 		{
@@ -930,8 +985,14 @@ class Assets_rs_source extends Assets_base_source
 
 		$username = $settings->username;
 		$api_key = $settings->api_key;
+		$region = $settings->region;
 
-		$connection_key = $username.$api_key;
+		if (empty($region) || $region == '-')
+		{
+			throw new Exception(lang("update_rs_settings"));
+		}
+
+		$connection_key = $this->_get_connection_key($username, $api_key, $region);
 
 		// If we don't have the access information, load it from DB
 		if (empty(self::$_access_store[$connection_key]))
@@ -959,13 +1020,13 @@ class Assets_rs_source extends Assets_base_source
 		{
 			case self::RACKSPACE_STORAGE_OPERATION:
 			{
-				$url = $connectionInformation['storage_url'].$target;
+				$url = rtrim($connectionInformation['storage_url'], '/').'/'.$target;
 				break;
 			}
 
 			case self::RACKSPACE_CDN_OPERATION:
 			{
-				$url = $connectionInformation['cdn_url'].$target;
+				$url = rtrim($connectionInformation['cdn_url'], '/').'/'.$target;
 				break;
 			}
 
@@ -1100,6 +1161,11 @@ class Assets_rs_source extends Assets_base_source
 		$prefix = !empty($this->settings()->subfolder) ? rtrim($this->settings()->subfolder).'/' : '';
 		$path = $this->_source_settings->url_prefix.$prefix.$path;
 
+		if (substr($path, 0, 2) == '//')
+		{
+			$path = 'http:'.$path;
+		}
+		
 		$ch = curl_init($path);
 		curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -1200,6 +1266,7 @@ class Assets_rs_source extends Assets_base_source
 	 *
 	 * @param $container
 	 * @param $uri
+	 * @param $source_data
 	 * @return string
 	 */
 	private function _prepare_request_uri($container, $uri = '', $source_data = array())
@@ -1253,5 +1320,16 @@ class Assets_rs_source extends Assets_base_source
 			$mime_type = end($mime_type);
 		}
 		return $mime_type;
+	}
+
+	/**
+	 * @param $username
+	 * @param $api_key
+	 * @param $region
+	 * @return string
+	 */
+	private function _get_connection_key($username, $api_key, $region)
+	{
+		return implode('#', array($username, $api_key, $region));
 	}
 }

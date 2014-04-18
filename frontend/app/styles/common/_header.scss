@@ -96,8 +96,10 @@ header {
   }
   .social-links {
     width: 25%;
-    float: right;
-    margin-top: 14px;
+    position: absolute;
+    right: 130px;
+    top: 14px;
+    z-index: 1;
     ul {
       float: right;
       padding: 0 20px 0 0;
@@ -109,10 +111,15 @@ header {
         font-size: 1.7em;
       }
     }
+    @include media($desktop) {
+      right: 40px;
+    }
     @include media($tablet) {
+      float: right;
       width: 27%;
       margin-top: 2px;
       margin-bottom: -18px;
+      position: inherit;
     }
     @include media($mobile) {
       display: none;

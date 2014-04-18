@@ -80,7 +80,20 @@ class Assets_gc_file extends Assets_base_file
 
 		$prefix = !empty($this->_source_settings->subfolder) ? rtrim($this->_source_settings->subfolder, '/').'/' : '';
 
-		return $this->_source_settings->url_prefix . $prefix . $this->subpath;
+		$expires = !empty($this->_source_settings->cache_amount) && !empty($this->_source_settings->cache_period);
+		$expires = $expires && is_numeric($this->_source_settings->cache_amount) && preg_match('/seconds|minutes|hours|days/', $this->_source_settings->cache_period);
+
+		if ($expires)
+		{
+			$cache_buster = '?mtime='.$this->date_modified();
+		}
+		else
+		{
+			$cache_buster = '';
+		}
+
+
+		return $this->_source_settings->url_prefix . $prefix . $this->subpath . $cache_buster;
 	}
 
 	/**

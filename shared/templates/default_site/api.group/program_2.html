@@ -7,18 +7,18 @@
     <p>{hear_now_download_copy}</p>
 
     <div class="share-this-post">
-      <ul>
-        <li><span class="note">Download application</span></li>
+      <ul class="application">
         <li>
-          <a href="{hear_now_form_download_english}">
-            <span class="icon starkey-pdf"></span>
-          </a>
+            <span class="note">Download application</span>
+            <a href="{hear_now_form_download_english}">
+                <span class="icon starkey-pdf"></span>
+            </a>
         </li>
-        <li><span class="note">Descargar Solicitud</span></li>
         <li>
-          <a href="{hear_now_form_download_spanish}">
-            <span class="icon starkey-pdf"></span>
-          </a>
+            <span class="note">Descargar Solicitud</span>
+            <a href="{hear_now_form_download_spanish}">
+                <span class="icon starkey-pdf"></span>
+            </a>
         </li>
       </ul>
     </div>

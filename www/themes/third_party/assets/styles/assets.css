@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .assets-shade { position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); }
 
 .assets-pane { position: relative; margin: 25px 0; padding: 20px; background: #fff; -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 10px -2px rgba(0, 0, 0, 0.25); }
@@ -172,7 +171,7 @@
 
 .assets-tv-file.assets-tv-bigthumb .assets-fileicon .assets-extension { bottom: 26px; font-size: 34px; }
 
-@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) { .assets-thumb-wrapper { background-image: url(../images/thumb_bg_2x.png); background-size: 16px 16px; }
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) { .assets-thumb-wrapper { background-image: url(../images/thumb_bg_2x.png); background-size: 16px 16px; }
   .assets-tv-file .assets-fileicon { background-image: url(../images/file_medium_2x.png); background-size: 69px 89px; }
   .assets-tv-file.assets-tv-bigthumb .assets-fileicon { background-image: url(../images/file_big_2x.png); background-size: 136px 175px; }
   .assets-listview table .assets-lv-name .assets-lv-thumb .assets-fileicon { background-image: url(../images/file_small_2x.png); background-size: 22px 28px; }
@@ -305,7 +304,7 @@ li.assets-fm-folder a.assets-selected.assets-fm-expanded span.assets-fm-toggle {
 .assets-prompt label span { display: inline-block; margin-left: 4px; }
 
 /*-- retina graphics --*/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (   -moz-min-device-pixel-ratio: 1.5), only screen and (     -o-min-device-pixel-ratio: 3/2), only screen and (        min-device-pixel-ratio: 1.5), only screen and (        min-resolution: 1.5dppx) { .assets-fm-sidebar .assets-qq-upload-button { background-image: url(../images/upload_2x.png); background-size: 24px 62px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) { .assets-fm-sidebar .assets-qq-upload-button { background-image: url(../images/upload_2x.png); background-size: 24px 62px; }
   .assets-fm-toolbar table td.assets-fm-search input { background-image: url(../images/search_2x.png); background-size: 16px 16px; }
   .assets-fm-toolbar .assets-btn { background-size: 31px 62px; }
   .assets-fm-toolbar .assets-fm-view li.assets-fm-thumbs { background-image: url(../images/thumbview_2x.png); }

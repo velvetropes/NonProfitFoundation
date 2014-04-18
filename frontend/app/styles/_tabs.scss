@@ -279,8 +279,13 @@ nav {
         padding: 0;
         margin: 10px 0 0 0;
         @include reset-display;
+        display: block;
         li {
-          @include span-columns(12);
+          clear: both;
+          display: block;
+          float:none;
+          width: 100%;
+          margin:0;
           border: none;
           border-top: 1px dotted #333;
           a {
@@ -300,11 +305,22 @@ nav {
     .image {
       float: left;
       width: 50%;
-      height: 410px;
+      height: auto;
       padding: 0;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin:0 auto;
+        // reset to content box or the resizing can be off.
+        -webkit-box-sizing: content-box; 
+           -moz-box-sizing: content-box; 
+                box-sizing: content-box;
+      }
     }
     .content {
       float: right;

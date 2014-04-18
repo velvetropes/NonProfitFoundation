@@ -47,10 +47,14 @@ class Assets_mcp
 
 			$nav['file_manager'] = BASE.AMP.$this->base;
 
+			if ($this->_allow_full_indexing())
+			{
+				$nav['update_indexes'] = BASE.AMP.$this->base.AMP.'method=update_indexes';
+			}
+
 			// Set the right nav for Super Admins
 			if ($this->EE->session->userdata['group_id'] == 1)
 			{
-				$nav['update_indexes'] = BASE.AMP.$this->base.AMP.'method=update_indexes';
 				$nav['manage_sources'] = BASE.AMP.$this->base.AMP.'method=sources';
 				$nav['settings'] = BASE.AMP.$this->base.AMP.'method=settings';
 			}
@@ -172,6 +176,7 @@ class Assets_mcp
 				break;
 		}
 
+		header_remove('Pragma');
 		readfile($thumbnail_location);
 		die();
 	}
@@ -549,7 +554,7 @@ class Assets_mcp
 		if ($file)
 		{
 			$vars['file'] = $file;
-			$vars['timestamp'] = version_compare(APP_VER, '2.6', '<') ? $this->EE->localize->set_localized_time($file->row_field('date') * 1000) : $this->EE->localize->format_date("%U", $file->row_field('date') * 1000);
+			$vars['timestamp'] = version_compare(APP_VER, '2.6', '<') ? $this->EE->localize->set_localized_time($file->row_field('date') * 1000) : $this->EE->localize->format_date("%U", $file->row_field('date'));
 			$vars['human_readable_time'] = version_compare(APP_VER, '2.6', '<') ? $this->EE->localize->set_human_time($file->row_field('date')) : $this->EE->localize->format_date("%Y-%m-%d %h:%i %A", $file->row_field('date'));
 
 			switch ($file->kind())
@@ -739,7 +744,7 @@ class Assets_mcp
 	 */
 	function update_indexes()
 	{
-		if ($this->EE->session->userdata['group_id'] != 1)
+		if (!$this->_allow_full_indexing())
 		{
 			$this->_forbidden();
 		}
@@ -947,6 +952,7 @@ class Assets_mcp
 		$vars['setting_fields'] = $this->EE->assets_lib->get_source_settings_field_list();
 
 		$js = "var Assets = {};" . Assets_helper::get_actions_js() . "\n" . 'Assets.siteUrl = "'.Assets_helper::get_site_url(). '";';
+		$js .= Assets_helper::get_lang_js('rs_select_region');
 		Assets_helper::insert_js($js);
 		Assets_helper::include_garnish();
 		Assets_helper::include_js('assets.js', 'settings.js');
@@ -988,16 +994,26 @@ class Assets_mcp
 					$save_data['bucket'] = $this->EE->input->post('s3_bucket');
 					$save_data['url_prefix'] = $this->EE->input->post('s3_bucket_url_prefix');
 					$save_data['location'] = $this->EE->input->post('s3_bucket_location');
+					$save_data['cf_distribution'] = $this->EE->input->post('cf_distribution');
+
+					$save_data['cache_amount'] = (int) $this->EE->input->post('s3_cache_amount');
+					$period = $this->EE->input->post('s3_cache_period');
+					$save_data['cache_period'] = preg_match('/seconds|minutes|hours|days/', $period) ? $period : '';
 					break;
 				}
 				case 'gc':
 				{
 					$save_data['bucket'] = $this->EE->input->post('gc_bucket');
 					$save_data['url_prefix'] = $this->EE->input->post('gc_bucket_url_prefix');
+
+					$save_data['cache_amount'] = (int) $this->EE->input->post('gc_cache_amount');
+					$period = $this->EE->input->post('gc_cache_period');
+					$save_data['cache_period'] = preg_match('/seconds|minutes|hours|days/', $period) ? $period : '';
 					break;
 				}
 				case 'rs':
 				{
+					$save_data['region'] = $this->EE->input->post('rs_region');
 					$save_data['container'] = $this->EE->input->post('rs_container');
 					$save_data['url_prefix'] = $this->EE->input->post('rs_container_url_prefix');
 				}
@@ -1161,6 +1177,38 @@ class Assets_mcp
 	/**
 	 * Get Rackspace Cloud containers
 	 */
+	public function get_rs_regions()
+	{
+		if ($this->EE->session->userdata['group_id'] != 1)
+		{
+			$this->_forbidden();
+		}
+
+		$existing_source = $this->EE->input->post('source_id');
+		$username = $this->EE->input->post('rs_username');
+		$api_key = $this->EE->input->post('rs_api_key');
+
+		require_once PATH_THIRD . 'assets/sources/rs/source.rs.php';
+
+		$settings = (object) array('username' => $username, 'api_key' => $api_key);
+		$source = new Assets_rs_source($existing_source, $settings, true);
+		$vars['region_list'] = $source->get_region_list();
+
+
+		// here, have some prefilled settings
+		if (empty($region_settings) && !empty($vars['region_list']))
+		{
+			$region_settings = reset($vars['region_list']);
+		}
+
+		$vars['source_settings'] = $region_settings;
+
+		exit ($this->EE->load->view('mcp/components/rs_regions', $vars, TRUE));
+	}
+
+	/**
+	 * Get Rackspace Cloud containers
+	 */
 	public function get_rs_containers()
 	{
 		if ($this->EE->session->userdata['group_id'] != 1)
@@ -1173,7 +1221,7 @@ class Assets_mcp
 
 		$username = $this->EE->input->post('rs_username');
 		$api_key = $this->EE->input->post('rs_api_key');
-		$location = $this->EE->input->post('rs_location');
+		$region = $this->EE->input->post('rs_region');
 		$existing_source = $this->EE->input->post('source_id');
 
 		$container_settings = array();
@@ -1201,7 +1249,7 @@ class Assets_mcp
 		{
 
 			// pass along the chosen settings (if any) for pre-selecting containers
-			$settings = (object) array('username' => $username, 'api_key' => $api_key, 'location' => $location);
+			$settings = (object) array('username' => $username, 'api_key' => $api_key, 'region' => $region);
 			$source = new Assets_rs_source($existing_source, $settings, true);
 			$vars['container_list'] = $source->get_container_list();
 		}
@@ -1274,5 +1322,15 @@ class Assets_mcp
 	{
 		header('HTTP/1.1 403 Forbidden');
 		exit();
+	}
+
+	/**
+	 * Returns true if full indexing is allowed for current user
+	 *
+	 * @return bool
+	 */
+	private function _allow_full_indexing()
+	{
+		return $this->EE->session->userdata['group_id'] == 1 || in_array($this->EE->config->item('assets_allow_indexing'), array("y", "yes", 1));
 	}
 }

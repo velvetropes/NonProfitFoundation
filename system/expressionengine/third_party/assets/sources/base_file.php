@@ -271,12 +271,7 @@ abstract class Assets_base_file
 	 */
 	function kind()
 	{
-		if (! isset($this->kind))
-		{
-			$this->kind = Assets_helper::get_kind($this->filename());
-		}
-
-		return $this->kind;
+		return $this->row_field('kind');
 	}
 
 	/*

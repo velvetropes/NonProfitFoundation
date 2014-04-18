@@ -118,8 +118,14 @@ class Assets_lib
 		{
 			return FALSE;
 		}
-		return array('processed' => (int) $source->process_index($session_id, $offset));
-
+		try
+		{
+			return array('processed' => (int) $source->process_index($session_id, $offset));
+		}
+		catch (Exception $e)
+		{
+			return array('error' => $e->getMessage());
+		}
 	}
 
 	/**
@@ -256,7 +262,7 @@ class Assets_lib
 
 		if (! empty ($folder_ids))
 		{
-			$this->EE->db->select('folder_id, folder_name');
+			$this->EE->db->select('folder_id, folder_name, parent_id');
 			$this->EE->db->where_in('folder_id', $folder_ids);
 			if ($sort != 'random')
 			{
@@ -279,7 +285,8 @@ class Assets_lib
 		{
 			$return[] = (object) array(
 				'folder_name' => $folder->folder_name,
-				'folder_id' => $folder->folder_id
+				'folder_id' => $folder->folder_id,
+				'parent_id' => $folder->parent_id
 			);
 		}
 
@@ -688,46 +695,41 @@ class Assets_lib
 			$folders = array($folders);
 		}
 
-		$files = $this->get_files_in_folder($folders, $keywords, $search_type, $order_by, $order_type, $file_ids, $where);
+		$where_in = array();
+		if (!empty($kinds) && !is_array($kinds) && $kinds != 'any')
+		{
+			$kinds = array($kinds);
+		}
+		if (is_array($kinds))
+		{
+			$where_in = array('kind' => $kinds);
+		}
+
+		$files = $this->get_files_in_folder($folders, $keywords, $search_type, $order_by, $order_type, $file_ids, $where, $where_in, $limit, $offset);
 
 		$output = array();
+
 		foreach ($files as $file_row)
 		{
 			try{
 				$source = $this->instantiate_source_type($file_row);
-				$file = $source->get_file($file_row->file_id, FALSE, (array) $file_row);
+				$file = $source->get_file($file_row->file_id, TRUE, (array) $file_row);
 			}
 			catch (Exception $exception)
 			{
 				continue;
 			}
 
-
 			if (! $file instanceof Assets_base_file)
 			{
 				continue;
 			}
 
-			// make sure this file is one of the requested file kinds
-			if ($kinds != 'any' && ! in_array($file->kind(), $kinds))
-			{
-				continue;
-			}
 			$output[] = $file;
 		}
 
-		if (is_array($file_ids) && $order_by == 'fixed')
-		{
-			$search_array = array_flip($file_ids);
-			$sort_array = array();
-			foreach ($output as $file)
-			{
-				$sort_array[] = $search_array[$file->file_id()];
-			}
-			array_multisort($sort_array, SORT_ASC, $sort_array, $output);
-		}
+		return $output;
 
-		return array_slice($output, (int) $offset, (int) $limit);
 	}
 
 	/**
@@ -740,9 +742,12 @@ class Assets_lib
 	 * @param $order_type
 	 * @param $file_ids array of file ids to filter by
 	 * @param $where array of extra criteria
+	 * @param $where_in array of extra criteria
+	 * @param $limit
+	 * @param $offset
 	 * @return array of file rows
 	 */
-	public function get_files_in_folder($folder_ids, $keywords, $search_type = '', $order_by = '', $order_type = 'asc', $file_ids = array(), $where = array())
+	public function get_files_in_folder($folder_ids, $keywords, $search_type = '', $order_by = '', $order_type = 'asc', $file_ids = array(), $where = array(), $where_in = array(), $limit = 0, $offset = 0)
 	{
 		if (is_array($file_ids))
 		{
@@ -750,7 +755,14 @@ class Assets_lib
 		}
 
 		$search_type = $search_type == 'deep' ? 'deep' : 'shallow';
-		$order_by = in_array(strtolower($order_by), array('name', 'folder', 'date', 'size')) ? strtolower($order_by) : false;
+
+		// For fixed order we need to return the whole list and then sort/slice.
+		// Same goes for random, except we shuffle it beforehand.
+		$fixed = $order_by == 'fixed';
+		$random = $order_type == 'random';
+		$skip_limits = $fixed || $random;
+
+		$order_by = in_array(strtolower($order_by), array('name', 'folder', 'date', 'size', 'file_id')) ? strtolower($order_by) : false;
 		$order_type = in_array(strtolower($order_type), array('asc', 'desc', 'random')) ? strtolower($order_type) : 'asc';
 
 		$folder_ids = array_filter($folder_ids);
@@ -795,42 +807,98 @@ class Assets_lib
 			return array();
 		}
 
-		if (is_array($where))
-		{
-			foreach ($where as $criteria)
-			{
-				$this->EE->db->where($criteria);
-			}
-		}
-
-		$this->EE->db->select('*');
+		$sql = 'SELECT * FROM exp_assets_files WHERE 1 ';
 
 		if (!empty($full_folder_list))
 		{
-			$this->EE->db->where_in('exp_assets_files.folder_id', $full_folder_list);
+			if (!(count($full_folder_list) == 1 && $full_folder_list[0] == ":any:"))
+			{
+				foreach($full_folder_list as &$folder)
+				{
+					$folder = (int) $folder;
+				}
+
+				$sql .= 'AND exp_assets_files.folder_id IN (' . join(",", $full_folder_list) . ') ';
+			}
 		}
 
 		if (!empty($file_ids) && is_array($file_ids))
 		{
 			$first = array_shift($file_ids);
-			$method = 'where_in';
+			$prefix = '';
 			if (substr($first, 0, 4) == 'not ')
 			{
 				$first = intval(substr($first, 4));
-				$method = 'where_not_in';
+				$prefix = 'NOT ';
 			}
 
 			array_unshift($file_ids, $first);
 
-			$this->EE->db->$method('file_id', $file_ids);
+			foreach($file_ids as &$file_id)
+			{
+				$file_id = (int) $file_id;
+			}
+
+			$sql .= 'AND exp_assets_files.file_id ' . $prefix . ' IN (' . join(",", $file_ids) . ') ';
 		}
 
 		if (! empty($keywords))
 		{
+			$like_sql = 'AND (';
+			if ($keywords[0] == '&&and')
+			{
+				array_shift($keywords);
+				$operator = " AND ";
+			}
+			else if ($keywords[0] == '||or')
+			{
+				array_shift($keywords);
+				$operator = " OR ";
+			}
+			else
+			{
+				$operator = " AND ";
+			}
+
+			$like = array();
 			foreach ($keywords as $keyword)
 			{
-				$this->EE->db->like('search_keywords', $keyword);
+				$like[] = 'exp_assets_files.search_keywords LIKE "%' . $this->EE->db->escape_like_str($keyword) . '%"';
 			}
+
+			$like_sql .= join($operator, $like) . ') ';
+
+			if (!empty($like))
+			{
+				$sql .= $like_sql;
+			}
+		}
+		if (is_array($where) && !empty($where))
+		{
+			$where_sql = ' AND (';
+			$where_conditions = array();
+			foreach ($where as $field => $criteria)
+			{
+				$where_conditions[] = "`".$this->EE->db->escape_str($field)."` = '".$this->EE->db->escape_str($criteria)."'";
+			}
+			$where_sql .= join(" AND ", $where_conditions) . ") ";
+			$sql .= $where_sql;
+		}
+
+		if (is_array($where_in) && !empty($where_in))
+		{
+			$where_sql = ' AND (';
+			$where_conditions = array();
+			foreach ($where_in as $field => $criteria)
+			{
+				foreach ($criteria as &$criteria_value)
+				{
+					$criteria_value = '"'.trim($this->EE->db->escape_str($criteria_value), '"').'"';
+				}
+				$where_conditions[] = "`".$this->EE->db->escape_str($field)."` IN (".join(", ", $criteria).")";
+			}
+			$where_sql .= join(" AND ", $where_conditions) . ") ";
+			$sql .= $where_sql;
 		}
 
 		if ($order_by && $order_type != 'random')
@@ -839,32 +907,71 @@ class Assets_lib
 			{
 				case 'folder':
 				{
-					$this->EE->db->join('assets_folders', 'exp_assets_files.folder_id = exp_assets_folders.folder_id');
-					$this->EE->db->order_by('full_path', $order_type);
+					$sql .= 'JOIN exp_assets_folders ON exp_assets_files.folder_id = exp_assets_folders.folder_id ';
+					$sql .= 'ORDER BY exp_assets_folders.full_path ' . $order_type;
 					break;
 				}
 
 				case 'name':
 				{
-					$this->EE->db->order_by('file_name', $order_type);
+					$sql .= 'ORDER BY exp_assets_files.file_name ' . $order_type;
 					break;
 				}
 
 				case 'date':
 				{
-					$this->EE->db->order_by('date', $order_type);
-					$this->EE->db->order_by('date_modified', $order_type);
-					break;
+					$sql .= 'ORDER BY exp_assets_files.date ' . $order_type . ', exp_assets_files.date_modified ' . $order_type;
+					$sql .= 'ORDER BY exp_assets_files.file_name ' . $order_type;
 				}
 
 				default:
-				{
-					$this->EE->db->order_by($order_by, $order_type);
-				}
+					{
+					$sql .= 'ORDER BY exp_assets_files.`' . $order_by . '` ' . $order_type;
+					}
 			}
 		}
 
-		$output = $this->EE->db->get('assets_files')->result();
+		if ($limit && !$skip_limits)
+		{
+			$sql .= ' LIMIT ' . (int) $offset . ', ' . (int) $limit;
+		}
+
+		$output = $this->EE->db->query($sql)->result();
+
+		// For fixed order, we just order the result array and slice it
+		if ($fixed)
+		{
+			$file_ids = array();
+			foreach ($output as $row)
+			{
+				$file_ids[] = $row->file_id;
+			}
+			$search_array = array_flip($file_ids);
+			$sort_array = array();
+			foreach ($output as $file)
+			{
+				$sort_array[] = $search_array[$file->file_id];
+			}
+
+			array_multisort($sort_array, SORT_ASC, $sort_array, $output);
+
+			if ($limit)
+			{
+				$output = array_slice($output, (int) $offset, (int) $limit);
+			}
+			return $output;
+		}
+
+		// For random order, let's shuffle and return
+		if ($random)
+		{
+			shuffle($output);
+			if ($limit)
+			{
+				$output = array_slice($output, 0, (int) $limit);
+			}
+			return $output;
+		}
 
 		if ($order_by == 'folder')
 		{
@@ -901,12 +1008,6 @@ class Assets_lib
 			{
 				$output += $items['children'];
 			}
-		}
-
-
-		if ($order_type == 'random')
-		{
-			shuffle($output);
 		}
 
 		return $output;
@@ -1860,12 +1961,14 @@ class Assets_lib
 	}
 
 	/**
-	 * Rename a source folder
+	 * Rename a source folder.
+	 *
 	 * @param $source_id
-	 * @param $source_type
+	 * @param $type
 	 * @param $folder_name
 	 * @return object
 	 */
+
 	public function rename_source_folder($source_id, $type, $folder_name)
 	{
 		switch($type)
@@ -1899,7 +2002,13 @@ class Assets_lib
 		list ($source_type, $source_id) = explode("_", $source);
 		$source = $this->instantiate_source_type((object) array('source_type' => $source_type, 'source_id' => $source_id, 'filedir_id' => $source_id));
 
-		return  $source->start_index($session);
+		try{
+			return $source->start_index($session);
+		}
+		catch (Exception $e)
+		{
+			return array('error' => $e->getMessage());
+		}
 	}
 
 	/**
@@ -1911,7 +2020,13 @@ class Assets_lib
 	{
 		$folder_row = $this->get_folder_row_by_id($folder_id);
 		$source = $this->instantiate_source_type((object) $folder_row);
-		return $source->start_folder_index($session, $folder_row);
+		try{
+			return $source->start_folder_index($session, $folder_row);
+		}
+		catch (Exception $e)
+		{
+			return array('error' => $e->getMessage());
+		}
 	}
 
 	/**

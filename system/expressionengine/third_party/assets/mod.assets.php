@@ -102,6 +102,7 @@ class Assets
 				$results[] = array(
 					'folder_name' => $folder->folder_name,
 					'folder_id' => $folder->folder_id,
+					'parent_id' => $folder->parent_id,
 					'subfolders' => $subfolders,
 					'depth' => $depth,
 					'total_subfolders' => $this->EE->assets_lib->get_subfolder_count($folder->folder_id)
@@ -121,6 +122,65 @@ class Assets
 		{
 			return $this->EE->TMPL->no_results();
 		}
+	}
+
+	/**
+	 * Get information about a single folder.
+	 *
+	 * @return string
+	 */
+	public function folder()
+	{
+		$tagdata = $this->EE->TMPL->tagdata;
+
+		// Ignore if there's no tagdata
+		if (!$tagdata)
+		{
+			return '';
+		}
+
+		$folder_id = $this->EE->TMPL->fetch_param('folder_id');
+
+		if (empty($folder_id))
+		{
+			$folder = $this->EE->TMPL->fetch_param('folder');
+
+			if (empty($folder) OR $folder == 'top')
+			{
+				$folder_id = 0;
+			}
+			else
+			{
+				$folder_id = $this->_get_folder_id_by_tagpath($folder);
+
+			}
+		}
+
+		if ( !$folder_id)
+		{
+			return "";
+		}
+
+		$folder = $this->EE->assets_lib->get_folder_row_by_id($folder_id);
+		if (!$folder)
+		{
+			return $this->EE->TMPL->no_results();
+		}
+
+		$results = array(array(
+			'folder_name' => $folder->folder_name,
+			'folder_id' => $folder->folder_id,
+			'parent_id' => $folder->parent_id
+		));
+
+		// is there a var_prefix?
+		if (($var_prefix = $this->EE->TMPL->fetch_param('var_prefix')) !== FALSE)
+		{
+			$var_prefix = rtrim($var_prefix, ':').':';
+			$tagdata = str_replace($var_prefix, '', $tagdata);
+		}
+
+		return $this->EE->TMPL->parse_variables($tagdata, $results);
 	}
 
 	/**
@@ -155,16 +215,23 @@ class Assets
 	private function _gather_file_parameters()
 	{
 		$folders = $this->EE->TMPL->fetch_param('folder');
-		$folders = preg_split("/\|/", $folders);
-		foreach ($folders as &$folder)
+		if ($folders == "any" || $folders == "*")
 		{
-			$folder = $this->_get_folder_id_by_tagpath($folder);
+			$folders = array(':any:');
 		}
+		else
+		{
+			$folders = preg_split("/\|/", $folders);
+			foreach ($folders as &$folder)
+			{
+				$folder = $this->_get_folder_id_by_tagpath($folder);
+			}
 
-		$folder_ids = $this->EE->TMPL->fetch_param('folder_id');
-		$folder_ids = preg_split("/\|/", $folder_ids);
+			$folder_ids = $this->EE->TMPL->fetch_param('folder_id');
+			$folder_ids = preg_split("/\|/", $folder_ids);
 
-		$folders = array_merge($folders, $folder_ids);
+			$folders = array_merge($folders, $folder_ids);
+		}
 
 		$file_ids = $this->EE->TMPL->fetch_param('file_id');
 		$file_ids = preg_split("/\|/", $file_ids);
@@ -188,9 +255,20 @@ class Assets
 			$orderby = 'fixed';
 		}
 
+		$keywords = (string) $this->EE->TMPL->fetch_param('keywords', '');
+		$keyword_array = array_filter(preg_split("/\||&&/", (string) $this->EE->TMPL->fetch_param('keywords', '')));
+		if (strpos($keywords, '&&') !== FALSE)
+		{
+			array_unshift($keyword_array, '&&and');
+		}
+		else
+		{
+			array_unshift($keyword_array, '||or');
+		}
+
 		$parameters = array(
 			'folders' => $folders,
-			'keywords' => array_filter(preg_split("/\||&&/", (string) $this->EE->TMPL->fetch_param('keywords', ''))),
+			'keywords' => $keyword_array,
 			'orderby' => $orderby,
 			'sort' => $this->EE->TMPL->fetch_param('sort', ''),
 			'offset' => $this->EE->TMPL->fetch_param('offset', 0),
@@ -209,20 +287,25 @@ class Assets
 	 */
 	private function _gather_folder_parameters()
 	{
-		$folder = $this->EE->TMPL->fetch_param('parent_folder');
+		$folder_id = $this->EE->TMPL->fetch_param('parent_id');
 
-		if (empty($folder) OR $folder == 'top')
+		if (empty($folder_id))
 		{
-			$folder_id = 0;
-		}
-		else
-		{
-			$folder_id = $this->_get_folder_id_by_tagpath($folder);
+			$folder = $this->EE->TMPL->fetch_param('parent_folder');
 
-			// If no folder found by designated parameter, return.
-			if ( !$folder_id)
+			if (empty($folder) OR $folder == 'top')
 			{
-				return array();
+				$folder_id = 0;
+			}
+			else
+			{
+				$folder_id = $this->_get_folder_id_by_tagpath($folder);
+
+				// If no folder found by designated parameter, return.
+				if ( !$folder_id)
+				{
+					return array();
+				}
 			}
 		}
 

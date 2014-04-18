@@ -1178,12 +1178,8 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
     scope.size ?= "tall"
     # There has to be a better way
     scope.childSlides = element.children().eq(2).children().eq(0).children()
-    config = undefined
     config = {}
-    config.auto = if attrs.auto?.length > 0
-      attrs.auto
-    else
-      false
+    config.auto = if attrs.auto?.length > 0 then attrs.auto else false
     config.speed = parseInt(attrs.speed, 10) or 500
     config.disableScroll = !!attrs.disableScroll if attrs.disableScroll
     config.continuous = !!attrs.continuous if attrs.continuous
@@ -1218,6 +1214,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
       return
 
     element.parent().addClass("no-container") if element.parent()?.is("p")
+
     return
 
   controller = ($scope, $element) ->
@@ -1266,7 +1263,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
 # <swipe-paginator position="0"></swipe-paginator>
 sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
   link = (scope, element, attrs, swiperController) ->
-    scope.isCurrent = if scope.position is "0" then true else false
+    scope.isCurrent = scope.position is "0"
     swiperController.addSwipeControl scope
     scope.toggle = (pos) ->
       swiperController.setAsCurrent scope, pos
@@ -1303,8 +1300,6 @@ sfDirectives.directive "swipePaginator", [ "$compile", ($compile )->
 sfDirectives.directive "tabbedNav", ["$location", ($location) ->
 
   link = (scope, element, attrs) ->
-    console.log(scope)
-
     scope.location = $location
 
   restrict: "EA"

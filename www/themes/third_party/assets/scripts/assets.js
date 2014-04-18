@@ -3,7 +3,7 @@
  *
  * @copyright 2013 Pixel & Tonic, Inc.. All rights reserved.
  * @author    Brandon Kelly <brandon@pixelandtonic.com>
- * @version   2.2.4
+ * @version   2.3
  */
 (function($){
 
@@ -485,8 +485,18 @@ Assets.Field = Garnish.Base.extend({
 				this.filesView.addItems($files);
 				this._initFiles($files);
 
-
-                $('<style>' + data.css + '</style>').appendTo('head');
+				// START HACK !!!!!
+				// -----------------------------------------
+				if ($("#dynamic-assets-styles").length === 0)
+				{
+					$('<style id="dynamic-assets-styles">' + data.css + '</style>').appendTo('head');
+				}
+				else
+				{
+					$("#dynamic-assets-styles").append(data.css);
+				}
+                // END HACK !!!!!
+				// -----------------------------------------
 
 			}
 		}, this), 'json');
@@ -2531,23 +2541,28 @@ Assets.FileManager = Garnish.Base.extend({
 
 		    queue.addItem(Assets.siteUrl, postData, $.proxy(function(data)
 		    {
-		        data = $.evalJSON(data);
-		        indexItems = data.total;
-		        for (var i = 0; i < data.total; i++)
-		        {
-		            var postData = {
-		                ACT: Assets.actions.perform_index,
-		                session: session,
-		                folder_id: folderId,
-		                offset: i
-		            };
+				data = $.evalJSON(data);
+				if (data.error)
+				{
+					alert(data.error);
+					return;
+				}
+				indexItems = data.total;
+				for (var i = 0; i < data.total; i++)
+				{
+					var postData = {
+						ACT: Assets.actions.perform_index,
+						session: session,
+						folder_id: folderId,
+						offset: i
+					};
 
-		            queue.addItem(Assets.siteUrl, postData, $.proxy(function()
-		            {
-		                this.$uploadProgressBar.width(Math.min(Math.ceil(100 / indexItems * (++this.currentIndexItem)), 100) + '%');
-		            }, this));
+					queue.addItem(Assets.siteUrl, postData, $.proxy(function()
+					{
+						this.$uploadProgressBar.width(Math.min(Math.ceil(100 / indexItems * (++this.currentIndexItem)), 100) + '%');
+					}, this));
 
-		        }
+}
 
 		    }, this));
 		    queue.startQueue();
