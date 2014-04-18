@@ -696,17 +696,14 @@ class Assets_lib
 		}
 
 		$where_in = array();
-		/*
 		if (!empty($kinds) && !is_array($kinds) && $kinds != 'any')
 		{
 			$kinds = array($kinds);
 		}
-
 		if (is_array($kinds))
 		{
 			$where_in = array('kind' => $kinds);
 		}
-		*/
 
 		$files = $this->get_files_in_folder($folders, $keywords, $search_type, $order_by, $order_type, $file_ids, $where, $where_in, $limit, $offset);
 
@@ -810,22 +807,6 @@ class Assets_lib
 			return array();
 		}
 
-		if (is_array($where))
-		{
-			foreach ($where as $criteria)
-			{
-				$this->EE->db->where($criteria);
-			}
-		}
-
-		if (is_array($where_in))
-		{
-			foreach ($where_in as $field => $criteria)
-			{
-				$this->EE->db->where_in($field, $criteria);
-			}
-		}
-
 		$sql = 'SELECT * FROM exp_assets_files WHERE 1 ';
 
 		if (!empty($full_folder_list))
@@ -891,6 +872,33 @@ class Assets_lib
 			{
 				$sql .= $like_sql;
 			}
+		}
+		if (is_array($where) && !empty($where))
+		{
+			$where_sql = ' AND (';
+			$where_conditions = array();
+			foreach ($where as $field => $criteria)
+			{
+				$where_conditions[] = "`".$this->EE->db->escape_str($field)."` = '".$this->EE->db->escape_str($criteria)."'";
+			}
+			$where_sql .= join(" AND ", $where_conditions) . ") ";
+			$sql .= $where_sql;
+		}
+
+		if (is_array($where_in) && !empty($where_in))
+		{
+			$where_sql = ' AND (';
+			$where_conditions = array();
+			foreach ($where_in as $field => $criteria)
+			{
+				foreach ($criteria as &$criteria_value)
+				{
+					$criteria_value = '"'.trim($this->EE->db->escape_str($criteria_value), '"').'"';
+				}
+				$where_conditions[] = "`".$this->EE->db->escape_str($field)."` IN (".join(", ", $criteria).")";
+			}
+			$where_sql .= join(" AND ", $where_conditions) . ") ";
+			$sql .= $where_sql;
 		}
 
 		if ($order_by && $order_type != 'random')
