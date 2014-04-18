@@ -3643,6 +3643,12 @@ pagination {
   .programs-page .carousel.thumblist {
     display: none; } }
 
+@media screen and (max-width: 320px) {
+  .share-this-post .application li .note {
+    margin: 0;
+    float: none; }
+  .share-this-post .application li > a {
+    display: block; } }
 .hearing-missions-page .swiper .gradient-background {
   background: none; }
 .hearing-missions-page .page-leader {
