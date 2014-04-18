@@ -527,9 +527,13 @@ blockquote {
 // Editor styles
 .alignright {
   float:right;
+  padding-right:0 !important;
+  margin-right:0 !important;
 }
 .alignleft {
   float:left;
+  padding-left:0 !important;
+  margin-left:0 !important;
 }
 .aligncenter {
   display: block;

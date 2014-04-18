@@ -773,10 +773,14 @@ blockquote {
   cursor: pointer; }
 
 .alignright {
-  float: right; }
+  float: right;
+  padding-right: 0 !important;
+  margin-right: 0 !important; }
 
 .alignleft {
-  float: left; }
+  float: left;
+  padding-left: 0 !important;
+  margin-left: 0 !important; }
 
 .aligncenter {
   display: block;
