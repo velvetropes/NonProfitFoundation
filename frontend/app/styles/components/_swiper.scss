@@ -40,6 +40,10 @@
   }
 }
 
+.count1 .swiper-controls a {
+  display: none;
+}
+
 @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .swiper-controls {
     &.left {

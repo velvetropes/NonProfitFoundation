@@ -103,7 +103,7 @@
 {/if}
 {/blog_related_items}
 
-<section class="mobile-carousel carousel hero">
+<section class="mobile-carousel carousel hero count{blog_related_items:total_results}">
   <div swiper
     continuous="true"
     speed="2000"
@@ -123,9 +123,8 @@
       logo-image-url=""
       link-style=""
       link-text="Read More"
-    >
+    > </div>
     {/blog_related_items}
-    </div>
   </div>
 </section>
 
