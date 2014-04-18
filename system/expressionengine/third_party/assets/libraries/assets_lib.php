@@ -696,14 +696,17 @@ class Assets_lib
 		}
 
 		$where_in = array();
+		/*
 		if (!empty($kinds) && !is_array($kinds) && $kinds != 'any')
 		{
 			$kinds = array($kinds);
 		}
+
 		if (is_array($kinds))
 		{
 			$where_in = array('kind' => $kinds);
 		}
+		*/
 
 		$files = $this->get_files_in_folder($folders, $keywords, $search_type, $order_by, $order_type, $file_ids, $where, $where_in, $limit, $offset);
 
