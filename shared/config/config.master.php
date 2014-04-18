@@ -127,6 +127,9 @@ if (isset($config))
 	// Session settings
 	$env_config['user_session_ttl'] = '702000';
 	$env_config['cp_session_ttl'] = '702000';
+	$env_config['cookie_prefix'] = 'starkeyf_'.ENV;
+	$env_config['require_ip_for_login']     = 'n';
+	$env_config['require_ip_for_posting']   = 'n';
 
 	/**
 	 * Custom upload directory paths
