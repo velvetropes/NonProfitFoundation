@@ -1190,6 +1190,7 @@ sfDirectives.directive "swiper", ["$timeout", ($timeout) ->
         speed: config.speed
         disableScroll: config.disableScroll
         continuous: config.continuous
+        startSlide: 0
         callback: (pos) ->
           scope.setAsCurrent(scope.swipeControls[pos])
       )
