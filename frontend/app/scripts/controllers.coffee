@@ -89,6 +89,8 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
   FeaturedArticle.getIndex().then (data) ->
     $scope.featuredArticlesHash = data
 
+  $scope.mapMarkers = MapMarker
+
   MapMarker.getIndex().then (data) ->
     $scope.markers = data
 
@@ -98,6 +100,7 @@ sfControllers.controller("HomeIndexBottomTabsCtrl", ["$scope", "MapMarker", "Fea
 
   $scope.changeCurrentTab = (tabIndex) ->
     if tabIndex == 0
+      $scope.$broadcast('showmap')
       $scope.currentBottomSlideTab = 1
     else
       $scope.currentBottomSlideTab = 2

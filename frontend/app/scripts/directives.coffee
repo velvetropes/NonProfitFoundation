@@ -1448,13 +1448,8 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
       pattern.appendChild(image);
       undefined
 
-    generateMap = () ->
-      if scope.markers?
-       markerList = scope.markers
-      else
-       markerList =
-        "coords" : []
-        "icons" : []
+    generateMap = (markers) ->
+      markerList = if (markers?) then markers else {"coords" : [], "icons" : []}
 
       wolrd_map = angular.element("#world-map-gdp")
       wolrd_map.vectorMap
@@ -1533,7 +1528,22 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
 
       return
 
-    $timeout(generateMap, 1200);
+    resizeMap = () ->
+      jvectormap = angular.element("#world-map-gdp").vectorMap("get", "mapObject")
+      jvectormap.setSize()
+      return
+
+    scope.$on('showmap', ->
+      $timeout(resizeMap, 200)
+      return
+    )
+
+    scope.$watch('markers', ->
+      scope.markers.getIndex().then (data) ->
+        generateMap(data)
+        return
+    , true)
+
     return
 ]
 
