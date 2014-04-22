@@ -2465,8 +2465,10 @@ pagination {
     .swiper .logo img {
       width: 50px; }
   .swiper .action-link.bordered {
+    display: inline-block;
     padding: 10px 30px;
-    border: 2px solid white; }
+    border: 2px solid white;
+    line-height: 1em; }
 
 .media-mentions-page .swiper {
   background: #5ca5d6; }
@@ -2478,6 +2480,14 @@ pagination {
     @media screen and (max-width: 569px) {
       .media-mentions-page .swiper .swipe-wrap > div {
         height: 290px; } }
+  .media-mentions-page .swiper .not-side-panel {
+    bottom: 80px; }
+    @media screen and (min-width: 570px) and (max-width: 768px) {
+      .media-mentions-page .swiper .not-side-panel {
+        bottom: 60px; } }
+    @media screen and (max-width: 569px) {
+      .media-mentions-page .swiper .not-side-panel {
+        bottom: 40px; } }
 @media screen and (max-width: 768px) {
   .media-mentions-page .swiper .logo.ng-hide {
     height: 44px;
