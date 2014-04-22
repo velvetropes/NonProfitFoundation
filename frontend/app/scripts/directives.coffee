@@ -42,6 +42,12 @@ sfDirectives.directive "accordion", [->
       expanders.push expander
       return
     return
+  link: (scope, element, attrs) ->
+    element.on "click", ->
+      $("body").animate
+        scrollTop: (element.offset().top + -110)
+      , "slow"
+
 ]
 
 sfDirectives.directive "accordionList", [->
@@ -198,7 +204,7 @@ sfDirectives.directive("facebook", [
 
 # <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
 
-sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http, $sce, $timeout) ->
+sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", "$location", ($http, $sce, $timeout, $location) ->
   config = {}
 
   _initScrollPane = (scope, element) ->
@@ -228,8 +234,8 @@ sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", ($http,
 
   controller = ($scope, $element) ->
     $scope.getItem = (url)->
-      $http.get("/api/gala_item/#{url}").then (response) ->
-        # $http.get("/local/api/gala_item").then (response) ->
+      api_url = if ($location.host() is '127.0.0.1') then '/local/api/gala_item' else "/api/gala_item/#{url}"
+      $http.get(api_url).then (response) ->
         $scope.rawHtml = response.data
 
   controller: controller
