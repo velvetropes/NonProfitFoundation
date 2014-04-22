@@ -3134,12 +3134,12 @@ pagination {
   background: none; }
 .gala-page .swiper.short .swipe-wrap > div {
   height: 410px; }
-  @media screen and (min-width: 570px) and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     .gala-page .swiper.short .swipe-wrap > div {
-      height: 370px; } }
-  @media screen and (max-width: 569px) {
-    .gala-page .swiper.short .swipe-wrap > div {
-      height: 317px; } }
+      height: auto;
+      padding-bottom: 0; } }
+.gala-page aside.not-side-panel {
+  display: none; }
 @media screen and (max-width: 569px) {
   .gala-page .page-leader h1 {
     margin-bottom: 12px; }
@@ -3305,7 +3305,7 @@ pagination {
       color: white; } }
   @media screen and (max-width: 569px) {
     .gala-timeline .swipe-wrap {
-      height: 211px; }
+      height: auto; }
     .gala-timeline .swiper-controls {
       margin-top: -30px; }
     .gala-timeline .slide .year-overlay {

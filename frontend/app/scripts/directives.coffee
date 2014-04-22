@@ -1353,17 +1353,28 @@ sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $wind
     # So thumblist stretches full-width
     element.parent().addClass("no-container") if element.parent()?.is("p")
 
-  template = """
-    <div ng-class="thumbClasses()" ng-transclude></div>
-    """
   restrict: "EA"
   link: link
-  template: template
+  template: '<div ng-class="thumbClasses()" ng-transclude></div>'
   transclude: true
   replace: true
   scope:
     full: "@"
 ]
+
+
+sfDirectives.directive "jscrollPane", ["$timeout", "$window", ($timeout, $window) ->
+  restrict: "A"
+  link: (scope, element, attrs) ->
+    $timeout(angular.element('.thumblist-nav').jScrollPane(), 200)
+
+    angular.element($window).bind('resize', ->
+      scrollpane = angular.element('.thumblist-nav').data('jsp')
+      scrollpane.reinitialise()
+      return
+    )
+]
+
 
 # <video-player-modal show='modalVideo' width='90%' height='90%'>
 #   <p>Modal Content Goes here<p>

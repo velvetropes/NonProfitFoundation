@@ -6,14 +6,15 @@
     &.short {
       .swipe-wrap > div {
         height: 410px;
-        @include media($tablet) {
-          height: 370px;
-        }
-        @include media($mobile) {
-          height: 317px;
+        @include media($tablet-down) {
+          height: auto;
+          padding-bottom:0;
         }
       }
     }
+  }
+  aside.not-side-panel {
+    display: none;
   }
   @include media($mobile) {
     .page-leader {
@@ -233,7 +234,7 @@
   }
   @include media($mobile) {
     .swipe-wrap {
-      height: 211px;
+      height: auto;
     }
     .swiper-controls {
       margin-top: -30px;

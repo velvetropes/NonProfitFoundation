@@ -121,6 +121,8 @@ sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location",
 
   $scope.currentPosition = $routeParams.articleId
 
+  console.log(api_data.articles)
+
   $scope.blogArticles = api_data.articles or []
   $scope.blogFilters = api_data.filters
 ])
