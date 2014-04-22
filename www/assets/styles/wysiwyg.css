@@ -2336,25 +2336,26 @@ pagination {
   width: 100%;
   max-width: 100%;
   overflow: hidden; }
-  .swiper.short .swipe-wrap > div {
-    height: 600px; }
-    @media screen and (min-width: 570px) and (max-width: 768px) {
-      .swiper.short .swipe-wrap > div {
-        height: 500px; } }
-    @media screen and (max-width: 569px) {
-      .swiper.short .swipe-wrap > div {
-        height: 317px; }
-        .media-mentions .swiper.short .swipe-wrap > div {
-          height: 290px; } }
   .swiper .swipe-wrap > div {
     width: 100%;
     height: 800px; }
-    @media screen and (min-width: 570px) and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       .swiper .swipe-wrap > div {
-        height: 500px; } }
-    @media screen and (max-width: 569px) {
-      .swiper .swipe-wrap > div {
-        height: 300px; } }
+        height: auto;
+        padding-bottom: 105px; } }
+  @media screen and (max-width: 768px) {
+    .swiper .swipe-wrap .slide .image-container {
+      height: auto; }
+      .swiper .swipe-wrap .slide .image-container::before {
+        content: "";
+        display: block;
+        padding-top: 50%; } }
+  .swiper.short .swipe-wrap > div {
+    height: 600px; }
+    @media screen and (max-width: 768px) {
+      .swiper.short .swipe-wrap > div {
+        height: auto;
+        padding-bottom: 105px; } }
   .swiper article {
     z-index: 0;
     width: 100%;
@@ -2469,6 +2470,14 @@ pagination {
 
 .media-mentions-page .swiper {
   background: #5ca5d6; }
+  .media-mentions-page .swiper .swipe-wrap > div {
+    padding-bottom: 0; }
+    @media screen and (min-width: 570px) and (max-width: 768px) {
+      .media-mentions-page .swiper .swipe-wrap > div {
+        height: 500px; } }
+    @media screen and (max-width: 569px) {
+      .media-mentions-page .swiper .swipe-wrap > div {
+        height: 290px; } }
 @media screen and (max-width: 768px) {
   .media-mentions-page .swiper .logo.ng-hide {
     height: 44px;
@@ -2585,7 +2594,7 @@ pagination {
 @media screen and (max-width: 768px) {
   .image-contain article {
     background-size: contain;
-    background-position: top center; }
+    background-position: center; }
 
   .add-bottom-border {
     border-bottom: 1px dotted #8f8f8f;
@@ -3125,12 +3134,12 @@ pagination {
   background: none; }
 .gala-page .swiper.short .swipe-wrap > div {
   height: 410px; }
-  @media screen and (min-width: 570px) and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     .gala-page .swiper.short .swipe-wrap > div {
-      height: 370px; } }
-  @media screen and (max-width: 569px) {
-    .gala-page .swiper.short .swipe-wrap > div {
-      height: 317px; } }
+      height: auto;
+      padding-bottom: 0; } }
+.gala-page aside.not-side-panel {
+  display: none; }
 @media screen and (max-width: 569px) {
   .gala-page .page-leader h1 {
     margin-bottom: 12px; }
@@ -3296,7 +3305,7 @@ pagination {
       color: white; } }
   @media screen and (max-width: 569px) {
     .gala-timeline .swipe-wrap {
-      height: 211px; }
+      height: auto; }
     .gala-timeline .swiper-controls {
       margin-top: -30px; }
     .gala-timeline .slide .year-overlay {
@@ -3318,6 +3327,9 @@ pagination {
     text-align: center; }
   .carousel.hero article {
     width: 100%; }
+    @media screen and (min-width: 570px) and (max-width: 768px) {
+      .carousel.hero article {
+        height: 395px; } }
     @media screen and (max-width: 569px) {
       .carousel.hero article {
         height: 210px; } }
@@ -3348,8 +3360,6 @@ pagination {
       padding: 10px;
       margin: 5px;
       border: 1px solid #eee; }
-.carousel.short .slide {
-  height: 525px; }
 
 .mission-statement {
   text-align: center;
@@ -3651,6 +3661,10 @@ pagination {
   .share-this-post .application li .note {
     margin: 0;
     float: none; }
+  .share-this-post .application li > a {
+    position: relative;
+    top: 7px; } }
+@media screen and (max-width: 240px) {
   .share-this-post .application li > a {
     display: block; } }
 .hearing-missions-page .swiper .gradient-background {

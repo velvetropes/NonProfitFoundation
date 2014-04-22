@@ -125,7 +125,9 @@ function Swipe(container, options) {
       // get the actual position of the slide
       if (options.continuous) {
         var natural_direction = direction;
-        direction = -slidePos[circle(to)] / width;
+
+        // when element starts hidden this returns NaN due to divide by zero. It's commented out for now.
+        // direction = -slidePos[circle(to)] / width; 
 
         // if going forward but to < index, use to = slides.length + to
         // if going backward but to > index, use to = -slides.length + to
