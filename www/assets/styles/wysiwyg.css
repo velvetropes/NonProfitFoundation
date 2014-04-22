@@ -3413,12 +3413,12 @@ pagination {
 
 .bottom-slide-tabs {
   height: 525px; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .bottom-slide-tabs {
       display: none; } }
   .bottom-slide-tabs .bottom-slide-tab .panel-image {
     float: left;
-    width: 70%;
+    width: 100%;
     overflow: hidden;
     height: 525px;
     position: relative; }
@@ -3454,6 +3454,9 @@ pagination {
       bottom: 30px;
       left: 30px;
       right: 30px; }
+    .bottom-slide-tabs .bottom-slide-tab .panel-content .body-text {
+      max-height: 330px;
+      overflow: hidden; }
     .bottom-slide-tabs .bottom-slide-tab .panel-content .call-to-action {
       text-align: right; }
       .bottom-slide-tabs .bottom-slide-tab .panel-content .call-to-action a {
