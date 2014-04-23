@@ -3153,6 +3153,11 @@ pagination {
     .gala-page .swiper.short .swipe-wrap > div {
       height: auto;
       padding-bottom: 0; } }
+@media screen and (max-width: 768px) {
+  .gala-page .swiper .swiper-controls {
+    margin-top: -22px; }
+  .gala-page .swiper .play-video-link {
+    margin-top: -25px; } }
 .gala-page aside.not-side-panel {
   display: none; }
 @media screen and (max-width: 569px) {
@@ -3172,11 +3177,7 @@ pagination {
       width: 100%;
       float: none;
       margin-top: 0;
-      overflow: hidden; }
-      .gala-overview .half-height .swiper-controls {
-        margin-top: -22px; }
-      .gala-overview .half-height .play-video-link {
-        margin-top: -25px; } }
+      overflow: hidden; } }
 .gala-overview .main-story {
   width: 50%;
   float: left;
@@ -3199,6 +3200,11 @@ pagination {
     margin: 0; }
   .gala-tab-content p.no-container {
     margin: 40px 0 0; }
+  @media screen and (max-width: 768px) {
+    .gala-tab-content .swiper-controls {
+      margin-top: -22px; }
+    .gala-tab-content .play-video-link {
+      margin-top: -25px; } }
 
 .gala-panel a {
   color: #00b3d2; }
