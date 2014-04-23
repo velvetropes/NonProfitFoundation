@@ -643,8 +643,11 @@ hr.separator {
 .detail-page-body div img {
   max-width: 100% !important;
   height: auto !important;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box; }
+  padding: 16px; }
+  .detail-page-body div img.alignleft {
+    padding-left: 0; }
+  .detail-page-body div img.alignright {
+    padding-right: 0; }
 .detail-page-body .article-headline, .detail-page-body .article-subheadline {
   margin-bottom: 5px; }
 .detail-page-body .article-date {

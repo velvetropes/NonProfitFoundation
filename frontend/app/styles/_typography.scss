@@ -360,8 +360,14 @@ hr.separator {
   div img {
     max-width: 100% !important;
     height: auto !important;
-    -moz-box-sizing: content-box;
-         box-sizing: content-box;
+    padding: 16px;
+
+    &.alignleft {
+      padding-left:0;
+    }
+    &.alignright {
+      padding-right:0;
+    }
   }
 
   .article-headline, .article-subheadline {
