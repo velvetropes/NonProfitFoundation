@@ -20,7 +20,7 @@ apt-get install -f -y mysql-server
 mysql -u root -p$PROJECT_ABBR -e "CREATE DATABASE $PROJECT_ABBR"
 mysql -u root -p$PROJECT_ABBR $PROJECT_ABBR < /var/www/$PROJECT_ABBR/_init.sql
 
-apt-get install -y apache2 curl php5 php5-mysql php5-gd php5-curl mysql-client zip unzip
+apt-get install -y apache2 curl php5 libapache2-mod-php5 php5-mysql php5-gd php5-curl mysql-client zip unzip
 
 cat > /etc/apache2/sites-available/$PROJECT_ABBR.conf <<DELIM
 <VirtualHost *:80>
