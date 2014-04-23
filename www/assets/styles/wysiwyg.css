@@ -3082,6 +3082,9 @@ pagination {
     height: 40px; }
 .blog-page .text-container p img {
   padding: 16px; }
+.blog-page .text-container img {
+  max-width: 100% !important;
+  height: auto !important; }
 
 .contact-outer-container {
   max-width: 53em; }
