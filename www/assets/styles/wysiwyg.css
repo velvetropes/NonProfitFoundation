@@ -640,6 +640,11 @@ hr.separator {
     text-transform: uppercase;
     font-weight: normal;
     font-size: 1em; }
+  .detail-page-body .page-leader div img {
+    max-width: 100% !important;
+    height: auto !important;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box; }
 .detail-page-body .article-headline, .detail-page-body .article-subheadline {
   margin-bottom: 5px; }
 .detail-page-body .article-date {
