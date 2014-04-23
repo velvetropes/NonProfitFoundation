@@ -655,9 +655,6 @@ hr.separator {
   text-transform: uppercase;
   margin: 0;
   font-size: .875em; }
-.detail-page-body .article-headline, .detail-page-body .article-date, .detail-page-body .article-subheadline {
-  padding-left: 16px;
-  padding-right: 16px; }
 
 .blockquote-table {
   display: table;

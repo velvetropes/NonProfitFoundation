@@ -18,18 +18,22 @@
 <br/>
 <br/>
 <br/>
+
 <div class="outer-container detail-page-body">
   <section class='page-leader'>
     <h1>Media Mention</h1>
   </section>
-  <h1 class="article-headline">{{article.title}}</h1>
-  <p class="article-date">{{article.date}}</p>
-  <h3 class="article-subheadline">{{article.sub_headline}}</h3>
+
   <div class="text-container">
+    <h1 class="article-headline">{{article.title}}</h1>
+    <p class="article-date">{{article.date}}</p>
+    <h3 class="article-subheadline">{{article.sub_headline}}</h3>
     <div ng-bind-html="article.body"></div>
   </div>
+</div>
 
-<div class="share-this-post">
+<div class="outer-container">
+  <div class="share-this-post">
     <ul>
       <li ng-show="article.press_release_contact != ''"><span class="note">Media Contact</span></li>
       <li ng-show="article.press_release_contact != ''">
@@ -62,7 +66,9 @@
     </ul>
   </div>
 </div>
+
 <br/>
-<hr class="separator padded"/>
+
+<hr class="separator padded" />
 
 <div paginated-press-list per-page="3" articles="pressItems" filters="pressFilters"></div>
