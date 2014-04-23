@@ -3083,6 +3083,10 @@ pagination {
         line-height: 1.625em;
         margin-right: 10px;
         margin-left: 40px; }
+        @media screen and (max-width: 530) {
+          .share-this-post ul li .note {
+            margin-right: 0;
+            margin-left: 0; } }
       .share-this-post ul li a {
         font-size: 1.75em; }
 
