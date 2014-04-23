@@ -879,7 +879,14 @@ class Assets_lib
 			$where_conditions = array();
 			foreach ($where as $field => $criteria)
 			{
-				$where_conditions[] = "`".$this->EE->db->escape_str($field)."` = '".$this->EE->db->escape_str($criteria)."'";
+				if (is_numeric($field))
+				{
+					$where_conditions[] = $this->EE->db->escape_str($criteria);
+				}
+				else
+				{
+					$where_conditions[] = "`".$this->EE->db->escape_str($field)."` = '".$this->EE->db->escape_str($criteria)."'";
+				}
 			}
 			$where_sql .= join(" AND ", $where_conditions) . ") ";
 			$sql .= $where_sql;

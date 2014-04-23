@@ -2465,8 +2465,10 @@ pagination {
     .swiper .logo img {
       width: 50px; }
   .swiper .action-link.bordered {
+    display: inline-block;
     padding: 10px 30px;
-    border: 2px solid white; }
+    border: 2px solid white;
+    line-height: 1em; }
 
 .media-mentions-page .swiper {
   background: #5ca5d6; }
@@ -2478,6 +2480,14 @@ pagination {
     @media screen and (max-width: 569px) {
       .media-mentions-page .swiper .swipe-wrap > div {
         height: 290px; } }
+  .media-mentions-page .swiper .not-side-panel {
+    bottom: 80px; }
+    @media screen and (min-width: 570px) and (max-width: 768px) {
+      .media-mentions-page .swiper .not-side-panel {
+        bottom: 60px; } }
+    @media screen and (max-width: 569px) {
+      .media-mentions-page .swiper .not-side-panel {
+        bottom: 10px; } }
 @media screen and (max-width: 768px) {
   .media-mentions-page .swiper .logo.ng-hide {
     height: 44px;
@@ -3002,6 +3012,8 @@ pagination {
     @media screen and (max-width: 569px) {
       .article-header-image .image {
         height: 280px; } }
+    .article-header-image .image .outer-container, .article-header-image .image .accordion .expander .body .accordion-list, .accordion .expander .body .article-header-image .image .accordion-list, .article-header-image .image .legal-page .article-section, .legal-page .article-header-image .image .article-section {
+      height: 100%; }
     .article-header-image .image .relative-container {
       position: relative;
       height: 100%;
@@ -3157,11 +3169,11 @@ pagination {
       width: 100%;
       float: none;
       margin-top: 0;
-      height: 260px;
-      overflow: hidden; } }
-  @media screen and (max-width: 569px) {
-    .gala-overview .half-height {
-      height: 210px; } }
+      overflow: hidden; }
+      .gala-overview .half-height .swiper-controls {
+        margin-top: -22px; }
+      .gala-overview .half-height .play-video-link {
+        margin-top: -25px; } }
 .gala-overview .main-story {
   width: 50%;
   float: left;
@@ -3413,12 +3425,12 @@ pagination {
 
 .bottom-slide-tabs {
   height: 525px; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .bottom-slide-tabs {
       display: none; } }
   .bottom-slide-tabs .bottom-slide-tab .panel-image {
     float: left;
-    width: 70%;
+    width: 100%;
     overflow: hidden;
     height: 525px;
     position: relative; }
@@ -3454,6 +3466,9 @@ pagination {
       bottom: 30px;
       left: 30px;
       right: 30px; }
+    .bottom-slide-tabs .bottom-slide-tab .panel-content .body-text {
+      max-height: 330px;
+      overflow: hidden; }
     .bottom-slide-tabs .bottom-slide-tab .panel-content .call-to-action {
       text-align: right; }
       .bottom-slide-tabs .bottom-slide-tab .panel-content .call-to-action a {

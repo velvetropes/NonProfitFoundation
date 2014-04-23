@@ -263,8 +263,10 @@
     }
   }
   .action-link.bordered {
+    display: inline-block;
     padding: 10px 30px;
     border: 2px solid white;
+    line-height: 1em;
   }
 }
 
@@ -284,6 +286,15 @@
       }
     }
 
+    .not-side-panel {
+      bottom:80px;
+      @include media($tablet) {
+        bottom:60px;
+      }
+      @include media($mobile) {
+        bottom:10px;
+      }
+    }
   }
   @include media($tablet-down) {
     .swiper {

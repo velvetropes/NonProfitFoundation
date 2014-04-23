@@ -103,13 +103,14 @@
 
 .bottom-slide-tabs {
   height: 525px;
-  @include media($mobile) {
+  @include media($tablet-down) {
     display: none;
   }
   .bottom-slide-tab {
+
     .panel-image {
       float: left;
-      width: 70%;
+      width: 100%;
       overflow: hidden;
       height: 525px;
       position: relative;
@@ -147,6 +148,12 @@
         left: 30px;
         right: 30px;
       }
+
+      .body-text {
+        max-height: 330px;
+        overflow: hidden;
+      }
+
       .call-to-action {
         text-align: right;
         a {
