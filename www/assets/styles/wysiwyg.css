@@ -3012,6 +3012,8 @@ pagination {
     @media screen and (max-width: 569px) {
       .article-header-image .image {
         height: 280px; } }
+    .article-header-image .image .outer-container, .article-header-image .image .accordion .expander .body .accordion-list, .accordion .expander .body .article-header-image .image .accordion-list, .article-header-image .image .legal-page .article-section, .legal-page .article-header-image .image .article-section {
+      height: 100%; }
     .article-header-image .image .relative-container {
       position: relative;
       height: 100%;

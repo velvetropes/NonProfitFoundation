@@ -16,6 +16,9 @@
     @include media($mobile) {
       height: 280px;
     }
+    .outer-container {
+      height: 100%;
+    }
     .relative-container {
       position: relative;
       height: 100%;
