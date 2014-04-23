@@ -3169,11 +3169,11 @@ pagination {
       width: 100%;
       float: none;
       margin-top: 0;
-      height: 260px;
-      overflow: hidden; } }
-  @media screen and (max-width: 569px) {
-    .gala-overview .half-height {
-      height: 210px; } }
+      overflow: hidden; }
+      .gala-overview .half-height .swiper-controls {
+        margin-top: -22px; }
+      .gala-overview .half-height .play-video-link {
+        margin-top: -25px; } }
 .gala-overview .main-story {
   width: 50%;
   float: left;

@@ -38,11 +38,14 @@
       width: 100%;
       float: none;
       margin-top: 0;
-      height: 260px;
       overflow: hidden;
-    }
-    @include media($mobile) {
-      height: 210px;
+
+      .swiper-controls {
+        margin-top: -22px;
+      }
+      .play-video-link {
+        margin-top: -25px;
+      }
     }
   }
   .main-story {
