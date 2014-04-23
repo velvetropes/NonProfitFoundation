@@ -355,14 +355,15 @@ hr.separator {
       font-weight: normal;
       font-size: 1em;
     }
-
-    div img {
-      max-width: 100% !important;
-      height: auto !important;
-      -moz-box-sizing: content-box;
-           box-sizing: content-box;
-    }
   }
+
+  div img {
+    max-width: 100% !important;
+    height: auto !important;
+    -moz-box-sizing: content-box;
+         box-sizing: content-box;
+  }
+
   .article-headline, .article-subheadline {
     @extend .alrightsanslight;
     margin-bottom: 5px;

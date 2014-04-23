@@ -640,11 +640,11 @@ hr.separator {
     text-transform: uppercase;
     font-weight: normal;
     font-size: 1em; }
-  .detail-page-body .page-leader div img {
-    max-width: 100% !important;
-    height: auto !important;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box; }
+.detail-page-body div img {
+  max-width: 100% !important;
+  height: auto !important;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
 .detail-page-body .article-headline, .detail-page-body .article-subheadline {
   margin-bottom: 5px; }
 .detail-page-body .article-date {
@@ -1858,6 +1858,10 @@ footer {
         display: none; }
       .articles-filters .dropdown-select {
         padding-left: 0; } }
+
+@media screen and (max-width: 768px) {
+  .media-mentions-page .articles-filters {
+    margin-top: 0; } }
 
 .dropdown {
   display: inline-block;
