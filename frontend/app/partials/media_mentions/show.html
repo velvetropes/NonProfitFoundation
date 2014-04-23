@@ -29,7 +29,13 @@
 
 <div class="share-this-post">
     <ul>
-      <li><span class="note">Media Contact</span></li>
+      <li ng-show="article.press_release_contact != ''"><span class="note">Media Contact</span></li>
+      <li ng-show="article.press_release_contact != ''">
+        <a href="mailto:{{article.press_release_contact}}">
+          <span class="icon starkey-share-email"></span>
+        </a>
+      </li>
+      <li><span class="note">Share this post</span></li>
       <li>
         <a href="http://twitter.com/share?url={{locationUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
@@ -45,11 +51,6 @@
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
-      <li>
-        <a href="mailto:{{article.press_release_contact}}">
-          <span class="icon starkey-share-email"></span>
-        </a>
-      </li>
       <li><span class="note">Download PDF</span></li>
       <li>
         <a href="{{article.press_release_pdf_download}}">
@@ -62,4 +63,4 @@
 <br/>
 <hr class="separator padded"/>
 
-<div paginated-press-list per-page="9" articles="pressItems" filters="pressFilters"></div>
+<div paginated-press-list per-page="3" articles="pressItems" filters="pressFilters"></div>

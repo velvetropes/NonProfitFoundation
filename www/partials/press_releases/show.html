@@ -30,14 +30,14 @@
 
 <div class="share-this-post">
     <ul>
-      <li><span class="note">Media Contact</span></li>
-      <li>
+      <li ng-show="article.press_release_contact != ''"><span class="note">Media Contact</span></li>
+      <li ng-show="article.press_release_contact != ''">
         <a href="mailto:{{article.press_release_contact}}">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
       <li><span class="note">Share this post</span></li>
-<li>
+      <li>
         <a href="http://twitter.com/share?url={{locationUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
@@ -48,7 +48,7 @@
         </a>
       </li>
       <li>
-        <a href="mailto:{{article.press_release_contact}}">
+        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{locationUrl()}}.">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
@@ -64,4 +64,4 @@
 <br/>
 <hr class="separator padded"/>
 
-<paginated-press-list per-page="9" articles="pressItems" filters="pressFilters"></paginated-press-list>
+<paginated-press-list per-page="3" articles="pressItems" filters="pressFilters"></paginated-press-list>
