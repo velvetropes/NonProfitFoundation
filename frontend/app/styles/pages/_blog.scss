@@ -92,6 +92,11 @@
         line-height: 1.625em;
         margin-right: 10px;
         margin-left: 40px;
+
+        @include media(max-width 530) {
+          margin-right:0;
+          margin-left:0;
+        }
       }
       a {
         font-size: 1.75em;

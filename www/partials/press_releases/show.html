@@ -2,10 +2,10 @@
   <div class="image" ng-style="{'background-image': 'url(' + article.header_image_url + ')'}">
     <ul class="page-nav-links">
       <li>
-        <a href="#/articles/{{article.prev_item}}" ng-disabled="currentPosition == article.prev_item">&larr;</a>
+        <a href="#/media_mentions/{{article.prev_item}}" ng-disabled="currentPosition == article.prev_item">&larr;</a>
       </li>
       <li>
-        <a href="#/articles/{{article.next_item}}" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
+        <a href="#/media_mentions/{{article.next_item}}" ng-disabled="currentPosition == article.next_item" >&rarr;</a>
       </li>
       <li>
         <a href="#">X</a>
@@ -23,21 +23,26 @@
     <h1>Press Release</h1>
     <h3>For immediate release</h3>
   </section>
-  <h1 class="article-headline">{{article.title}}</h1>
-  <p class="article-date">{{article.date}}</p>
-  <h3 class="article-subheadline">{{article.sub_headline}}</h3>
-  <div ng-bind-html="article.body"></div>
 
-<div class="share-this-post">
+  <div class="text-container">
+    <h1 class="article-headline">{{article.title}}</h1>
+    <p class="article-date">{{article.date}}</p>
+    <h3 class="article-subheadline">{{article.sub_headline}}</h3>
+    <div ng-bind-html="article.body"></div>
+  </div>
+</div>
+
+<div class="outer-container">
+  <div class="share-this-post">
     <ul>
-      <li><span class="note">Media Contact</span></li>
-      <li>
+      <li ng-show="article.press_release_contact != ''"><span class="note">Media Contact</span></li>
+      <li ng-show="article.press_release_contact != ''">
         <a href="mailto:{{article.press_release_contact}}">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
       <li><span class="note">Share this post</span></li>
-<li>
+      <li>
         <a href="http://twitter.com/share?url={{locationUrl()}}&text=Share on Twitter">
           <span class="icon starkey-share-twitter"></span>
         </a>
@@ -48,7 +53,7 @@
         </a>
       </li>
       <li>
-        <a href="mailto:{{article.press_release_contact}}">
+        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{locationUrl()}}.">
           <span class="icon starkey-share-email"></span>
         </a>
       </li>
@@ -61,7 +66,9 @@
     </ul>
   </div>
 </div>
-<br/>
-<hr class="separator padded"/>
 
-<paginated-press-list per-page="9" articles="pressItems" filters="pressFilters"></paginated-press-list>
+<br/>
+
+<hr class="separator padded" />
+
+<paginated-press-list per-page="3" articles="pressItems" filters="pressFilters"></paginated-press-list>

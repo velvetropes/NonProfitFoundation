@@ -9,10 +9,10 @@
 
 
     {if channel_name == "press_releases"}
-        "category"                  : "press_release",
+        "category"              : "press_release",
         "rawdate"               : "{entry_date format='%U'}",
         "date"                  : "{entry_date format='%m/%d/%Y'}",
-        "year"      : "{entry_date format='%Y'}",
+        "year"                  : "{entry_date format='%Y'}",
         "detail_page"           : "true",
         "featured"              : "false",
         "header_image_url"      : "{press_release_image}",
@@ -20,7 +20,7 @@
         "quote"                 : "",
         "call_to_action_text"   : "{exp:json_encode}{title}{/exp:json_encode}",
         "call_to_action_link"   : "Read More",
-        "video_link":""
+        "video_link"            : ""
 
     {if:else}
         "category"              : "media_mention",

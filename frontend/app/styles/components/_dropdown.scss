@@ -43,6 +43,12 @@
   }
 }
 
+.media-mentions-page .articles-filters {
+  @include media($tablet-down) {
+    margin-top:0;
+  }
+}
+
 @mixin drop-arrow {
   content: '';
   position: absolute;
