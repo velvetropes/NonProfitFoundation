@@ -25,7 +25,9 @@
   <h1 class="article-headline">{{article.title}}</h1>
   <p class="article-date">{{article.date}}</p>
   <h3 class="article-subheadline">{{article.sub_headline}}</h3>
-  <div ng-bind-html="article.body"></div>
+  <div class="text-container">
+    <div ng-bind-html="article.body"></div>
+  </div>
 
 <div class="share-this-post">
     <ul>

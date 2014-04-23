@@ -655,6 +655,9 @@ hr.separator {
   text-transform: uppercase;
   margin: 0;
   font-size: .875em; }
+.detail-page-body .article-headline, .detail-page-body .article-date, .detail-page-body .article-subheadline {
+  padding-left: 16px;
+  padding-right: 16px; }
 
 .blockquote-table {
   display: table;
@@ -1379,7 +1382,7 @@ header {
   top: -265px;
   left: 0;
   background: #FFF;
-  z-index: 99;
+  z-index: 199;
   text-align: center;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -2534,7 +2537,7 @@ pagination {
   display: block; }
   @media screen and (max-width: 768px) {
     .play-video-link {
-      margin-top: -83px;
+      margin-top: -25px;
       margin-left: -25px;
       width: 50px;
       height: 50px;

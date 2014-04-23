@@ -381,6 +381,11 @@ hr.separator {
     margin: 0;
     font-size: .875em;
   }
+
+  .article-headline, .article-date, .article-subheadline {
+    padding-left:16px;
+    padding-right:16px;
+  }
 }
 
 .blockquote-table {
