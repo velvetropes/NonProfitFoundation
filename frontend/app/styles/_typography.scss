@@ -346,10 +346,11 @@ hr.separator {
   .page-leader {
     margin: 0 auto;
     h1 {
-      margin: 0 0 60px;
+      margin: 0 0 50px;
     }
     h3 {
       margin: 0;
+      margin-bottom:10px;
       color: $light-blue;
       text-transform: uppercase;
       font-weight: normal;
@@ -372,6 +373,7 @@ hr.separator {
 
   .article-headline, .article-subheadline {
     @extend .alrightsanslight;
+    margin:0;
     margin-bottom: 5px;
   }
   .article-date {
@@ -380,6 +382,17 @@ hr.separator {
     text-transform: uppercase;
     margin: 0;
     font-size: .875em;
+  }
+
+  .text-container {
+    .article-headline, .article-subheadline, .article-date {
+      margin:0 auto;
+      max-width: 1088px;
+    }
+
+    .article-headline, .article-subheadline {
+      margin-bottom:5px;
+    }
   }
 }
 
