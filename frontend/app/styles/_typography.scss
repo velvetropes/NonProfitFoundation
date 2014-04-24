@@ -346,10 +346,11 @@ hr.separator {
   .page-leader {
     margin: 0 auto;
     h1 {
-      margin: 0 0 60px;
+      margin: 0 0 50px;
     }
     h3 {
       margin: 0;
+      margin-bottom:10px;
       color: $light-blue;
       text-transform: uppercase;
       font-weight: normal;
