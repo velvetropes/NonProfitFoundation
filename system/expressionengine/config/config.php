@@ -15,7 +15,7 @@ $config['app_version'] = '272';
 $config['install_lock'] = "";
 $config['license_number'] = "3176-6580-2595-8116";
 $config['doc_url'] = "http://ellislab.com/expressionengine/user-guide/";
-$config['site_label'] = 'OneVoice International';
+$config['site_label'] = 'Starkey Foundation';
 $config['multiple_sites_enabled'] = "n";
 
 require SHARED_PATH.'/config/config.master.php';
