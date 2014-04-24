@@ -162,6 +162,13 @@ nav {
         }
       }
 
+      &.three-tabs {
+        width: 45%;
+        @include media($tablet-down) {
+          width: 100%;
+        }
+      }
+
       li {
         @include span-columns(1 of 3);
         padding: 5px;

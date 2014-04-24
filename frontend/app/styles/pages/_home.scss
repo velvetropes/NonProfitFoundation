@@ -243,6 +243,10 @@
   }
   .main-home-carousel {
     .swiper {
+      .play-video-link {
+        margin-top:-75px;
+      }
+
       aside:not(.side-panel), aside.not-side-panel {
         bottom: 43px;
         @include media($tablet-down) {
@@ -277,6 +281,12 @@
           }
         }
       }
+    }
+  }
+
+  #swiper_2 {
+    .play-video-link {
+      margin-top:-75px;
     }
   }
 }
