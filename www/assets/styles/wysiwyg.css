@@ -982,6 +982,11 @@ nav .tabs {
       @media screen and (max-width: 768px) {
         .tabbed-content nav .tabs.two-tabs {
           width: 100%; } }
+    .tabbed-content nav .tabs.three-tabs {
+      width: 45%; }
+      @media screen and (max-width: 768px) {
+        .tabbed-content nav .tabs.three-tabs {
+          width: 100%; } }
     .tabbed-content nav .tabs li {
       display: table-cell;
       padding-right: 0%;
