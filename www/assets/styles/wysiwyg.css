@@ -649,12 +649,18 @@ hr.separator {
   .detail-page-body div img.alignright {
     padding-right: 0; }
 .detail-page-body .article-headline, .detail-page-body .article-subheadline {
+  margin: 0;
   margin-bottom: 5px; }
 .detail-page-body .article-date {
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
   font-size: .875em; }
+.detail-page-body .text-container .article-headline, .detail-page-body .text-container .article-subheadline, .detail-page-body .text-container .article-date {
+  margin: 0 auto;
+  max-width: 1088px; }
+.detail-page-body .text-container .article-headline, .detail-page-body .text-container .article-subheadline {
+  margin-bottom: 5px; }
 
 .blockquote-table {
   display: table;
