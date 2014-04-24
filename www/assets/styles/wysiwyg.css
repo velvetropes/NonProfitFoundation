@@ -3569,6 +3569,8 @@ pagination {
   top: 214px;
   right: 20px;
   left: 20px; }
+.home-page .main-home-carousel .swiper .play-video-link {
+  margin-top: -75px; }
 .home-page .main-home-carousel .swiper aside:not(.side-panel), .home-page .main-home-carousel .swiper aside.not-side-panel {
   bottom: 43px; }
   @media screen and (max-width: 768px) {
@@ -3598,6 +3600,8 @@ pagination {
         padding: 0;
         margin: 0;
         border: none; } }
+.home-page #swiper_2 .play-video-link {
+  margin-top: -75px; }
 
 .legal-page .article-section {
   text-align: center;
