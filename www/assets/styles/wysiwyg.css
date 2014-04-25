@@ -523,6 +523,8 @@ a {
   text-transform: uppercase; }
   .uppercase strong {
     color: #00b3d2; }
+  .uppercase a {
+    color: #00b3d2; }
 
 hr.separator {
   border: none;
