@@ -24,11 +24,10 @@ header, footer {
 
 .text-container {
   h1, h2, h3, h4, h5, p:not(.no-container) {
-    max-width: 45em;
+    max-width: $text-container-width;
     margin: 20px auto;
   }
   p:not(.no-container) {
-    max-width: 68em;
     line-height: 1.8em;
   }
 }

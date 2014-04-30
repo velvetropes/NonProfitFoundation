@@ -390,7 +390,7 @@ hr.separator {
   .text-container {
     .article-headline, .article-subheadline, .article-date {
       margin:0 auto;
-      max-width: 1088px;
+      max-width: $text-container-width;
     }
 
     .article-headline, .article-subheadline {

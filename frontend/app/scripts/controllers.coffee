@@ -120,9 +120,6 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
 sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", "api_data",($scope, $routeParams, $location, $sce, Articles, Article, Pagination, api_data) ->
 
   $scope.currentPosition = $routeParams.articleId
-
-  console.log(api_data.articles)
-
   $scope.blogArticles = api_data.articles or []
   $scope.blogFilters = api_data.filters
 ])
