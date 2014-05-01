@@ -3730,7 +3730,11 @@ pagination {
     line-height: 1.2em; }
   @media screen and (max-width: 569px) {
     .hearing-missions-page .page-leader {
-      margin-top: 40px; } }
+      margin: 0; }
+      .hearing-missions-page .page-leader h1 {
+        margin: 0 auto; }
+      .hearing-missions-page .page-leader .missions-lead-text {
+        display: none; } }
 .hearing-missions-page .all-missions {
   margin: 42px 0 75px 0; }
   .hearing-missions-page .all-missions > a {

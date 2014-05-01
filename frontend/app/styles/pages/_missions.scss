@@ -15,7 +15,15 @@
     }
 
     @include media($mobile) {
-      margin-top:40px;
+      margin:0;
+
+      h1 {
+        margin:0 auto;
+      }
+
+      .missions-lead-text {
+        display: none;
+      }
     }
   }
 
