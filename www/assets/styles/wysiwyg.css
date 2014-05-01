@@ -3337,6 +3337,14 @@ pagination {
         padding-top: 30px;
         padding-bottom: 0; } }
 
+.upcoming-mode .gala-overview {
+  display: none; }
+  @media screen and (max-width: 569px) {
+    .upcoming-mode .gala-overview {
+      display: block; }
+      .upcoming-mode .gala-overview .load-more {
+        padding-top: 30px; } }
+
 .gala-timeline {
   width: 100%; }
   @media screen and (max-width: 768px) {

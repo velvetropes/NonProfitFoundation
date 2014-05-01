@@ -229,6 +229,18 @@
   }
 }
 
+.upcoming-mode {
+  .gala-overview {
+    display: none;
+    @include media($mobile) {
+      display: block;
+      .load-more {
+        padding-top: 30px;
+      }
+    }
+  }
+}
+
 .gala-timeline {
   width: 100%;
   @include media($tablet-down) {
