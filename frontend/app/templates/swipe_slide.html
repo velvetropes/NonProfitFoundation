@@ -1,26 +1,26 @@
 <div class="slide">
   <article ng-style="backgroundImageStyle" class="image-container"></article>
-  <div ng-show="hasQuote()" class="blockquote-table">
-    <blockquote ng-show="hasQuote()">{{quote | strip}}</blockquote>
+  <div ng-if="hasQuote()" class="blockquote-table">
+    <blockquote ng-if="hasQuote()">{{quote | strip}}</blockquote>
   </div>
-  <div ng-show="!hasQuote()" class="gradient-background"></div>
-  <div ng-show="hasVideo()">
+  <div ng-if="!hasQuote()" class="gradient-background"></div>
+  <div ng-if="hasVideo()">
     <a href ng-click="displayInModalIfVideo()"><span class="play-video-link"></span></a>
   </div>
   <aside ng-class="{ 'side-panel': hasSidePanel(), 'not-side-panel': !hasSidePanel() }">
-    <h1 ng-show="hasHeadline()" class="headline">{{headline}}</h1>
-    <p ng-show="hasSubhead()" class="subhead">{{subhead}}</p>
-    <p ng-show="hasBodyCopy()" class="body-copy">{{bodyCopy}}</p>
-    <div class="logo" ng-show="hasLogoImageUrl()">
+    <h1 ng-if="hasHeadline()" class="headline">{{headline}}</h1>
+    <p ng-if="hasSubhead()" class="subhead">{{subhead}}</p>
+    <p ng-if="hasBodyCopy()" class="body-copy">{{bodyCopy}}</p>
+    <div class="logo" ng-if="hasLogoImageUrl()">
       <img ng-src="{{logoImageUrl}}"/>
     </div>
-    <a href="{{linkUrl}}" ng-class="actionLinkStyle()" ng-show="!hasVideo() && hasLinkText() && !hasDetailPage()">
+    <a href="{{linkUrl}}" ng-class="actionLinkStyle()" ng-if="!hasVideo() && hasLinkText() && !hasDetailPage()">
       {{linkText}}
     </a>
-    <a href ng-show="hasVideo()" ng-click="displayInModalIfVideo()" ng-class="actionLinkStyle()">
+    <a href ng-if="hasVideo()" ng-click="displayInModalIfVideo()" ng-class="actionLinkStyle()">
       Watch video
     </a>
-    <a href="{{linkUrl}}" class="action-link" ng-show="hasDetailPage()">
+    <a href="{{linkUrl}}" class="action-link" ng-if="hasDetailPage()">
       {{linkText || "Read More"}} &rarr;
     </a>
   </aside>

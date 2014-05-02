@@ -1168,6 +1168,27 @@ sfDirectives.directive "slide", [ ->
 ]
 
 
+
+sfDirectives.directive "simpleSlide", [ ->
+
+  link = (scope, element, attrs) ->
+    scope.playVideo = (url) ->
+      scope.$emit('modal:show', url)
+      return
+
+  result =
+    restrict: "EA"
+    replace: true
+    templateUrl: "/templates/swipe_simple_slide.html"
+    link: link
+    scope:
+      imageUrl: "@"
+      videoUrl: "@"
+  result
+
+]
+
+
 # Swiper format:
 # <swiper
 #   continuous="true"

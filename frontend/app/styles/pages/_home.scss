@@ -51,6 +51,17 @@
   }
 }
 
+.home-page #swiper_1 {
+  @include media($tablet-down) {
+    .swipe-wrap .slide {
+      padding-bottom: 105px;
+    }
+    aside.not-side-panel {
+      height: 105px;
+    }
+  }
+}
+
 .mission-statement {
   text-align: center;
   border-bottom: $dotted-border;

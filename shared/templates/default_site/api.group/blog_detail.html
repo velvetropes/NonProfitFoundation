@@ -50,13 +50,11 @@
     </div>
   </div>
 </div>
-<br/>
 
 <div class="text-container">
   {exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
 </div>
 
-<br/>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>
@@ -127,10 +125,8 @@
     {/blog_related_items}
   </div>
 </section>
-
 {/exp:channel:entries}
 
-<br/>
 <hr class="separator padded"/>
 
 <div paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></div>

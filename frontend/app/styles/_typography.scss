@@ -388,6 +388,8 @@ hr.separator {
   }
 
   .text-container {
+    overflow:hidden;
+
     .article-headline, .article-subheadline, .article-date {
       margin:0 auto;
       max-width: $text-container-width;
