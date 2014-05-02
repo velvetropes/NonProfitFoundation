@@ -47,7 +47,7 @@
           detail_page="{{article.detail_page}}"
           type="{{article.category}}"
           featured="{{article.featured}}"
-          header_image_url="{{article.header_image_url}}"
+          header_image_url="{{article.thumb_image_url}}"
           logo_image_url="{{article.logo_image_url}}"
           quote="{{article.quote}}"
           call_to_action_text="{{article.call_to_action_text}}"
@@ -60,7 +60,7 @@
     <ul class="pagination-articles tablet" ng-if="articles">
       <li ng-repeat="article in articles | filter:articlesFilterObject | orderBy:'-rawdate' | startFrom:0 | limitTo:mobileStop" class="reveal">
         <div class='block'>
-          <div class="image" ng-style="{'background-image': 'url(' + article.header_image_url + ')'}"></div>
+          <div class="image" ng-style="{'background-image': 'url(' + article.thumb_image_url + ')'}"></div>
           <div class="content">
             <h2 class="headline">{{article.title}}</h2>
             <p class='date'>{{parseDate(article.date) | date:"MMMM d, yyyy"}}</p>
