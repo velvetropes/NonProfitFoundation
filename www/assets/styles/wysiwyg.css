@@ -2326,6 +2326,9 @@ pagination {
       .swiper-controls.right a {
         background: url("images/carousel/arrow-right.png") no-repeat; } }
 
+@media screen and (max-width: 768px) {
+  .simple-slide .swiper-controls {
+    margin-top: -26px; } }
 .count1 .swiper-controls a {
   display: none; }
 

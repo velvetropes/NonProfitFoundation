@@ -40,6 +40,12 @@
   }
 }
 
+@include media($tablet-down) {
+ .simple-slide .swiper-controls {
+    margin-top:-26px;
+ }
+}
+
 .count1 .swiper-controls a {
   display: none;
 }
