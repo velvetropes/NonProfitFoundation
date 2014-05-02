@@ -61,6 +61,10 @@
         padding: 10px 10px 5px;
         background: #eee;
         font-size: 2em;
+
+        @include media($tablet-down){
+          background: rgba(238, 238, 238, 0.4);
+        }
       }
     }
   }

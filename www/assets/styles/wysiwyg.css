@@ -3079,6 +3079,9 @@ pagination {
         padding: 10px 10px 5px;
         background: #eee;
         font-size: 2em; }
+        @media screen and (max-width: 768px) {
+          .article-header-image .page-nav-links li a {
+            background: rgba(238, 238, 238, 0.4); } }
   .article-header-image .article-item-category {
     font-size: .875em;
     text-transform: uppercase; }
