@@ -3434,6 +3434,8 @@ pagination {
 @media screen and (max-width: 768px) {
   .home-page #swiper_1 .swipe-wrap .slide {
     padding-bottom: 105px; }
+    .home-page #swiper_1 .swipe-wrap .slide h1 {
+      max-height: none; }
   .home-page #swiper_1 aside.not-side-panel {
     height: 105px; } }
 

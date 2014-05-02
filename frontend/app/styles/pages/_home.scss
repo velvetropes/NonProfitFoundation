@@ -55,6 +55,10 @@
   @include media($tablet-down) {
     .swipe-wrap .slide {
       padding-bottom: 105px;
+
+      h1 {
+        max-height: none;
+      }
     }
     aside.not-side-panel {
       height: 105px;
