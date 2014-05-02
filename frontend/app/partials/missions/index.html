@@ -52,7 +52,7 @@
   </ul>
 
   <section class='articles-list'>
-    <ul class="pagination-articles press-items">
+    <ul class="pagination-articles desktop press-items">
       <li ng-repeat="highlight in missionsHighlights | orderBy:'-rawdate' | filter:highlightsFilters | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
         <page-tile
           id="{{highlight.id}}"
@@ -73,7 +73,31 @@
       </li>
     </ul>
     <div class="clearfix"></div>
-    <div class="load-more">LOAD MORE</div>
+  </section>
+
+  <section class='articles-list'>
+    <ul class="pagination-articles press-items tablet" ng-if="missionsHighlights">
+      <li ng-repeat="highlight in missionsHighlights | orderBy:'-rawdate' | filter:highlightsFilters | startFrom: 0 | limitTo: mobileStop">
+        <page-tile
+          id="{{highlight.id}}"
+          title="{{highlight.title}}"
+          date="{{highlight.date}}"
+          date_format="'MMMM yyyy'"
+          detail_page="true"
+          type="missions_highlight"
+          featured="{{highlight.featured}}"
+          header_image_url="{{highlight.thumbnail_image_url}}"
+          logo_image_url=""
+          quote=""
+          call_to_action_text=""
+          call_to_action_link=""
+          video_link=""
+          category="{{highlight.country}}"
+        ></page-tile>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="load-more" ng-click="loadMore()" ng-hide="isAtPaginationEnd" ng-class="{visible:!isAtPaginationEnd}">LOAD MORE</div>
   </section>
 
   <div class="pagination" ng-show="showPaginator">
