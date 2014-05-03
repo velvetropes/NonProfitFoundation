@@ -165,6 +165,11 @@
   }
 }
 
+.touch .jspContainer .jspHorizontalBar {
+    display: none !important;
+  }
+}
+
 .jspHorizontalBar {
   position: absolute;
   bottom: 0;
