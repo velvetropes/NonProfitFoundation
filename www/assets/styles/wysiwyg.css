@@ -3548,7 +3548,7 @@ pagination {
   margin-top: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .map-as-feed {
       display: block; } }
   .map-as-feed h2 {
