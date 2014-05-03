@@ -1625,10 +1625,13 @@ sfDirectives.directive "validSubmit", ["$parse", "$http", "$rootScope", ($parse,
               'X_REQUESTED_WITH' : 'XMLHttpRequest'
             }
           .success (data, status, headers, config) ->
+            angular.forEach(angular.element("input[type='text'], textarea, input[type='email']"), (value, key) ->
+              angular.element(value).val("")
+            )
             angular.element("input[name=xid]").val(headers('X-EEXID'))
             $rootScope.showThanks = true
             scope.showSubscribeForm = false
-            scope.showForm = false
+            
             return
 
           form.$submitted = false
