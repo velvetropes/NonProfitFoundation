@@ -902,6 +902,7 @@ nav .tabs {
       .header-nav .tabs li.active, .header-nav .tabs li:hover {
         border-bottom: 1px solid #fff; }
   .header-nav .tab-content {
+    display: none;
     max-width: 75em;
     margin-left: auto;
     margin-right: auto;
