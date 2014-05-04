@@ -7,7 +7,7 @@
       </a>
     </div>
   </div>
-  <section class='mobile-carousel carousel hero'>
+  <section class='mobile-carousel carousel hero' ng-if="items">
     <swiper
       continuous="false"
       speed="2000"
@@ -15,7 +15,7 @@
       paginator="true"
       size="short"
       >
-      <div ng-repeat="item in items" class="gala-item slide" ng-click="getItem(item.id)">
+      <div ng-repeat="item in items" class="gala-item slide" ng-click="getItem(item.id)" jscrollpane-list>
         <div class="year-overlay">{{item.year}}</div>
         <article ng-style="{'background-image': 'url(' + item.thumbnail_image_url + ')'}" class="image-container"></article>
     </div>

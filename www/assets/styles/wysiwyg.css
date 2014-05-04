@@ -2774,7 +2774,7 @@ pagination {
         background: #17bfe6;
         opacity: 1; }
 
-.touch .jspContainer .jspHorizontalBar, .touch .jspContainer .jspVerticalBar {
+.touch .jspContainer .jspHorizontalBar {
   display: none !important; }
 
 .jspHorizontalBar {
