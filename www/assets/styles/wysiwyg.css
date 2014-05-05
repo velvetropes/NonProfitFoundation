@@ -2549,7 +2549,7 @@ pagination {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-top: -90px;
+  margin-top: -50px;
   margin-left: -50px;
   width: 100px;
   height: 100px;
@@ -3515,8 +3515,7 @@ pagination {
       -ms-behavior: url("/assets/styles/images/backgroundsize.min.htc"); }
     .bottom-slide-tabs .bottom-slide-tab .panel-image .play-video-link {
       font-size: 5em;
-      color: white;
-      top: 57%; }
+      color: white; }
   .bottom-slide-tabs .bottom-slide-tab .panel-content {
     color: #fff;
     position: relative;
