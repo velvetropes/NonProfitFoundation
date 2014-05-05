@@ -2311,11 +2311,11 @@ pagination {
   .swiper-controls.left {
     left: 0px; }
     .swiper-controls.left a {
-      background: url("images/carousel/arrow-left-retina.png") no-repeat; }
+      background: url("images/carousel/arrow-left-retina-outlined.png") no-repeat; }
   .swiper-controls.right {
     right: 0px; }
     .swiper-controls.right a {
-      background: url("images/carousel/arrow-right-retina.png") no-repeat; }
+      background: url("images/carousel/arrow-right-retina-outlined.png") no-repeat; }
   @media screen and (max-width: 768px) {
     .swiper-controls {
       margin-top: -86px; }
@@ -2324,9 +2324,9 @@ pagination {
         height: 57px;
         display: block; }
       .swiper-controls.left a {
-        background: url("images/carousel/arrow-left.png") no-repeat; }
+        background: url("images/carousel/arrow-left-outlined.png") no-repeat; }
       .swiper-controls.right a {
-        background: url("images/carousel/arrow-right.png") no-repeat; } }
+        background: url("images/carousel/arrow-right-outlined.png") no-repeat; } }
 
 @media screen and (max-width: 768px) {
   .simple-slide .swiper-controls {
@@ -2336,10 +2336,10 @@ pagination {
 
 @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .swiper-controls.left a {
-    background: url("images/carousel/arrow-left-retina.png") no-repeat;
+    background: url("images/carousel/arrow-left-retina-outlined.png") no-repeat;
     background-size: 100%; }
   .swiper-controls.right a {
-    background: url("images/carousel/arrow-right-retina.png") no-repeat;
+    background: url("images/carousel/arrow-right-retina-outlined.png") no-repeat;
     background-size: 100%; } }
 .position-indicator {
   z-index: 95;
