@@ -3240,7 +3240,8 @@ pagination {
 .gala-tab-content {
   width: 100%; }
   .gala-tab-content h1, .gala-tab-content h2, .gala-tab-content h3, .gala-tab-content h4 {
-    margin: 40px 0 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
     text-align: center; }
   .gala-tab-content p {
     margin: 0; }
