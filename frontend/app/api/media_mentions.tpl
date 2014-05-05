@@ -23,6 +23,7 @@
     "rawdate"               : "{media_mention_date format='%U'}",
     "featured"              : "{media_mention_feature_carousel}",
     "header_image_url"      : "{if mm_header_image}{mm_header_image}{if:else}{media_mention_image}{/if}",
+    "thumb_image_url"       : "{media_mention_image}",
     "logo_image_url"        : "{media_mention_logo}",
     "quote"                 : "{exp:json_encode}{exp:eehive_hacksaw chars="320"}{media_mention_quote}{/exp:eehive_hacksaw}{/exp:json_encode}",
     "call_to_action_text"   : "{exp:json_encode}{media_mention_cta_text}{/exp:json_encode}",

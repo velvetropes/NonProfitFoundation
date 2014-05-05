@@ -51,6 +51,21 @@
   }
 }
 
+.home-page #swiper_1 {
+  @include media($tablet-down) {
+    .swipe-wrap .slide {
+      padding-bottom: 105px;
+
+      h1 {
+        max-height: none;
+      }
+    }
+    aside.not-side-panel {
+      height: 105px;
+    }
+  }
+}
+
 .mission-statement {
   text-align: center;
   border-bottom: $dotted-border;
@@ -172,7 +187,7 @@
   margin-top: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include media($mobile) {
+  @include media($tablet-down) {
     display: block;
   }
   h2 {

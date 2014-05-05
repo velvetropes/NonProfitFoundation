@@ -22,7 +22,7 @@
             "id"        : "{mission_highlights:url_title}",
             "title"     : "{if mission_highlights:mission_display_title}{exp:json_encode}{mission_highlights:mission_display_title}{/exp:json_encode}{if:else}{exp:json_encode}{mission_highlights:title}{/exp:json_encode}{/if}",
             "rawdate"   : "{mission_highlights:mission_date format='%U'}",
-            "date"      : "{mission_highlights:mission_date format='%F %Y'}",
+            "date"      : "{mission_highlights:mission_date format='%m/%d/%Y'}",
             "subtitle"  : "{exp:json_encode}{mission_highlights:mission_subtitle}{/exp:json_encode}",
             "excerpt"   : "{exp:json_encode}{mission_highlights:mission_excerpt}{/exp:json_encode}",
             "image"     : "{if mission_highlights:mission_image}{mission_highlights:mission_image}{if:else}{mission_highlights:mission_thumb_image}{/if}",

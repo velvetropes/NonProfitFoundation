@@ -62,6 +62,7 @@ nav {
     }
   }
   .tab-content {
+    display: none;
     @include outer-container;
     max-width: none;
     border-bottom: 5px solid #3d4144;

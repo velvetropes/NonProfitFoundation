@@ -366,7 +366,6 @@ table {
   src: url("fonts/starkey-icons.eot?#iefix") format("embedded-opentype"), url("fonts/starkey-icons.woff") format("woff"), url("fonts/starkey-icons.ttf") format("truetype"), url("fonts/starkey-icons.svg#starkey-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 [class^="starkey-"], [class*=" starkey-"] {
   font-family: 'starkey-icons';
   speak: none;
@@ -590,7 +589,8 @@ hr.separator {
   .masthead .section-headline {
     text-transform: uppercase;
     font-size: 3.75em;
-    margin: 30px 0 40px; }
+    margin-top: 30px;
+    margin-bottom: 40px; }
   .masthead p {
     font-size: 1.1em;
     padding: 0 0 8px;
@@ -659,11 +659,13 @@ hr.separator {
   text-transform: uppercase;
   margin: 0;
   font-size: .875em; }
-.detail-page-body .text-container .article-headline, .detail-page-body .text-container .article-subheadline, .detail-page-body .text-container .article-date {
-  margin: 0 auto;
-  max-width: 1088px; }
-.detail-page-body .text-container .article-headline, .detail-page-body .text-container .article-subheadline {
-  margin-bottom: 5px; }
+.detail-page-body .text-container {
+  overflow: hidden; }
+  .detail-page-body .text-container .article-headline, .detail-page-body .text-container .article-subheadline, .detail-page-body .text-container .article-date {
+    margin: 0 auto;
+    max-width: 1088px; }
+  .detail-page-body .text-container .article-headline, .detail-page-body .text-container .article-subheadline {
+    margin-bottom: 5px; }
 
 .blockquote-table {
   display: table;
@@ -845,10 +847,9 @@ header, footer {
   width: 102.16118%; }
 
 .text-container h1, .text-container h2, .text-container h3, .text-container h4, .text-container h5, .text-container p:not(.no-container) {
-  max-width: 45em;
+  max-width: 1088px;
   margin: 20px auto; }
 .text-container p:not(.no-container) {
-  max-width: 68em;
   line-height: 1.8em; }
 
 .narrow {
@@ -902,6 +903,7 @@ nav .tabs {
       .header-nav .tabs li.active, .header-nav .tabs li:hover {
         border-bottom: 1px solid #fff; }
   .header-nav .tab-content {
+    display: none;
     max-width: 75em;
     margin-left: auto;
     margin-right: auto;
@@ -1390,7 +1392,7 @@ header {
   opacity: 0;
   width: 100%;
   position: fixed;
-  top: -265px;
+  top: -400px;
   left: 0;
   background: #FFF;
   z-index: 199;
@@ -1926,7 +1928,7 @@ footer {
   width: auto;
   padding: 0 28px 0 5px;
   /* "transparent" doesn't work with Opera */
-  background: rgba(0, 0, 0, 0) !important;
+  background: transparent !important;
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
@@ -2018,7 +2020,6 @@ footer {
 @-moz-document url-prefix() {
   .dropdown-select {
     padding-left: 6px; } }
-
 .outer-dropdown-wrapper {
   *zoom: 1;
   width: 100%;
@@ -2327,6 +2328,9 @@ pagination {
       .swiper-controls.right a {
         background: url("images/carousel/arrow-right.png") no-repeat; } }
 
+@media screen and (max-width: 768px) {
+  .simple-slide .swiper-controls {
+    margin-top: -26px; } }
 .count1 .swiper-controls a {
   display: none; }
 
@@ -2368,7 +2372,7 @@ pagination {
     @media screen and (max-width: 768px) {
       .swiper .swipe-wrap > div {
         height: auto;
-        padding-bottom: 105px; } }
+        padding-bottom: 85px; } }
   @media screen and (max-width: 768px) {
     .swiper .swipe-wrap .slide .image-container {
       height: auto; }
@@ -2381,7 +2385,10 @@ pagination {
     @media screen and (max-width: 768px) {
       .swiper.short .swipe-wrap > div {
         height: auto;
-        padding-bottom: 105px; } }
+        padding-bottom: 85px; } }
+    @media screen and (max-width: 768px) {
+      .swiper.short .swipe-wrap > div.image-only {
+        padding-bottom: 0; } }
   .swiper article {
     z-index: 0;
     width: 100%;
@@ -2424,12 +2431,14 @@ pagination {
           color: #2d2d2d;
           text-align: left;
           padding: 4px 20px 8px;
-          height: 107px;
+          height: 85px;
           overflow: hidden; }
           .swiper aside:not(.side-panel) h1, .swiper aside.not-side-panel h1 {
             font-size: 18px;
             margin: 10px 10px 4px;
-            padding: 0; }
+            padding: 0;
+            max-height: 38px;
+            overflow: hidden; }
           .swiper aside:not(.side-panel) a, .swiper aside.not-side-panel a {
             color: #2d2d2d;
             font-size: 11px;
@@ -2767,6 +2776,9 @@ pagination {
         background: #17bfe6;
         opacity: 1; }
 
+.touch .jspContainer .jspHorizontalBar {
+  display: none !important; }
+
 .jspHorizontalBar {
   position: absolute;
   bottom: 0;
@@ -3075,6 +3087,9 @@ pagination {
         padding: 10px 10px 5px;
         background: #eee;
         font-size: 2em; }
+        @media screen and (max-width: 768px) {
+          .article-header-image .page-nav-links li a {
+            background: rgba(238, 238, 238, 0.4); } }
   .article-header-image .article-item-category {
     font-size: .875em;
     text-transform: uppercase; }
@@ -3083,6 +3098,7 @@ pagination {
     margin-top: 10px; }
 
 .share-this-post {
+  clear: both;
   text-align: center;
   margin: 30px 0 40px; }
   .share-this-post ul {
@@ -3340,6 +3356,14 @@ pagination {
         padding-top: 30px;
         padding-bottom: 0; } }
 
+.upcoming-mode .gala-overview {
+  display: none; }
+  @media screen and (max-width: 569px) {
+    .upcoming-mode .gala-overview {
+      display: block; }
+      .upcoming-mode .gala-overview .load-more {
+        padding-top: 30px; } }
+
 .gala-timeline {
   width: 100%; }
   @media screen and (max-width: 768px) {
@@ -3411,6 +3435,14 @@ pagination {
       padding: 10px;
       margin: 5px;
       border: 1px solid #eee; }
+
+@media screen and (max-width: 768px) {
+  .home-page #swiper_1 .swipe-wrap .slide {
+    padding-bottom: 105px; }
+    .home-page #swiper_1 .swipe-wrap .slide h1 {
+      max-height: none; }
+  .home-page #swiper_1 aside.not-side-panel {
+    height: 105px; } }
 
 .mission-statement {
   text-align: center;
@@ -3521,7 +3553,7 @@ pagination {
   margin-top: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-  @media screen and (max-width: 569px) {
+  @media screen and (max-width: 768px) {
     .map-as-feed {
       display: block; } }
   .map-as-feed h2 {
@@ -3611,7 +3643,6 @@ pagination {
   margin-top: -75px; }
 
 .legal-page .article-section {
-  text-align: center;
   margin-top: 60px;
   width: 100%; }
   .legal-page .article-section h1 {
@@ -3666,7 +3697,6 @@ pagination {
           margin: 0; }
 
 .programs-page .program-section, .programs-page .programs-additional-section {
-  text-align: center;
   margin-top: 60px;
   width: 100%; }
   .programs-page .program-section h1, .programs-page .programs-additional-section h1 {
@@ -3730,12 +3760,18 @@ pagination {
 .hearing-missions-page .page-leader {
   margin-top: 90px;
   margin-bottom: 0; }
+  .hearing-missions-page .page-leader.highlights-header {
+    margin-top: 0; }
   .hearing-missions-page .page-leader h1 {
     margin-bottom: 30px;
     line-height: 1.2em; }
   @media screen and (max-width: 569px) {
     .hearing-missions-page .page-leader {
-      margin-top: 40px; } }
+      margin: 0; }
+      .hearing-missions-page .page-leader h1 {
+        margin: 0 auto; }
+      .hearing-missions-page .page-leader .missions-lead-text {
+        display: none; } }
 .hearing-missions-page .all-missions {
   margin: 42px 0 75px 0; }
   .hearing-missions-page .all-missions > a {
@@ -4150,6 +4186,9 @@ pagination {
 .team-outer-container, .contact-outer-container {
   clear: both;
   padding-bottom: 110px; }
+  @media screen and (max-width: 569px) {
+    .team-outer-container, .contact-outer-container {
+      padding-bottom: 0px; } }
 
 html body {
   background: #fff !important; }

@@ -40,6 +40,12 @@
   }
 }
 
+@include media($tablet-down) {
+ .simple-slide .swiper-controls {
+    margin-top:-26px;
+ }
+}
+
 .count1 .swiper-controls a {
   display: none;
 }
@@ -97,7 +103,7 @@
       height: 800px;
       @include media($tablet-down) {
         height: auto;
-        padding-bottom: 105px;
+        padding-bottom: 85px;
       }
     }
 
@@ -119,7 +125,13 @@
 
     @include media($tablet-down) {
       height: auto;
-      padding-bottom: 105px;
+      padding-bottom: 85px;
+    }
+
+    &.image-only {
+      @include media($tablet-down) {
+        padding-bottom:0;
+      }
     }
   }
 
@@ -171,12 +183,14 @@
         color: #2d2d2d;
         text-align: left;
         padding: 4px 20px 8px;
-        height: 107px;
+        height: 85px;
         overflow: hidden;
         h1 {
           font-size: 18px;
           margin: 10px 10px 4px;
           padding: 0;
+          max-height: 38px;
+          overflow: hidden;
         }
         a {
           color: #2d2d2d;

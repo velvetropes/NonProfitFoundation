@@ -21,6 +21,7 @@
     "date"                          : "{entry_date format='%m/%d/%Y'}",
     "year"                          : "{entry_date format='%Y'}",
     "header_image_url"              : "{if press_header_image}{press_header_image}{if:else}{press_release_image}{/if}",
+    "thumb_image_url"               : "{press_release_image}",
     "press_release_source"          : "{press_release_source}",
     "press_release_pdf_download"    : "{press_release_pdf_download}",
     "press_release_contact"         : "{press_release_contact}",

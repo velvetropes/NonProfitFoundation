@@ -5,14 +5,14 @@
    {exp:stash:set_value parse_tags="yes" name="next_entry" value="{url_title}"}
 {/exp:channel:next_entry}
 
-{exp:channel:prev_entry channel="blog"
+{exp:channel:prev_entry channel="blog" orderby="blog_date"
   {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
   {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
 }
     {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
 {/exp:channel:prev_entry}
 
-{exp:channel:entries channel="blog" dynamic="no" limit="1"
+{exp:channel:entries channel="blog" orderby="blog_date" dynamic="no" limit="1"
   {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
   {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
 }
@@ -50,13 +50,11 @@
     </div>
   </div>
 </div>
-<br/>
 
 <div class="text-container">
   {exp:hundies_shortcode}{blog_content}{/exp:hundies_shortcode}
 </div>
 
-<br/>
 <div class="outer-container">
   <div class="share-this-post">
     <ul>
@@ -127,10 +125,8 @@
     {/blog_related_items}
   </div>
 </section>
-
 {/exp:channel:entries}
 
-<br/>
 <hr class="separator padded"/>
 
 <div paginated-article-list per-page="3" articles="blogArticles" filters="blogFilters"></div>

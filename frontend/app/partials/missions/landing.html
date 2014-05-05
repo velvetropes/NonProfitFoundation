@@ -2,7 +2,7 @@
     <h1>
       {{missions.page_title}}
     </h1>
-    <div class="fixed-width bigger uppercase" ng-bind-html="missions.page_lead"></div>
+    <div class="fixed-width bigger uppercase missions-lead-text" ng-bind-html="missions.page_lead"></div>
   </section>
 
   <missions-map data="data"></missions-map>
@@ -37,7 +37,7 @@
     </section>
   </div>
 
-  <section class='page-leader'>
+  <section class='page-leader highlights-header'>
     <h1>
       Highlights
     </h1>
@@ -72,20 +72,27 @@
   </section>
 
   <section class='articles-list mission-highlights-list'>
-    <ul class="pagination-articles tablet">
+    <ul class="pagination-articles press-items tablet" ng-if="highlights">
       <li ng-repeat="highlight in highlights" class="reveal">
-        <div class='block'>
-          <div class="image" ng-style="{'background-image': 'url(' + highlight.image + ')'}"></div>
-          <div class="content">
-            <h2 class="headline">{{highlight.title}}</h2>
-            <p class='date'>{{parseDate(highlight.date) | date:"MMMM yyyy"}}</p>
-            <p class='read-more'><a href="#/missions/{{highlight.id}}">Read more &rarr;</a></p>
-          </div>
-        </div>
+        <page-tile
+          id="{{highlight.id}}"
+          title="{{highlight.title}}"
+          date="{{highlight.date}}"
+          date_format="'MMMM yyyy'"
+          detail_page="true"
+          type="missions_highlight"
+          featured="{{highlight.featured}}"
+          header_image_url="{{highlight.image}}"
+          logo_image_url=""
+          quote=""
+          call_to_action_text=""
+          call_to_action_link=""
+          video_link=""
+          category="{{highlight.country}}"
+        ></page-tile>
       </li>
     </ul>
     <div class="clearfix"></div>
-    <div class="load-more" ng-click="loadMore()" ng-hide="isAtPaginationEnd()">LOAD MORE</div>
   </section>
 
   <p class="centered all-missions"><a href="#/highlights" class="link-with-border">See all Hearing Missions</a></p>

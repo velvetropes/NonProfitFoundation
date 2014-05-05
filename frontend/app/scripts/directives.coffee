@@ -205,42 +205,12 @@ sfDirectives.directive("facebook", [
 # <gala-thumblist-nav items="timelineItems"></gala-thumblist-nav>
 
 sfDirectives.directive 'galaThumblistNav', ["$http", "$sce", "$timeout", "$location", ($http, $sce, $timeout, $location) ->
-  config = {}
-
-  _initScrollPane = (scope, element) ->
-    $timeout( ->
-      scope.pane = angular.element('.thumblist-nav').jScrollPane()
-      scope.api = scope.pane.data().jsp unless scope.pane.data() is null
-      return
-    , 400)
-
-  link = (scope, element, attrs) ->
-    _initScrollPane(scope, element)
-    scope.$watch (->
-      element.find(".gala-item").length
-    ), (length) ->
-      $timeout( ->
-        if scope.api?
-          scope.api.reinitialise()
-        return
-      , 400)
-
-    scope.$on("window.resized", (event, args) ->
-      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
-      _initScrollPane(scope, element)
-    )
-    return
-
-
-  controller = ($scope, $element) ->
+  controller: ($scope, $element) ->
     $scope.getItem = (url)->
       api_url = if ($location.host() is '127.0.0.1') then '/local/api/gala_item' else "/api/gala_item/#{url}"
       $http.get(api_url).then (response) ->
         $scope.rawHtml = response.data
-
-  controller: controller
   restrict: "E"
-  link: link
   templateUrl: "/templates/gala_thumblist_nav.html"
   replace: true
   scope:
@@ -396,25 +366,9 @@ sfDirectives.directive 'resizer', [->
 ]
 
 sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
-  _initScrollPane = (scope, element) ->
-    $timeout( ->
-      scope.pane = angular.element('.thumblist-nav').jScrollPane()
-      scope.api = scope.pane.data().jsp unless scope.pane.data() is null
-      return
-    , 400)
-
-  link = (scope, element, attrs) ->
-    _initScrollPane(scope, element)
-
-    scope.$on("window.resized", (event, args) ->
-      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
-      _initScrollPane(scope, element)
-    )
-    return
-
   return {
     restrict: "EA"
-    link: link
+    link: (scope, element, attrs) ->
     templateUrl: "/templates/home_thumblist_nav.html"
     replace: true
     scope:
@@ -423,13 +377,29 @@ sfDirectives.directive 'homeThumblistNav', ["$timeout", ($timeout) ->
   }
 ]
 
-sfDirectives.directive 'jscrollpaneList', ["$timeout", ($timeout) ->
-  (scope, element, attrs) ->
-    if scope.$last
-      $timeout( ->
-        angular.element('.thumblist-nav').jScrollPane()
-      , 400)
-    return
+sfDirectives.directive 'jscrollpaneList', ["$timeout", "$window", ($timeout, $window) ->
+  return {
+    restrict: "EA"
+    link: (scope, element, attrs) ->
+
+      if scope.$last
+        $timeout( ->
+          angular.element('.thumblist-nav').jScrollPane()
+        , 50)
+
+      angular.element($window).bind('resize', ->
+        api = angular.element('.thumblist-nav').data('jsp')
+        unless throttleTimeout
+          throttleTimeout = setTimeout( ->
+            api.reinitialise()
+            throttleTimeout = null
+            return
+          , 50)
+        return
+      )
+
+      return
+  }
 ]
 
 sfDirectives.directive("instagramGallery", [
@@ -1168,6 +1138,27 @@ sfDirectives.directive "slide", [ ->
 ]
 
 
+
+sfDirectives.directive "simpleSlide", [ ->
+
+  link = (scope, element, attrs) ->
+    scope.playVideo = (url) ->
+      scope.$emit('modal:show', url)
+      return
+
+  result =
+    restrict: "EA"
+    replace: true
+    templateUrl: "/templates/swipe_simple_slide.html"
+    link: link
+    scope:
+      imageUrl: "@"
+      videoUrl: "@"
+  result
+
+]
+
+
 # Swiper format:
 # <swiper
 #   continuous="true"
@@ -1323,29 +1314,39 @@ sfDirectives.directive "tabbedNav", ["$location", ($location) ->
 
 sfDirectives.directive "thumblistNav", [ "$timeout", "$window", ($timeout, $window) ->
 
-  _initScrollPane = (scope, element) ->
+  _reinitScrollPane = (scope, element) ->
+    api = angular.element('.thumblist-nav').data('jsp')
+    unless throttleTimeout
+      throttleTimeout = setTimeout( ->
+        api.reinitialise()
+        throttleTimeout = null
+        return
+      , 50)
+    return
+
+  link = (scope, element, attrs) ->
+    scope.config = showArrows: false
+
+    # Initialize scrollpane
     $timeout( ->
       scope.pane = angular.element('.thumblist-nav').jScrollPane()
       scope.api = scope.pane.data().jsp
       return
-    , 400)
+    , 50)
 
-  link = (scope, element, attrs) ->
-    scope.config = showArrows: false
-    _initScrollPane(scope, element)
+    # Re-initalize on window resize.
+    angular.element($window).bind('resize', ->
+      _reinitScrollPane()
+      return
+    )
 
+    # Re-initalize on slide number change
     scope.$watch (->
       element.find(".slide").length
     ), (length) ->
       $timeout( ->
-        scope.api.reinitialise() if scope.api?
-        return
-      , 400)
-
-    scope.$on("window.resized", (event, args) ->
-      angular.element('.thumblist-nav').jScrollPane().data().jsp.destroy()
-      _initScrollPane(scope, element)
-    )
+        _reinitScrollPane()
+      , 50)
 
     scope.isFullHeight = ->
       scope.full?.length > 0 and scope.full is "true"
@@ -1465,6 +1466,66 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
       pattern.appendChild(image);
       undefined
 
+    openPopup = (markerList, index) ->
+      rootScope = angular.element('body').scope()
+      content = markerList.meta_data[index]
+      $popup = angular.element('#map-popup')
+      bodyDiv = document.getElementsByTagName("body")[0]
+      $popup.css(left: "#{window.innerWidth/2}px")  
+
+      # Define HTML templates.
+      ctaTpl =
+        if content.action_text
+          if content.marker_type is "video" 
+            "<p class='centered'><a class='view-more'>#{content.action_text}</a></p>"
+          else 
+            "<p class='centered'><a class='read-more' href='#{content.action_target}' target='_blank'>#{content.action_text}</a></p>"
+        else ""
+
+      popupTpl = "
+        <span class='close-popup'>X</span>
+        <img src='#{content.thumbnail_url}' />
+        <a class='play-video-link #{content.marker_type}'>&nbsp;</a>
+        <div class='background-popup'>
+          <div class='text-popup-container'>
+            <div class='text-popup'>
+              <h2>#{content.title}</h2>
+              <span class='location'>#{content.location}</span>
+              <p>#{content.text}</p>
+              #{ctaTpl}
+            </div>
+          </div>
+        </div>
+      "
+      $popup
+        .removeClass('visible')
+        .empty()
+        .fadeIn("slow", ->
+          $timeout( ->
+            $popup
+              .html(popupTpl)
+              .addClass('visible')
+              .find('.text-popup')
+              .jScrollPane()
+          , 200)
+        )
+
+      $("html, body").animate(
+        scrollTop: $("#world-map-gdp").offset().top - 88
+      , "slow")
+
+      $popup.on('click', '.close-popup', ->
+        $popup
+          .fadeOut()
+          .find('.text-popup')
+          .jScrollPane().data().jsp.destroy()
+        bodyDiv.style.overflow = ""
+      )
+
+      $popup.on('click', '.play-video-link, .view-more',  ->
+        rootScope.directModalTrigger(content.action_target)
+      )
+
     generateMap = (markers) ->
       markerList = if (markers?) then markers else {"coords" : [], "icons" : []}
 
@@ -1484,61 +1545,11 @@ sfDirectives.directive "worldMap", ["$timeout", ($timeout) ->
             "stroke-opacity": 1
             "stroke-width": 2
         backgroundColor: "#329FD6"
+        onMarkerOver: (event, index) =>
+          if (Modernizr.touch) then openPopup(markerList, index)
+          return
         onMarkerClick: (event, index) =>
-          rootScope = angular.element('body').scope()
-          content = markerList.meta_data[index]
-          $popup = $('#map-popup')
-          $popup.css
-            left: "#{window.innerWidth/2}px"
-          bodyDiv = document.getElementsByTagName("body")[0]
-
-          # Define HTML templates.
-          ctaTpl = if content.action_text
-            if content.marker_type is "video" then "<p class='centered'><a class='view-more'>#{content.action_text}</a></p>"
-            else "<p class='centered'><a class='read-more' href='#{content.action_target}' target='_blank'>#{content.action_text}</a></p>"
-          else ""
-
-          popupTpl = "
-            <span class='close-popup'>X</span>
-            <img src='#{content.thumbnail_url}' />
-            <a class='play-video-link #{content.marker_type}'>&nbsp;</a>
-            <div class='background-popup'>
-              <div class='text-popup-container'>
-                <div class='text-popup'>
-                  <h2>#{content.title}</h2>
-                  <span class='location'>#{content.location}</span>
-                  <p>#{content.text}</p>
-                  #{ctaTpl}
-                </div>
-              </div>
-            </div>
-          "
-          $popup
-            .removeClass('visible')
-            .empty()
-            .fadeIn("slow", ->
-              $timeout( ->
-                $popup
-                  .html(popupTpl)
-                  .addClass('visible')
-                  .find('.text-popup')
-                  .jScrollPane()
-              , 200)
-            )
-
-          $("html, body").animate
-            scrollTop: $("#world-map-gdp").offset().top - 88
-          , "slow"
-
-          $popup.on 'click', '.close-popup', ->
-            $popup
-              .fadeOut()
-              .find('.text-popup')
-              .jScrollPane().data().jsp.destroy()
-            bodyDiv.style.overflow = ""
-
-          $popup.on 'click', '.play-video-link, .view-more',  ->
-            rootScope.directModalTrigger(content.action_target)
+          openPopup(markerList, index)
 
       for icon in markerList.icons
         createImagePattern(icon.id, icon.path)
@@ -1594,10 +1605,13 @@ sfDirectives.directive "validSubmit", ["$parse", "$http", "$rootScope", ($parse,
               'X_REQUESTED_WITH' : 'XMLHttpRequest'
             }
           .success (data, status, headers, config) ->
+            angular.forEach(angular.element("input[type='text'], textarea, input[type='email']"), (value, key) ->
+              angular.element(value).val("")
+            )
             angular.element("input[name=xid]").val(headers('X-EEXID'))
             $rootScope.showThanks = true
             scope.showSubscribeForm = false
-            scope.showForm = false
+            
             return
 
           form.$submitted = false

@@ -89,7 +89,7 @@ class hundies_shortcode {
         {item}
           {if item:total_rows > 1}
             {if item:count == 1}
-            <section class='mobile-carousel carousel hero image-contain'>
+            <section class='mobile-carousel carousel hero image-contain simple-slide'>
               <div swiper
               continuous="true"
               speed="2000"
@@ -99,19 +99,7 @@ class hundies_shortcode {
               size="short"
               >
             {/if}
-            <div slide
-              image-url="{item:image}"
-              background-color=""
-              quote=""
-              video-url="{item:video}"
-              link-url=""
-              headline=""
-              body-copy=""
-              logo-image-url=""
-              link-style=""
-              link-text=""
-            >
-            </div>
+            <div simple-slide video-url="{item:video}" image-url="{if item:image}{item:image}{if:else}{item:video:thumbnail}{/if}"></div>
             {if item:count == item:total_rows}</div> </section>{/if}
           {/if}
         {/item}

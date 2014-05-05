@@ -289,7 +289,8 @@ hr.separator {
     @extend .alrightsansbold;
     text-transform: uppercase;
     font-size: 3.75em;
-    margin: 30px 0 40px;
+    margin-top:30px;
+    margin-bottom:40px;
   }
   p {
     font-size: 1.1em;
@@ -388,9 +389,11 @@ hr.separator {
   }
 
   .text-container {
+    overflow:hidden;
+
     .article-headline, .article-subheadline, .article-date {
       margin:0 auto;
-      max-width: 1088px;
+      max-width: $text-container-width;
     }
 
     .article-headline, .article-subheadline {

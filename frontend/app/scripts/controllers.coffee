@@ -120,9 +120,6 @@ sfControllers.controller("BlogIndexCtrl", ["$scope", "$window", "Articles", "Pag
 sfControllers.controller("BlogShowCtrl", ["$scope", "$routeParams", "$location", "$sce",  "Articles", "Article", "Pagination", "api_data",($scope, $routeParams, $location, $sce, Articles, Article, Pagination, api_data) ->
 
   $scope.currentPosition = $routeParams.articleId
-
-  console.log(api_data.articles)
-
   $scope.blogArticles = api_data.articles or []
   $scope.blogFilters = api_data.filters
 ])
@@ -224,9 +221,17 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "$filter", "Pagination"
 
   MissionsIndex.getIndex().then (data) ->
     $scope.missionsHighlights = data.highlights
+    $scope.filteredList = $scope.missionsHighlights
     $scope.showPaginator = true
     $scope.pagination = Pagination.getNew(9)
     $scope.pagination.numPages = Math.ceil($scope.missionsHighlights.length/$scope.pagination.perPage)
+    $scope.mobileStop = $scope.pagination.perPage
+
+    $scope.loadMore = ->
+      $scope.pagination.nextPage() #do we need this?
+      $scope.mobileStop = parseInt($scope.mobileStop, 10) + parseInt($scope.pagination.perPage, 10)
+      $scope.isAtPaginationEnd = ($scope.mobileStop >= $scope.filteredList?.length)
+      return
 
     $scope.highlightRegions = data.categories
 
@@ -246,9 +251,10 @@ sfControllers.controller("MissionsIndexCtrl", ["$scope", "$filter", "Pagination"
     , true
 
     $scope.$watch "highlightsFilters", ->
-      filteredList = $filter('filter')($scope.missionsHighlights, $scope.highlightsFilters)
-      $scope.pagination.numPages = Math.ceil(filteredList.length/$scope.pagination.perPage)
-      $scope.showPaginator = filteredList.length > 0
+      $scope.filteredList = $filter('filter')($scope.missionsHighlights, $scope.highlightsFilters)
+      $scope.pagination.numPages = Math.ceil($scope.filteredList.length/$scope.pagination.perPage)
+      $scope.isAtPaginationEnd = ($scope.mobileStop >= $scope.filteredList.length)
+      $scope.showPaginator = $scope.filteredList.length > 0
       return
     , true
 

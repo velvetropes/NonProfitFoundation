@@ -6,13 +6,13 @@
     <p class='date'>{{parseDate(date) | date: getFormat() }}</p>
     <p class='read-more' ng-switch="linkByType()">
       <a ng-switch-when="press_release" href="#/press_releases/{{id}}">
-        Read more &rarr;
+        {{callToActionText ? callToActionText : 'Read More'}} &rarr;
       </a>
       <a ng-switch-when="media_mention" href="{{callToActionLink}}" target="_blank">
-        Read more &rarr;
+        {{callToActionText ? callToActionText : 'Read More'}} &rarr;
       </a>
       <a ng-switch-when="media_mention_with_detail_page" href="#/media_mentions/{{id}}">
-        Read more &rarr;
+        {{callToActionText ? callToActionText : 'Read More'}} &rarr;
       </a>
       <a ng-switch-when="missions_highlight" href="#/missions/{{id}}">
         Read more &rarr;
