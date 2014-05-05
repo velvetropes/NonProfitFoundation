@@ -3760,6 +3760,8 @@ pagination {
 .hearing-missions-page .page-leader {
   margin-top: 90px;
   margin-bottom: 0; }
+  .hearing-missions-page .page-leader.highlights-header {
+    margin-top: 0; }
   .hearing-missions-page .page-leader h1 {
     margin-bottom: 30px;
     line-height: 1.2em; }
