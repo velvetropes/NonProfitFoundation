@@ -11,13 +11,13 @@
   &.left {
     left: 0px;
     a {
-      background: url('images/carousel/arrow-left-retina.png') no-repeat;
+      background: url('images/carousel/arrow-left-retina-outlined.png') no-repeat;
     }
   }
   &.right {
     right: 0px;
     a {
-      background: url('images/carousel/arrow-right-retina.png') no-repeat;
+      background: url('images/carousel/arrow-right-retina-outlined.png') no-repeat;
     }
   }
   @include media($tablet-down) {
@@ -29,12 +29,12 @@
     }
     &.left {
       a {
-        background: url('images/carousel/arrow-left.png') no-repeat;
+        background: url('images/carousel/arrow-left-outlined.png') no-repeat;
       }
     }
     &.right {
       a {
-        background: url('images/carousel/arrow-right.png') no-repeat;
+        background: url('images/carousel/arrow-right-outlined.png') no-repeat;
       }
     }
   }
@@ -54,13 +54,13 @@
   .swiper-controls {
     &.left {
       a {
-        background: url('images/carousel/arrow-left-retina.png') no-repeat;
+        background: url('images/carousel/arrow-left-retina-outlined.png') no-repeat;
         background-size: 100%;
       }
     }
     &.right {
       a {
-        background: url('images/carousel/arrow-right-retina.png') no-repeat;
+        background: url('images/carousel/arrow-right-retina-outlined.png') no-repeat;
         background-size: 100%;
       }
     }
@@ -344,7 +344,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-top: -90px;
+  margin-top: -50px;
   margin-left: -50px;
   width: 100px;
   height: 100px;
