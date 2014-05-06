@@ -6,15 +6,21 @@ $ ->
   menu     = $('.mobile-menu')
   submenus = $('.mobile-menu .main-menu > li')
   header   = $('header')
+  submenuLink = $('.mobile-menu .main-menu > li a')
+
+  closeMenu = ->
+    mask.removeClass 'active'
+    menu.removeClass 'active'
+    return
 
   trigger.click ->
     mask.toggleClass 'active'
     menu.toggleClass 'active'
     header.toggleClass 'active'
 
-  mask.click ->
-    mask.removeClass 'active'
-    menu.removeClass 'active'
+  mask.click -> closeMenu()
+
+  submenuLink.click -> closeMenu()
 
   submenus.click (e) ->
     unless $(e.target).parents('.sub-menu').length > 0
@@ -29,6 +35,9 @@ $ ->
       else
         submenu.toggleClass 'active'
         submenu.children('ul').slideToggle 200
+
+  submenuLink.click (e) ->
+
 
   $(window).resize ->
     mask.removeClass 'active'
