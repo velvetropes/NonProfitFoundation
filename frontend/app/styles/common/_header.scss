@@ -346,7 +346,7 @@ header {
     }
   }
   @media screen and (max-height: 400px) {
-    height: 80%;
+    max-height: 80%;
     overflow: scroll;
   }
 }
