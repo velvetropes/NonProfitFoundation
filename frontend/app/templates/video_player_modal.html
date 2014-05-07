@@ -3,7 +3,9 @@
   <div class='ng-modal-dialog' ng-style='dialogStyle'>
     <div class='ng-modal-close' ng-click='hideModal()'>X</div>
     <div class='ng-modal-dialog-content'>
-      <div class="player" ng-bind-html="iframeContent"></div>
+      <div class="player">
+      	<iframe width="1280" height="720" style="max-width:100%;max-height:100%;" ng-src="{{videoUrl}}" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </div>
