@@ -19,8 +19,8 @@
         "thumb_image_url"       : "{press_release_image}",
         "logo_image_url"        : "",
         "quote"                 : "",
-        "call_to_action_text"   : "{exp:json_encode}{title}{/exp:json_encode}",
-        "call_to_action_link"   : "Read More",
+        "call_to_action_text"   : "Read More",
+        "call_to_action_link"   : "",
         "video_link"            : ""
 
     {if:else}
