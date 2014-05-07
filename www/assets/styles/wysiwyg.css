@@ -2053,7 +2053,9 @@ footer {
       height: 100%;
       display: block; }
       .gallery .jspPane .gallery-slide a img, .single-image-gallery .jspPane .gallery-slide a img {
-        height: 525px;
+        max-height: 525px !important;
+        height: auto !important;
+        width: auto !important;
         display: block; }
   @media screen and (max-width: 569px) {
     .gallery .play-video-link, .single-image-gallery .play-video-link {
