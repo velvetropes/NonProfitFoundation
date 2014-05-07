@@ -531,6 +531,9 @@ hr.separator {
   hr.separator.padded {
     margin: 20px 0; }
 
+@media screen and (max-width: 768px) {
+  .mobile-carousel + hr.padded.separator {
+    margin-top: 0; } }
 .fixed-width {
   margin: 0 auto 15px;
   width: 100%;
