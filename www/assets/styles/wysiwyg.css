@@ -2053,7 +2053,9 @@ footer {
       height: 100%;
       display: block; }
       .gallery .jspPane .gallery-slide a img, .single-image-gallery .jspPane .gallery-slide a img {
-        height: 525px;
+        max-height: 525px !important;
+        height: auto !important;
+        width: auto !important;
         display: block; }
   @media screen and (max-width: 569px) {
     .gallery .play-video-link, .single-image-gallery .play-video-link {
@@ -4120,6 +4122,10 @@ pagination {
     .tabbed-content article .image {
       width: 100%;
       background-position: top; } }
+@media screen and (max-width: 569px) {
+  .article-header-image.hearing-mission .region {
+    display: none; } }
+
 .take-action-page .take-action-section {
   text-align: center;
   margin-top: 60px;

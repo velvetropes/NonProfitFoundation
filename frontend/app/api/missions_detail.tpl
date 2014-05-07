@@ -1,16 +1,7 @@
-{exp:channel:next_entry channel="hearing_missions"
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
-  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
-}
-   {exp:stash:set_value parse_tags="yes" name="next_entry" value="{url_title}"}
-{/exp:channel:next_entry}
-
-{exp:channel:prev_entry channel="hearing_missions"
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
-  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
-}
-    {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
-{/exp:channel:prev_entry}
+{exp:bbr_prevnext_entry channel_name="hearing_missions" current_url_title="{segment_3}" orderby="mission_date" sort="desc" parse="inward" cycle="no"}
+   {exp:stash:set parse_tags="yes" name="prev_entry"}{next_url_title}{/exp:stash:set}
+   {exp:stash:set parse_tags="yes" name="next_entry"}{prev_url_title}{/exp:stash:set}
+{/exp:bbr_prevnext_entry}
 
 {exp:channel:entries channel="hearing_missions" dynamic="no" limit="1"
   {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
@@ -19,8 +10,9 @@
 
 {if no_results}<div class="text-container"><p style="text-align:center">No article was found</p></div>{/if}
 
-<div class="article-header-image">
+<div class="article-header-image hearing-mission">
   <div class="image" style="background-image:url('{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}');">
+    {if segment_1 != 'preview'}
     <ul class="page-nav-links">
       {if {exp:stash:not_empty name="next_entry"} }
       <li>
@@ -36,11 +28,14 @@
         <a href="#">X</a>
       </li>
     </ul>
+    {/if}
     <div class="gradient-background"></div>
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-          <p class="article-item-category">{mission_region}{option_name}{/mission_region}, {mission_country}{option_name}{/mission_country}</p>
+          <p class="article-item-category">
+            <span class="region">{mission_region}{option_name}{/mission_region},</span> {mission_country}{option_name}{/mission_country}
+          </p>
           <h1  class="article-title">{if mission_display_title}{mission_display_title}{if:else}{title}{/if}</h1>
           <p>{mission_date format="%F %Y"}</p>
         </div>
