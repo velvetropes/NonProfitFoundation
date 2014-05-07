@@ -1,6 +1,5 @@
 {exp:channel:entries channel="programs" dynamic="no" limit="1" disable="{global:param_disable_default}"}
 <article class='hear-now text-container'>
-    <h1>Hear Now</h1>
     {exp:hundies_shortcode}{hear_now_content}{/exp:hundies_shortcode}
     <p class="centered"><a href="mailto:{hear_now_form_contact}" class="link-with-border">Contact us</a></p>
 

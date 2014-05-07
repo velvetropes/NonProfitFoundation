@@ -1,6 +1,5 @@
 {exp:channel:entries channel="programs" limit="1" dynamic="no" limit="1" disable="{global:param_disable_default}"}
 <article class='operation-change text-container'>
-    <h1>Operation change</h1>
     {exp:hundies_shortcode}{operation_change_content}{/exp:hundies_shortcode}
 
     {if operation_change_partnerships:total_rows > 0}
