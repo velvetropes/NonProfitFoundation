@@ -16,9 +16,6 @@ $plugin_info = array(
  *
  * @package			ExpressionEngine
  * @category		Plugin
- * @author			Airtype Studio
- * @copyright		Copyright (c) 2010, Airtype Studio
- * @link			http://www.airtypestudio.com/
  */
 
 class JSON_encode {

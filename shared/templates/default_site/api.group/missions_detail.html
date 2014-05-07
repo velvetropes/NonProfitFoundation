@@ -1,16 +1,7 @@
-{exp:channel:next_entry channel="hearing_missions"
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
-  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
-}
-   {exp:stash:set_value parse_tags="yes" name="next_entry" value="{url_title}"}
-{/exp:channel:next_entry}
-
-{exp:channel:prev_entry channel="hearing_missions"
-  {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
-  {if segment_1 == 'preview'}entry_id="{segment_3}" status="open|closed"{/if}
-}
-    {exp:stash:set_value parse_tags="yes" name="prev_entry" value="{url_title}"}
-{/exp:channel:prev_entry}
+{exp:bbr_prevnext_entry channel_name="hearing_missions" current_url_title="{segment_3}" orderby="mission_date" sort="desc" parse="inward" cycle="no"}
+   {exp:stash:set parse_tags="yes" name="prev_entry"}{next_url_title}{/exp:stash:set}
+   {exp:stash:set parse_tags="yes" name="next_entry"}{prev_url_title}{/exp:stash:set}
+{/exp:bbr_prevnext_entry}
 
 {exp:channel:entries channel="hearing_missions" dynamic="no" limit="1"
   {if segment_1 != 'preview'}url_title="{segment_3}"{/if}
@@ -21,6 +12,7 @@
 
 <div class="article-header-image hearing-mission">
   <div class="image" style="background-image:url('{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}');">
+    {if segment_1 != 'preview'}
     <ul class="page-nav-links">
       {if {exp:stash:not_empty name="next_entry"} }
       <li>
@@ -36,6 +28,7 @@
         <a href="#">X</a>
       </li>
     </ul>
+    {/if}
     <div class="gradient-background"></div>
     <div class="outer-container">
       <div class="relative-container">
