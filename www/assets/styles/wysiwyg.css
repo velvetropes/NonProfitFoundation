@@ -3376,19 +3376,20 @@ pagination {
       text-align: center;
       opacity: .5;
       font-size: 15em;
+      line-height: 1em;
       position: absolute;
-      top: 182px;
+      top: 50%;
       left: 0;
       right: 0;
-      color: white; } }
+      color: white;
+      margin-top: -0.5em; } }
   @media screen and (max-width: 601px) {
     .gala-timeline .swipe-wrap {
       height: auto; }
     .gala-timeline .swiper-controls {
       margin-top: -30px; }
     .gala-timeline .slide .year-overlay {
-      font-size: 7em;
-      top: 91px; } }
+      font-size: 7em; } }
 
 @media screen and (max-width: 601px) {
   .gala-upcoming-content .carousel.hero article {

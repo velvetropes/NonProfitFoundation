@@ -253,11 +253,13 @@
         text-align: center;
         opacity: .5;
         font-size: 15em;
+        line-height: 1em;
         position: absolute;
-        top: 182px;
+        top: 50%;
         left: 0;
         right: 0;
         color: white;
+        margin-top:-0.5em;
       }
     }
   }
@@ -271,7 +273,6 @@
     .slide {
       .year-overlay {
         font-size: 7em;
-        top: 91px;
       }
     }
   }
