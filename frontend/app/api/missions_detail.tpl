@@ -19,7 +19,7 @@
 
 {if no_results}<div class="text-container"><p style="text-align:center">No article was found</p></div>{/if}
 
-<div class="article-header-image">
+<div class="article-header-image hearing-mission">
   <div class="image" style="background-image:url('{if mission_image}{mission_image}{if:else}{mission_thumb_image}{/if}');">
     <ul class="page-nav-links">
       {if {exp:stash:not_empty name="next_entry"} }
@@ -40,7 +40,9 @@
     <div class="outer-container">
       <div class="relative-container">
         <div class="banner">
-          <p class="article-item-category">{mission_region}{option_name}{/mission_region}, {mission_country}{option_name}{/mission_country}</p>
+          <p class="article-item-category">
+            <span class="region">{mission_region}{option_name}{/mission_region},</span> {mission_country}{option_name}{/mission_country}
+          </p>
           <h1  class="article-title">{if mission_display_title}{mission_display_title}{if:else}{title}{/if}</h1>
           <p>{mission_date format="%F %Y"}</p>
         </div>

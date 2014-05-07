@@ -4122,6 +4122,10 @@ pagination {
     .tabbed-content article .image {
       width: 100%;
       background-position: top; } }
+@media screen and (max-width: 569px) {
+  .article-header-image.hearing-mission .region {
+    display: none; } }
+
 .take-action-page .take-action-section {
   text-align: center;
   margin-top: 60px;

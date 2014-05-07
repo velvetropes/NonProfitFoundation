@@ -489,3 +489,11 @@
     }
   }
 }
+
+.article-header-image.hearing-mission {
+  @include media($mobile) {
+    .region {
+      display: none
+    }
+  }
+}
