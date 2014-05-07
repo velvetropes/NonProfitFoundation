@@ -1357,7 +1357,7 @@ header {
       margin-top: -100px; }
       .header-wrapper.affixed .header-nav .top-level-wrap {
         border-bottom: 0; } }
-@media screen and (min-width: 570px) and (max-width: 900px) {
+@media screen and (min-width: 601px) and (max-width: 900px) {
   .header-wrapper.affixed .header-nav {
     margin-top: -50px; } }
 .mobile-menu-icon {
@@ -2467,7 +2467,7 @@ pagination {
             .media-mentions .swiper aside:not(.side-panel) a, .media-mentions .swiper aside.not-side-panel a {
               color: #FFF;
               position: static; } }
-      @media screen and (max-width: 480px) {
+      @media (max-width: 601px) {
         .swiper aside:not(.side-panel) a.text-link, .swiper aside.not-side-panel a.text-link {
           border: none;
           padding: 0; } }
@@ -3307,7 +3307,7 @@ pagination {
         text-align: right;
         text-transform: uppercase;
         font-size: .75em; }
-  @media screen and (min-width: 480px) and (max-width: 960px) {
+  @media screen and (min-width: 601px) and (max-width: 960px) {
     .highlights ul li.first {
       padding-right: 45px; }
     .highlights ul li .content {

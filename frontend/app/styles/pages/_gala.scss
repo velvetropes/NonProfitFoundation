@@ -154,7 +154,7 @@
       }
     }
   }
-  @media screen and (min-width: 480px) and (max-width: 960px) {
+  @media screen and (min-width: $mobile-brk) and (max-width: 960px) {
     ul {
       li {
         &.first {

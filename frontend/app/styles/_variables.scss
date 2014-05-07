@@ -13,6 +13,7 @@ $dotted-border: 1px dotted #8f8f8f;
 // $visual-grid-opacity: 0.3;
 
 // Bourbon Neat Breakpoints
+$mobile-brk: 601px;
 $mobile:       max-width 601px;
 $tablet-down:  max-width 768px;
 $tablet:       min-width 601px max-width 768px;

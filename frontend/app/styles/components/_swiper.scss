@@ -222,7 +222,7 @@
           }
         }
       }
-      @include media(max-width 480px) {
+      @media (max-width: $mobile-brk) {
         a.text-link {
           border: none;
           padding: 0;
