@@ -3547,7 +3547,7 @@ pagination {
       left: 30px;
       right: 30px; }
     .bottom-slide-tabs .bottom-slide-tab .panel-content .body-text {
-      max-height: 330px;
+      max-height: 18em;
       overflow: hidden; }
     .bottom-slide-tabs .bottom-slide-tab .panel-content .call-to-action {
       text-align: right; }
