@@ -982,6 +982,7 @@ nav .tabs {
   border-bottom: 1px dotted #8f8f8f; }
   .tabbed-content nav .tabs {
     width: 80%;
+    max-width: 1088px;
     margin: 0 auto -1px auto;
     text-align: center; }
     .tabbed-content nav .tabs.two-tabs {
@@ -990,7 +991,7 @@ nav .tabs {
         .tabbed-content nav .tabs.two-tabs {
           width: 100%; } }
     .tabbed-content nav .tabs.three-tabs {
-      width: 45%; }
+      width: 85%; }
       @media screen and (max-width: 768px) {
         .tabbed-content nav .tabs.three-tabs {
           width: 100%; } }

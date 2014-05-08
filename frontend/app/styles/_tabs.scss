@@ -153,6 +153,7 @@ nav {
     border-bottom: $dotted-border;
     .tabs {
       width: 80%;
+      max-width: $text-container-width;
       margin: 0 auto -1px auto;
       text-align: center;
 
@@ -164,7 +165,7 @@ nav {
       }
 
       &.three-tabs {
-        width: 45%;
+        width: 85%;
         @include media($tablet-down) {
           width: 100%;
         }
