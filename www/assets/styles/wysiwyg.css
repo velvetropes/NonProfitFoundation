@@ -2513,6 +2513,8 @@ pagination {
 
 .media-mentions-page .swiper {
   background: #5ca5d6; }
+  .media-mentions-page .swiper .slide.media-image {
+    background-color: #000; }
   .media-mentions-page .swiper .swipe-wrap > div {
     padding-bottom: 0; }
     @media screen and (min-width: 601px) and (max-width: 768px) {

@@ -288,6 +288,10 @@
   .swiper {
     background: rgb(92, 165, 214);
 
+    .slide.media-image {
+      background-color: #000;
+    }
+
     .swipe-wrap > div {
       padding-bottom:0;
 
