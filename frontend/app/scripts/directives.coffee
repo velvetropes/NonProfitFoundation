@@ -1412,6 +1412,7 @@ sfDirectives.directive 'videoPlayerModal', [ ->
 
     scope.hideModal = ->
       scope.videoIframe = false
+      scope.videoUrl = false
       scope.$emit('modal:hide')
 
     scope.$watch('videoIframe', (newVal, oldVal) ->
