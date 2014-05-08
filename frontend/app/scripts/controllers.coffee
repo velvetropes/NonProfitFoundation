@@ -70,6 +70,7 @@ sfControllers.controller("globalCtrl", ["$window", "$scope", "$rootScope", "$loc
     if url?
       $scope.showModal = true
       $scope.videoIframe = "http://www.youtube.com/watch?v=#{url.match(YOUTUBEPATTERN)[1]}"
+      $scope.$digest()
 
   $scope.toggleSubscribeForm = ->
     $scope.showSubscribeForm = not $scope.showSubscribeForm

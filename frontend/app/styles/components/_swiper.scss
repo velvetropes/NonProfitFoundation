@@ -222,7 +222,7 @@
           }
         }
       }
-      @include media(max-width 480px) {
+      @media (max-width: $mobile-brk) {
         a.text-link {
           border: none;
           padding: 0;
@@ -287,6 +287,10 @@
 .media-mentions-page {
   .swiper {
     background: rgb(92, 165, 214);
+
+    .slide.media-image {
+      background-color: #000;
+    }
 
     .swipe-wrap > div {
       padding-bottom:0;

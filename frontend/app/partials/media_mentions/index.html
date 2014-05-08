@@ -17,7 +17,7 @@
     <div slide
       ng-repeat="media_mention in pressItems | filter:{featured:'true',category:'media_mention'}"
       image-url="{{media_mention.header_image_url}}"
-      background-color="#5CA5D6"
+      background-color="{{ (media_mention.quote == '') ? '#000' : '#5CA5D6' }}"
       quote="{{media_mention.quote}}"
       video-url="{{media_mention.video_link}}"
       link-url="{{media_mention.call_to_action_link}}"

@@ -1,4 +1,4 @@
-<div class="slide">
+<div class="slide" ng-class="{'media-image' : !hasQuote()}">
   <article ng-style="backgroundImageStyle" class="image-container"></article>
   <div ng-if="hasQuote()" class="blockquote-table">
     <blockquote ng-if="hasQuote()">{{quote | strip}}</blockquote>

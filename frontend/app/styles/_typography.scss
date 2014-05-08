@@ -218,6 +218,12 @@ hr.separator {
   }
 }
 
+@include media($tablet-down) {
+  .mobile-carousel + hr.padded.separator {
+    margin-top:0;
+  }
+}
+
 .fixed-width {
   margin: 0 auto 15px;
   width: 100%;

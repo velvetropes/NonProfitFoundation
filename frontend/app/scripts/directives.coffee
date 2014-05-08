@@ -1408,20 +1408,22 @@ sfDirectives.directive 'videoPlayerModal', [ ->
 
     scope.playerDiv = angular.element(element.find("div")[3])
     scope.bodyDiv = document.getElementsByTagName("body")[0]
-    scope.iframeContent = ""
+    scope.videoUrl = ""
 
     scope.hideModal = ->
       scope.videoIframe = false
+      scope.videoUrl = false
       scope.$emit('modal:hide')
 
     scope.$watch('videoIframe', (newVal, oldVal) ->
-      if newVal && !oldVal
-        scope.iframeContent = newVal.replace(/(?:http(?:s?):\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="1280" height="720" style="max-width:100%;max-height:100%;" src="http://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen></iframe>')
+      if newVal
+        videoID = newVal.match(/^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*$/)[1]
+        scope.videoUrl = 'http://www.youtube.com/embed/' + videoID + '?autoplay=1'
         scope.bodyDiv.style.overflow = "hidden";
       else
         scope.bodyDiv.style.overflow = ""
-        scope.iframeContent = ""
-    )
+        scope.videoUrl = ""
+    , true)
 
   templateUrl: "/templates/video_player_modal.html"
 ]
