@@ -1,4 +1,10 @@
+/*  URL below is for http://production.starkey.ahundredyears.com */
 @import url("//cloud.typography.com/6529472/759942/css/fonts.css");
+/*  URL below is for  Starkey Hearing Foundation IP */
+@import url("//cloud.typography.com/6529472/698664/css/fonts.css");
+/*  URL below is for starkeyhearingfoundation.org */
+@import url("//cloud.typography.com/6529472/718664/css/fonts.css");
+
 @import url("//cloud.webtype.com/css/8d17d6c8-e83f-46fe-a722-38375da99cb0.css");
 * {
   -webkit-box-sizing: border-box;
