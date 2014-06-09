@@ -5,19 +5,6 @@
     <div class="fixed-width bigger uppercase missions-lead-text" ng-bind-html="missions.page_lead"></div>
   </section>
 
-  <missions-map data="data"></missions-map>
-  <section class="hearing-missions-statistics">
-    <ul>
-      <li ng-repeat="statistic in statistics" ng-class="{first: $index==0}">
-        <h1>
-          {{statistic.name}}
-        </h1>
-        <p>
-          {{statistic.tagline}}
-        </p>
-      </li>
-    </ul>
-  </section>
   <div class="outer-container" id="hearing-landing-content">
     <section class='tabbed-content'>
       <nav class="outer-container">
