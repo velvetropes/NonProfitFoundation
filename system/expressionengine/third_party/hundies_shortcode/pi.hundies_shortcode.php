@@ -71,7 +71,7 @@ class hundies_shortcode {
     return $content;
   }
 
-  private function getGallery($id) {
+  private function f($id) {
     ob_start();
     ?>
 
