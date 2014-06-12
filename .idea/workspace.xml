@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="removed interactive map and 3 gray boxes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/StarkeyFoundation.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/scripts/754d46d5.main.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/about_us.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/about_us.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/preview.group/blog.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/preview.group/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/contact.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/blog.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/blog.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/gala.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/gala.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/legal.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/legal.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/media_mentions.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/media_mentions.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/missions.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/missions.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/programs.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/programs.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/take_action.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/take_action.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/preview.group/missions.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/preview.group/missions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/team.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/team.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" afterPath="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" />
+    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="Updates for bug #21">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/scripts/0710d5a8.main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="6d1b7564-4f0a-4615-8ca0-339104ab4f5b" name="Donations Page" comment="Donations Page" />
     <ignored path="StarkeyFoundation.iws" />
@@ -42,19 +27,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="donations.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/app/styles/donations.css">
+      <file leaf-file-name="_animations.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/app/styles/_animations.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="17" selection-start="545" selection-end="545" vertical-scroll-proportion="0.44554454" vertical-offset="0" max-vertical-offset="2190">
+            <state line="24" column="1" selection-start="551" selection-end="551" vertical-scroll-proportion="-7.3469386" vertical-offset="0" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/app/styles/app.scss">
+      <file leaf-file-name="_grid.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/app/styles/_grid.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="720">
+            <state line="21" column="28" selection-start="299" selection-end="299" vertical-scroll-proportion="0.41501975" vertical-offset="0" max-vertical-offset="759">
               <folding />
             </state>
           </provider>
@@ -92,6 +77,8 @@
         <option value="$PROJECT_DIR$/frontend/.tmp/concat/assets/scripts/main.js" />
         <option value="$PROJECT_DIR$/frontend/package.json" />
         <option value="$PROJECT_DIR$/frontend/bower.json" />
+        <option value="$PROJECT_DIR$/frontend/app/styles/_animations.scss" />
+        <option value="$PROJECT_DIR$/frontend/app/styles/_grid.scss" />
       </list>
     </option>
   </component>
@@ -143,6 +130,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -317,7 +358,11 @@
       <created>1402603501517</created>
       <updated>1402603501517</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Updates for bug #21">
+      <created>1402604941315</created>
+      <updated>1402604941315</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -342,25 +387,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1474" y="-230" width="1433" height="1335" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3472322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32743362" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3472322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3515688" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -407,7 +452,8 @@
     <MESSAGE value="Latest SQL" />
     <MESSAGE value="removed interactive map and 3 gray boxes" />
     <MESSAGE value="Bug Fix #21" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug Fix #21" />
+    <MESSAGE value="Updates for bug #21" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates for bug #21" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -653,6 +699,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/styles/donations.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="17" selection-start="545" selection-end="545" vertical-scroll-proportion="0.44554454" vertical-offset="0" max-vertical-offset="2190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/styles/app.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="808">
@@ -660,9 +713,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/styles/donations.css">
+    <entry file="file://$PROJECT_DIR$/frontend/app/styles/_animations.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="17" selection-start="545" selection-end="545" vertical-scroll-proportion="0.44554454" vertical-offset="0" max-vertical-offset="2190">
+        <state line="24" column="1" selection-start="551" selection-end="551" vertical-scroll-proportion="-7.3469386" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/styles/_grid.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="28" selection-start="299" selection-end="299" vertical-scroll-proportion="0.41501975" vertical-offset="0" max-vertical-offset="759">
           <folding />
         </state>
       </provider>
