@@ -1,6 +1,6 @@
 {
   "name": "starkey-foundation",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Starkey Foundation",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -36,7 +36,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:SesoMedia/StarkeyFoundation.git"
+    "url": "git@github.com:StarkeyCares/StarkeyFoundation.git"
   },
   "keywords": [
     "100YRS",
@@ -45,6 +45,6 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SesoMedia/StarkeyFoundation"
+    "url": "https://github.com/StarkeyCares/StarkeyFoundation"
   }
 }

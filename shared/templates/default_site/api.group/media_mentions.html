@@ -28,6 +28,7 @@
     "call_to_action_text"   : "{exp:json_encode}{media_mention_cta_text}{/exp:json_encode}",
     "call_to_action_link"   : "{media_mention_cta_link}",
     "video_link"            : "{media_mention_video_url}",
+    "source"                : "media_mention_source",
     "press_release_contact" : "{mm_contact}",
     "body"                  : "{exp:json_encode}{media_mention_body_text}{/exp:json_encode}"
 {/exp:channel:entries}

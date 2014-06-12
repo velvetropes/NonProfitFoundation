@@ -20,6 +20,7 @@ if ( ! defined('ENV'))
 			define('ENV_DEBUG', FALSE);
 		break;
 
+        case "198.199.81.179":
 		case "starkeyhearingfoundation.org":
 		case "www.starkeyhearingfoundation.org":
 		case "production.starkey.ahundredyears.com":
