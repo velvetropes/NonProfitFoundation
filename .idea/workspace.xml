@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="removed interactive map and 3 gray boxes">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/images/shared/147f479c.starkey_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/scripts/cdaea1b5.main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/90643987.main.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/pages.group/about_us.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/pages.group/about_us.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/about_us.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/about_us.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/preview.group/blog.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/preview.group/blog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/preview.group/blog.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/preview.group/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/bower.json" afterPath="$PROJECT_DIR$/frontend/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/config/config.env.php" afterPath="$PROJECT_DIR$/shared/config/config.env.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/pages.group/contact.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/pages.group/contact.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/contact.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/contact.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/partials/header.html" afterPath="$PROJECT_DIR$/frontend/app/partials/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/partials/header.html" afterPath="$PROJECT_DIR$/www/partials/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/blog.group/index.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/blog.group/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/gala.group/index.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/gala.group/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/legal.group/index.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/legal.group/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/media_mentions.group/index.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/media_mentions.group/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/missions.group/index.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/missions.group/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/pages.group/index.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/pages.group/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/programs.group/index.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/programs.group/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/take_action.group/index.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/take_action.group/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/blog.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/blog.group/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/gala.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/gala.group/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/legal.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/legal.group/index.html" />
@@ -18,19 +26,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/programs.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/programs.group/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/take_action.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/take_action.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/api.group/media_mentions.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/api.group/media_mentions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/api/media_mentions.tpl" afterPath="$PROJECT_DIR$/frontend/app/api/media_mentions.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/preview.group/missions.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/preview.group/missions.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/preview.group/missions.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/preview.group/missions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/dist/templates/default_site/pages.group/team.html" afterPath="$PROJECT_DIR$/frontend/dist/templates/default_site/pages.group/team.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/team.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/team.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" afterPath="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="6d1b7564-4f0a-4615-8ca0-339104ab4f5b" name="Donations Page" comment="Donations Page">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/donation.html" />
-    </list>
+    <list id="6d1b7564-4f0a-4615-8ca0-339104ab4f5b" name="Donations Page" comment="Donations Page" />
     <ignored path="StarkeyFoundation.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$PROJECT_DIR$/frontend/app/donation.html" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +53,37 @@
     <favorites_list name="StarkeyFoundation" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="29" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="300">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/app/contact.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="34" selection-start="2724" selection-end="2724" vertical-scroll-proportion="-9.2" vertical-offset="635" max-vertical-offset="1815">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/app/partials/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="257" column="39" selection-start="8268" selection-end="8268" vertical-scroll-proportion="0.34320322" vertical-offset="3600" max-vertical-offset="5235">
+              <folding>
+                <element signature="n#style#0;n#p#0;n#a#0;n#a#0;n#li#3;n#ul#0;n#article#0;n#nav#0;n#header#0;n#div#3;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -80,13 +114,14 @@
         <option value="$PROJECT_DIR$/frontend/.tmp/concat/assets/scripts/main.js" />
         <option value="$PROJECT_DIR$/frontend/package.json" />
         <option value="$PROJECT_DIR$/frontend/bower.json" />
+        <option value="$PROJECT_DIR$/frontend/app/partials/header.html" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1474" />
-    <option name="y" value="-225" />
+    <option name="x" value="2530" />
+    <option name="y" value="-290" />
     <option name="width" value="1433" />
     <option name="height" value="1335" />
   </component>
@@ -236,7 +271,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="" />
-      <changelist id="" name="Building changes" comment="possibly broken" />
       <changelist id="6d1b7564-4f0a-4615-8ca0-339104ab4f5b" name="Donations Page" comment="" />
       <created>1401813938011</created>
       <updated>1401813938011</updated>
@@ -301,29 +335,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1474" y="-225" width="1433" height="1335" extended-state="0" />
+    <frame x="2530" y="-290" width="1433" height="1335" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3515688" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.351004" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3371675" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3572969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -483,11 +517,6 @@
         <state line="11" column="42" selection-start="467" selection-end="483" vertical-scroll-proportion="-6.6" vertical-offset="0" max-vertical-offset="495" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="99" selection-end="99" vertical-scroll-proportion="0.24958402" vertical-offset="0" max-vertical-offset="601" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Vagrantfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="601" />
@@ -550,172 +579,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/api/media_mentions.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="51" selection-start="1871" selection-end="1871" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="630">
-          <folding />
-        </state>
+        <state line="30" column="51" selection-start="1871" selection-end="1871" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="630" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/templates/page_tile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="64" selection-start="553" selection-end="569" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="450">
-          <folding />
-        </state>
+        <state line="10" column="64" selection-start="553" selection-end="569" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="450" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.tmp/scripts/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1058" column="18" selection-start="35327" selection-end="35327" vertical-scroll-proportion="0.0" vertical-offset="15743" max-vertical-offset="45960">
-          <folding />
-        </state>
+        <state line="1058" column="18" selection-start="35327" selection-end="35327" vertical-scroll-proportion="0.0" vertical-offset="15743" max-vertical-offset="45960" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/page_tile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="48" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="450">
-          <folding />
-        </state>
+        <state line="10" column="48" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="450" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/scripts/directives.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="671" column="6" selection-start="17043" selection-end="17043" vertical-scroll-proportion="0.0" vertical-offset="9954" max-vertical-offset="24495">
-          <folding>
-            <marker date="1402603125000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1402603125000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1402603125000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1402603125000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1402603125000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1402603125000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="671" column="6" selection-start="17043" selection-end="17043" vertical-scroll-proportion="0.0" vertical-offset="9954" max-vertical-offset="24495" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.tmp/concat/assets/scripts/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="14" selection-start="1390" selection-end="1397" vertical-scroll-proportion="151.38461" vertical-offset="4491" max-vertical-offset="45600">
-          <folding>
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;title&quot;: &quot;@&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;url&quot;: &quot;@&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: &quot;EA&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;imageUrl&quot;: &quot;@&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: &quot;A&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;height&quot;: &quot;525px&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;featured&quot;: &quot;=&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: &quot;EA&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;backgroundColor&quot;: &quot;@&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;imageUrl&quot;: &quot;@&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;stroke-width&quot;: 0...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{&quot;stroke&quot;: &quot;#1b74a4&quot;...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1402603809000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
+        <state line="37" column="14" selection-start="1390" selection-end="1397" vertical-scroll-proportion="151.38461" vertical-offset="4491" max-vertical-offset="45600" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="15" selection-start="49" selection-end="49" vertical-scroll-proportion="0.025188917" vertical-offset="0" max-vertical-offset="1191">
-          <folding />
-        </state>
+        <state line="2" column="15" selection-start="49" selection-end="49" vertical-scroll-proportion="0.025188917" vertical-offset="0" max-vertical-offset="1191" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.gitattributes">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.editorconfig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="64" selection-end="587" vertical-scroll-proportion="0.20151134" vertical-offset="0" max-vertical-offset="1191">
-          <folding />
-        </state>
+        <state line="16" column="4" selection-start="64" selection-end="587" vertical-scroll-proportion="0.20151134" vertical-offset="0" max-vertical-offset="1191" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/Gruntfile.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="29" selection-start="369" selection-end="386" vertical-scroll-proportion="0.36290324" vertical-offset="0" max-vertical-offset="6660">
-          <folding />
-        </state>
+        <state line="18" column="29" selection-start="369" selection-end="386" vertical-scroll-proportion="0.36290324" vertical-offset="0" max-vertical-offset="6660" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.jshintrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="16" selection-start="274" selection-end="274" vertical-scroll-proportion="0.29683378" vertical-offset="0" max-vertical-offset="758">
-          <folding />
-        </state>
+        <state line="15" column="16" selection-start="274" selection-end="274" vertical-scroll-proportion="0.29683378" vertical-offset="0" max-vertical-offset="758" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.bowerrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.037037037" vertical-offset="0" max-vertical-offset="1215">
+        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.037037037" vertical-offset="0" max-vertical-offset="1215" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="29" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="34" selection-start="2724" selection-end="2724" vertical-scroll-proportion="-9.2" vertical-offset="635" max-vertical-offset="1815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/partials/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="257" column="39" selection-start="8268" selection-end="8268" vertical-scroll-proportion="0.34320322" vertical-offset="3600" max-vertical-offset="5235">
+          <folding>
+            <element signature="n#style#0;n#p#0;n#a#0;n#a#0;n#li#3;n#ul#0;n#article#0;n#nav#0;n#header#0;n#div#3;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
