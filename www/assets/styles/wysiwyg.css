@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("//cloud.typography.com/6529472/759942/css/fonts.css");
 @import url("//cloud.webtype.com/css/8d17d6c8-e83f-46fe-a722-38375da99cb0.css");
 * {
@@ -691,7 +692,7 @@ blockquote {
   text-align: center;
   vertical-align: middle;
   width: 100%;
-  quotes: "\201C" "\201D" "\2018" "\2019";
+  quotes: "“" "”" "‘" "’";
   color: #FFF;
   font-size: 29px;
   line-height: 1.6; }
@@ -845,9 +846,12 @@ header, footer {
     clear: both; }
 
 .full-width-container {
-  display: table-cell;
-  padding-right: 2.16118%;
-  width: 102.16118%; }
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .full-width-container:last-child {
+    margin-right: 0; }
 
 .text-container h1, .text-container h2, .text-container h3, .text-container h4, .text-container h5, .text-container p:not(.no-container) {
   max-width: 1088px;
@@ -929,12 +933,15 @@ nav .tabs {
         display: table;
         clear: both; }
       .header-nav .tab-content ul li {
-        display: table-cell;
-        padding-right: 1.78933%;
-        width: 24.10533%;
+        float: left;
+        display: block;
+        margin-right: 3.57866%;
+        width: 22.316%;
         border-bottom: 5px solid #3d4144;
         border-left: 1px dotted #8f8f8f;
         padding: 0; }
+        .header-nav .tab-content ul li:last-child {
+          margin-right: 0; }
         .header-nav .tab-content ul li > a {
           display: block;
           padding: 0 20px;
@@ -963,9 +970,12 @@ nav .tabs {
           line-height: 1.4em;
           margin-top: 10px; }
     .header-nav .tab-content.get-involved li {
-      display: table-cell;
-      padding-right: 1.96471%;
-      width: 50.78588%; }
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .header-nav .tab-content.get-involved li:last-child {
+        margin-right: 0; }
   .header-nav hr {
     margin: -1px 0 0;
     border: none;
@@ -996,11 +1006,14 @@ nav .tabs {
         .tabbed-content nav .tabs.three-tabs {
           width: 100%; } }
     .tabbed-content nav .tabs li {
-      display: table-cell;
-      padding-right: 0%;
+      float: left;
+      display: block;
+      margin-right: 10.1484%;
       width: 26.56773%;
       padding: 5px;
       vertical-align: middle; }
+      .tabbed-content nav .tabs li:last-child {
+        margin-right: 0; }
       .tabbed-content nav .tabs li a {
         font-size: .875em;
         display: block; }
@@ -3991,10 +4004,13 @@ pagination {
       border-left: 1px solid white;
       text-align: center;
       color: white;
-      display: table-cell;
-      padding-right: 1.76824%;
-      width: 33.5298%;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
       padding: 0; }
+      .hearing-missions-statistics ul li:last-child {
+        margin-right: 0; }
       .hearing-missions-statistics ul li.first {
         border: none;
         background: #333333; }
@@ -4209,3 +4225,5 @@ html body {
     content: none; }
 
 /* TODO: bring in bower_component CSS automatically */
+
+/*# sourceMappingURL=wysiwyg.css.map */
