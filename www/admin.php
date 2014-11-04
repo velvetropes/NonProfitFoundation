@@ -64,7 +64,7 @@ require_once(SHARED_PATH."/config/config.env.php");
  * Enable it only if you have a good reason to.
  *
  */
-	$debug = 0;
+	$debug = 1;
 /*
  * --------------------------------------------------------------------
  *  END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE

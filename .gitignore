@@ -1,5 +1,6 @@
 .sass-cache/
 .tmp
+.idea/
 .DS_Store
 .DS_Store?
 ._*
@@ -8,6 +9,7 @@
 ehthumbs.db
 Thumbs.db
 .vagrant
+vagrant
 node_modules/
 system/expressionengine/cache/*
 www/starkey.sql
