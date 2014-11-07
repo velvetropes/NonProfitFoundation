@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/styles/_typography.scss" afterPath="$PROJECT_DIR$/frontend/app/styles/_typography.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css" afterPath="$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css" />
+    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/87d5c3a8.main.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/00D24CAC781C75377.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/02F6414F92D1D48BE.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/09C593075164F80F8.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/1230B366C242A43F8.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/1399655F512FAD3E2.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/2DA2AA001B63FF491.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/306D6F0352D740E1C.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/35A8754AA60EC92F3.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/35E3926C6115252DA.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/3D5DCAA9CF797C176.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/4027954BED8F66C3F.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/4110B5DD7BD2D1B61.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/4314A723D58466BED.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/4746D3E1922BBAB6D.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/5A5E37C3BB29BD03F.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/7E7A61404ACCC0B21.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/870E8144B35BC71CB.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/8C4424860AD8B67EB.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/92C619FED593590E9.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/94D304CD404E67B19.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/9A3BFBEE029B954AF.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/9D3D32F1A8138B0A2.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/A90419645B2DCBEB8.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/AAFA82C95CF5EF868.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/B751C715BE51F23A9.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/BC12D9579CF7148BC.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/C4ED5EB455F34F84E.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/CF19EAC50298FA135.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/D97C1CDF8C750D7F5.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/D9A016E155E7CF126.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/DBE686C1C89282047.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/EF81E4D7B166A22C8.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/EFB7C7D4155AB13C8.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/F20BCD37946341793.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/FB2CA0D68704D97C3.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/233962/FE04DB10B7A4F8901.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" afterPath="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" />
     </list>
     <list id="6d1b7564-4f0a-4615-8ca0-339104ab4f5b" name="Donations Page" comment="Donations Page" />
     <ignored path="StarkeyFoundation.iws" />
@@ -41,6 +75,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="config.env.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shared/config/config.env.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.46357617" vertical-offset="0" max-vertical-offset="630">
+              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="1B4A9584186C30EDC.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/assets/styles/fonts/241417/1B4A9584186C30EDC.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -51,21 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/.tmp/concat/assets/styles/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="99885">
-              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/.tmp/styles/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="99885">
-              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="99885">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,16 +115,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cb279ce3.main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/dist/assets/styles/cb279ce3.main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="wysiwyg.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/dist/assets/styles/wysiwyg.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -101,20 +125,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cb279ce3.main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wysiwyg.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wysiwyg.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/assets/styles/wysiwyg.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.034013607" vertical-offset="0" max-vertical-offset="63525">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="63525">
               <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
               <folding />
             </state>
@@ -183,8 +197,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="163" />
-    <option name="y" value="22" />
+    <option name="x" value="1555" />
+    <option name="y" value="432" />
     <option name="width" value="1273" />
     <option name="height" value="878" />
   </component>
@@ -578,7 +592,19 @@
       <option name="project" value="LOCAL" />
       <updated>1415393091561</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;">
+      <created>1415393499286</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1415393499286</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;">
+      <created>1415393558032</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1415393558032</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -602,22 +628,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="163" y="22" width="1273" height="878" extended-state="0" />
+    <frame x="1555" y="432" width="1273" height="878" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.49959382" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.49959382" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5521628" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.50040615" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569975" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569975" sideWeight="0.49959382" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44597888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44597888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -679,7 +705,8 @@
     <MESSAGE value="Fix missing jQuery and Angular... didn't have bower correctly configured." />
     <MESSAGE value="Change donation page from &quot;action&quot; to http://headphones.starkeyhearingfoundation.org/" />
     <MESSAGE value="add fonts for typography.com" />
-    <option name="LAST_COMMIT_MESSAGE" value="add fonts for typography.com" />
+    <MESSAGE value="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -926,14 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/config/config.env.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="615">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/themes/javascript/compressed/cp/publish.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="525">
@@ -1002,18 +1021,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/.tmp/concat/assets/styles/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="99885">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.tmp/styles/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="99885">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="99885">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1026,14 +1037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/dist/assets/styles/cb279ce3.main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
-          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/dist/assets/styles/wysiwyg.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="63525">
@@ -1042,18 +1045,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css">
+    <entry file="file://$PROJECT_DIR$/www/assets/styles/wysiwyg.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
-          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="63525">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/assets/styles/wysiwyg.css">
+    <entry file="file://$PROJECT_DIR$/shared/config/config.env.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.034013607" vertical-offset="0" max-vertical-offset="63525">
-          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.46357617" vertical-offset="0" max-vertical-offset="630">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
           <folding />
         </state>
       </provider>
