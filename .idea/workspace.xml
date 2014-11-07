@@ -1,120 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="`">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/02F6414F92D1D48BE.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/09C593075164F80F8.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/306D6F0352D740E1C.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/94D304CD404E67B19.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/9A3BFBEE029B954AF.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/B751C715BE51F23A9.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/BC12D9579CF7148BC.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/D9A016E155E7CF126.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/006678E35CE59DEF0.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/1B4A9584186C30EDC.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/1E263C3D2F3BEEBDF.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/20456ACB60B924384.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/20456ACB60B924384.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/2541A4F51B16C3870.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/5D2360FB91264B0A3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/5D2360FB91264B0A3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/5EE036E2E982D8CFB.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/60C77CE38B02E8DC2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/72A7AEA916F4A4816.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/72A7AEA916F4A4816.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/7A0D20F0800436A35.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/7C9514FD6A3F64590.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/8009D44B1EA6D3730.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/8C368496A13DB8553.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/91B56434AA8B5CC6F.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/957D98DDC8DFEC0D0.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/AB034C18B0C0A4D41.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/AF55D367D40499C15.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/AFF1AAE6BE638BE31.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/B3A3ACCD9EEF3A20C.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/E134EEEB73E10D469.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/E134EEEB73E10D469.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/E38EEDE357060093B.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/E7485B4A4120B93AE.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/E7485B4A4120B93AE.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/EBB61410F37124FEC.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/ED862884261ADCEE2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/F2F1CB080FF39EF80.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/FF5AF1E8FEBCF62FF.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/FF5AF1E8FEBCF62FF.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/5C72758759F1C2F03.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/A164639319405D662.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BDD2C3F0D1B225FDF.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/D7C8A3AD014028D8C.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/02F6414F92D1D48BE.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/088DB0A33DBEBDEE5.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/09C593075164F80F8.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/1B767608872DF899C.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/27C722B8374947288.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/306D6F0352D740E1C.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/37D2B2A3174AB6026.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/3D8FD54BCF36B4574.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/4C8B2DBEC00AA4F3A.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/583867AA72F9D385A.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/5C72758759F1C2F03.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/661F53116EB5A7EDB.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/6D6671216497EF3FF.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/7AA801DC5168E4972.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/8485E86191BD848DA.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/90D847FE48C167956.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/93CE90C7882388B57.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/94D304CD404E67B19.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/955BF053DEDC08D5E.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/9A3BFBEE029B954AF.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/A164639319405D662.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/ACB846D46DD6543AD.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/AE8E03E95A7B7CDB8.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/B751C715BE51F23A9.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BA48B489D46472594.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BC12D9579CF7148BC.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BD6AB1309FCCC5C99.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BDD2C3F0D1B225FDF.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BFDDA8394FD9AB4C3.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/C761DF045FABEE71A.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/D7C8A3AD014028D8C.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/D9A016E155E7CF126.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/ED319573B49D5848C.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/F018A95993D736C3A.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/F607A7B50BE92C410.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/FEB6DE64EE77B45D9.css" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/02F6414F92D1D48BE.eot" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/02F6414F92D1D48BE.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/088DB0A33DBEBDEE5.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/B3A3ACCD9EEF3A20C.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/09C593075164F80F8.eot" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/09C593075164F80F8.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/1B767608872DF899C.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/1B4A9584186C30EDC.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/27C722B8374947288.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/F2F1CB080FF39EF80.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/306D6F0352D740E1C.eot" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/306D6F0352D740E1C.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/37D2B2A3174AB6026.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/8C368496A13DB8553.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/3D8FD54BCF36B4574.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/1E263C3D2F3BEEBDF.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/4C8B2DBEC00AA4F3A.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/82FC78A76C71B2EAE.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/583867AA72F9D385A.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/AB034C18B0C0A4D41.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/661F53116EB5A7EDB.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/8009D44B1EA6D3730.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/6D6671216497EF3FF.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/ED862884261ADCEE2.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/7AA801DC5168E4972.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/91B56434AA8B5CC6F.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/8485E86191BD848DA.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/AF55D367D40499C15.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/90D847FE48C167956.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/E38EEDE357060093B.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/93CE90C7882388B57.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/957D98DDC8DFEC0D0.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/94D304CD404E67B19.eot" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/94D304CD404E67B19.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/955BF053DEDC08D5E.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/7A0D20F0800436A35.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/9A3BFBEE029B954AF.eot" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/9A3BFBEE029B954AF.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/ACB846D46DD6543AD.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/60C77CE38B02E8DC2.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/AE8E03E95A7B7CDB8.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/5EE036E2E982D8CFB.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/B751C715BE51F23A9.eot" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/B751C715BE51F23A9.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BA48B489D46472594.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/AD1390279A16B1D81.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BC12D9579CF7148BC.eot" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/BC12D9579CF7148BC.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BD6AB1309FCCC5C99.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/AFF1AAE6BE638BE31.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BFDDA8394FD9AB4C3.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/7C9514FD6A3F64590.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/C761DF045FABEE71A.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/2541A4F51B16C3870.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/D9A016E155E7CF126.eot" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/D9A016E155E7CF126.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/ED319573B49D5848C.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/006678E35CE59DEF0.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/F018A95993D736C3A.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/82FC78A76C71B2EAE.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/F607A7B50BE92C410.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/EBB61410F37124FEC.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/FEB6DE64EE77B45D9.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/AD1390279A16B1D81.css" />
+    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/styles/_typography.scss" afterPath="$PROJECT_DIR$/frontend/app/styles/_typography.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css" afterPath="$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" afterPath="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" />
     </list>
     <list id="6d1b7564-4f0a-4615-8ca0-339104ab4f5b" name="Donations Page" comment="Donations Page" />
     <ignored path="StarkeyFoundation.iws" />
@@ -140,51 +31,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.local.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/config/config.local.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="660">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.env.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/config/config.env.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="615">
-              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.prod.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.prod.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shared/config/config.prod.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72527474" vertical-offset="0" max-vertical-offset="455">
+            <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="420">
               <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="publish.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/themes/javascript/compressed/cp/publish.js">
+      <file leaf-file-name="1B4A9584186C30EDC.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/assets/styles/fonts/241417/1B4A9584186C30EDC.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="525">
-              <caret line="24" column="241" selection-start-line="24" selection-start-column="241" selection-end-line="24" selection-end-column="241" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ckfinder.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/themes/third_party/wygwam/lib/ckfinder/ckfinder.js">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/.tmp/concat/assets/styles/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="135">
-              <caret line="6" column="267410" selection-start-line="6" selection-start-column="267410" selection-end-line="6" selection-end-column="267410" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="99885">
+              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/.tmp/styles/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="99885">
+              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_typography.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/app/styles/_typography.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="8790">
+              <caret line="0" column="35" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cb279ce3.main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/dist/assets/styles/cb279ce3.main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wysiwyg.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/dist/assets/styles/wysiwyg.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="63525">
+              <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cb279ce3.main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wysiwyg.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/assets/styles/wysiwyg.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.034013607" vertical-offset="0" max-vertical-offset="63525">
+              <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -195,16 +126,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1350">
               <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.dev.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/config/config.dev.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -229,7 +150,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/aleks_test.txt" />
-        <option value="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" />
         <option value="$PROJECT_DIR$/frontend/app/donation.html" />
         <option value="$PROJECT_DIR$/www/index.php" />
         <option value="$PROJECT_DIR$/www/partials/missions/landing.html" />
@@ -251,6 +171,13 @@
         <option value="$PROJECT_DIR$/frontend/Gruntfile.coffee" />
         <option value="$PROJECT_DIR$/frontend/.tmp/about_us.html" />
         <option value="$PROJECT_DIR$/frontend/bower.json" />
+        <option value="$PROJECT_DIR$/frontend/.tmp/concat/assets/styles/main.css" />
+        <option value="$PROJECT_DIR$/frontend/.tmp/styles/app.css" />
+        <option value="$PROJECT_DIR$/frontend/app/styles/_typography.scss" />
+        <option value="$PROJECT_DIR$/frontend/dist/assets/styles/cb279ce3.main.css" />
+        <option value="$PROJECT_DIR$/frontend/dist/assets/styles/wysiwyg.css" />
+        <option value="$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css" />
+        <option value="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" />
       </list>
     </option>
   </component>
@@ -645,7 +572,13 @@
       <option name="project" value="LOCAL" />
       <updated>1414052287402</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add fonts for typography.com">
+      <created>1415393091561</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1415393091561</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -673,22 +606,22 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32741117" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5545685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.49959382" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5521628" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.50040615" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569975" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44597888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569975" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44597888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -745,71 +678,14 @@
     <MESSAGE value="Fix Typo" />
     <MESSAGE value="Fix missing jQuery and Angular... didn't have bower correctly configured." />
     <MESSAGE value="Change donation page from &quot;action&quot; to http://headphones.starkeyhearingfoundation.org/" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change donation page from &quot;action&quot; to http://headphones.starkeyhearingfoundation.org/" />
+    <MESSAGE value="add fonts for typography.com" />
+    <option name="LAST_COMMIT_MESSAGE" value="add fonts for typography.com" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shared/config/config.dev.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/config/config.dev.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/templates/default_site/api.group/media_mentions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.341853" vertical-offset="0" max-vertical-offset="615">
-          <caret line="28" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/templates/missions_map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43548387" vertical-offset="0" max-vertical-offset="855">
-          <caret line="9" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/missions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.21169916" vertical-offset="76" max-vertical-offset="435">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/missions_map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/api/media_mentions.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="630">
-          <caret line="30" column="51" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/templates/page_tile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="450">
-          <caret line="10" column="64" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/page_tile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="450">
@@ -1112,8 +988,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/config/config.prod.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72527474" vertical-offset="0" max-vertical-offset="455">
+        <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="420">
           <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assets/styles/fonts/241417/1B4A9584186C30EDC.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/.tmp/concat/assets/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="99885">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/.tmp/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="99885">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/styles/_typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8790">
+          <caret line="0" column="35" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/dist/assets/styles/cb279ce3.main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/dist/assets/styles/wysiwyg.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="63525">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assets/styles/wysiwyg.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.034013607" vertical-offset="0" max-vertical-offset="63525">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
           <folding />
         </state>
       </provider>
