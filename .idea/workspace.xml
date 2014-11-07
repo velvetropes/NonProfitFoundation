@@ -1,27 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="Fix Typo">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/scripts/48986397.vendor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/scripts/d64e295e.modernizr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/scripts/f7bcce96.plugins.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/scripts/d41d8cd9.modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/scripts/d41d8cd9.plugins.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/scripts/ef4ee90b.vendor.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/about_us.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/about_us.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/preview.group/blog.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/preview.group/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/bower.json" afterPath="$PROJECT_DIR$/frontend/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/contact.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/blog.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/blog.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/gala.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/gala.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/legal.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/legal.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/media_mentions.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/media_mentions.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/missions.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/missions.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/programs.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/programs.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/take_action.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/take_action.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/preview.group/missions.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/preview.group/missions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/team.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/team.html" />
+    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="`">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/02F6414F92D1D48BE.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/09C593075164F80F8.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/306D6F0352D740E1C.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/94D304CD404E67B19.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/9A3BFBEE029B954AF.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/B751C715BE51F23A9.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/BC12D9579CF7148BC.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/D9A016E155E7CF126.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/006678E35CE59DEF0.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/1B4A9584186C30EDC.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/1E263C3D2F3BEEBDF.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/20456ACB60B924384.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/20456ACB60B924384.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/2541A4F51B16C3870.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/5D2360FB91264B0A3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/5D2360FB91264B0A3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/5EE036E2E982D8CFB.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/60C77CE38B02E8DC2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/72A7AEA916F4A4816.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/72A7AEA916F4A4816.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/7A0D20F0800436A35.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/7C9514FD6A3F64590.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/8009D44B1EA6D3730.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/8C368496A13DB8553.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/91B56434AA8B5CC6F.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/957D98DDC8DFEC0D0.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/AB034C18B0C0A4D41.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/AF55D367D40499C15.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/AFF1AAE6BE638BE31.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/B3A3ACCD9EEF3A20C.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/E134EEEB73E10D469.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/E134EEEB73E10D469.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/E38EEDE357060093B.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/E7485B4A4120B93AE.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/E7485B4A4120B93AE.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/EBB61410F37124FEC.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/ED862884261ADCEE2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/F2F1CB080FF39EF80.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/FF5AF1E8FEBCF62FF.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/FF5AF1E8FEBCF62FF.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/5C72758759F1C2F03.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/A164639319405D662.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BDD2C3F0D1B225FDF.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/D7C8A3AD014028D8C.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/02F6414F92D1D48BE.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/088DB0A33DBEBDEE5.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/09C593075164F80F8.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/1B767608872DF899C.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/27C722B8374947288.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/306D6F0352D740E1C.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/37D2B2A3174AB6026.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/3D8FD54BCF36B4574.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/4C8B2DBEC00AA4F3A.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/583867AA72F9D385A.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/5C72758759F1C2F03.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/661F53116EB5A7EDB.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/6D6671216497EF3FF.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/7AA801DC5168E4972.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/8485E86191BD848DA.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/90D847FE48C167956.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/93CE90C7882388B57.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/94D304CD404E67B19.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/955BF053DEDC08D5E.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/9A3BFBEE029B954AF.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/A164639319405D662.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/ACB846D46DD6543AD.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/AE8E03E95A7B7CDB8.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/B751C715BE51F23A9.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BA48B489D46472594.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BC12D9579CF7148BC.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BD6AB1309FCCC5C99.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BDD2C3F0D1B225FDF.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/BFDDA8394FD9AB4C3.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/C761DF045FABEE71A.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/D7C8A3AD014028D8C.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/D9A016E155E7CF126.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/ED319573B49D5848C.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/F018A95993D736C3A.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/F607A7B50BE92C410.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/styles/fonts/232417/FEB6DE64EE77B45D9.css" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/02F6414F92D1D48BE.eot" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/02F6414F92D1D48BE.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/088DB0A33DBEBDEE5.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/B3A3ACCD9EEF3A20C.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/09C593075164F80F8.eot" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/09C593075164F80F8.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/1B767608872DF899C.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/1B4A9584186C30EDC.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/27C722B8374947288.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/F2F1CB080FF39EF80.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/306D6F0352D740E1C.eot" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/306D6F0352D740E1C.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/37D2B2A3174AB6026.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/8C368496A13DB8553.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/3D8FD54BCF36B4574.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/1E263C3D2F3BEEBDF.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/4C8B2DBEC00AA4F3A.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/82FC78A76C71B2EAE.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/583867AA72F9D385A.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/AB034C18B0C0A4D41.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/661F53116EB5A7EDB.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/8009D44B1EA6D3730.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/6D6671216497EF3FF.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/ED862884261ADCEE2.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/7AA801DC5168E4972.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/91B56434AA8B5CC6F.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/8485E86191BD848DA.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/AF55D367D40499C15.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/90D847FE48C167956.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/E38EEDE357060093B.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/93CE90C7882388B57.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/957D98DDC8DFEC0D0.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/94D304CD404E67B19.eot" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/94D304CD404E67B19.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/955BF053DEDC08D5E.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/7A0D20F0800436A35.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/9A3BFBEE029B954AF.eot" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/9A3BFBEE029B954AF.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/ACB846D46DD6543AD.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/60C77CE38B02E8DC2.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/AE8E03E95A7B7CDB8.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/5EE036E2E982D8CFB.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/B751C715BE51F23A9.eot" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/B751C715BE51F23A9.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BA48B489D46472594.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/AD1390279A16B1D81.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BC12D9579CF7148BC.eot" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/BC12D9579CF7148BC.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BD6AB1309FCCC5C99.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/AFF1AAE6BE638BE31.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/BFDDA8394FD9AB4C3.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/7C9514FD6A3F64590.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/C761DF045FABEE71A.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/2541A4F51B16C3870.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/D9A016E155E7CF126.eot" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/D9A016E155E7CF126.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/ED319573B49D5848C.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/006678E35CE59DEF0.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/F018A95993D736C3A.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/82FC78A76C71B2EAE.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/F607A7B50BE92C410.css" afterPath="$PROJECT_DIR$/www/assets/styles/fonts/241417/EBB61410F37124FEC.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/app/styles/fonts/232417/FEB6DE64EE77B45D9.css" afterPath="$PROJECT_DIR$/frontend/app/styles/fonts/241417/AD1390279A16B1D81.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="6d1b7564-4f0a-4615-8ca0-339104ab4f5b" name="Donations Page" comment="Donations Page" />
@@ -51,7 +143,7 @@
       <file leaf-file-name="config.local.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shared/config/config.local.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="165" max-vertical-offset="660">
+            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="660">
               <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding />
             </state>
@@ -68,21 +160,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.prod.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.prod.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shared/config/config.prod.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="420">
+            <state vertical-scroll-proportion="0.72527474" vertical-offset="0" max-vertical-offset="455">
               <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bower.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/bower.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37585422" vertical-offset="0" max-vertical-offset="439">
-              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -167,13 +249,14 @@
         <option value="$PROJECT_DIR$/www/admin.php" />
         <option value="$PROJECT_DIR$/shared/config/config.env.php" />
         <option value="$PROJECT_DIR$/frontend/Gruntfile.coffee" />
+        <option value="$PROJECT_DIR$/frontend/.tmp/about_us.html" />
         <option value="$PROJECT_DIR$/frontend/bower.json" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1607" />
+    <option name="x" value="163" />
     <option name="y" value="22" />
     <option name="width" value="1273" />
     <option name="height" value="878" />
@@ -232,7 +315,121 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="241417" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -247,32 +444,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StarkeyFoundation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StarkeyFoundation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -462,7 +633,19 @@
       <option name="project" value="LOCAL" />
       <updated>1402612332779</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fix missing jQuery and Angular... didn't have bower correctly configured.">
+      <created>1413576143104</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1413576143104</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Change donation page from &quot;action&quot; to http://headphones.starkeyhearingfoundation.org/">
+      <created>1414052287402</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1414052287402</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -486,30 +669,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1607" y="22" width="1273" height="878" extended-state="0" />
+    <frame x="163" y="22" width="1273" height="878" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32951653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32741117" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5545685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4313566" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44597888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32662913" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569975" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5558376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -560,17 +743,19 @@
     <MESSAGE value="Updates for bug #24" />
     <MESSAGE value="Updates for bug #24 , 3 tabs, removed volunteer" />
     <MESSAGE value="Fix Typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Typo" />
+    <MESSAGE value="Fix missing jQuery and Angular... didn't have bower correctly configured." />
+    <MESSAGE value="Change donation page from &quot;action&quot; to http://headphones.starkeyhearingfoundation.org/" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change donation page from &quot;action&quot; to http://headphones.starkeyhearingfoundation.org/" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/partials/missions/landing.html">
+    <entry file="file://$PROJECT_DIR$/shared/config/config.dev.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1350">
-          <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -846,7 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="3000">
           <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -916,22 +1100,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24318182" vertical-offset="4768" max-vertical-offset="6660">
           <caret line="325" column="36" selection-start-line="325" selection-start-column="36" selection-end-line="325" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/config/config.prod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="420">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37585422" vertical-offset="0" max-vertical-offset="439">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.3409091" vertical-offset="0" max-vertical-offset="440">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/config/config.prod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72527474" vertical-offset="0" max-vertical-offset="455">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
           <folding />
         </state>
       </provider>
