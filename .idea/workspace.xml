@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="Fix Typo">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/scripts/48986397.vendor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/scripts/d64e295e.modernizr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/scripts/f7bcce96.plugins.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/scripts/d41d8cd9.modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/scripts/d41d8cd9.plugins.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/scripts/ef4ee90b.vendor.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/about_us.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/about_us.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/preview.group/blog.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/preview.group/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/bower.json" afterPath="$PROJECT_DIR$/frontend/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/contact.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/blog.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/blog.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/gala.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/gala.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/legal.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/legal.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/media_mentions.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/media_mentions.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/missions.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/missions.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/programs.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/programs.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/take_action.group/index.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/take_action.group/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/preview.group/missions.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/preview.group/missions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/templates/default_site/pages.group/team.html" afterPath="$PROJECT_DIR$/shared/templates/default_site/pages.group/team.html" />
+    <list default="true" id="8a2c28c7-e5bd-4d2b-ad07-4725d4eda057" name="Default" comment="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/styles/87d5c3a8.main.css" afterPath="$PROJECT_DIR$/www/assets/styles/87d5c3a8.main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="6d1b7564-4f0a-4615-8ca0-339104ab4f5b" name="Donations Page" comment="Donations Page" />
@@ -48,26 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.local.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/config/config.local.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="165" max-vertical-offset="660">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.env.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/config/config.env.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="615">
-              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="config.prod.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shared/config/config.prod.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -78,31 +39,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bower.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/bower.json">
+      <file leaf-file-name="config.env.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shared/config/config.env.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37585422" vertical-offset="0" max-vertical-offset="439">
-              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+            <state vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="630">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="publish.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/themes/javascript/compressed/cp/publish.js">
+      <file leaf-file-name="87d5c3a8.main.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/assets/styles/87d5c3a8.main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="525">
-              <caret line="24" column="241" selection-start-line="24" selection-start-column="241" selection-end-line="24" selection-end-column="241" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="464">
+              <caret line="0" column="83" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ckfinder.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/themes/third_party/wygwam/lib/ckfinder/ckfinder.js">
+      <file leaf-file-name="1B4A9584186C30EDC.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/assets/styles/fonts/241417/1B4A9584186C30EDC.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="135">
-              <caret line="6" column="267410" selection-start-line="6" selection-start-column="267410" selection-end-line="6" selection-end-column="267410" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_typography.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/app/styles/_typography.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="8790">
+              <caret line="0" column="35" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wysiwyg.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/assets/styles/wysiwyg.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="63525">
+              <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -113,16 +94,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1350">
               <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.dev.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/config/config.dev.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,7 +118,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/aleks_test.txt" />
-        <option value="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" />
         <option value="$PROJECT_DIR$/frontend/app/donation.html" />
         <option value="$PROJECT_DIR$/www/index.php" />
         <option value="$PROJECT_DIR$/www/partials/missions/landing.html" />
@@ -167,14 +137,23 @@
         <option value="$PROJECT_DIR$/www/admin.php" />
         <option value="$PROJECT_DIR$/shared/config/config.env.php" />
         <option value="$PROJECT_DIR$/frontend/Gruntfile.coffee" />
+        <option value="$PROJECT_DIR$/frontend/.tmp/about_us.html" />
         <option value="$PROJECT_DIR$/frontend/bower.json" />
+        <option value="$PROJECT_DIR$/frontend/.tmp/concat/assets/styles/main.css" />
+        <option value="$PROJECT_DIR$/frontend/.tmp/styles/app.css" />
+        <option value="$PROJECT_DIR$/frontend/app/styles/_typography.scss" />
+        <option value="$PROJECT_DIR$/frontend/dist/assets/styles/cb279ce3.main.css" />
+        <option value="$PROJECT_DIR$/frontend/dist/assets/styles/wysiwyg.css" />
+        <option value="$PROJECT_DIR$/www/assets/styles/cb279ce3.main.css" />
+        <option value="$PROJECT_DIR$/www/assets/styles/wysiwyg.css" />
+        <option value="$PROJECT_DIR$/www/assets/styles/87d5c3a8.main.css" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1607" />
-    <option name="y" value="22" />
+    <option name="x" value="1555" />
+    <option name="y" value="432" />
     <option name="width" value="1273" />
     <option name="height" value="878" />
   </component>
@@ -232,7 +211,65 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StarkeyFoundation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -247,32 +284,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StarkeyFoundation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StarkeyFoundation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -462,7 +473,43 @@
       <option name="project" value="LOCAL" />
       <updated>1402612332779</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fix missing jQuery and Angular... didn't have bower correctly configured.">
+      <created>1413576143104</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1413576143104</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Change donation page from &quot;action&quot; to http://headphones.starkeyhearingfoundation.org/">
+      <created>1414052287402</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1414052287402</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add fonts for typography.com">
+      <created>1415393091561</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1415393091561</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;">
+      <created>1415393499286</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1415393499286</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;">
+      <created>1415393558032</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1415393558032</updated>
+    </task>
+    <task id="LOCAL-00023" summary="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;">
+      <created>1415393926342</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1415393926342</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -486,30 +533,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1607" y="22" width="1273" height="878" extended-state="0" />
-    <editor active="false" />
+    <frame x="1555" y="432" width="1273" height="878" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32951653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.49959382" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5521628" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32824427" sideWeight="0.50040615" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569975" sideWeight="0.49959382" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4313566" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32662913" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44597888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5558376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -560,71 +607,17 @@
     <MESSAGE value="Updates for bug #24" />
     <MESSAGE value="Updates for bug #24 , 3 tabs, removed volunteer" />
     <MESSAGE value="Fix Typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Typo" />
+    <MESSAGE value="Fix missing jQuery and Angular... didn't have bower correctly configured." />
+    <MESSAGE value="Change donation page from &quot;action&quot; to http://headphones.starkeyhearingfoundation.org/" />
+    <MESSAGE value="add fonts for typography.com" />
+    <MESSAGE value="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="update font address to &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//cloud.typography.com/6529472/658586/css/fonts.css&quot; /&gt;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/partials/missions/landing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1350">
-          <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/config/config.dev.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/templates/default_site/api.group/media_mentions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.341853" vertical-offset="0" max-vertical-offset="615">
-          <caret line="28" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/templates/missions_map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43548387" vertical-offset="0" max-vertical-offset="855">
-          <caret line="9" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/missions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.21169916" vertical-offset="76" max-vertical-offset="435">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/missions_map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/api/media_mentions.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="630">
-          <caret line="30" column="51" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/templates/page_tile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="450">
-          <caret line="10" column="64" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/page_tile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="450">
@@ -846,7 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="3000">
           <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,14 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="420">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/config/config.env.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="615">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -916,7 +900,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24318182" vertical-offset="4768" max-vertical-offset="6660">
           <caret line="325" column="36" selection-start-line="325" selection-start-column="36" selection-end-line="325" selection-end-column="36" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3409091" vertical-offset="0" max-vertical-offset="440">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -928,10 +918,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/bower.json">
+    <entry file="file://$PROJECT_DIR$/www/assets/styles/fonts/241417/1B4A9584186C30EDC.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37585422" vertical-offset="0" max-vertical-offset="439">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/styles/_typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8790">
+          <caret line="0" column="35" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assets/styles/wysiwyg.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="63525">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/config/config.env.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="630">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assets/styles/87d5c3a8.main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="464">
+          <caret line="0" column="83" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
           <folding />
         </state>
       </provider>
